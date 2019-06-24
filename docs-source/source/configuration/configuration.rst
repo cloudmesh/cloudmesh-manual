@@ -2,7 +2,7 @@ Configuration
 =============
 
 The Configuration of cloudmesh is controled with a yaml file that is
-placed in ``~/.clloudmesh/cloudmesh4.yaml``. It is created automatically
+placed in ``~/.cloudmesh/cloudmesh4.yaml``. It is created automatically
 from the template located at
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
@@ -21,7 +21,7 @@ We implemented a convenient get method in case you need to look up some values i
     cms config get cloudmesh.profile
     cms config get cloudmesh.profile.firstname
 
-print information out. While the first points to a dict, it prints aout all the avlues form that dict, the last is an
+print information out. While the first points to a dict, it prints out all the values form that dict, the last is an
 attribute and just prints out the attribute and its value.
 
 Setting values
@@ -33,15 +33,15 @@ In addition if you need to set quickly a value in the configuration file you can
 
 Will set the firstname in the profiles to Gregor
 
-This command at thsi time does not work on dicts, so you need to define eacxh attribute.
+This command at this time does not work on dicts, so you need to define each attribute.
 
 Editing Values
 --------------
 
-IN case the values in the yaml file are having a TBD the can also be editit with our build in command that required you
-tospecify the dict in which such values occur.
+In case the values in the yaml file are having a TBD the can also be edited with our built in command that requires you
+to specify the dict in which such values occur.
 
-For example, letus assume the value in cloudmesh.provil.firstname is TBD then, the command::
+For example, let us assume the value in cloudmesh.profile.firstname is TBD then, the command::
 
     cms config edit cloudmesh.profile
 
@@ -52,7 +52,7 @@ Advanced Yaml Variables
 
 One of the features of the cloudmesh yaml framework is that it allows you to
 use previously defined attributes in the yaml file itself. Thus if an
-attribute value contains for example  `"{cloudmesh.attribute}"` or andy
+attribute value contains for example  `"{cloudmesh.attribute}"` or any
 environment variable, it will find the value for this dict entry in the yaml
 file and replace it
 with its value. For example. let us assume the yaml file contains::
@@ -67,7 +67,7 @@ with its value. For example. let us assume the yaml file contains::
           dir: $HOME
           current: .
 
-cloudmesg will replace the will result be transformed with::
+cloudmesh will replace the will result be transformed with::
 
     cloudmesh:
       profile:
@@ -99,7 +99,7 @@ The profile defines simple information about you::
 Default
 -------
 
-The gloable default is used to identify information about your experiments and groups that are used throughout your
+The variable default is used to identify information about your experiments and groups that are used throughout your
 interaction with cloudmesh.
 
   default:
@@ -108,7 +108,7 @@ interaction with cloudmesh.
     cloud: azure
     cluster: clustera
 
-The falues can be set with the default command
+The values can be set with the default command
 
 .. todo:: implement the default command and set values in it. This may already be done. we may need to add the dot
           notation for that command so we have one command that can set the general default, but also the default for
@@ -122,7 +122,7 @@ General Service Attributes
 -------------------
 
 Each cloudmesh service must have an attribute ``cm`` with the following fields. if an attribute contains the value TBD
-it need sto be updated. YOu only have to update the providers you like to use, you can delete the other if you like.
+it needs to be updated. You only have to update the providers you like to use, you can delete the others if you like.
 
 cm
 ~~
@@ -131,7 +131,7 @@ In the ``cm` portion we define elementary information that identifies the servic
 The following information
 
 active
-    if set to Tru, this cloud is going to be used in cloudmesh, if it is set to False it is not activated.
+    if set to True, this cloud is going to be used in cloudmesh, if it is set to False it is not activated.
     This has the advantage that you do not have to remove
     the service from the yaml file if you do not use it
 
@@ -140,7 +140,7 @@ heading
     when list functions are used
 
 label
-    This field is typically the same as the entry under which the cloud service is filed. IN our case it is aws. It is
+    This field is typically the same as the entry under which the cloud service is filed. In our case it is aws. It is
     a convenient abbreviation that can be used in your programs.
 
 kind
@@ -152,7 +152,7 @@ kind
     For storage services the following kinds are valid: ``aws``, ``azure``, ``google``, ``openstack``, ``box``
 
 host
-    This field is used to identif wheer to find information aboout the service provider
+    This field is used to identify where to find information aboout the service provider
 
 service
     The type of service. valid values are ``compute``, ``storage``.
