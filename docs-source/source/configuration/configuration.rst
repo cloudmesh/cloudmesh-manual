@@ -260,8 +260,8 @@ To obtain an account on Azure you can follow our instructions at
        azure:
          cm:
            active: False
-           heading: AWS
-           host: azure.mocrosoft.com
+           heading: Azure
+           host: azure.microsoft.com
            label: Azure
            kind: azure_arm
            version: TBD
