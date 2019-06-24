@@ -172,30 +172,30 @@ Compute Cloud Providers
 -----------------------
 
 The default yaml file includes templates to configure various clouds.
-YOu can change these defaults and provide access to your cloud
+You can change these defaults and provide access to your cloud
 credentials to make the management of cloud virtual machines easier.
 Templates for AWS, Azure, Google, OpenStack are provided. Specific
 templates for Jetstream and Chameleopn cloud are included in the example
 `cloudmesh4.yaml <https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml>`__.
 We list each template next.
 
-We explain in more detail the fetures of the configuration files for cloud services.
+We explain in more detail the features of the configuration files for cloud services.
 
 First all cloud services are listed under the key ``cloud``. You can add arbitrary compute cloud services
 with a name you like. You can even create multiple names that refer to the same cloud but may have different parameters.
 We like to focus on the example for ``aws`` and explain this in a bit more detail.
 
 
-The cloudmesh entry for a compute service is devided into three portions:
+The cloudmesh entry for a compute service is divided into three portions:
 ``cm``, ``default``, and ``credentials``. The format of the ``cm`` is explained previously.
 
 
 Default
 ~~~~~~~
 
-The next category are defaults thatcan be preset for each cloud. However defaults are overwritten by the cloudmesh shell
+The next category are defaults that can be preset for each cloud. However defaults are overwritten by the cloudmesh shell
 variables. So they are only used once at startup if these defaults are not already defined by cloudmesh shell. Typically
-we use them to for example define values for images and sizes or flafors of images
+we use them to for example define values for images and sizes or flavors of images
 
 image
     The name of the default image
@@ -209,7 +209,7 @@ credentials
 The credentials are dependent on the kind of the cloud and include all information needed for authenticate and use the
 cloud service.
 
-As the infromation is sensitive the file in .cloudmesh holding thsi information must be properly protected.
+As the infromation is sensitive the file in .cloudmesh holding this information must be properly protected.
 
 .. note:: We even have a project that encrypts the cloudmesh.yaml file, but it is not fully integrated yet.
           Future versions of cloudmesh will encrypt the information by default.
@@ -250,7 +250,7 @@ Azure
 .. todo:: az arm provider this has to be verified. We will likely deprecate thsi for a more elaborate provider
 
 To obtain an account on Azure you can follow our instructions at
-:doc:`../accounts/azure`. THe configuration file containes the following::
+:doc:`../accounts/azure`. The configuration file containes the following::
 
 
    cloudmesh:
@@ -485,7 +485,7 @@ Azure
 ~~~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at
+on Microsoft Azure. However we do provide a convenient documentation at
 :doc:`../accounts/azure`.
 
 The ``cloudmesh4.yaml`` file needs to be set up as follows for the
@@ -512,7 +512,7 @@ The ``cloudmesh4.yaml`` file needs to be set up as follows for the
 Configuration settings for credentials in the yaml file can be obtained
 from Azure portal.
 
-TODO: MOre information via a pointer to a documentation you create needs
+TODO: More information via a pointer to a documentation you create needs
 to be added here
 
 In the yaml file the following values have to be changed
