@@ -27,7 +27,7 @@ topical sections here we focus on the technology.
 
    * Implemented `@DatabaseImportAsJson` decorator to import data to database using `mongoimport` which significantly improved the bulk database import, e.g. in `cms image list --cloud=aws --refresh` the import time was improved from roughly 1 hour to 20 seconds. 
 
-   * Implemented `key upload/delete` for aws provider
+   * Fixing `key upload/delete` for aws provider
 
    * Implemented `ssh()` for aws provider, as well as testing/debugging it on  `cms ssh` and `cms vm ssh`, addressing [#224](https://github.com/cloudmesh/cloudmesh-cloud/issues/224)
 
