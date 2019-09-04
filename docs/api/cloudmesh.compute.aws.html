@@ -351,6 +351,23 @@
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.aws.Provider.Provider.add_server_metadata">
+<code class="sig-name descname">add_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">tags</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.add_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.add_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add or Update tag to metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the fm</p></li>
+<li><p><strong>tags</strong> – tags to be added to vm metadata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.attach_public_ip">
 <code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node</em>, <em class="sig-param">ip</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.attach_public_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>adds a public ip to the named vm</p>
@@ -412,11 +429,14 @@ does not boot. The default is set to 3 minutes.</p></li>
 
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.delete_server_metadata">
-<code class="sig-name descname">delete_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.delete_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">tags=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.delete_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>gets the metadata for the server</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the vm</p></li>
+<li><p><strong>tags</strong> – tags to be deleted from vm metadata</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -489,6 +509,14 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.get_server_metadata">
 <code class="sig-name descname">get_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.get_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.get_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the metadata tag of EC2 resource
+:param name: Virtual machine name
+:return: Dictionary with Metadata information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.aws.Provider.Provider.get_server_metadata_tags">
+<code class="sig-name descname">get_server_metadata_tags</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.get_server_metadata_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.get_server_metadata_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes the metadata tag of EC2 resource
 :param name: Virtual machine name
 :return: Dictionary with Metadata information</p>
@@ -584,10 +612,10 @@ returned.</p>
 
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.list_secgroup_rules">
-<code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
 <dd><p>List the named security group
 :param name: The name of the group, if None all will be returned
-:return:</p>
+:return: returns list of dict</p>
 </dd></dl>
 
 <dl class="method">
@@ -596,7 +624,7 @@ returned.</p>
 <dd><p>List the named security groups</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the security group</p>
+<dd class="field-odd"><p><strong>name</strong> – Name of the security group. If not provided, returns all security group</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>List of dict</p>
@@ -606,7 +634,7 @@ returned.</p>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.aws.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['ID', 'Name', 'Price', 'Family', 'VCPUS', 'RAM', 'Disk', 'Processor', 'Network'], 'order': ['cm.name', 'attributes.instanceType', 'price.pricePerUnit.USD', 'attributes.instanceFamily', 'attributes.vcpu', 'attributes.memory', 'attributes.storage', 'attributes.physicalProcessor', 'attributes.networkPerformance'], 'sort_keys': ['cm.name']}, 'image': {'header': ['Name', 'Size (Bytes)', 'MinDisk (GB)', 'MinRam (MB)', 'Status', 'Driver'], 'order': ['cm.name', 'size', 'min_disk', 'min_ram', 'status', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'port_range_max', 'port_range_min', 'protocol', 'remote_ip_prefix', 'remote_group_id'], 'sort_keys': ['name']}, 'vm': {'header': ['Name', 'Cloud', 'State', 'Status', 'Image', 'Public IPs', 'Private IPs', 'Project ID', 'Started at', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'image', 'public_ips', 'private_ips', 'project_id', 'launched_at', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['ID', 'Name', 'Price', 'Family', 'VCPUS', 'RAM', 'Disk', 'Processor', 'Network'], 'order': ['cm.name', 'attributes.instanceType', 'price.pricePerUnit.USD', 'attributes.instanceFamily', 'attributes.vcpu', 'attributes.memory', 'attributes.storage', 'attributes.physicalProcessor', 'attributes.networkPerformance'], 'sort_keys': ['cm.name']}, 'image': {'header': ['Name', 'Architecture', 'ID', 'State', 'Hypervisor', 'VirtualizationType'], 'order': ['cm.name', 'Architecture', 'ImageId', 'State', 'Hypervisor', 'VirtualizationType'], 'sort_keys': ['cm.name', 'State']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'port_range_max', 'port_range_min', 'protocol', 'remote_ip_prefix', 'remote_group_id'], 'sort_keys': ['name']}, 'vm': {'header': ['Name', 'Cloud', 'Instance ID', 'Status', 'Image', 'Public IPs', 'Private IPs', 'Started at', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'instance_id', 'status', 'image', 'public_ips', 'private_ips', 'created', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -687,7 +715,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">hibernate=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>stops the node with the given name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

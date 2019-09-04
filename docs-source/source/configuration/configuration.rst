@@ -412,7 +412,7 @@ project number to. the credentials.  Example for chameleon cloud::
            version: liberty
            service: compute
          credentials:
-           OS_AUTH_URL: https://openstack.tacc.chameleoncloud.org:5000/v2.0/tokens
+           OS_AUTH_URL: https://openstack.tacc.chameleoncloud.org:5000/v2.0
            OS_USERNAME: TBD
            OS_PASSWORD: TBD
            OS_TENANT_NAME: CH-819337

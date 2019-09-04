@@ -302,13 +302,20 @@
                     <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
                     <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
-                    <span class="n">images</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-image&quot;</span><span class="p">)</span>
 
-                    <span class="nb">print</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
 
-                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                    <span class="c1"># print(images)</span>
+                    <span class="c1"># print(provider)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+                        <span class="n">images</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-image&quot;</span><span class="p">)</span>
+                        <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
                                    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+                        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                            <span class="n">images</span> <span class="o">+=</span> <span class="n">db</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;image&#39;</span><span class="p">)</span>
+                        <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                                       <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
