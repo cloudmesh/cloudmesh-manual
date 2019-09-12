@@ -80,7 +80,48 @@ may change this to topical sections here we focus on the technology.
 
 * Joaquin Avila Eggleton
 
-  Write what you have done
-
+  **compute/azure/Provider.py**
+  
+  Created the compute Azure Provider and implemented the following methods:
+  *  `def __init__` 
+  *  `def get_resource_group` 
+  *  `def set_server_metadata` 
+  *  `def get_server_metadata` 
+  *  `def delete_server_metadata` 
+  *  `def list_secgroups` 
+  *  `def list_secgroup_rules` 
+  *  `def add_secgroup` 
+  *  `def add_secgroup_rule` 
+  *  `def remove_secgroup` 
+  *  `def upload_secgroup` 
+  *  `def add_rules_to_secgroup` 
+  *  `def remove_rules_from_secgroup` 
+  *  `def create` 
+  *  `def create_vm_parameters` 
+  *  `def create_nic` 
+  *  `def start` 
+  *  `def reboot` 
+  *  `def stop` 
+  *  `def resume` 
+  *  `def suspend` 
+  *  `def info` 
+  *  `def status` 
+  *  `def list` 
+  *  `def destroy` 
+  *  `def images` 
+  *  `def flavors` 
+  *  `def flavor` 
+  *  `def find` 
+  *  `def image` 
+  *  `def get_list` 
+  *  `def update_dict` 
+   
+  **Test classes**
+  * Created test_compute_pyazure.py to run all the methods from the Compute 
+  Azure Provider.
+  
+  **cloudmesh.yaml**
+  * Added Azure specific attributes 
+  
 * Moeen Arshad
 
