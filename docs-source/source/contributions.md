@@ -64,10 +64,28 @@ may change this to topical sections here we focus on the technology.
      
 
 
-* Sriman ?Lastname
+* Sriman Pullakhandam
 
-  Write what you have done
-
+  **compute/aws/Provider.py**
+  
+  Created/Updated the compute AWS Provider and implemented the following methods:
+  
+  *  `def start`
+  *  `def stop`
+  *  `def info`
+  *  `def list`
+  *  `def suspend`
+  *  `def resume`
+  *  `def destroy`
+  *  `def create`
+  *  `def rename`
+  *  `def delete_server_metadata`
+  
+   
+  **Test classes**
+  * Created test_06_vm_provider.py to run all the methods from the Compute 
+  AWS Provider.
+  
 * Saurabh ?Lastname
 
   Write what you have done
