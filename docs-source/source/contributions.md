@@ -2,9 +2,7 @@
 
 This section is highly incomplete as many have contributed to
 cloudmesh over the years. Contributors can be located from the
-different versions and packages in the
-
-at:
+different versions and packages in the at:
 
 * <https://github.com/cloudmesh>
 
