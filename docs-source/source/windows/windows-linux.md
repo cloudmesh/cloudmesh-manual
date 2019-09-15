@@ -15,3 +15,4 @@
 | which FILE | where FILE |
 | rm -rf DIR | rmdir DIR /s /q |
 | history | doskey /HISTORY |
+| cat FILE | type FILE |
