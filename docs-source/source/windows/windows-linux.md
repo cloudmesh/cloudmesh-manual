@@ -2,22 +2,43 @@
 
 ## Using bash
 
-:o2: lease contribute
+:o2: please contribute
 
 ## Using gitbash
 
 :o2: please contribute
 
+## Using conda
+
+:o2: please contribute
+
 ## Using cmd
 
-| Linux | Windows |
-| ----- | ------- |
-| which FILE | where FILE |
-| rm -rf DIR | rmdir DIR /s /q |
-| history | doskey /HISTORY |
-| cat FILE | type FILE |
-| mv FROM TO | move FROM TO |
-| cp FROM TO | copy FROM TO |
+The following  table lists commands that do the sam things between linux and
+ windows.
+ 
+
+| Linux | Windows | Comment | 
+| ----- | ------- | ---- |
+| which FILE | where FILE |  |
+| rm -rf DIR | rmdir DIR /s /q |  |
+| history | doskey /HISTORY |  |
+| cat FILE | type FILE |  |
+| mv FROM TO | move FROM TO |  |
+| cp FROM TO | copy FROM TO |  |
+| ls  | dir /w |  |
+| ls -lisa | ??? |  |
+|  | dir /q | shows owner |
+|  | see (1) | sows read write |
+
+
+* (1) `powershell "dir | Get-Acl"`
+* (1) `powershell "dir | Get-Acl | fl"`
+
+owner:
+
+dir /q
+
 
 
 Do not use notepad, but if nothing else is available
@@ -94,6 +115,8 @@ A new window will start in whcih you execute
 CMS-CLONE.bat
 ..\CMS-AA.bat
 ```
+
+
 
 
 
