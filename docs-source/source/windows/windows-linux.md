@@ -55,7 +55,7 @@ exit
 
 ### CMS-CLONE.bat
 
-````bash
+```bash
 mkdir cm
 cd cm
 pip install cloudmesh-installer
@@ -65,7 +65,7 @@ cloudmesh-installer install cms -e
 cms help
 ```
 
-### CMS-AAA.bat
+### CMS-AA.bat
 
 ```bash
 rmdir e-cloudmesh-command /s /q
@@ -77,5 +77,24 @@ pip install -e .
 cms help
 cms aa list
 ```
+
+### Using it
+
+Do the following
+
+start a cmd.exe in which you execute
+
+```bash
+SETUP-ENV3.bat
+```
+
+A new window will start in whcih you execute
+
+```
+CMS-CLONE.bat
+..\CMS-AA.bat
+```
+
+
 
 
