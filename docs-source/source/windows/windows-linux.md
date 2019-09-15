@@ -20,30 +20,25 @@ The following  table lists commands that do the sam things between linux and
 
 | Linux | Windows | Comment | 
 | ----- | ------- | ---- |
-| which FILE | where FILE |  |
-| rm -rf DIR | rmdir DIR /s /q |  |
-| history | doskey /HISTORY |  |
-| cat FILE | type FILE |  |
-| mv FROM TO | move FROM TO |  |
-| cp FROM TO | copy FROM TO |  |
-| ls  | dir /w |  |
-| ls -lisa | ??? |  |
-|  | dir /q | shows owner |
+| `which FILE` | `where FILE` |  |
+| `rm -rf DIR` | `rmdir DIR /s /q` |  |
+| `history` | `doskey /HISTORY` |  |
+| `cat FILE` | `type FILE` |  |
+| `mv FROM TO` | `move FROM TO` |  |
+| `cp FROM TO` | `copy FROM TO` |  |
+| `ls`  | `dir /w` |  |
+| `ls -lisa | ??? |  |
+|  | `dir /q` | shows owner |
 |  | see (1) | sows read write |
 
 
 * (1) `powershell "dir | Get-Acl"`
 * (1) `powershell "dir | Get-Acl | fl"`
 
-owner:
+Do not use notepad, but if nothing 
+else is available
 
-dir /q
-
-
-
-Do not use notepad, but if nothing else is available
-
-notepad FILE |
+`notepad FILE` 
 
 See also:
 
