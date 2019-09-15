@@ -49,7 +49,7 @@ See also:
 
 Make sure you have python3.7.4 installed from python.org
 
-Place the following in your folder taht comes up when you start CMD.exe.
+Place the following in your folder that comes up when you start CMD.exe.
 
 ### ENV3.bat
 
