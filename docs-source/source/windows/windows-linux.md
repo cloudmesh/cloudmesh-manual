@@ -1,16 +1,16 @@
-# Using windos instead of Linux
+# Using windows instead of Linux
 
 ## Using bash
 
-:o2: please contribute
+:o2: students please contribute
 
 ## Using gitbash
 
-:o2: please contribute
+:o2: students please contribute
 
 ## Using conda
 
-:o2: please contribute
+:o2: students please contribute
 
 ## Using cmd
 
