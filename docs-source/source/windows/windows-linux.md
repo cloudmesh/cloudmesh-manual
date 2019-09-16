@@ -27,7 +27,7 @@ The following  table lists commands that do the sam things between linux and
 | `mv FROM TO` | `move FROM TO` |  |
 | `cp FROM TO` | `copy FROM TO` |  |
 | `ls`  | `dir /w` |  |
-| `ls -lisa | ??? |  |
+| `ls -lisa` | ??? |  |
 |  | `dir /q` | shows owner |
 |  | see (1) | sows read write |
 
