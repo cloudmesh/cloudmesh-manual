@@ -72,9 +72,37 @@ may change this to topical sections here we focus on the technology.
   * Created test_06_vm_provider.py to run all the methods from the Compute 
   AWS Provider.
   
-* Saurabh ?Lastname
+* Saurabh Swaroop
 
-  Write what you have done
+  * Implemented Print Function (AWS)
+  * Implemented list_secgroups Function (AWS)
+  * Implemented list_secgroup_rules Function (AWS)
+  * Implemented add_secgroup Function (AWS)
+  * Implemented add_secgroup_rule Function (AWS)
+  * Implemented remove_secgroup Function (AWS)
+  * Implemented upload_secgroup Function (AWS)
+  * Implemented add_rules_to_secgroup Function (AWS)
+  * Implemented remove_rules_from_secgroup Function (AWS)
+  * Implemented list_public_ips Function (AWS)
+  * Implemented delete_public_ip Function (AWS)
+  * Implemented create_public_ip Function (AWS)
+  * Implemented find_available_public_ip Function (AWS)
+  * Implemented attach_public_ip Function (AWS)
+  * Implemented detach_public_ip Function (AWS)
+  * Implemented Start Function (AWS)
+  * Implemented Stop Function (AWS)
+  * Implemented Info Function (AWS)
+  * Implemented suspend Function (AWS)
+  * Implemented resume Function (AWS)
+  * Implemented destroy Function (AWS)
+  * Implemented create Function (AWS)
+  * Implemented rename Function (AWS)
+  * Implemented add_server_metadata Function (AWS)
+  * Implemented delete_server_metadata Function (AWS)
+  * Implemented update_dict Function (Mostly copied from openstack implementation)
+  * Modified sec.py to display secgroup info for AWS
+  * Enhanced test_04_sec_command 
+  * Enhanced test_05_secgroup_provider
 
 * Alex Axthelm
 
