@@ -49,6 +49,10 @@ may change this to topical sections here we focus on the technology.
     file-system redirection issue on windows when running subprocesses
     using python
   * Updated `output` dict for `image` and `vm` on aws provider
+  * Fixing the `cms init` bug for windows. 
+  * Implementing the workaround for running the `mongod.exe` in user space to prevent asking user to administrative privilege 
+  * implemented `wait()` in aws
+  * writing `test_01_clean_local_remote` and test for `wait()`
 
 * Sriman Pullakhandam
 
