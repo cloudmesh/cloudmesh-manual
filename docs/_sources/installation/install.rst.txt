@@ -344,11 +344,21 @@ while making sure to specify the desired bundle name, let us assume you use
 
     cloudmesh-installer git pull cloud
 
-If you see any conflicts make sure to resolve them. As developer sometimes it
-may be best to make a backup of the `cm` directory aor individual
-repositories in the cm directory. Then copy your changes
-into the newest code. Make sure to remove all python artifacts created with
-the -e option. See the command
+If you see any conflicts make sure to resolve them.
+
+Please note that in an update it could also be possible that the format of the
+cloudmesh.yaml file may have changed. Thus we always recommend that you also
+update the yaml file to the newest format. YOU can check the yaml file with
+
+.. code:: bash
+
+    cms config check
+
+
+As developer sometimes it may be best to make a backup of the `cm` directory or
+individual repositories in the cm directory. Then copy your changes into the
+newest code. Make sure to remove all python artifacts created with the -e
+option. See the command
 
 .. code:: bash
 
@@ -469,7 +479,7 @@ mongo. In case you need a different port you can configure that in the yaml
 file.
 
 Prerequisit ssh key
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 In order for you to use cloudmesh you will need an ssh key. This can be
 created from the command line with

@@ -118,10 +118,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#cloudmesh-directory">.cloudmesh directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">Installation of mongod</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisit-ssh-key">Prerequisit ssh key</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">Installation of mongod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisit-ssh-key">Prerequisit ssh key</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
@@ -517,11 +515,17 @@ while making sure to specify the desired bundle name, let us assume you use
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git pull cloud
 </pre></div>
 </div>
-<p>If you see any conflicts make sure to resolve them. As developer sometimes it
-may be best to make a backup of the <cite>cm</cite> directory aor individual
-repositories in the cm directory. Then copy your changes
-into the newest code. Make sure to remove all python artifacts created with
-the -e option. See the command</p>
+<p>If you see any conflicts make sure to resolve them.</p>
+<p>Please note that in an update it could also be possible that the format of the
+cloudmesh.yaml file may have changed. Thus we always recommend that you also
+update the yaml file to the newest format. YOU can check the yaml file with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config check
+</pre></div>
+</div>
+<p>As developer sometimes it may be best to make a backup of the <cite>cm</cite> directory or
+individual repositories in the cm directory. Then copy your changes into the
+newest code. Make sure to remove all python artifacts created with the -e
+option. See the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm
 cloudmesh-installer <span class="nb">local</span> purge .
 </pre></div>
@@ -617,8 +621,9 @@ install is complete.</p>
 <p>Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.</p>
+</div>
 <div class="section" id="prerequisit-ssh-key">
-<h3>Prerequisit ssh key<a class="headerlink" href="#prerequisit-ssh-key" title="Permalink to this headline">¶</a></h3>
+<h2>Prerequisit ssh key<a class="headerlink" href="#prerequisit-ssh-key" title="Permalink to this headline">¶</a></h2>
 <p>In order for you to use cloudmesh you will need an ssh key. This can be
 created from the command line with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen
@@ -626,7 +631,6 @@ created from the command line with</p>
 </div>
 <p>Please make sure to use a passphrase with your key. Anyone telling you to use
 a passwordless key is giving you a wrong advice.</p>
-</div>
 </div>
 </div>
 
