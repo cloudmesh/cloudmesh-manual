@@ -40,3 +40,4 @@ open
             opens the aws users web page, if the NAME is users or is
             omitted, it goes to the page that allows you to create a user
 
+Timer: 0.0000s (man open --format=rst)

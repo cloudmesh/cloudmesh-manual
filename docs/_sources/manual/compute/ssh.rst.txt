@@ -4,6 +4,7 @@ ssh
 .. parsed-literal::
 
     Usage:
+        ssh
         ssh config list [--output=OUTPUT]
         ssh config add NAME IP [USER] [KEY]
         ssh config delete NAME
@@ -61,3 +62,4 @@ ssh
                   User blue
                   IdentityFile ~/.ssh/id_rsa.pub
 
+Timer: 0.0000s (man ssh --format=rst)

@@ -133,7 +133,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.openstack package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.openstack.Provider">cloudmesh.compute.openstack.Provider module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-openstack-test-openstacksdk-module">cloudmesh.compute.openstack.test_openstacksdk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.openstack.test_openstacksdk">cloudmesh.compute.openstack.test_openstacksdk module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.openstack">Module contents</a></li>
 </ul>
 </li>
@@ -330,6 +330,11 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.console">
+<code class="sig-name descname">console</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.openstack.Provider.Provider.create">
@@ -617,6 +622,11 @@ returned.</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="cloudmesh.compute.openstack.Provider.Provider.output">
 <code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'VCPUS', 'RAM', 'Disk'], 'order': ['cm.name', 'vcpus', 'ram', 'disk'], 'sort_keys': ['cm.name', 'vcpus', 'disk']}, 'image': {'header': ['Name', 'Size (Bytes)', 'MinDisk (GB)', 'MinRam (MB)', 'Status', 'Driver'], 'order': ['cm.name', 'size', 'min_disk', 'min_ram', 'status', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'ip': {'header': ['Name', 'Floating', 'Fixed'], 'order': ['name', 'floating_ip_address', 'fixed_ip_address']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Description', 'Rules'], 'order': ['name', 'tags', 'description', 'rules'], 'sort_keys': ['name']}, 'secrule': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'port_range_max', 'port_range_min', 'protocol', 'remote_ip_prefix', 'remote_group_id'], 'sort_keys': ['name']}, 'status': {'header': ['Name', 'Cloud', 'State', 'Status', 'Task'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'task_state'], 'sort_keys': ['cm.name']}, 'vm': {'header': ['Name', 'Cloud', 'State', 'Status', 'Task', 'Image', 'Flavor', 'Public IPs', 'Private IPs', 'Project ID', 'Started at', 'Kind'], 'humanize': ['launched_at'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'task_state', 'metadata.image', 'metadata.flavor', 'ip_public', 'ip_private', 'project_id', 'launched_at', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
@@ -810,11 +820,21 @@ key, vm, image, flavor.</p></li>
 <code class="sig-name descname">vm_state</code><em class="property"> = ['ACTIVE', 'BUILDING', 'DELETED', 'ERROR', 'HARD_REBOOT', 'PASSWORD', 'PAUSED', 'REBOOT', 'REBUILD', 'RESCUED', 'RESIZED', 'REVERT_RESIZE', 'SHUTOFF', 'SOFT_DELETED', 'STOPPED', 'SUSPENDED', 'UNKNOWN', 'VERIFY_RESIZE']</em><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.vm_state" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.wait">
+<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">interval=None</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
-<div class="section" id="cloudmesh-compute-openstack-test-openstacksdk-module">
-<h2>cloudmesh.compute.openstack.test_openstacksdk module<a class="headerlink" href="#cloudmesh-compute-openstack-test-openstacksdk-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.compute.openstack.test_openstacksdk">
+<span id="cloudmesh-compute-openstack-test-openstacksdk-module"></span><h2>cloudmesh.compute.openstack.test_openstacksdk module<a class="headerlink" href="#module-cloudmesh.compute.openstack.test_openstacksdk" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cloudmesh.compute.openstack.test_openstacksdk.credentials">
+<code class="sig-prename descclassname">cloudmesh.compute.openstack.test_openstacksdk.</code><code class="sig-name descname">credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/test_openstacksdk.html#credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.test_openstacksdk.credentials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.compute.openstack">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.compute.openstack" title="Permalink to this headline">¶</a></h2>

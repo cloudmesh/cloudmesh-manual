@@ -259,7 +259,7 @@
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 
 <div class="viewcode-block" id="Name"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.name.Name">[docs]</a><span class="k">class</span> <span class="nc">Name</span><span class="p">(</span><span class="n">dotdict</span><span class="p">):</span>
 
@@ -323,15 +323,24 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
 
+            <span class="c1"># data = {</span>
+            <span class="c1">#     &#39;counter&#39;: 1,</span>
+            <span class="c1">#     &#39;path&#39;: path,</span>
+            <span class="c1">#     &#39;kind&#39;: &quot;vm&quot;,</span>
+            <span class="c1">#     &#39;schema&#39;: &quot;{experiment}-{group}-{user}-{kind}-{counter}&quot;,</span>
+            <span class="c1">#     &#39;experiment&#39;: &#39;exp&#39;,</span>
+            <span class="c1">#     &#39;group&#39;: &#39;group&#39;,</span>
+            <span class="c1">#     &#39;user&#39;: &#39;user&#39;</span>
+            <span class="c1"># }</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
             <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s1">&#39;counter&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span>
-                <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s2">&quot;vm&quot;</span><span class="p">,</span>
-                <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{experiment}</span><span class="s2">-</span><span class="si">{group}</span><span class="s2">-</span><span class="si">{user}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">-</span><span class="si">{counter}</span><span class="s2">&quot;</span><span class="p">,</span>
-                <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;exp&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span>
+                <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{user}</span><span class="s2">-vm-</span><span class="si">{counter}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">user</span>
             <span class="p">}</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">flush</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span></div>
 
@@ -359,7 +368,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;counter&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div></div>
 
-
+<span class="n">name</span> <span class="o">=</span> <span class="n">Name</span><span class="p">()</span>
 
 </pre></div>
 

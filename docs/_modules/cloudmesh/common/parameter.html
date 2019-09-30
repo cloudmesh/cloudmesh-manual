@@ -203,6 +203,13 @@
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.parameter.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <div class="viewcode-block" id="Parameter.expand"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.parameter.Parameter.expand">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">allow_duplicates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameter.expand(&quot;a[0-1]&quot;)  -&gt; [&quot;a0&quot;, &quot;a1&quot;]</span>
+<span class="sd">        :param parameter:</span>
+<span class="sd">        :param allow_duplicates:</span>
+<span class="sd">        :param sort:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">parameter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">parameter</span>
         <span class="k">else</span><span class="p">:</span>

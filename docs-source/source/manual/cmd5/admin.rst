@@ -4,7 +4,7 @@ admin
 .. parsed-literal::
 
   Usage:
-    admin mongo install [--brew] [--download=PATH] [--nosudo]
+    admin mongo install [--brew] [--download=PATH] [--nosudo] [--docker]
     admin mongo create
     admin mongo status
     admin mongo stats
@@ -62,3 +62,4 @@ admin
 
       This can be very useful in case you are filing an issue or bug.
 
+Timer: 0.0000s (man admin --format=rst)

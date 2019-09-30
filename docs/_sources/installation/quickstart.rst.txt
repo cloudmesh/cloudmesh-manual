@@ -87,6 +87,16 @@ We recommend that after you are done working with cloudmesh to stop it with::
 
    cms stop
 
+Initialize keys and Security Groups
+-----------------------------------
+
+.. code:: bash
+
+   cms set cloud=chameleon
+   cms sec load
+   cms sec group load default --cloud=chameleon
+   cms key upload --cloud=chameleon
+
 Command line
 ------------
 

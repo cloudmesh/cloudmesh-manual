@@ -12,14 +12,6 @@ cloudmesh.security.authorized\_keys module
    :undoc-members:
    :show-inheritance:
 
-cloudmesh.security.encrypt module
----------------------------------
-
-.. automodule:: cloudmesh.security.encrypt
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cloudmesh.security.ssh\_config module
 -------------------------------------
 

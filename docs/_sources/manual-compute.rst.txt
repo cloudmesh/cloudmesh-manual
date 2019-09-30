@@ -20,3 +20,4 @@ Compute Manual Pages
    manual/compute/config
    manual/compute/container
    manual/compute/group
+   manual/compute/register

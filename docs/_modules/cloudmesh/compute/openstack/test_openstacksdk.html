@@ -207,6 +207,9 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.name</span> <span class="k">import</span> <span class="n">Name</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">see : https://docs.openstack.org/openstacksdk/latest/user/guides/compute.html</span>
@@ -245,13 +248,112 @@
 
 
 <span class="n">config</span> <span class="o">=</span> <span class="n">credentials</span><span class="p">()</span>
+<span class="n">cloud</span> <span class="o">=</span> <span class="n">openstack</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="c1"># not authorized</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;project_id&#39;</span><span class="p">]</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">get_compute_usage</span><span class="p">(</span><span class="n">project</span><span class="p">))</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">get_compute_quotas</span><span class="p">(</span><span class="n">project</span><span class="p">))</span>
 
 
-<span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack --version --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
-              <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
-              <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
-    <span class="c1"># print (command)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack usage show --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+        <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack quota show --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+        <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack --version --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+        <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack hypervisor stats show --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+        <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;nova --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+                  <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> hypervisor-stats &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+        <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+
+
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">name</span><span class="o">=</span> <span class="s2">&quot;test-gregor-vm-3&quot;</span>
+
+    <span class="k">def</span> <span class="nf">status</span><span class="p">():</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">list_servers</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="n">name</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">())</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+    <span class="n">cloud</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">suspend_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">())</span>
+
+
+<span class="c1">#cloud.resume_server()</span>
+
+
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pprint</span> <span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">cloud</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+
+    <span class="c1"># not authorized</span>
+    <span class="c1"># pprint(cloud.list_services())</span>
+    <span class="c1"># pprint(cloud.list_users())</span>
+    <span class="c1"># for bare metal, not in region One</span>
+    <span class="c1"># pprint(cloud.list_machines())</span>
+
+    <span class="c1"># not supported</span>
+    <span class="c1"># pprint(cloud.list_zones())</span>
+    <span class="c1"># pprint(cloud.list_nics())</span>
+    <span class="c1"># pprint (cloud.list_hypervisors())</span>
+    <span class="c1"># pprint(cloud.telemetry())</span>
+
+
+    <span class="n">pprint</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_routers</span><span class="p">())</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">list_subnets</span><span class="p">())</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Name</span><span class="p">())</span>
+
+
+    <span class="n">pprint</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">get_compute_limits</span><span class="p">())</span>
+
+    <span class="n">VERBOSE</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+
+    <span class="c1"># not found</span>
+    <span class="c1"># pprint(cloud.meter)</span>
+    <span class="c1"># pprint(cloud.placement)</span>
+
+
 
 <span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
 

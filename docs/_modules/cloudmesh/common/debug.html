@@ -205,8 +205,25 @@
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
 
 <span class="n">verbose_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<div class="viewcode-block" id="TRACE"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.debug.TRACE">[docs]</a><span class="k">def</span> <span class="nf">TRACE</span><span class="p">():</span>
+    <span class="n">traceback</span><span class="o">.</span><span class="n">print_stack</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="tracefunc"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.debug.tracefunc">[docs]</a><span class="k">def</span> <span class="nf">tracefunc</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s2">&quot;call&quot;</span><span class="p">:</span>
+        <span class="n">indent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="n">indent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&gt; call function&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s2">&quot;return&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="n">indent</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;exit function&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span><span class="p">)</span>
+        <span class="n">indent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">tracefunc</span></div>
+
+<span class="c1"># sys.settrace(tracefunc)</span>
+
 
 <span class="c1"># noinspection PyPep8Naming</span>
 <div class="viewcode-block" id="VERBOSE"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.debug.VERBOSE">[docs]</a><span class="k">def</span> <span class="nf">VERBOSE</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>

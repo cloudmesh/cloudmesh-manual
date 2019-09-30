@@ -200,6 +200,9 @@
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">from</span> <span class="nn">ast</span> <span class="k">import</span> <span class="n">literal_eval</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
+<span class="kn">import</span> <span class="nn">ctypes</span>
 
 <span class="kn">import</span> <span class="nn">openstack</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
@@ -372,24 +375,25 @@
 
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;secrule&quot;</span><span class="p">:</span>
-
+                <span class="c1"># this is just a temporary fix, both in sec.py and here the secgruops and secrules should be separated</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;security_group_rules&#39;</span><span class="p">]:</span>
-                        <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+                    <span class="c1"># for rule in group[&#39;security_group_rules&#39;]:</span>
+                    <span class="c1">#     rule[&#39;name&#39;] = group[&#39;name&#39;]</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">result</span>
 
             <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
             <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
-            <span class="n">humanize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;humanize&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+            <span class="c1"># humanize = self.output[kind][&#39;humanize&#39;]  # not pretty</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
                                     <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
                                     <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
                                     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
                                     <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
-                                    <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">)</span>
+                                    <span class="c1"># humanize=humanize</span>
+                                    <span class="p">)</span>
                   <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div>
@@ -618,8 +622,12 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">description</span> <span class="o">=</span> <span class="n">name</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_security_group</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
-                                                <span class="n">description</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_security_group</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+                                                    <span class="n">description</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;secgroup </span><span class="si">{name}</span><span class="s2"> already exists in cloud. &quot;</span>
+                                <span class="n">f</span><span class="s2">&quot;skipping.&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cloud not initialized&quot;</span><span class="p">)</span></div>
 
@@ -696,22 +704,24 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
 
             <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]:</span>
-                <span class="n">found</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;rule:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup_rule</span><span class="p">(</span>
-                    <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-                    <span class="n">port</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ports&quot;</span><span class="p">],</span>
-                    <span class="n">protocol</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;protocol&quot;</span><span class="p">],</span>
-                    <span class="n">ip_range</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ip_range&quot;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">r</span> <span class="o">!=</span> <span class="s1">&#39;nothing&#39;</span><span class="p">:</span>
+                    <span class="n">found</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;rule:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup_rule</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">port</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ports&quot;</span><span class="p">],</span>
+                        <span class="n">protocol</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;protocol&quot;</span><span class="p">],</span>
+                        <span class="n">ip_range</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ip_range&quot;</span><span class="p">])</span>
 
         <span class="k">else</span><span class="p">:</span>
 
             <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]:</span>
-                <span class="n">found</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;rule:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">add_rules_to_secgroup</span><span class="p">(</span>
-                    <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-                    <span class="n">rules</span><span class="o">=</span><span class="p">[</span><span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]])</span></div>
+                <span class="k">if</span> <span class="n">r</span> <span class="o">!=</span> <span class="s1">&#39;nothing&#39;</span><span class="p">:</span>
+                    <span class="n">found</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;rule:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_rules_to_secgroup</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">rules</span><span class="o">=</span><span class="p">[</span><span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]])</span></div>
 
     <span class="c1"># ok</span>
 <div class="viewcode-block" id="Provider.add_rules_to_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_rules_to_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules_to_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -853,7 +863,7 @@
 <span class="sd">        :return:  A list of dict representing the nodes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">stop_server</span><span class="p">(</span><span class="n">server</span><span class="p">))</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">stop_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span></div>
 
 <div class="viewcode-block" id="Provider.pause"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.pause">[docs]</a>    <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1148,7 +1158,7 @@
 
             <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">add_security_group</span><span class="p">(</span><span class="n">security_group</span><span class="o">=</span><span class="n">secgroup</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">secgroup</span><span class="p">)</span>
 
             <span class="c1"># server = self.cloudman.compute.wait_for_server(server)</span>
 
@@ -1252,6 +1262,16 @@
                 <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">found</span></div>
 
+<div class="viewcode-block" id="Provider.console"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.console">[docs]</a>    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server_console</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">server</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.log"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># same as console!!!!</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">_get_server_console_output</span><span class="p">(</span><span class="n">server</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="Provider.rename"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.rename">[docs]</a>    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        rename a node. NOT YET IMPLEMENTED.</span>
@@ -1276,7 +1296,14 @@
         <span class="n">user</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">guess_username</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
         <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">key_name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;private&#39;</span><span class="p">]</span>
+
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_all_by_name</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">key_name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;location&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;private&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">key</span> <span class="o">=</span> <span class="n">k</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;private&#39;</span><span class="p">]</span>
+                    <span class="k">break</span>
+
         <span class="n">cm</span><span class="o">.</span><span class="n">close_client</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1294,9 +1321,42 @@
         <span class="c1"># VERBOSE(cmd)</span>
 
         <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+                <span class="k">class</span> <span class="nc">disable_file_system_redirection</span><span class="p">:</span>
+                    <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
+                    <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
+
+                    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
+
+                    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
+                <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">ssh</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span>
+            <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+                <span class="k">class</span> <span class="nc">disable_file_system_redirection</span><span class="p">:</span>
+                    <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
+                    <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
+
+                    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
+
+                    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
+                <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
+                    <span class="n">ssh</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span>
+                                           <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                           <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                                           <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ssh</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span>
                                    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                                    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
@@ -1305,7 +1365,34 @@
                 <span class="n">error</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">result</span></div></div>
+                <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Provider.wait"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.wait">[docs]</a>    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span>  <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">interval</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># if interval is too low, OS will block your ip (I think)</span>
+            <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">timeout</span> <span class="o">=</span> <span class="mi">360</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;waiting for instance </span><span class="si">{name}</span><span class="s2"> to be reachable: Interval: </span><span class="si">{interval}</span><span class="s2">, Timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">timer</span> <span class="o">&lt;</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+            <span class="n">timer</span> <span class="o">+=</span> <span class="n">interval</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="s1">&#39;echo IAmReady&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="s1">&#39;IAmReady&#39;</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+
 </pre></div>
 
            </div>

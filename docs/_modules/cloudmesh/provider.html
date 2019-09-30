@@ -200,6 +200,7 @@
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 
 <div class="viewcode-block" id="ComputeProviderPlugin"><a class="viewcode-back" href="../../api/cloudmesh.provider.html#cloudmesh.provider.ComputeProviderPlugin">[docs]</a><span class="k">class</span> <span class="nc">ComputeProviderPlugin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
@@ -213,7 +214,6 @@
 
 <div class="viewcode-block" id="Provider.load"><a class="viewcode-back" href="../../api/cloudmesh.provider.html#cloudmesh.provider.Provider.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">providers</span> <span class="o">=</span> <span class="n">ComputeProviderPlugin</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()</span>
-
         <span class="k">for</span> <span class="n">provider</span> <span class="ow">in</span> <span class="n">providers</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">provider</span><span class="o">.</span><span class="n">kind</span><span class="p">]</span> <span class="o">=</span> <span class="n">provider</span></div>
 

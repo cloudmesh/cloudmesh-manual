@@ -200,7 +200,6 @@
 <span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 
-
 <span class="c1"># noinspection PyUnusedLocal</span>
 <div class="viewcode-block" id="ComputeNodeABC"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC">[docs]</a><span class="k">class</span> <span class="nc">ComputeNodeABC</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
 
@@ -356,7 +355,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="ComputeNodeABC.key_upload"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload">[docs]</a>    <span class="k">def</span> <span class="nf">key_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ComputeNodeABC.key_upload"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">key_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        uploads the key specified in the yaml configuration to the cloud</span>
 <span class="sd">        :param key:</span>
@@ -519,7 +519,24 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="ComputeNodeABC.remove_rules_from_secgroup"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_rules_from_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_rules_from_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.wait"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.wait">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="ComputeNodeABC.console"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.console">[docs]</a>    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.log"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div></div>
 </pre></div>
 
            </div>

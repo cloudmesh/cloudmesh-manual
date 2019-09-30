@@ -21,3 +21,4 @@ banner
 
     Prints a banner form a one line text message.
 
+Timer: 0.0000s (man banner --format=rst)

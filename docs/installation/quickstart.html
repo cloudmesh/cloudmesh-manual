@@ -98,6 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#generating-the-key-and-certificate">Generating the Key and Certificate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#validate-and-verify-the-key">Validate and verify the key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialize-keys-and-security-groups">Initialize keys and Security Groups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-line">Command line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interactive-shell">Interactive shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-scripts">Command scripts</a></li>
@@ -282,6 +283,15 @@ only one time. Form now on you can start and stop cloudmesh with:</p>
 </div>
 <p>We recommend that after you are done working with cloudmesh to stop it with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialize-keys-and-security-groups">
+<h2>Initialize keys and Security Groups<a class="headerlink" href="#initialize-keys-and-security-groups" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+cms sec load
+cms sec group load default --cloud<span class="o">=</span>chameleon
+cms key upload --cloud<span class="o">=</span>chameleon
 </pre></div>
 </div>
 </div>

@@ -754,7 +754,7 @@ by name across collections could be implemented.</p>
 <span id="cloudmesh-mongo-mongodbcontroller-module"></span><h2>cloudmesh.mongo.MongoDBController module<a class="headerlink" href="#module-cloudmesh.mongo.MongoDBController" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.MongoDBController.</code><code class="sig-name descname">MongoDBController</code><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.MongoDBController.</code><code class="sig-name descname">MongoDBController</code><span class="sig-paren">(</span><em class="sig-param">dryrun=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.create">
@@ -917,7 +917,7 @@ linux and darwin have different way to shutdown the server, the common way is ki
 
 <dl class="class">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.MongoDBController.</code><code class="sig-name descname">MongoInstaller</code><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.MongoDBController.</code><code class="sig-name descname">MongoInstaller</code><span class="sig-paren">(</span><em class="sig-param">dryrun=False</em>, <em class="sig-param">force=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.darwin">
@@ -928,11 +928,6 @@ linux and darwin have different way to shutdown the server, the common way is ki
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.docker">
 <code class="sig-name descname">docker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.docker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.docker" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.expanduser">
-<code class="sig-name descname">expanduser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.expanduser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.expanduser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -950,7 +945,7 @@ if MongoDB is not installed, python help install it</p>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.windows">
-<code class="sig-name descname">windows</code><span class="sig-paren">(</span><em class="sig-param">brew=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.windows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.windows" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.windows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.windows" title="Permalink to this definition">¶</a></dt>
 <dd><p>install MongoDB in windows</p>
 </dd></dl>
 

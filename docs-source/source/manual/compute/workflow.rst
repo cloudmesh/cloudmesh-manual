@@ -1,32 +1,14 @@
-workflow
-========
+'CMShell' object has no attribute 'do_workflow'
+Traceback (most recent call last):
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py", line 365, in onecmd
+    return func(arg)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/command.py", line 103, in new
+    func(instance, args, arguments)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/man/command/man.py", line 125, in do_man
+    data = self._get_help(entry)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/man/command/man.py", line 20, in _get_help
+    h = eval("self.do_{what}.__doc__".format(what=what))
+  File "<string>", line 1, in <module>
+AttributeError: 'CMShell' object has no attribute 'do_workflow'
 
-.. parsed-literal::
-
-    Usage:
-        workflow refresh [--cloud=CLOUD] [-v]
-        workflow list [ID] [NAME] [--cloud=CLOUD] [--output=OUTPUT] [--refresh] [-v]
-        workflow add NAME LOCATION
-        workflow delete ID
-        workflow status [NAMES]
-        workflow show ID
-        workflow save NAME WORKFLOWSTR
-        workflow run NAME
-        workflow service start
-        workflow service stop
-
-    This lists out the workflows present for a cloud
-
-    Options:
-       --output=OUTPUT  the output format [default: table]
-       --cloud=CLOUD    the cloud name
-       --refresh        refreshes the data before displaying it
-                        from the cloud
-
-    Examples:
-        cm workflow refresh
-        cm workflow list
-        cm workflow list --format=csv
-        cm workflow show 58c9552c-8d93-42c0-9dea-5f48d90a3188 --refresh
-        cm workflow run workflow1
-
+Timer: 0.0000s (man workflow --format=rst)

@@ -365,11 +365,10 @@
             <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">classes</span><span class="p">()]</span>
 
         <span class="n">class_commands</span> <span class="o">=</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">class_name</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">]</span>
+
         <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod</span><span class="p">),</span> <span class="bp">cls</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span> <span class="ow">in</span>
                     <span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">commands</span> <span class="ow">in</span> <span class="n">class_commands</span><span class="p">)]</span>
-
         <span class="k">return</span> <span class="n">commands</span></div></div>
-
 
 <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 
@@ -378,6 +377,7 @@
     <span class="nb">tuple</span><span class="p">(</span><span class="n">PluginCommand</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()),</span>
     <span class="p">{})</span>
 
+<span class="n">Console</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
 <div class="viewcode-block" id="CMShell"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell">[docs]</a><span class="k">class</span> <span class="nc">CMShell</span><span class="p">(</span><span class="n">Cmd</span><span class="p">,</span> <span class="n">PluginCommandClasses</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>

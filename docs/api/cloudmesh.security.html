@@ -163,7 +163,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.security package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.security.authorized_keys">cloudmesh.security.authorized_keys module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.security.encrypt">cloudmesh.security.encrypt module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.security.ssh_config">cloudmesh.security.ssh_config module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.security">Module contents</a></li>
 </ul>
@@ -338,65 +337,6 @@ TODO: this method is not implemented
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)">str</a></p>
 </dd>
 </dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-cloudmesh.security.encrypt">
-<span id="cloudmesh-security-encrypt-module"></span><h2>cloudmesh.security.encrypt module<a class="headerlink" href="#module-cloudmesh.security.encrypt" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.security.encrypt.EncryptFile">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.security.encrypt.</code><code class="sig-name descname">EncryptFile</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">secret</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>keys must be generated with</p>
-<blockquote>
-<div><p>ssh-keygen -t rsa -m pem
-openssl rsa -in id_rsa -out id_rsa.pem</p>
-</div></blockquote>
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.check_key">
-<code class="sig-name descname">check_key</code><span class="sig-paren">(</span><em class="sig-param">filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.check_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.check_key" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.check_passphrase">
-<code class="sig-name descname">check_passphrase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.check_passphrase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.check_passphrase" title="Permalink to this definition">¶</a></dt>
-<dd><p>this does not work with pem</p>
-<p>checks if the ssh key has a password
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.decrypt">
-<code class="sig-name descname">decrypt</code><span class="sig-paren">(</span><em class="sig-param">filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.decrypt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.decrypt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.encrypt">
-<code class="sig-name descname">encrypt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.encrypt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.encrypt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.pem_cat">
-<code class="sig-name descname">pem_cat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.pem_cat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.pem_cat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.pem_create">
-<code class="sig-name descname">pem_create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.pem_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.pem_create" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.pem_verify">
-<code class="sig-name descname">pem_verify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.pem_verify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.pem_verify" title="Permalink to this definition">¶</a></dt>
-<dd><p>this does not work
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.security.encrypt.EncryptFile.ssh_keygen">
-<code class="sig-name descname">ssh_keygen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/security/encrypt.html#EncryptFile.ssh_keygen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.security.encrypt.EncryptFile.ssh_keygen" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>

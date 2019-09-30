@@ -24,3 +24,4 @@ version
 
       cms version pip cloudmesh-cmd5
 
+Timer: 0.0000s (man version --format=rst)

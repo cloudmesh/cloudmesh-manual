@@ -1,6 +1,6 @@
 'CMShell' object has no attribute 'do_yaml'
 Traceback (most recent call last):
-  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py", line 366, in onecmd
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py", line 365, in onecmd
     return func(arg)
   File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/command.py", line 103, in new
     func(instance, args, arguments)
@@ -11,3 +11,4 @@ Traceback (most recent call last):
   File "<string>", line 1, in <module>
 AttributeError: 'CMShell' object has no attribute 'do_yaml'
 
+Timer: 0.0000s (man yaml --format=rst)

@@ -288,17 +288,17 @@
 <span class="sd">                COLOR  the color</span>
 
 <span class="sd">            Options:</span>
-<span class="sd">                -r COLOR  The color of the text. [default: BLACK]</span>
+<span class="sd">                -r COLOR  The color of the text. [default: NORMAL]</span>
 
 <span class="sd">            Prints a text in the given color</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-r&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;black&quot;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-r&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;normal&quot;</span>
         <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;TEXT&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="s2">&quot;black&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="s2">&quot;NORMAL&quot;</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
@@ -322,7 +322,7 @@
 <span class="sd">                -c CHAR   The character for the frame. [default: #]</span>
 <span class="sd">                -n WIDTH  The width of the banner. [default: 70]</span>
 <span class="sd">                -i INDENT  The width of the banner. [default: 0]</span>
-<span class="sd">                -r COLOR  The color of the banner. [default: BLACK]</span>
+<span class="sd">                -r COLOR  The color of the banner. [default: NORMAL]</span>
 
 <span class="sd">            Prints a banner form a one line text message.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -333,9 +333,12 @@
         <span class="n">color</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
         <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;TEXT&#39;</span><span class="p">])</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">))</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">))</span>
+
+        <span class="n">Console</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="n">hline</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">hline</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">hline</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 

@@ -12,6 +12,7 @@ config
      config edit [ATTRIBUTE]
      config set ATTRIBUTE=VALUE
      config get ATTRIBUTE [--output=OUTPUT]
+     config value ATTRIBUTE
      config ssh keygen
      config ssh verify
      config ssh check
@@ -72,3 +73,4 @@ config
 
             config set profile.name=Gregor
 
+Timer: 0.0000s (man config --format=rst)

@@ -5,7 +5,7 @@ ip
 
     Usage:
         ip list  [--cloud=CLOUD] [--output=OUTPUT]
-        ip create [--cloud=CLOUD]
+        ip create [N] [--cloud=CLOUD]
         ip delete [IP] [--cloud=CLOUD]
         ip attach [NAME] [IP]
         ip detach [NAME] [IP]
@@ -17,6 +17,7 @@ ip
         --output=OUTPUT             The output format [default: table]
 
     Arguments:
+        N         Number of IPS to create
         IP        IP Address
         NAME      Name of the service
 
@@ -38,3 +39,4 @@ ip
         ip delete NAME [IP]
             deletes the ip from the vm
 
+Timer: 0.0000s (man ip --format=rst)

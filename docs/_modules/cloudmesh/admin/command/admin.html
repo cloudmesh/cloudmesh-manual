@@ -198,6 +198,7 @@
             
   <h1>Source code for cloudmesh.admin.command.admin</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
@@ -209,7 +210,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.MongoDBController</span> <span class="k">import</span> <span class="n">MongoInstaller</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span><span class="p">,</span> <span class="n">map_parameters</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 
 <div class="viewcode-block" id="AdminCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.admin.command.html#cloudmesh.admin.command.admin.AdminCommand">[docs]</a><span class="k">class</span> <span class="nc">AdminCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
     <span class="c1"># noinspection PyPep8</span>
@@ -233,7 +234,7 @@
 <span class="sd">        ::</span>
 
 <span class="sd">          Usage:</span>
-<span class="sd">            admin mongo install [--brew] [--download=PATH] [--nosudo] [--docker]</span>
+<span class="sd">            admin mongo install [--brew] [--download=PATH] [--nosudo] [--docker] [--dryrun] [--force]</span>
 <span class="sd">            admin mongo create</span>
 <span class="sd">            admin mongo status</span>
 <span class="sd">            admin mongo stats</span>
@@ -292,8 +293,15 @@
 <span class="sd">              This can be very useful in case you are filing an issue or bug.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;nosudo&quot;</span><span class="p">,</span> <span class="s2">&quot;docker&quot;</span><span class="p">)</span>
+        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
+                       <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;nosudo&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;docker&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;dryrun&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;force&quot;</span><span class="p">)</span>
         <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="ow">or</span> <span class="s2">&quot;table&quot;</span>
+
+        <span class="c1"># VERBOSE(arguments)</span>
         <span class="c1"># arguments.PATH = arguments[&#39;--download&#39;] or None</span>
         <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -301,7 +309,7 @@
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">install</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">docker</span><span class="p">:</span>
 
-                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">()</span>
+                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="n">installer</span><span class="o">.</span><span class="n">docker</span><span class="p">()</span>
                 <span class="k">return</span> <span class="n">r</span>
 
@@ -310,10 +318,12 @@
 
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB install&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span>
-                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
+                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
 
                 <span class="n">sudo</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">nosudo</span>
-                <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SUDO&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s1">&#39;linux&#39;</span> <span class="ow">in</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="p">:</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SUDO:&quot;</span><span class="p">,</span> <span class="n">sudo</span><span class="p">)</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="n">installer</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">sudo</span><span class="o">=</span><span class="n">sudo</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">r</span>
 
