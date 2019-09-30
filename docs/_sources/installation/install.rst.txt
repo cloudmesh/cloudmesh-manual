@@ -30,6 +30,12 @@ prerequisits. However we recommend that you update to the newest version of
 python and pip. However we recommend that you update the the newest version
 of python. Please visit: https://www.python.org/downloads/
 
+Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
+
+.. code:: bash
+
+    sudo apt -y update
+    sudo apt -y install openssl curl
 
 Prerequisits macOS
 ^^^^^^^^^^^^^^^^^^
@@ -127,6 +133,14 @@ with the native pip:
     curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
     python get-pip.py
     rm get-pip.py
+
+
+Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.
+
+.. code:: bash
+
+    sudo apt -y update
+    sudo apt -y install openssl curl
 
 
 Prerequisits Windows 10

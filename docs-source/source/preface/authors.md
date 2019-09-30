@@ -7,5 +7,5 @@
     Sivan*, *Ritesh Tandon*, *Rob Ludwig*, *Rui Li*, *Sachith Danushka Withana*,
     *Saurabh Swaroop*, *Scott McClary*, *Sriman*, *Tarun Rawat*, *Tharak
     Vangalapat*, *Vafa Andalibi*, *Xiao Yue*, *Yu Luo*, *Yue, Xiao*, *Zhengyi Li*,
-    *javilaeg*, *saurabh.bmas@gmail.com*, *sriman*
+    *javilaeg*, *niranda perera*, *saurabh.bmas@gmail.com*, *sriman*
 
