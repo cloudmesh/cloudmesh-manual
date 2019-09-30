@@ -40,8 +40,8 @@ Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
 Prerequisits macOS
 ^^^^^^^^^^^^^^^^^^
 
-Installation from Apple App Store
-"""""""""""""""""""""""""""""""""
+Installation of XCode
+"""""""""""""""""""""
 
 You want a number of useful tool on your macOS. They are not installed by
 default, but are available via Xcode. First you need to install xcode from
@@ -52,16 +52,19 @@ Next you need to install macOS xcode command line tools::
 
     xcode-select --install
 
-Installation from python.org
-""""""""""""""""""""""""""""
+Next you want to install a python version. You can either chose the instalation
+from python.org or from homebrew.
+
+Python Installation from python.org
+"""""""""""""""""""""""""""""""""""
 
 The easiest instalation of Python for cloudmesh is to use the instaltion from
 https://www.python.org/downloads. Please, visit the page and follow the
 instructions. After this install you have `python3` avalable from the
 commandline
 
-Installation from Hoembrew
-""""""""""""""""""""""""""
+Python Installation from Hoembrew
+"""""""""""""""""""""""""""""""""
 
 An alternative instalation is provided from Homebrew. To use this install
 method, you need to install Homebrew first. Start the process by installing
