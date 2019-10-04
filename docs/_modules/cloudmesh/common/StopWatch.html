@@ -316,7 +316,11 @@
         <span class="k">return</span> <span class="n">s</span>
 
 <div class="viewcode-block" id="StopWatch.benchmark"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.benchmark">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sysinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
+                  <span class="n">sysinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">csv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;#csv&quot;</span><span class="p">,</span>
+                  <span class="n">tag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints out all timers in a convenient benchmark table</span>
 <span class="sd">        :return:</span>
@@ -419,19 +423,31 @@
 
             <span class="nb">print</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">csv</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                    <span class="n">data_timers</span><span class="p">,</span>
-                    <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;time&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;start&quot;</span>
-                           <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;node&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;user&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;system&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;win_version&quot;</span><span class="p">],</span>
-                    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
-                <span class="p">))</span>
+                <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;csv&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;timer&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;start&quot;</span>
+                         <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;node&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;win_version&quot;</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">data_timers</span><span class="p">:</span>
+                        <span class="n">data_timers</span><span class="p">[</span><span class="n">entry</span><span class="p">][</span><span class="s2">&quot;csv&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;#csv&quot;</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                        <span class="n">data_timers</span><span class="p">,</span>
+                        <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
+                    <span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                        <span class="n">data_timers</span><span class="p">,</span>
+                        <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+                        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
+                    <span class="p">))</span>
 
         <span class="k">else</span><span class="p">:</span>
 

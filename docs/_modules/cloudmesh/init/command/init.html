@@ -213,8 +213,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.Shell</span> <span class="k">import</span> <span class="n">Shell</span> <span class="k">as</span> <span class="n">Shell3</span>
-
+<span class="kn">import</span> <span class="nn">sys</span>
 
 <div class="viewcode-block" id="InitCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.init.command.html#cloudmesh.init.command.init.InitCommand">[docs]</a><span class="k">class</span> <span class="nc">InitCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -286,13 +285,20 @@
 
             <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
             <span class="n">user</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
+
             <span class="n">secgroup</span> <span class="o">=</span> <span class="s2">&quot;flask&quot;</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set key&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">&quot;TBD&quot;</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;the user is not set in the yaml file for cloudmesh.profile.user&quot;</span><span class="p">)</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB create&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo create&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo start&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms sec load&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;cms key add </span><span class="si">{user}</span><span class="s2"> --source=ssh&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">CLOUD</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">cloud</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">CLOUD</span>

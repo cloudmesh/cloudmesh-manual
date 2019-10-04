@@ -450,7 +450,10 @@ installed it. On macOS and ubuntu it will install it under::
     ~/local/mongo/bin.
 
 Please make sure that this path is added to your PATH variable after the
-install is complete.
+install is complete. If you like to change that path you can do it in the yaml
+file.
+
+Next we need to install mongo with
 
 .. code:: bash
 
@@ -491,5 +494,13 @@ created from the command line with
 Please make sure to use a passphrase with your key. Anyone telling you to use
 a passwordless key is giving you a wrong advice.
 
+Next you want to add a keyname that you use in your clouds to the cloudmesh
+yaml file. YOu can do this by completing the profile or form the commandline
+with:
 
+.. code:: bash
 
+    cms config set cloudmesh.profile.user=YOURUSERNAME
+    cms set key user=YOURUSERNAME
+
+The `cms init` includes this automatically.

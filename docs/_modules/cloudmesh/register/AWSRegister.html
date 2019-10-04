@@ -236,13 +236,16 @@
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
                 <span class="c1"># register = AWSRegister(self.driver)</span>
-            <span class="k">except</span> <span class="n">WebDriverException</span><span class="p">:</span>
+            <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
                               <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;2) Copy the `chromedriver` to &#39;/usr/bin&#39; </span><span class="se">\n</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;&#39;sudo chmod +x /usr/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
+
                 <span class="k">return</span>
 
             <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
@@ -270,7 +273,8 @@
                 <span class="k">return</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-            <span class="k">except</span> <span class="n">WebDriverException</span><span class="p">:</span>
+            <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
                               <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -302,7 +306,8 @@
                 <span class="k">return</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-            <span class="k">except</span> <span class="n">WebDriverException</span><span class="p">:</span>
+            <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
                               <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
