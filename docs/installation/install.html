@@ -118,7 +118,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#cloudmesh-directory">.cloudmesh directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">Installation of mongod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">Installation of mongod</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uninstall-of-mongodb-on-windows-10">Uninstall of MongoDB on Windows 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instalation">Instalation</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisit-ssh-key">Prerequisit ssh key</a></li>
 </ul>
 </li>
@@ -562,6 +566,23 @@ drive or storage media only you have access to.</p>
 </div>
 <div class="section" id="installation-of-mongod">
 <h2>Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uninstall-of-mongodb-on-windows-10">
+<h3>Uninstall of MongoDB on Windows 10<a class="headerlink" href="#uninstall-of-mongodb-on-windows-10" title="Permalink to this headline">¶</a></h3>
+<p>On Windows 10 you may already have mongo installed. If so you certainly can use
+this install. Just make sure to create an admin user with password.</p>
+<p>However if you do not use MongoDB, you can also uninstall it and then follw our
+easy install guide.</p>
+<p>To unsinstall, please terminate and delete the MongoDB service. Run as
+administrator in cms</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sc delete MongoDB
+</pre></div>
+</div>
+<p>Please google for deatils on how to uninstall, and communicate them to us so we
+can include them into this manual. Typically, click on the <cite>.msi</cite> that you used to
+install it snad initialte the uninstall process.</p>
+</div>
+<div class="section" id="instalation">
+<h3>Instalation<a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h3>
 <p>First, you will need to install a <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, if you have not
 done this before. If you do have mongo, you can safe this step. However,
 make sure you do not expose mongo on the internet so that you keep your
@@ -623,6 +644,7 @@ file.</p>
 <p>Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.</p>
+</div>
 </div>
 <div class="section" id="prerequisit-ssh-key">
 <h2>Prerequisit ssh key<a class="headerlink" href="#prerequisit-ssh-key" title="Permalink to this headline">¶</a></h2>

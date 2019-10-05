@@ -402,6 +402,29 @@ drive or storage media only you have access to.
 Installation of mongod
 ----------------------
 
+Uninstall of MongoDB on Windows 10
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On Windows 10 you may already have mongo installed. If so you certainly can use
+this install. Just make sure to create an admin user with password.
+
+However if you do not use MongoDB, you can also uninstall it and then follw our
+easy install guide.
+
+To unsinstall, please terminate and delete the MongoDB service. Run as
+administrator in cms
+
+.. code:: bash
+
+    sc delete MongoDB
+
+Please google for deatils on how to uninstall, and communicate them to us so we
+can include them into this manual. Typically, click on the `.msi` that you used to
+install it snad initialte the uninstall process.
+
+Instalation
+^^^^^^^^^^^
+
 First, you will need to install a ``cloudmesh.yaml`` file, if you have not
 done this before. If you do have mongo, you can safe this step. However,
 make sure you do not expose mongo on the internet so that you keep your
