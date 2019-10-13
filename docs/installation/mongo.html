@@ -243,25 +243,45 @@ cms admin mongo load [–file=FILE]</p>
 </div></blockquote>
 <p>The database will be started based-on the information as specified in
 <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code>. An example is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mongo</span><span class="p">:</span>
-  <span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">True</span>
-  <span class="n">MONGO_BREWINSTALL</span><span class="p">:</span> <span class="kc">False</span>
-  <span class="n">LOCAL</span><span class="p">:</span> <span class="o">~/</span><span class="n">local</span>
-  <span class="n">MONGO_HOME</span><span class="p">:</span> <span class="o">~/</span><span class="n">local</span><span class="o">/</span><span class="n">mongo</span>
-  <span class="n">MONGO_PATH</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">mongodb</span>
-  <span class="n">MONGO_LOG</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">log</span>
-  <span class="n">MONGO_DBNAME</span><span class="p">:</span> <span class="s1">&#39;cloudmesh&#39;</span>
-  <span class="n">MONGO_HOST</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
-  <span class="n">MONGO_PORT</span><span class="p">:</span> <span class="s1">&#39;27017&#39;</span>
-  <span class="n">MONGO_USERNAME</span><span class="p">:</span> <span class="s1">&#39;admin&#39;</span>
-  <span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="s2">&quot;my secret password&quot;</span>
-  <span class="n">MONGO_DOWNLOAD</span><span class="p">:</span>
-    <span class="n">darwin</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">osx</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">osx</span><span class="o">-</span><span class="n">ssl</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tgz</span>
-    <span class="n">linux</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tgz</span>
-    <span class="n">win32</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">win32</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">win32</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">2008</span><span class="n">plus</span><span class="o">-</span><span class="n">ssl</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">signed</span><span class="o">.</span><span class="n">msi</span>
-    <span class="n">redhat</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">yum</span><span class="o">/</span><span class="n">redhat</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="mf">4.0</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">RPMS</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">org</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">el7</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
-</pre></div>
-</div>
+<dl>
+<dt>::</dt><dd><dl>
+<dt>mongo:</dt><dd><p>MONGO_AUTOINSTALL: False
+MONGO_BREWINSTALL: False
+LOCAL: ~/local
+MONGO_DBNAME: ‘cloudmesh’
+MONGO_HOST: ‘127.0.0.1’
+MONGO_PORT: ‘27017’
+MONGO_USERNAME: ‘admin’
+MONGO_PASSWORD: TBD
+MONGO_DOWNLOAD:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>darwin:</dt><dd><p>url: <a class="reference external" href="https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.12.tgz">https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.12.tgz</a>
+MONGO_PATH: ~/.cloudmesh/mongodb
+MONGO_LOG: ~/.cloudmesh/mongodb/log
+MONGO_HOME: ~/local/mongo</p>
+</dd>
+<dt>linux:</dt><dd><p>url: <a class="reference external" href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz</a>
+MONGO_PATH: ~/.cloudmesh/mongodb
+MONGO_LOG: ~/.cloudmesh/mongodb/log
+MONGO_HOME: ~/local/mongo</p>
+</dd>
+<dt>win32:</dt><dd><p>url: <a class="reference external" href="https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-4.0.10-signed.msi">https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-4.0.10-signed.msi</a>
+MONGO_PATH: ~.cloudmeshmongodb-data
+MONGO_LOG: ~.cloudmeshmongodb-datalog
+MONGO_HOME: ~.cloudmeshmongo</p>
+</dd>
+<dt>redhat:</dt><dd><p>url: <a class="reference external" href="https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.0/x86_64/RPMS/mongodb-org-server-4.0.10-1.el7.x86_64.rpm">https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.0/x86_64/RPMS/mongodb-org-server-4.0.10-1.el7.x86_64.rpm</a>
+MONGO_PATH: ~/.cloudmesh/mongodb
+MONGO_LOG: ~/.cloudmesh/mongodb/log
+MONGO_HOME: ~/local/mongo</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
 <p>We also provide a convenient mongoDB install script that downloads the version
 defined in the yaml file and installs it in the system with the command.
 In case of windows platform, you will have to set the PATH variable

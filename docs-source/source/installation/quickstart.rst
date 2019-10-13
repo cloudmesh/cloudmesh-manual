@@ -278,5 +278,26 @@ the account givving you access to
 Thus if you have an account and are part of the class project, you can gain
 access to an openstack cloud in seconds via cloudmesh.
 
+Debugging
+---------
+
+Cloudmesh has some debugging features buidl in. To switch them on please use
 
 
+.. code:: bash
+
+   cms set debug=true
+   cms set trace=true
+   cms set verbose=10
+
+After setting them additional debug messages witl be printed.
+
+Timer
+-----
+
+Cloudmesh has the ability to print the time it takes to execute a command. You
+can switch it on with
+
+.. code:: bash
+
+   cms set timer=true

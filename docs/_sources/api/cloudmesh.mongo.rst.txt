@@ -28,6 +28,14 @@ cloudmesh.mongo.MongoDBController module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.mongo.WindowsService module
+-------------------------------------
+
+.. automodule:: cloudmesh.mongo.WindowsService
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

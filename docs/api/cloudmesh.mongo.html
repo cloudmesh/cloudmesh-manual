@@ -159,6 +159,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.CmDatabase">cloudmesh.mongo.CmDatabase module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.DataBaseDecorator">cloudmesh.mongo.DataBaseDecorator module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.MongoDBController">cloudmesh.mongo.MongoDBController module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.WindowsService">cloudmesh.mongo.WindowsService module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo">Module contents</a></li>
 </ul>
 </li>
@@ -958,6 +959,72 @@ if MongoDB is not installed, python help install it</p>
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.windows">
 <code class="sig-name descname">windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.windows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.windows" title="Permalink to this definition">¶</a></dt>
 <dd><p>install MongoDB in windows</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.mongo.WindowsService">
+<span id="cloudmesh-mongo-windowsservice-module"></span><h2>cloudmesh.mongo.WindowsService module<a class="headerlink" href="#module-cloudmesh.mongo.WindowsService" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.mongo.WindowsService.WindowsService">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.WindowsService.</code><code class="sig-name descname">WindowsService</code><a class="reference internal" href="../_modules/cloudmesh/mongo/WindowsService.html#WindowsService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.WindowsService.WindowsService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.mongo.WindowsService.WindowsService.delete">
+<em class="property">static </em><code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">name='MongoDB'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/WindowsService.html#WindowsService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.WindowsService.WindowsService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the named service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.WindowsService.WindowsService.list">
+<em class="property">static </em><code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/WindowsService.html#WindowsService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.WindowsService.WindowsService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the names of the running services
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.WindowsService.WindowsService.status">
+<em class="property">static </em><code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">name='MongoDB'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/WindowsService.html#WindowsService.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.WindowsService.WindowsService.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the status of the named service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.WindowsService.WindowsService.stop">
+<em class="property">static </em><code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name='MongoDB'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/WindowsService.html#WindowsService.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.WindowsService.WindowsService.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>sops the named service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.WindowsService.WindowsService.uninstall">
+<em class="property">static </em><code class="sig-name descname">uninstall</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/WindowsService.html#WindowsService.uninstall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.WindowsService.WindowsService.uninstall" title="Permalink to this definition">¶</a></dt>
+<dd><p>uninstalls the named package. The name should be the msi
+:param name:
+:return:</p>
 </dd></dl>
 
 </dd></dl>
