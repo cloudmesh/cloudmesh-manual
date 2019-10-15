@@ -636,13 +636,13 @@ file you created as described in the Box chapter::
 Batch
 -----
 
-.. todo:: batch, student contribute here
+.. todo:: TBD
 
 
 REST
 ----
 
-TBD
+.. todo:: TBD
 
 Log File
 --------
