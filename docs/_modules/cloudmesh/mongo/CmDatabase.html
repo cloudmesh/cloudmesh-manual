@@ -657,8 +657,10 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">()</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;uploading document</span><span class="se">\n</span><span class="si">{entry}</span><span class="se">\n</span><span class="s2">-------</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">entry</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">entry</span><span class="p">)))</span>
+                <span class="n">VERBOSE</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
                 <span class="k">pass</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 

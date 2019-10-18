@@ -207,6 +207,7 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">shlex</span>
 
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">cmd</span> <span class="k">import</span> <span class="n">Cmd</span>
@@ -604,6 +605,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># print (&quot;Executing&gt;&quot;, args, &quot;&lt;&quot;, sep=&#39;&#39;)</span>
         <span class="c1"># os.system(args)</span>
+
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
@@ -1117,6 +1119,25 @@
     <span class="n">interactive</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-i&#39;</span><span class="p">]</span>
     <span class="n">script</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;SCRIPT&quot;</span><span class="p">]</span>
     <span class="n">command</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;COMMAND&quot;</span><span class="p">]</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># trick for the removal of the &quot;, &#39; in the set command</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">!=</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;set&#39;</span> <span class="ow">and</span> <span class="s2">&quot;=&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="s2">&quot;=&#39;&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;config&#39;</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;set&#39;</span> <span class="ow">and</span> <span class="s2">&quot;=&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="s2">&quot;=&#39;&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+    <span class="c1"># import ctypes</span>
+    <span class="c1"># ctypes.windll.kernel32.GetCommandLineA.restype = ctypes.c_char_p</span>
+    <span class="c1"># print (ctypes.windll.kernel32.GetCommandLineA())</span>
 
     <span class="c1"># context = CloudmeshContext(</span>
     <span class="c1">#    interactive=interactive,</span>

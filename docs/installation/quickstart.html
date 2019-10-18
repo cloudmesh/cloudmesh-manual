@@ -420,7 +420,8 @@ refresh from the cloud you can use the command</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In case you need to use quotes in the command line you need to
-mask them with a bakslash.</p>
+mask them with a bakslash on Linux and macOS and with 3 quotes in Windows,
+as this is a feature of your shell.</p>
 </div>
 <p>Thus you would use</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms vm list --cloud<span class="o">=</span><span class="se">\&quot;</span>chameleon<span class="se">\&quot;</span>
@@ -430,6 +431,16 @@ mask them with a bakslash.</p>
 be written as</p>
 <blockquote>
 <div><p>cms vm list –cloud=chameleon</p>
+</div></blockquote>
+<p>There are two exceptions that we implemented on Linux and macOS. Here the commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">x</span><span class="o">=</span><span class="s2">&quot;variable with spaces&quot;</span>
+cms config <span class="nb">set</span> <span class="nv">x</span><span class="o">=</span><span class="s2">&quot;variable with spaces&quot;</span>
+</pre></div>
+</div>
+<p>Will also work, e.g. the backslash is not needed.</p>
+<p>However, on windows you need to use the three quotes such as</p>
+<blockquote>
+<div><p>cms set x=”””variable with spaces”””</p>
 </div></blockquote>
 </div>
 <div class="section" id="configuring-chameleon-cloud">

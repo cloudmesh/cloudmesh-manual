@@ -242,10 +242,10 @@ Using quotes
 ------------
 
 .. warning:: In case you need to use quotes in the command line you need to
-             mask them with a bakslash.
+             mask them with a bakslash on Linux and macOS and with 3 quotes in Windows,
+             as this is a feature of your shell.
 
 Thus you would use
-
 
 .. code:: bash
 
@@ -255,6 +255,20 @@ However as there are no quotes needed in the provious command it can simply
 be written as
 
    cms vm list --cloud=chameleon
+
+There are two exceptions that we implemented on Linux and macOS. Here the commands
+
+.. code:: bash
+
+   cms set x="variable with spaces"
+   cms config set x="variable with spaces"
+
+Will also work, e.g. the backslash is not needed.
+
+However, on windows you need to use the three quotes such as
+
+   cms set x="""variable with spaces"""
+
 
 Configuring chameleon cloud
 ---------------------------
