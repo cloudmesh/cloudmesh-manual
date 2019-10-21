@@ -658,9 +658,6 @@ can be specified in the yaml file.
 Mongo
 -----
 
-MongoDB
--------
-
 The cache of cloudmesh is managed in a mongo db database with various
 collections. However the user does not have to manage the collections
 as this is done for the user through cloudmesh. Before you can use it it
@@ -693,8 +690,16 @@ and stopped with the command
 
 .. code:: bash
 
-   $cms admin mongo start
-   $cms admin mongo stop
+   $ cms admin mongo start
+   $ cms admin mongo stop
+
+or simply
+
+.. code:: bash
+
+   $ cms start
+   $ cms stop
+
 
 The configuration details are included in the yaml file and looks like::
 
@@ -704,6 +709,7 @@ The configuration details are included in the yaml file and looks like::
       MONGO_AUTOINSTALL: False
       MONGO_BREWINSTALL: False
       LOCAL: ~/local
+      MODE: native
       MONGO_DBNAME: 'cloudmesh'
       MONGO_HOST: '127.0.0.1'
       MONGO_PORT: '27017'
@@ -730,4 +736,34 @@ The configuration details are included in the yaml file and looks like::
           MONGO_PATH: ~/.cloudmesh/mongodb
           MONGO_LOG: ~/.cloudmesh/mongodb/log
           MONGO_HOME: ~/local/mongo
+
+Mongo via Docker
+~~~~~~~~~~~~~~~~
+
+.. warning:: THIS FEATURE IS NOT YET SUPPORTED.
+
+Mongo can also be easily deployed and run via docker for cloudmesh. To achieve
+this you have to set the `MODE` to `docker` either by editing the yaml file or using
+
+
+.. code:: bash
+
+   $ cms config set cloudmesh.data.mongo.MODE=docker
+
+If you have not yet use the data base in docker, you need to initialize it just
+as in the native mode with
+
+.. code:: bash
+
+   $ cms mongo admin create
+
+Than you can use as usual
+
+.. code:: bash
+
+   $ cms init
+   $ cms start
+   $ cms stop
+
+to start and stop the DB.
 
