@@ -20,10 +20,26 @@ cloudmesh.mongo.DataBaseDecorator module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.mongo.MongoDBController\-new module
+---------------------------------------------
+
+.. automodule:: cloudmesh.mongo.MongoDBController-new
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.mongo.MongoDBController module
 ----------------------------------------
 
 .. automodule:: cloudmesh.mongo.MongoDBController
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cloudmesh.mongo.MongoDocker module
+----------------------------------
+
+.. automodule:: cloudmesh.mongo.MongoDocker
    :members:
    :undoc-members:
    :show-inheritance:

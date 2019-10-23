@@ -158,7 +158,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.CmDatabase">cloudmesh.mongo.CmDatabase module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.DataBaseDecorator">cloudmesh.mongo.DataBaseDecorator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-mongo-mongodbcontroller-new-module">cloudmesh.mongo.MongoDBController-new module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.MongoDBController">cloudmesh.mongo.MongoDBController module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.MongoDocker">cloudmesh.mongo.MongoDocker module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo.WindowsService">cloudmesh.mongo.WindowsService module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.mongo">Module contents</a></li>
 </ul>
@@ -751,6 +753,9 @@ by name across collections could be implemented.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="cloudmesh-mongo-mongodbcontroller-new-module">
+<h2>cloudmesh.mongo.MongoDBController-new module<a class="headerlink" href="#cloudmesh-mongo-mongodbcontroller-new-module" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-cloudmesh.mongo.MongoDBController">
 <span id="cloudmesh-mongo-mongodbcontroller-module"></span><h2>cloudmesh.mongo.MongoDBController module<a class="headerlink" href="#module-cloudmesh.mongo.MongoDBController" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -832,7 +837,7 @@ by name across collections could be implemented.</p>
 
 <dl class="attribute">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.script_admin">
-<code class="sig-name descname">script_admin</code><em class="property"> = '\n    \n    use admin\n    db.createUser(\n      {\n        user: &quot;{MONGO_USERNAME}&quot;,\n        pwd: &quot;{MONGO_PASSWORD}&quot;,\n        roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; }, &quot;readWriteAnyDatabase&quot; ]\n      }\n    )\n    '</em><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.script_admin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">script_admin</code><em class="property"> = '\n\n    use admin\n    db.createUser(\n      {\n        user: &quot;{MONGO_USERNAME}&quot;,\n        pwd: &quot;{MONGO_PASSWORD}&quot;,\n        roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; }, &quot;readWriteAnyDatabase&quot; ]\n      }\n    )\n    '</em><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.script_admin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Steps to add admin</p>
 <p>1. start mongo
 mongod –port {MONGO_PORT} –bind_ip {MONGO_HOST} –dbpath {MONGO_PATH}/{MONGO_DBNAME}</p>
@@ -933,11 +938,6 @@ linux and darwin have different way to shutdown the server, the common way is ki
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.docker">
-<code class="sig-name descname">docker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.docker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.docker" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.install">
 <code class="sig-name descname">install</code><span class="sig-paren">(</span><em class="sig-param">sudo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.install" title="Permalink to this definition">¶</a></dt>
 <dd><p>check where the MongoDB is installed in mongo location.
@@ -959,6 +959,105 @@ if MongoDB is not installed, python help install it</p>
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.windows">
 <code class="sig-name descname">windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.windows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.windows" title="Permalink to this definition">¶</a></dt>
 <dd><p>install MongoDB in windows</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.mongo.MongoDocker">
+<span id="cloudmesh-mongo-mongodocker-module"></span><h2>cloudmesh.mongo.MongoDocker module<a class="headerlink" href="#module-cloudmesh.mongo.MongoDocker" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.MongoDocker.</code><code class="sig-name descname">MongoDocker</code><span class="sig-paren">(</span><em class="sig-param">configuration='~/.cloudmesh/cloudmesh.yaml'</em>, <em class="sig-param">dryrun=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the MongoDBd Container
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.create_admin">
+<code class="sig-name descname">create_admin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.create_admin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.create_admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the admin user in the Container
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">command</em>, <em class="sig-param">terminate=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the MongoDBd Container
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.install">
+<code class="sig-name descname">install</code><span class="sig-paren">(</span><em class="sig-param">clean=False</em>, <em class="sig-param">pull=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.install" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the Mongo image
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.kill">
+<code class="sig-name descname">kill</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.kill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kills all Containers
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.login">
+<code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.ps">
+<code class="sig-name descname">ps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.ps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.ps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the Mongo image
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">script</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">terminate=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.sh">
+<code class="sig-name descname">sh</code><span class="sig-paren">(</span><em class="sig-param">command</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.sh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.sh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">auth=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the MongoDBd Container
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.status">
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of the the MongoDB Container
+:return: DIct with the status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops the MongoDBd Container
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDocker.MongoDocker.wait">
+<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">delay=20</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>test if mongo is available
+:return:</p>
 </dd></dl>
 
 </dd></dl>

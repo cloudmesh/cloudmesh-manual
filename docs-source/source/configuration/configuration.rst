@@ -742,6 +742,14 @@ Mongo via Docker
 
 .. warning:: THIS FEATURE IS NOT YET SUPPORTED.
 
+.. warning:: This feature is maintained in a different branch wich must be activated first
+
+             .. code:: bash
+
+                cd cm/cloudmesh-cloud
+                git checkout mongo-docker
+                pip install -e .
+
 Mongo can also be easily deployed and run via docker for cloudmesh. To achieve
 this you have to set the `MODE` to `docker` either by editing the yaml file or using
 
@@ -750,11 +758,13 @@ this you have to set the `MODE` to `docker` either by editing the yaml file or u
 
    $ cms config set cloudmesh.data.mongo.MODE=docker
 
+
 If you have not yet use the data base in docker, you need to initialize it just
 as in the native mode with
 
 .. code:: bash
 
+   $ cms mongo admin install
    $ cms mongo admin create
 
 Than you can use as usual
@@ -767,3 +777,11 @@ Than you can use as usual
 
 to start and stop the DB.
 
+
+.. note:: To set it back to a native install use
+
+          .. code:: bash
+
+             $ cms config set cloudmesh.data.mongo.MODE=native
+
+          Naturally you will have to do the native setup also if you have never done it.
