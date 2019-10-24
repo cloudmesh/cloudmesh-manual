@@ -939,19 +939,6 @@ $ cms stop
 </div>
 <div class="section" id="mongo-via-docker">
 <h3>Mongo via Docker<a class="headerlink" href="#mongo-via-docker" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>THIS FEATURE IS NOT YET SUPPORTED.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This feature is maintained in a different branch wich must be activated first</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm/cloudmesh-cloud
-git checkout mongo-docker
-pip install -e .
-</pre></div>
-</div>
-</div>
 <p>Mongo can also be easily deployed and run via docker for cloudmesh. To achieve
 this you have to set the <cite>MODE</cite> to <cite>docker</cite> either by editing the yaml file or using</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config <span class="nb">set</span> cloudmesh.data.mongo.MODE<span class="o">=</span>docker

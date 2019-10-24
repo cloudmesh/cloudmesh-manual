@@ -740,16 +740,6 @@ The configuration details are included in the yaml file and looks like::
 Mongo via Docker
 ~~~~~~~~~~~~~~~~
 
-.. warning:: THIS FEATURE IS NOT YET SUPPORTED.
-
-.. warning:: This feature is maintained in a different branch wich must be activated first
-
-             .. code:: bash
-
-                cd cm/cloudmesh-cloud
-                git checkout mongo-docker
-                pip install -e .
-
 Mongo can also be easily deployed and run via docker for cloudmesh. To achieve
 this you have to set the `MODE` to `docker` either by editing the yaml file or using
 

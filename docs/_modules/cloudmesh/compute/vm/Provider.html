@@ -243,11 +243,20 @@
                          <span class="s2">&quot;virtualbox&quot;</span><span class="p">]:</span>
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">providers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">]</span>
+
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;awslibcloud&quot;</span><span class="p">,</span> <span class="s2">&quot;google&quot;</span><span class="p">]:</span>
 
             <span class="kn">from</span> <span class="nn">cloudmesh.compute.libcloud.Provider</span> <span class="k">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibCloudProvider</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">LibCloudProvider</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;oracle&#39;</span><span class="p">]:</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="k">import</span> \
+                <span class="n">Provider</span> <span class="k">as</span> <span class="n">OracleComputeProvider</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">OracleComputeProvider</span>
+
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RRRR&quot;</span><span class="p">)</span>
+
         <span class="c1"># elif self.kind in [&quot;vagrant&quot;, &quot;virtualbox&quot;]:</span>
         <span class="c1">#    from cloudmesh.compute.virtualbox.Provider import \</span>
         <span class="c1">#        Provider as VirtualboxCloudProvider</span>

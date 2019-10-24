@@ -246,6 +246,7 @@
 <span class="sd">            admin mongo security</span>
 <span class="sd">            admin mongo password PASSWORD</span>
 <span class="sd">            admin mongo list [--output=OUTPUT]</span>
+<span class="sd">            admin mongo ssh</span>
 <span class="sd">            admin status</span>
 <span class="sd">            admin system info</span>
 
@@ -291,6 +292,14 @@
 <span class="sd">                 cms admin system info</span>
 
 <span class="sd">              This can be very useful in case you are filing an issue or bug.</span>
+
+<span class="sd">              The command</span>
+
+<span class="sd">                cms admin mongo ssh</span>
+
+<span class="sd">              is only supported for docker and allows for debugging to login</span>
+<span class="sd">              to the running container. This function may be disabled in future.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
@@ -318,7 +327,7 @@
 
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB install&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
+                <span class="c1"># print(arguments.force)</span>
                 <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
 
                 <span class="n">sudo</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">nosudo</span>
@@ -365,6 +374,12 @@
 
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB create&quot;</span><span class="p">)</span>
                 <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ssh</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB ssh&quot;</span><span class="p">)</span>
+                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">ssh</span><span class="p">()</span>
+
 
             <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
 
