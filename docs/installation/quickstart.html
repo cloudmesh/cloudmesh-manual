@@ -105,8 +105,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-quotes">Using quotes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuring-chameleon-cloud">Configuring chameleon cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#timer">Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
@@ -460,16 +460,6 @@ the account givving you access to</p>
 <p>Thus if you have an account and are part of the class project, you can gain
 access to an openstack cloud in seconds via cloudmesh.</p>
 </div>
-<div class="section" id="debugging">
-<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
-<p>Cloudmesh has some debugging features buidl in. To switch them on please use</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</span><span class="nb">true</span>
-cms <span class="nb">set</span> <span class="nv">trace</span><span class="o">=</span><span class="nb">true</span>
-cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">10</span>
-</pre></div>
-</div>
-<p>After setting them additional debug messages witl be printed.</p>
-</div>
 <div class="section" id="timer">
 <h2>Timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h2>
 <p>Cloudmesh has the ability to print the time it takes to execute a command. You
@@ -477,6 +467,31 @@ can switch it on with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>Cloudmesh has some debugging features build in. To switch them on or of please
+use the commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms debug on
+cms debug on
+</pre></div>
+</div>
+<p>In case of <cite>on</cite> the following values are set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</span>True
+cms <span class="nb">set</span> <span class="nv">trace</span><span class="o">=</span>True
+cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">10</span>
+cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span>True
+</pre></div>
+</div>
+<p>After setting them additional debug messages witl be printed.</p>
+<p>In case of <cite>off</cite> the following values are set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</span>False
+cms <span class="nb">set</span> <span class="nv">trace</span><span class="o">=</span>False
+cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">0</span>
+cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span>True
+</pre></div>
+</div>
+<p>These values can also be indivoidually controlled with the set command.</p>
 </div>
 </div>
 

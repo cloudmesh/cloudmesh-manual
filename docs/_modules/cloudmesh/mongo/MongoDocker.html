@@ -307,13 +307,17 @@
 
 
 
-<div class="viewcode-block" id="MongoDocker.execute"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">terminate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDocker.execute"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">terminate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Starts the MongoDBd Container</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">script</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;docker exec </span><span class="si">{self.NAME}</span><span class="s2"> mongo admin --eval </span><span class="si">{command}</span><span class="s2">&quot;</span>
+        <span class="n">auth_flag</span> <span class="o">=</span> <span class="s2">&quot;--auth&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">auth</span><span class="p">:</span>
+            <span class="n">auth_flag</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">script</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;docker exec </span><span class="si">{self.NAME}</span><span class="s2"> mongo admin </span><span class="si">{auth_flag}</span><span class="s2"> --eval </span><span class="si">{command}</span><span class="s2">&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">terminate</span><span class="o">=</span><span class="n">terminate</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
@@ -452,7 +456,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">create_admin</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="MongoDocker.status"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDocker.status"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Status of the the MongoDB Container</span>
 <span class="sd">        :return: DIct with the status</span>
@@ -460,15 +464,19 @@
         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No mongod running&quot;</span>
         <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
 
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;XXX&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
                 <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">printjson(db.adminCommand(&#39;listDatabases&#39;))</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="n">terminate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span>
                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="k">if</span> <span class="s1">&#39;&quot;ok&quot;&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
                 <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span>
-        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
             <span class="k">pass</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span>

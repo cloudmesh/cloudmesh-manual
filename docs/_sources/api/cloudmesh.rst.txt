@@ -17,6 +17,7 @@ Subpackages
    cloudmesh.container
    cloudmesh.data
    cloudmesh.db
+   cloudmesh.debug
    cloudmesh.default
    cloudmesh.etc
    cloudmesh.flavor

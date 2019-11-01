@@ -207,6 +207,8 @@
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">colorama</span>
 <span class="kn">from</span> <span class="nn">colorama</span> <span class="k">import</span> <span class="n">Fore</span><span class="p">,</span> <span class="n">Back</span><span class="p">,</span> <span class="n">Style</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
 <span class="c1"># from cloudmesh.common.variables import Variables</span>
 
 
@@ -293,6 +295,11 @@
 <div class="viewcode-block" id="Console.init"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.init">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
         <span class="n">colorama</span><span class="o">.</span><span class="n">init</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Console.terminate"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.terminate">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">terminate</span><span class="p">():</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">_exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="Console.set_debug"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.set_debug">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">set_debug</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

@@ -140,6 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
@@ -779,6 +780,11 @@ by name across collections could be implemented.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.exit_if_not_running">
+<code class="sig-name descname">exit_if_not_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.exit_if_not_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.exit_if_not_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.expanduser">
 <code class="sig-name descname">expanduser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.expanduser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.expanduser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -991,7 +997,7 @@ if MongoDB is not installed, python help install it</p>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDocker.MongoDocker.execute">
-<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">command</em>, <em class="sig-param">terminate=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.execute" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">command</em>, <em class="sig-param">auth=False</em>, <em class="sig-param">terminate=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts the MongoDBd Container
 :return:</p>
 </dd></dl>
@@ -1053,7 +1059,7 @@ if MongoDB is not installed, python help install it</p>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDocker.MongoDocker.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.status" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">auth=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDocker.html#MongoDocker.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDocker.MongoDocker.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>Status of the the MongoDB Container
 :return: DIct with the status</p>
 </dd></dl>
