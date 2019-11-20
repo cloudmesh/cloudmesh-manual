@@ -1,8 +1,8 @@
 Configuration
 =============
 
-The Configuration of cloudmesh is controlled with a yaml file that is
-placed in ``~/.cloudmesh/cloudmesh.yaml``. It is created automatically
+The Configuration of cloudmesh is controled with a yaml file that is
+placed in ``~/.cloudmesh/cloudmesh4.yaml``. It is created automatically
 from the template located at
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
@@ -22,9 +22,10 @@ some values in the configuration file. For example::
     cms config get cloudmesh.profile
     cms config get cloudmesh.profile.firstname
 
-print information out. While the first points to a dict, it prints
-out all the values form that dict, the last is an attribute and just
-prints out the attribute and its value.
+
+print information out. While the first points to a dict, it 
+prints out all the values form that dict, the last is an
+attribute and just prints out the attribute and its value.
 
 Setting values
 --------------
@@ -36,18 +37,20 @@ file you can do this with::
 
 Will set the firstname in the profiles to Gregor
 
-This command at this time does not work on dicts, so you need to
-define each attribute.
+This command at this time does not work on dicts, so you need to define each attribute.
+
 
 Editing Values
 --------------
 
-IN case the values in the yaml file are having a TBD the can also be
-edit it with our build in command that required you to specify the dict
-in which such values occur.
+=
+In case the values in the yaml file are having a TBD the can also be 
+edited with our built in command that requires you
+to specify the dict in which such values occur.
 
-For example, let us assume the value in `cloudmesh.profile.firstname` is
-TBD then, the command::
+For example, let us assume the value in cloudmesh.profile.firstname 
+is TBD then, the command::
+
 
     cms config edit cloudmesh.profile
 
@@ -56,12 +59,13 @@ Can be used to change it.
 Advanced Yaml Variables
 -----------------------
 
-One of the features of the cloudmesh yaml framework is that it allows
-you to use previously defined attributes in the yaml file itself. Thus
-if an attribute value contains for example `{cloudmesh.attribute}`
-or any environment variable such as `$HOME`, it will find the value for
-this dict entry in the yaml file and replace it with its value. For example. let
-us assume the yaml file contains::
+
+One of the features of the cloudmesh yaml framework is that it allows you to
+use previously defined attributes in the yaml file itself. Thus if an
+attribute value contains for example  `"{cloudmesh.attribute}"` or any
+environment variable, it will find the value for this dict entry in the yaml
+file and replace it
+with its value. For example. let us assume the yaml file contains::
 
     cloudmesh:
       profile:
@@ -105,9 +109,9 @@ The profile defines simple information about you::
 Default
 -------
 
-The global default is used to identify information about your
-experiments and groups that are used throughout your interaction with
-cloudmesh::
+The variable default is used to identify information about your 
+experiments and groups that are used throughout your
+interaction with cloudmesh.
 
   default:
     group: cloudmesh
@@ -129,10 +133,10 @@ The values can be set with the default command
 General Service Attributes
 -------------------
 
-Each cloudmesh service must have an attribute ``cm`` with the
-following fields. if an attribute contains the value TBD it need sto
-be updated. YOu only have to update the providers you like to use, you
-can delete the other if you like.
+Each cloudmesh service must have an attribute ``cm`` with the 
+following fields. if an attribute contains the value TBD
+it needs to be updated. You only have to update the providers 
+you like to use, you can delete the others if you like.
 
 cm
 ~~
@@ -142,10 +146,10 @@ the service. This includes The following information
 
 active
 
-    if set to Tru, this cloud is going to be used in cloudmesh, if it
-    is set to False it is not activated.  This has the advantage that
-    you do not have to remove the service from the yaml file if you do
-    not use it
+    if set to True, this cloud is going to be used in cloudmesh, 
+    if it is set to False it is not activated.
+    This has the advantage that you do not have to remove
+    the service from the yaml file if you do not use it
 
 heading
 
@@ -155,9 +159,9 @@ heading
 
 label
 
-    This field is typically the same as the entry under which the
-    cloud service is filed. IN our case it is aws. It is a convenient
-    abbreviation that can be used in your programs.
+    This field is typically the same as the entry under which the cloud 
+    service is filed. In our case it is aws. It is
+    a convenient abbreviation that can be used in your programs.
 
 kind
 
@@ -173,7 +177,7 @@ kind
 
 host
 
-    This field is used to identify where to find information about the
+    This field is used to identify where to find information aboout the 
     service provider
 
 service
@@ -195,14 +199,14 @@ Compute Cloud Providers
 -----------------------
 
 The default yaml file includes templates to configure various clouds.
-YOu can change these defaults and provide access to your cloud
+You can change these defaults and provide access to your cloud
 credentials to make the management of cloud virtual machines easier.
 Templates for AWS, Azure, Google, OpenStack are provided. Specific
 templates for Jetstream and Chameleon cloud are included in the example
 `cloudmesh.yaml <https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml>`__.
 We list each template next.
 
-We explain in more detail the features of the configuration files for
+We explain in more detail the features of the configuration files for 
 cloud services.
 
 First all cloud services are listed under the key ``cloud``. You can
@@ -212,19 +216,20 @@ different parameters.  We like to focus on the example for ``aws`` and
 explain this in a bit more detail.
 
 
-The cloudmesh entry for a compute service is divided into three
-portions: ``cm``, ``default``, and ``credentials``. The format of the
-``cm`` is explained previously.
+The cloudmesh entry for a compute service is divided into three portions:
+``cm``, ``default``, and ``credentials``. The format of the ``cm`` 
+is explained previously.
 
 
 Default
 ~~~~~~~
 
-The next category are defaults that can be preset for each
-cloud. However defaults are overwritten by the cloudmesh shell
-variables. So they are only used once at startup if these defaults are
-not already defined by cloudmesh shell. Typically we use them to for
-example define values for images and sizes or flavors of images
+The next category are defaults that can be preset for each cloud. 
+However defaults are overwritten by the cloudmesh shell
+variables. So they are only used once at startup if these 
+defaults are not already defined by cloudmesh shell. Typically
+we use them to for example define values for images and sizes or 
+flavors of images
 
 image
 
@@ -240,7 +245,7 @@ credentials
 The credentials are dependent on the kind of the cloud and include all
 information needed for authenticate and use the cloud service.
 
-As the information is sensitive the file in .cloudmesh holding this
+As the infromation is sensitive the file in .cloudmesh holding this 
 information must be properly protected.
 
 .. note:: We even have a project that encrypts the cloudmesh.yaml
@@ -285,8 +290,8 @@ Azure
           deprecate this for a more elaborate provider
 
 To obtain an account on Azure you can follow our instructions at
-:doc:`../accounts/azure`. THe configuration file contains the
-following::
+
+:doc:`../accounts/azure`. The configuration file containes the following::
 
 
    cloudmesh:
@@ -296,7 +301,7 @@ following::
        azure:
          cm:
            active: False
-           heading: AWS
+           heading: Azure
            host: azure.microsoft.com
            label: Azure
            kind: azure_arm
@@ -524,7 +529,7 @@ Azure
 ~~~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at
+on Microsoft Azure. However we do provide a convenient documentation at
 :doc:`../accounts/azure`.
 
 The ``cloudmesh.yaml`` file needs to be set up as follows for the
@@ -551,8 +556,8 @@ The ``cloudmesh.yaml`` file needs to be set up as follows for the
 Configuration settings for credentials in the yaml file can be
 obtained from Azure portal.
 
-TODO: MOre information via a pointer to a documentation you create
-needs to be added here
+TODO: More information via a pointer to a documentation you create needs
+to be added here
 
 In the yaml file the following values have to be changed
 
