@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'shell'}
-# ######################################################################
-
 shell
 =====
 
-::
+.. parsed-literal::
 
    Usage:
         shell COMMAND
@@ -19,4 +12,4 @@ shell
    Description:
         shell COMMAND  executes the command
 
-Timer: 0.0127s (man --kind=rst shell)
+Timer: 0.0000s (man shell --format=rst)

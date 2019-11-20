@@ -1,11 +1,11 @@
 # Cloudmesh Multi Cloud Storage Interface
 
-Cloudmesh supports multiple cloud storage services. You can access them via commandline, 
-an API or REST services. A simple abstraction layer between cloud services and you local computer 
-makes it possible that the services are accessed the same way. This includes AwsS3, Azure, Google, 
-and box.
+Cloudmesh supports multiple cloud storage services. You can access them via 
+commandline,  an API or REST services. A simple abstraction layer between 
+cloud services and you local computer  makes it possible that the services 
+are accessed the same way. This includes AwsS3, Azure, Google, and box.  
 
-The code is availabe a cloudmesh module at 
+The code is available a cloudmesh module at 
 
 * <https://github.com/cloudmesh/cloudmesh-storage> 
 
@@ -24,12 +24,12 @@ TODO: the pip install is not yet enabled.
 The storage module can be
 
 
-## Ccnfiguration
+## Configuration
 
 ## AWSS3 Cloudmesh Integration
 
 AWS S3 file storage has been integrated with cloudmesh library and is available 
-for use via commandline. As a first step we need to modify `cloudmesh4.yaml` 
+for use via commandline. As a first step we need to modify `cloudmesh.yaml` 
 config file.  Under 'storage' section, we need to add the aws section to specify
 the parameters used to store files in AWS S3. 
 
@@ -136,7 +136,7 @@ for use via commandline.
 
 Follow the below steps:
 
-- Modify `cloudmesh4.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
+- Modify `cloudmesh.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
 
 - In the credentials section under `awsobjectstore`, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
 `AWS IAM service` -> `Users` -> `Security Credentials`. 
@@ -256,7 +256,7 @@ $ cms storage --storage='aws' get /base_container/sourcedir ~/.cloudmesh/storage
 
 Source for this command could be either a file or directory.
 
-If you specify a file as the source, you need to speccify the full path of file
+If you specify a file as the source, you need to specify the full path of file
 including the file name where you want the file to be downloaded. In case you 
 do not specify the file name and only give the target directory, then the file 
 will be downloaded with the same name as present on S3.
@@ -316,7 +316,7 @@ of Pytests go to our directory
 
 * <https://github.com/cloudmesh/cloudmesh-storage/tree/master/tests>
 
-We also developed a general pytest that works accross providers and can be
+We also developed a general pytest that works across providers and can be
 invoked as follows
 
 ```bash
@@ -372,7 +372,7 @@ $ cms storage list
 TBD
 
 Cloudmesh Storage provides a simple programming API interface that you can use.
-We highlight a simple exampple for storing and retrieving a file form a storage
+We highlight a simple example for storing and retrieving a file form a storage
 provider.
 
 We assume the files at the given path exist
@@ -386,7 +386,7 @@ provider = Provider(service="azure")
 src = path_expand("~/.cloudmesh/storage/test/a/a.txt")
 dst = "/"
 result = provider.put(src, dst)
-# The resut will be a dict of the information whih you can print with 
+# The resut will be a dict of the information which you can print with 
 
 pprint(result)
 ```
@@ -429,11 +429,11 @@ The Google Drive API needs the following two 2 credentials files.
 * `google-drive-credentials.json`  
 
 If we run the Google Drive `Provider.py` for the **First time** then the
-required keys, tokens are taken from the `cloudmesh4.yaml` file and creates a
-`client_secret.json` file in the follwing path `~/.cloudmesh/gdrive/`
+required keys, tokens are taken from the `cloudmesh.yaml` file and creates a
+`client_secret.json` file in the following path `~/.cloudmesh/gdrive/`
 
 The `Authentication.py` creates a `.credentials` folder under the following path
-`~/.cloudmesh/gdrive/` if it doesn't exist and creates a
+`~/.cloudmesh/gdrive/` if it does not exist and creates a
 `google-drive-credentials.json` file under the following folder
 `~/.cloudmesh/gdrive/.credentials/`
 

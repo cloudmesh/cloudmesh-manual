@@ -1,5 +1,5 @@
-Cloudmesh Yaml file Encrytion
-=============================
+Cloudmesh Yaml file Encryption
+==============================
 
 .. warning:: THIS SECTION IS UNDER DEVELOPMENT AND THE CONTENT DESCRIBED IS NOT
              YET FULLY WORKING
@@ -9,12 +9,12 @@ Cloudmesh Yaml file Encrytion
 
 
 The cloudmesh yaml file can contain some information to simplify
-authentication. In order not tos store the file in cleartext we have
+authentication. In order not tos store the file in clear text we have
 provided a replacement function for the configuration that allows
-encruption of the file with your ssh key. IT is important that your ssh
+encryption of the file with your ssh key. IT is important that your ssh
 key is generated with a passphrase. If you do not, even if you encrypt,
 the file can without a passphrase decrypted which is the same as having
-it in cleartext. So make sure tour ssh-key has a passphrase.
+it in clear text. So make sure tour ssh-key has a passphrase.
 
 Prerequisits
 ------------
@@ -30,9 +30,9 @@ To encrypt the file, pleas use the command
 
    cms config encrypt 
 
-This command will encrypt your ``cloudmesh4.yaml`` file and place it
-under ``~/.cloudmesh/cloudmesh4.yaml.enc``. It will ask you if you like
-to delete the orignial yaml file.
+This command will encrypt your ``cloudmesh.yaml`` file and place it
+under ``~/.cloudmesh/cloudmesh.yaml.enc``. It will ask you if you like
+to delete the original yaml file.
 
 Decryption
 ----------
@@ -43,9 +43,9 @@ To decrypt the file, pleas use the command
 
    cms config decrypt 
 
-This command will decrypt your ``cloudmesh4.yaml.enc`` file and place it
-under ``~/.cloudmesh/cloudmesh4.yaml.enc.enc``. It will ask you if you
-like to delete the orignial yaml file.
+This command will decrypt your ``cloudmesh.yaml.enc`` file and place it
+under ``~/.cloudmesh/cloudmesh.yaml.enc.enc``. It will ask you if you
+like to delete the original yaml file.
 
 Cloudmesh Integration
 ---------------------
@@ -57,14 +57,14 @@ integrated in future (once verified it works) into the regular
 
 The functionality tht is provided by ``ConfigCrypt()`` includes
 
--  if ``cloudmesh4.yaml`` and ``cloudmesh4.yaml.enc`` exist a warning is
+-  if ``cloudmesh.yaml`` and ``cloudmesh.yaml.enc`` exist a warning is
    written that both files exist and it recommended in production to
    delete the unencrypted file.
 
--  if only ``cloudmesh4.yaml`` exist a warning is written that an
+-  if only ``cloudmesh.yaml`` exist a warning is written that an
    unencrypted yaml file is used
 
--  if only ``cloudmesh4.yaml.enc`` exists it is unencrypted and loded
+-  if only ``cloudmesh.yaml.enc`` exists it is unencrypted and loaded
    into memory. Please note that ``ConfigCrypt()`` just as Config() is
    implemented as Borg class so that the decryption and loading loading
    is conducted only once.
@@ -72,19 +72,19 @@ The functionality tht is provided by ``ConfigCrypt()`` includes
 Editing the Configuration file
 ------------------------------
 
-Editing the configuration file can be done by first unencrypting the
+Editing the configuration file can be done by first decrypting the
 file with
 
 .. code:: bash
 
    TBD
 
-Than yo ucan use your favourit editor to make modifications. Let us
-assume thsi is emacs.
+Than you can use your favourite editor to make modifications. Let us
+assume this is emacs.
 
 .. code:: bash
 
-   emacs ~/.cloudmesh/cloudmesh4.yaml
+   emacs ~/.cloudmesh/cloudmesh.yaml
 
 Once written back quit your editor and encrypt the file with
 
@@ -114,15 +114,15 @@ Than the command
 
    cms config add ./change.yaml
 
-Will update the existing ``cloudmesh4.yaml`` or cloudmesh4.yaml.enc\`
+Will update the existing ``cloudmesh.yaml`` or cloudmesh.yaml.enc\`
 file with the provided information. This is taking place regardless if
-the yaml file is encrypted or not. If both files exist., both files will
-be modified. A Wrning is however issued if the unencrypted yaml file
-esists to remind the user to delete it.
+the yaml file is encrypted or not. If both files exist, both files will
+be modified. A warning is however issued if the unencrypted yaml file
+exists to remind the user to delete it.
 
 Alternatively the convenient dot notation cloudmesh provides for
 configuration files can be used. This is done by having the ending
-``txt`` instead of ``yml`` We illustarted this on the following example
+``txt`` instead of ``yml`` We illustrated this on the following example
 where the data is stored in ``change.txt``
 
 ::

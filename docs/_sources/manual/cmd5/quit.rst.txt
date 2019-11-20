@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'quit'}
-# ######################################################################
-
 quit
 ====
 
-::
+.. parsed-literal::
 
   Usage:
     quit
@@ -16,4 +9,4 @@ quit
   Description:
     Action to be performed when quit is typed
 
-Timer: 0.0138s (man --kind=rst quit)
+Timer: 0.0000s (man quit --format=rst)

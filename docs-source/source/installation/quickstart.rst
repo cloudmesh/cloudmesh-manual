@@ -1,47 +1,46 @@
 Quickstart
 ==========
 
+This quickstart assums you have already performed the following
+
+* installed cloudmesh
+* installed mongodb either with the help of cloudmesh or another method
+
+
 One of the features up Cloudmesh is to easily start new virtual machines
-on vairous clouds. It uses defaults for these clouds that can be chaned,
+on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
-``~/.cloudmesh/cloudmesh4.yaml`` This file is created upon first start
+``~/.cloudmesh/cloudmesh.yaml`` This file is created upon first start
 of the shell. You need to edit it and include some of your cloud
 information.
 
 A template for the yaml file is located at:
 
--  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
+-  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
 
+Make sure that if you edited the yaml file that you check if it is correctly
+formated. This can be done with
+
+.. code:: bash
+
+   cms config check
 
 Manual
 ------
 
-Before we start it is important to note that cloudmesh provides a quick lin
-to its documentation. you can reach it with
+Before we start it is important to note that cloudmesh provides a quick way
+to look at its documentation with
 
 .. code:: bash
 
    cms open doc
 
-In case you are a developer and have installed the manual locally, you can
-also obtain it with
-
-.. code:: bash
-
-   cms open doc local
-
-
 Generating the Key and Certificate
 ----------------------------------
 
-.. todo:: test if the key generation works
-
-
-We can encrypt and decrypt files using generated random key as follows:
-
-First, you need to create a public-private key with a passphrase. THis
-can be achieved with the ``cms key`` command it assumes that you have
-not jet created a key
+If you do not have yet generated an ssh key you will have to do it now.
+First, you need to create a public-private key with a passphrase. This
+can be achieved with the following command
 
 .. code:: bash
 
@@ -53,67 +52,96 @@ Alternatively you can create a key as follows
 
    ssh-keygen -t rsa -m pem
 
-In case you need to convert your key, to a pem certificate you can do it
-as follows
+In case you already have a key, that is not in pem format, you can convert it
+with
 
-::
+.. code:: bash
 
    openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 
 Validate and verify the key
 ---------------------------
 
-To validate the key please use the cms command
+To validate the key please use the cms commands
 
 .. code:: bash
 
-   cms config check
-   cms config verify
+   cms config ssh check
+   cms config ssh verify
+
+
+Initialization
+--------------
+
+To initialize cloudmesh and its database the easiest way is
+calling the commands::
+
+   cms init
+
+Note that the init command also starts the mongodb. This needs to be done
+only one time. Form now on you can start and stop cloudmesh with::
+
+   cms start
+
+We recommend that after you are done working with cloudmesh to stop it with::
+
+   cms stop
+
+Initialize keys and Security Groups
+-----------------------------------
+
+.. code:: bash
+
+   cms set cloud=chameleon
+   cms sec load
+   cms sec group load default --cloud=chameleon
+   cms key upload --cloud=chameleon
 
 Command line
 ------------
 
-It is easy to switch beteeen clouds with the set command. Ater the set
-and specifying the cloud by name many commands will default to that
-cloud. The exception is the ``vm list`` command that lists by default
+After you started cms you can issue a number of commands. The benefit of
+cloudmesh is that it is easy to switch betweeen clouds with the set command.
+After the set and specifying the cloud by name many commands will default to
+that cloud. The exception is the ``vm list`` command that lists by default
 all vms on all clouds. In addition the ``vm refresh`` command will also
 work on all clouds.
 
 .. code:: bash
 
-   cms admin mongo create  # needs only be done one time
-   cms admin mongo start
+   cms start
 
-   cms set cloud=vagrant
-   cms vm start
+   cms set cloud=chameleon
+   cms set refresh=True
+
+   cms vm boot
    cms image list
    cms flavor list
 
    cms set cloud=aws
-   cms vm start
+   cms vm boot
    cms image list
    cms flavor list
 
    cms set cloud=azure
-   cms vm start
-   cms image list
-   cms flavor list
-
-   cms set cloud=chameleon
-   cms vm start
+   cms vm boot
    cms image list
    cms flavor list
 
    cms set cloud=jetstream
-   cms vm start
+   cms vm boot
+   cms image list
+   cms flavor list
+
+   cms set cloud=vagrant
+   cms vm boot
    cms image list
    cms flavor list
 
    cms vm refresh
-
    cms vm list
 
-   cms admin mongo stop
+   cms stop
 
 In case you want a command explicitly apply to one or more clouds or one
 or more vms, they can be specified by name such as
@@ -159,7 +187,7 @@ is started with cms
 
    cms
    cms> set cloud=aws
-   cms> vm start
+   cms> vm boot
 
 Command scripts
 ---------------
@@ -183,9 +211,6 @@ All information about for example virtual machines are cached locally.
 The cache for various information sources can be explicitly updated with
 the ``--refresh`` flag. Thus the command
 
-.. todo:: check if the list --refresh is implemented for vm, flavor, imgages,
-          for all clouds
-
 .. code:: bash
 
    cms vm list --refresh
@@ -200,9 +225,8 @@ would first execute a refresh while the command
    cms flavor list
    cms image list
 
-would only read from the local cache
-
-To change the behavior and always do a refresh you can use the command
+would only read from the local cache. To change the behavior and always do a
+refresh from the cloud you can use the command
 
 .. code:: bash
 
@@ -214,9 +238,101 @@ To switch it off you can say
 
    cms set refresh=False
 
-.. todo:: check if refresh=True this is implemented.
-
 Using quotes
 ------------
 
-.. warning:: In case you need to use quotes in the command line you need to mask them with a bakslash.
+.. warning:: In case you need to use quotes in the command line you need to
+             mask them with a bakslash on Linux and macOS and with 3 quotes in Windows,
+             as this is a feature of your shell.
+
+Thus you would use
+
+.. code:: bash
+
+   cms vm list --cloud=\"chameleon\"
+
+However as there are no quotes needed in the provious command it can simply
+be written as
+
+   cms vm list --cloud=chameleon
+
+There are two exceptions that we implemented on Linux and macOS. Here the commands
+
+.. code:: bash
+
+   cms set x="variable with spaces"
+   cms config set x="variable with spaces"
+
+Will also work, e.g. the backslash is not needed.
+
+However, on windows you need to use the three quotes such as
+
+   cms set x="""variable with spaces"""
+
+
+Configuring chameleon cloud
+---------------------------
+
+In many of the classes we teach you will have access to chameleon cloud. You
+will get a cloudmesh.yaml file as part of the class in which you only need
+to set your username and your password. This is done on the terminal with
+
+
+.. code:: bash
+
+   cms config set cloudmesh.cloud.chameleon.credentials.OS_USERNAME=YOURUSERNAME
+   cms config set cloudmesh.cloud.chameleon.credentials.OS_PASSWORD=YOURPASSWORD
+
+
+Where YOURUSERNAME, and YOURPASSWORD is the account name and password from
+the account givving you access to
+
+* https://www.chameleoncloud.org/
+
+Thus if you have an account and are part of the class project, you can gain
+access to an openstack cloud in seconds via cloudmesh.
+
+Timer
+-----
+
+Cloudmesh has the ability to print the time it takes to execute a command. You
+can switch it on with
+
+.. code:: bash
+
+   cms set timer=true
+
+Debugging
+---------
+
+Cloudmesh has some debugging features build in. To switch them on or of please
+use the commands
+
+.. code:: bash
+
+   cms debug on
+   cms debug on
+
+In case of `on` the following values are set:
+
+.. code:: bash
+
+   cms set debug=True
+   cms set trace=True
+   cms set verbose=10
+   cms set timer=True
+
+After setting them additional debug messages witl be printed.
+
+In case of `off` the following values are set:
+
+.. code:: bash
+
+   cms set debug=False
+   cms set trace=False
+   cms set verbose=0
+   cms set timer=True
+
+These values can also be indivoidually controlled with the set command.
+
+

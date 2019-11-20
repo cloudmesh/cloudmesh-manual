@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Quickstart &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Quickstart &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Configuration" href="../configuration/configuration.html" />
-    <link rel="prev" title="1. Installation" href="install.html" /> 
+    <link rel="next" title="Configuration" href="../configuration/configuration.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,108 +87,70 @@
             
               <p class="caption"><span class="caption-text">PREFACE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">1. Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#manual">2.1. Manual</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#generating-the-key-and-certificate">2.2. Generating the Key and Certificate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#validate-and-verify-the-key">2.3. Validate and verify the key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-line">2.4. Command line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#interactive-shell">2.5. Interactive shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-scripts">2.6. Command scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cache">2.7. Cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-quotes">2.8. Using quotes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#manual">Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-the-key-and-certificate">Generating the Key and Certificate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validate-and-verify-the-key">Validate and verify the key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialize-keys-and-security-groups">Initialize keys and Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line">Command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-shell">Interactive shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-scripts">Command scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-quotes">Using quotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-chameleon-cloud">Configuring chameleon cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timer">Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mongo.html">4. Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
-</ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
-</ul>
-<p class="caption"><span class="caption-text">openapi</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
 </ul>
-<p class="caption"><span class="caption-text">DATABASE</span></p>
+<p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/emr.html">12. cloudmesh-emr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">6. ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Outdated:</span></p>
+<p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
@@ -234,7 +196,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. Quickstart</li>
+      <li>Quickstart</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -254,40 +216,40 @@
            <div itemprop="articleBody">
             
   <div class="section" id="quickstart">
-<h1>2. Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<p>This quickstart assums you have already performed the following</p>
+<ul class="simple">
+<li><p>installed cloudmesh</p></li>
+<li><p>installed mongodb either with the help of cloudmesh or another method</p></li>
+</ul>
 <p>One of the features up Cloudmesh is to easily start new virtual machines
-on vairous clouds. It uses defaults for these clouds that can be chaned,
+on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
-<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code> This file is created upon first start
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code> This file is created upon first start
 of the shell. You need to edit it and include some of your cloud
 information.</p>
 <p>A template for the yaml file is located at:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml</a></p></li>
 </ul>
-<div class="section" id="manual">
-<h2>2.1. Manual<a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h2>
-<p>Before we start it is important to note that cloudmesh provides a quick lin
-to its documentation. you can reach it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open doc
+<p>Make sure that if you edited the yaml file that you check if it is correctly
+formated. This can be done with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config check
 </pre></div>
 </div>
-<p>In case you are a developer and have installed the manual locally, you can
-also obtain it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open doc <span class="nb">local</span>
+<div class="section" id="manual">
+<h2>Manual<a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h2>
+<p>Before we start it is important to note that cloudmesh provides a quick way
+to look at its documentation with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open doc
 </pre></div>
 </div>
 </div>
 <div class="section" id="generating-the-key-and-certificate">
-<h2>2.2. Generating the Key and Certificate<a class="headerlink" href="#generating-the-key-and-certificate" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Todo</p>
-<p>test if the key generation works</p>
-</div>
-<p>We can encrypt and decrypt files using generated random key as follows:</p>
-<p>First, you need to create a public-private key with a passphrase. THis
-can be achieved with the <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">key</span></code> command it assumes that you have
-not jet created a key</p>
+<h2>Generating the Key and Certificate<a class="headerlink" href="#generating-the-key-and-certificate" title="Permalink to this headline">¶</a></h2>
+<p>If you do not have yet generated an ssh key you will have to do it now.
+First, you need to create a public-private key with a passphrase. This
+can be achieved with the following command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config ssh keygen
 </pre></div>
 </div>
@@ -295,60 +257,87 @@ not jet created a key</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t rsa -m pem
 </pre></div>
 </div>
-<p>In case you need to convert your key, to a pem certificate you can do it
-as follows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">rsa</span> <span class="o">-</span><span class="ow">in</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span> <span class="o">-</span><span class="n">out</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="o">.</span><span class="n">pem</span>
+<p>In case you already have a key, that is not in pem format, you can convert it
+with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 </pre></div>
 </div>
 </div>
 <div class="section" id="validate-and-verify-the-key">
-<h2>2.3. Validate and verify the key<a class="headerlink" href="#validate-and-verify-the-key" title="Permalink to this headline">¶</a></h2>
-<p>To validate the key please use the cms command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config check
-cms config verify
+<h2>Validate and verify the key<a class="headerlink" href="#validate-and-verify-the-key" title="Permalink to this headline">¶</a></h2>
+<p>To validate the key please use the cms commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config ssh check
+cms config ssh verify
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+<p>To initialize cloudmesh and its database the easiest way is
+calling the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">init</span>
+</pre></div>
+</div>
+<p>Note that the init command also starts the mongodb. This needs to be done
+only one time. Form now on you can start and stop cloudmesh with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>We recommend that after you are done working with cloudmesh to stop it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialize-keys-and-security-groups">
+<h2>Initialize keys and Security Groups<a class="headerlink" href="#initialize-keys-and-security-groups" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+cms sec load
+cms sec group load default --cloud<span class="o">=</span>chameleon
+cms key upload --cloud<span class="o">=</span>chameleon
 </pre></div>
 </div>
 </div>
 <div class="section" id="command-line">
-<h2>2.4. Command line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
-<p>It is easy to switch beteeen clouds with the set command. Ater the set
-and specifying the cloud by name many commands will default to that
-cloud. The exception is the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">list</span></code> command that lists by default
+<h2>Command line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
+<p>After you started cms you can issue a number of commands. The benefit of
+cloudmesh is that it is easy to switch betweeen clouds with the set command.
+After the set and specifying the cloud by name many commands will default to
+that cloud. The exception is the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">list</span></code> command that lists by default
 all vms on all clouds. In addition the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">refresh</span></code> command will also
 work on all clouds.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create  <span class="c1"># needs only be done one time</span>
-cms admin mongo start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms start
 
-cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>vagrant
-cms vm start
+cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+cms <span class="nb">set</span> <span class="nv">refresh</span><span class="o">=</span>True
+
+cms vm boot
 cms image list
 cms flavor list
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws
-cms vm start
+cms vm boot
 cms image list
 cms flavor list
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>azure
-cms vm start
-cms image list
-cms flavor list
-
-cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
-cms vm start
+cms vm boot
 cms image list
 cms flavor list
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>jetstream
-cms vm start
+cms vm boot
+cms image list
+cms flavor list
+
+cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>vagrant
+cms vm boot
 cms image list
 cms flavor list
 
 cms vm refresh
-
 cms vm list
 
-cms admin mongo stop
+cms stop
 </pre></div>
 </div>
 <p>In case you want a command explicitly apply to one or more clouds or one
@@ -362,7 +351,7 @@ cms vm list --cloud aws,azure
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws,azure
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="index-1">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>check if multiple clouds can be set and the list command works on
 multiple clouds. Check this also for image and flavor commands</p>
@@ -379,18 +368,18 @@ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</
 </div>
 </div>
 <div class="section" id="interactive-shell">
-<h2>2.5. Interactive shell<a class="headerlink" href="#interactive-shell" title="Permalink to this headline">¶</a></h2>
+<h2>Interactive shell<a class="headerlink" href="#interactive-shell" title="Permalink to this headline">¶</a></h2>
 <p>Cloudmesh uses cmd5 for its shell implementation and thus all commands
 that are typed in in the terminal can also be typed in into a shell that
 is started with cms</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms
 cms&gt; <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws
-cms&gt; vm start
+cms&gt; vm boot
 </pre></div>
 </div>
 </div>
 <div class="section" id="command-scripts">
-<h2>2.6. Command scripts<a class="headerlink" href="#command-scripts" title="Permalink to this headline">¶</a></h2>
+<h2>Command scripts<a class="headerlink" href="#command-scripts" title="Permalink to this headline">¶</a></h2>
 <p>As we use cmd5 we also have access to piped and named scripts with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> script.cms <span class="p">|</span> cms
 </pre></div>
@@ -401,15 +390,10 @@ cms&gt; vm start
 </div>
 </div>
 <div class="section" id="cache">
-<h2>2.7. Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
+<h2>Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
 <p>All information about for example virtual machines are cached locally.
 The cache for various information sources can be explicitly updated with
 the <code class="docutils literal notranslate"><span class="pre">--refresh</span></code> flag. Thus the command</p>
-<div class="admonition-todo admonition" id="index-2">
-<p class="admonition-title">Todo</p>
-<p>check if the list –refresh is implemented for vm, flavor, imgages,
-for all clouds</p>
-</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms vm list --refresh
 cma flavor list --refresh
 cma image list --refresh
@@ -421,8 +405,8 @@ cms flavor list
 cms image list
 </pre></div>
 </div>
-<p>would only read from the local cache</p>
-<p>To change the behavior and always do a refresh you can use the command</p>
+<p>would only read from the local cache. To change the behavior and always do a
+refresh from the cloud you can use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">refresh</span><span class="o">=</span>True
 </pre></div>
 </div>
@@ -430,17 +414,84 @@ cms image list
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">refresh</span><span class="o">=</span>False
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="index-3">
-<p class="admonition-title">Todo</p>
-<p>check if refresh=True this is implemented.</p>
-</div>
 </div>
 <div class="section" id="using-quotes">
-<h2>2.8. Using quotes<a class="headerlink" href="#using-quotes" title="Permalink to this headline">¶</a></h2>
+<h2>Using quotes<a class="headerlink" href="#using-quotes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In case you need to use quotes in the command line you need to mask them with a bakslash.</p>
+<p>In case you need to use quotes in the command line you need to
+mask them with a bakslash on Linux and macOS and with 3 quotes in Windows,
+as this is a feature of your shell.</p>
 </div>
+<p>Thus you would use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms vm list --cloud<span class="o">=</span><span class="se">\&quot;</span>chameleon<span class="se">\&quot;</span>
+</pre></div>
+</div>
+<p>However as there are no quotes needed in the provious command it can simply
+be written as</p>
+<blockquote>
+<div><p>cms vm list –cloud=chameleon</p>
+</div></blockquote>
+<p>There are two exceptions that we implemented on Linux and macOS. Here the commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">x</span><span class="o">=</span><span class="s2">&quot;variable with spaces&quot;</span>
+cms config <span class="nb">set</span> <span class="nv">x</span><span class="o">=</span><span class="s2">&quot;variable with spaces&quot;</span>
+</pre></div>
+</div>
+<p>Will also work, e.g. the backslash is not needed.</p>
+<p>However, on windows you need to use the three quotes such as</p>
+<blockquote>
+<div><p>cms set x=”””variable with spaces”””</p>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-chameleon-cloud">
+<h2>Configuring chameleon cloud<a class="headerlink" href="#configuring-chameleon-cloud" title="Permalink to this headline">¶</a></h2>
+<p>In many of the classes we teach you will have access to chameleon cloud. You
+will get a cloudmesh.yaml file as part of the class in which you only need
+to set your username and your password. This is done on the terminal with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_USERNAME<span class="o">=</span>YOURUSERNAME
+cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_PASSWORD<span class="o">=</span>YOURPASSWORD
+</pre></div>
+</div>
+<p>Where YOURUSERNAME, and YOURPASSWORD is the account name and password from
+the account givving you access to</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.chameleoncloud.org/">https://www.chameleoncloud.org/</a></p></li>
+</ul>
+<p>Thus if you have an account and are part of the class project, you can gain
+access to an openstack cloud in seconds via cloudmesh.</p>
+</div>
+<div class="section" id="timer">
+<h2>Timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h2>
+<p>Cloudmesh has the ability to print the time it takes to execute a command. You
+can switch it on with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>Cloudmesh has some debugging features build in. To switch them on or of please
+use the commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms debug on
+cms debug on
+</pre></div>
+</div>
+<p>In case of <cite>on</cite> the following values are set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</span>True
+cms <span class="nb">set</span> <span class="nv">trace</span><span class="o">=</span>True
+cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">10</span>
+cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span>True
+</pre></div>
+</div>
+<p>After setting them additional debug messages witl be printed.</p>
+<p>In case of <cite>off</cite> the following values are set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</span>False
+cms <span class="nb">set</span> <span class="nv">trace</span><span class="o">=</span>False
+cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">0</span>
+cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span>True
+</pre></div>
+</div>
+<p>These values can also be indivoidually controlled with the set command.</p>
 </div>
 </div>
 
@@ -452,10 +503,10 @@ cms image list
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../configuration/configuration.html" class="btn btn-neutral float-right" title="3. Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../configuration/configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral float-left" title="1. Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

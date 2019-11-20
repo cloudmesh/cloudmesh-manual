@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'open'}
-# ######################################################################
-
 open
 ====
 
-::
+.. parsed-literal::
 
     Usage:
         open chameleon baremetal tacc
@@ -18,6 +11,7 @@ open
         open FILENAME
         open doc local
         open doc
+        open account aws [NAME]
 
 
     Arguments:
@@ -42,4 +36,8 @@ open
         open chameleon vm
             starts horizon for virtual machines
 
-Timer: 0.0124s (man --kind=rst open)
+        open account aws [NAME]
+            opens the aws users web page, if the NAME is users or is
+            omitted, it goes to the page that allows you to create a user
+
+Timer: 0.0000s (man open --format=rst)

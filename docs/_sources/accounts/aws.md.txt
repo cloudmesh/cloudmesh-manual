@@ -1,6 +1,6 @@
 # AWS Account Creation
 
-Amazon Web Services (AWS) provides a wide variaty of cloud-based
+Amazon Web Services (AWS) provides a wide variety of cloud-based
 products including analytics, application integration, AR and VR, cost
 management, blockchain, business applications, compute, customer
 engagement, database, developer tools, end user computing, game tech,
@@ -13,14 +13,14 @@ utilization of many of these products.
 Here we are especially interested in using the following services:
 
 -   **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is web service
-    that enables users to perform elastic web-scable computing while
+    that enables users to perform elastic web-scalable computing while
     having complete control over instances. It is integrated with most
     AWS services such as Amazon S3, RDS, and VPC.
 -   **Amazon Simple Storage Service (S3)** Amazon S3 an object storage
     service that offers a wide range of storage classes.
 
 We provide a step-by-step guide on how to create an AWS account through
-the AWS webpage to utilize these services. For more information you can 
+the AWS Web page to utilize these services. For more information you can 
 consult the 
 [AWS FAQ](https://aws.amazon.com/premiumsupport/knowledge-center/create-and
 -activate-aws-account/).
@@ -100,43 +100,115 @@ Now you've successfully signed in to the AWS Management Console.
 ![AWS Services](images/aws/image12.png)
 
 You can click on `Services` to explore AWS services through their
-webpage.
+Web page.
 
 ![Explore services](images/aws/image13.png)
 
 You can also start managing your account and instances through our
 cloudmesh services. This is especially of interest if you use cloudmesh
-to manage your storage and computational needs while laso being able to
+to manage your storage and computational needs while also being able to
 leverage other clouds.
 
-- [ ] To do verify  this works and you ahve created a user.
+- [ ] To do verify  this works and you have created a user.
 
 ## Access Key
 
-Now that you have an account it is necessarry that you can authenticate to your 
-cloud account from a program or a command line. The isntructions for this can
- be found at 
+
+Now that you have an account it is necessary that you can authenticate to your
+cloud account from a program or a command line. The instructions for this can
+ be found at
 
 * <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
 
 However, it is far easier to use the convenient cloudmesh tools by just using
 the cloudmesh open command.
- 
-In case you have not yet added a user, you can visit the user creation bage 
-with 
+
+In case you have not yet added a user, you can visit the user creation page
+with
 
 ```
-$ cms open account aws 
+$ cms open account aws
 ```
+
+
+### Create and Download Access Key
+
+After logging into your account, you will then see the following console: 
+
+![IAM Management Console: Users](images/aws/image14.png)
+
+Click on `Add user` and begin the process for creating a new user. Type the 
+name `cloudmesh` in the `User name` and make sure you check the `programmatic
+ access`:
+
+![IAM Management Console: Add User](images/aws/image15.png)
+
+After clicking on the `Next: Permissions`, you then have to add the user to a
+ group. If you do not have any group created, click on `Create group` button 
+ and you will be redirected to the corresponding page. You can call the group
+  `cloudmesh` and then check the select the `AmazonEC2FullAccess` for the 
+  permission: 
+
+![IAM Management Console: Create Group](images/aws/image17.png)
+
+After creating the group, select it so that the new user will be assigned to 
+that group: 
+
+![IAM Management Console: Select Group](images/aws/image18.png)
+
+In the next page you can create the tags for the new user. You can just 
+create a `cloudmesh` key for the user as a tag: 
+
+![IAM Management Console: Add Tag](images/aws/image19.png)
+
+The next page is the review page where you can review the information you 
+entered:
+
+![IAM Management Console: Review](images/aws/image20.png)
+
+After clicking on `Create user` the user will be finally created and you will
+ be redirected to the following success page: 
+ 
+![IAM Management Console: Success](images/aws/image21.png)
+
+You can view the secret access key by clicking on the `show` button: 
+
+![IAM Management Console: Access Key](images/aws/image22.png)
+
+Next, download the `.csv` file by clicking on the `Download .csv` button and 
+save it as `~/.cloudmesh/credentials.csv`:
+
+![IAM Management Console: Download CSV](images/aws/image23.png)
+ 
+Then you can click on the `close` button and go back to the IAM Management 
+Console which now provide you a summary of the newly created user called 
+`cloudmesh` and looks  like this: 
+
+![IAM Management Console: Summary](images/aws/image25.png)
+
+By clicking on the `Create access key`, you can create another access key: 
+
+![IAM Management Console: Create Access Key](images/aws/image26.png)
+
+As is mentioned in the screen shot, this is the only time you can view or 
+download the secret access key. So go ahead and click on the `Download .csv 
+file` and save it as `~/.cloudmesh/accessKey.csv`:
+
+![IAM Management Console: Download CSV File](images/aws/image27.png)
+
+ 
+ 
+### Using the Access Key
+
 
 To obtain the keys for an already existing account or the one that you just 
-created you avn use the command
+created you can use the command
  
  ```bash
 $cms open account aws NAME
  ```
  
-This command will open a browser windo to the credential page of AWS. PLease
+This command will open a browser window to the credential page of AWS. PLease
 replace the NAME with your username that you created when you added your 
 user to the IAM.
 
@@ -167,6 +239,6 @@ the permissions for ~/.cloudmesh are restricted,
 
 Additional information about the services can be found at:
 
--   Open Distro for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
+-   Open Distribution for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
 -   Amazon EC2, <https://aws.amazon.com/ec2/?nc2=h_m1>
 -   Amazon S3, <https://aws.amazon.com/s3/?c=23&pt=1>

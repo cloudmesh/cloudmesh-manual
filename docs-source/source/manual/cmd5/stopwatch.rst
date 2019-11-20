@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'stopwatch'}
-# ######################################################################
-
 stopwatch
 =========
 
-::
+.. parsed-literal::
 
   Usage:
     stopwatch start TIMER
@@ -23,4 +16,4 @@ stopwatch
     THIS IS NOT YET WORKING
     starts and stops named timers and prints them
 
-Timer: 0.0148s (man --kind=rst stopwatch)
+Timer: 0.0000s (man stopwatch --format=rst)

@@ -1,18 +1,11 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'sleep'}
-# ######################################################################
-
 sleep
 =====
 
-::
+.. parsed-literal::
 
   Usage:
     sleep SECONDS
 
   Clears the screen.
 
-Timer: 0.0132s (man --kind=rst sleep)
+Timer: 0.0000s (man sleep --format=rst)

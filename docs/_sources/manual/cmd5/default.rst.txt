@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'default'}
-# ######################################################################
-
 default
 =======
 
-::
+.. parsed-literal::
 
   Usage:
       default list [--context=CONTEXT] [--format=FORMAT]
@@ -86,4 +79,4 @@ default
         deletes the value for the default image in the
         cloud kilo
 
-Timer: 0.0149s (man --kind=rst default)
+Timer: 0.0000s (man default --format=rst)

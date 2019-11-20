@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'banner'}
-# ######################################################################
-
 banner
 ======
 
-::
+.. parsed-literal::
 
   Usage:
     banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT...
@@ -28,4 +21,4 @@ banner
 
     Prints a banner form a one line text message.
 
-Timer: 0.0128s (man --kind=rst banner)
+Timer: 0.0000s (man banner --format=rst)

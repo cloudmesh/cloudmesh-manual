@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'echo'}
-# ######################################################################
-
 echo
 ====
 
-::
+.. parsed-literal::
 
   Usage:
     echo  [-r COLOR] TEXT
@@ -22,4 +15,4 @@ echo
 
     Prints a text in the given color
 
-Timer: 0.0135s (man --kind=rst echo)
+Timer: 0.0000s (man echo --format=rst)

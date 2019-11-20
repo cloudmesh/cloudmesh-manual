@@ -8,7 +8,7 @@ Compute Manual Pages
    manual/compute/flavor
    manual/compute/image
    manual/compute/key
-   manual/compute/network
+   manual/compute/ip
    manual/compute/open
    manual/compute/secgroup
    manual/compute/ssh
@@ -16,3 +16,8 @@ Compute Manual Pages
    manual/compute/vcluster
    manual/compute/vm
    manual/compute/workflow
+   manual/compute/yaml
+   manual/compute/config
+   manual/compute/container
+   manual/compute/group
+   manual/compute/register

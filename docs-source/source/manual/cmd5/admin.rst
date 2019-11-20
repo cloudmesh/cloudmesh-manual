@@ -1,17 +1,10 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'admin'}
-# ######################################################################
-
 admin
 =====
 
-::
+.. parsed-literal::
 
   Usage:
-    admin mongo install [--brew] [--download=PATH]
+    admin mongo install [--brew] [--download=PATH] [--nosudo] [--docker]
     admin mongo create
     admin mongo status
     admin mongo stats
@@ -22,17 +15,13 @@ admin
     admin mongo load FILENAME
     admin mongo security
     admin mongo password PASSWORD
-    admin mongo list
-    admin rest status
-    admin rest start
-    admin rest stop
+    admin mongo list [--output=OUTPUT]
     admin status
     admin system info
-    admin yaml cat
-    admin yaml check
 
-  The admin command performs some administrative functions, such as installing packages, software and services.
-  It also is used to start services and configure them.
+  The admin command performs some administrative functions, such as
+  installing packages, software and services. It also is used to
+  start services and configure them.
 
   Arguments:
     FILENAME  the filename for backups
@@ -46,7 +35,7 @@ admin
 
       MongoDB is managed through a number of commands.
 
-      The configuration is read from ~/.cloudmesh/cloudmesh4.yaml
+      The configuration is read from ~/.cloudmesh/cloudmesh.yaml
 
       First, you need to create a MongoDB database with
 
@@ -73,4 +62,4 @@ admin
 
       This can be very useful in case you are filing an issue or bug.
 
-Timer: 0.0136s (man --kind=rst admin)
+Timer: 0.0000s (man admin --format=rst)

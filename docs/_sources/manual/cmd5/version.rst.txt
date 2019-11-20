@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'version'}
-# ######################################################################
-
 version
 =======
 
-::
+.. parsed-literal::
 
   Usage:
     version pip [PACKAGE]
@@ -31,4 +24,4 @@ version
 
       cms version pip cloudmesh-cmd5
 
-Timer: 0.0138s (man --kind=rst version)
+Timer: 0.0000s (man version --format=rst)

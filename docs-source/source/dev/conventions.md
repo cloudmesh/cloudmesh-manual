@@ -17,9 +17,9 @@
 
 * Printing debug messages in verbose mode 
 
-  In case yo ulike to do debug messages use
+  In case you like to do debug messages use
 
-  ````python
+  ```python
   from cloudmesh.DEBUG import VERBOSE
 
   VERBOSE("this is an example")  
@@ -34,5 +34,4 @@
   cms set debug=True
   cms set trace=True
   ```
-
-  anything that is smaller than 10will be printed.
+  anything that is smaller than 10 will be printed.

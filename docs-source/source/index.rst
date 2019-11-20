@@ -1,57 +1,27 @@
 Cloudmesh Version 4
 ===============================
 
-
 .. toctree::
-   :numbered:
    :caption: PREFACE
+   :maxdepth: 2
 
    preface/about
    preface/contributors
 
 .. toctree::
-   :numbered:
    :caption: INSTALLATION
+   :maxdepth: 2
 
    installation/install
    installation/quickstart
    configuration/configuration
    installation/mongo
-   configuration/encryption
 
 .. toctree::
-   :numbered:
-   :caption: SOMMAND SHELL
+   :caption: MANUAL PAGES
+   :maxdepth: 2
 
    cmd5
-
-.. toctree::
-   :numbered:
-   :caption: CLOUD SERVICES
-
-   group
-   vm/vm
-   vm/image
-   vm/flavor
-   storage/storage
-   workflow
-   jupyter
-   hpc/batch
-
-.. toctree::
-   :numbered:
-   :caption: openapi
-
-   openapi/README-storage-openapi
-   openapi/ufo
-
-MAMUAL PAGES
-============
-
-.. toctree::
-   :numbered:
-   :caption: MANUAL PAGES
-
    reference-card
    manual/commands
    manual-cmd5
@@ -60,64 +30,28 @@ MAMUAL PAGES
    manual-storage
    manual-other
 
-DATABASE OBJECTS
-================
+.. toctree::
+   :caption: API
+   :maxdepth: 2
+
+   jupyter/index
+   api/index
 
 .. toctree::
-   :numbered:
-   :caption: DATABASE
-
-   storage/database
-
-BENCHMARKS
-==========
-
-.. toctree::
-   :glob:
-   :numbered:
-   :caption: BENCHMARKS
-
-   benchmarks/*
-
-
-CODE
-====
-
-.. toctree::
-   :numbered:
-   :caption: CODE
-
-   code/code
-   code/common
-   code/cmd5
-   code/cloudmesh
-   code/management
-   code/mongo
-   code/commands
-   code/inventory
-   code/storage
-   code/cloud
-   code/batch
-   code/emr
-
-
-.. toctree::
-   :numbered:
    :caption: CONTRIBUTION
+   :maxdepth: 2
 
+   projects/index
    dev/conventions
+   dev/manual
    dev/management
    dev/pytest
-   dev/manual
    dev/todo
 
 
-Cloud Provider Accounts
-========================
-
 .. toctree::
-   :numbered:
    :caption: CLOUD ACCOUNTS
+   :maxdepth: 2
 
    accounts/aws
    accounts/azure
@@ -125,20 +59,20 @@ Cloud Provider Accounts
    accounts/box
    accounts/accountcreation-old
 
-
-Cloudmesh Outdated
-===============================
-
-.. toctree::
-   :numbered:
-   :caption: Outdated:
-
-   CM4README
-   vcluster
-
 Indices and tables
 ==================
 
-* :ref:`genindex`
 * :ref:`modindex`
+* :ref:`genindex`
 * :ref:`search`
+
+Other
+=======================
+
+.. toctree::
+   :caption: OTHER
+   :maxdepth: 2
+
+   tbd
+
+

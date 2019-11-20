@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'vbox'}
-# ######################################################################
-
 vbox
 ====
 
-::
+.. parsed-literal::
 
   Usage:
     vbox version [--output=OUTPUT]
@@ -24,4 +17,4 @@ vbox
     vbox vm boot [NAME] ([--memory=MEMORY] [--image=IMAGE] [--port=PORT] [--script=SCRIPT] | list)
     vbox vm ssh [NAME] [-e COMMAND]
 
-Timer: 0.0248s (man --kind=rst vbox)
+Timer: 0.0000s (man vbox --format=rst)

@@ -1,49 +1,43 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'vm'}
-# ######################################################################
-
 vm
 ==
 
-::
+.. parsed-literal::
 
     Usage:
-        vm ping [NAMES] [--cloud=CLOUDS] [--count=N] [--processors=PROCESSORS]
-        vm check [NAMES] [--cloud=CLOUDS] [--username=USERNAME] [--processors=PROCESSORS]
-        vm status [NAMES] [--cloud=CLOUDS]
+        vm ping [NAMES] [--cloud=CLOUDS] [--count=N]
+        vm check [NAMES] [--cloud=CLOUDS] [--username=USERNAME]
+        vm status [NAMES] [--cloud=CLOUDS] [--output=OUTPUT]
         vm console [NAME] [--force]
-        vm start [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
-        vm stop [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
-        vm terminate [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
-        vm delete [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
+        vm stop [NAMES]  [--dryrun]
+        vm start [NAMES] [--dryrun]
+        vm terminate [NAMES] [--cloud=CLOUD] [--dryrun]
+        vm delete [NAMES] [--cloud=CLOUD] [--dryrun]
         vm refresh [--cloud=CLOUDS]
         vm list [NAMES]
                 [--cloud=CLOUDS]
                 [--output=OUTPUT]
                 [--refresh]
-        vm boot [--name=VMNAMES]
+        vm boot [--n=COUNT]
+                [--name=VMNAMES]
                 [--cloud=CLOUD]
                 [--username=USERNAME]
                 [--image=IMAGE]
                 [--flavor=FLAVOR]
                 [--public]
                 [--secgroup=SECGROUPs]
+                [--group=GROUPs]
                 [--key=KEY]
                 [--dryrun]
-        vm boot [--n=COUNT]
-                [--cloud=CLOUD]
-                [--username=USERNAME]
-                [--image=IMAGE]
-                [--flavor=FLAVOR]
-                [--public]
-                [--secgroup=SECGROUPS]
-                [--key=KEY]
-                [--dryrun]
-        vm run [--name=VMNAMES] [--username=USERNAME] [--dryrun] COMMAND
-        vm script [--name=NAMES] [--username=USERNAME] [--dryrun] SCRIPT
+                [-v]
+        vm meta list [NAME]
+        vm meta set [NAME] KEY=VALUE...
+        vm meta delete [NAME] KEY...
+        vm script [--name=NAMES]
+                  [--username=USERNAME]
+                  [--key=KEY]
+                  [--dryrun]
+                  [--dir=DESTINATION]
+                  SCRIPT
         vm ip assign [NAMES]
                   [--cloud=CLOUD]
         vm ip show [NAMES]
@@ -52,12 +46,14 @@ vm
                    [--output=OUTPUT]
                    [--refresh]
         vm ip inventory [NAMES]
-        vm ssh [NAMES] [--username=USER]
-                 [--quiet]
-                 [--ip=IP]
-                 [--key=KEY]
-                 [--command=COMMAND]
-                 [--modify-knownhosts]
+        vm ssh [NAMES]
+               [--username=USER]
+               [--quiet]
+               [--ip=IP]
+               [--key=KEY]
+               [--command=COMMAND]
+        vm put SOURCE DESTINATION [NAMES]
+        vm get SOURCE DESTINATION [NAMES]
         vm rename [OLDNAMES] [NEWNAMES] [--force] [--dryrun]
         vm wait [--cloud=CLOUD] [--interval=SECONDS]
         vm info [--cloud=CLOUD]
@@ -80,7 +76,8 @@ vm
         OLDNAMES       Old names of the VM while renaming.
 
     Options:
-        --output=OUTPUT   the output format [default: table]
+        -v             verbose, prints the dict at the end
+        --output=OUTPUT   the output format
         -H --modify-knownhosts  Do not modify ~/.ssh/known_hosts file
                               when ssh'ing into a machine
         --username=USERNAME   the username to login into the vm. If not
@@ -162,6 +159,40 @@ vm
              these clouds are ignored. If the name is set in the variables
              this name is used.
 
+        cms vm ssh --command="uname -a"
+
+              executes the uname command on the last booted vm
+
+        vm script [--name=NAMES]
+                  [--username=USERNAME]
+                  [--key=KEY]
+                  [--dryrun]
+                  [--dir=DESTINATION]
+                  [--shell=SHELL]
+                  SCRIPT
+
+           The script command copies a shell script to the specified vms
+           into the DESTINATION directory and than execute it. With
+           SHELL you can set the shell for executing the command,
+           this coudl even be a python interpreter. Examples for
+           SHELL are /bin/sh, /usr/bin/env python
+
+        vm put SOURCE DESTINATION [NAMES]
+
+            puts the file defined by SOURCE into the DESINATION folder
+            on the specified machines. If the file exists it is
+            overwritten, so be careful.
+
+        vm get SOURCE DESTINATION [NAMES]
+
+            gets  the file defined by SOURCE into the DESINATION folder
+            on the specified machines. The SOURCE is on the remote
+            machine. If one machine is specified, the SOURCE is the same
+            name as on the remote machine. If multiple machines are
+            specified, the name of the machine will be a prefix to the
+            filename. If the filenames exists, they will be overwritten,
+            so be careful.
+
     Tip:
         give the VM name, but in a hostlist style, which is very
         convenient when you need a range of VMs e.g. sample[1-3]
@@ -169,10 +200,10 @@ vm
         sample[1-3,18] => ['sample1', 'sample2', 'sample3', 'sample18']
 
     Quoting commands:
-        cm vm login gvonlasz-004 --command="uname -a"
+        cm vm login gregor-004 --command="uname -a"
 
     Limitations:
 
         Azure: rename is not supported
 
-Timer: 0.0140s (man --kind=rst vm)
+Timer: 0.0000s (man vm --format=rst)

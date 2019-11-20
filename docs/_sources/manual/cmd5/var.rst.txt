@@ -1,14 +1,7 @@
-
-# ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'var'}
-# ######################################################################
-
 var
 ===
 
-::
+.. parsed-literal::
 
     Usage:
         var list
@@ -47,4 +40,4 @@ var
         The previous command copy the value from b to a. The val command
         was added to avoid quoting.
 
-Timer: 0.0149s (man --kind=rst var)
+Timer: 0.0000s (man var --format=rst)

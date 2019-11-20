@@ -1,11 +1,12 @@
 Commands
 ========
 
-EOF     container  flow       key      pause     set        storage   vdir    
-admin   data       group      login    plugin    shell      sys       version 
-banner  default    help       man      q         sleep      url       vm      
-batch   echo       image      network  queue     source     var       workflow
-clear   emr        info       open     quit      ssh        vbox    
-config  flavor     inventory  openapi  secgroup  stopwatch  vcluster
+EOF        data     image      open      sec      start      version       
+admin      default  info       pause     service  stop       vm            
+banner     echo     init       plugin    set      stopwatch  workflow_draft
+clear      flavor   inventory  provider  shell    sys      
+commands   git      ip         q         sleep    var      
+config     group    key        quit      source   vbox     
+container  help     man        register  ssh      vcluster 
 
-Timer: 0.0043s (help)
+Timer: 0.0000s (help)
