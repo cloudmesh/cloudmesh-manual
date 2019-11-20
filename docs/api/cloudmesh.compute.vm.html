@@ -300,8 +300,18 @@
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.add_rules_to_secgroup">
+<code class="sig-name descname">add_rules_to_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.add_rules_to_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.add_secgroup">
 <code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.add_secgroup_rule">
+<code class="sig-name descname">add_secgroup_rule</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">protocol=None</em>, <em class="sig-param">ip_range=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.add_secgroup_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.add_secgroup_rule" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -374,8 +384,11 @@
 
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.destroy">
-<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the node
+:param name: the name of the node
+:return: the dict of the node</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.detach_public_ip">

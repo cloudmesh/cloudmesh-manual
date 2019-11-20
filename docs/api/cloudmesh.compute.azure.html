@@ -128,6 +128,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.azure package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.azure.Provider">cloudmesh.compute.azure.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-azure-test-module">cloudmesh.compute.azure.test module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.azure">Module contents</a></li>
 </ul>
 </li>
@@ -287,7 +288,7 @@
 <span id="cloudmesh-compute-azure-provider-module"></span><h2>cloudmesh.compute.azure.Provider module<a class="headerlink" href="#module-cloudmesh.compute.azure.Provider" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.compute.azure.Provider.Provider">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">configuration='~/.cloudmesh/cloudmesh.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name='azure'</em>, <em class="sig-param">configuration=None</em>, <em class="sig-param">credentials=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a>, <a class="reference internal" href="cloudmesh.provider.html#cloudmesh.provider.ComputeProviderPlugin" title="cloudmesh.provider.ComputeProviderPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.provider.ComputeProviderPlugin</span></code></a></p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.Print">
@@ -296,13 +297,18 @@
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.add_rules_to_secgroup">
-<code class="sig-name descname">add_rules_to_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.add_rules_to_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">add_rules_to_secgroup</code><span class="sig-paren">(</span><em class="sig-param">secgroupname=None</em>, <em class="sig-param">newrules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.add_rules_to_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the rules to te local sec group only! it will update the az sec
+group once it is uploaded
+:param secgroupname:
+:param newrules:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.add_secgroup">
 <code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds the
+<dd><p>Adds the sec group locally
 :param name: Name of the group
 :param description: The description
 :return:</p>
@@ -311,20 +317,19 @@
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.add_secgroup_rule">
 <code class="sig-name descname">add_secgroup_rule</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">protocol=None</em>, <em class="sig-param">ip_range=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.add_secgroup_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.add_secgroup_rule" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adding sec rule to the local db as azure does not support explicit sec
+rules
+:param name:
+:param port:
+:param protocol:
+:param ip_range:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.attach_public_ip">
-<code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node</em>, <em class="sig-param">ip</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.attach_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>adds a public ip to the named vm</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
+<code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.attach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>attaches a public ip to a node</p>
 </dd></dl>
 
 <dl class="method">
@@ -349,46 +354,17 @@ does not boot. The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.Provider.Provider.create_nic">
-<code class="sig-name descname">create_nic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create_nic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create_nic" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Create a Network Interface for a Virtual Machine</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.create_public_ip">
 <code class="sig-name descname">create_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new public IP address to use</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The ip address information</p>
-</dd>
-</dl>
+<dd><p>Creates public IP for the group using the ip name provided in the config
+as a prefix
+:return:</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.Provider.Provider.create_vm_parameters">
-<code class="sig-name descname">create_vm_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create_vm_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create_vm_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.delete_public_ip">
 <code class="sig-name descname">delete_public_ip</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.delete_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.delete_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the ip address</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ip</strong> – the ip address, if None than all will be deleted</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
+<dd><p>deletes public ip by name</p>
 </dd></dl>
 
 <dl class="method">
@@ -407,7 +383,7 @@ does not boot. The default is set to 3 minutes.</p></li>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.destroy">
-<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroys the node
 :param name: the name of the node
 :return: the dict of the node</p>
@@ -415,7 +391,7 @@ does not boot. The default is set to 3 minutes.</p></li>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.detach_public_ip">
-<code class="sig-name descname">detach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node</em>, <em class="sig-param">ip</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.detach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.detach_public_ip" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">detach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.detach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.detach_public_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>adds a public ip to the named vm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -447,12 +423,9 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.find_available_public_ip">
 <code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a single public available ip address.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The ip</p>
-</dd>
-</dl>
+<dd><p>Azure currenly has no direct API to check if an IP is available or not!
+hence create an IP everytime this method is called!
+:return:</p>
 </dd></dl>
 
 <dl class="method">
@@ -482,9 +455,12 @@ does not boot. The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.Provider.Provider.get_resource_group">
-<code class="sig-name descname">get_resource_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_resource_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_resource_group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="cloudmesh.compute.azure.Provider.Provider.get_public_ip">
+<code class="sig-name descname">get_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns public IP by name from the Az public IPs
+:param name:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.get_server_metadata">
@@ -502,7 +478,7 @@ does not boot. The default is set to 3 minutes.</p></li>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.image">
-<code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.image" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the image with a given nmae
 :param name: The name of the image
 :return: the dict of the image</p>
@@ -528,17 +504,13 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.key_delete">
 <code class="sig-name descname">key_delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.key_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.key_delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>deletes the key with the given name
-:param name: The name of the key
-:return:</p>
+<dd><p>azure does not allow explicit key upload!</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.key_upload">
 <code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
-<dd><p>uploads the key specified in the yaml configuration to the cloud
-:param key:
-:return:</p>
+<dd><p>azure does not allow explicit key upload!</p>
 </dd></dl>
 
 <dl class="method">
@@ -567,16 +539,7 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list_public_ips">
 <code class="sig-name descname">list_public_ips</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em>, <em class="sig-param">available=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_public_ips" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lists the public ip addresses.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>available</strong> – if True only those that are not allocated will be
-returned.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
+<dd><p>lists public ips of the group</p>
 </dd></dl>
 
 <dl class="method">
@@ -609,7 +572,7 @@ returned.</p>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.azure.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'NumberOfCores', 'OS_Disk_Size', 'Resource_Disk_Size', 'Memory', 'Max_Data_Disk'], 'order': ['name', 'number_of_cores', 'os_disk_size_in_mb', 'resource_disk_size_in_mb', 'memory_in_mb', 'max_data_disk_count'], 'sort_keys': ['name', 'number_of_cores', 'os_disk_size_in_mb']}, 'image': {'header': ['Name', 'Location', 'Publisher', 'Plan Name', 'Product', 'Operating System'], 'order': ['cm.name', 'location', 'plan.publisher', 'plan.name', 'plan.product', 'operating_system'], 'sort_keys': ['cm.name', 'plan.publisher']}, 'key': {}, 'secgroup': {}, 'secrule': {}, 'status': {}, 'vm': {'header': ['Name', 'Cloud', 'Id', 'Type', 'Location', 'VM_Size', 'Image Reference', 'Image Offer', 'Image Sku', 'Image Version', 'Image OS Type', 'Image OS Disk Name', 'Image OS Disk Caching', 'Image OS Disk Create Option', 'Image OS Disk Size', 'Image OS Disk ID', 'Image OS Disk Storage Type', 'Image Data Disk Lun', 'Image Data Disk Name', 'Image Data Disk Caching', 'Image Data Disk Create Option', 'Image Data Disk Size', 'Image Data Disk Id', 'Image Data Disk Storage Type', 'Image Os Profile Computer Name', 'Image Os Profile Admin Username', 'Image Linux Conf Disable Password', 'Image Linux Conf Provision VM Agent', 'Image Os Profile Allow Extension Operations', 'Network Interfaces ID', 'Provisioning State', 'VM ID', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'id', 'type', 'location', 'hardware_profile.vm_size', 'storage_profile.image_reference.image_reference', 'storage_profile.image_reference.offer', 'storage_profile.image_reference.sku', 'storage_profile.image_reference.version', 'storage_profile.os_disk.os_type', 'storage_profile.os_disk.name', 'storage_profile.os_disk.caching', 'storage_profile.os_disk.create_option', 'storage_profile.os_disk.disk_size_gb', 'storage_profile.os_disk.managed_disk.id', 'storage_profile.os_disk.managed_disk.storage_account_type', 'storage_profile.data_disks.lun', 'storage_profile.data_disks.name', 'storage_profile.data_disks.caching', 'storage_profile.data_disks.create_option', 'storage_profile.data_disks.disk_size_gb', 'storage_profile.data_disks.managed_disk.id', 'storage_profile.data_disks.managed_disk.storage_account_type', 'os_profile.computer_name', 'os_profile.admin_username', 'os_profile.linux_configuration.disable_password_authentication', 'os_profile.linux_configuration.provision_vm_agent', 'os_profile.allow_extension_operations', 'network_profile.network_interfaces.id', 'provisioning_state', 'vm_id', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'NumberOfCores', 'OS_Disk_Size', 'Resource_Disk_Size', 'Memory', 'Max_Data_Disk'], 'order': ['name', 'number_of_cores', 'os_disk_size_in_mb', 'resource_disk_size_in_mb', 'memory_in_mb', 'max_data_disk_count'], 'sort_keys': ['name', 'number_of_cores', 'os_disk_size_in_mb']}, 'image': {'header': ['Name', 'Location', 'Publisher', 'Plan Name', 'Product', 'Operating System'], 'order': ['cm.name', 'location', 'plan.publisher', 'plan.name', 'plan.product', 'operating_system'], 'sort_keys': ['cm.name', 'plan.publisher']}, 'key': {}, 'secgroup': {}, 'secrule': {}, 'status': {'header': ['Name', 'Cloud', 'State', 'Status', 'Task'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'task_state'], 'sort_keys': ['cm.name']}, 'vm': {'header': ['Name', 'Cloud', 'Id', 'Type', 'Location', 'VM_Size', 'Image Reference', 'Image Offer', 'Image Sku', 'Image Version', 'Image OS Type', 'Image OS Disk Name', 'Image OS Disk Caching', 'Image OS Disk Create Option', 'Image OS Disk Size', 'Image OS Disk ID', 'Image OS Disk Storage Type', 'Image Data Disk Lun', 'Image Data Disk Name', 'Image Data Disk Caching', 'Image Data Disk Create Option', 'Image Data Disk Size', 'Image Data Disk Id', 'Image Data Disk Storage Type', 'Image Os Profile Computer Name', 'Image Os Profile Admin Username', 'Image Linux Conf Disable Password', 'Image Linux Conf Provision VM Agent', 'Image Os Profile Allow Extension Operations', 'Network Interfaces ID', 'Provisioning State', 'VM ID', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'id', 'type', 'location', 'hardware_profile.vm_size', 'storage_profile.image_reference.image_reference', 'storage_profile.image_reference.offer', 'storage_profile.image_reference.sku', 'storage_profile.image_reference.version', 'storage_profile.os_disk.os_type', 'storage_profile.os_disk.name', 'storage_profile.os_disk.caching', 'storage_profile.os_disk.create_option', 'storage_profile.os_disk.disk_size_gb', 'storage_profile.os_disk.managed_disk.id', 'storage_profile.os_disk.managed_disk.storage_account_type', 'storage_profile.data_disks.lun', 'storage_profile.data_disks.name', 'storage_profile.data_disks.caching', 'storage_profile.data_disks.create_option', 'storage_profile.data_disks.disk_size_gb', 'storage_profile.data_disks.managed_disk.id', 'storage_profile.data_disks.managed_disk.storage_account_type', 'os_profile.computer_name', 'os_profile.admin_username', 'os_profile.linux_configuration.disable_password_authentication', 'os_profile.linux_configuration.provision_vm_agent', 'os_profile.allow_extension_operations', 'network_profile.network_interfaces.id', 'provisioning_state', 'vm_id', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -632,7 +595,11 @@ returned.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.remove_rules_from_secgroup">
 <code class="sig-name descname">remove_rules_from_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.remove_rules_from_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.remove_rules_from_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>removes rules from a secgroup both locally and from azure group
+:param name:
+:param rules:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.remove_secgroup">
@@ -782,15 +749,26 @@ internally.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.upload_secgroup">
 <code class="sig-name descname">upload_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.upload_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.upload_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Takes the security group from the local db and push it to az
+:param name:
+:return:</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.azure.Provider.Provider.vm_state">
 <code class="sig-name descname">vm_state</code><em class="property"> = ['ACTIVE', 'BUILDING', 'DELETED', 'ERROR', 'HARD_REBOOT', 'PASSWORD', 'PAUSED', 'REBOOT', 'REBUILD', 'RESCUED', 'RESIZED', 'REVERT_RESIZE', 'SHUTOFF', 'SOFT_DELETED', 'STOPPED', 'SUSPENDED', 'UNKNOWN', 'VERIFY_RESIZE']</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.vm_state" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.wait">
+<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">interval=None</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
+</div>
+<div class="section" id="cloudmesh-compute-azure-test-module">
+<h2>cloudmesh.compute.azure.test module<a class="headerlink" href="#cloudmesh-compute-azure-test-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.compute.azure">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.compute.azure" title="Permalink to this headline">¶</a></h2>
