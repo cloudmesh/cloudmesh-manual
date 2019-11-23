@@ -4,10 +4,10 @@ Installation
 Cloudmesh is easy to install. Dependent on your preferences you can choose an
 install from
 
-* pip if you are a cloudmesh user
+* pip if you are a Cloudmesh user
 * source install if you are a developer
 
-Please read the instalatio section in this manual completely, and understand
+Please read the installation section in this manual completely, and understand
 the items explained before you install. Do not just paste and copy text in
 your terminal and execute it as it could have unexpected consequences.
 
@@ -22,7 +22,7 @@ Prerequisites
           do the development in python 3.7.4. This version can be downloaded
           and installed from https://www.python.org/downloads/.
 
-Prerequisits Ubuntu 19.04
+Prerequisites Ubuntu 19.04
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
@@ -58,12 +58,12 @@ from python.org or from homebrew.
 Python Installation from python.org
 """""""""""""""""""""""""""""""""""
 
-The easiest instalation of Python for cloudmesh is to use the instaltion from
+The easiest installation of Python for cloudmesh is to use the installation from
 https://www.python.org/downloads. Please, visit the page and follow the
 instructions. After this install you have `python3` avalable from the
 commandline
 
-Python Installation from Hoembrew
+Python Installation from Homebrew
 """""""""""""""""""""""""""""""""
 
 An alternative instalation is provided from Homebrew. To use this install
@@ -82,7 +82,7 @@ Then you should be able to install Python 3.7.4 using:
     brew install python
 
 
-Prerequisits Ubuntu 18.04
+Prerequisites Ubuntu 18.04
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning:: We recommend you update your ubuntu version to 19.04 and
@@ -146,17 +146,17 @@ Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.
     sudo apt -y install openssl curl
 
 
-Prerequisits Windows 10
+Prerequisites Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 On Windows 10 you can install cloudmesh in either the system or a Linux
 Subsystem. We recommend that you use the Professional or the Educational
-version of Windows as the Home eddition is very limitted. Alternatively, you
+version of Windows as the Home edition is very limited. Alternatively, you
 can also use the docker version of cloudmesh.
 
 .. warning:: The docker version of cloudmesh is still under development.
 
-.. warning:: We do not recommend or suppport other versions of Windows.
+.. warning:: We do not recommend or support other versions of Windows.
 
 System Install
 """"""""""""""
@@ -176,7 +176,7 @@ A suitable distribution would be
 
 However as it uses an older version of python you will ahve to update it.
 
-Prerequisit venv
+Prerequisite venv
 ^^^^^^^^^^^^^^^^
 
 .. _Use a venv:
@@ -221,7 +221,7 @@ Installation with Pip
 ---------------------
 
 If you like to use cloudmesh as user, the installation can be done with pip.
-Cloudmesh is stritributes in different modules and you only need to install
+Cloudmesh is distributed in different modules and you only need to install
 the modules you desire. Dependent on your needs
 you can install the cloudmesh `cloud` or `storage` bundle with:
 
@@ -233,7 +233,7 @@ or
 
 .. code:: bash
 
-   pip install cloudmesh-storage # not yest supported
+   pip install cloudmesh-storage # not yet supported
 
 Please note that the storage bundle also includes `cloudmesh-cloud`
 .Additional packages include but are not yet released:
@@ -303,7 +303,7 @@ install while listing them
 
    mkdir cm
    cd cm
-   cloudmesh-installer bundels
+   cloudmesh-installer bundles
 
 Once you have decided whihc bundle to install you can proceed. If you only want
 to use compute resources the bundle name ``cloud`` will be what you want.
@@ -319,10 +319,10 @@ Let, us assume you chose ``cloud``, than you can install cloudmesh with
 
 The `-e` option is very important as it compiles the code in place of the
 downloaded directories and in case of changes in the directory automatically
-makes them available to the instaled version. This is naturally very
+makes them available to the installed version. This is naturally very
 important. It will take a while to install. On newer machines 1 minute, on older
 significant longer. Please watch your system information if the install
-takes a long time. Afterthe instalation is complete, you can than test if you
+takes a long time. After the installation is complete, you can than test if you
 successfully installed it by issuing the command
 
 .. code:: bash
@@ -411,18 +411,18 @@ this install. Just make sure to create an admin user with password.
 However if you do not use MongoDB, you can also uninstall it and then follw our
 easy install guide.
 
-To unsinstall, please terminate and delete the MongoDB service. Run as
+To uninstall, please terminate and delete the MongoDB service. Run as
 administrator in cms
 
 .. code:: bash
 
     sc delete MongoDB
 
-Please google for deatils on how to uninstall, and communicate them to us so we
+Please google for details on how to uninstall, and communicate them to us so we
 can include them into this manual. Typically, click on the `.msi` that you used to
-install it snad initialte the uninstall process.
+install it and initiate the uninstall process.
 
-Instalation
+Installation
 ^^^^^^^^^^^
 
 First, you will need to install a ``cloudmesh.yaml`` file, if you have not
@@ -457,7 +457,7 @@ mongo, but also add the path to your ``.bash_*`` file. In case
 of windows platform, you will have to set the PATH variable manually. To
 install it simply say.
 
-Alternatively you can set thes values form the commandline without using an
+Alternatively you can set these values form the command line without using an
 editor with
 
 .. code:: bash
@@ -504,7 +504,7 @@ Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.
 
-Prerequisit ssh key
+Prerequisite ssh key
 -------------------
 
 In order for you to use cloudmesh you will need an ssh key. This can be
@@ -518,7 +518,7 @@ Please make sure to use a passphrase with your key. Anyone telling you to use
 a passwordless key is giving you a wrong advice.
 
 Next you want to add a keyname that you use in your clouds to the cloudmesh
-yaml file. YOu can do this by completing the profile or form the commandline
+yaml file. You can do this by completing the profile or form the command line
 with:
 
 .. code:: bash
