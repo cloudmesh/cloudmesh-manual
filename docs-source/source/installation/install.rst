@@ -555,7 +555,7 @@ following command to install mongo:
     to install and start the MongoDB System Service. When prompted that the
     Service failed to start, simply select ``Ignore``.
 
-.. image:: images\MongoInstall_Windows_Ignore.png
+.. image:: images/MongoInstall_Windows_Ignore.png
 
 After the installation completes, in a Linux/MacOS environment, confirm the
 MongoDB installation path was added to the ``.bash_*`` file. This should have
@@ -565,7 +565,7 @@ was used to kick off the installation.
 In a Windows environment, however, the default path is not automatically added
 to the Path variable, so you will need to add this manually:
 
-.. image:: images\MongoInstall_Windows_Path.png
+.. image:: images/MongoInstall_Windows_Path.png
 
 
 Now that MongoDB has been installed, we can simultaneously password protect
@@ -611,21 +611,21 @@ Next, delete the Mongo installation directories. Please reference the
 cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
 ``cms admin mongo install`` was used to initially install Mongo.
 
-.. image:: images\MongoInstall_Windows_InstallPathYAML.png
+.. image:: images/MongoInstall_Windows_InstallPathYAML.png
 
 Finally, execute the mongodb msiexe installer to check if there are any
 remaining components that need to be uninstalled. Once launched, click on the
 ``Remove`` button. Note that this installer can be downloaded locally using the
 URL found under the MONGO_DOWNLOAD variable in the cloudmesh.yaml file.
 
-.. image:: images\MongoInstall_Windows_msiexec.png
+.. image:: images/MongoInstall_Windows_msiexec.png
 
 .. note::
   If Compass was installed, this can simply be removed by navigating to the
   Windows 'Add Remove Programs'.
 
 You have now successfully removed MongoDB, and are ready to reinstall a fresh
-instance. 
+instance.
 
 
 Prerequisites for ssh key
