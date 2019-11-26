@@ -43,7 +43,7 @@ Prerequisites for macOS
 Installation of XCode
 """""""""""""""""""""
 
-You want a number of useful tool on your macOS. They are not installed by
+You want a number of useful tools on your macOS. They are not installed by
 default, but are available via Xcode. First you need to install xcode from
 
 * https://apps.apple.com/us/app/xcode/id497799835
@@ -52,7 +52,7 @@ Next you need to install macOS xcode command line tools::
 
     xcode-select --install
 
-Next you want to install a python version. You can either chose the instalation
+Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.
 
 Python Installation from python.org
@@ -149,9 +149,10 @@ Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.
 Prerequisites for Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On Windows 10 you can install cloudmesh by either using a Windows System installation approach
-or a Linux Subsystem installation approach. We recommend that you use the Professional or the Educational
-version of Windows, as the Home edition is very limited.
+On Windows 10 you can install cloudmesh by either using a Windows
+System installation approach or a Linux Subsystem installation
+approach. We recommend that you use the Professional or the
+Educational version of Windows, as the Home edition is very limited.
 Alternatively, you can also use the docker version of cloudmesh.
 
 .. warning:: The docker version of cloudmesh is still under development.
@@ -170,6 +171,10 @@ Windows System Installation Approach
 Linux Subsystem Installation Approach
 """""""""""""""""""""""""""""""""""""
 
+.. warning:: MongoDB reports that mongo is not yet working on Linux
+	     Subsystem. As cloudmesh uses mongo, please do not yet use
+	     the Linux Subsystem install.
+
 To activate the Linux Subsystem, please follow the instructions at
 
 * https://docs.microsoft.com/en-us/windows/wsl/install-win10
@@ -185,36 +190,38 @@ Prerequisites for venv (ENV3)
 
 .. _Use a venv:
 
-VirtualEnv (or ``venv``) is a Python module which allows the creation of an isolated
-Python environment. Implementing this step is highly recommended to ensure cloudmesh
-and cloudmesh-related installations do not interfere with a system-level
-installation of python.
+VirtualEnv (or ``venv``) is a Python module which allows the creation
+of an isolated Python environment. Implementing this step is highly
+recommended to ensure cloudmesh and cloudmesh-related installations do
+not interfere with a system-level installation of python.
 
-.. warning:: Not using a venv could have catastrophic consequences and result in the
-  destruction of operating system tools which rely on Python.
+.. warning:: Not using a `venv` could have catastrophic consequences and
+  result in the destruction of operating system tools which rely on
+  Python.
 
-Once venv has been implemented, activation of the venv is very simple, and
-will contain subsequent package installations within the virutalenv;
-mitigating risks of global package installations.
+Once `venv` has been implemented, activation of the `venv` is very simple,
+and will contain subsequent package installations within the
+virutalenv; mitigating risks of global package installations.
 
 For our purposes we assume that you use the directory::
 
     ~/ENV3
 
-.. note:: In a Linux subsystem, '~/' is the default location, assumed to be the home directory.
-   In a windows system, this location is assumed to be under 'C:\\Users\\<username>'.
+.. note:: In a Linux subsystem, '~/' is the default location, assumed
+   to be the home directory.  In a windows system, this location is
+   assumed to be under 'C:\\Users\\<username>'.
 
 **venv Setup on Linux and macOS**
 
-For venv setup on Linux or macOs, run the following:
+For the `venv` setup on Linux or macOs, run the following:
 
 .. code:: bash
 
    python3 -m venv  ~/ENV3
    source ~/ENV3/bin/activate
 
-You can add at the end of your .bashrc (ubuntu) or .bash_profile (macOS) file
-the line so the environment is always loaded.
+You can add at the end of your `.bashrc` (ubuntu) or `.bash_profile`
+(macOS) file the line so the environment is always loaded.
 
 .. code:: bash
 
@@ -222,7 +229,8 @@ the line so the environment is always loaded.
 
 **venv Setup on Windows**
 
-Similarly, for Windows, run the following while under the default directory of  under 'C:\\Users\\<username>':
+Similarly, for Windows, run the following while under the default
+directory of under 'C:\\Users\\<username>':
 
 .. code:: cmd
 
@@ -237,14 +245,15 @@ Then add the ENV3 variable name to the Path variable.
 
 .. image:: images/ENV3addedtoPath.png
 
-Lastly, to simplify the venv activation call, create a new .bat file under the
-default directory, and add the following snippet of code to the file.
+Lastly, to simplify the `venv` activation call, create a new `ENV3.bat`
+file under the default directory, and add the following content to the
+file.
 
 .. code:: cmd
 
   C:\Users\<username>\ENV3\Scripts\activate.bat
 
-.. note:: The same can be done Windows Powershell by creating a ENV3.ps1 to
+.. note:: The same can be done Windows Powershell by creating a `ENV3.ps1` to
   reference the activate.ps1 command.
 
 
@@ -262,6 +271,7 @@ Example using Windows environment variable:
 .. image:: images/activateENV3_variable.png
 
 **Validate Python and Pip Version in venv**
+
 Check if you have the right version of python installed with
 
 .. code:: bash
@@ -279,16 +289,18 @@ Now you are ready to install cloudmesh.
 Installation of Cloudmesh (End User)
 ------------------------------------
 
-.. note:: The installation steps below assume you intend to use cloudmesh only as a user.
-   If you intend to utilize cloudmesh as a developer, we encourage you to skip ahead
-   to the next section which lists the installation steps required for a source install.
+.. note:: The end user installation steps assume you intend to use
+   cloudmesh only as a user.  If you intend to utilize cloudmesh as a
+   developer, you must skip ahead to the next section which
+   lists the installation steps required for a source install.
 
-The recommended installation approach for cloudmesh is handled through pip.
-Cloudmesh is distributed in different modules, so as an end user, you only need
-to install the modules you desire.
+The recommended installation approach for cloudmesh is handled through
+pip.  Cloudmesh is distributed in different modules, so as an end
+user, you only need to install the modules you desire.
 
-Prior to beginning, be sure to activate your venv, ``ENV3``. Then, depending on your
-needs, you can install the cloudmesh `cloud` or `storage` bundle with:
+Prior to beginning, be sure to activate your venv, e.g.``ENV3``. Then,
+depending on your needs, you can install the cloudmesh `cloud` or
+`storage` bundle with:
 
 .. code:: bash
 
@@ -300,8 +312,9 @@ or
 
    pip install cloudmesh-storage # not yet supported
 
-Please note that the storage bundle also includes `cloudmesh-cloud`
-.Additional packages include but are not yet released:
+Please note that the storage bundle also includes
+`cloudmesh-cloud`. Additional packages include but are not yet
+released:
 
 .. code:: bash
 
@@ -320,10 +333,8 @@ time. Thus, just type the command
 
    cms help
 
-in your terminal. It will create a directory ``~/.cloudmesh``
-in which you can find the configuration file:
-
-::
+in your terminal. It will create a directory `~/.cloudmesh`
+in which you can find the configuration file::
 
     ~/.cloudmesh/cloudmesh.yaml
 
@@ -347,8 +358,8 @@ find in pypi. Therefore we recommend you use the pip based installation.
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------
 
-If you are a developer, we highly recommend you use the source installation steps
-listed below.
+If you are a developer, you must use the following source installation
+steps.
 
 For this reason we wrote the ``cloudmesh-installer`` script that conveniently downloads the
 needed repositories, installs them, and then updates them on demand. More documentation
