@@ -230,7 +230,12 @@ Similarly, for Windows, run the following while under the default directory of  
 
 Next, create a Windows system variable named "ENV3" and update the
 variable value to 'C:\\Users\\<username>\\ENV3\\Scripts\\activate'.
+
+.. image:: images/ENV3variable.png
+
 Then add the ENV3 variable name to the Path variable.
+
+.. image:: images/ENV3addedtoPath.png
 
 Lastly, to simplify the venv activation call, create a new .bat file under the
 default directory, and add the following snippet of code to the file.
@@ -245,8 +250,16 @@ default directory, and add the following snippet of code to the file.
 
 **Testing venv Activation**
 
-In command prompt, simply type "ENV3" while under the default directory;
+In command prompt, type "ENV3" while under the default directory;
 or if the bat file was not created, simply reference the system variable %ENV3%.
+
+Example using bat file activation:
+
+.. image:: images/activateENV3_bat.png
+
+Example using Windows environment variable:
+
+.. image:: images/activateENV3_variable.png
 
 **Validate Python and Pip Version in venv**
 Check if you have the right version of python installed with
@@ -338,25 +351,39 @@ If you are a developer, we highly recommend you use the source installation step
 listed below.
 
 For this reason we wrote the ``cloudmesh-installer`` script that conveniently downloads the
-needed repositories, installs and updates them on demand. More documentation
+needed repositories, installs them, and then updates them on demand. More documentation
 about it can be found at
 
 -  https://github.com/cloudmesh/cloudmesh-installer
 
-First make sure you have a python ``venv`` as described in the pip section
-(see `Use a venv`_). Now you can install it with
+First make sure you have a python ``venv`` as described in the prerequisites for
+venv section (see `Use a venv`_).
 
-.. code:: bash
-
-   pip install cloudmesh-installer
-
-Next, it is best to create an empty directory and decide which bundles to
-install while listing them
+Navigate to the default directory, then activate the venv (ENV3).
+Then create an empty directory labeled ``cm``, and change directory to it.
 
 .. code:: bash
 
    mkdir cm
    cd cm
+
+Before beginning installation, be sure to confirm pip is up to date
+
+.. code:: bash
+
+   pip install pip -U
+
+and then run the following:
+
+.. code:: bash
+
+   pip install cloudmesh-installer
+
+When cloudmesh-installer has been installed, while still under the cm directory,
+run the following to list which cloudmesh bundles to install:
+
+.. code:: bash
+
    cloudmesh-installer bundles
 
 Once you have decided which bundle to install you can proceed. If you only want
@@ -375,20 +402,21 @@ The `-e` option is very important as it compiles the code in place of the
 downloaded directories and in case of changes in the directory automatically
 makes them available to the installed version. This is naturally very
 important. It will take a while to install. On newer machines 1 minute, on older
-significant longer. Please watch your system information if the install
-takes a long time. After the installation is complete, you can than test if you
-successfully installed it by issuing the command
+machines, it may take significantly longer. Please watch your system information
+if the install takes a long time. After the installation is complete, you can
+then test if you have successfully installed it by issuing the following command:
 
 .. code:: bash
 
     cms help
 
-You will see a list of commands. A directory ``~/.cloudmesh`` with some
-default files will be installed, that you will need to modify at one point.
+Not only will you see a list of commands, a directory ``~/.cloudmesh`` with some
+of cloudmesh's default configuration files will be installed. You will need to
+modify these files at some point.
 
 
-Updates
-^^^^^^^
+Cloudmesh Updates
+^^^^^^^^^^^^^^^^^
 
 To update the source from github, simply use the `cloudmesh-installer` command
 while making sure to specify the desired bundle name, let us assume you use
@@ -402,7 +430,7 @@ If you see any conflicts make sure to resolve them.
 
 Please note that in an update it could also be possible that the format of the
 cloudmesh.yaml file may have changed. Thus we always recommend that you also
-update the yaml file to the newest format. YOU can check the yaml file with
+update the yaml file to the newest format. You can check the yaml file with
 
 .. code:: bash
 
@@ -446,8 +474,10 @@ Make sure to delete the old version, wherever you installed them.
 
 All cloudmesh related information is stored in the ``.cloudmesh`` directory.
 In case you want to start fresh, simply delete that directory and its
-subdirectories. However, if you need information form it make sure you make a
-backup. Please note that in this file you have sensitive information and it
+subdirectories. However, if you need information from it make sure you make a
+backup.
+
+Please note that in this file you have sensitive information and it
 should never be backed up into github, box, icloud, or other such services.
 Keep it on your computer or back it up on an secure encrypted external hard
 drive or storage media only you have access to.
@@ -456,48 +486,41 @@ drive or storage media only you have access to.
 Installation of MongoDB
 -----------------------
 
-Uninstall of MongoDB on Windows 10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-On Windows 10 you may already have mongo installed. If so you certainly can use
-this install. Just make sure to create an admin user with password.
-
-However if you do not use MongoDB, you can also uninstall it and then follw our
-easy install guide.
-
-To uninstall, please terminate and delete the MongoDB service. Run as
-administrator in cms
-
-.. code:: bash
-
-    sc delete MongoDB
-
-Please google for details on how to uninstall, and communicate them to us so we
-can include them into this manual. Typically, click on the `.msi` that you used to
-install it and initiate the uninstall process.
-
 MongoDB Installation Steps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First, you will need to install a ``cloudmesh.yaml`` file, if you have not
-done this before. If you do have mongo, you can safe this step. However,
-make sure you do not expose mongo on the internet so that you keep your
-information in mongo private. The easiest way to install mongo is with our
-build in install script. You will need to set first permission to use this
-install.  To do so start with the command
+The following steps document the MongoDB Server configuration and installation
+steps from the standpoint of a fresh install. We recommend utilizing our
+build script for a seamless installation experience.
+However, If you already have a pre-existing installation of MongoDB,
+please feel free to skip ahead once you've reviewed the configuration steps and
+confirmed you have an admin user with a strong password created.
+
+If you would like to remove an existing MongoDB installation,
+please skip to the next subsection in order to reference the uninstall steps
+for MongoDB; then revert back to this section to kick off a fresh install.
+
+You should also note to *not* expose mongo on the internet in order
+to keep your information within mongo private.
+
+Prior to kicking off a MongoDB installation, you will need to install and
+configure the ``cloudmesh.yaml`` file if you have not already done so.
+To install it, run the following command:
 
 .. code:: bash
 
    cms help
 
-Now you will need to edit the configuration file
+Then, be sure to edit the cloudmesh.yaml configuration file (which is created
+under ``~/.cloudmesh`` directory) and update the parameters values used in the
+mongo install. You can use a text editor, such as:
 
 .. code:: bash
 
     emacs ~/.cloudmesh/cloudmesh.yaml
 
-and change the password of the mongo entry to something you like, e.g. change
-the TBD to a real strong password::
+and change the password of the mongo entry to something of your choosing.
+Note, be sure to use a very strong password credential::
 
    MONGO_PASSWORD: TBD
 
@@ -506,49 +529,60 @@ In case you do not have mongod installed, you can do so for macOS and Ubuntu
 
    MONGO_AUTOINSTALL: True
 
-Now you can run the ``admin mongo install`` command. It will not only install
-mongo, but also add the path to your ``.bash_*`` file. In case
-of windows platform, you will have to set the PATH variable manually. To
-install it simply say.
-
-Alternatively you can set these values form the command line without using an
-editor with
+Alternatively you can set these cloudmesh.yaml parameter values from the
+command line  without using an editor by running the following:
 
 .. code:: bash
 
     cms config set cloudmesh.data.mongo.MONGO_AUTOINSTALL=True
     cms config set cloudmesh.data.mongo.MONGO_PASSWORD=YOURPASSWORD
 
-Make sure to set a good strong password for Mongo that you can remember
+Another item to note is the default location of the MongoDB installation.
+In a Linux/MacOS environment, the default installation path will be under
+``~/local/mongo/bin``. In a Windows environment, the default path is under
+``C:\Users\<username>\.cloudmesh\mongo``. If you would like to change these
+paths, be sure to update these in the cloudmesh.yaml file.
 
-Now you can install mongo conveniently from cloudmesh if you have not
-installed it. On macOS and ubuntu it will install it under::
-
-    ~/local/mongo/bin.
-
-Please make sure that this path is added to your PATH variable after the
-install is complete. If you like to change that path you can do it in the yaml
-file.
-
-Next we need to install mongo with
+Once configuration of the cloudmesh.yaml file has been completed,  run the
+following command to install mongo:
 
 .. code:: bash
 
-   cms admin mongo install
+  cms admin mongo install
 
-As we password protect mongo, you will need to first run the command
+.. note:: In a Windows installation, we are only required to install MongoDB
+    Server, *not* MongoDB Service. By default, the silent installer will attempt
+    to install and start the MongoDB System Service. When prompted that the
+    Service failed to start, simply select ``Ignore``.
+
+.. image:: images/MongoInstall_Windows_Ignore.png
+
+After the installation completes, in a Linux/MacOS environment, confirm the
+MongoDB installation path was added to the ``.bash_*`` file. This should have
+already been done automatically if the ``cms admin mongo install`` command
+was used to kick off the installation.
+
+In a Windows environment, however, the default path is not automatically added
+to the Path variable, so you will need to add this manually:
+
+.. image:: images/MongoInstall_Windows_Path.png
+
+
+Now that MongoDB has been installed, we can simultaneously password protect
+mongo (as per the password you've entered in the yaml file), and test the
+installation by running the following command:
 
 .. code:: bash
 
     cms admin mongo create
 
-Now you can start mongo for cloudmesh with
+Then, confirm you can start mongo for cloudmesh with:
 
 .. code:: bash
 
    cms admin mongo start
 
-In case you need to stop it you can use the command
+In case you need to stop it, you can use the command:
 
 .. code:: bash
 
@@ -557,6 +591,42 @@ In case you need to stop it you can use the command
 Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.
+
+Uninstall of MongoDB on Windows 10
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Reference the following steps if you wish to uninstall MongoDB from a Windows 10
+installation.
+
+To uninstall, please terminate the MongoDB service (if applicable), *then*
+delete it. To stop the service, open Task Manager and confirm the status =
+"Stopped". To delete it, run the following as an administrator from
+the command line:
+
+.. code:: bash
+
+    sc.exe delete MongoDB
+
+Next, delete the Mongo installation directories. Please reference the
+cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
+``cms admin mongo install`` was used to initially install Mongo.
+
+.. image:: images/MongoInstall_Windows_InstallPathYAML.png
+
+Finally, execute the mongodb msiexe installer to check if there are any
+remaining components that need to be uninstalled. Once launched, click on the
+``Remove`` button. Note that this installer can be downloaded locally using the
+URL found under the MONGO_DOWNLOAD variable in the cloudmesh.yaml file.
+
+.. image:: images/MongoInstall_Windows_msiexec.png
+
+.. note::
+  If Compass was installed, this can simply be removed by navigating to the
+  Windows 'Add Remove Programs'.
+
+You have now successfully removed MongoDB, and are ready to reinstall a fresh
+instance.
+
 
 Prerequisites for ssh key
 -------------------------
