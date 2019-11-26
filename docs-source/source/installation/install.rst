@@ -207,9 +207,9 @@ For our purposes we assume that you use the directory::
 
     ~/ENV3
 
-.. note:: In a Linux subsystem, '~/' is the default location, assumed
+.. note:: In a Linux subsystem, `~/` is the default location, assumed
    to be the home directory.  In a windows system, this location is
-   assumed to be under 'C:\\Users\\<username>'.
+   assumed to be under `C:\Users\USERNAME`.
 
 **venv Setup on Linux and macOS**
 
@@ -230,18 +230,18 @@ You can add at the end of your `.bashrc` (ubuntu) or `.bash_profile`
 **venv Setup on Windows**
 
 Similarly, for Windows, run the following while under the default
-directory of under 'C:\\Users\\<username>':
+directory of under `C:\Users\USERNAME`:
 
 .. code:: cmd
 
   python -m venv --without-pip ENV3
 
-Next, create a Windows system variable named "ENV3" and update the
-variable value to 'C:\\Users\\<username>\\ENV3\\Scripts\\activate'.
+Next, create a Windows system variable named `ENV3` and update the
+variable value to `C:\Users\USERNAME\ENV3\Scripts\activate`.
 
 .. image:: images/ENV3variable.png
 
-Then add the ENV3 variable name to the Path variable.
+Then add the `ENV3` variable name to the Path variable.
 
 .. image:: images/ENV3addedtoPath.png
 
@@ -251,7 +251,7 @@ file.
 
 .. code:: cmd
 
-  C:\Users\<username>\ENV3\Scripts\activate.bat
+  C:\Users\USERNAME\ENV3\Scripts\activate.bat
 
 .. note:: The same can be done Windows Powershell by creating a `ENV3.ps1` to
   reference the activate.ps1 command.
@@ -264,11 +264,24 @@ or if the bat file was not created, simply reference the system variable %ENV3%.
 
 Example using bat file activation:
 
-.. image:: images/activateENV3_bat.png
+.. code:: bash
+
+   C:\Users\USERNAME> ENV3
+
+   ...
+
+   (ENV3) C:\Users\USERNAME>
+
 
 Example using Windows environment variable:
 
-.. image:: images/activateENV3_variable.png
+.. code:: bash
+
+   C:\Users\USERNAME> %ENV3%
+
+   (ENV3) C:\Users\USERNAME>
+
+In both cases you will see the command prompt starting with `(ENV3)`.
 
 **Validate Python and Pip Version in venv**
 
@@ -560,7 +573,7 @@ command line  without using an editor by running the following:
 Another item to note is the default location of the MongoDB installation.
 In a Linux/MacOS environment, the default installation path will be under
 ``~/local/mongo/bin``. In a Windows environment, the default path is under
-``C:\Users\<username>\.cloudmesh\mongo``. If you would like to change these
+``C:\Users\USERNAME\.cloudmesh\mongo``. If you would like to change these
 paths, be sure to update these in the cloudmesh.yaml file.
 
 Once configuration of the cloudmesh.yaml file has been completed,  run the
