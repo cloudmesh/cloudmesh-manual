@@ -131,6 +131,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#azure-account">Azure Account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#azure-cli">Azure CLI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage">Azure Resource Group (for Storage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-api-credentials">Azure API Credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#azure-subscription-id">Azure_Subscription_ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-tenant-id-azure-client-id">Azure_Tenant_ID &amp; Azure_Client_ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-secret-key">Azure_Secret_Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grant-permission-to-applicaiton">Grant permission to applicaiton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-the-credentials-to-cloudmesh-yaml">Add the credentials to cloudmesh.yaml</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-compute">Azure Resource Group (for Compute)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage-and-compute">Azure Resource Group (for Storage and Compute)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a></li>
@@ -334,6 +342,56 @@ similar to a directory in a file system. A default
 <code class="docutils literal notranslate"><span class="pre">Container</span></code> should be set in the
 <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, details of which are outlined
 <a class="reference external" href="configuration/configuration">here</a></p>
+</div>
+<div class="section" id="azure-api-credentials">
+<h2>Azure API Credentials<a class="headerlink" href="#azure-api-credentials" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="azure-subscription-id">
+<h3>Azure_Subscription_ID<a class="headerlink" href="#azure-subscription-id" title="Permalink to this headline">¶</a></h3>
+<p>Navigate to subscriptions</p>
+<p><img alt="Navigate to Subs" src="../_images/image3.PNG" /></p>
+<p>Copy the Subscription ID to notepad</p>
+<p><img alt="sub ID" src="../_images/image4.PNG" /></p>
+</div>
+<div class="section" id="azure-tenant-id-azure-client-id">
+<h3>Azure_Tenant_ID &amp; Azure_Client_ID<a class="headerlink" href="#azure-tenant-id-azure-client-id" title="Permalink to this headline">¶</a></h3>
+<p>Navigate to “Azure Active Directory” service and select “App Registrations”.
+Then select “New Registration”</p>
+<p><img alt="app register" src="../_images/image5.PNG" /></p>
+<p>You can input any name for the application</p>
+<p><img alt="app creation" src="../_images/image6.PNG" /></p>
+<p>After creation, you will be navigated to the overview page of the application, on this page copy the client ID and tenant ID to notepad</p>
+<p><img alt="app overview" src="../_images/image7.PNG" /></p>
+</div>
+<div class="section" id="azure-secret-key">
+<h3>Azure_Secret_Key<a class="headerlink" href="#azure-secret-key" title="Permalink to this headline">¶</a></h3>
+<p>In the same application page, navigate to Certificates &amp; secrets and select “New client secret”</p>
+<p><img alt="cert and sec" src="../_images/image8.PNG" /></p>
+<p>You can give any meaningful name to the new secret, use the default expiration for security purpose</p>
+<p><img alt="add client secret" src="../_images/image9.PNG" /></p>
+<p>After creation, copy the new client secret to notepad
+<img alt="new client secret" src="../_images/image10.PNG" /></p>
+</div>
+<div class="section" id="grant-permission-to-applicaiton">
+<h3>Grant permission to applicaiton<a class="headerlink" href="#grant-permission-to-applicaiton" title="Permalink to this headline">¶</a></h3>
+<p>After we have collected 4 credentials,
+we need to add a role assignment to the application that we just created,
+so it can access the resources</p>
+<p>Navigate to the subscription overview page and select “Access control(IAM)”
+then select “add”, “Add role assignment”</p>
+<p><img alt="add role assignment" src="../_images/image11.PNG" /></p>
+<p>You can give the application “Contributor” role,
+the “contributor” role has enough access for compute resources.
+Leave the second option as “Azure AD user, group, or service principal”.
+For third option, you need to input the application name that you just created,
+it doesn’t show up by default</p>
+<p><img alt="grant role assignment" src="../_images/image12.PNG" /></p>
+</div>
+<div class="section" id="add-the-credentials-to-cloudmesh-yaml">
+<h3>Add the credentials to cloudmesh.yaml<a class="headerlink" href="#add-the-credentials-to-cloudmesh-yaml" title="Permalink to this headline">¶</a></h3>
+<p>Now we need to open cloudmesh.yaml and add the 4 credentials
+that we just collected to the “azure” section of cloudmesh.yaml</p>
+<p><img alt="cloudmesh.yaml" src="../_images/image13.PNG" /></p>
+</div>
 </div>
 <div class="section" id="azure-resource-group-for-compute">
 <h2>Azure Resource Group (for Compute)<a class="headerlink" href="#azure-resource-group-for-compute" title="Permalink to this headline">¶</a></h2>

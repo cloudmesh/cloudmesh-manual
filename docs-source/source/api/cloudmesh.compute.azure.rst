@@ -12,6 +12,14 @@ cloudmesh.compute.azure.Provider module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.compute.azure.test module
+-----------------------------------
+
+.. automodule:: cloudmesh.compute.azure.test
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

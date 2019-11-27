@@ -43,7 +43,7 @@ Prerequisites for macOS
 Installation of XCode
 """""""""""""""""""""
 
-You want a number of useful tool on your macOS. They are not installed by
+You want a number of useful tools on your macOS. They are not installed by
 default, but are available via Xcode. First you need to install xcode from
 
 * https://apps.apple.com/us/app/xcode/id497799835
@@ -52,7 +52,7 @@ Next you need to install macOS xcode command line tools::
 
     xcode-select --install
 
-Next you want to install a python version. You can either chose the instalation
+Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.
 
 Python Installation from python.org
@@ -149,9 +149,10 @@ Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.
 Prerequisites for Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On Windows 10 you can install cloudmesh by either using a Windows System installation approach
-or a Linux Subsystem installation approach. We recommend that you use the Professional or the Educational
-version of Windows, as the Home edition is very limited.
+On Windows 10 you can install cloudmesh by either using a Windows
+System installation approach or a Linux Subsystem installation
+approach. We recommend that you use the Professional or the
+Educational version of Windows, as the Home edition is very limited.
 Alternatively, you can also use the docker version of cloudmesh.
 
 .. warning:: The docker version of cloudmesh is still under development.
@@ -170,6 +171,10 @@ Windows System Installation Approach
 Linux Subsystem Installation Approach
 """""""""""""""""""""""""""""""""""""
 
+.. warning:: MongoDB reports that mongo is not yet working on Linux
+	     Subsystem. As cloudmesh uses mongo, please do not yet use
+	     the Linux Subsystem install.
+
 To activate the Linux Subsystem, please follow the instructions at
 
 * https://docs.microsoft.com/en-us/windows/wsl/install-win10
@@ -185,36 +190,38 @@ Prerequisites for venv (ENV3)
 
 .. _Use a venv:
 
-VirtualEnv (or ``venv``) is a Python module which allows the creation of an isolated
-Python environment. Implementing this step is highly recommended to ensure cloudmesh
-and cloudmesh-related installations do not interfere with a system-level
-installation of python.
+VirtualEnv (or ``venv``) is a Python module which allows the creation
+of an isolated Python environment. Implementing this step is highly
+recommended to ensure cloudmesh and cloudmesh-related installations do
+not interfere with a system-level installation of python.
 
-.. warning:: Not using a venv could have catastrophic consequences and result in the
-  destruction of operating system tools which rely on Python.
+.. warning:: Not using a `venv` could have catastrophic consequences and
+  result in the destruction of operating system tools which rely on
+  Python.
 
-Once venv has been implemented, activation of the venv is very simple, and
-will contain subsequent package installations within the virutalenv;
-mitigating risks of global package installations.
+Once `venv` has been implemented, activation of the `venv` is very simple,
+and will contain subsequent package installations within the
+virutalenv; mitigating risks of global package installations.
 
 For our purposes we assume that you use the directory::
 
     ~/ENV3
 
-.. note:: In a Linux subsystem, '~/' is the default location, assumed to be the home directory.
-   In a windows system, this location is assumed to be under 'C:\\Users\\<username>'.
+.. note:: In a Linux subsystem, `~/` is the default location, assumed
+   to be the home directory.  In a windows system, this location is
+   assumed to be under `C:\Users\USERNAME`.
 
 **venv Setup on Linux and macOS**
 
-For venv setup on Linux or macOs, run the following:
+For the `venv` setup on Linux or macOs, run the following:
 
 .. code:: bash
 
    python3 -m venv  ~/ENV3
    source ~/ENV3/bin/activate
 
-You can add at the end of your .bashrc (ubuntu) or .bash_profile (macOS) file
-the line so the environment is always loaded.
+You can add at the end of your `.bashrc` (ubuntu) or `.bash_profile`
+(macOS) file the line so the environment is always loaded.
 
 .. code:: bash
 
@@ -222,29 +229,31 @@ the line so the environment is always loaded.
 
 **venv Setup on Windows**
 
-Similarly, for Windows, run the following while under the default directory of  under 'C:\\Users\\<username>':
+Similarly, for Windows, run the following while under the default
+directory of under `C:\Users\USERNAME`:
 
 .. code:: cmd
 
   python -m venv --without-pip ENV3
 
-Next, create a Windows system variable named "ENV3" and update the
-variable value to 'C:\\Users\\<username>\\ENV3\\Scripts\\activate'.
+Next, create a Windows system variable named `ENV3` and update the
+variable value to `C:\Users\USERNAME\ENV3\Scripts\activate`.
 
 .. image:: images/ENV3variable.png
 
-Then add the ENV3 variable name to the Path variable.
+Then add the `ENV3` variable name to the Path variable.
 
 .. image:: images/ENV3addedtoPath.png
 
-Lastly, to simplify the venv activation call, create a new .bat file under the
-default directory, and add the following snippet of code to the file.
+Lastly, to simplify the `venv` activation call, create a new `ENV3.bat`
+file under the default directory, and add the following content to the
+file.
 
 .. code:: cmd
 
-  C:\Users\<username>\ENV3\Scripts\activate.bat
+  C:\Users\USERNAME\ENV3\Scripts\activate.bat
 
-.. note:: The same can be done Windows Powershell by creating a ENV3.ps1 to
+.. note:: The same can be done Windows Powershell by creating a `ENV3.ps1` to
   reference the activate.ps1 command.
 
 
@@ -255,13 +264,27 @@ or if the bat file was not created, simply reference the system variable %ENV3%.
 
 Example using bat file activation:
 
-.. image:: images/activateENV3_bat.png
+.. code:: bash
+
+   C:\Users\USERNAME> ENV3
+
+   ...
+
+   (ENV3) C:\Users\USERNAME>
+
 
 Example using Windows environment variable:
 
-.. image:: images/activateENV3_variable.png
+.. code:: bash
+
+   C:\Users\USERNAME> %ENV3%
+
+   (ENV3) C:\Users\USERNAME>
+
+In both cases you will see the command prompt starting with `(ENV3)`.
 
 **Validate Python and Pip Version in venv**
+
 Check if you have the right version of python installed with
 
 .. code:: bash
@@ -279,16 +302,18 @@ Now you are ready to install cloudmesh.
 Installation of Cloudmesh (End User)
 ------------------------------------
 
-.. note:: The installation steps below assume you intend to use cloudmesh only as a user.
-   If you intend to utilize cloudmesh as a developer, we encourage you to skip ahead
-   to the next section which lists the installation steps required for a source install.
+.. note:: The end user installation steps assume you intend to use
+   cloudmesh only as a user.  If you intend to utilize cloudmesh as a
+   developer, you must skip ahead to the next section which
+   lists the installation steps required for a source install.
 
-The recommended installation approach for cloudmesh is handled through pip.
-Cloudmesh is distributed in different modules, so as an end user, you only need
-to install the modules you desire.
+The recommended installation approach for cloudmesh is handled through
+pip.  Cloudmesh is distributed in different modules, so as an end
+user, you only need to install the modules you desire.
 
-Prior to beginning, be sure to activate your venv, ``ENV3``. Then, depending on your
-needs, you can install the cloudmesh `cloud` or `storage` bundle with:
+Prior to beginning, be sure to activate your venv, e.g.``ENV3``. Then,
+depending on your needs, you can install the cloudmesh `cloud` or
+`storage` bundle with:
 
 .. code:: bash
 
@@ -300,8 +325,9 @@ or
 
    pip install cloudmesh-storage # not yet supported
 
-Please note that the storage bundle also includes `cloudmesh-cloud`
-.Additional packages include but are not yet released:
+Please note that the storage bundle also includes
+`cloudmesh-cloud`. Additional packages include but are not yet
+released:
 
 .. code:: bash
 
@@ -320,10 +346,8 @@ time. Thus, just type the command
 
    cms help
 
-in your terminal. It will create a directory ``~/.cloudmesh``
-in which you can find the configuration file:
-
-::
+in your terminal. It will create a directory `~/.cloudmesh`
+in which you can find the configuration file::
 
     ~/.cloudmesh/cloudmesh.yaml
 
@@ -347,27 +371,27 @@ find in pypi. Therefore we recommend you use the pip based installation.
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------
 
-If you are a developer, we highly recommend you use the source installation steps
-listed below.
+If you are a developer, you must use or simple source installation
+steps. For this reason we wrote the ``cloudmesh-installer`` script
+that conveniently downloads the needed repositories, installs them,
+and can also be used to updates them. More documentation about the
+installer can be found at
 
-For this reason we wrote the ``cloudmesh-installer`` script that conveniently downloads the
-needed repositories, installs them, and then updates them on demand. More documentation
-about it can be found at
+*  <https://github.com/cloudmesh/cloudmesh-installer>
 
--  https://github.com/cloudmesh/cloudmesh-installer
+First make sure you have a python ``venv`` created, as described in
+the prerequisites for venv section (see `Use a venv`_). Activate the
+venv (`ENV3`).
 
-First make sure you have a python ``venv`` as described in the prerequisites for
-venv section (see `Use a venv`_).
-
-Navigate to the default directory, then activate the venv (ENV3).
-Then create an empty directory labeled ``cm``, and change directory to it.
+Navigate to for example the home directory, Then create an empty
+directory labeled ``cm``, and change into the `cm` directory.
 
 .. code:: bash
 
    mkdir cm
    cd cm
 
-Before beginning installation, be sure to confirm pip is up to date
+Before beginning the installation, be sure to confirm `pip` is up to date
 
 .. code:: bash
 
@@ -379,8 +403,8 @@ and then run the following:
 
    pip install cloudmesh-installer
 
-When cloudmesh-installer has been installed, while still under the cm directory,
-run the following to list which cloudmesh bundles to install:
+After `cloudmesh-installer` has been installed  (while still under the `cm` directory),
+run the following command to list the available cloudmesh `bundles`:
 
 .. code:: bash
 
@@ -391,7 +415,7 @@ to use compute resources the bundle name ``cloud`` will be what you want.
 If in addition you also like to work on storage, the bundle name ``storage``
 needs to be used.
 
-Let, us assume you chose ``cloud``, than you can install cloudmesh with
+Let, us assume you chose `cloud`, than you can install cloudmesh with
 
 .. code:: bash
 
@@ -401,16 +425,20 @@ Let, us assume you chose ``cloud``, than you can install cloudmesh with
 The `-e` option is very important as it compiles the code in place of the
 downloaded directories and in case of changes in the directory automatically
 makes them available to the installed version. This is naturally very
-important. It will take a while to install. On newer machines 1 minute, on older
-machines, it may take significantly longer. Please watch your system information
-if the install takes a long time. After the installation is complete, you can
-then test if you have successfully installed it by issuing the following command:
+important when developing in a team where you frequently update.
+
+It will take a while for the install to complete. On newer machines it
+takes 1 minute, on older machines, it may take significantly
+longer. Please watch your system resource information if the install
+takes a long time. Make sure to terminate other resource hungry
+programs.  After the installation is complete, you can then test if
+you have successfully installed it by issuing the following command:
 
 .. code:: bash
 
     cms help
 
-Not only will you see a list of commands, a directory ``~/.cloudmesh`` with some
+Not only will you see a list of commands, a directory `~/.cloudmesh` with some
 of cloudmesh's default configuration files will be installed. You will need to
 modify these files at some point.
 
@@ -418,7 +446,7 @@ modify these files at some point.
 Cloudmesh Updates
 ^^^^^^^^^^^^^^^^^
 
-To update the source from github, simply use the `cloudmesh-installer` command
+To update the source from GitHub, simply use the `cloudmesh-installer` command
 while making sure to specify the desired bundle name, let us assume you use
 ``cloud``
 
@@ -429,7 +457,7 @@ while making sure to specify the desired bundle name, let us assume you use
 If you see any conflicts make sure to resolve them.
 
 Please note that in an update it could also be possible that the format of the
-cloudmesh.yaml file may have changed. Thus we always recommend that you also
+`cloudmesh.yaml` file may have changed. Thus we always recommend that you also
 update the yaml file to the newest format. You can check the yaml file with
 
 .. code:: bash
@@ -437,9 +465,10 @@ update the yaml file to the newest format. You can check the yaml file with
     cms config check
 
 
-As developer sometimes it may be best to make a backup of the `cm` directory or
-individual repositories in the cm directory. Then copy your changes into the
-newest code. Make sure to remove all python artifacts created with the -e
+As developer sometimes it may be best to make a backup of the `cm` and
+`~\.cloudmesh` directory or individual repositories in the cm
+directory. Then copy your changes into the newest code. Make sure to
+remove all python artifacts in the backup directory with the `-e`
 option. See the command
 
 .. code:: bash
@@ -452,8 +481,8 @@ Reinstallation
 ^^^^^^^^^^^^^^
 
 In case you need to reinstall cloudmesh and you have used previously the
-cloudmesh-installer, you can do it as follows (We assume you have used venv
-and the ``cloudmesh-installer`` in the directory cm as documented previously):
+`cloudmesh-installer`, you can do it as follows (We assume you have used venv
+and the `cloudmesh-installer` in the directory cm as documented previously):
 
 .. code:: bash
 
@@ -472,13 +501,13 @@ Make sure to delete the old version, wherever you installed them.
 .cloudmesh directory
 --------------------
 
-All cloudmesh related information is stored in the ``.cloudmesh`` directory.
-In case you want to start fresh, simply delete that directory and its
-subdirectories. However, if you need information from it make sure you make a
-backup.
+All cloudmesh related configuration information is stored in the
+`.cloudmesh` directory.  In case you want to start fresh, simply
+delete that directory and its subdirectories. However, if you need
+information from it make sure you make a backup.
 
 Please note that in this file you have sensitive information and it
-should never be backed up into github, box, icloud, or other such services.
+should never be backed up into GitHub, box, icloud, or other such services.
 Keep it on your computer or back it up on an secure encrypted external hard
 drive or storage media only you have access to.
 
@@ -489,21 +518,25 @@ Installation of MongoDB
 MongoDB Installation Steps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following steps document the MongoDB Server configuration and installation
-steps from the standpoint of a fresh install. We recommend utilizing our
-build script for a seamless installation experience.
-However, If you already have a pre-existing installation of MongoDB,
-please feel free to skip ahead once you've reviewed the configuration steps and
-confirmed you have an admin user with a strong password created.
+The following steps document the MongoDB server configuration and
+installation steps from the standpoint of a fresh install. We
+recommend utilizing our build script for a seamless installation
+experience.  However, If you already have a pre-existing installation
+of MongoDB, please feel free to skip ahead once you've reviewed the
+configuration steps and confirmed you have an admin user with a strong
+password created. Please also note that some commands we use during
+the development wipe out the database completely including all
+collections. So make a backup. 
 
-If you would like to remove an existing MongoDB installation,
-please skip to the next subsection in order to reference the uninstall steps
-for MongoDB; then revert back to this section to kick off a fresh install.
+If you would like to remove an existing MongoDB installation, please
+skip to the next subsection in order to reference the uninstall steps
+for MongoDB; then revert back to this section to kick off a fresh
+install.
 
 You should also note to *not* expose mongo on the internet in order
 to keep your information within mongo private.
 
-Prior to kicking off a MongoDB installation, you will need to install and
+Prior to starting the MongoDB installation, you will need to install and
 configure the ``cloudmesh.yaml`` file if you have not already done so.
 To install it, run the following command:
 
@@ -517,7 +550,7 @@ mongo install. You can use a text editor, such as:
 
 .. code:: bash
 
-    emacs ~/.cloudmesh/cloudmesh.yaml
+   emacs ~/.cloudmesh/cloudmesh.yaml
 
 and change the password of the mongo entry to something of your choosing.
 Note, be sure to use a very strong password credential::
@@ -534,13 +567,13 @@ command line  without using an editor by running the following:
 
 .. code:: bash
 
-    cms config set cloudmesh.data.mongo.MONGO_AUTOINSTALL=True
-    cms config set cloudmesh.data.mongo.MONGO_PASSWORD=YOURPASSWORD
+   cms config set cloudmesh.data.mongo.MONGO_AUTOINSTALL=True
+   cms config set cloudmesh.data.mongo.MONGO_PASSWORD=YOURPASSWORD
 
 Another item to note is the default location of the MongoDB installation.
 In a Linux/MacOS environment, the default installation path will be under
 ``~/local/mongo/bin``. In a Windows environment, the default path is under
-``C:\Users\<username>\.cloudmesh\mongo``. If you would like to change these
+``C:\Users\USERNAME\.cloudmesh\mongo``. If you would like to change these
 paths, be sure to update these in the cloudmesh.yaml file.
 
 Once configuration of the cloudmesh.yaml file has been completed,  run the
@@ -550,10 +583,11 @@ following command to install mongo:
 
   cms admin mongo install
 
-.. note:: In a Windows installation, we are only required to install MongoDB
-    Server, *not* MongoDB Service. By default, the silent installer will attempt
-    to install and start the MongoDB System Service. When prompted that the
-    Service failed to start, simply select ``Ignore``.
+.. note:: In a Windows installation, we are only required to install
+          MongoDB Server, *not* MongoDB Service. By default, the
+          silent installer will attempt to install and start the
+          MongoDB System Service. When prompted that the Service
+          failed to start, simply select ``Ignore``.
 
 .. image:: images/MongoInstall_Windows_Ignore.png
 
@@ -609,36 +643,37 @@ have MongoDB Server Service installed through an alternative installation method
 outside of cloudmesh, proceed through the following steps if you wish to
 completely uninstall MongoDB.
 
-Note
 
-To uninstall, please terminate the MongoDB service (if applicable), *then*
-delete it. To stop the service, open Task Manager and confirm the status =
-"Stopped". To delete it, run the following as an administrator from
-the command line:
+To uninstall, please terminate the running MongoDB service (if
+applicable), *then* delete it. To stop the service, open Task Manager
+and confirm the status = `Stopped`. If it is not stoppe, please do
+so. To delete it, run the following as an administrator from the
+command line:
 
 .. code:: bash
 
-    sc.exe delete MongoDB
+   sc.exe delete MongoDB
 
 Next, delete the Mongo installation directories. Please reference the
 cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
 ``cms admin mongo install`` was attempted at some point.
 
+
 .. image:: images/MongoInstall_Windows_InstallPathYAML.png
 
-Finally, execute the mongodb msiexe installer to check if there are any
-remaining components that need to be uninstalled. Once launched, click on the
-``Remove`` button. Note that this installer can be downloaded locally using the
-URL found under the MONGO_DOWNLOAD variable in the cloudmesh.yaml file.
+Finally, execute the mongodb `msiexe` installer to check if there are
+any remaining components that need to be uninstalled. Once launched,
+click on the `Remove` button. Note that this installer can be
+downloaded locally using the URL found under the MONGO_DOWNLOAD
+variable in the cloudmesh.yaml file.
 
 .. image:: images/MongoInstall_Windows_msiexec.png
 
-.. note::
-  If Compass was installed, this can simply be removed by navigating to the
-  Windows 'Add Remove Programs'.
+.. note:: If Compass was installed, this can simply be removed by
+          navigating to the Windows 'Add Remove Programs'.
 
-You have now successfully removed MongoDB, and are ready to reinstall a fresh
-instance.
+You have now successfully removed MongoDB, and are ready to reinstall
+a fresh instance.
 
 
 Prerequisites for ssh key
@@ -664,3 +699,11 @@ with:
     cms set key user=YOURUSERNAME
 
 The `cms init` includes this automatically.
+
+Installation of cloudmesh with Docker
+-------------------------------------
+
+Cloudmesh can also be installed with a specialized `cloudmesh-cmsd`
+command that is distributed as source and on PyPi.
+
+TODO: describe
