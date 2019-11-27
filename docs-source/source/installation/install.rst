@@ -595,8 +595,21 @@ file.
 Uninstall of MongoDB on Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Reference the following steps if you wish to uninstall MongoDB from a Windows 10
-installation.
+This section documents the necessary steps required to uninstall MongoDB.
+
+Note that there are two distinct uninstallation steps to consider. If you have
+installed MongoDB using the cloudmesh installer
+(i.e. ``cms admin mongo install``), Mongo is not installed with a service by
+default, and can be simply uninstalled by removing the install directories
+under ``~\.cloudmesh`` (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
+variables within the cloudmesh.yaml file for specifics).
+
+If, however, you have a pre-existing installation of MongoDB, or
+have MongoDB Server Service installed through an alternative installation method
+outside of cloudmesh, proceed through the following steps if you wish to
+completely uninstall MongoDB.
+
+Note
 
 To uninstall, please terminate the MongoDB service (if applicable), *then*
 delete it. To stop the service, open Task Manager and confirm the status =
@@ -609,7 +622,7 @@ the command line:
 
 Next, delete the Mongo installation directories. Please reference the
 cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
-``cms admin mongo install`` was used to initially install Mongo.
+``cms admin mongo install`` was attempted at some point.
 
 .. image:: images/MongoInstall_Windows_InstallPathYAML.png
 
