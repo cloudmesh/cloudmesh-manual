@@ -408,7 +408,7 @@ run the following command to list the available cloudmesh `bundles`:
 
 .. code:: bash
 
-   cloudmesh-installer bundles
+   cloudmesh-installer list
 
 Once you have decided which bundle to install you can proceed. If you only want
 to use compute resources the bundle name ``cloud`` will be what you want.
@@ -420,12 +420,7 @@ Let, us assume you chose `cloud`, than you can install cloudmesh with
 .. code:: bash
 
    cloudmesh-installer git clone cloud
-   cloudmesh-installer install cloud -e
-
-The `-e` option is very important as it compiles the code in place of the
-downloaded directories and in case of changes in the directory automatically
-makes them available to the installed version. This is naturally very
-important when developing in a team where you frequently update.
+   cloudmesh-installer install cloud
 
 It will take a while for the install to complete. On newer machines it
 takes 1 minute, on older machines, it may take significantly
@@ -468,13 +463,12 @@ update the yaml file to the newest format. You can check the yaml file with
 As developer sometimes it may be best to make a backup of the `cm` and
 `~\.cloudmesh` directory or individual repositories in the cm
 directory. Then copy your changes into the newest code. Make sure to
-remove all python artifacts in the backup directory with the `-e`
-option. See the command
+remove all python artifacts in the backup directory the command
 
 .. code:: bash
 
     cd cm
-    cloudmesh-installer local purge .
+    cloudmesh-installer clean --dir=. --force
 
 
 Reinstallation
@@ -487,16 +481,14 @@ and the `cloudmesh-installer` in the directory cm as documented previously):
 .. code:: bash
 
     cd cm # the directory where your source locates
-    cloudmesh-installer local purge . --force
-    rm -rf ~/ENV3
+    cloudmesh-installer clean --dir=. --force
+    cloudmesh-installer clean --ENV=~/ENV3 --force
     python3 -m venv ~/ENV3
     pip install pip -U
     pip install cloudmesh-installer
-    cloudmesh-installer install cloud -e
+    cloudmesh-installer install cloud
     cms help
 
-Please note that this will not work if you did not use the -e option previously.
-Make sure to delete the old version, wherever you installed them.
 
 .cloudmesh directory
 --------------------
