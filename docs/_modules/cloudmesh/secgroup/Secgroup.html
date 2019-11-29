@@ -197,9 +197,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.secgroup.Secgroup</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="k">import</span> <span class="n">DatabaseUpdate</span>
+<span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
 
 
 <span class="c1">#</span>
@@ -209,7 +209,7 @@
 
 <div class="viewcode-block" id="SecgroupExamples"><a class="viewcode-back" href="../../../api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.SecgroupExamples">[docs]</a><span class="k">class</span> <span class="nc">SecgroupExamples</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">secgroups</span> <span class="o">=</span> <span class="p">{</span>
 
@@ -299,11 +299,11 @@
 <div class="viewcode-block" id="SecgroupDatabase"><a class="viewcode-back" href="../../../api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.SecgroupDatabase">[docs]</a><span class="k">class</span> <span class="nc">SecgroupDatabase</span><span class="p">:</span>
 
     <span class="c1"># noinspection PyShadowingBuiltins</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.cloud}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.cloud}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">&quot;</span>
 
 <div class="viewcode-block" id="SecgroupDatabase.clear"><a class="viewcode-back" href="../../../api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.SecgroupDatabase.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">)</span><span class="o">.</span><span class="n">delete_many</span><span class="p">({})</span></div>
@@ -359,7 +359,7 @@
 
 <div class="viewcode-block" id="SecgroupRule"><a class="viewcode-back" href="../../../api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.SecgroupRule">[docs]</a><span class="k">class</span> <span class="nc">SecgroupRule</span><span class="p">(</span><span class="n">SecgroupDatabase</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secrule&quot;</span><span class="p">)</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
@@ -414,7 +414,7 @@
 
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secgroup&quot;</span><span class="p">)</span>
 
     <span class="c1"># noinspection PyBroadException</span>

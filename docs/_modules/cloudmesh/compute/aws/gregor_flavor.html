@@ -198,18 +198,18 @@
             
   <h1>Source code for cloudmesh.compute.aws.gregor_flavor</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
-<span class="kn">from</span> <span class="nn">tabulate</span> <span class="k">import</span> <span class="n">tabulate</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
 
 <div class="viewcode-block" id="AwsImages"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.gregor_flavor.AwsImages">[docs]</a><span class="k">class</span> <span class="nc">AwsImages</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">html</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_tables</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">html</span><span class="p">)</span>
 
@@ -255,11 +255,11 @@
         <span class="k">return</span> <span class="n">output</span></div>
 
 <div class="viewcode-block" id="AwsImages.print"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.gregor_flavor.AwsImages.print">[docs]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">banner</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Table&quot;</span><span class="p">)</span>
+        <span class="n">banner</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table&quot;</span><span class="p">)</span>
         <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="AwsImages.pprint"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.gregor_flavor.AwsImages.pprint">[docs]</a>    <span class="k">def</span> <span class="nf">pprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">banner</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Table&quot;</span><span class="p">)</span>
+        <span class="n">banner</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table&quot;</span><span class="p">)</span>
         <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="AwsImages.table"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.gregor_flavor.AwsImages.table">[docs]</a>    <span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;fancy_grid&quot;</span><span class="p">):</span>
@@ -305,7 +305,7 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="k">import</span> <span class="n">StopWatch</span>
+    <span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="kn">import</span> <span class="n">StopWatch</span>
 
     <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;convert aws image table&quot;</span><span class="p">)</span>
     <span class="n">images</span> <span class="o">=</span> <span class="n">AwsImages</span><span class="p">()</span>

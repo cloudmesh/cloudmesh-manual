@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cloudmesh.security package" href="cloudmesh.security.html" />
+    <link rel="next" title="cloudmesh.service package" href="cloudmesh.service.html" />
     <link rel="prev" title="cloudmesh.sec package" href="cloudmesh.sec.html" /> 
 </head>
 
@@ -162,11 +162,10 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.html">cloudmesh.sec package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.secgroup package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.secgroup.Secgroup">cloudmesh.secgroup.Secgroup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-secgroup-secgroup-module">cloudmesh.secgroup.Secgroup module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.secgroup">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.security.html">cloudmesh.security package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.service.html">cloudmesh.service package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.set.html">cloudmesh.set package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.shell.html">cloudmesh.shell package</a></li>
@@ -281,97 +280,8 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.secgroup.Secgroup">
-<span id="cloudmesh-secgroup-secgroup-module"></span><h2>cloudmesh.secgroup.Secgroup module<a class="headerlink" href="#module-cloudmesh.secgroup.Secgroup" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.secgroup.Secgroup.Secgroup">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.secgroup.Secgroup.</code><code class="sig-name descname">Secgroup</code><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#Secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.Secgroup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase" title="cloudmesh.secgroup.Secgroup.SecgroupDatabase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.secgroup.Secgroup.SecgroupDatabase</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.Secgroup.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.Secgroup.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.Secgroup.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.Secgroup.delete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cloudmesh.secgroup.Secgroup.Secgroup.output">
-<code class="sig-name descname">output</code><em class="property"> = {'all': {'header': ['Group', 'Rule', 'Protocol', 'Ports', 'IP Range'], 'order': ['group', 'rule', 'protocol', 'ports', 'ip_range'], 'sort_keys': ['group', 'rule']}, 'secgroup': {'header': ['Name', 'Rules', 'Description'], 'order': ['name', 'rules', 'description'], 'sort_keys': ['name']}, 'secrule': {'header': ['Name', 'Protocol', 'Ports', 'IP Range'], 'order': ['name', 'protocol', 'ports', 'ip_range'], 'sort_keys': ['name']}}</em><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.Secgroup.output" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupDatabase">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.secgroup.Secgroup.</code><code class="sig-name descname">SecgroupDatabase</code><span class="sig-paren">(</span><em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupDatabase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupDatabase.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupDatabase.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupDatabase.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupDatabase.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupDatabase.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupDatabase.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupDatabase.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupDatabase.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase.remove" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupDatabase.update_dict_list">
-<code class="sig-name descname">update_dict_list</code><span class="sig-paren">(</span><em class="sig-param">entries</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupDatabase.update_dict_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase.update_dict_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupExamples">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.secgroup.Secgroup.</code><code class="sig-name descname">SecgroupExamples</code><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupExamples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupExamples" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupExamples.group">
-<code class="sig-name descname">group</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">cm=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupExamples.group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupExamples.group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupExamples.load">
-<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupExamples.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupExamples.rule">
-<code class="sig-name descname">rule</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">cm=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupExamples.rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupExamples.rule" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupRule">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.secgroup.Secgroup.</code><code class="sig-name descname">SecgroupRule</code><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupRule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cloudmesh.secgroup.Secgroup.SecgroupDatabase" title="cloudmesh.secgroup.Secgroup.SecgroupDatabase"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.secgroup.Secgroup.SecgroupDatabase</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupRule.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupRule.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.secgroup.Secgroup.SecgroupRule.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/secgroup/Secgroup.html#SecgroupRule.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.Secgroup.SecgroupRule.delete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cloudmesh-secgroup-secgroup-module">
+<h2>cloudmesh.secgroup.Secgroup module<a class="headerlink" href="#cloudmesh-secgroup-secgroup-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.secgroup">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.secgroup" title="Permalink to this headline">¶</a></h2>
@@ -386,7 +296,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cloudmesh.security.html" class="btn btn-neutral float-right" title="cloudmesh.security package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cloudmesh.service.html" class="btn btn-neutral float-right" title="cloudmesh.service package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cloudmesh.sec.html" class="btn btn-neutral float-left" title="cloudmesh.sec package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

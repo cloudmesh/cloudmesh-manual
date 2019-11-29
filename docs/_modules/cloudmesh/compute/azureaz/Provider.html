@@ -199,14 +199,14 @@
   <h1>Source code for cloudmesh.compute.azureaz.Provider</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">webbrowser</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="k">import</span> <span class="n">StopWatch</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="kn">import</span> <span class="n">StopWatch</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
 
 
 <div class="viewcode-block" id="timer"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.timer">[docs]</a><span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -284,7 +284,7 @@
 <span class="sd">    }</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
         <span class="n">configuration</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
         <span class="n">conf</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">]</span>
 
@@ -346,15 +346,15 @@
 <div class="viewcode-block" id="Provider.create_resource_group"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.create_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="n">f</span><span class="s2">&quot;Resource can not be found, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Resource can not be found, &quot;</span>
                 <span class="s2">&quot;Name: </span><span class="si">{name}</span><span class="s2">, Location: </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group create --name </span><span class="si">{name}</span><span class="s2"> --location </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;az group create --name </span><span class="si">{name}</span><span class="s2"> --location </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.delete_resource_group"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.delete_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">delete_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Resource can not be found, Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group delete --yes --name </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group exists --name </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resource can not be found, Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;az group delete --yes --name </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;az group exists --name </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span></div>
 
 <div class="viewcode-block" id="Provider.list_resource_group"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.list_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">list_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -367,11 +367,11 @@
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm create&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --image </span><span class="si">{image}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --admin-username </span><span class="si">{username}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --generate-ssh-keys&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --image </span><span class="si">{image}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --admin-username </span><span class="si">{username}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --generate-ssh-keys&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
@@ -380,8 +380,8 @@
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm delete --yes&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="c1"># print(command)</span>
         <span class="c1"># r = Shell.execute(command, shell=True)</span>
         <span class="c1"># BUG MUST RETURN A DICT</span>
@@ -393,7 +393,7 @@
             <span class="c1"># noinspection PyPep8</span>
             <span class="n">command</span> <span class="o">=</span> \
                 <span class="s2">&quot;az vm list&quot;</span> \
-                    <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
             <span class="n">VERBOSE</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -402,26 +402,26 @@
             <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="Provider.info"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;az vm show&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;az vm show&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.status"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm get-instance-view&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --query instanceView.statuses[1]&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --query instanceView.statuses[1]&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
-            <span class="n">f</span><span class="s2">&quot;az vm stop&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;az vm stop&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="c1"># print(command)</span>
         <span class="c1"># r = Shell.execute(command, shell=True)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
@@ -429,9 +429,9 @@
 <div class="viewcode-block" id="Provider.start"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
-            <span class="n">f</span><span class="s2">&quot;az vm start&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;az vm start&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="c1"># return self.az(command)</span>
         <span class="c1"># print(command)</span>
         <span class="c1"># r = Shell.execute(command, shell=True)</span>
@@ -442,9 +442,9 @@
                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
-            <span class="n">f</span><span class="s2">&quot;az vm restart&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;az vm restart&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -454,15 +454,15 @@
         <span class="n">ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ip</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
         <span class="n">address</span> <span class="o">=</span> <span class="n">ip</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;virtualMachine&#39;</span><span class="p">][</span><span class="s1">&#39;network&#39;</span><span class="p">][</span><span class="s1">&#39;publicIpAddresses&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
             <span class="s1">&#39;ipAddress&#39;</span><span class="p">]</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;ssh -o &quot;StrictHostKeyChecking no&quot; </span><span class="si">{user}</span><span class="s1">@</span><span class="si">{address}</span><span class="s1"> </span><span class="si">{command}</span><span class="s1">&#39;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;ssh -o &quot;StrictHostKeyChecking no&quot; </span><span class="si">{user}</span><span class="s1">@</span><span class="si">{address}</span><span class="s1"> </span><span class="si">{command}</span><span class="s1">&#39;</span>
         <span class="k">return</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.get_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.get_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 
                <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;az vm list-ip-addresses&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;az vm list-ip-addresses&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.connect"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -484,7 +484,7 @@
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm image list&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --location </span><span class="si">{location}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; --location </span><span class="si">{location}</span><span class="s2">&quot;</span>
         <span class="c1"># THIS OUGHT TO RETURN A DICT</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
@@ -493,7 +493,7 @@
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm list-sizes&quot;</span> \
-                <span class="n">f</span><span class="s2">&quot; --location </span><span class="si">{location}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; --location </span><span class="si">{location}</span><span class="s2">&quot;</span>
         <span class="c1"># THIS SHOULD RETURN A DICT</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 

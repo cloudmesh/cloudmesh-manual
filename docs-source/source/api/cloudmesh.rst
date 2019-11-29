@@ -35,7 +35,6 @@ Subpackages
    cloudmesh.register
    cloudmesh.sec
    cloudmesh.secgroup
-   cloudmesh.security
    cloudmesh.service
    cloudmesh.set
    cloudmesh.shell

@@ -198,9 +198,9 @@
             
   <h1>Source code for cloudmesh.mongo.WindowsService</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 
 
 <div class="viewcode-block" id="WindowsService"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.WindowsService.WindowsService">[docs]</a><span class="k">class</span> <span class="nc">WindowsService</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -215,8 +215,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># use sd delete as posted in piazza</span>
         <span class="c1"># needs the service to be stopped we guess</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;sc delete </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span></div>
-
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sc delete </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="WindowsService.status"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.WindowsService.WindowsService.status">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MongoDB&quot;</span><span class="p">):</span>
@@ -260,7 +259,7 @@
             <span class="n">element</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
                 <span class="k">if</span> <span class="s2">&quot;:&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                    <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
                     <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
                     <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
                     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;STATE&quot;</span><span class="p">:</span>

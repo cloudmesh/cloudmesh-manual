@@ -197,12 +197,12 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.man.command.man</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="kn">import</span> <span class="nn">textwrap</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
 
 
 <div class="viewcode-block" id="ManCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.man.command.html#cloudmesh.man.command.man.ManCommand">[docs]</a><span class="k">class</span> <span class="nc">ManCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
@@ -225,9 +225,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
         <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;help&#39;</span><span class="p">])</span> \
-              <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;::</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;.. parsed-literal::</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> \
-              <span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;help&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
         <span class="nb">print</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_print_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>

@@ -198,9 +198,9 @@
             
   <h1>Source code for cloudmesh.common3.DateTime</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">TIME</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timezone</span>
 <span class="kn">import</span> <span class="nn">humanize</span> <span class="k">as</span> <span class="nn">HUMANIZE</span>
-<span class="kn">from</span> <span class="nn">dateutil</span> <span class="k">import</span> <span class="n">parser</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">calendar</span>
 
@@ -208,7 +208,6 @@
 
 
 <div class="viewcode-block" id="DateTime"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.DateTime.DateTime">[docs]</a><span class="k">class</span> <span class="nc">DateTime</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class provides some simple date time functions so we can use all the</span>
 <span class="sd">    same format. Here is a simple example</span>
@@ -256,7 +255,7 @@
 
 <div class="viewcode-block" id="DateTime.datetime"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.DateTime.DateTime.datetime">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">type</span> <span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="n">TIME</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="n">TIME</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">time</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">humanize</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
@@ -289,25 +288,26 @@
 <div class="viewcode-block" id="DateTime.utc_to_local"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.DateTime.DateTime.utc_to_local">[docs]</a>    <span class="k">def</span> <span class="nf">utc_to_local</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
         <span class="n">TIME_FORMAT</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>
         <span class="n">utc</span> <span class="o">=</span> <span class="n">TIME</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">TIME_FORMAT</span><span class="p">)</span>
-        <span class="n">timestamp</span> <span class="o">=</span>  <span class="n">calendar</span><span class="o">.</span><span class="n">timegm</span><span class="p">((</span><span class="n">TIME</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span> <span class="n">utc</span><span class="p">,</span> <span class="n">TIME_FORMAT</span><span class="p">))</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">timegm</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">TIME</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">utc</span><span class="p">,</span> <span class="n">TIME_FORMAT</span><span class="p">))</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
         <span class="n">local</span> <span class="o">=</span> <span class="n">TIME</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">TIME_FORMAT</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">local</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">timezone</span></div></div>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">stop</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;START&quot;</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;STOP&quot;</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;START&quot;</span><span class="p">,</span> <span class="n">start</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STOP&quot;</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HUMANIZE STOP&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">humanize</span><span class="p">(</span><span class="n">stop</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;LOCAL&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">local</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOCAL&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">local</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">utc</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NATURAL&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">natural</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WORDS&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TIMEZONE&quot;</span><span class="p">,</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">timezone</span><span class="p">)</span>
 
-    <span class="c1">#print(&quot;CONVERT&quot;, DateTime.local(&quot;2019-08-03 20:48:27.205442 UTC&quot;))</span>
+    <span class="c1"># print(&quot;CONVERT&quot;, DateTime.local(&quot;2019-08-03 20:48:27.205442 UTC&quot;))</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    START 2019-08-03 21:34:14.019147</span>
 <span class="sd">    STOP 2019-08-03 21:34:15.019150</span>

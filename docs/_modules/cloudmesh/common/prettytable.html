@@ -181,6 +181,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../common.html">cloudmesh.common</a> &raquo;</li>
+        
       <li>cloudmesh.common.prettytable</li>
     
     
@@ -249,17 +251,17 @@
     <span class="n">itermap</span> <span class="o">=</span> <span class="nb">map</span>
     <span class="n">iterzip</span> <span class="o">=</span> <span class="nb">zip</span>
     <span class="n">uni_chr</span> <span class="o">=</span> <span class="nb">chr</span>
-    <span class="kn">from</span> <span class="nn">html.parser</span> <span class="k">import</span> <span class="n">HTMLParser</span>
+    <span class="kn">from</span> <span class="nn">html.parser</span> <span class="kn">import</span> <span class="n">HTMLParser</span>
 <span class="k">else</span><span class="p">:</span> 
     <span class="n">itermap</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">imap</span>
     <span class="n">iterzip</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">izip</span>
     <span class="n">uni_chr</span> <span class="o">=</span> <span class="n">unichr</span>
-    <span class="kn">from</span> <span class="nn">HTMLParser</span> <span class="k">import</span> <span class="n">HTMLParser</span>
+    <span class="kn">from</span> <span class="nn">HTMLParser</span> <span class="kn">import</span> <span class="n">HTMLParser</span>
 
 <span class="k">if</span> <span class="n">py3k</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">html</span> <span class="k">import</span> <span class="n">escape</span>
+    <span class="kn">from</span> <span class="nn">html</span> <span class="kn">import</span> <span class="n">escape</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">cgi</span> <span class="k">import</span> <span class="n">escape</span>
+    <span class="kn">from</span> <span class="nn">cgi</span> <span class="kn">import</span> <span class="n">escape</span>
 
 <span class="c1"># hrule styles</span>
 <span class="n">FRAME</span> <span class="o">=</span> <span class="mi">0</span>
@@ -281,7 +283,7 @@
         
 <div class="viewcode-block" id="PrettyTable"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable">[docs]</a><span class="k">class</span> <span class="nc">PrettyTable</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="sd">&quot;&quot;&quot;Return a new PrettyTable instance</span>
 
@@ -397,7 +399,7 @@
                 <span class="c1"># Equal padding on either side</span>
                 <span class="k">return</span> <span class="p">(</span><span class="n">excess</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="p">(</span><span class="n">excess</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="s2">&quot; &quot;</span>
 
-    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;rowcount&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rows</span><span class="p">)</span>
@@ -411,7 +413,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
  
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
 
         <span class="n">new</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">()</span>
         <span class="n">new</span><span class="o">.</span><span class="n">field_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_names</span>
@@ -428,10 +430,10 @@
         <span class="k">return</span> <span class="n">new</span>
 
     <span class="k">if</span> <span class="n">py3k</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__unicode__</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__unicode__</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1521,7 +1523,7 @@
 
 <div class="viewcode-block" id="TableHandler"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.prettytable.TableHandler">[docs]</a><span class="k">class</span> <span class="nc">TableHandler</span><span class="p">(</span><span class="n">HTMLParser</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">HTMLParser</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>

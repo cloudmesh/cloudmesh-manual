@@ -199,19 +199,19 @@
   <h1>Source code for cloudmesh.compute.libcloud.Provider</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">HEADING</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.base</span> <span class="k">import</span> <span class="n">NodeAuthSSHKey</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="k">import</span> <span class="n">get_driver</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibcloudProvider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">HEADING</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.base</span> <span class="kn">import</span> <span class="n">NodeAuthSSHKey</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="kn">import</span> <span class="n">get_driver</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibcloudProvider</span>
 
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
@@ -282,7 +282,7 @@
 
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the provider. The default parameters are read from the</span>
 <span class="sd">        configuration file that is defined in yaml format.</span>
@@ -311,7 +311,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;openstack&#39;</span><span class="p">:</span>
 
                 <span class="k">if</span> <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;TBD&#39;</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;The password TBD is not allowed in cloud </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The password TBD is not allowed in cloud </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span>
                     <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_USERNAME&quot;</span><span class="p">],</span>

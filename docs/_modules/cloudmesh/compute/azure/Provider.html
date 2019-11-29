@@ -200,30 +200,30 @@
 <span></span><span class="kn">import</span> <span class="nn">ctypes</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">from</span> <span class="nn">ast</span> <span class="k">import</span> <span class="n">literal_eval</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
-<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
 
-<span class="kn">from</span> <span class="nn">azure.common.credentials</span> <span class="k">import</span> <span class="n">ServicePrincipalCredentials</span>
-<span class="kn">from</span> <span class="nn">azure.mgmt.compute</span> <span class="k">import</span> <span class="n">ComputeManagementClient</span>
-<span class="kn">from</span> <span class="nn">azure.mgmt.network</span> <span class="k">import</span> <span class="n">NetworkManagementClient</span>
-<span class="kn">from</span> <span class="nn">azure.mgmt.resource</span> <span class="k">import</span> <span class="n">ResourceManagementClient</span>
-<span class="kn">from</span> <span class="nn">azure.mgmt.network.v2018_12_01.models</span> <span class="k">import</span> <span class="n">NetworkSecurityGroup</span><span class="p">,</span> \
+<span class="kn">from</span> <span class="nn">azure.common.credentials</span> <span class="kn">import</span> <span class="n">ServicePrincipalCredentials</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.compute</span> <span class="kn">import</span> <span class="n">ComputeManagementClient</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.network</span> <span class="kn">import</span> <span class="n">NetworkManagementClient</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.resource</span> <span class="kn">import</span> <span class="n">ResourceManagementClient</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.network.v2018_12_01.models</span> <span class="kn">import</span> <span class="n">NetworkSecurityGroup</span><span class="p">,</span> \
     <span class="n">SecurityRule</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.DictList</span> <span class="k">import</span> <span class="n">DictList</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common3.DictList</span> <span class="kn">import</span> <span class="n">DictList</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
 <span class="kn">import</span> <span class="nn">azure.mgmt.network.models</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="k">import</span> <span class="n">DatabaseUpdate</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="k">import</span> <span class="n">ComputeProviderPlugin</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">HEADING</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">msrestazure.azure_exceptions</span> <span class="k">import</span> <span class="n">CloudError</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">ComputeProviderPlugin</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">HEADING</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">msrestazure.azure_exceptions</span> <span class="kn">import</span> <span class="n">CloudError</span>
 
 <span class="n">CLOUDMESH_YAML_PATH</span> <span class="o">=</span> <span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span>
 
@@ -395,7 +395,7 @@
     <span class="p">}</span>
 
     <span class="c1"># noinspection PyPep8Naming</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;azure&quot;</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;azure&quot;</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the provider. The default parameters are read from the</span>
 <span class="sd">        configuration file that is defined in yaml format.</span>
@@ -539,9 +539,9 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        azure does not allow explicit key upload!</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Azure does not allow explicit key upload! &#39;</span>
-                      <span class="n">f</span><span class="s1">&#39;Please use </span><span class="se">\&#39;</span><span class="s1">cms key</span><span class="se">\&#39;</span><span class="s1"> operations to add keys to the &#39;</span>
-                      <span class="n">f</span><span class="s1">&#39;local db and reference them at the VM creation!&#39;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Azure does not allow explicit key upload! &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;Please use </span><span class="se">\&#39;</span><span class="s1">cms key</span><span class="se">\&#39;</span><span class="s1"> operations to add keys to the &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;local db and reference them at the VM creation!&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="kc">None</span></div>
 
@@ -549,9 +549,9 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        azure does not allow explicit key upload!</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Azure does not allow explicit key delete! &#39;</span>
-                      <span class="n">f</span><span class="s1">&#39;Please use </span><span class="se">\&#39;</span><span class="s1">cms key</span><span class="se">\&#39;</span><span class="s1"> operations to delete keys from &#39;</span>
-                      <span class="n">f</span><span class="s1">&#39;the local db!&#39;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Azure does not allow explicit key delete! &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;Please use </span><span class="se">\&#39;</span><span class="s1">cms key</span><span class="se">\&#39;</span><span class="s1"> operations to delete keys from &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;the local db!&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="Provider.get_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.get_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -586,7 +586,7 @@
             <span class="p">)</span>
             <span class="n">res</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{ip}</span><span class="s1"> was deleted!&#39;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{ip}</span><span class="s1"> was deleted!&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;No ip was provided&#39;</span><span class="p">)</span></div>
 
@@ -608,7 +608,7 @@
         <span class="n">creation_result</span> <span class="o">=</span> <span class="p">[</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">public_ip_addresses</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
-                <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.PUBLIC_IP__NAME}</span><span class="s2">_</span><span class="si">{current_pub_count}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.PUBLIC_IP__NAME}</span><span class="s2">_</span><span class="si">{current_pub_count}</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="n">public_ip_params</span><span class="p">,</span>
             <span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">]</span>
 
@@ -630,7 +630,7 @@
         <span class="c1">#         return ip</span>
 
         <span class="c1"># if not len(pub_ips) == 0 create one</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Creating new public IP&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating new public IP&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_public_ip</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Provider.attach_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.attach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">attach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -672,7 +672,7 @@
         <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">public_ip_addresses</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
                                                              <span class="n">ip</span><span class="p">)</span>
         <span class="n">req</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;deleted pub ip </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;deleted pub ip </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_get_az_pub_ip_from_nic_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nic_id</span><span class="p">):</span>
         <span class="n">pub_ip</span> <span class="o">=</span> <span class="kc">None</span>
@@ -688,13 +688,13 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">cmDatabase</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;azure-vm&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">vm_name</span><span class="p">}))</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vm_search</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;unable to locate </span><span class="si">{vm_name}</span><span class="s2"> in local db!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unable to locate </span><span class="si">{vm_name}</span><span class="s2"> in local db!&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">vm_search</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">vm</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;vm or command can not be null&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;vm or command can not be null&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">vm_obj</span> <span class="o">=</span> <span class="n">vm</span>
@@ -705,7 +705,7 @@
 
         <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_az_pub_ip_from_nic_id</span><span class="p">(</span><span class="n">nic_id</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">pub_ip</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;unable to find public IP for </span><span class="si">{vm}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unable to find public IP for </span><span class="si">{vm}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="c1"># in the current API (vm/Provider), it does not provide a key name for</span>
         <span class="c1"># ssh. therefore, the key needs to be pulled from the vm. And therefore</span>
@@ -715,8 +715,8 @@
         <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;ssh &quot;</span> \
               <span class="s2">&quot;-o StrictHostKeyChecking=no &quot;</span> \
               <span class="s2">&quot;-o UserKnownHostsFile=/dev/null &quot;</span> \
-              <span class="n">f</span><span class="s2">&quot;-i </span><span class="si">{key_obj[&#39;location&#39;][&#39;private&#39;]}</span><span class="s2"> &quot;</span> \
-              <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.USERNAME}</span><span class="s2">@</span><span class="si">{pub_ip.ip_address}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;-i </span><span class="si">{key_obj[&#39;location&#39;][&#39;private&#39;]}</span><span class="s2"> &quot;</span> \
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.USERNAME}</span><span class="s2">@</span><span class="si">{pub_ip.ip_address}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
@@ -725,12 +725,12 @@
                     <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
                     <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
 
-                    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span>
                             <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
 
-                    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
                         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
 
@@ -744,12 +744,12 @@
                     <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
                     <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
 
-                    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span>
                             <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
 
-                    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
                         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
 
@@ -870,8 +870,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">cmDatabase</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;local-secgroup&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">local_sec_group</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;No security groups were not found in &#39;</span>
-                             <span class="n">f</span><span class="s1">&#39;local db for: </span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No security groups were not found in &#39;</span>
+                             <span class="sa">f</span><span class="s1">&#39;local db for: </span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
 
         <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">local_sec_group</span><span class="p">)</span>
 
@@ -900,13 +900,13 @@
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">local_sec_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_local_sec_rules</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;local security rules for </span><span class="se">\&#39;</span><span class="si">{name}</span><span class="se">\&#39;</span><span class="s1">: &#39;</span>
-                     <span class="n">f</span><span class="s1">&#39;{str(local_sec_rules)}&#39;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;local security rules for </span><span class="se">\&#39;</span><span class="si">{name}</span><span class="se">\&#39;</span><span class="s1">: &#39;</span>
+                     <span class="sa">f</span><span class="s1">&#39;{str(local_sec_rules)}&#39;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">az_sec_rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">security_rules</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;az security rules for </span><span class="se">\&#39;</span><span class="si">{name}</span><span class="se">\&#39;</span><span class="s1">: &#39;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;az security rules for </span><span class="se">\&#39;</span><span class="si">{name}</span><span class="se">\&#39;</span><span class="s1">: &#39;</span><span class="p">)</span>
             <span class="p">[</span><span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">az_sec_rules</span><span class="p">]</span>
         <span class="k">except</span> <span class="n">CloudError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Error in pulling sec rules: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
@@ -977,11 +977,11 @@
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">local_sec_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_local_sec_groups</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;local sec group: {str(local_sec_group)}&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;local sec group: {str(local_sec_group)}&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
             <span class="n">local_sec_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_local_sec_group</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{name}</span><span class="s1"> sec group is not found! Created new &#39;</span>
-                            <span class="n">f</span><span class="s1">&#39;group: {str(local_sec_group)}&#39;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{name}</span><span class="s1"> sec group is not found! Created new &#39;</span>
+                            <span class="sa">f</span><span class="s1">&#39;group: {str(local_sec_group)}&#39;</span><span class="p">)</span>
 
         <span class="c1"># self._add_az_sec_group(name)</span>
 
@@ -1031,7 +1031,7 @@
         <span class="n">del_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">network_security_groups</span><span class="o">.</span> \
             <span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">del_group</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Security group </span><span class="si">{name}</span><span class="s1"> deleted from Az!&#39;</span><span class="p">)</span></div>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Security group </span><span class="si">{name}</span><span class="s1"> deleted from Az!&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.upload_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.upload_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">upload_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1067,8 +1067,8 @@
         <span class="n">rule_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sec_rules</span><span class="p">}</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rule_names</span><span class="p">)</span> <span class="o">==</span> <span class="n">rules</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Some of the security rules are not available: &#39;</span>
-                             <span class="n">f</span><span class="s1">&#39;{str(rules)}&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Some of the security rules are not available: &#39;</span>
+                             <span class="sa">f</span><span class="s1">&#39;{str(rules)}&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Provider.add_rules_to_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.add_rules_to_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules_to_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroupname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newrules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1121,7 +1121,7 @@
         <span class="n">query</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cmDatabase</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;local-secgroup&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">update</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Security rules {str(rules)} locally!&#39;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Security rules {str(rules)} locally!&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rules</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">security_rules</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
@@ -1130,7 +1130,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">security_rules</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
                                                       <span class="n">name</span><span class="p">,</span>
                                                       <span class="n">rules</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Security rules {str(rules)} from az!&#39;</span><span class="p">)</span></div>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Security rules {str(rules)} from az!&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1234,7 +1234,7 @@
         <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmDatabase</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;local-key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Unable to find key: </span><span class="si">{key_name}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unable to find key: </span><span class="si">{key_name}</span><span class="s1">&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -1282,7 +1282,7 @@
                     <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">version</span>
                 <span class="p">},</span>
                 <span class="s1">&#39;os_disk&#39;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.OS_DISK_NAME}</span><span class="s2">_</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.OS_DISK_NAME}</span><span class="s2">_</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">,</span>
                     <span class="s1">&#39;create_option&#39;</span><span class="p">:</span> <span class="s1">&#39;FromImage&#39;</span><span class="p">,</span>
                     <span class="s1">&#39;disk_size_gb&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
                     <span class="s1">&#39;managed_disk&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -1303,7 +1303,7 @@
         <span class="n">az_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_az_sec_groups</span><span class="p">(</span><span class="n">sec_group_name</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">az_group</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;secgroup </span><span class="si">{sec_group_name}</span><span class="s2"> exists!&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;secgroup </span><span class="si">{sec_group_name}</span><span class="s2"> exists!&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">upload_secgroup</span><span class="p">(</span><span class="n">sec_group_name</span><span class="p">)</span>
 
@@ -1393,7 +1393,7 @@
 
         <span class="n">nic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">network_interfaces</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.NIC_NAME}</span><span class="s2">_</span><span class="si">{nic_count}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.NIC_NAME}</span><span class="s2">_</span><span class="si">{nic_count}</span><span class="s2">&quot;</span><span class="p">,</span>
             <span class="n">parameters</span><span class="o">=</span><span class="n">nic_params</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 

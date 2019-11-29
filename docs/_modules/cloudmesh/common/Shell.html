@@ -181,6 +181,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../common.html">cloudmesh.common</a> &raquo;</li>
+        
       <li>cloudmesh.common.Shell</li>
     
     
@@ -202,26 +204,25 @@
 <span class="sd">command be completely execute before the output is returned. FOr many activities in cloudmesh this is sufficient.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="kn">import</span> <span class="nn">errno</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shlex</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">zipfile</span>
-<span class="kn">from</span> <span class="nn">distutils.spawn</span> <span class="k">import</span> <span class="n">find_executable</span>
-<span class="kn">from</span> <span class="nn">pipes</span> <span class="k">import</span> <span class="n">quote</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
-<span class="kn">import</span> <span class="nn">platform</span> <span class="k">as</span> <span class="nn">os_platform</span>
+<span class="kn">from</span> <span class="nn">distutils.spawn</span> <span class="kn">import</span> <span class="n">find_executable</span>
+<span class="kn">from</span> <span class="nn">pipes</span> <span class="kn">import</span> <span class="n">quote</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span><span class="p">,</span> <span class="n">readfile</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="kn">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
-<span class="kn">import</span> <span class="nn">stat</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
 
 <div class="viewcode-block" id="Brew"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Brew">[docs]</a><span class="k">class</span> <span class="nc">Brew</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <div class="viewcode-block" id="Brew.install"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Brew.install">[docs]</a>    <span class="nd">@classmethod</span>
@@ -267,7 +268,7 @@
 <span class="sd">    THis command should not be directly called. Instead use SHell</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">returncode</span><span class="p">,</span> <span class="n">stderr</span><span class="p">,</span> <span class="n">stdout</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">returncode</span><span class="p">,</span> <span class="n">stderr</span><span class="p">,</span> <span class="n">stdout</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        sets the error</span>
 <span class="sd">        :param cmd: the command executed</span>
@@ -280,7 +281,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">stderr</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="k">def</span> <span class="nf">indent</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
@@ -311,7 +312,7 @@
 <span class="sd">    Executes a command. This class should not be directly used, but instead you should use Shell.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                  <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        execute the given command</span>
@@ -343,7 +344,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># TODO: we have not supported cygwin for a while</span>
-    <span class="c1"># cygwin_path = &#39;bin&#39;  # i copied fom C:\cygwin\bin</span>
+    <span class="n">cygwin_path</span> <span class="o">=</span> <span class="s1">&#39;bin&#39;</span>  <span class="c1"># i copied fom C:\cygwin\bin</span>
 
     <span class="n">command</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;windows&#39;</span><span class="p">:</span> <span class="p">{},</span>
@@ -371,54 +372,6 @@
     <span class="c1">#</span>
     <span class="c1"># ls = cls.execute(&#39;cmd&#39;, args...)</span>
 
-<div class="viewcode-block" id="Shell.rmdir"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rmdir">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">rmdir</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-
-        <span class="c1"># check if top exists</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-            <span class="k">return</span>
-
-        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;remove&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IWUSR</span><span class="p">)</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-                <span class="k">except</span><span class="p">:</span>
-                    <span class="k">pass</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-                <span class="k">except</span><span class="p">:</span>
-                    <span class="k">pass</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">pass</span></div>
-
-<div class="viewcode-block" id="Shell.dot2svg"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dot2svg">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">dot2svg</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;engine&#39;</span><span class="p">:</span> <span class="n">engine</span><span class="p">,</span>
-            <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.dot&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{engine}</span><span class="s2"> -Tsvg </span><span class="si">{file}</span><span class="s2">.dot &gt; </span><span class="si">{file}</span><span class="s2">.svg&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Shell.browser"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.browser">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">browser</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;engine&#39;</span><span class="p">:</span> <span class="s1">&#39;python -m webbrowser&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="n">filename</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="s1">&#39;file:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filename</span> <span class="ow">and</span> <span class="s1">&#39;http&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filename</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python -m webbrowser -t file:///</span><span class="si">{file}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python -m webbrowser -t </span><span class="si">{file}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Shell.terminal"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">terminal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">&#39;pwd&#39;</span><span class="p">):</span>
@@ -580,7 +533,7 @@
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
             <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;/Applications/VirtualBox.app/Contents/MacOS/VBoxManage&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;VBoxManage&#39;</span>
@@ -603,15 +556,6 @@
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cm&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Shell.cms"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cms">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">cms</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        executes cm with the given arguments</span>
-<span class="sd">        :param args:</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cms&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.fgrep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.fgrep">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">fgrep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -684,7 +628,7 @@
 <span class="sd">        :param count: the number of pings</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">option</span> <span class="o">=</span> <span class="s1">&#39;-n&#39;</span> <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;windows&#39;</span> <span class="k">else</span> <span class="s1">&#39;-c&#39;</span>
+        <span class="n">option</span> <span class="o">=</span> <span class="s1">&#39;-n&#39;</span> <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;windows&#39;</span> <span class="k">else</span> <span class="s1">&#39;-c&#39;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ping&#39;</span><span class="p">,</span>
                            <span class="s2">&quot;</span><span class="si">{option}</span><span class="s2"> </span><span class="si">{count}</span><span class="s2"> </span><span class="si">{host}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="n">option</span><span class="p">,</span>
                                                             <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">,</span>
@@ -853,44 +797,29 @@
                 <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="p">[</span><span class="n">line</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Shell.cm_grep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cm_grep">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">cm_grep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns all lines that contain what</span>
-<span class="sd">        :param lines:</span>
-<span class="sd">        :param what:</span>
-<span class="sd">        :return:</span>
+<span class="sd">        identifies parameters for the os</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">what</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span></div>
+        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">operating_system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;windows&quot;</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">find_cygwin_executables</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+            <span class="c1"># implement for cmd, for linux we can just pass as it includes everything</span>
 
-
-    <span class="c1"># def __init__(cls):</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
-    <span class="c1">#     identifies parameters for the os</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
-    <span class="c1">#     if cls.operating_system() == &quot;windows&quot;:</span>
-    <span class="c1">#         cls.find_cygwin_executables()</span>
-    <span class="c1">#     else:</span>
-    <span class="c1">#         pass</span>
-    <span class="c1">#         # implement for cmd, for linux we can just pass as it includes everything</span>
-    <span class="c1">#</span>
-    <span class="c1"># @classmethod</span>
-    <span class="c1"># def find_cygwin_executables(cls):</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
-    <span class="c1">#     find the executables in cygwin</span>
-    <span class="c1">#     &quot;&quot;&quot;</span>
-    <span class="c1">#     exe_paths = glob.glob(cls.cygwin_path + r&#39;\*.exe&#39;)</span>
-    <span class="c1">#     # print cls.cygwin_path</span>
-    <span class="c1">#     # list all *.exe in  cygwin path, use glob</span>
-    <span class="c1">#     for c in exe_paths:</span>
-    <span class="c1">#         exe = c.split(&#39;\\&#39;)</span>
-    <span class="c1">#         name = exe[1].split(&#39;.&#39;)[0]</span>
-    <span class="c1">#         # command[&#39;windows&#39;][name] = &quot;{:}\{:}.exe&quot;.format(cygwin_path, c)</span>
-    <span class="c1">#         cls.command[&#39;windows&#39;][name] = c</span>
+<div class="viewcode-block" id="Shell.find_cygwin_executables"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.find_cygwin_executables">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">find_cygwin_executables</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        find the executables in cygwin</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">exe_paths</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cygwin_path</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\*.exe&#39;</span><span class="p">)</span>
+        <span class="c1"># print cls.cygwin_path</span>
+        <span class="c1"># list all *.exe in  cygwin path, use glob</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">exe_paths</span><span class="p">:</span>
+            <span class="n">exe</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">exe</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># command[&#39;windows&#39;][name] = &quot;{:}\{:}.exe&quot;.format(cygwin_path, c)</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">command</span><span class="p">[</span><span class="s1">&#39;windows&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span></div>
 
 <div class="viewcode-block" id="Shell.terminal_type"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal_type">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">terminal_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
@@ -935,8 +864,7 @@
 <span class="sd">        the name of the os</span>
 <span class="sd">        :return: the name of the os</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">platform</span></div>
-
+        <span class="k">return</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Shell.execute"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.execute">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
@@ -950,8 +878,7 @@
 
 <span class="sd">        :param witherror: if set to False the error will not be printed</span>
 <span class="sd">        :param traceflag: if set to true the trace is printed in case of an error</span>
-<span class="sd">        :param cwd: the current working directory in which the command is</span>
-<span class="sd">        supposed to be executed.</span>
+<span class="sd">        :param cwd: the current working directory in whcih the command is supposed to be executed.</span>
 <span class="sd">        :param shell: if set to true the subprocess is called as part of a shell</span>
 <span class="sd">        :param cmd: command to run</span>
 <span class="sd">        :param arguments: we do not know yet</span>
@@ -984,32 +911,11 @@
             <span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">shell</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
-                    <span class="kn">import</span> <span class="nn">ctypes</span>
-                    <span class="k">class</span> <span class="nc">disable_file_system_redirection</span><span class="p">:</span>
-                        <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
-                        <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
-
-                        <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
-
-                        <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
-                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
-                                <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">os_command</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                        <span class="n">os_command</span> <span class="o">=</span> <span class="n">os_command</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-                    <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
-                        <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">os_command</span><span class="p">,</span>
-                                                    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
-                                                    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                                    <span class="n">cwd</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
-                        <span class="n">os_command</span><span class="p">,</span>
-                        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
-                        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                        <span class="n">cwd</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+                    <span class="n">os_command</span><span class="p">,</span>
+                    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
+                    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">cwd</span><span class="o">=</span><span class="n">cwd</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
                     <span class="n">os_command</span><span class="p">,</span>
@@ -1075,78 +981,19 @@
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;emacs &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
-           <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Editor not configured for OS&quot;</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Shell.lsb_release"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.lsb_release">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">lsb_release</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        executes lsb_release command</span>
-<span class="sd">        :param args:</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;lsb_release&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;-a&#39;</span><span class="p">])</span></div>
-
-<div class="viewcode-block" id="Shell.distribution"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.distribution">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">distribution</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        executes lsb_release command</span>
-<span class="sd">        :param args:</span>
-<span class="sd">        :return:</span>
-
-<span class="sd">        TODO: needs testing</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">machine</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="n">machine</span><span class="p">,</span>
-                  <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
-
-        <span class="k">if</span> <span class="n">machine</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">release</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="s2">&quot;/etc/os-release&quot;</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">release</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
-                    <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                    <span class="n">result</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                <span class="k">if</span> <span class="s2">&quot;Debian&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">]:</span>
-                    <span class="n">result</span><span class="p">[</span><span class="s2">&quot;distribution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;debian&quot;</span>
-                <span class="k">elif</span> <span class="s2">&quot;Ubuntu&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">]:</span>
-                    <span class="n">result</span><span class="p">[</span><span class="s2">&quot;distribution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
-
-            <span class="k">except</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">r</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">lsb_release</span><span class="p">()</span>
-                    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
-                        <span class="k">if</span> <span class="s2">&quot;:&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                            <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                            <span class="n">attribute</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                            <span class="n">result</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                    <span class="n">result</span><span class="p">[</span><span class="s2">&quot;distribution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-                <span class="k">except</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;lsb_release not found for the platform </span><span class="si">{machine}</span><span class="s2">&quot;</span><span class="p">)</span>
-                    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-        <span class="k">elif</span> <span class="n">machine</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;distribution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;macos&quot;</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os_platform</span><span class="o">.</span><span class="n">mac_ver</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">machine</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;distribution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;windows&quot;</span>
-            <span class="n">result</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os_platform</span><span class="o">.</span><span class="n">win_ver</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;not implemented for the platform </span><span class="si">{machine}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-
-        <span class="k">return</span> <span class="n">result</span></div></div>
+           <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Editor not configured for OS&quot;</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    a test that should actually be added into a pytest</span>
+<span class="sd">    a test that should actually be added into a nosetest</span>
 <span class="sd">    :return: </span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">shell</span> <span class="o">=</span> <span class="n">Shell</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">Shell</span><span class="o">.</span><span class="n">terminal_type</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">shell</span><span class="o">.</span><span class="n">terminal_type</span><span class="p">())</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">)</span>  <span class="c1"># copy line replace</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">)</span>  <span class="c1"># copy line replace</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
     <span class="c1"># shell.list()</span>
@@ -1162,21 +1009,20 @@
 <span class="sd">        print (&quot;{:}&quot;.format(r))</span>
 <span class="sd">        print (&quot;---------------------&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;-a&quot;</span><span class="p">])</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;-a&quot;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s2">&quot;-l -a&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s2">&quot;-l -a&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-aux&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-aux&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;-x&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;-x&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div>
-
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>

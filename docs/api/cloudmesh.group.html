@@ -150,7 +150,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.group.Group">cloudmesh.group.Group module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-group-group-module">cloudmesh.group.Group module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.group">Module contents</a></li>
 </ul>
 </li>
@@ -170,7 +170,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.register.html">cloudmesh.register package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.html">cloudmesh.sec package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.secgroup.html">cloudmesh.secgroup package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.security.html">cloudmesh.security package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.service.html">cloudmesh.service package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.set.html">cloudmesh.set package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.shell.html">cloudmesh.shell package</a></li>
@@ -288,7 +287,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.group.command.html">cloudmesh.group.command package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html#module-cloudmesh.group.command.group">cloudmesh.group.command.group module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html#cloudmesh-group-command-group-module">cloudmesh.group.command.group module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html#module-cloudmesh.group.command">Module contents</a></li>
 </ul>
 </li>
@@ -298,94 +297,8 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.group.Group">
-<span id="cloudmesh-group-group-module"></span><h2>cloudmesh.group.Group module<a class="headerlink" href="#module-cloudmesh.group.Group" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.group.Group.Group">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.group.Group.</code><code class="sig-name descname">Group</code><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Groups are used to store the names of services that are part of the
-group. Members are identified by their name and the kind (such as vm).</p>
-<p>The data of a group is managed via a dict. Here is a simple example</p>
-<dl class="simple">
-<dt>cm:</dt><dd><p>name: test
-cloud: local
-kind: group</p>
-</dd>
-</dl>
-<p>members:
-- name: vm-1</p>
-<blockquote>
-<div><p>kind: vm</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>name: vm-2
-kind: vm</p></li>
-<li><p>name: vm-3
-kind: vm</p></li>
-</ul>
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.group.Group.Group.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.copy_group">
-<code class="sig-name descname">copy_group</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">destination</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.copy_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.copy_group" title="Permalink to this definition">¶</a></dt>
-<dd><p>copies the group source to destination
-:param source: name of the source
-:param destination: name of the destination
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.delete_group">
-<code class="sig-name descname">delete_group</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.delete_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.delete_group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.delete_member">
-<code class="sig-name descname">delete_member</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">member=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.delete_member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.delete_member" title="Permalink to this definition">¶</a></dt>
-<dd><p>delete the member from the group</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – name of the group</p></li>
-<li><p><strong>member</strong> – name of the member</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.members">
-<code class="sig-name descname">members</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.members"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.members" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.merge">
-<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">destination</em>, <em class="sig-param">*groups</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.merge" title="Permalink to this definition">¶</a></dt>
-<dd><p>merge the members of the groups into the destination group
-:param group_a:
-:param groups:
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.group.Group.Group.update_list">
-<code class="sig-name descname">update_list</code><span class="sig-paren">(</span><em class="sig-param">d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/group/Group.html#Group.update_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.group.Group.Group.update_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cloudmesh-group-group-module">
+<h2>cloudmesh.group.Group module<a class="headerlink" href="#cloudmesh-group-group-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.group">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.group" title="Permalink to this headline">¶</a></h2>

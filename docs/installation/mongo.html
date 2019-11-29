@@ -372,12 +372,12 @@ used to interact with the cloud services.</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cloudmesh.example.provider.foo</span></code> contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.example.foo</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">FooProvider</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.example.foo</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">BarProvider</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.example.foo</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">FooProvider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.example.foo</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">BarProvider</span>
 
 <span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">):</span>
        <span class="k">if</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;foo&quot;</span><span class="p">:</span>
           <span class="n">provider</span> <span class="o">=</span> <span class="n">FooProvider</span><span class="p">()</span>
        <span class="k">elif</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span>
@@ -434,7 +434,7 @@ be set up as follows:</p>
 way of getting a next name. Naturally you could define multiple such names
 for different resources and needs</p>
 <p>To use it in your program you can say:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloumdesh.management.configuration.name</span> <span class="k">import</span> <span class="n">Name</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloumdesh.management.configuration.name</span> <span class="kn">import</span> <span class="n">Name</span>
 
 <span class="n">name</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span>
     <span class="n">experiment</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">,</span>

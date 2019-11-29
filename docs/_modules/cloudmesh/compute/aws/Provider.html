@@ -197,34 +197,34 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.compute.aws.Provider</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
 <span class="kn">import</span> <span class="nn">ctypes</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="kn">import</span> <span class="nn">boto3</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
-<span class="kn">from</span> <span class="nn">botocore.exceptions</span> <span class="k">import</span> <span class="n">ClientError</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.DictList</span> <span class="k">import</span> <span class="n">DictList</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.compute.aws.AwsFlavors</span> <span class="k">import</span> <span class="n">AwsFlavor</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="k">import</span> <span class="n">ComputeProviderPlugin</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="k">import</span> <span class="n">DatabaseImportAsJson</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.secgroup.Secgroup</span> <span class="k">import</span> <span class="n">Secgroup</span><span class="p">,</span> <span class="n">SecgroupRule</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.Benchmark</span> <span class="k">import</span> <span class="n">Benchmark</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common3.DictList</span> <span class="kn">import</span> <span class="n">DictList</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.compute.aws.AwsFlavors</span> <span class="kn">import</span> <span class="n">AwsFlavor</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">ComputeProviderPlugin</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseImportAsJson</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common3.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.secgroup.Secgroup</span> <span class="kn">import</span> <span class="n">Secgroup</span><span class="p">,</span> <span class="n">SecgroupRule</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common3.Benchmark</span> <span class="kn">import</span> <span class="n">Benchmark</span>
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.name</span> <span class="k">import</span> <span class="n">Name</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.name</span> <span class="kn">import</span> <span class="n">Name</span>
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">,</span> <span class="n">ComputeProviderPlugin</span><span class="p">):</span>
 
@@ -429,14 +429,14 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">describe_vpcs</span><span class="p">()</span>
         <span class="n">vpc_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Vpcs&#39;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;VpcId&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">description</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;security group crated at {str(datetime.utcnow())} by </span><span class="si">{self.user}</span><span class="s1">&#39;</span>
+            <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;security group crated at {str(datetime.utcnow())} by </span><span class="si">{self.user}</span><span class="s1">&#39;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_group_name_valid</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">create_security_group</span><span class="p">(</span><span class="n">GroupName</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
                                                                  <span class="n">Description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
                                                                  <span class="n">VpcId</span><span class="o">=</span><span class="n">vpc_id</span><span class="p">)</span>
                 <span class="n">security_group_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;GroupId&#39;</span><span class="p">]</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Security Group Created </span><span class="si">{security_group_id}</span><span class="s1"> in vpc</span><span class="si">{vpc_id}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Security Group Created </span><span class="si">{security_group_id}</span><span class="s1"> in vpc</span><span class="si">{vpc_id}</span><span class="s1">&#39;</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Security group can&#39;t be added&quot;</span><span class="p">)</span></div>
@@ -471,7 +471,7 @@
                      <span class="s1">&#39;ToPort&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">portmax</span><span class="p">),</span>
                      <span class="s1">&#39;IpRanges&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;CidrIp&#39;</span><span class="p">:</span> <span class="n">ip_range</span><span class="p">}]},</span>
                 <span class="p">])</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Ingress Successfully Set as </span><span class="si">{data}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Ingress Successfully Set as </span><span class="si">{data}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Rule couldn&#39;t be added to security group&quot;</span><span class="p">)</span></div>
 
@@ -575,7 +575,7 @@
                      <span class="s1">&#39;ToPort&#39;</span><span class="p">:</span> <span class="s1">&#39;portmax&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;IpRanges&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;CidrIp&#39;</span><span class="p">:</span> <span class="s1">&#39;ip_range&#39;</span><span class="p">}]},</span>
                 <span class="p">])</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Ingress Successfully Set as </span><span class="si">{data}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Ingress Successfully Set as </span><span class="si">{data}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
 
@@ -605,7 +605,7 @@
         <span class="n">cm</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">metadata</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">cm</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;cm.</span><span class="si">{key}</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+            <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;cm.</span><span class="si">{key}</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">create_tags</span><span class="p">(</span>
             <span class="n">Resources</span><span class="o">=</span><span class="p">[</span>
                 <span class="nb">id</span><span class="p">,</span>
@@ -696,7 +696,7 @@
             <span class="p">)</span>
         <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Public IP </span><span class="si">{ip}</span><span class="s1"> deleted&#39;</span><span class="p">)</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Public IP </span><span class="si">{ip}</span><span class="s1"> deleted&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span></div>
 
 <div class="viewcode-block" id="Provider.create_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.create_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">create_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -774,7 +774,7 @@
         <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">timeout</span> <span class="o">=</span> <span class="mi">360</span>
         <span class="c1"># instance_id = vm[&#39;instance_id&#39;]</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;waiting for instance to be reachable: Interval: </span><span class="si">{interval}</span><span class="s2">, Timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;waiting for instance to be reachable: Interval: </span><span class="si">{interval}</span><span class="s2">, Timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">while</span>  <span class="n">timer</span> <span class="o">&lt;</span> <span class="n">timeout</span> <span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -831,8 +831,8 @@
         <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">):</span>
             <span class="n">aws_keys</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aws_keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Could not find a key for the AWS instance &#39;</span><span class="si">{vm[&#39;name&#39;]}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Use `cms help key` to learn how to add and upload a key for AWS&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not find a key for the AWS instance &#39;</span><span class="si">{vm[&#39;name&#39;]}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use `cms help key` to learn how to add and upload a key for AWS&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
             <span class="n">aws_key</span> <span class="o">=</span> <span class="n">key_selector</span><span class="p">(</span><span class="n">aws_keys</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">sshkey</span> <span class="ow">in</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_all_by_name</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">aws_key</span><span class="p">[</span><span class="s1">&#39;KeyName&#39;</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">):</span>
@@ -851,7 +851,7 @@
         <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;ssh &quot;</span> \
               <span class="s2">&quot;-o StrictHostKeyChecking=no &quot;</span> \
               <span class="s2">&quot;-o UserKnownHostsFile=/dev/null &quot;</span> \
-              <span class="n">f</span><span class="s2">&quot;-i </span><span class="si">{key}</span><span class="s2"> </span><span class="si">{location}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;-i </span><span class="si">{key}</span><span class="s2"> </span><span class="si">{location}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
         <span class="c1"># VERBOSE(cmd)</span>
@@ -862,11 +862,11 @@
                     <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
                     <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
 
-                    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
 
-                    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
                         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
                 <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
@@ -880,11 +880,11 @@
                     <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
                     <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
 
-                    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
 
-                    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
                         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
                 <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
@@ -904,7 +904,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">result</span></div>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the provider. The default parameters are read from the</span>
 <span class="sd">        configuration file that is defined in yaml format.</span>
@@ -980,8 +980,8 @@
             <span class="n">waiter</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">Filters</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;instance-id&#39;</span><span class="p">,</span> <span class="s1">&#39;Values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">each_instance</span><span class="o">.</span><span class="n">instance_id</span><span class="p">]}])</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
-                <span class="n">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
-                <span class="n">f</span><span class="s2">&quot;Instance-Id:</span><span class="si">{each_instance.instance_id}</span><span class="s2"> started&quot;</span><span class="p">)</span></div>
+                <span class="sa">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Instance-Id:</span><span class="si">{each_instance.instance_id}</span><span class="s2"> started&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hibernate</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 
@@ -1012,7 +1012,7 @@
             <span class="n">waiter</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">Filters</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;instance-id&#39;</span><span class="p">,</span> <span class="s1">&#39;Values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">each_instance</span><span class="o">.</span><span class="n">instance_id</span><span class="p">]}])</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
-                <span class="n">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
                 <span class="s2">&quot;Instance-Id:</span><span class="si">{each_instance.instance_id}</span><span class="s2"> stopped&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.info"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1146,7 +1146,7 @@
             <span class="n">instance</span><span class="o">.</span><span class="n">reboot</span><span class="p">()</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;Rebooting Instance..Please wait...&quot;</span><span class="p">)</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
-                <span class="n">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
                 <span class="s2">&quot;Instance-Id:</span><span class="si">{each_instance.instance_id}</span><span class="s2"> rebooted&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1175,8 +1175,8 @@
             <span class="n">waiter</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">Filters</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;instance-id&#39;</span><span class="p">,</span> <span class="s1">&#39;Values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">each_instance</span><span class="o">.</span><span class="n">instance_id</span><span class="p">]}])</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
-                <span class="n">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
-                <span class="n">f</span><span class="s2">&quot;Instance-Id:</span><span class="si">{each_instance.instance_id}</span><span class="s2"> terminated&quot;</span><span class="p">)</span></div>
+                <span class="sa">f</span><span class="s2">&quot;Instance having Tag:</span><span class="si">{name}</span><span class="s2"> and &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Instance-Id:</span><span class="si">{each_instance.instance_id}</span><span class="s2"> terminated&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1218,16 +1218,16 @@
             <span class="k">return</span> <span class="kc">None</span>
 
         <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Create Server&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Name:    </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    IP:      </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Image:   </span><span class="si">{image}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Size:    </span><span class="si">{size}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Public:  </span><span class="si">{public}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Key:     </span><span class="si">{key}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    location:</span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    secgroup:</span><span class="si">{secgroup}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    group:   </span><span class="si">{group}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Name:    </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    IP:      </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Image:   </span><span class="si">{image}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Size:    </span><span class="si">{size}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Public:  </span><span class="si">{public}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Key:     </span><span class="si">{key}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    location:</span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    secgroup:</span><span class="si">{secgroup}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    group:   </span><span class="si">{group}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="c1"># Validate if there is any VM with same tag name and state other than Terminated.</span>
         <span class="c1"># If there is any VM, throw error</span>
@@ -1319,8 +1319,8 @@
         <span class="n">data</span><span class="p">[</span><span class="s1">&#39;public_ips&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">public_ip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">data</span><span class="p">[</span><span class="s1">&#39;private_ips&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_ec2_instance</span><span class="o">.</span><span class="n">private_ip_address</span>
 
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Public IP:   </span><span class="si">{data[&#39;public_ips&#39;]}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;    Private IP:  </span><span class="si">{data[&#39;private_ips&#39;]}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Public IP:   </span><span class="si">{data[&#39;public_ips&#39;]}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Private IP:  </span><span class="si">{data[&#39;private_ips&#39;]}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">output</span></div>
@@ -1373,7 +1373,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">key_name</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
         <span class="n">cloud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;uploading the key: </span><span class="si">{key_name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;uploading the key: </span><span class="si">{key_name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">import_key_pair</span><span class="p">(</span><span class="n">KeyName</span><span class="o">=</span><span class="n">key_name</span><span class="p">,</span><span class="n">PublicKeyMaterial</span><span class="o">=</span><span class="n">key</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">])</span>
         <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -1393,7 +1393,7 @@
 <span class="sd">        :return: the dict of the key</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cloud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;deleting the key: </span><span class="si">{name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;deleting the key: </span><span class="si">{name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">delete_key_pair</span><span class="p">(</span><span class="n">KeyName</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span></div>
 
@@ -1466,9 +1466,9 @@
 
 <span class="sd">        :return: the dict of the images</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Getting the list of images for </span><span class="si">{self.cloud}</span><span class="s2"> cloud, this might take a few minutes ...&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Getting the list of images for </span><span class="si">{self.cloud}</span><span class="s2"> cloud, this might take a few minutes ...&quot;</span><span class="p">)</span>
         <span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">describe_images</span><span class="p">()</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Images list for </span><span class="si">{self.cloud}</span><span class="s2"> cloud retrieved successfully&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Images list for </span><span class="si">{self.cloud}</span><span class="s2"> cloud retrieved successfully&quot;</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="s1">&#39;Images&#39;</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_images_and_import</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 

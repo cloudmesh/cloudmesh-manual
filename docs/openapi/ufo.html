@@ -295,7 +295,7 @@ information retrieval functionality through HTTP calls.</p>
 <span class="kn">from</span> <span class="nn">cm4.flask_rest_api.app</span> <span class="kn">import</span> <span class="n">app</span>
 
 
-<span class="nd">@app.before_request</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">before_request</span>
 <span class="k">def</span> <span class="nf">limit_remote_addr</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">remote_addr</span> <span class="o">!=</span> <span class="s1">&#39;10.20.30.40&#39;</span><span class="p">:</span>
         <span class="n">abort</span><span class="p">(</span><span class="mi">403</span><span class="p">)</span>  <span class="c1"># Forbidden</span>

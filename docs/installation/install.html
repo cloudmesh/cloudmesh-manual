@@ -580,7 +580,7 @@ directory labeled <code class="docutils literal notranslate"><span class="pre">c
 </div>
 <p>After <cite>cloudmesh-installer</cite> has been installed  (while still under the <cite>cm</cite> directory),
 run the following command to list the available cloudmesh <cite>bundles</cite>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer bundles
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer list
 </pre></div>
 </div>
 <p>Once you have decided which bundle to install you can proceed. If you only want
@@ -589,13 +589,9 @@ If in addition you also like to work on storage, the bundle name <code class="do
 needs to be used.</p>
 <p>Let, us assume you chose <cite>cloud</cite>, than you can install cloudmesh with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone cloud
-cloudmesh-installer install cloud -e
+cloudmesh-installer install cloud
 </pre></div>
 </div>
-<p>The <cite>-e</cite> option is very important as it compiles the code in place of the
-downloaded directories and in case of changes in the directory automatically
-makes them available to the installed version. This is naturally very
-important when developing in a team where you frequently update.</p>
 <p>It will take a while for the install to complete. On newer machines it
 takes 1 minute, on older machines, it may take significantly
 longer. Please watch your system resource information if the install
@@ -626,10 +622,9 @@ update the yaml file to the newest format. You can check the yaml file with</p>
 <p>As developer sometimes it may be best to make a backup of the <cite>cm</cite> and
 <cite>~.cloudmesh</cite> directory or individual repositories in the cm
 directory. Then copy your changes into the newest code. Make sure to
-remove all python artifacts in the backup directory with the <cite>-e</cite>
-option. See the command</p>
+remove all python artifacts in the backup directory the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm
-cloudmesh-installer <span class="nb">local</span> purge .
+cloudmesh-installer clean --dir<span class="o">=</span>. --force
 </pre></div>
 </div>
 </div>
@@ -639,17 +634,15 @@ cloudmesh-installer <span class="nb">local</span> purge .
 <cite>cloudmesh-installer</cite>, you can do it as follows (We assume you have used venv
 and the <cite>cloudmesh-installer</cite> in the directory cm as documented previously):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory where your source locates</span>
-cloudmesh-installer <span class="nb">local</span> purge . --force
-rm -rf ~/ENV3
+cloudmesh-installer clean --dir<span class="o">=</span>. --force
+cloudmesh-installer clean --ENV<span class="o">=</span>~/ENV3 --force
 python3 -m venv ~/ENV3
 pip install pip -U
 pip install cloudmesh-installer
-cloudmesh-installer install cloud -e
+cloudmesh-installer install cloud
 cms <span class="nb">help</span>
 </pre></div>
 </div>
-<p>Please note that this will not work if you did not use the -e option previously.
-Make sure to delete the old version, wherever you installed them.</p>
 </div>
 </div>
 <div class="section" id="cloudmesh-directory">
@@ -756,9 +749,17 @@ file.</p>
 </div>
 <div class="section" id="uninstall-of-mongodb-on-windows-10">
 <h3>Uninstall of MongoDB on Windows 10<a class="headerlink" href="#uninstall-of-mongodb-on-windows-10" title="Permalink to this headline">¶</a></h3>
-<p>YOu may have a previous installation of MongoDB, or your installation
-may be outdated. In case you need to uninstall MongoDB from a Windows
-10 you can use the following steps.</p>
+<p>This section documents the necessary steps required to uninstall MongoDB.</p>
+<p>Note that there are two distinct uninstallation steps to consider. If you have
+installed MongoDB using the cloudmesh installer
+(i.e. <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code>), Mongo is not installed with a service by
+default, and can be simply uninstalled by removing the install directories
+under <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
+variables within the cloudmesh.yaml file for specifics).</p>
+<p>If, however, you have a pre-existing installation of MongoDB, or
+have MongoDB Server Service installed through an alternative installation method
+outside of cloudmesh, proceed through the following steps if you wish to
+completely uninstall MongoDB.</p>
 <p>To uninstall, please terminate the running MongoDB service (if
 applicable), <em>then</em> delete it. To stop the service, open Task Manager
 and confirm the status = <cite>Stopped</cite>. If it is not stoppe, please do
@@ -767,10 +768,9 @@ command line:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sc.exe delete MongoDB
 </pre></div>
 </div>
-<p>Next, delete the Mongo installation directories. If you used
-cloudmesh, you can find the locations in the <cite>cloudmesh.yaml</cite> file for
-the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span>
-<span class="pre">mongo</span> <span class="pre">install</span></code> was used to initially install Mongo.</p>
+<p>Next, delete the Mongo installation directories. Please reference the
+cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
+<code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> was attempted at some point.</p>
 <img alt="../_images/MongoInstall_Windows_InstallPathYAML.png" src="../_images/MongoInstall_Windows_InstallPathYAML.png" />
 <p>Finally, execute the mongodb <cite>msiexe</cite> installer to check if there are
 any remaining components that need to be uninstalled. Once launched,

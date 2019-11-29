@@ -199,13 +199,13 @@
   <h1>Source code for cloudmesh.compute.azurelibcloud.Provider</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">time</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.base</span> <span class="k">import</span> <span class="n">NodeAuthSSHKey</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="k">import</span> <span class="n">AzureIPAddress</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="k">import</span> <span class="n">AzureNetwork</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="k">import</span> <span class="n">AzureSubnet</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="k">import</span> <span class="n">get_driver</span>
-<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibCloudProvider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.base</span> <span class="kn">import</span> <span class="n">NodeAuthSSHKey</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="kn">import</span> <span class="n">AzureIPAddress</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="kn">import</span> <span class="n">AzureNetwork</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="kn">import</span> <span class="n">AzureSubnet</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="kn">import</span> <span class="n">get_driver</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibCloudProvider</span>
 
 
 <span class="c1">#</span>
@@ -218,7 +218,7 @@
 <div class="viewcode-block" id="AzureProvider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azurelibcloud.html#cloudmesh.compute.azurelibcloud.Provider.AzureProvider">[docs]</a><span class="k">class</span> <span class="nc">AzureProvider</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;azurelibcloud&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the provider for the yaml file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -258,7 +258,7 @@
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">destroy_volume</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_volume</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
         <span class="c1"># Libcloud does not delete public IP addresses</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ex_delete_public_ip</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-ip&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ex_delete_public_ip</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-ip&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="AzureProvider.create"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azurelibcloud.html#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">image_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -353,14 +353,14 @@
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">public_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">ex_create_public_ip</span><span class="p">(</span>
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-ip&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-ip&quot;</span><span class="p">,</span>
             <span class="n">resource_group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
         <span class="p">)</span>
 
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">ex_create_network_interface</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-nic&quot;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-nic&quot;</span><span class="p">,</span>
             <span class="n">subnet</span><span class="o">=</span><span class="n">subnet</span><span class="p">,</span>
             <span class="n">resource_group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span><span class="p">,</span>
             <span class="n">public_ip</span><span class="o">=</span><span class="n">public_ip</span>
@@ -384,8 +384,8 @@
         <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
-        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
             <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
@@ -410,8 +410,8 @@
         <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
-        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
             <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
@@ -435,10 +435,10 @@
         <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
-        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;Microsoft.Network/virtualNetworks/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{network_name}</span><span class="s2">/subnets/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;Microsoft.Network/virtualNetworks/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{network_name}</span><span class="s2">/subnets/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
             <span class="n">action</span><span class="p">,</span>
@@ -461,8 +461,8 @@
         <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
-        <span class="n">target</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/&quot;</span> \
+        <span class="n">target</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/&quot;</span> \
             <span class="s2">&quot;providers/Microsoft.Network/publicIPAddresses/name&quot;</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
@@ -496,9 +496,9 @@
         <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
-        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
-            <span class="n">f</span><span class="s2">&quot;Microsoft.Network/publicIPAddresses/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot;Microsoft.Network/publicIPAddresses/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
             <span class="n">action</span><span class="p">,</span>
