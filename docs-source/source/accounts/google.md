@@ -77,9 +77,27 @@ Compute Engine the leader in price/performance.
 Next we provide a a step-by-step guide on how to create an Google account
 and a service account through the Google webpage.
 
-### Google Storage
+### [Google Cloud Storage](<https://cloud.google.com/products/storage/>)
 
+Google cloud platform provides varity of storage products which are simple, reliable, and secure solutions for your media, analytics, and application data.
+
+Following are avalable google cloud storage products :
+
+#### OBJECT OR BLOB STORAGE [Storage Type: Cloud Storage]
 .. todo:: no description provided
+
+#### BLOCK STORAGE [Storage Type: Cloud Storage]
+
+#### ARCHIVAL STORAGE [Storage Type: Cloud Storage]
+
+#### FILE STORAGE [Storage Type: Cloud Filestore]
+
+#### MOBILE APPLICATION [Storage Type: Cloud Storage for Firebase]
+
+#### DATA TRANSFER [Storage Type: Data Transfer Services]
+
+#### COLLABORATION [Storage Type: Drive enterprise]
+
 
 ### Step-by-Step Guide
 
