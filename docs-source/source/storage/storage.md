@@ -3,7 +3,7 @@
 Cloudmesh supports multiple cloud storage services. You can access them via 
 commandline,  an API or REST services. A simple abstraction layer between 
 cloud services and you local computer  makes it possible that the services 
-are accessed the same way. This includes AwsS3, Azure, Google, and box.  
+are accessed the same way. This includes Awss3, Azure, Google, and box.  
 
 The code is available a cloudmesh module at 
 
@@ -37,7 +37,7 @@ In the credentials section under aws, specify the access key id and secret
 access key which will be available in the AWS console under 
 `AWS IAM service` -> `Users` -> `Security Credentials`. 
 
-Container is the default bucket which will be used to store the files in AWS S3.
+Bucket is the default bucket which will be used to store the files in AWS S3.
 Region is the geographic area like `us-east-1` which contains the bucket. Region 
 is required to get a connection handle on the S3 Client or resource for 
 that geographic area.
@@ -50,17 +50,18 @@ cloudmesh:
   storage:
     aws:
       cm:
+        active: True
         heading: aws
-        host: amazon.aws.com
+        host: aws.amazon.com
         label: aws
-        kind: awsS3
+        kind: awss3
         version: TBD
+        service: storage 
       default:
-        directory: TBD
       credentials:
         access_key_id: *********
         secret_access_key: *******
-        container: name of bucket that you want user to be contained in.
+        bucket: name of bucket that you want user to be contained in.
         region: Specfiy the default region eg us-east-1
 ```
 
@@ -329,7 +330,7 @@ $ pytest -v --capture=no tests/test_storage.py
 $ cms set storage=gdrive
 $ pytest -v --capture=no tests/test_storage.py
 
-$ cms set storage=awss3
+$ cms set storage=aws
 $ pytest -v --capture=no tests/test_storage.py
 ```
 
