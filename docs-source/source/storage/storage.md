@@ -109,113 +109,7 @@ $ cms storage --storage='aws' list ''
 ```
 
 
-Help command gives a detail level understanding of what each command does and 
-how to use the command line to interact with different object storage providers and 
-different parameters / options available in a particular command. 
-
-In this, default object storage invokes AWS S3 service, we need to pass awss3 as parameter to storage 
-and suffix with the function call with the function parameters.
-
-```bash
-cms> storage --storage='objstore' list ''
-```
-
-Alternatively, objstore command can also be called directly without starting the 
-cms shell.
-
-```bash
-$ cms storage --storage='objstore' list ''
-```
-
-
-
-## Cloudmesh AWS Object Storage Interfaces
-
-
-Object Storage is one of the feature in AWS S3 and this feature integrated with cloudmesh library and is available 
-for use via commandline. 
-
-Follow the below steps:
-
-- Modify `cloudmesh.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
-
-- In the credentials section under `awsobjectstore`, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
-`AWS IAM service` -> `Users` -> `Security Credentials`. 
-
-
-Here is a sample.
-
-```bash
-cloudmesh:
-  ...
-  storage:
-    objstore:
-      cm:
-        heading: AWS
-        host: aws.com
-        label: AWS
-        kind: awsobjectstore
-        version: 1.0
-      default:
-        directory: AWS
-      credentials:
-        region: ""
-        access_key_id: ""
-        secret_access_key: "" 
-
-```
-
-
-
-
-
-## Create Object Directory 
-
-
-```bash
-$ cms storage --storage='objstore' create /base_path/targetdir
-```
-
-## Put
-
-The put command uploads object from your local system to AWS S3 object storage 
-
-```bash
-$ cms storage --storage='objstore' put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
-```
-
-
-## Get
-
-The put command retrieve or download a object from AWS S3 object storage 
-
-```bash
-$ cms storage --storage='objstore' get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
-```
-
-
-## List
-
-The list command lists all the contents of a cloud object details. If the recursive 
-option is specified, it will list the contents of all the nested objects information 
-
-```bash
-$ cms storage --storage='objstore' list /bucket_name/dest --recursive
-```
-
-
-## Delete
-
-The delete command can delete objects on cloud storage. Once object deletes it will never be rollback and delete applicable to nested objects when function `--recursive` used. 
-Deleting a folder will delete its contents as well (including the 
-sub-directories).
-
-```bash
-$ cms storage --storage='objstore' delete /bucket_name/est --recursive
-```
-
 ### Storage functions overview
-
 
 ### Create dir
 
@@ -306,6 +200,111 @@ $ cms storage --storage='aws' delete /base_path/targetdir --recursive
 ```
 
 
+
+Help command gives a detail level understanding of what each command does and 
+how to use the command line to interact with different object storage providers and 
+different parameters / options available in a particular command. 
+
+
+
+## Cloudmesh AWS Object Storage Interfaces
+
+
+Object Storage is one of the feature in AWS S3 and this feature integrated with cloudmesh library and is available 
+for use via commandline. 
+
+Follow the below steps:
+
+- Modify `cloudmesh.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
+
+- In the credentials section under `awsobjectstore`, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
+`AWS IAM service` -> `Users` -> `Security Credentials`. 
+
+
+Here is a sample.
+
+```bash
+cloudmesh:
+  ...
+  storage:
+    objstore:
+      cm:
+        heading: AWS
+        host: aws.com
+        label: AWS
+        kind: awsobjectstore
+        version: 1.0
+      default:
+        directory: AWS
+      credentials:
+        region: ""
+        access_key_id: ""
+        secret_access_key: "" 
+
+```
+
+
+In this, default object storage invokes AWS S3 service, we need to pass awss3 as parameter to storage 
+and suffix with the function call with the function parameters.
+
+```bash
+cms> storage --storage='objstore' list ''
+```
+
+Alternatively, objstore command can also be called directly without starting the 
+cms shell.
+
+```bash
+$ cms storage --storage='objstore' list ''
+```
+
+
+
+
+## Create Object Directory 
+
+
+```bash
+$ cms storage --storage='objstore' create /base_path/targetdir
+```
+
+## Put
+
+The put command uploads object from your local system to AWS S3 object storage 
+
+```bash
+$ cms storage --storage='objstore' put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
+```
+
+
+## Get
+
+The put command retrieve or download a object from AWS S3 object storage 
+
+```bash
+$ cms storage --storage='objstore' get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
+```
+
+
+## List
+
+The list command lists all the contents of a cloud object details. If the recursive 
+option is specified, it will list the contents of all the nested objects information 
+
+```bash
+$ cms storage --storage='objstore' list /bucket_name/dest --recursive
+```
+
+
+## Delete
+
+The delete command can delete objects on cloud storage. Once object deletes it will never be rollback and delete applicable to nested objects when function `--recursive` used. 
+Deleting a folder will delete its contents as well (including the 
+sub-directories).
+
+```bash
+$ cms storage --storage='objstore' delete /bucket_name/est --recursive
+```
 
 ## Pytests
 
