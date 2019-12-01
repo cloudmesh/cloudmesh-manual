@@ -50,7 +50,7 @@ documents to Google Docs.
 In a broader sense Google docs is just a subset of Google Drive.
 
 
-## Google Cloud Platform
+## [Google Cloud Platform](https://cloud.google.com/)
 
 Google Cloud Platform (GCP), offered by Google, is a suite of cloud
 computing services that runs on the same infrastructure that Google
@@ -61,7 +61,7 @@ analytics and machine learning. Within cloudmesh, we develop services
 through taht support some of these these
 products.
 
-### Google Compute Engine
+### [Google Compute Engine](https://cloud.google.com/products/compute/)
 
 Google Compute Engine delivers virtual machines running in
 Google's innovative data centers and worldwide fiber network. Compute
@@ -79,25 +79,20 @@ and a service account through the Google webpage.
 
 ### [Google Cloud Storage](<https://cloud.google.com/products/storage/>)
 
-Google cloud platform provides varity of storage products which are simple, reliable, and secure solutions for your media, analytics, and application data.
+Google cloud platform provides varity of storage products which are simple, reliable, and secure solutions for your media, analytics, and application data. Cloudmesh services(cms) provides command line cloud to cloud storage and transfer servicies for google cloud storage part of cloudmesh-google storage application. At this time it supports google cloud platform "object or blob storage". Various available operations using cms are put(file upload), get(file downlod), list, delete object/blob, create directory.
 
-Following are avalable google cloud storage products :
+<B>Following are avalable google cloud storage products :<B>
 
-#### OBJECT OR BLOB STORAGE [Storage Type: Cloud Storage]
-.. todo:: no description provided
+#### 1. OBJECT OR BLOB STORAGE [Storage Type: Cloud Storage](https://cloud.google.com/storage/) 
+#### 2. BLOCK STORAGE [Storage Type: Persistent Disk](https://cloud.google.com/persistent-disk/)
+#### 3. ARCHIVAL STORAGE [Storage Type: Cloud Storage](https://cloud.google.com/storage/)
+#### 4. FILE STORAGE [Storage Type: Cloud Filestore](https://cloud.google.com/filestore/)
+#### 5. MOBILE APPLICATION [Storage Type: Cloud Storage for Firebase](https://firebase.google.com/products/storage/)
+#### 6. DATA TRANSFER [Storage Type: Data Transfer Services](https://cloud.google.com/products/data-transfer/)
+#### 7. COLLABORATION [Storage Type: Drive enterprise](https://cloud.google.com/drive-enterprise/)
 
-#### BLOCK STORAGE [Storage Type: Cloud Storage]
-
-#### ARCHIVAL STORAGE [Storage Type: Cloud Storage]
-
-#### FILE STORAGE [Storage Type: Cloud Filestore]
-
-#### MOBILE APPLICATION [Storage Type: Cloud Storage for Firebase]
-
-#### DATA TRANSFER [Storage Type: Data Transfer Services]
-
-#### COLLABORATION [Storage Type: Drive enterprise]
-
+You can refer [google storage documentation](https://cloud.google.com/storage/docs/) for more details on google cloud storage documentation.
+Cloudmesh currently supports [object/blob storage](https://cloud.google.com/storage/docs/how-to) in beta version. Users can follow instruction to configure google could platform described as part of this document.
 
 ### Step-by-Step Guide
 
