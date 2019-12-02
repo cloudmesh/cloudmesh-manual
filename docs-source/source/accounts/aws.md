@@ -12,22 +12,21 @@ utilization of many of these products.
 
 Here we are especially interested in using the following services:
 
--   **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is web service
+- **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is web service
     that enables users to perform elastic web-scalable computing while
     having complete control over instances. It is integrated with most
     AWS services such as Amazon S3, RDS, and VPC.
--   **Amazon Simple Storage Service (S3)** Amazon S3 an object storage
+- **Amazon Simple Storage Service (S3)** Amazon S3 an object storage
     service that offers a wide range of storage classes.
 
 We provide a step-by-step guide on how to create an AWS account through
 the AWS Web page to utilize these services. For more information you can
 consult the
-[AWS FAQ](https://aws.amazon.com/premiumsupport/knowledge-center/create-and
--activate-aws-account/).
+[AWS FAQ](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
 
 First, we go to the AWS website
 
--   <https://aws.amazon.com>
+- <https://aws.amazon.com>
 
 and click on `Create an AWS Account`.
 
@@ -113,12 +112,11 @@ leverage other clouds.
 
 ## Access Key
 
-
 Now that you have an account it is necessary that you can authenticate to your
 cloud account from a program or a command line. The instructions for this can
  be found at
 
-* <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
+-<https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
 
 However, it is far easier to use the convenient cloudmesh tools by just using
 the cloudmesh open command.
@@ -126,10 +124,9 @@ the cloudmesh open command.
 In case you have not yet added a user, you can visit the user creation page
 with
 
+```bash
+cms open account aws
 ```
-$ cms open account aws
-```
-
 
 ### Create and Download Access Key
 
@@ -196,10 +193,7 @@ file` and save it as `~/.cloudmesh/accessKey.csv`:
 
 ![IAM Management Console: Download CSV File](images/aws/image27.png)
 
-
-
 ### Using the Access Key
-
 
 To obtain the keys for an already existing account or the one that you just
 created you can use the command
@@ -224,10 +218,10 @@ secure location and do not by default store them in the Downloads folder.
 We recommend that you store is in ~/.cloudmesh, but before doing so make sure
 the permissions for ~/.cloudmesh are restricted,
 
-
 ## Compute Service
 
 ### Import Public key
+
 Before we get started with AWS compute services, we need to be sure we import our public ssh key. We assume an ssh has already been set up under `~\.ssh\id_rsa.pub`. If this prerequisite has not yet been satisfied, please reference the installation section.
 
 While logged into AWS's console, navigate to the EC2 Management Console under `Services > Compute > EC2`:
@@ -240,11 +234,11 @@ Next, on the left-hand panel, navigate to `Network & Security > Key Pairs` and s
 
 ![EC2 Management Console: Pub SSH Key](images/aws/aws_ec2_import_pub_key.png)
 
-###Cloudmesh.yaml Configuration for AWS
+### Cloudmesh.yaml Configuration for AWS
+
 Please reference the section on Configuration for more information on getting, setting, and editing values to the cloudmesh.yaml configuration file; along with referencing the compute cloud provider templates and default values.
 
 Run the following code to set the AWS compute provider values specific to your configuration. Alternatively, you can manually set these values using a text editor to update the cloudmesh.yaml file under `~\.cloudmesh`.
-
 
 ```cmd
 cms config set cloudmesh.cloud.aws.cm.active=true
@@ -255,6 +249,7 @@ cms config set cloudmesh.cloud.aws.credentials.EC2_SECRET_KEY=SECRETKEYVALUE
 ```
 
 **Notes**:
+
 - Region can be found while logged into the AWS management console in the upper right-hand side.
 ![AWS Management Console: Pub SSH Key](images/aws/aws_region.png)
 
@@ -277,19 +272,24 @@ cms init
 cms key init
 cms vm boot
 ```
+
 This should have allowed you to initialize cms with the updated configurations and boot up a new vm in AWS based.
 ![AWS Configuration: CMS init](images/aws/aws_cms_init_and_vmboot.png)
 
 Check the status of the vm by executing the following:
+
 ```cmd
 cms vm list --refresh
 ```
+
 ![AWS Configuration: vm list](images/aws/aws_vmlist.png)
 
 Now test stopping the vm. Note that you may need to give it a minute or two before you refresh the vm list to validate Status=stopped.
+
 ```cmd
 cms vm stop VMINSTANCENAME
 ```
+
 ![AWS Configuration: vm stop](images/aws/aws_vmstop.png)
 
 Now test terminating the vm. (Note the example provided if you are attempting run commands against multiple vm's.)
@@ -297,8 +297,8 @@ Now test terminating the vm. (Note the example provided if you are attempting ru
 ```cmd
 cms vm delete VMINSTANCENAME
 ```
-![AWS Configuration: vm delete](images/aws/aws_vmdelete.png)
 
+![AWS Configuration: vm delete](images/aws/aws_vmdelete.png)
 
 - [x] TODO: Aws EC2 account. Describe here if there is anything to be done for accessing EC2
 
@@ -311,6 +311,6 @@ cms vm delete VMINSTANCENAME
 
 Additional information about the services can be found at:
 
--   Open Distribution for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
--   Amazon EC2, <https://aws.amazon.com/ec2/?nc2=h_m1>
--   Amazon S3, <https://aws.amazon.com/s3/?c=23&pt=1>
+- Open Distribution for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
+- Amazon EC2, <https://aws.amazon.com/ec2/?nc2=h_m1>
+- Amazon S3, <https://aws.amazon.com/s3/?c=23&pt=1>
