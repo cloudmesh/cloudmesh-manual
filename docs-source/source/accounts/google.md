@@ -146,9 +146,10 @@ this file will be used to update Yaml entry in ~/.cloudmesh/cloudmesh.yaml.
 Also for gdrive storage option JSON file is referenced in the
 cloudmesh4.yaml in parameter "path_to_json_file"
 
-* Alternatively :
+* Alternatively you can do this as follows:
 
-   ** Go to: [create service account page](https://cloud.google.com/docs/authentication/production)
+   ** Go to [create service account page](https://cloud.google.com/docs/authentication/production)
+   
    ![Create service account_01](images/google/CreateServiceAccount_01.png)
 
    ** Go to section :Creating a service account 
@@ -156,11 +157,12 @@ cloudmesh4.yaml in parameter "path_to_json_file"
   Following is the direct link to generate credentials from google :
   
     [Create Service Account Key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
+    
     ![Create service key](images/google/CreateServiceKey_01.png)
 
-
-* `client_secret.json` 
-* `google-drive-credentials.json`
+      Sample files:
+       `client_secret.json` 
+       `google-drive-credentials.json`
 
 * ***Step4 - Yaml entry for google storage Account*** 
 
