@@ -212,6 +212,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 
+
 <div class="viewcode-block" id="AdminCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.admin.command.html#cloudmesh.admin.command.admin.AdminCommand">[docs]</a><span class="k">class</span> <span class="nc">AdminCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
     <span class="c1"># noinspection PyPep8</span>
     <span class="n">banner</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -318,17 +319,18 @@
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">install</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">docker</span><span class="p">:</span>
 
-                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
+                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span>
+                                           <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="n">installer</span><span class="o">.</span><span class="n">docker</span><span class="p">()</span>
                 <span class="k">return</span> <span class="n">r</span>
 
             <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">install</span><span class="p">:</span>
 
-
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB install&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span>
                 <span class="c1"># print(arguments.force)</span>
-                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
+                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">(</span><span class="n">dryrun</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">,</span>
+                                           <span class="n">force</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">force</span><span class="p">)</span>
 
                 <span class="n">sudo</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">nosudo</span>
                 <span class="c1"># if &#39;linux&#39; in platform.lower() :</span>

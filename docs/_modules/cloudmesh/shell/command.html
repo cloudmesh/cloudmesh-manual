@@ -210,27 +210,27 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 
 
-<div class="viewcode-block" id="PluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.PluginCommand">[docs]</a><span class="k">class</span> <span class="nc">PluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.PluginCommand">[docs]</a><span class="k">class</span> <span class="nc">PluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CloudPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.CloudPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CloudPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CloudPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.CloudPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CloudPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="ShellPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.ShellPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">ShellPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ShellPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.ShellPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">ShellPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="HPCPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.HPCPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">HPCPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="HPCPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.HPCPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">HPCPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CometPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.CometPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CometPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CometPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.CometPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CometPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="map_parameters"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.map_parameters">[docs]</a><span class="k">def</span> <span class="nf">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="map_parameters"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.map_parameters">[docs]</a><span class="k">def</span> <span class="nf">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This command is useful to map parameters with -- to regular argument dicts for easier processing.</span>
 
@@ -261,7 +261,7 @@
 
 
 <span class="c1"># noinspection PySingleQuotedDocstring,PyUnusedLocal</span>
-<div class="viewcode-block" id="command"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.command">[docs]</a><span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="command"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.command">[docs]</a><span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    A decorator to create a function with docopt arguments.</span>
 <span class="sd">    It also generates a help function</span>
@@ -295,10 +295,10 @@
             <span class="c1"># pprint(argv)</span>
             <span class="n">arguments</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">docopt</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="n">argv</span><span class="p">))</span>
             <span class="c1"># pprint(arguments)</span>
-            <span class="n">verbose</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Variables</span><span class="p">()[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
-                <span class="n">s</span> <span class="o">=</span> <span class="n">pformat</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
-                <span class="n">banner</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Arguments&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">)</span>
+            <span class="c1"># verbose = int(Variables()[&quot;verbose&quot;] or 0)</span>
+            <span class="c1"># if verbose &gt; 9:</span>
+            <span class="c1">#    s = pformat(arguments)</span>
+            <span class="c1">#    banner(s, label=&quot;Arguments&quot;, color=&quot;BLUE&quot;)</span>
             <span class="n">func</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">SystemExit</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">args</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;-h&#39;</span><span class="p">,</span> <span class="s1">&#39;--help&#39;</span><span class="p">):</span>
@@ -309,18 +309,20 @@
 
                 <span class="n">usage</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;Usage:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="nb">print</span><span class="p">()</span>
-                <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Usage:&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Usage:&quot;</span><span class="p">)</span>
 
                 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">usage</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
                     <span class="k">if</span> <span class="s2">&quot;:&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                         <span class="n">kind</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                        <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Arguments&quot;</span><span class="p">,</span> <span class="s2">&quot;Options&quot;</span><span class="p">,</span> <span class="s2">&quot;Example&quot;</span><span class="p">,</span> <span class="s2">&quot;Descriptiom&quot;</span><span class="p">]:</span>
+                        <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Arguments&quot;</span><span class="p">,</span> <span class="s2">&quot;Options&quot;</span><span class="p">,</span> <span class="s2">&quot;Example&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;Descriptiom&quot;</span><span class="p">]:</span>
                             <span class="k">break</span>
                     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not execute the command. Please check usage with&quot;</span><span class="p">)</span>
-                <span class="nb">print</span> <span class="p">()</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;Could not execute the command. Please check usage with&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">()</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;    cms help&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;do_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-                <span class="nb">print</span> <span class="p">()</span>
+                <span class="nb">print</span><span class="p">()</span>
                 <span class="c1"># print (args)</span>
                 <span class="c1"># print(e)</span>
                 <span class="c1"># print(doc)</span>
@@ -330,7 +332,7 @@
 
 
 <span class="c1"># noinspection PySingleQuotedDocstring,PyUnusedLocal</span>
-<div class="viewcode-block" id="basecommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.basecommand">[docs]</a><span class="k">def</span> <span class="nf">basecommand</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="basecommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.admin.command.admin.basecommand">[docs]</a><span class="k">def</span> <span class="nf">basecommand</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    A decorator to create a function with docopt arguments.</span>
 <span class="sd">    It also generates a help function</span>
@@ -370,7 +372,7 @@
             <span class="kn">import</span> <span class="nn">traceback</span><span class="o">,</span> <span class="nn">sys</span>
             <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">args</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;-h&#39;</span><span class="p">,</span> <span class="s1">&#39;--help&#39;</span><span class="p">):</span>
-                <span class="nb">print</span> <span class="p">(</span><span class="n">args</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Could not execute the command.&quot;</span><span class="p">)</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Check usage..&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>

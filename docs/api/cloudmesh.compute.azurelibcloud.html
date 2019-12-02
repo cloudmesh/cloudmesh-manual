@@ -129,7 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.azurelibcloud package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-azurelibcloud-provider-module">cloudmesh.compute.azurelibcloud.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.azurelibcloud.Provider">cloudmesh.compute.azurelibcloud.Provider module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-azurelibcloud-test-azure-libcloud-module">cloudmesh.compute.azurelibcloud.test_azure_libcloud module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.azurelibcloud">Module contents</a></li>
 </ul>
@@ -283,8 +283,42 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-compute-azurelibcloud-provider-module">
-<h2>cloudmesh.compute.azurelibcloud.Provider module<a class="headerlink" href="#cloudmesh-compute-azurelibcloud-provider-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.compute.azurelibcloud.Provider">
+<span id="cloudmesh-compute-azurelibcloud-provider-module"></span><h2>cloudmesh.compute.azurelibcloud.Provider module<a class="headerlink" href="#module-cloudmesh.compute.azurelibcloud.Provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.compute.azurelibcloud.Provider.AzureProvider">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azurelibcloud.Provider.</code><code class="sig-name descname">AzureProvider</code><span class="sig-paren">(</span><em class="sig-param">cloud</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azurelibcloud/Provider.html#AzureProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azurelibcloud.Provider.AzureProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.compute.azurelibcloud.Provider.AzureProvider.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">image_name=None</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azurelibcloud/Provider.html#AzureProvider.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.azurelibcloud.Provider.AzureProvider.destroy">
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azurelibcloud/Provider.html#AzureProvider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy a node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.azurelibcloud.Provider.AzureProvider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'azurelibcloud'</em><a class="headerlink" href="#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.azurelibcloud.Provider.AzureProvider.suspend">
+<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azurelibcloud/Provider.html#AzureProvider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend a running node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the running node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="cloudmesh-compute-azurelibcloud-test-azure-libcloud-module">
 <h2>cloudmesh.compute.azurelibcloud.test_azure_libcloud module<a class="headerlink" href="#cloudmesh-compute-azurelibcloud-test-azure-libcloud-module" title="Permalink to this headline">¶</a></h2>

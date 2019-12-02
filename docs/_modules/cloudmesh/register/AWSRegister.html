@@ -210,6 +210,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
 
+
 <div class="viewcode-block" id="AWSRegister"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister">[docs]</a><span class="k">class</span> <span class="nc">AWSRegister</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">):</span>
@@ -239,68 +240,41 @@
             <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
-                              <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;2) Copy the `chromedriver` to &#39;/usr/bin&#39; </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;&#39;sudo chmod +x /usr/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
+                    <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;2) Copy the `chromedriver` to &#39;/usr/bin&#39; </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;&#39;sudo chmod +x /usr/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
 
                 <span class="k">return</span>
 
             <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
 
-            <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+            <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+                <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
             <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+                <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{filename}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
-            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{filename}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
-
-            <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
-
+            <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span>
+                                         <span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
-            <span class="n">chrome</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">chrome</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Google chrome is not installed&quot;</span><span class="p">)</span>
-                <span class="k">return</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-            <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span> <span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
-                              <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;2) Copy the `chromedriver` to &#39;/usr/local/bin&#39; </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;&#39;chmod +x /usr/local/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
-                <span class="k">return</span>
-
-            <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
-            <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-            <span class="c1"># check if the DOwanloaded file exists</span>
-            <span class="c1"># Path(&quot;~/.cloudmesh/{credentials_file_name}).resolve()</span>
-
-            <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
-
-            <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
-
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span>
-
-
-        <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
-            <span class="n">chrome</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;C:\Program Files (x86)\Google\Chrome\Application\Chrome.exe&quot;</span><span class="p">)</span>
+            <span class="n">chrome</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+                <span class="s2">&quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">chrome</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Google chrome is not installed&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
@@ -308,37 +282,84 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
             <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
-                              <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;2) Copy the `chromedriver` to path, for instance you can add &quot;</span>
-                              <span class="s2">&quot;it to the followtin path: &quot;</span>
-                              <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2"> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
+                    <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;2) Copy the `chromedriver` to &#39;/usr/local/bin&#39; </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;&#39;chmod +x /usr/local/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
+
             <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
+            <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+                <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+            <span class="c1"># check if the DOwanloaded file exists</span>
+            <span class="c1"># Path(&quot;~/.cloudmesh/{credentials_file_name}).resolve()</span>
 
-            <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
             <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+                <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
-
-
-            <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
+            <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span>
+                                         <span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span></div>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AWSRegister.slow_typer"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.slow_typer">[docs]</a>    <span class="k">def</span> <span class="nf">slow_typer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">element</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+
+        <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+            <span class="n">chrome</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+                <span class="s2">&quot;C:\Program Files (x86)\Google\Chrome\Application\Chrome.exe&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">chrome</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Google chrome is not installed&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+            <span class="k">except</span> <span class="n">WebDriverException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
+                    <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;2) Copy the `chromedriver` to path, for instance you can add &quot;</span>
+                    <span class="s2">&quot;it to the followtin path: &quot;</span>
+                    <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2"> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
+
+            <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+                <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+            <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+                <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
+
+            <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span>
+                                         <span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AWSRegister.slow_typer"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.slow_typer">[docs]</a>    <span class="k">def</span> <span class="nf">slow_typer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
             <span class="n">element</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
             <span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.05</span><span class="p">)</span></div>
 
-
 <div class="viewcode-block" id="AWSRegister.check_captcha"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.check_captcha">[docs]</a>    <span class="k">def</span> <span class="nf">check_captcha</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="s2">&quot;Type the characters seen in the image below&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span><span class="p">:</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Captcha encountered. Please enter the captcha and press Submit then press Enter to continue&quot;</span><span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
+                <span class="s2">&quot;Captcha encountered. Please enter the captcha and press Submit then press Enter to continue&quot;</span><span class="p">)</span>
             <span class="k">while</span> <span class="p">(</span><span class="n">text</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
                 <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
                     <span class="s2">&quot;Captcha encountered. Please enter the captcha and press Submit then press Enter to continue&quot;</span><span class="p">)</span></div>
@@ -371,7 +392,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_link_text</span><span class="p">(</span><span class="s2">&quot;Add user&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&quot;awsui-textfield-17&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&quot;awsui-textfield-17&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span>
+            <span class="s2">&quot;cloudmesh&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s2">&quot;accessKey&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
@@ -381,16 +403,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_class_name</span><span class="p">(</span><span class="s2">&quot;awsui-util-pt-s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//awsui-textfield[@ng-model=&#39;createGroupModal.groupName&#39;]/input&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//awsui-textfield[@ng-model=&#39;createGroupModal.groupName&#39;]/input&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span>
             <span class="s2">&quot;cloudmesh&quot;</span><span class="p">)</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//*/policies-table//table-search//search/div/input&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s1">&#39;//*/policies-table//table-search//search/div/input&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span>
             <span class="s2">&quot;AmazonEC2FullAccess&quot;</span><span class="p">)</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
             <span class="s1">&#39;//div[@data-item-id=&quot;arn:aws:iam::aws:policy/AmazonEC2FullAccess&quot;]//awsui-checkbox//div&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//awsui-button[@click-tracker=&#39;CreateGroup&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//awsui-button[@click-tracker=&#39;CreateGroup&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
         <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;&#39;cloudmesh&#39; group created&quot;</span><span class="p">)</span>
 
@@ -402,11 +427,13 @@
         <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;&#39;cloudmesh&#39; user created&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_class_name</span><span class="p">(</span><span class="s2">&quot;wizard-next-button&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//awsui-button[@text=&#39;Download .csv&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//awsui-button[@text=&#39;Download .csv&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;credentials.csv downloaded&quot;</span><span class="p">)</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s2">&quot;//awsui-button[@text=&#39;Close&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s2">&quot;//awsui-button[@text=&#39;Close&#39;]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
         <span class="k">return</span> <span class="s2">&quot;credentials.csv&quot;</span></div>
 
@@ -415,18 +442,23 @@
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_link_text</span><span class="p">(</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="AWSRegister.create_accesskey_on_current_account"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.create_accesskey_on_current_account">[docs]</a>    <span class="k">def</span> <span class="nf">create_accesskey_on_current_account</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//a[@href=&quot;#/users/cloudmesh&quot;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s1">&#39;//a[@href=&quot;#/users/cloudmesh&quot;]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_link_text</span><span class="p">(</span><span class="s2">&quot;Security credentials&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
-        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span><span class="s1">&#39;//span[text()=&quot;Make inactive&quot;]&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">:</span>
-            <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Two access keys already exist for the user, remove one manually before creating another one and press Enter&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span>
+            <span class="s1">&#39;//span[text()=&quot;Make inactive&quot;]&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">input</span><span class="p">(</span>
+                <span class="s2">&quot;Two access keys already exist for the user, remove one manually before creating another one and press Enter&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//button[.//span[text()=&quot;Create access key&quot;]]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s1">&#39;//button[.//span[text()=&quot;Create access key&quot;]]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//*[@id=&quot;modal-container&quot;]//awsui-button[contains(@text,&quot;Download .csv file&quot;)]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span>
+            <span class="s1">&#39;//*[@id=&quot;modal-container&quot;]//awsui-button[contains(@text,&quot;Download .csv file&quot;)]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 
         <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;accessKeys.csv downloaded&quot;</span><span class="p">)</span></div></div>

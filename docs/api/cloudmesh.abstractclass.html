@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.abstractclass package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-abstractclass-computenodeabc-module">cloudmesh.abstractclass.ComputeNodeABC module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstractclass.ComputeNodeABC">cloudmesh.abstractclass.ComputeNodeABC module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstractclass.ProcessManagerABC">cloudmesh.abstractclass.ProcessManagerABC module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstractclass.State">cloudmesh.abstractclass.State module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstractclass.StorageABC">cloudmesh.abstractclass.StorageABC module</a></li>
@@ -283,8 +283,419 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-abstractclass-computenodeabc-module">
-<h2>cloudmesh.abstractclass.ComputeNodeABC module<a class="headerlink" href="#cloudmesh-abstractclass-computenodeabc-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.abstractclass.ComputeNodeABC">
+<span id="cloudmesh-abstractclass-computenodeabc-module"></span><h2>cloudmesh.abstractclass.ComputeNodeABC module<a class="headerlink" href="#module-cloudmesh.abstractclass.ComputeNodeABC" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstractclass.ComputeNodeABC.</code><code class="sig-name descname">ComputeNodeABC</code><span class="sig-paren">(</span><em class="sig-param">cloud</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_rules_to_secgroup">
+<code class="sig-name descname">add_rules_to_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.add_rules_to_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup">
+<code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup_rule">
+<code class="sig-name descname">add_secgroup_rule</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">protocol=None</em>, <em class="sig-param">ip_range=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.add_secgroup_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_public_ip">
+<code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.console">
+<code class="sig-name descname">console</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create">
+<em class="property">abstract </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">image=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">timeout=360</em>, <em class="sig-param">group=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – a list of groups the vm belongs to</p></li>
+<li><p><strong>name</strong> – the name of the node</p></li>
+<li><p><strong>image</strong> – the image used</p></li>
+<li><p><strong>size</strong> – the size of the image</p></li>
+<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image does not boot.
+The default is set to 3 minutes.</p></li>
+<li><p><strong>kwargs</strong> – additional arguments passed along at time of boot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create_public_ip">
+<code class="sig-name descname">create_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.create_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new public IP address to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ip address information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_public_ip">
+<code class="sig-name descname">delete_public_ip</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.delete_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the ip address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ip</strong> – the ip address, if None than all will be deleted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_server_metadata">
+<em class="property">abstract </em><code class="sig-name descname">delete_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.delete_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.destroy">
+<em class="property">abstract </em><code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the node
+:param name: the name of the node
+:return: the dict of the node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.detach_public_ip">
+<code class="sig-name descname">detach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.detach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.detach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.find_available_public_ip">
+<code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single public available ip address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ip</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavor">
+<code class="sig-name descname">flavor</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the flavor with a given name
+:param name: The name of the flavor
+:return: The dict of the flavor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavors">
+<code class="sig-name descname">flavors</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_public_ip">
+<code class="sig-name descname">get_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.get_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the public ip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the server</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_server_metadata">
+<em class="property">abstract </em><code class="sig-name descname">get_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.get_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.image">
+<code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the image with a given nmae
+:param name: The name of the image
+:return: the dict of the image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.images">
+<code class="sig-name descname">images</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the images on the cloud
+:return: dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.info">
+<em class="property">abstract </em><code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the information of a node with a given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_delete">
+<code class="sig-name descname">key_delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.key_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the key with the given name
+:param name: The name of the key
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload">
+<em class="property">abstract </em><code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list">
+<em class="property">abstract </em><code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>list all vms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of dicts representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_public_ips">
+<code class="sig-name descname">list_public_ips</code><span class="sig-paren">(</span><em class="sig-param">available=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the public ip addresses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>available</strong> – if True only those that are not allocated will be
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroup_rules">
+<code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups">
+<code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot">
+<code class="sig-name descname">reboot</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot a list of nodes with the given names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>names</strong> – A list of node names</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_rules_from_secgroup">
+<code class="sig-name descname">remove_rules_from_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.remove_rules_from_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_rules_from_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_secgroup">
+<code class="sig-name descname">remove_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.remove_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.rename">
+<em class="property">abstract </em><code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>rename a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination</strong> – </p></li>
+<li><p><strong>name</strong> – the current name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict with the new name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.resume">
+<em class="property">abstract </em><code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.set_server_metadata">
+<em class="property">abstract </em><code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">**metadata</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.set_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the fm</p></li>
+<li><p><strong>metadata</strong> – the metadata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.start">
+<em class="property">abstract </em><code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>start a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the unique node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.stop">
+<em class="property">abstract </em><code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>stops the node with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.suspend">
+<em class="property">abstract </em><code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspends the node with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.upload_secgroup">
+<code class="sig-name descname">upload_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.upload_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.upload_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.wait">
+<em class="property">abstract </em><code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">interval=None</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.abstractclass.ProcessManagerABC">
 <span id="cloudmesh-abstractclass-processmanagerabc-module"></span><h2>cloudmesh.abstractclass.ProcessManagerABC module<a class="headerlink" href="#module-cloudmesh.abstractclass.ProcessManagerABC" title="Permalink to this headline">¶</a></h2>

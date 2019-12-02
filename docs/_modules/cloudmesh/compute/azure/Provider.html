@@ -469,16 +469,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">VNET_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;network&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">SUBNET_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;subnet&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">IP_CONFIG_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_IP_CONFIG&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">NIC_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_NIC&quot;</span><span class="p">]</span>
-
-        <span class="c1"># public IPs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">PUBLIC_IP__NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s1">&#39;AZURE_PUBLIC_IP_NAME&#39;</span><span class="p">]</span>
 
         <span class="c1"># Azure VM Storage details</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">OS_DISK_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_DISK_NAME&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">USERNAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_USER&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">PASSWORD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_PASSWORD&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_NAME&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">NIC_NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_NIC&quot;</span><span class="p">]</span>
+
+        <span class="c1"># public IPs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PUBLIC_IP__NAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span> <span class="o">+</span> <span class="s1">&#39;-pub-ip&#39;</span>
 
         <span class="c1"># Create or Update Resource group</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_resource_group</span><span class="p">()</span>
@@ -683,14 +683,14 @@
                 <span class="n">pub_ip</span> <span class="o">=</span> <span class="n">ip</span>
         <span class="k">return</span> <span class="n">pub_ip</span>
 
-    <span class="k">def</span> <span class="nf">_get_local_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_local_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">vm_search</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cmDatabase</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;azure-vm&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">vm_name</span><span class="p">}))</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vm_search</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">quiet</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">vm_search</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unable to locate </span><span class="si">{vm_name}</span><span class="s2"> in local db!&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">vm_search</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">vm_search</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vm_search</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">vm</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1524,14 +1524,23 @@
         <span class="k">return</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># TODO: Joaquin -&gt; Completed</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List all Azure Virtual Machines from my Account</span>
 <span class="sd">        :return: dict or libcloud object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">list_all</span><span class="p">()</span>
+        <span class="n">az_servers</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="n">servers</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)</span></div>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
+            <span class="n">local_vm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_local_vm</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">local_vm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;no local vm found for &quot;</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+            <span class="n">v</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">local_vm</span><span class="p">)</span>
+            <span class="n">az_servers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">az_servers</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

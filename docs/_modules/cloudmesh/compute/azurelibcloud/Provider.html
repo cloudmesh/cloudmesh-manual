@@ -385,8 +385,8 @@
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
         <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
-            <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+                 <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
             <span class="n">action</span><span class="p">,</span>
@@ -411,8 +411,8 @@
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
         <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
-            <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+                 <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
             <span class="n">action</span><span class="p">,</span>
@@ -436,9 +436,9 @@
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
         <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;Microsoft.Network/virtualNetworks/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{network_name}</span><span class="s2">/subnets/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+                 <span class="sa">f</span><span class="s2">&quot;Microsoft.Network/virtualNetworks/&quot;</span> \
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{network_name}</span><span class="s2">/subnets/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
             <span class="n">action</span><span class="p">,</span>
@@ -462,8 +462,8 @@
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
         <span class="n">target</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/&quot;</span> \
-            <span class="s2">&quot;providers/Microsoft.Network/publicIPAddresses/name&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/&quot;</span> \
+                 <span class="s2">&quot;providers/Microsoft.Network/publicIPAddresses/name&quot;</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">default_location</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
@@ -497,8 +497,8 @@
         <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
 
         <span class="n">action</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
-            <span class="sa">f</span><span class="s2">&quot;Microsoft.Network/publicIPAddresses/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+                 <span class="sa">f</span><span class="s2">&quot;Microsoft.Network/publicIPAddresses/</span><span class="si">{name}</span><span class="s2">&quot;</span>
 
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
             <span class="n">action</span><span class="p">,</span>
