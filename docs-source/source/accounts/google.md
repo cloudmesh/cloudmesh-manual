@@ -50,16 +50,15 @@ documents to Google Docs.
 In a broader sense Google docs is just a subset of Google Drive.
 
 
-## [Google Cloud Platform](https://cloud.google.com/)
+## Google Cloud Platform
 
-Google Cloud Platform (GCP), offered by Google, is a suite of cloud
-computing services that runs on the same infrastructure that Google
-uses internally for its end-user products, such as Google Search and
-YouTube. Alongside a set of management tools, it provides a series of
-modular cloud services including computing, data storage, data
-analytics and machine learning. Within cloudmesh, we develop services
-through taht support some of these these
-products.
+[Google Cloud Platform (GCP)](https://cloud.google.com/), offered by Google, is
+a suite of cloud computing services that runs on the same infrastructure that
+Google uses internally for its end-user products, such as Google Search and
+YouTube. Alongside a set of management tools, it provides a series of modular
+cloud services including computing, data storage, data analytics and machine
+learning. Within cloudmesh, we develop services through taht support some of
+these these products.
 
 ### [Google Compute Engine](https://cloud.google.com/products/compute/)
 
@@ -79,20 +78,30 @@ and a service account through the Google webpage.
 
 ### [Google Cloud Storage](<https://cloud.google.com/products/storage/>)
 
-Google cloud platform provides varity of storage products which are simple, reliable, and secure solutions for your media, analytics, and application data. Cloudmesh services(cms) provides command line cloud to cloud storage and transfer servicies for google cloud storage part of cloudmesh-google storage application. At this time it supports google cloud platform "object or blob storage". Various available operations using cms are put(file upload), get(file downlod), list, delete object/blob, create directory.
+Google cloud platform provides varity of storage products which are simple,
+reliable, and secure solutions for your media, analytics, and application data.
+Cloudmesh services(cms) provides command line cloud to cloud storage and
+transfer servicies for google cloud storage part of cloudmesh-google storage
+application. At this time it supports google cloud platform "object or blob
+storage". Various available operations using cms are put(file upload), get(file
+downlod), list, delete `object/blob`, create directory.
 
-<B>Following are avalable google cloud storage products :<B>
+The following are avalaible as google cloud storage products:
 
-#### 1. OBJECT OR BLOB STORAGE [Storage Type: Cloud Storage](https://cloud.google.com/storage/) 
-#### 2. BLOCK STORAGE [Storage Type: Persistent Disk](https://cloud.google.com/persistent-disk/)
-#### 3. ARCHIVAL STORAGE [Storage Type: Cloud Storage](https://cloud.google.com/storage/)
-#### 4. FILE STORAGE [Storage Type: Cloud Filestore](https://cloud.google.com/filestore/)
-#### 5. MOBILE APPLICATION [Storage Type: Cloud Storage for Firebase](https://firebase.google.com/products/storage/)
-#### 6. DATA TRANSFER [Storage Type: Data Transfer Services](https://cloud.google.com/products/data-transfer/)
-#### 7. COLLABORATION [Storage Type: Drive enterprise](https://cloud.google.com/drive-enterprise/)
+1. OBJECT OR BLOB STORAGE [Storage Type: Cloud Storage](https://cloud.google.com/storage/) 
+2. BLOCK STORAGE [Storage Type: Persistent Disk](https://cloud.google.com/persistent-disk/)
+3. ARCHIVAL STORAGE [Storage Type: Cloud Storage](https://cloud.google.com/storage/)
+4. FILE STORAGE [Storage Type: Cloud Filestore](https://cloud.google.com/filestore/)
+5. MOBILE APPLICATION [Storage Type: Cloud Storage for Firebase](https://firebase.google.com/products/storage/)
+6. DATA TRANSFER [Storage Type: Data Transfer Services](https://cloud.google.com/products/data-transfer/)
+7. COLLABORATION [Storage Type: Drive enterprise](https://cloud.google.com/drive-enterprise/)
 
-You can refer [google storage documentation](https://cloud.google.com/storage/docs/) for more details on google cloud storage documentation.
-Cloudmesh currently supports [object/blob storage](https://cloud.google.com/storage/docs/how-to) in beta version. Users can follow instruction to configure google could platform described as part of this document.
+You can refer [google storage
+documentation](https://cloud.google.com/storage/docs/) for more details on
+google cloud storage documentation. Cloudmesh currently supports [object/blob
+storage](https://cloud.google.com/storage/docs/how-to) in beta version. Users
+can follow instruction to configure google could platform described as part of
+this document.
 
 ### Step-by-Step Guide to create Google Cloud account
 
@@ -102,7 +111,8 @@ you $300 in credits to use google cloud.)
 
   [Get Started for Free](https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE)
 
-  After you click this option, you can choose you existing google account or create a new account using following link:
+  After you click this option, you can choose you existing google account or
+  create a new account using following link:
   
   [Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true)
 
@@ -110,7 +120,9 @@ you $300 in credits to use google cloud.)
   
   [Google Cloud Platform | Google for Education](https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none)
 
-  Limitation with for education method: You may need additional approvals and professor need to request for choosing this option, refer documentation in the mentioned link.
+  Limitation with for education method: You may need additional approvals and
+  professor need to request for choosing this option, refer documentation in
+  the mentioned link.
   
   Here is additinal reference link for account creation support page:
   
@@ -166,11 +178,16 @@ cloudmesh4.yaml in parameter "path_to_json_file"
 
 * ***Step4 - Yaml entry for google storage Account*** 
 
-* After you downlod the credentials in json format rename the same as google.json and move it to ~/.cloudmesh directory.
-* Run follwing cloudmesh command, for the first time and every time your credentials are modified :
+* After you downlod the credentials in json format rename the same as
+  `google.json` and move it to `~/.cloudmesh` directory.
+
+* Run follwing cloudmesh command, for the first time and every time your
+  credentials are modified :
+
 ```
 cms google yaml write ~/.cloudmesh/google.json
 ```
+
 * Once this command is successfully executed you can validate the entry in yaml file.
  Here is the sample yaml file entry for google storage :
 
