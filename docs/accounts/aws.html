@@ -132,7 +132,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#using-the-access-key">Using the Access Key</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#compute-service">Compute Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-service">Compute Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-public-key">Import Public key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-yaml-configuration-for-aws">Cloudmesh.yaml Configuration for AWS</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#storage-service">Storage Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
@@ -233,8 +237,7 @@ service that offers a wide range of storage classes.</p></li>
 <p>We provide a step-by-step guide on how to create an AWS account through
 the AWS Web page to utilize these services. For more information you can
 consult the
-[AWS FAQ](https://aws.amazon.com/premiumsupport/knowledge-center/create-and
--activate-aws-account/).</p>
+<a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">AWS FAQ</a>.</p>
 <p>First, we go to the AWS website</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://aws.amazon.com">https://aws.amazon.com</a></p></li>
@@ -299,14 +302,12 @@ leverage other clouds.</p>
 <p>Now that you have an account it is necessary that you can authenticate to your
 cloud account from a program or a command line. The instructions for this can
 be found at</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html</a></p></li>
-</ul>
+<p>-<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html</a></p>
 <p>However, it is far easier to use the convenient cloudmesh tools by just using
 the cloudmesh open command.</p>
 <p>In case you have not yet added a user, you can visit the user creation page
 with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms open account aws
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open account aws
 </pre></div>
 </div>
 <div class="section" id="create-and-download-access-key">
@@ -346,7 +347,7 @@ Console which now provide you a summary of the newly created user called
 <p>By clicking on the <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">access</span> <span class="pre">key</span></code>, you can create another access key:</p>
 <p><img alt="IAM Management Console: Create Access Key" src="../_images/image26.png" /></p>
 <p>As is mentioned in the screen shot, this is the only time you can view or
-download the secret access key. So go ahead and click on the <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">.csv</span>&#160; <span class="pre">file</span></code> and save it as <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/accessKey.csv</span></code>:</p>
+download the secret access key. So go ahead and click on the <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">.csv</span> <span class="pre">file</span></code> and save it as <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/accessKey.csv</span></code>:</p>
 <p><img alt="IAM Management Console: Download CSV File" src="../_images/image27.png" /></p>
 </div>
 <div class="section" id="using-the-access-key">
@@ -372,10 +373,70 @@ the permissions for ~/.cloudmesh are restricted,</p>
 </div>
 <div class="section" id="compute-service">
 <h2>Compute Service<a class="headerlink" href="#compute-service" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="import-public-key">
+<h3>Import Public key<a class="headerlink" href="#import-public-key" title="Permalink to this headline">¶</a></h3>
+<p>Before we get started with AWS compute services, we need to be sure we import our public ssh key. We assume an ssh has already been set up under <code class="docutils literal notranslate"><span class="pre">~\.ssh\id_rsa.pub</span></code>. If this prerequisite has not yet been satisfied, please reference the installation section.</p>
+<p>While logged into AWS’s console, navigate to the EC2 Management Console under <code class="docutils literal notranslate"><span class="pre">Services</span> <span class="pre">&gt;</span> <span class="pre">Compute</span> <span class="pre">&gt;</span> <span class="pre">EC2</span></code>:</p>
+<p><img alt="EC2 Management Console: EC2 Console" src="../_images/aws_compute_ec2.png" /></p>
+<p>Next, on the left-hand panel, navigate to <code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">&amp;</span> <span class="pre">Security</span> <span class="pre">&gt;</span> <span class="pre">Key</span> <span class="pre">Pairs</span></code> and select <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">key</span> <span class="pre">pair</span></code>. Once you’re at the Import Settings screen, browse to <code class="docutils literal notranslate"><span class="pre">~\.ssh</span></code> and select the <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code> file. Name the imported file after the same username configured you have configured in the cloudmesh.yaml file.</p>
+<p><img alt="EC2 Management Console: Import Settings" src="../_images/aws_ec2_import_settings.png" /></p>
+<p><img alt="EC2 Management Console: Pub SSH Key" src="../_images/aws_ec2_import_pub_key.png" /></p>
+</div>
+<div class="section" id="cloudmesh-yaml-configuration-for-aws">
+<h3>Cloudmesh.yaml Configuration for AWS<a class="headerlink" href="#cloudmesh-yaml-configuration-for-aws" title="Permalink to this headline">¶</a></h3>
+<p>Please reference the section on Configuration for more information on getting, setting, and editing values to the cloudmesh.yaml configuration file; along with referencing the compute cloud provider templates and default values.</p>
+<p>Run the following code to set the AWS compute provider values specific to your configuration. Alternatively, you can manually set these values using a text editor to update the cloudmesh.yaml file under <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code>.</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>cms config set cloudmesh.cloud.aws.cm.active=true
+cms config set cloudmesh.cloud.aws.credentials.region=AWSMGMTCONSOLEREGIONVALUE
+cms config set cloudmesh.cloud.aws.credentials.EC2_SECURITY_GROUP=SECGROUPVALUE
+cms config set cloudmesh.cloud.aws.credentials.EC2_ACCESS_ID=ACCESSIDVALUE
+cms config set cloudmesh.cloud.aws.credentials.EC2_SECRET_KEY=SECRETKEYVALUE
+</pre></div>
+</div>
+<p><strong>Notes</strong>:</p>
 <ul class="simple">
-<li><p>[ ] TODO: Aws EC2 account. Describe here if there is anything to be done for
-accessing EC2</p></li>
+<li><p>Region can be found while logged into the AWS management console in the upper right-hand side.
+<img alt="AWS Management Console: Pub SSH Key" src="../_images/aws_region.png" /></p></li>
+<li><p>EC2_ACCESS_ID and EC2_SECRET_KEY values can be found either during the initial setup in AWS, or by referencing the Access Key downloaded as a csv and moved to the <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> directory.
+<img alt="AWS Configuration: Access Key Credentials" src="../_images/aws_access_key.png" /></p></li>
+<li><p>TODO: Confirm if EC2_PRIVATE_KEY_FILE_PATH and EC2_PRIVATE_KEY_FILE_NAME cloudmesh.yaml AWS compute variables are being utilized, as these are not referenced in <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code>. If this is not needed, remove from cloudmesh.yaml. If this is needed, update the AWS account section with the following steps:</p>
+<ul>
+<li><p>Create a new key pair and name the key pair <code class="docutils literal notranslate"><span class="pre">aws_cert</span></code>. Then download the key and move to the <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> directory.
+<img alt="REVIEW: AWS_CERT Private Key" src="../_images/aws_private_key.png" /></p></li>
 </ul>
+</li>
+</ul>
+<p>Once the values have been set:
+<img alt="AWS Configuration: Set Config" src="../_images/aws_config.png" />
+<img alt="AWS Configuration: Check Config" src="../_images/aws_config_check.png" /></p>
+<p>run the following to get started and test AWS compute services:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>cms set cloud=aws
+cms init
+cms key init
+cms vm boot
+</pre></div>
+</div>
+<p>This should have allowed you to initialize cms with the updated configurations and boot up a new vm in AWS based.
+<img alt="AWS Configuration: CMS init" src="../_images/aws_cms_init_and_vmboot.png" /></p>
+<p>Check the status of the vm by executing the following:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>cms vm list --refresh
+</pre></div>
+</div>
+<p><img alt="AWS Configuration: vm list" src="../_images/aws_vmlist.png" /></p>
+<p>Now test stopping the vm. Note that you may need to give it a minute or two before you refresh the vm list to validate Status=stopped.</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>cms vm stop VMINSTANCENAME
+</pre></div>
+</div>
+<p><img alt="AWS Configuration: vm stop" src="../_images/aws_vmstop.png" /></p>
+<p>Now test terminating the vm. (Note the example provided if you are attempting run commands against multiple vm’s.)</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>cms vm delete VMINSTANCENAME
+</pre></div>
+</div>
+<p><img alt="AWS Configuration: vm delete" src="../_images/aws_vmdelete.png" /></p>
+<ul class="simple">
+<li><p>[x] TODO: Aws EC2 account. Describe here if there is anything to be done for accessing EC2</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="storage-service">
 <h2>Storage Service<a class="headerlink" href="#storage-service" title="Permalink to this headline">¶</a></h2>
