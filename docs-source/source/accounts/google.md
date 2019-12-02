@@ -1,5 +1,8 @@
 # Google Storage Providers
 
+... INTRODUCTION MISSING
+
+
 ## Google Drive
 
 Google Drive is a file storing platform where an user can store all
@@ -103,7 +106,7 @@ storage](https://cloud.google.com/storage/docs/how-to) in beta version. Users
 can follow instruction to configure google could platform described as part of
 this document.
 
-### Step-by-Step Guide to create Google Cloud account
+### Step-by-Step Guide to create a Google Cloud account
 
 * ***Step 1 - Create Google Account*** Use the following link provided
 by google to create a free google account. (This account can provide
@@ -135,7 +138,7 @@ you $300 in credits to use google cloud.)
   
   [Google Storage - Online Data Storage | Cloud Storage | Google Cloud](<https://console.cloud.google.com/>)
   
-   * From here create a new project or select an alredy created project, following is the flow at goole console:
+   * From here create a new project or select an alredy created project as seen in the next three screenshots:
    
    ![Create first account_01](images/google/MyFirstAccount_01.png)
    ![Create first account_02](images/google/MyFirstAccount_02.png)
