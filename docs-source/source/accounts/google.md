@@ -94,28 +94,143 @@ Google cloud platform provides varity of storage products which are simple, reli
 You can refer [google storage documentation](https://cloud.google.com/storage/docs/) for more details on google cloud storage documentation.
 Cloudmesh currently supports [object/blob storage](https://cloud.google.com/storage/docs/how-to) in beta version. Users can follow instruction to configure google could platform described as part of this document.
 
-### Step-by-Step Guide
+### Step-by-Step Guide to create Google Cloud account
 
 * ***Step 1 - Create Google Account*** Use the following link provided
-by google to create a free google account. This account will provide
-you $300 in credits to use google cloud.
+by google to create a free google account. (This account can provide
+you $300 in credits to use google cloud.)
 
-* <https://support.google.com/accounts/answer/27441>
+  [Get Started for Free](https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE)
 
-* ***Step 2 - Create Project***  Go to Google Cloud Console 
-  <https://console.cloud.google.com/> and create a new project.
+  After you click this option, you can choose you existing google account or create a new account using following link:
+  
+  [Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true)
 
+  students also have option to use follwing option:
+  
+  [Google Cloud Platform | Google for Education](https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none)
+
+  Limitation with for education method: You may need additional approvals and professor need to request for choosing this option, refer documentation in the mentioned link.
+  
+  Here is additinal reference link for account creation support page:
+  
+  [Create a Google Account- Google Account Help](<https://support.google.com/accounts/answer/27441>)
+
+
+
+* ***Step 2 - Create Project***  
+  Assuming you have created gogle account, go to Google Cloud Console using following link:
+  
+  [Google Storage - Online Data Storage | Cloud Storage | Google Cloud](<https://console.cloud.google.com/>)
+  
+   * From here create a new project or select an alredy created project, following is the flow at goole console:
+   
+   ![Create first account_01](images/google/MyFirstAccount_01.png)
+   ![Create first account_02](images/google/MyFirstAccount_02.png)
+   ![Create first account_03](images/google/MyFirstAccount_03.png)
+   
+   After project is created, create a service account.
+  * Note: There are many methods for authentication while working on google cloud. 
+  For our needs we need service account authentication. 
+  Here is the reference link for google authentication methods and comparision :
+  
+  [Authentication Overview | Authentication | Google Cloud](https://cloud.google.com/docs/authentication/)
+  
 * ***Step3 - Create Service Account*** Select the newly created
 project and go to IAM & Admin -> Service Accounts -> Create service
 account to create a new service account. Select “Furnish a new private
 key” to create and download new private key you will use to
 authenticate. Opt for the new preferred JSON format, download the file
-and save it to a secure location. This file is referenced in the
+and save it to a secure location (e.g. ~/.cloudmesh). For google cloud storage 
+this file will be used to update Yaml entry in ~/.cloudmesh/cloudmesh.yaml.
+Also for gdrive storage option JSON file is referenced in the
 cloudmesh4.yaml in parameter "path_to_json_file"
+
+* Alternatively :
+
+   ** Go to: [create service account page](https://cloud.google.com/docs/authentication/production)
+   ![Create service account_01](images/google/CreateServiceAccount_01.png)
+
+   ** Go to section :Creating a service account 
+   
+  Following is the direct link to generate credentials from google :
+  
+    [Create Service Account Key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
+    ![Create service key](images/google/CreateServiceKey_01.png)
 
 
 * `client_secret.json` 
 * `google-drive-credentials.json`
+
+* ***Step4 - Yaml entry for google storage Account*** 
+
+* After you downlod the credentials in json format rename the same as google.json and move it to ~/.cloudmesh directory.
+* Run follwing cloudmesh command, for the first time and every time your credentials are modified :
+```
+cms google yaml write ~/.cloudmesh/google.json
+```
+* Once this command is successfully executed you can validate the entry in yaml file.
+ Here is the sample yaml file entry for google storage :
+
+  ```
+   google:
+      cm:
+        name: google
+        active: 'true'
+        heading: GCP
+        host: https://console.cloud.google.com/storage
+        kind: google
+        version: TBD
+        service: storage
+      default:
+        directory: cloudmesh_gcp
+        Location_type: Region
+        Location: us - east1  
+        Default_storage_class: Standard
+        Access_control: Uniform
+        Encryption: Google-managed
+        Link_URL: https://console.cloud.google.com/storage/browser/cloudmesh_gcp
+        Link_for_gsutil: gs://cloudmesh_gcp
+      credentials:
+        type: service_account
+        project_id: imposing-coast-123456
+        private_key_id: a1b2c3d4*********
+        private_key: '-----BEGIN PRIVATE KEY-----
+
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+          ***********************************************************
+
+          -----END PRIVATE KEY-----
+
+          '
+        client_email: user@imposing-coast-123456.iam.gserviceaccount.com
+        client_id: '1234567******23456'
+        auth_uri: https://accounts.google.com/o/oauth2/auth
+        token_uri: https://oauth2.googleapis.com/token
+        auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+        client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/user%40imposing-coast-12345.iam.gserviceaccount.com
+   
+   ```
+
+
+### Google Drive authentication additional steps and procedure
 
 If we run the Google Drive `Provider.py` for the **First time** then
 the required keys, tokens are taken from the `cloudmesh4.yaml` file
