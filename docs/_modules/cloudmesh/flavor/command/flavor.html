@@ -208,6 +208,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
+
 <div class="viewcode-block" id="FlavorCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.flavor.command.html#cloudmesh.flavor.command.flavor.FlavorCommand">[docs]</a><span class="k">class</span> <span class="nc">FlavorCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
     <span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/FlavorCommand.py</span>
@@ -256,7 +257,6 @@
 
 
 <span class="sd">        &quot;&quot;&quot;</span>
-
 
         <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
                        <span class="s2">&quot;query&quot;</span><span class="p">,</span>
@@ -315,7 +315,8 @@
                     <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
                     <span class="n">flavors</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-flavor&quot;</span><span class="p">)</span>
 
-                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">flavors</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flavor&quot;</span><span class="p">)</span>
+                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">flavors</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flavor&quot;</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 

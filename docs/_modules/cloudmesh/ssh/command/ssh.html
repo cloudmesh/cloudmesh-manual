@@ -353,7 +353,6 @@
 
             <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
 
-
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">or</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span>
                 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">]</span>
@@ -396,7 +395,8 @@
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">vm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;VM not found, make sure the vm exists in the list below: &quot;</span><span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                        <span class="s2">&quot;VM not found, make sure the vm exists in the list below: &quot;</span><span class="p">)</span>
                     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cms vm list&#39;</span><span class="p">)</span>
                     <span class="k">return</span>
 
@@ -404,15 +404,13 @@
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span> <span class="c1"># ssh with no argument</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># ssh with no argument</span>
             <span class="n">last_vm</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span>
             <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
             <span class="n">vm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">last_vm</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;cloud&#39;</span><span class="p">]</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
             <span class="n">provider</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">)</span></div>
-
-
 </pre></div>
 
            </div>

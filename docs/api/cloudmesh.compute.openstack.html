@@ -132,8 +132,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.openstack package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-openstack-provider-module">cloudmesh.compute.openstack.Provider module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-openstack-test-openstacksdk-module">cloudmesh.compute.openstack.test_openstacksdk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.openstack.Provider">cloudmesh.compute.openstack.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.openstack.test_openstacksdk">cloudmesh.compute.openstack.test_openstacksdk module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.openstack">Module contents</a></li>
 </ul>
 </li>
@@ -283,11 +283,558 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-compute-openstack-provider-module">
-<h2>cloudmesh.compute.openstack.Provider module<a class="headerlink" href="#cloudmesh-compute-openstack-provider-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.compute.openstack.Provider">
+<span id="cloudmesh-compute-openstack-provider-module"></span><h2>cloudmesh.compute.openstack.Provider module<a class="headerlink" href="#module-cloudmesh.compute.openstack.Provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.compute.openstack.Provider.Provider">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.openstack.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">configuration='~/.cloudmesh/cloudmesh.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a>, <a class="reference internal" href="cloudmesh.provider.html#cloudmesh.provider.ComputeProviderPlugin" title="cloudmesh.provider.ComputeProviderPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.provider.ComputeProviderPlugin</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.Print">
+<code class="sig-name descname">Print</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">output=None</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.Print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.Print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.add_rules_to_secgroup">
+<code class="sig-name descname">add_rules_to_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.add_rules_to_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.add_secgroup">
+<code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the
+:param name: Name of the group
+:param description: The description
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.add_secgroup_rule">
+<code class="sig-name descname">add_secgroup_rule</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">protocol=None</em>, <em class="sig-param">ip_range=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.add_secgroup_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.add_secgroup_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the
+:param name: Name of the group
+:param description: The description
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.attach_public_ip">
+<code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.attach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.console">
+<code class="sig-name descname">console</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.console" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">image=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">location=None</em>, <em class="sig-param">timeout=360</em>, <em class="sig-param">key=None</em>, <em class="sig-param">secgroup=None</em>, <em class="sig-param">ip=None</em>, <em class="sig-param">user=None</em>, <em class="sig-param">public=True</em>, <em class="sig-param">group=None</em>, <em class="sig-param">metadata=None</em>, <em class="sig-param">cloud=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – the list of groups the vm belongs to</p></li>
+<li><p><strong>name</strong> – the name of the node</p></li>
+<li><p><strong>image</strong> – the image used</p></li>
+<li><p><strong>size</strong> – the size of the image</p></li>
+<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image
+does not boot. The default is set to 3 minutes.</p></li>
+<li><p><strong>kwargs</strong> – additional arguments HEADING(c=”.”)ed along at time of
+boot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.create_public_ip">
+<code class="sig-name descname">create_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.create_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.create_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new public IP address to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ip address information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.delete_public_ip">
+<code class="sig-name descname">delete_public_ip</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.delete_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.delete_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the ip address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ip</strong> – the ip address, if None than all will be deleted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.delete_server_metadata">
+<code class="sig-name descname">delete_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.delete_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.destroy">
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the node
+:param name: the name of the node
+:return: the dict of the node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.detach_public_ip">
+<code class="sig-name descname">detach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.detach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.detach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.find">
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">elements</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds an element in elements with the specified name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> – The elements</p></li>
+<li><p><strong>name</strong> – The name to be found</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.find_available_public_ip">
+<code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single public available ip address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ip</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.flavor">
+<code class="sig-name descname">flavor</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the flavor with a given name
+:param name: The name of the flavor
+:return: The dict of the flavor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.flavors">
+<code class="sig-name descname">flavors</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.get_list">
+<code class="sig-name descname">get_list</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">kind=None</em>, <em class="sig-param">debug=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.get_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.get_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the dict d on the cloud
+:return: dict or libcloud object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.get_private_ip">
+<code class="sig-name descname">get_private_ip</code><span class="sig-paren">(</span><em class="sig-param">server=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.get_private_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.get_private_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.get_public_ip">
+<code class="sig-name descname">get_public_ip</code><span class="sig-paren">(</span><em class="sig-param">server=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.get_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.get_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the public ip</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the server</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.get_server_metadata">
+<code class="sig-name descname">get_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.get_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.get_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.image">
+<code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the image with a given name
+:param name: The name of the image
+:return: the dict of the image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.images">
+<code class="sig-name descname">images</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the images on the cloud
+:return: dict or libcloud object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information of a node with a given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of teh virtual machine</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.key_delete">
+<code class="sig-name descname">key_delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.key_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.key_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the key with the given name
+:param name: The name of the key
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.key_upload">
+<code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'openstack'</em><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the vms on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of vms</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.list_public_ips">
+<code class="sig-name descname">list_public_ips</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em>, <em class="sig-param">available=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.list_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.list_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the public ip addresses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>available</strong> – if True only those that are not allocated will be
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.list_secgroup_rules">
+<code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.list_secgroups">
+<code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.output">
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'VCPUS', 'RAM', 'Disk'], 'order': ['cm.name', 'vcpus', 'ram', 'disk'], 'sort_keys': ['cm.name', 'vcpus', 'disk']}, 'image': {'header': ['Name', 'Size (Bytes)', 'MinDisk (GB)', 'MinRam (MB)', 'Status', 'Driver'], 'order': ['cm.name', 'size', 'min_disk', 'min_ram', 'status', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'ip': {'header': ['Name', 'Floating', 'Fixed'], 'order': ['name', 'floating_ip_address', 'fixed_ip_address']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Description', 'Rules'], 'order': ['name', 'tags', 'description', 'rules'], 'sort_keys': ['name']}, 'secrule': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'port_range_max', 'port_range_min', 'protocol', 'remote_ip_prefix', 'remote_group_id'], 'sort_keys': ['name']}, 'status': {'header': ['Name', 'Cloud', 'State', 'Status', 'Task'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'task_state'], 'sort_keys': ['cm.name']}, 'vm': {'header': ['Name', 'Cloud', 'State', 'Status', 'Task', 'Image', 'Flavor', 'Public IPs', 'Private IPs', 'Project ID', 'Started at', 'Kind'], 'humanize': ['launched_at'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'task_state', 'metadata.image', 'metadata.flavor', 'ip_public', 'ip_private', 'project_id', 'launched_at', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.pause">
+<code class="sig-name descname">pause</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.pause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a server with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – A list of node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.reboot">
+<code class="sig-name descname">reboot</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot a list of nodes with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – A list of node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.remove_rules_from_secgroup">
+<code class="sig-name descname">remove_rules_from_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.remove_rules_from_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.remove_rules_from_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.remove_secgroup">
+<code class="sig-name descname">remove_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.remove_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.remove_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the names security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.rename">
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>rename a node. NOT YET IMPLEMENTED.</p>
+<p>:param destination
+:param name: the current name
+:return: the dict with the new name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.resume">
+<code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume a stopped node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.set_server_metadata">
+<code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">cm</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the server metadata from the cm dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the vm</p></li>
+<li><p><strong>cm</strong> – The cm dict</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.ssh">
+<code class="sig-name descname">ssh</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">command=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.ssh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.ssh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a server with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – A list of node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.status">
+<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop a list of nodes with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – A list of node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.suspend">
+<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOT YET IMPLEMENTED.</p>
+<p>suspends the node with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.unpause">
+<code class="sig-name descname">unpause</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.unpause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop a list of nodes with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – A list of node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.update_dict">
+<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">elements</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>THis function adds a cloudmesh cm dict to each dict in the list
+elements.
+Libcloud
+returns an object or list of objects With the dict method
+this object is converted to a dict. Typically this method is used
+internally.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> – the list of original dicts. If elements is a single
+dict a list with a single element is returned.</p></li>
+<li><p><strong>kind</strong> – for some kinds special attributes are added. This includes
+key, vm, image, flavor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list with the modified dicts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.upload_secgroup">
+<code class="sig-name descname">upload_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.upload_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.upload_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.vm_state">
+<code class="sig-name descname">vm_state</code><em class="property"> = ['ACTIVE', 'BUILDING', 'DELETED', 'ERROR', 'HARD_REBOOT', 'PASSWORD', 'PAUSED', 'REBOOT', 'REBUILD', 'RESCUED', 'RESIZED', 'REVERT_RESIZE', 'SHUTOFF', 'SOFT_DELETED', 'STOPPED', 'SUSPENDED', 'UNKNOWN', 'VERIFY_RESIZE']</em><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.vm_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.wait">
+<code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">interval=None</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/Provider.html#Provider.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="cloudmesh-compute-openstack-test-openstacksdk-module">
-<h2>cloudmesh.compute.openstack.test_openstacksdk module<a class="headerlink" href="#cloudmesh-compute-openstack-test-openstacksdk-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.compute.openstack.test_openstacksdk">
+<span id="cloudmesh-compute-openstack-test-openstacksdk-module"></span><h2>cloudmesh.compute.openstack.test_openstacksdk module<a class="headerlink" href="#module-cloudmesh.compute.openstack.test_openstacksdk" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cloudmesh.compute.openstack.test_openstacksdk.credentials">
+<code class="sig-prename descclassname">cloudmesh.compute.openstack.test_openstacksdk.</code><code class="sig-name descname">credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/openstack/test_openstacksdk.html#credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.openstack.test_openstacksdk.credentials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.compute.openstack">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.compute.openstack" title="Permalink to this headline">¶</a></h2>

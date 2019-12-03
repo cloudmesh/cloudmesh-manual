@@ -175,7 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.vcluster.api package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-vcluster-api-virtualcluster-module">cloudmesh.vcluster.api.VirtualCluster module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vcluster.api.VirtualCluster">cloudmesh.vcluster.api.VirtualCluster module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vcluster.api">Module contents</a></li>
 </ul>
 </li>
@@ -282,8 +282,177 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-vcluster-api-virtualcluster-module">
-<h2>cloudmesh.vcluster.api.VirtualCluster module<a class="headerlink" href="#cloudmesh-vcluster-api-virtualcluster-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.vcluster.api.VirtualCluster">
+<span id="cloudmesh-vcluster-api-virtualcluster-module"></span><h2>cloudmesh.vcluster.api.VirtualCluster module<a class="headerlink" href="#module-cloudmesh.vcluster.api.VirtualCluster" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.vcluster.api.VirtualCluster.</code><code class="sig-name descname">VirtualCluster</code><span class="sig-paren">(</span><em class="sig-param">debug</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.add_suffix_to_path">
+<em class="property">static </em><code class="sig-name descname">add_suffix_to_path</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">suffix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.add_suffix_to_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.add_suffix_to_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to add suffix to a path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path</p></li>
+<li><p><strong>suffix</strong> – suffix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.clean_remote">
+<code class="sig-name descname">clean_remote</code><span class="sig-paren">(</span><em class="sig-param">job_name</em>, <em class="sig-param">proc_num</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.clean_remote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.clean_remote" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to spawn processes for cleaning the remote nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_name</strong> – name of previously submitted job for which the nodes are going to be cleaned</p></li>
+<li><p><strong>proc_num</strong> – number of processes used for cleaning the remote nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.connection_test">
+<code class="sig-name descname">connection_test</code><span class="sig-paren">(</span><em class="sig-param">vcluster_name</em>, <em class="sig-param">proc_num</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.connection_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.connection_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used for spawning processes for testing the connections to remote nodes of a vcluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vcluster_name</strong> – name of the virtual cluster the nodes of which are going to be tested</p></li>
+<li><p><strong>proc_num</strong> – number of processes used for testing the remote nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a caller for creator functions including config creator and vcluster creator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – </p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy">
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to remove virtual clusters and runtime configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – type of entity to be removed</p></li>
+<li><p><strong>key</strong> – keyname of the entity to be removed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.fetch">
+<code class="sig-name descname">fetch</code><span class="sig-paren">(</span><em class="sig-param">job_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.fetch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to fetch results from remote nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>job_name</strong> – the previously submitted job name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">max_depth</em>, <em class="sig-param">current_depth=1</em>, <em class="sig-param">input_dict=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>listing the current virtual clusters based on the vcluster_conf file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – name of the virtual cluster to be listed</p></li>
+<li><p><strong>max_depth</strong> – depth of information to be shown</p></li>
+<li><p><strong>input_dict</strong> – used for recursion for depth of higher than 1</p></li>
+<li><p><strong>current_depth</strong> – current depth of printing information</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">job_name</em>, <em class="sig-param">cluster_name</em>, <em class="sig-param">config_name</em>, <em class="sig-param">script_path</em>, <em class="sig-param">argfile_path</em>, <em class="sig-param">outfile_name</em>, <em class="sig-param">remote_path</em>, <em class="sig-param">local_path</em>, <em class="sig-param">params_list</em>, <em class="sig-param">suffix</em>, <em class="sig-param">overwrite</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create a job, validate it and run it on remote nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_name</strong> – name of the job to create</p></li>
+<li><p><strong>cluster_name</strong> – cluster on which the job is gonna run</p></li>
+<li><p><strong>config_name</strong> – name of the configuration based on which the job is going to run</p></li>
+<li><p><strong>script_path</strong> – path of the script to be run remotely</p></li>
+<li><p><strong>argfile_path</strong> – path of the file that has to be passed to the file as an argument if any</p></li>
+<li><p><strong>outfile_name</strong> – output filename resulted from running the script , if any</p></li>
+<li><p><strong>remote_path</strong> – path in the remotes on which the script is gonna be copied to and ran from</p></li>
+<li><p><strong>local_path</strong> – local path to which the results are gonna be copied</p></li>
+<li><p><strong>params_list</strong> – list of the parameters that are going to be passed to the script if any</p></li>
+<li><p><strong>suffix</strong> – suffix of the filenames in the job</p></li>
+<li><p><strong>overwrite</strong> – if the job already exists, this flag overwrites the previous job with the same name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.set_param">
+<code class="sig-name descname">set_param</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">name</em>, <em class="sig-param">parameter</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vcluster/api/VirtualCluster.html#VirtualCluster.set_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.set_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to set a specific parameter in the configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – the entity type on which the parameter is going to be set, e.g. runtime-config</p></li>
+<li><p><strong>name</strong> – the entity name on which the parameter is going to be set, e.g. test-config32</p></li>
+<li><p><strong>parameter</strong> – name of the parameter to be set</p></li>
+<li><p><strong>value</strong> – value of that parameter to be set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.vcluster.api">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.vcluster.api" title="Permalink to this headline">¶</a></h2>

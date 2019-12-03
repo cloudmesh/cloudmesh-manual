@@ -211,6 +211,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
+
 <div class="viewcode-block" id="SecCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.sec.command.html#cloudmesh.sec.command.sec.SecCommand">[docs]</a><span class="k">class</span> <span class="nc">SecCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
     <span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/SecgroupCommand.py</span>
@@ -373,7 +374,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">groups</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">GROUP</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rule</span><span class="p">)</span> <span class="ow">and</span>  <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> \
+        <span class="k">elif</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rule</span><span class="p">)</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> \
             <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span>
 
             <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">)</span>
@@ -396,9 +397,11 @@
                                 <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;GroupName&#39;</span><span class="p">]</span>
                                 <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Inbound&quot;</span>
                                 <span class="k">if</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">]:</span>
-                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;groupId&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;GroupId&#39;</span><span class="p">]</span>
+                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;groupId&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;GroupId&#39;</span><span class="p">]</span>
                                 <span class="k">if</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">]:</span>
-                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;ipRange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;CidrIp&#39;</span><span class="p">]</span>
+                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;ipRange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
+                                        <span class="s1">&#39;CidrIp&#39;</span><span class="p">]</span>
 
                                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
@@ -407,8 +410,8 @@
                                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
                         <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">result</span>
                 <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">cloud_groups</span><span class="p">,</span>
-                               <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
-                               <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="p">)</span>
+                                 <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                                 <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="p">)</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
@@ -434,7 +437,7 @@
             <span class="c1">#  name=None, protocol=None, ports=None, ip_range=None</span>
             <span class="n">rules</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">RULE</span><span class="p">,</span>
-                <span class="n">ports</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.FROMPORT}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.TOPORT}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">ports</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.FROMPORT}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.TOPORT}</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="n">protocol</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">PROTOCOL</span><span class="p">,</span>
                 <span class="n">ip_range</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">CIDR</span>
             <span class="p">)</span>

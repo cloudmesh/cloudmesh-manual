@@ -293,24 +293,38 @@
     <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
+<div class="viewcode-block" id="is_gitbash"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.is_gitbash">[docs]</a><span class="k">def</span> <span class="nf">is_gitbash</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">exepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;EXEPATH&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s2">&quot;Git&quot;</span> <span class="ow">in</span> <span class="n">exepath</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="is_cmd_exe"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.is_cmd_exe">[docs]</a><span class="k">def</span> <span class="nf">is_cmd_exe</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">is_gitbash</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OS&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Windows_NT&#39;</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="path_expand"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.path_expand">[docs]</a><span class="k">def</span> <span class="nf">path_expand</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; returns a string with expanded variable.</span>
 
-<span class="sd">    :param text: the path to be expanded, which can include ~ and environment $ variables</span>
+<span class="sd">    :param text: the path to be expanded, which can include ~ and environment variables</span>
 <span class="sd">    :param text: string</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
 
-    <span class="c1"># template = Template(text)</span>
-    <span class="c1"># result = template.substitute(os.environ)</span>
-
     <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">result</span></div>
+    <span class="k">if</span> <span class="n">is_gitbash</span><span class="p">()</span> <span class="ow">or</span> <span class="n">is_cmd_exe</span><span class="p">():</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
 
+    <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="convert_from_unicode"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.convert_from_unicode">[docs]</a><span class="k">def</span> <span class="nf">convert_from_unicode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -357,13 +371,13 @@
                 <span class="n">tries</span> <span class="o">-=</span> <span class="mi">1</span></div>
 
 
-<div class="viewcode-block" id="banner"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.banner">[docs]</a><span class="k">def</span> <span class="nf">banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="banner"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.banner">[docs]</a><span class="k">def</span> <span class="nf">banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    prints a banner of the form with a frame of # around the txt::</span>
 
-<span class="sd">    ############################</span>
+<span class="sd">    # --------------------------</span>
 <span class="sd">    # txt</span>
-<span class="sd">    ############################</span>
+<span class="sd">    # --------------------------</span>
 
 <span class="sd">    :param color: prints in the given color</span>
 <span class="sd">    :param label: adds a label</span>
@@ -376,49 +390,60 @@
     <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">if</span> <span class="n">txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
-                <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
 
     <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="str_banner"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.str_banner">[docs]</a><span class="k">def</span> <span class="nf">str_banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;prints a banner of the form with a frame of # around the txt::</span>
+<div class="viewcode-block" id="str_banner"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.str_banner">[docs]</a><span class="k">def</span> <span class="nf">str_banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    prints a banner of the form with a frame of # around the txt::</span>
 
-<span class="sd">      ############################</span>
-<span class="sd">      # txt</span>
-<span class="sd">      ############################</span>
+<span class="sd">    # --------------------------</span>
+<span class="sd">    # txt</span>
+<span class="sd">    # --------------------------</span>
 
-<span class="sd">    :param debug: return &quot;&quot; if not in debug</span>
-<span class="sd">    :type debug: boolean</span>
+<span class="sd">    :param color: prints in the given color</span>
+<span class="sd">    :param label: adds a label</span>
+<span class="sd">    :param debug: prints only if debug is true</span>
 <span class="sd">    :param txt: a text message to be printed</span>
 <span class="sd">    :type txt: string</span>
 <span class="sd">    :param c: the character used instead of c</span>
 <span class="sd">    :type c: character</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-        <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">70</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">if</span> <span class="n">txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="n">txt</span>
-            <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">70</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">line</span></div>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+                <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
 
 
 <span class="c1"># noinspection PyPep8Naming</span>
-<div class="viewcode-block" id="HEADING"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.HEADING">[docs]</a><span class="k">def</span> <span class="nf">HEADING</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="HEADING"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.HEADING">[docs]</a><span class="k">def</span> <span class="nf">HEADING</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;HEADER&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints a message to stdout with #### surrounding it. This is useful for</span>
-<span class="sd">    nosetests to better distinguish them.</span>
+<span class="sd">    pytests to better distinguish them.</span>
 
 <span class="sd">    :param c: uses the given char to wrap the header</span>
 <span class="sd">    :param txt: a text message to be printed</span>
@@ -429,10 +454,14 @@
     <span class="n">filename</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">method</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="se">\n</span><span class="s2"># </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">txt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="se">\n</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+
 
     <span class="nb">print</span><span class="p">()</span>
-    <span class="n">banner</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span></div>
+    <span class="n">banner</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="backup_name"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.backup_name">[docs]</a><span class="k">def</span> <span class="nf">backup_name</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -505,8 +534,8 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    copies the files to the destination</span>
 
-<span class="sd">    :param files_glob: \*.yaml</span>
-<span class="sd">    :param source_dir: source directiry</span>
+<span class="sd">    :param files_glob: *.yaml</span>
+<span class="sd">    :param source_dir: source directory</span>
 <span class="sd">    :param dest_dir: destination directory</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -517,15 +546,19 @@
             <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dest_dir</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="readfile"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.readfile">[docs]</a><span class="k">def</span> <span class="nf">readfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="readfile"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.readfile">[docs]</a><span class="k">def</span> <span class="nf">readfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    returns the content of a file</span>
 <span class="sd">    :param filename: the filename</span>
 <span class="sd">    :return: </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_expand</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">content</span></div>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;r&#39;</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;rb&#39;</span><span class="p">:</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;incorrect mode : expected </span><span class="se">\&#39;</span><span class="s2">r</span><span class="se">\&#39;</span><span class="s2"> or </span><span class="se">\&#39;</span><span class="s2">rb</span><span class="se">\&#39;</span><span class="s2"> given </span><span class="si">{mode}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_expand</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">mode</span><span class="p">)</span><span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">content</span></div>
 
 
 <div class="viewcode-block" id="writefile"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.writefile">[docs]</a><span class="k">def</span> <span class="nf">writefile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
@@ -538,6 +571,21 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_expand</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
         <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="writefd"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.writefd">[docs]</a><span class="k">def</span> <span class="nf">writefd</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDWR</span><span class="o">|</span><span class="n">os</span><span class="o">.</span><span class="n">O_CREAT</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="mo">0o600</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    writes the content into the file and control permissions</span>
+<span class="sd">    :param filename: the full or relative path to the filename</span>
+<span class="sd">    :param content: the content being written</span>
+<span class="sd">    :param mode: the write mode (&#39;w&#39;) or write bytes mode (&#39;wb&#39;)</span>
+<span class="sd">    :param flags: the os flags that determine the permissions for the file</span>
+<span class="sd">    :param mask: the mask that the permissions will be applied to</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;w&#39;</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;wb&#39;</span><span class="p">:</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;incorrect mode : expected </span><span class="se">\&#39;</span><span class="s2">w</span><span class="se">\&#39;</span><span class="s2"> or </span><span class="se">\&#39;</span><span class="s2">wb</span><span class="se">\&#39;</span><span class="s2"> given </span><span class="si">{mode}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">os</span><span class="o">.</span><span class="n">fdopen</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">mask</span><span class="p">),</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 <span class="c1"># Reference: http://interactivepython.org/runestone/static/everyday/2013/01/3_password.html</span>
 <div class="viewcode-block" id="generate_password"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.generate_password">[docs]</a><span class="k">def</span> <span class="nf">generate_password</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

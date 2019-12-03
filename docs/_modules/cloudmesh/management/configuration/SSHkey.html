@@ -238,7 +238,8 @@
          <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">])</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;fingerprint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.pub&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;id_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.pub&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;id_&quot;</span><span class="p">,</span>
+                                                                          <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ssh&#39;</span>
@@ -338,7 +339,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># key = base64.decodestring(key_string)</span>
         <span class="c1"># fp_plain = hashlib.md5(key).hexdigest()</span>
-        <span class="n">key_padding</span> <span class="o">=</span> <span class="n">key_string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_string</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">%</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">key_padding</span> <span class="o">=</span> <span class="n">key_string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="p">(</span>
+                <span class="mi">4</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_string</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">%</span> <span class="mi">4</span><span class="p">)</span>
         <span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">key_padding</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">))</span>
         <span class="n">fp_plain</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
@@ -396,7 +398,6 @@
             <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
             <span class="n">keyname</span><span class="o">=</span><span class="n">keyname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">_keyname</span></div>
-
 </pre></div>
 
            </div>

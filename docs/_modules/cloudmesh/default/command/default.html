@@ -314,7 +314,8 @@
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KEY</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="s2">&quot;=&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KEY</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">KEY</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">defaults</span><span class="p">[</span><span class="n">context</span><span class="p">,</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KEY</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">KEY</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">defaults</span><span class="p">[</span><span class="n">context</span><span class="p">,</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KEY</span><span class="p">],</span>
+                      <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;KEY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
                 <span class="n">defaults</span><span class="p">[</span><span class="n">context</span><span class="p">,</span> <span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
@@ -322,7 +323,8 @@
 
         <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]:</span>
 
-            <span class="n">output_format</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s1">&#39;table&#39;</span>
+            <span class="n">output_format</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">defaults</span><span class="p">[</span>
+                <span class="s2">&quot;global&quot;</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s1">&#39;table&#39;</span>
 
             <span class="k">if</span> <span class="n">defaults</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No default values found&quot;</span><span class="p">)</span>

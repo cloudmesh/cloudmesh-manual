@@ -199,6 +199,7 @@
   <h1>Source code for cloudmesh.mongo.DataBaseDecorator</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
 
+
 <div class="viewcode-block" id="DatabaseUpdate"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.compute.aws.Provider.DatabaseUpdate">[docs]</a><span class="k">class</span> <span class="nc">DatabaseUpdate</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The data base decorator automatically replaces an entry in the database with</span>
@@ -295,6 +296,7 @@
 
         <span class="k">return</span> <span class="n">wrapper</span></div>
 
+
 <div class="viewcode-block" id="DatabaseImportAsJson"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.compute.aws.Provider.DatabaseImportAsJson">[docs]</a><span class="k">class</span> <span class="nc">DatabaseImportAsJson</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Updating the database using MongoImport.</span>
@@ -320,15 +322,14 @@
                 <span class="n">collection</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 
-            <span class="k">if</span> <span class="n">current</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">type</span> <span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">dict</span><span class="p">:</span>
                 <span class="k">return</span> <span class="p">[]</span>
 
-            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">importAsFile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">collection</span><span class="p">,</span><span class="n">db</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">importAsFile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">close_client</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">result</span>
 
         <span class="k">return</span> <span class="n">wrapper</span></div>
-
 
 
 <div class="viewcode-block" id="DatabaseAlter"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.compute.aws.Provider.DatabaseAlter">[docs]</a><span class="k">class</span> <span class="nc">DatabaseAlter</span><span class="p">:</span>
