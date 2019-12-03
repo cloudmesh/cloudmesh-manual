@@ -4,7 +4,7 @@ admin
 .. parsed-literal::
 
   Usage:
-    admin mongo install [--brew] [--download=PATH] [--nosudo] [--docker]
+    admin mongo install [--brew] [--download=PATH] [--nosudo] [--docker] [--dryrun] [--force]
     admin mongo create
     admin mongo status
     admin mongo stats
@@ -16,6 +16,7 @@ admin
     admin mongo security
     admin mongo password PASSWORD
     admin mongo list [--output=OUTPUT]
+    admin mongo ssh
     admin status
     admin system info
 
@@ -61,5 +62,12 @@ admin
          cms admin system info
 
       This can be very useful in case you are filing an issue or bug.
+
+      The command
+
+        cms admin mongo ssh
+
+      is only supported for docker and allows for debugging to login
+      to the running container. This function may be disabled in future.
 
 Timer: 0.0000s (man admin --format=rst)

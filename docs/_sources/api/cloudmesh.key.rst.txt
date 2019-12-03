@@ -19,6 +19,14 @@ cloudmesh.key.Key module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.key.KeyGroup module
+-----------------------------
+
+.. automodule:: cloudmesh.key.KeyGroup
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

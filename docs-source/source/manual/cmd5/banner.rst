@@ -17,7 +17,7 @@ banner
         -c CHAR   The character for the frame. [default: #]
         -n WIDTH  The width of the banner. [default: 70]
         -i INDENT  The width of the banner. [default: 0]
-        -r COLOR  The color of the banner. [default: BLACK]
+        -r COLOR  The color of the banner. [default: NORMAL]
 
     Prints a banner form a one line text message.
 

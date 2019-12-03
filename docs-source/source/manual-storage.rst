@@ -6,3 +6,4 @@ Storage Manual Pages
 
    manual/storage/storage
    manual/storage/vdir
+

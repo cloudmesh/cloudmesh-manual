@@ -7,7 +7,7 @@
     *Mallik Challa*, *Manjunath Sivan*, *Ritesh Tandon*, *Rob Ludwig*, *Rui Li*,
     *Sachith Danushka Withana*, *Saurabh Swaroop*, *Scott McClary*, *Sriman*,
     *Tarun Rawat*, *Tharak Vangalapat*, *Vafa Andalibi*, *Xiao Yue*, *Yu Luo*,
-    *Yue, Xiao*, *Zhengyi Li*, *arshadmm*, *javilaeg*, *jkandima*, *kkp*, *niranda
-    perera*, *nirandaperera*, *saurabh.bmas@gmail.com*, *shreyans jain*, *sriman*,
-    *toshreyansjain*
+    *Yue, Xiao*, *Zhengyi Li*, *arshadmm*, *javilaeg*, *jkandima*, *kkp*, *nayeem*,
+    *niranda perera*, *nirandaperera*, *saurabh.bmas@gmail.com*, *shreyans jain*,
+    *sriman*, *toshreyansjain*
 

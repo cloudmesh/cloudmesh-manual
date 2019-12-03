@@ -4,7 +4,7 @@ flavor
 .. parsed-literal::
 
     Usage:
-        flavor list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT]
+        flavor list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT] [--query=QUERY]
 
 
     Options:
@@ -24,5 +24,19 @@ flavor
 
         please remember that a uuid or the flavor name can be used to
         identify a flavor.
+
+
+        cms flavor list --refresh --query='{"a": "b"}'
+
+    OpenStack Query Example:
+
+        cms flavor list --refresh --query='{"minDisk": "80"}'
+        cms flavor list --refresh --query='{"name": "m1.large"}'
+
+        supported query parameters for OpenStack:
+
+                min_disk
+                min_ram
+                name
 
 Timer: 0.0000s (man flavor --format=rst)

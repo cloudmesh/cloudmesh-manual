@@ -9,6 +9,7 @@ key
      key list --source=ssh [--dir=DIR] [--output=OUTPUT]
      key list --source=git [--output=OUTPUT] [--username=USERNAME]
      key list [--output=OUTPUT]
+     key init
      key add NAME --filename=FILENAME [--output=OUTPUT]
      key add [NAME] [--source=FILENAME]
      key add [NAME] [--source=git]
@@ -63,6 +64,12 @@ key
         key add NAME --git --username=username
             adds a named github key from a user with the given github
             username.
+
+        key set
+            adds the ~/.ssh/id_rsa.pub key with the name specified in
+            cloudmesh.profile.user.
+            It also sets the variable key to that user.
+
 
        Once the keys are uploaded to github, they can be listed
        To list these keys the following list functions are provided.

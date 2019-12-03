@@ -11,7 +11,7 @@ echo
         COLOR  the color
 
     Options:
-        -r COLOR  The color of the text. [default: BLACK]
+        -r COLOR  The color of the text. [default: NORMAL]
 
     Prints a text in the given color
 

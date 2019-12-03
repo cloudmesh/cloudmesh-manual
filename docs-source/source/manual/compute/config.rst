@@ -7,8 +7,9 @@ config
      config  -h | --help
      config cat [less]
      config check
-     config encrypt [SOURCE] [--keep]
-     config decrypt [SOURCE]
+     config secinit
+     config encrypt 
+     config decrypt 
      config edit [ATTRIBUTE]
      config set ATTRIBUTE=VALUE
      config get ATTRIBUTE [--output=OUTPUT]
@@ -72,5 +73,16 @@ config
         config set ATTRIBUTE=VALUE
 
             config set profile.name=Gregor
+
+        In case the ATTRIBUTE is the name of a cloud defined under
+        cloudmesh.cloud, the value will be written into the credentials
+        attributes for that cloud this way you can safe a lot of
+        typing. An example is
+
+            cms config set aws.AWS_TEST=Gregor
+
+        which would write the AWS_TEST attribute in the credentials
+        of the cloud aws. This can naturally be used to set for
+        example username and password.
 
 Timer: 0.0000s (man config --format=rst)

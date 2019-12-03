@@ -133,17 +133,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#google-docs">Google Docs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#google-cloud-platform">Google Cloud Platform</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#google-compute-engine">Google Compute Engine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#google-cloud-storage">Google Cloud Storage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#object-or-blob-storage-storage-type-cloud-storage">1. OBJECT OR BLOB STORAGE Storage Type: Cloud Storage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#block-storage-storage-type-persistent-disk">2. BLOCK STORAGE Storage Type: Persistent Disk</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#archival-storage-storage-type-cloud-storage">3. ARCHIVAL STORAGE Storage Type: Cloud Storage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#file-storage-storage-type-cloud-filestore">4. FILE STORAGE Storage Type: Cloud Filestore</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mobile-application-storage-type-cloud-storage-for-firebase">5. MOBILE APPLICATION Storage Type: Cloud Storage for Firebase</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#data-transfer-storage-type-data-transfer-services">6. DATA TRANSFER Storage Type: Data Transfer Services</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#collaboration-storage-type-drive-enterprise">7. COLLABORATION Storage Type: Drive enterprise</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#step-by-step-guide">Step-by-Step Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-cloud-storage">Google Cloud Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-guide-to-create-a-google-cloud-account">Step-by-Step Guide to create a Google Cloud account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-drive-authentication-additional-steps-and-procedure">Google Drive authentication additional steps and procedure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#note">Note</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#links">Links</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#getting-the-google-json-files">Getting the google json files</a></li>
@@ -229,6 +221,7 @@
             
   <div class="section" id="google-storage-providers">
 <h1>Google Storage Providers<a class="headerlink" href="#google-storage-providers" title="Permalink to this headline">¶</a></h1>
+<p>… INTRODUCTION MISSING</p>
 <div class="section" id="google-drive">
 <h2>Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h2>
 <p>Google Drive is a file storing platform where an user can store all
@@ -278,15 +271,14 @@ like teachers, students or employees.</p></li>
 <p>In a broader sense Google docs is just a subset of Google Drive.</p>
 </div>
 <div class="section" id="google-cloud-platform">
-<h2><a class="reference external" href="https://cloud.google.com/">Google Cloud Platform</a><a class="headerlink" href="#google-cloud-platform" title="Permalink to this headline">¶</a></h2>
-<p>Google Cloud Platform (GCP), offered by Google, is a suite of cloud
-computing services that runs on the same infrastructure that Google
-uses internally for its end-user products, such as Google Search and
-YouTube. Alongside a set of management tools, it provides a series of
-modular cloud services including computing, data storage, data
-analytics and machine learning. Within cloudmesh, we develop services
-through taht support some of these these
-products.</p>
+<h2>Google Cloud Platform<a class="headerlink" href="#google-cloud-platform" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cloud.google.com/">Google Cloud Platform (GCP)</a>, offered by Google, is
+a suite of cloud computing services that runs on the same infrastructure that
+Google uses internally for its end-user products, such as Google Search and
+YouTube. Alongside a set of management tools, it provides a series of modular
+cloud services including computing, data storage, data analytics and machine
+learning. Within cloudmesh, we develop services through taht support some of
+these these products.</p>
 <div class="section" id="google-compute-engine">
 <h3><a class="reference external" href="https://cloud.google.com/products/compute/">Google Compute Engine</a><a class="headerlink" href="#google-compute-engine" title="Permalink to this headline">¶</a></h3>
 <p>Google Compute Engine delivers virtual machines running in
@@ -304,51 +296,158 @@ and a service account through the Google webpage.</p>
 </div>
 <div class="section" id="google-cloud-storage">
 <h3><a class="reference external" href="https://cloud.google.com/products/storage/">Google Cloud Storage</a><a class="headerlink" href="#google-cloud-storage" title="Permalink to this headline">¶</a></h3>
-<p>Google cloud platform provides varity of storage products which are simple, reliable, and secure solutions for your media, analytics, and application data. Cloudmesh services(cms) provides command line cloud to cloud storage and transfer servicies for google cloud storage part of cloudmesh-google storage application. At this time it supports google cloud platform “object or blob storage”. Various available operations using cms are put(file upload), get(file downlod), list, delete object/blob, create directory.</p>
-<p><B>Following are avalable google cloud storage products :<B></p>
-<div class="section" id="object-or-blob-storage-storage-type-cloud-storage">
-<h4>1. OBJECT OR BLOB STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud Storage</a><a class="headerlink" href="#object-or-blob-storage-storage-type-cloud-storage" title="Permalink to this headline">¶</a></h4>
+<p>Google cloud platform provides varity of storage products which are simple,
+reliable, and secure solutions for your media, analytics, and application data.
+Cloudmesh services(cms) provides command line cloud to cloud storage and
+transfer servicies for google cloud storage part of cloudmesh-google storage
+application. At this time it supports google cloud platform “object or blob
+storage”. Various available operations using cms are put(file upload), get(file
+downlod), list, delete <code class="docutils literal notranslate"><span class="pre">object/blob</span></code>, create directory.</p>
+<p>The following are avalaible as google cloud storage products:</p>
+<ol class="simple">
+<li><p>OBJECT OR BLOB STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud Storage</a></p></li>
+<li><p>BLOCK STORAGE <a class="reference external" href="https://cloud.google.com/persistent-disk/">Storage Type: Persistent Disk</a></p></li>
+<li><p>ARCHIVAL STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud Storage</a></p></li>
+<li><p>FILE STORAGE <a class="reference external" href="https://cloud.google.com/filestore/">Storage Type: Cloud Filestore</a></p></li>
+<li><p>MOBILE APPLICATION <a class="reference external" href="https://firebase.google.com/products/storage/">Storage Type: Cloud Storage for Firebase</a></p></li>
+<li><p>DATA TRANSFER <a class="reference external" href="https://cloud.google.com/products/data-transfer/">Storage Type: Data Transfer Services</a></p></li>
+<li><p>COLLABORATION <a class="reference external" href="https://cloud.google.com/drive-enterprise/">Storage Type: Drive enterprise</a></p></li>
+</ol>
+<p>You can refer <a class="reference external" href="https://cloud.google.com/storage/docs/">google storage
+documentation</a> for more details on
+google cloud storage documentation. Cloudmesh currently supports <a class="reference external" href="https://cloud.google.com/storage/docs/how-to">object/blob
+storage</a> in beta version. Users
+can follow instruction to configure google could platform described as part of
+this document.</p>
 </div>
-<div class="section" id="block-storage-storage-type-persistent-disk">
-<h4>2. BLOCK STORAGE <a class="reference external" href="https://cloud.google.com/persistent-disk/">Storage Type: Persistent Disk</a><a class="headerlink" href="#block-storage-storage-type-persistent-disk" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="archival-storage-storage-type-cloud-storage">
-<h4>3. ARCHIVAL STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud Storage</a><a class="headerlink" href="#archival-storage-storage-type-cloud-storage" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="file-storage-storage-type-cloud-filestore">
-<h4>4. FILE STORAGE <a class="reference external" href="https://cloud.google.com/filestore/">Storage Type: Cloud Filestore</a><a class="headerlink" href="#file-storage-storage-type-cloud-filestore" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="mobile-application-storage-type-cloud-storage-for-firebase">
-<h4>5. MOBILE APPLICATION <a class="reference external" href="https://firebase.google.com/products/storage/">Storage Type: Cloud Storage for Firebase</a><a class="headerlink" href="#mobile-application-storage-type-cloud-storage-for-firebase" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="data-transfer-storage-type-data-transfer-services">
-<h4>6. DATA TRANSFER <a class="reference external" href="https://cloud.google.com/products/data-transfer/">Storage Type: Data Transfer Services</a><a class="headerlink" href="#data-transfer-storage-type-data-transfer-services" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="collaboration-storage-type-drive-enterprise">
-<h4>7. COLLABORATION <a class="reference external" href="https://cloud.google.com/drive-enterprise/">Storage Type: Drive enterprise</a><a class="headerlink" href="#collaboration-storage-type-drive-enterprise" title="Permalink to this headline">¶</a></h4>
-<p>You can refer <a class="reference external" href="https://cloud.google.com/storage/docs/">google storage documentation</a> for more details on google cloud storage documentation.
-Cloudmesh currently supports <a class="reference external" href="https://cloud.google.com/storage/docs/how-to">object/blob storage</a> in beta version. Users can follow instruction to configure google could platform described as part of this document.</p>
-</div>
-</div>
-<div class="section" id="step-by-step-guide">
-<h3>Step-by-Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<div class="section" id="step-by-step-guide-to-create-a-google-cloud-account">
+<h3>Step-by-Step Guide to create a Google Cloud account<a class="headerlink" href="#step-by-step-guide-to-create-a-google-cloud-account" title="Permalink to this headline">¶</a></h3>
+<ul>
 <li><p><em><strong>Step 1 - Create Google Account</strong></em> Use the following link provided
-by google to create a free google account. This account will provide
-you $300 in credits to use google cloud.</p></li>
-<li><p><a class="reference external" href="https://support.google.com/accounts/answer/27441">https://support.google.com/accounts/answer/27441</a></p></li>
-<li><p><em><strong>Step 2 - Create Project</strong></em>  Go to Google Cloud Console
-<a class="reference external" href="https://console.cloud.google.com/">https://console.cloud.google.com/</a> and create a new project.</p></li>
+by google to create a free google account. (This account can provide
+you $300 in credits to use google cloud.)</p>
+<p><a class="reference external" href="https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&amp;_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE">Get Started for Free</a></p>
+<p>After you click this option, you can choose you existing google account or
+create a new account using following link:</p>
+<p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&amp;continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&amp;gmb=exp&amp;biz=false&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp&amp;nogm=true">Create your Google Account</a></p>
+<p>students also have option to use follwing option:</p>
+<p><a class="reference external" href="https://edu.google.com/products/google-cloud-platform/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&amp;utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&amp;utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&amp;gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&amp;modal_active=none">Google Cloud Platform | Google for Education</a></p>
+<p>Limitation with for education method: You may need additional approvals and
+professor need to request for choosing this option, refer documentation in
+the mentioned link.</p>
+<p>Here is additinal reference link for account creation support page:</p>
+<p><a class="reference external" href="https://support.google.com/accounts/answer/27441">Create a Google Account- Google Account Help</a></p>
+</li>
+<li><p><em><strong>Step 2 - Create Project</strong></em><br />Assuming you have created gogle account, go to Google Cloud Console using following link:</p>
+<p><a class="reference external" href="https://console.cloud.google.com/">Google Storage - Online Data Storage | Cloud Storage | Google Cloud</a></p>
+<ul class="simple">
+<li><p>From here create a new project or select an alredy created project as seen in the next three screenshots:</p></li>
+</ul>
+<p><img alt="Create first account_01" src="../_images/MyFirstAccount_01.png" />
+<img alt="Create first account_02" src="../_images/MyFirstAccount_02.png" />
+<img alt="Create first account_03" src="../_images/MyFirstAccount_03.png" /></p>
+<p>After project is created, create a service account.</p>
+<ul class="simple">
+<li><p>Note: There are many methods for authentication while working on google cloud.
+For our needs we need service account authentication.
+Here is the reference link for google authentication methods and comparision :</p></li>
+</ul>
+<p><a class="reference external" href="https://cloud.google.com/docs/authentication/">Authentication Overview | Authentication | Google Cloud</a></p>
+</li>
 <li><p><em><strong>Step3 - Create Service Account</strong></em> Select the newly created
 project and go to IAM &amp; Admin -&gt; Service Accounts -&gt; Create service
 account to create a new service account. Select “Furnish a new private
 key” to create and download new private key you will use to
 authenticate. Opt for the new preferred JSON format, download the file
-and save it to a secure location. This file is referenced in the
+and save it to a secure location (e.g. ~/.cloudmesh). For google cloud storage
+this file will be used to update Yaml entry in ~/.cloudmesh/cloudmesh.yaml.
+Also for gdrive storage option JSON file is referenced in the
 cloudmesh4.yaml in parameter “path_to_json_file”</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p></li>
+<li><p>Alternatively you can do this as follows:</p>
+<p>** Go to <a class="reference external" href="https://cloud.google.com/docs/authentication/production">create service account page</a></p>
+<p><img alt="Create service account_01" src="../_images/CreateServiceAccount_01.png" /></p>
+<p>** Go to section :Creating a service account</p>
+<p>Following is the direct link to generate credentials from google :</p>
+<p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">Create Service Account Key</a></p>
+<p><img alt="Create service key" src="../_images/CreateServiceKey_01.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sample files:
+ `client_secret.json` 
+ `google-drive-credentials.json`
+</pre></div>
+</div>
+</li>
+<li><p><em><strong>Step4 - Yaml entry for google storage Account</strong></em></p></li>
+<li><p>After you downlod the credentials in json format rename the same as
+<code class="docutils literal notranslate"><span class="pre">google.json</span></code> and move it to <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code> directory.</p></li>
+<li><p>Run follwing cloudmesh command, for the first time and every time your
+credentials are modified :</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">yaml</span> <span class="n">write</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">google</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Once this command is successfully executed you can validate the entry in yaml file.
+Here is the sample yaml file entry for google storage :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">google</span><span class="p">:</span>
+    <span class="n">cm</span><span class="p">:</span>
+      <span class="n">name</span><span class="p">:</span> <span class="n">google</span>
+      <span class="n">active</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span>
+      <span class="n">heading</span><span class="p">:</span> <span class="n">GCP</span>
+      <span class="n">host</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">console</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">storage</span>
+      <span class="n">kind</span><span class="p">:</span> <span class="n">google</span>
+      <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+      <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
+    <span class="n">default</span><span class="p">:</span>
+      <span class="n">directory</span><span class="p">:</span> <span class="n">cloudmesh_gcp</span>
+      <span class="n">Location_type</span><span class="p">:</span> <span class="n">Region</span>
+      <span class="n">Location</span><span class="p">:</span> <span class="n">us</span> <span class="o">-</span> <span class="n">east1</span>  
+      <span class="n">Default_storage_class</span><span class="p">:</span> <span class="n">Standard</span>
+      <span class="n">Access_control</span><span class="p">:</span> <span class="n">Uniform</span>
+      <span class="n">Encryption</span><span class="p">:</span> <span class="n">Google</span><span class="o">-</span><span class="n">managed</span>
+      <span class="n">Link_URL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">console</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">storage</span><span class="o">/</span><span class="n">browser</span><span class="o">/</span><span class="n">cloudmesh_gcp</span>
+      <span class="n">Link_for_gsutil</span><span class="p">:</span> <span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">cloudmesh_gcp</span>
+    <span class="n">credentials</span><span class="p">:</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">service_account</span>
+      <span class="n">project_id</span><span class="p">:</span> <span class="n">imposing</span><span class="o">-</span><span class="n">coast</span><span class="o">-</span><span class="mi">123456</span>
+      <span class="n">private_key_id</span><span class="p">:</span> <span class="n">a1b2c3d4</span><span class="o">*********</span>
+      <span class="n">private_key</span><span class="p">:</span> <span class="s1">&#39;-----BEGIN PRIVATE KEY-----</span>
+
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+        <span class="o">***********************************************************</span>
+
+        <span class="o">-----</span><span class="n">END</span> <span class="n">PRIVATE</span> <span class="n">KEY</span><span class="o">-----</span>
+
+        <span class="s1">&#39;</span>
+      <span class="n">client_email</span><span class="p">:</span> <span class="n">user</span><span class="nd">@imposing</span><span class="o">-</span><span class="n">coast</span><span class="o">-</span><span class="mf">123456.</span><span class="n">iam</span><span class="o">.</span><span class="n">gserviceaccount</span><span class="o">.</span><span class="n">com</span>
+      <span class="n">client_id</span><span class="p">:</span> <span class="s1">&#39;1234567******23456&#39;</span>
+      <span class="n">auth_uri</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">accounts</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">o</span><span class="o">/</span><span class="n">oauth2</span><span class="o">/</span><span class="n">auth</span>
+      <span class="n">token_uri</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">oauth2</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">token</span>
+      <span class="n">auth_provider_x509_cert_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">oauth2</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">certs</span>
+      <span class="n">client_x509_cert_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">robot</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">metadata</span><span class="o">/</span><span class="n">x509</span><span class="o">/</span><span class="n">user</span><span class="o">%</span><span class="mi">40</span><span class="n">imposing</span><span class="o">-</span><span class="n">coast</span><span class="o">-</span><span class="mf">12345.</span><span class="n">iam</span><span class="o">.</span><span class="n">gserviceaccount</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="google-drive-authentication-additional-steps-and-procedure">
+<h3>Google Drive authentication additional steps and procedure<a class="headerlink" href="#google-drive-authentication-additional-steps-and-procedure" title="Permalink to this headline">¶</a></h3>
 <p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then
 the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
 and creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the follwing path

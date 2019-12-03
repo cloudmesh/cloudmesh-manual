@@ -220,7 +220,7 @@
   <div class="section" id="flavor">
 <h1>flavor<a class="headerlink" href="#flavor" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-    <span class="n">flavor</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+    <span class="n">flavor</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">query</span><span class="o">=</span><span class="n">QUERY</span><span class="p">]</span>
 
 
 <span class="n">Options</span><span class="p">:</span>
@@ -240,6 +240,20 @@
 
     <span class="n">please</span> <span class="n">remember</span> <span class="n">that</span> <span class="n">a</span> <span class="n">uuid</span> <span class="ow">or</span> <span class="n">the</span> <span class="n">flavor</span> <span class="n">name</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span>
     <span class="n">identify</span> <span class="n">a</span> <span class="n">flavor</span><span class="o">.</span>
+
+
+    <span class="n">cms</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="o">--</span><span class="n">refresh</span> <span class="o">--</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;{&quot;a&quot;: &quot;b&quot;}&#39;</span>
+
+<span class="n">OpenStack</span> <span class="n">Query</span> <span class="n">Example</span><span class="p">:</span>
+
+    <span class="n">cms</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="o">--</span><span class="n">refresh</span> <span class="o">--</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;{&quot;minDisk&quot;: &quot;80&quot;}&#39;</span>
+    <span class="n">cms</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="o">--</span><span class="n">refresh</span> <span class="o">--</span><span class="n">query</span><span class="o">=</span><span class="s1">&#39;{&quot;name&quot;: &quot;m1.large&quot;}&#39;</span>
+
+    <span class="n">supported</span> <span class="n">query</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">OpenStack</span><span class="p">:</span>
+
+            <span class="n">min_disk</span>
+            <span class="n">min_ram</span>
+            <span class="n">name</span>
 </pre></div>
 </div>
 <p>Timer: 0.0000s (man flavor –format=rst)</p>
