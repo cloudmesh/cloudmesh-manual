@@ -18,6 +18,13 @@ Cloudmesh Version 4
    installation/mongo
 
 .. toctree::
+   :caption: CONCEPTS
+   :maxdepth: 2
+
+   storage/storage
+   database/database
+
+.. toctree::
    :caption: MANUAL PAGES
    :maxdepth: 2
 

@@ -97,6 +97,10 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
 </ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="storage/storage.html">Cloudmesh Multi Cloud Storage Interface</a></li>
+</ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cmd5.html">Cmd5</a></li>
@@ -146,7 +150,6 @@
 <li class="toctree-l2"><a class="reference internal" href="hpc/refcard.html">HPC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openapi/README-storage-openapi.html">Cloudmesh Multi Cloud Open API Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openapi/ufo.html">REST Service (outdated)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html">Cloudmesh Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks/README.html">Benchmarks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
@@ -262,23 +265,16 @@
 <li class="toctree-l1"><a class="reference internal" href="vm/image.html">Images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vm/flavor.html">Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="storage/storage.html">Cloudmesh Multi Cloud Storage Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage/storage.html#general-storage-command">General Storage Command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage/storage.html#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#awss3-cloudmesh-integration">AWSS3 Cloudmesh Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#cloudmesh-aws-object-storage-interfaces">Cloudmesh AWS Object Storage Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#create-object-directory">Create Object Directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#put">Put</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#get">Get</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#list">List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#delete">Delete</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage/storage.html#aws-s3-cloudmesh-integration">AWS S3 Cloudmesh Integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="storage/storage.html#storage-functions-overview">Storage functions overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="storage/storage.html#create-dir">Create dir</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#put-1">Put</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#get-1">Get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#put">Put</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#get">Get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="storage/storage.html#search">Search</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#list-1">List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#delete-1">Delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#list">List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#delete">Delete</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="storage/storage.html#pytests">Pytests</a><ul>
@@ -293,7 +289,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="storage/storage.html#virtual-directory">Virtual Directory</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#id8">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage/storage.html#configuration-1">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="storage/storage.html#pytests-2">Pytests</a></li>
 </ul>
 </li>
@@ -347,95 +343,6 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">DATABASE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="storage/database.html">Cloudmesh Database</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#virtual-machines">Virtual Machines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#openstack">Openstack</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#flavor">Flavor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#image">Image</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#vm">VM</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#azure-azprovider">Azure AzProvider</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id1">Flavor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id3">Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id5">VM</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#azure-ms-azure-library-provider">Azure MS Azure Library Provider</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id7">Flavor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id9">Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id11">VM</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#aws-libcloud-provider">AWS Libcloud Provider</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id13">Flavor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id14">Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id15">VM</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#aws-boto3-provider">AWS Boto3 Provider</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id16">Flavor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id18">Image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#id20">VM</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#storage">Storage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#box">Box</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#directory">Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#file">File</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#azure-blob">Azure Blob</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id22">Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id23">File</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id25">Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id27">File</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#awss3-objectstore-provider">AWSS3 Objectstore Provider</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id30">Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id32">File</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#google-drive">Google Drive</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id34">Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id36">File</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#local">Local</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id38">Directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="storage/database.html#id39">File</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#workflow">Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#emr">EMR</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#cluster-listing">Cluster Listing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#instance-listing">Instance Listing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#cluster-description">Cluster Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#copy-file-request">Copy File Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#file-upload">File Upload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#run-file-request">Run File Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#start-cluster-request">Start Cluster Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#stop-cluster-request">Stop Cluster Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#step-list">Step List</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#hpc">HPC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#batch">Batch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#queue">Queue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="storage/database.html#job">Job</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="storage/database.html#keys">Keys</a></li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">BENCHMARKS</span></p>

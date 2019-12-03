@@ -97,6 +97,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
 </ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Cloudmesh Storage</a></li>
+</ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
@@ -141,23 +145,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../vm/image.html">Images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vm/flavor.html">Flavors</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Multi Cloud Storage Interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#general-storage-command">General Storage Command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#awss3-cloudmesh-integration">AWSS3 Cloudmesh Integration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-aws-object-storage-interfaces">Cloudmesh AWS Object Storage Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-object-directory">Create Object Directory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#put">Put</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get">Get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list">List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#delete">Delete</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-s3-cloudmesh-integration">AWS S3 Cloudmesh Integration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#storage-functions-overview">Storage functions overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#create-dir">Create dir</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#put-1">Put</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-1">Get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#put">Put</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get">Get</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#search">Search</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#list-1">List</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete-1">Delete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list">List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete">Delete</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#pytests">Pytests</a><ul>
@@ -172,7 +169,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#virtual-directory">Virtual Directory</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id8">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-1">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pytests-2">Pytests</a></li>
 </ul>
 </li>
@@ -272,59 +269,23 @@
 <p>Cloudmesh supports multiple cloud storage services. You can access them
 via commandline, an API or REST services. A simple abstraction layer
 between cloud services and you local computer makes it possible that the
-services are accessed the same way. This includes AwsS3, Azure, Google,
+services are accessed the same way. This includes Awss3, Azure, Google,
 and box.</p>
 <p>The code is available a cloudmesh module at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage">https://github.com/cloudmesh/cloudmesh-storage</a></p></li>
 </ul>
-<p><a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Version" src="https://img.shields.io/pypi/v/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Python" src="https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Format" src="https://img.shields.io/pypi/format/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Status" src="https://img.shields.io/pypi/status/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://travis-ci.com/cloudmesh/cloudmesh-storage"><img alt="Travis" src="https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master" /></a></p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>the pip install is not yet enabled. Please use the source install
-instead (see Installation instructions).</p>
-</div>
-<p>The storage module can be installed with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-storage
-</pre></div>
-</div>
-<p>or if you install it from source with the cloudmesh installer</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
-<span class="nb">cd</span> cm
-cloudmesh-installer git clone storage
-cloudmesh-installer install storage -e
-</pre></div>
-</div>
-</div>
+<p><a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Version" src="https://img.shields.io/pypi/v/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Python" src="https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Format" src="https://img.shields.io/pypi/status/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Format" src="https://img.shields.io/pypi/status/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://travis-ci.com/cloudmesh/cloudmesh-storage"><img alt="Travis" src="https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master" /></a></p>
 <div class="section" id="general-storage-command">
 <h2>General Storage Command<a class="headerlink" href="#general-storage-command" title="Permalink to this headline">¶</a></h2>
-<p>To view the manual page for the  storage command, type in</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span> storage
-</pre></div>
-</div>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>include the storage command here</p>
-</div>
-<p>Tos set a storage provider so you do not have to specify it with <code class="docutils literal notranslate"><span class="pre">--storage</span></code></p>
-<p>we can set it with the set command. We have the following providers to chose
-from:</p>
-<p><code class="docutils literal notranslate"><span class="pre">box</span></code>, <code class="docutils literal notranslate"><span class="pre">awss3</span></code> , <code class="docutils literal notranslate"><span class="pre">awsstorage</span></code>, <code class="docutils literal notranslate"><span class="pre">azure</span></code>, <code class="docutils literal notranslate"><span class="pre">google</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>awss3
-</pre></div>
-</div>
-<p>To list the storage service you can say</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage list
-</pre></div>
-</div>
+<p>TODO: the pip install is not yet enabled.</p>
+<p>The storage module can be</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="awss3-cloudmesh-integration">
-<h2>AWSS3 Cloudmesh Integration<a class="headerlink" href="#awss3-cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aws-s3-cloudmesh-integration">
+<h2>AWS S3 Cloudmesh Integration<a class="headerlink" href="#aws-s3-cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
 <p>AWS S3 file storage has been integrated with cloudmesh library and is
 available for use via commandline. As a first step we need to modify
 <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> config file. Under ‘storage’ section, we need to add
@@ -332,7 +293,7 @@ the aws section to specify the parameters used to store files in AWS S3.</p>
 <p>In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
 <code class="docutils literal notranslate"><span class="pre">AWS</span> <span class="pre">IAM</span> <span class="pre">service</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Users</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">Credentials</span></code>.</p>
-<p>Container is the default bucket which will be used to store the files in
+<p>Bucket is the default bucket which will be used to store the files in
 AWS S3. Region is the geographic area like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code> which contains
 the bucket. Region is required to get a connection handle on the S3
 Client or resource for that geographic area.</p>
@@ -342,95 +303,55 @@ Client or resource for that geographic area.</p>
   storage:
     aws:
       cm:
+        active: True
         heading: aws
-        host: amazon.aws.com
+        host: aws.amazon.com
         label: aws
-        kind: awsS3
+        kind: awss3
         version: TBD
+        service: storage
       default:
-        directory: TBD
       credentials:
         access_key_id: *********
         secret_access_key: *******
-        container: name of bucket that you want user to be contained in.
-        region: us-east-1
+        bucket: name of bucket that you want user to be contained in.
+        region: Specfiy the default region eg us-east-1
 </pre></div>
 </div>
-</div>
-<div class="section" id="cloudmesh-aws-object-storage-interfaces">
-<h2>Cloudmesh AWS Object Storage Interfaces<a class="headerlink" href="#cloudmesh-aws-object-storage-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>Object Storage is one of the feature in AWS S3 and this feature
-integrated with cloudmesh library and is available for use via
-commandline.</p>
-<p>Follow the below steps:</p>
-<ul class="simple">
-<li><p>Modify <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> config file in ‘cloudmesh-storage’
-section. User need to add required object storage parameters to
-communicate with cloud(AWS S3)</p></li>
-<li><p>In the credentials section under <code class="docutils literal notranslate"><span class="pre">awsobjectstore</span></code>, add the
-parameter values of access_key_id and secret_access_key, these
-credentials will be gained from appropriate cloud vendor(For ex:
-AWS), in the case of AWS, these will be available which will be
-available in the AWS console under <code class="docutils literal notranslate"><span class="pre">AWS</span> <span class="pre">IAM</span> <span class="pre">service</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Users</span></code>
--&gt; <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">Credentials</span></code>.</p></li>
-</ul>
-<p>Here is a sample.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh:
-  ...
-  storage:
-    objstore:
-      cm:
-        heading: AWS
-        host: aws.com
-        label: AWS
-        kind: awsobjectstore
-        version: <span class="m">1</span>.0
-      default:
-        directory: AWS
-      credentials:
-        region: <span class="s2">&quot;&quot;</span>
-        access_key_id: <span class="s2">&quot;&quot;</span>
-        secret_access_key: <span class="s2">&quot;&quot;</span>
+<p>The Cloudmesh command line library offers several functions including
+get, put, search, list, create directory, and delete. Once you have
+installed Cloudmesh storage, type <code class="docutils literal notranslate"><span class="pre">cms</span></code> into the command line to start
+the cms shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms
++-------------------------------------------------------+
+<span class="p">|</span>   ____ _                 _                     _      <span class="p">|</span>
+<span class="p">|</span>  / ___<span class="p">|</span> <span class="p">|</span> ___  _   _  __<span class="p">|</span> <span class="p">|</span>_ __ ___   ___  ___<span class="p">|</span> <span class="p">|</span>__   <span class="p">|</span>
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>   <span class="p">|</span> <span class="p">|</span>/ _ <span class="se">\|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>/ _<span class="sb">`</span> <span class="p">|</span> <span class="s1">&#39;_ ` _ \ / _ \/ __| &#39;</span>_ <span class="se">\ </span> <span class="p">|</span>
+<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>___<span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="o">)</span> <span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>  __/<span class="se">\_</span>_ <span class="se">\ </span><span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>
+<span class="p">|</span>  <span class="se">\_</span>___<span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>__/ <span class="se">\_</span>_,_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>__<span class="o">||</span>___/_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>
++-------------------------------------------------------+
+<span class="p">|</span>                  Cloudmesh CMD5 Shell                 <span class="p">|</span>
++-------------------------------------------------------+
+
+cms&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-object-directory">
-<h2>Create Object Directory<a class="headerlink" href="#create-object-directory" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage create /base_path/targetdir
+<p>To view the docopt for storage command, type in</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; <span class="nb">help</span> storage
 </pre></div>
 </div>
-</div>
-<div class="section" id="put">
-<h2>Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h2>
-<p>The put command uploads object from your local system to AWS S3 object
-storage</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
+<p>Help command gives a detail level understanding of what each command
+does and how to use the command line to interact with different storage
+providers and different parameters / options available in a particular
+command. For eg to invoke AWS S3 service, we need to pass awss3 as
+parameter to storage and suffix with the function call with the function
+parameters.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="get">
-<h2>Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
-<p>The put command retrieve or download a object from AWS S3 object storage</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
-</pre></div>
-</div>
-</div>
-<div class="section" id="list">
-<h2>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
-<p>The list command lists all the contents of a cloud object details. If
-the recursive option is specified, it will list the contents of all the
-nested objects information</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage list /bucket_name/dest --recursive
-</pre></div>
-</div>
-</div>
-<div class="section" id="delete">
-<h2>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
-<p>The delete command can delete objects on cloud storage. Once object
-deletes it will never be rollback and delete applicable to nested
-objects when function <code class="docutils literal notranslate"><span class="pre">--recursive</span></code> used. Deleting a folder will
-delete its contents as well (including the sub-directories).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage delete /bucket_name/est --recursive
+<p>Alternatively, storage command can also be called directly without
+starting the cms shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 <div class="section" id="storage-functions-overview">
@@ -440,14 +361,14 @@ delete its contents as well (including the sub-directories).</p>
 <h3>Create dir<a class="headerlink" href="#create-dir" title="Permalink to this headline">¶</a></h3>
 <p>This command helps to create a new directory on AWS S3. You must specify
 the full path of the new directory you would like to create.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> create dir /base_path/targetdir
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> create dir /base_path/targetdir
 </pre></div>
 </div>
 </div>
-<div class="section" id="put-1">
-<span id="id3"></span><h3>Put<a class="headerlink" href="#put-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="put">
+<h3>Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h3>
 <p>The put command uploads files from your local host to the S3.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
 </pre></div>
 </div>
 <p>Source for this command could be either a file or directory.</p>
@@ -460,10 +381,10 @@ to the target directory in S3. If the recursive option is not specified,
 only the files in the source directory will be uploaded to the target
 directory and the sub-directories will be ignored.</p>
 </div>
-<div class="section" id="get-1">
-<span id="id4"></span><h3>Get<a class="headerlink" href="#get-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get">
+<h3>Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
 <p>The get command downloads files from S3 to your local host.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
 </pre></div>
 </div>
 <p>Source for this command could be either a file or directory.</p>
@@ -486,30 +407,34 @@ directory.</p>
 all sub-directories of the original directory as well.</p>
 <p>To search for a file at the root, pass an empty string or / as the
 target dir.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage search /base_path/targetdir testfile.txt --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> search /base_path/targetdir testfile.txt --recursive
 </pre></div>
 </div>
 <p>Note that for the Box storage provider, objects are only indexed every 5
 to 10 minutes and will not show up in a search until they have been
 indexed.</p>
 </div>
-<div class="section" id="list-1">
-<span id="id5"></span><h3>List<a class="headerlink" href="#list-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="list">
+<h3>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <p>The list command lists all the contents of a cloud directory. If the
 recursive option is specified, it will list the contents of all
 sub-directories as well.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage list /base_path/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list /base_path/targetdir --recursive
 </pre></div>
 </div>
 </div>
-<div class="section" id="delete-1">
-<span id="id6"></span><h3>Delete<a class="headerlink" href="#delete-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="delete">
+<h3>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
 <p>The delete command can delete files or folders from your cloud file
 storage. Deleting a folder will delete its contents as well (including
 the sub-directories).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage delete /base_path/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> delete /base_path/targetdir --recursive
 </pre></div>
 </div>
+<p>Help command gives a detail level understanding of what each command
+does and how to use the command line to interact with different object
+storage providers and different parameters / options available in a
+particular command.</p>
 </div>
 </div>
 <div class="section" id="pytests">
@@ -523,17 +448,17 @@ the list of Pytests go to our directory</p>
 </ul>
 <p>We also developed a general pytest that works across providers and can
 be invoked as follows</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>box
-pytest -v --capture<span class="o">=</span>no tests/test_storage.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>box
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 
-cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>azure
-pytest -v --capture<span class="o">=</span>no tests/test_storage.py
+$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>azure
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 
-cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>gdrive
-pytest -v --capture<span class="o">=</span>no tests/test_storage.py
+$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>gdrive
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 
-cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>awss3
-pytest -v --capture<span class="o">=</span>no tests/test_storage.py
+$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>aws
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 </pre></div>
 </div>
 </div>
@@ -541,9 +466,9 @@ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 <h3>Provider Specific Pytests<a class="headerlink" href="#provider-specific-pytests" title="Permalink to this headline">¶</a></h3>
 <p>Open a terminal and navigate to the cloudmesh-storage directory. Enter
 the following command to run pytests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest -v --capture<span class="o">=</span>no tests/test_storage_box.py
-pytest -v --capture<span class="o">=</span>no tests/test_azure.py
-pytest -v --capture<span class="o">=</span>no tests/test_storage_aws.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -v --capture<span class="o">=</span>no tests/test_storage_box.py
+$ pytest -v --capture<span class="o">=</span>no tests/test_azure.py
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage_aws.py
 </pre></div>
 </div>
 <p>TODO: rename to</p>
@@ -560,8 +485,8 @@ later sections</p>
 <div class="section" id="command-line-interface">
 <h3>Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>azure
-cms storage list
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>azure
+$ cms storage list
 </pre></div>
 </div>
 </div>
@@ -569,8 +494,8 @@ cms storage list
 <h3>Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
 <p>Cloudmesh Storage provides a simple programming API interface that you
-can use. We highlight a simple example for storing and retrieving a
-file form a storage provider.</p>
+can use. We highlight a simple example for storing and retrieving a file
+form a storage provider.</p>
 <p>We assume the files at the given path exist</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cloudmesh.storage.provider.Provider</span> <span class="k">as</span> <span class="nn">Provider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
@@ -580,18 +505,18 @@ file form a storage provider.</p>
 <span class="n">src</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/storage/test/a/a.txt&quot;</span><span class="p">)</span>
 <span class="n">dst</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
-<span class="c1"># The result will be a dict of the information which you can print with</span>
+<span class="c1"># The resut will be a dict of the information which you can print with</span>
 
 <span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="pytests-1">
-<span id="id7"></span><h3>Pytests<a class="headerlink" href="#pytests-1" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Pytests<a class="headerlink" href="#pytests-1" title="Permalink to this headline">¶</a></h3>
 <p>Script to test the GDrive service can be accessed under tests folder
 using the following pytest command.</p>
 <p>TODO rename to test_storage_gdrive.py</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest -v --capture<span class="o">=</span>no tests/test_gdrive.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -v --capture<span class="o">=</span>no tests/test_gdrive.py
 </pre></div>
 </div>
 </div>
@@ -601,15 +526,15 @@ using the following pytest command.</p>
 <p>The virtual directory has been developed to mirror the linux directory
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.</p>
-<div class="section" id="id8">
-<h3>Configuration<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configuration-1">
+<span id="id2"></span><h3>Configuration<a class="headerlink" href="#configuration-1" title="Permalink to this headline">¶</a></h3>
 <p>The credentials for the virtual directory are the same as for the admin
 mongo command. See the Mongo section for details.</p>
 </div>
 <div class="section" id="pytests-2">
-<span id="id9"></span><h3>Pytests<a class="headerlink" href="#pytests-2" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Pytests<a class="headerlink" href="#pytests-2" title="Permalink to this headline">¶</a></h3>
 <p>The vdir command can be tested as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest -v --capture<span class="o">=</span>no tests/test_vdir.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -v --capture<span class="o">=</span>no tests/test_vdir.py
 </pre></div>
 </div>
 </div>
@@ -619,8 +544,8 @@ mongo command. See the Mongo section for details.</p>
 <p>The Google Drive API needs the following two 2 credentials files. *
 <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> * <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p>
 <p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then
-the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file
-and creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the following path
+the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file and
+creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the following path
 <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> creates a <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> folder under the
 following path <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code> if it does not exist and creates
