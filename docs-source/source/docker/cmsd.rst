@@ -5,10 +5,14 @@ Cloudmesh is also distributed via a docker container. However as the docker
 command line interface is typically complex for users. Hence, we wrapped them
 into a convenient command that can be installed with `pip`.
 
+
+Developer installation
+---------------------
+
 At this time we have not yet released this on pypi as we currently still
 develop its features. However you can install it in a conveneient fashion on
 your system with (we recommend you use a python venv as not to create
-sideffects on your sytsem):
+side effects on your sytsem):
 
 .. code:: bash
 
