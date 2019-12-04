@@ -19,10 +19,20 @@ User installation
    $ cmsd help
 
 Now modify the `~/.cloudmesh/cloudmesh.yaml` file as discussed in the
-manual elsewhere. 
-   
-	     
-   
+manual elsewhere.
+
+To find the version you can say
+
+.. code:: bash
+
+   cmsd version
+
+In case you need to update please use
+
+.. code:: bash
+
+   cmsd update
+
 
 Developer installation
 ----------------------
@@ -58,8 +68,8 @@ their systems at the same time.
 
 Note that `cmsd` assumes you use `~/cloudmesh/.cloudmesh.yaml`
 
-Update
-------
+Developer installation Update
+-----------------------------
 
 If you used this method before an and you need to update it, you can
 either do a git pull in the `cloudmesh-cmsd` directory or with

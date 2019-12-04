@@ -1,5 +1,5 @@
-Cloudmesh Multi Cloud Storage Interface
-=======================================
+Multicloud Storage Interface
+============================
 
 Cloudmesh supports multiple cloud storage services. You can access them
 via commandline, an API or REST services. A simple abstraction layer
