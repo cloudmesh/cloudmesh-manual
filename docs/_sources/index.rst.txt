@@ -16,13 +16,15 @@ Cloudmesh Version 4
    installation/quickstart
    configuration/configuration
    installation/mongo
+   docker/cmsd
 
 .. toctree::
    :caption: CONCEPTS
    :maxdepth: 2
 
-   storage/storage
-   database/database
+   concepts/compute
+   concepts/storage
+   concepts/database
 
 .. toctree::
    :caption: MANUAL PAGES

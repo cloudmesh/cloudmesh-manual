@@ -1,5 +1,5 @@
-Cloudmesh Multi Cloud Storage Interface
-=======================================
+Multicloud Storage Interface
+============================
 
 Cloudmesh supports multiple cloud storage services. You can access them
 via commandline, an API or REST services. A simple abstraction layer
@@ -9,7 +9,7 @@ and box.
 
 The code is available a cloudmesh module at
 
--  https://github.com/cloudmesh/cloudmesh-storage
+* <https://github.com/cloudmesh/cloudmesh-storage>
 
 |Version| |License| |Python| |Format| |Format| |Travis|
 
@@ -28,15 +28,15 @@ AWS S3 Cloudmesh Integration
 
 AWS S3 file storage has been integrated with cloudmesh library and is
 available for use via commandline. As a first step we need to modify
-``cloudmesh.yaml`` config file. Under ‘storage’ section, we need to add
+`cloudmesh.yaml` config file. Under ‘storage’ section, we need to add
 the aws section to specify the parameters used to store files in AWS S3.
 
 In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
-``AWS IAM service`` -> ``Users`` -> ``Security Credentials``.
+`AWS IAM service` -> `Users` -> `Security Credentials`.
 
 Bucket is the default bucket which will be used to store the files in
-AWS S3. Region is the geographic area like ``us-east-1`` which contains
+AWS S3. Region is the geographic area like `us-east-1` which contains
 the bucket. Region is required to get a connection handle on the S3
 Client or resource for that geographic area.
 
@@ -65,7 +65,7 @@ Here is a sample.
 
 The Cloudmesh command line library offers several functions including
 get, put, search, list, create directory, and delete. Once you have
-installed Cloudmesh storage, type ``cms`` into the command line to start
+installed Cloudmesh storage, type `cms` into the command line to start
 the cms shell.
 
 .. code:: bash
@@ -342,23 +342,23 @@ Google drive
 ------------
 
 The Google Drive API needs the following two 2 credentials files. \*
-``client_secret.json`` \* ``google-drive-credentials.json``
+`client_secret.json` \* `google-drive-credentials.json`
 
-If we run the Google Drive ``Provider.py`` for the **First time** then
-the required keys, tokens are taken from the ``cloudmesh.yaml`` file and
-creates a ``client_secret.json`` file in the following path
-``~/.cloudmesh/gdrive/``
+If we run the Google Drive `Provider.py` for the **First time** then
+the required keys, tokens are taken from the `cloudmesh.yaml` file and
+creates a `client_secret.json` file in the following path
+`~/.cloudmesh/gdrive/`
 
-The ``Authentication.py`` creates a ``.credentials`` folder under the
-following path ``~/.cloudmesh/gdrive/`` if it does not exist and creates
-a ``google-drive-credentials.json`` file under the following folder
-``~/.cloudmesh/gdrive/.credentials/``
+The `Authentication.py` creates a `.credentials` folder under the
+following path `~/.cloudmesh/gdrive/` if it does not exist and creates
+a `google-drive-credentials.json` file under the following folder
+`~/.cloudmesh/gdrive/.credentials/`
 
 So, for the **First time** browser will be opened up automatically and
 asks for the Google Drive(gmail) credentials i.e., login email and
 password. If you provide these 2 then the Authentication step is
-completed and then it will create the ``google-drive-credentials.json``
-and place it in ``~/.cloudmesh/gdrive/.credentials/`` folder.
+completed and then it will create the `google-drive-credentials.json`
+and place it in `~/.cloudmesh/gdrive/.credentials/` folder.
 
 These steps are to be followed for the first time or initial run. Once
 it is done then our program is set. After these steps then the program
@@ -376,7 +376,7 @@ Links
 
 Link for additional information:
 
--  https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md
+* <https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md>
 
 .. |Version| image:: https://img.shields.io/pypi/v/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage

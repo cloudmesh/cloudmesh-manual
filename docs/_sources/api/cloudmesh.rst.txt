@@ -42,11 +42,13 @@ Subpackages
    cloudmesh.ssh
    cloudmesh.start
    cloudmesh.stop
+   cloudmesh.storage
    cloudmesh.sys
    cloudmesh.terminal
    cloudmesh.var
    cloudmesh.vbox
    cloudmesh.vcluster
+   cloudmesh.vdir
    cloudmesh.vm
    cloudmesh.workflow_draft
 

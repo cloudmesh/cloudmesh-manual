@@ -28,11 +28,13 @@ Cloudmesh Command API
    cloudmesh.ssh.command
    cloudmesh.start.command
    cloudmesh.stop.command
+   cloudmesh.storage.command
    cloudmesh.sys.command
    cloudmesh.terminal.command
    cloudmesh.var.command
    cloudmesh.vbox.command
    cloudmesh.vcluster.command
+   cloudmesh.vdir.command
    cloudmesh.vm.command
    cloudmesh.workflow_draft.command
 
@@ -97,12 +99,22 @@ Cloudmesh API
    cloudmesh.ssh
    cloudmesh.start
    cloudmesh.stop
+   cloudmesh.storage
+   cloudmesh.storage.provider
+   cloudmesh.storage.provider.awss3
+   cloudmesh.storage.provider.azureblob
+   cloudmesh.storage.provider.box
+   cloudmesh.storage.provider.gdrive
+   cloudmesh.storage.provider.local
+   cloudmesh.storage.queue
    cloudmesh.sys
    cloudmesh.terminal
    cloudmesh.var
    cloudmesh.vbox
    cloudmesh.vcluster
    cloudmesh.vcluster.api
+   cloudmesh.vdir
+   cloudmesh.vdir.api
    cloudmesh.vm
    cloudmesh.workflow_draft
    index

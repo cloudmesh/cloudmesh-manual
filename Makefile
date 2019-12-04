@@ -44,6 +44,7 @@ api:
 	cp -r ../cloudmesh-sys/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-common/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-cloud/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-storage/cloudmesh/* tmp/cloudmesh
 	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
 	make -f Makefile api-index
 
