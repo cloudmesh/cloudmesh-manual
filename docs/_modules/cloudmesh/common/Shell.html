@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh Cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -229,7 +230,19 @@
 <span class="kn">import</span> <span class="nn">stat</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
+<div class="viewcode-block" id="NotImplementedInWindows"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.NotImplementedInWindows">[docs]</a><span class="k">def</span> <span class="nf">NotImplementedInWindows</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">new_f</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platfom</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The method </span><span class="si">{f.__name__}</span><span class="s2"> is not implemented in Windows,&quot;</span>
+                          <span class="s2">&quot; please implement, and/or submit an issue.&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="n">f</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">new_f</span></div>
+
+
+
 <div class="viewcode-block" id="Brew"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Brew">[docs]</a><span class="k">class</span> <span class="nc">Brew</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
 <div class="viewcode-block" id="Brew.install"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Brew.install">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 
@@ -245,6 +258,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;... error&quot;</span><span class="p">)</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="Brew.version"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Brew.version">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -426,7 +440,8 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python -m webbrowser -t </span><span class="si">{file}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Shell.terminal"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.terminal"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">terminal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">&#39;pwd&#39;</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
@@ -485,19 +500,22 @@
 
         <span class="n">v_string</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">python_version</span><span class="p">]</span>
 
+        <span class="n">python_version_s</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_string</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">python_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
 
-            <span class="n">python_version_s</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_string</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">python_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">python_version</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">python_version</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are running an unsupported version of python: </span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_version_s</span><span class="p">))</span>
 
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are running a supported version of python: </span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_version_s</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: You are running an unsupported version of python: </span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_version_s</span><span class="p">))</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;         We recommend you update your python&quot;</span><span class="p">)</span>
+            <span class="c1"># python_version_s = &#39;.&#39;.join(v_string)</span>
+            <span class="c1"># if (python_version[0] == 2) and (python_version[1] &gt;= 7) and (python_version[2] &gt;= 9):</span>
+
+            <span class="c1">#    print(&quot;You are running an unsupported version of python: {:}&quot;.format(python_version_s))</span>
+            <span class="c1"># else:</span>
+            <span class="c1">#    print(&quot;WARNING: You are running an unsupported version of python: {:}&quot;.format(python_version_s))</span>
+            <span class="c1">#    print(&quot;         We recommend you update your python&quot;)</span>
 
         <span class="k">elif</span> <span class="n">python_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
 
-            <span class="n">python_version_s</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v_string</span><span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">python_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">python_version</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">python_version</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
 
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are running a supported version of python: </span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_version_s</span><span class="p">))</span>
@@ -508,7 +526,7 @@
         <span class="c1"># pip_version = pip.__version__</span>
         <span class="n">python_version</span><span class="p">,</span> <span class="n">pip_version</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_python</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">pip_version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">pip_version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">19</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are running a supported version of pip: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
                 <span class="n">pip_version</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
@@ -523,22 +541,27 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.ls"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ls">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.ls"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ls">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">ls</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes ls with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: replace with glob</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.ps"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ps">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.ps"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ps">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">ps</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes ps with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: tasklist in windows</span>
+        <span class="c1"># TODO: make tasklist and ps behave similar, e.g. have the same output,</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ps&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.bash"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.bash">[docs]</a>    <span class="nd">@classmethod</span>
@@ -550,7 +573,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;bash&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.brew"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.brew">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.brew"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.brew">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">brew</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes bash with the given arguments</span>
@@ -559,13 +583,17 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;brew&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.cat"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cat">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.cat"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cat">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">cat</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes cat with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: replace with file read and reading the content. We need to deal</span>
+        <span class="c1">#       with line endings and add maybe a flag endings=&quot;unix&quot;/&quot;windows&quot;.</span>
+        <span class="c1">#       check the finction readlines.</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.git"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.git">[docs]</a>    <span class="nd">@classmethod</span>
@@ -619,31 +647,24 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cms&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.fgrep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.fgrep">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">fgrep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="Shell.cmsd"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cmsd">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">cmsd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        executes fgrep with the given arguments</span>
-<span class="sd">        :param args: </span>
-<span class="sd">        :return: </span>
+<span class="sd">        executes cm with the given arguments</span>
+<span class="sd">        :param args:</span>
+<span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;fgrep&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cmsd&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.grep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.grep">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">grep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        executes grep with the given arguments</span>
-<span class="sd">        :param args: </span>
-<span class="sd">        :return: </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Shell.head"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.head">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.head"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.head">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes head with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: reimplement with readlines</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.keystone"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.keystone">[docs]</a>    <span class="nd">@classmethod</span>
@@ -655,23 +676,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;keystone&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.kill"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.kill">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.kill"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.kill">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">kill</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes kill with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: use tasklisk, compare to linux</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;kill&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Shell.nosetests"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.nosetests">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">nosetests</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        executes nosetests with the given arguments</span>
-<span class="sd">        :param args: </span>
-<span class="sd">        :return: </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;nosetests&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.nova"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.nova">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">nova</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -696,13 +710,16 @@
                                                             <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">,</span>
                                                             <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Shell.pwd"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.pwd">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.pwd"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.pwd">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">pwd</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes pwd with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: implement possibly useing echo %cd%</span>
+        <span class="c1">#       there is also python os.getcwd(), check if this works on windows</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.rackdiag"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rackdiag">[docs]</a>    <span class="nd">@classmethod</span>
@@ -714,13 +731,15 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;rackdiag&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.rm"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rm">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.rm"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rm">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">rm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes rm with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: replace this with shutil.rmtree</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.rsync"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rsync">[docs]</a>    <span class="nd">@classmethod</span>
@@ -741,13 +760,15 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;scp&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.sort"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sort">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.sort"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sort">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes sort with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: https://superuser.com/questions/1316317/is-there-a-windows-equivalent-to-the-unix-uniq</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;sort&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.sh"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sh">[docs]</a>    <span class="nd">@classmethod</span>
@@ -768,22 +789,26 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ssh&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.sudo"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sudo">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.sudo"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sudo">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">sudo</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes sudo with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: https://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;sudo&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.tail"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.tail">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.tail"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.tail">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes tail with the given arguments</span>
 <span class="sd">        :param args: </span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: implement with realines on a file.</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;tail&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.vagrant"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.vagrant">[docs]</a>    <span class="nd">@classmethod</span>
@@ -813,7 +838,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;mongod&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.dialog"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dialog">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.dialog"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dialog">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">dialog</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes dialof with the given arguments</span>
@@ -830,6 +856,41 @@
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pip&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Shell.fgrep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.fgrep">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">fgrep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        executes fgrep with the given arguments</span>
+<span class="sd">        :param args:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: see cm_grep</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;fgrep&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Shell.grep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.grep">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">grep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        executes grep with the given arguments</span>
+<span class="sd">        :param args:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Shell.cm_grep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cm_grep">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">cm_grep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        returns all lines that contain what</span>
+<span class="sd">        :param lines:</span>
+<span class="sd">        :param what:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">what</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="Shell.remove_line_with"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.remove_line_with">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">remove_line_with</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
@@ -857,20 +918,6 @@
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">what</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="p">[</span><span class="n">line</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">result</span></div>
-
-<div class="viewcode-block" id="Shell.cm_grep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cm_grep">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">cm_grep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns all lines that contain what</span>
-<span class="sd">        :param lines:</span>
-<span class="sd">        :param what:</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">what</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
 
@@ -1079,11 +1126,13 @@
     <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;emacs &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
-
+        <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;windows&quot;</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;notepad &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Editor not configured for OS&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Shell.lsb_release"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.lsb_release">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Shell.lsb_release"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.lsb_release">[docs]</a>    <span class="nd">@NotImplementedInWindows</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">lsb_release</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        executes lsb_release command</span>

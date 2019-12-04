@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker/cmsd.html">Cloudmesh Cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -233,6 +234,8 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.action">action() (cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.FlatDict.FlatDict.add">add() (cloudmesh.common.FlatDict.FlatDict method)</a>
 
       <ul>
@@ -253,6 +256,8 @@
         <li><a href="api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.Secgroup.add">(cloudmesh.secgroup.Secgroup.Secgroup method)</a>
 </li>
         <li><a href="api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.SecgroupRule.add">(cloudmesh.secgroup.Secgroup.SecgroupRule method)</a>
+</li>
+        <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.add">(cloudmesh.vdir.api.manager.Vdir method)</a>
 </li>
       </ul></li>
       <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.add_collection">add_collection() (cloudmesh.compute.vm.Provider.Provider method)</a>
@@ -387,10 +392,10 @@
 </li>
       <li><a href="api/cloudmesh.common3.html#cloudmesh.common3.Benchmark.Benchmark">Benchmark (class in cloudmesh.common3.Benchmark)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.benchmark">benchmark() (cloudmesh.common.StopWatch.StopWatch class method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.blockdiag">blockdiag() (cloudmesh.common.Shell.Shell class method)</a>
 </li>
       <li><a href="api/cloudmesh.vbox.html#cloudmesh.vbox.Provider.Provider.boot">boot() (cloudmesh.vbox.Provider.Provider method)</a>
@@ -399,9 +404,13 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Brew">Brew (class in cloudmesh.common.Shell)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.brew">brew() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.brew">brew() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.browser">browser() (cloudmesh.common.Shell.Shell static method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_create">bucket_create() (cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_exists">bucket_exists() (cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -409,9 +418,15 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cat">cat() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel">cancel() (cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cat">cat() (cloudmesh.common.Shell.Shell method)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.cd">cd() (cloudmesh.vdir.api.manager.Vdir method)</a>
 </li>
       <li><a href="api/cloudmesh.register.html#cloudmesh.register.Register.Register.chameleon">chameleon() (cloudmesh.register.Register.Register method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.change_path">change_path() (in module cloudmesh.storage.provider.box.Provider)</a>
 </li>
       <li><a href="api/cloudmesh.common3.html#cloudmesh.common3.host.Host.check">check() (cloudmesh.common3.host.Host static method)</a>
 </li>
@@ -465,6 +480,12 @@
       </ul></li>
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.close_client">close_client() (cloudmesh.mongo.CmDatabase.CmDatabase method)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.cloud_path">cloud_path() (cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+
+      <ul>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.cloud_path">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+      </ul></li>
       <li><a href="api/cloudmesh.data.api.html#cloudmesh.data.api.CloudFile.CloudFile">CloudFile (class in cloudmesh.data.api.CloudFile)</a>
 </li>
       <li><a href="api/cloudmesh.html#module-cloudmesh">cloudmesh (module)</a>
@@ -719,8 +740,6 @@
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#module-cloudmesh.management.configuration">cloudmesh.management.configuration (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.management.configuration.html#module-cloudmesh.management.configuration.arguments">cloudmesh.management.configuration.arguments (module)</a>
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#module-cloudmesh.management.configuration.counter">cloudmesh.management.configuration.counter (module)</a>
@@ -753,6 +772,8 @@
 </li>
       <li><a href="api/cloudmesh.open.command.html#module-cloudmesh.open.command.open">cloudmesh.open.command.open (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.provider.html#module-cloudmesh.provider">cloudmesh.provider (module)</a>
 </li>
       <li><a href="api/cloudmesh.provider.command.html#module-cloudmesh.provider.command">cloudmesh.provider.command (module)</a>
@@ -825,6 +846,44 @@
 </li>
       <li><a href="api/cloudmesh.stop.command.html#module-cloudmesh.stop.command.stop">cloudmesh.stop.command.stop (module)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.html#module-cloudmesh.storage">cloudmesh.storage (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.command.html#module-cloudmesh.storage.command">cloudmesh.storage.command (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.command.html#module-cloudmesh.storage.command.storage">cloudmesh.storage.command.storage (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.html#module-cloudmesh.storage.Provider">cloudmesh.storage.Provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.html#module-cloudmesh.storage.provider">cloudmesh.storage.provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#module-cloudmesh.storage.provider.awss3">cloudmesh.storage.provider.awss3 (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#module-cloudmesh.storage.provider.awss3.Provider">cloudmesh.storage.provider.awss3.Provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.azureblob.html#module-cloudmesh.storage.provider.azureblob">cloudmesh.storage.provider.azureblob (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.azureblob.html#module-cloudmesh.storage.provider.azureblob.Provider">cloudmesh.storage.provider.azureblob.Provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.box.html#module-cloudmesh.storage.provider.box">cloudmesh.storage.provider.box (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.box.html#module-cloudmesh.storage.provider.box.Provider">cloudmesh.storage.provider.box.Provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#module-cloudmesh.storage.provider.gdrive">cloudmesh.storage.provider.gdrive (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#module-cloudmesh.storage.provider.gdrive.Provider">cloudmesh.storage.provider.gdrive.Provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.local.html#module-cloudmesh.storage.provider.local">cloudmesh.storage.provider.local (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.local.html#module-cloudmesh.storage.provider.local.Provider">cloudmesh.storage.provider.local.Provider (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.queue.html#module-cloudmesh.storage.queue">cloudmesh.storage.queue (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.queue.html#module-cloudmesh.storage.queue.StorageQueue">cloudmesh.storage.queue.StorageQueue (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.html#module-cloudmesh.storage.StorageABC">cloudmesh.storage.StorageABC (module)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.html#module-cloudmesh.storage.StorageNewABC">cloudmesh.storage.StorageNewABC (module)</a>
+</li>
       <li><a href="api/cloudmesh.sys.html#module-cloudmesh.sys">cloudmesh.sys (module)</a>
 </li>
       <li><a href="api/cloudmesh.sys.command.html#module-cloudmesh.sys.command">cloudmesh.sys.command (module)</a>
@@ -863,6 +922,16 @@
 </li>
       <li><a href="api/cloudmesh.vcluster.command.html#module-cloudmesh.vcluster.command.vcluster">cloudmesh.vcluster.command.vcluster (module)</a>
 </li>
+      <li><a href="api/cloudmesh.vdir.html#module-cloudmesh.vdir">cloudmesh.vdir (module)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.api.html#module-cloudmesh.vdir.api">cloudmesh.vdir.api (module)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.api.html#module-cloudmesh.vdir.api.manager">cloudmesh.vdir.api.manager (module)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.command.html#module-cloudmesh.vdir.command">cloudmesh.vdir.command (module)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.command.html#module-cloudmesh.vdir.command.vdir">cloudmesh.vdir.command.vdir (module)</a>
+</li>
       <li><a href="api/cloudmesh.vm.html#module-cloudmesh.vm">cloudmesh.vm (module)</a>
 </li>
       <li><a href="api/cloudmesh.vm.command.html#module-cloudmesh.vm.command">cloudmesh.vm.command (module)</a>
@@ -891,6 +960,8 @@
         <li><a href="api/cloudmesh.common3.html#cloudmesh.common3.Shell.Shell.cms">(cloudmesh.common3.Shell.Shell static method)</a>
 </li>
       </ul></li>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cmsd">cmsd() (cloudmesh.common.Shell.Shell class method)</a>
+</li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell">CMShell (class in cloudmesh.shell.shell)</a>
 </li>
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.collection">collection() (cloudmesh.mongo.CmDatabase.CmDatabase method)</a>
@@ -971,9 +1042,13 @@
         <li><a href="api/cloudmesh.data.api.html#cloudmesh.data.api.File.FileService.copy">(cloudmesh.data.api.File.FileService method)</a>
 </li>
       </ul></li>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_file">copy_file() (cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.copy_files">copy_files() (in module cloudmesh.common.util)</a>
 </li>
       <li><a href="api/cloudmesh.group.html#cloudmesh.group.Group.Group.copy_group">copy_group() (cloudmesh.group.Group.Group method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_tree">copy_tree() (cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.counter.Counter">Counter (class in cloudmesh.management.configuration.counter)</a>
 </li>
@@ -1014,6 +1089,28 @@
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.create_admin">create_admin() (cloudmesh.mongo.MongoDocker.MongoDocker method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.StorageABC.StorageABC.create_dir">create_dir() (cloudmesh.abstractclass.StorageABC.StorageABC method)</a>
+
+      <ul>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.create_dir">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.create_dir">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.create_dir">(cloudmesh.storage.provider.box.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.create_dir">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.create_dir">(cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.create_dir">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.create_dir">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.create_dir">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.create_dir_from_filename">create_dir_from_filename() (cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.create_file">create_file() (cloudmesh.storage.provider.local.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create_public_ip">create_public_ip() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -1036,6 +1133,8 @@
 </li>
       </ul></li>
       <li><a href="api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.create_user">create_user() (cloudmesh.register.AWSRegister.AWSRegister method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.creation_date">creation_date() (in module cloudmesh.storage.provider.local.Provider)</a>
 </li>
       <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.test_openstacksdk.credentials">credentials() (in module cloudmesh.compute.openstack.test_openstacksdk)</a>
 </li>
@@ -1120,7 +1219,27 @@
 </li>
         <li><a href="api/cloudmesh.secgroup.html#cloudmesh.secgroup.Secgroup.SecgroupRule.delete">(cloudmesh.secgroup.Secgroup.SecgroupRule method)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.delete">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.delete">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.delete">(cloudmesh.storage.provider.box.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.delete">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.delete">(cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.delete">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.delete">(cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.delete">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.delete">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
+</li>
         <li><a href="api/cloudmesh.vbox.html#cloudmesh.vbox.Provider.Provider.delete">(cloudmesh.vbox.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.delete">(cloudmesh.vdir.api.manager.Vdir method)</a>
 </li>
       </ul></li>
       <li><a href="api/cloudmesh.group.html#cloudmesh.group.Group.Group.delete_group">delete_group() (cloudmesh.group.Group.Group method)</a>
@@ -1187,6 +1306,8 @@
         <li><a href="api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy">(cloudmesh.vcluster.api.VirtualCluster.VirtualCluster method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.detach_public_ip">detach_public_ip() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
       <ul>
@@ -1201,9 +1322,7 @@
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.detach_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dialog">dialog() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dialog">dialog() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.FlatDict.FlatDict.dict">dict() (cloudmesh.common.FlatDict.FlatDict property)</a>
 
@@ -1305,6 +1424,8 @@
 </li>
       <li><a href="api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch">do_stopwatch() (cloudmesh.terminal.command.terminal.TerminalCommand method)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.command.html#cloudmesh.storage.command.storage.StorageCommand.do_storage">do_storage() (cloudmesh.storage.command.storage.StorageCommand method)</a>
+</li>
       <li><a href="api/cloudmesh.sys.command.html#cloudmesh.sys.command.sys.SysCommand.do_sys">do_sys() (cloudmesh.sys.command.sys.SysCommand method)</a>
 </li>
       <li><a href="api/cloudmesh.var.command.html#cloudmesh.var.command.var.VarCommand.do_var">do_var() (cloudmesh.var.command.var.VarCommand method)</a>
@@ -1312,6 +1433,8 @@
       <li><a href="api/cloudmesh.vbox.command.html#cloudmesh.vbox.command.vbox.VboxCommand.do_vbox">do_vbox() (cloudmesh.vbox.command.vbox.VboxCommand method)</a>
 </li>
       <li><a href="api/cloudmesh.vcluster.command.html#cloudmesh.vcluster.command.vcluster.VclusterCommand.do_vcluster">do_vcluster() (cloudmesh.vcluster.command.vcluster.VclusterCommand method)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.command.html#cloudmesh.vdir.command.vdir.VdirCommand.do_vdir">do_vdir() (cloudmesh.vdir.command.vdir.VdirCommand method)</a>
 </li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell.do_version">do_version() (cloudmesh.shell.shell.CMShell method)</a>
 </li>
@@ -1324,6 +1447,8 @@
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dot2svg">dot2svg() (cloudmesh.common.Shell.Shell static method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.dotdict.dotdict">dotdict (class in cloudmesh.common.dotdict)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.download_file">download_file() (cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.data.api.html#cloudmesh.data.api.Driver.Driver">Driver (class in cloudmesh.data.api.Driver)</a>
 </li>
@@ -1389,6 +1514,8 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.exponential_backoff">exponential_backoff() (in module cloudmesh.common.util)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.extract_file_dict">extract_file_dict() (cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.TableParser.TableParser.extract_lines">extract_lines() (cloudmesh.common.TableParser.TableParser method)</a>
 </li>
       <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.gregor_flavor.AwsImages.extract_tables">extract_tables() (cloudmesh.compute.aws.gregor_flavor.AwsImages method)</a>
@@ -1409,7 +1536,7 @@
       </ul></li>
       <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.AwsFlavors.AwsFlavor.fetch_json_file">fetch_json_file() (cloudmesh.compute.aws.AwsFlavors.AwsFlavor static method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.fgrep">fgrep() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.fgrep">fgrep() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.field_names">field_names() (cloudmesh.common.prettytable.PrettyTable property)</a>
 </li>
@@ -1555,6 +1682,10 @@
         <li><a href="api/cloudmesh.sys.html#cloudmesh.sys.manage.Command.generate">(cloudmesh.sys.manage.Command class method)</a>
 </li>
       </ul></li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.generate_flags_json">generate_flags_json() (cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.generate_key_json">generate_key_json() (cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.generate_password">generate_password() (in module cloudmesh.common.util)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.TableHandler.generate_table">generate_table() (cloudmesh.common.prettytable.TableHandler method)</a>
@@ -1582,7 +1713,27 @@
 </li>
         <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.operatingsystem.OperatingSystem.get">(cloudmesh.management.configuration.operatingsystem.OperatingSystem static method)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.get">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.get">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.get">(cloudmesh.storage.provider.box.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.get">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.get">(cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.get">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.get">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.get">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.get">(cloudmesh.vdir.api.manager.Vdir method)</a>
+</li>
       </ul></li>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions">get_actions() (cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_attribute">get_attribute() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
 </li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.get_class">get_class() (in module cloudmesh.shell.shell)</a>
@@ -1595,6 +1746,10 @@
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_commands">get_commands() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.get_credentials">get_credentials() (cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.ssh.html#cloudmesh.common.ssh.authorized_keys.get_fingerprint_from_public_key">get_fingerprint_from_public_key() (in module cloudmesh.common.ssh.authorized_keys)</a>
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_flavor">get_flavor() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
@@ -1605,10 +1760,10 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.get_html_string">get_html_string() (cloudmesh.common.prettytable.PrettyTable method)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.get_id">get_id() (in module cloudmesh.storage.provider.box.Provider)</a>
+</li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_image">get_image() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.get_images_and_import">get_images_and_import() (cloudmesh.compute.aws.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.get_ip">get_ip() (cloudmesh.compute.azureaz.Provider.Provider method)</a>
@@ -1659,7 +1814,7 @@
 </li>
       <li><a href="api/cloudmesh.register.html#cloudmesh.register.Register.Register.google">google() (cloudmesh.register.Register.Register method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.grep">grep() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.grep">grep() (cloudmesh.common.Shell.Shell method)</a>
 
       <ul>
         <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.grep">(in module cloudmesh.common.util)</a>
@@ -1685,7 +1840,7 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.TableHandler.handle_starttag">handle_starttag() (cloudmesh.common.prettytable.TableHandler method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.head">head() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.head">head() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.header">header() (cloudmesh.common.prettytable.PrettyTable property)</a>
 </li>
@@ -1713,6 +1868,8 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.identifier">identifier() (cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
       <li><a href="api/cloudmesh.image.html#cloudmesh.image.Image.Image">Image (class in cloudmesh.image.Image)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.image">image() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
@@ -1849,10 +2006,12 @@
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.TableParser.TableParser.json">json() (cloudmesh.common.TableParser.TableParser method)</a>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.join_file_name_dir">join_file_name_dir() (cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.TableParser.TableParser.json">json() (cloudmesh.common.TableParser.TableParser method)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.junction_char">junction_char() (cloudmesh.common.prettytable.PrettyTable property)</a>
 </li>
   </ul></td>
@@ -1930,7 +2089,7 @@
       <li><a href="api/cloudmesh.common.run.html#cloudmesh.common.run.background.run.kill">kill() (cloudmesh.common.run.background.run method)</a>
 
       <ul>
-        <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.kill">(cloudmesh.common.Shell.Shell class method)</a>
+        <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.kill">(cloudmesh.common.Shell.Shell method)</a>
 </li>
         <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.kill">(cloudmesh.mongo.MongoDocker.MongoDocker method)</a>
 </li>
@@ -2006,6 +2165,22 @@
 </li>
         <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.Plugin.list">(cloudmesh.shell.shell.Plugin static method)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.list">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.list">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.list">(cloudmesh.storage.provider.box.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.list">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.list">(cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.list">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.list">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.list">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
+</li>
         <li><a href="api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list">(cloudmesh.vcluster.api.VirtualCluster.VirtualCluster method)</a>
 </li>
       </ul></li>
@@ -2029,6 +2204,8 @@
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_public_ips">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.list_resource_group">list_resource_group() (cloudmesh.compute.azureaz.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroup_rules">list_secgroup_rules() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
@@ -2043,8 +2220,6 @@
         <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_secgroup_rules">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups">list_secgroups() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
       <ul>
@@ -2089,6 +2264,8 @@
         <li><a href="api/cloudmesh.common3.html#cloudmesh.common3.DateTime.DateTime.local">(cloudmesh.common3.DateTime.DateTime static method)</a>
 </li>
       </ul></li>
+      <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.local_path">local_path() (cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
       <li><a href="api/cloudmesh.data.api.html#cloudmesh.data.api.File.FileService.location">location() (cloudmesh.data.api.File.FileService method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.log">log() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
@@ -2121,9 +2298,13 @@
 </li>
       <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.loop_name">loop_name() (cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ls">ls() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ls">ls() (cloudmesh.common.Shell.Shell method)</a>
+
+      <ul>
+        <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.ls">(cloudmesh.vdir.api.manager.Vdir method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.lsb_release">lsb_release() (cloudmesh.common.Shell.Shell class method)</a>
+      </ul></li>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.lsb_release">lsb_release() (cloudmesh.common.Shell.Shell method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2147,18 +2328,26 @@
 </li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.command.map_parameters">map_parameters() (in module cloudmesh.shell.command)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.massage_path">massage_path() (cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.max_width">max_width() (cloudmesh.common.prettytable.PrettyTable property)</a>
 </li>
       <li><a href="api/cloudmesh.group.html#cloudmesh.group.Group.Group.members">members() (cloudmesh.group.Group.Group method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.group.html#cloudmesh.group.Group.Group.merge">merge() (cloudmesh.group.Group.Group method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.source.html#cloudmesh.source.Source.Source.minor">minor() (cloudmesh.source.Source.Source method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.mkdir">mkdir() (cloudmesh.common.Shell.Shell class method)</a>
+
+      <ul>
+        <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.mkdir">(cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
 </li>
+        <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.mkdir">(cloudmesh.vdir.api.manager.Vdir method)</a>
+</li>
+      </ul></li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.Plugin.modules">modules() (cloudmesh.shell.shell.Plugin class method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.mongod">mongod() (cloudmesh.common.Shell.Shell class method)</a>
@@ -2207,7 +2396,7 @@
 </li>
       <li><a href="api/cloudmesh.vbox.html#cloudmesh.vbox.Provider.Provider.nodes">nodes() (cloudmesh.vbox.Provider.Provider method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.nosetests">nosetests() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.NotImplementedInWindows">NotImplementedInWindows() (in module cloudmesh.common.Shell)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.nova">nova() (cloudmesh.common.Shell.Shell class method)</a>
 </li>
@@ -2321,8 +2510,6 @@
         <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.gregor_flavor.AwsImages.print">(cloudmesh.compute.aws.gregor_flavor.AwsImages method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.Print">Print() (cloudmesh.compute.aws.Provider.Provider method)</a>
 
       <ul>
@@ -2341,6 +2528,8 @@
         <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.print_list">(in module cloudmesh.shell.shell)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Printer.Printer">Printer (class in cloudmesh.common.Printer)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ProcessManagerABC.ProcessManagerABC">ProcessManagerABC (class in cloudmesh.abstractclass.ProcessManagerABC)</a>
@@ -2366,6 +2555,18 @@
 </li>
         <li><a href="api/cloudmesh.provider.html#cloudmesh.provider.Provider">(class in cloudmesh.provider)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider">(class in cloudmesh.storage.Provider)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider">(class in cloudmesh.storage.provider.awss3.Provider)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider">(class in cloudmesh.storage.provider.azureblob.Provider)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider">(class in cloudmesh.storage.provider.box.Provider)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider">(class in cloudmesh.storage.provider.gdrive.Provider)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider">(class in cloudmesh.storage.provider.local.Provider)</a>
+</li>
         <li><a href="api/cloudmesh.vbox.html#cloudmesh.vbox.Provider.Provider">(class in cloudmesh.vbox.Provider)</a>
 </li>
       </ul></li>
@@ -2373,7 +2574,7 @@
 </li>
       <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.ProviderMapper">ProviderMapper (cloudmesh.compute.libcloud.Provider.Provider attribute)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ps">ps() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.ps">ps() (cloudmesh.common.Shell.Shell method)</a>
 
       <ul>
         <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.ps">(cloudmesh.mongo.MongoDocker.MongoDocker method)</a>
@@ -2388,8 +2589,24 @@
 </li>
         <li><a href="api/cloudmesh.data.api.storage.html#cloudmesh.data.api.storage.StorageProviderABC.StorageProviderABC.put">(cloudmesh.data.api.storage.StorageProviderABC.StorageProviderABC method)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.put">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.put">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.put">(cloudmesh.storage.provider.box.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.put">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.put">(cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.put">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.put">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.put">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
+</li>
       </ul></li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.pwd">pwd() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.pwd">pwd() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.sys.html#cloudmesh.sys.manage.Git.pypis">pypis (cloudmesh.sys.manage.Git attribute)</a>
 </li>
@@ -2525,7 +2742,7 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.right_padding_width">right_padding_width() (cloudmesh.common.prettytable.PrettyTable property)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rm">rm() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rm">rm() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.rmdir">rmdir() (cloudmesh.common.Shell.Shell static method)</a>
 </li>
@@ -2543,6 +2760,8 @@
         <li><a href="api/cloudmesh.management.html#cloudmesh.management.script.Script.run">(cloudmesh.management.script.Script static method)</a>
 </li>
         <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDocker.MongoDocker.run">(cloudmesh.mongo.MongoDocker.MongoDocker method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.run">(cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
 </li>
         <li><a href="api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run">(cloudmesh.vcluster.api.VirtualCluster.VirtualCluster method)</a>
 </li>
@@ -2589,6 +2808,22 @@
 
       <ul>
         <li><a href="api/cloudmesh.common.html#cloudmesh.common.FlatDict.FlatDict.search">(cloudmesh.common.FlatDict.FlatDict method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.search">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.search">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.search">(cloudmesh.storage.provider.box.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.search">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.search">(cloudmesh.storage.provider.local.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.search">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.search">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.search">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
 </li>
         <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.search">(in module cloudmesh.common.util)</a>
 </li>
@@ -2667,7 +2902,7 @@
 </li>
       <li><a href="api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.slow_typer">slow_typer() (cloudmesh.register.AWSRegister.AWSRegister method)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sort">sort() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sort">sort() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.sort_key">sort_key() (cloudmesh.common.prettytable.PrettyTable property)</a>
 </li>
@@ -2772,6 +3007,10 @@
 </li>
         <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.WindowsService.WindowsService.status">(cloudmesh.mongo.WindowsService.WindowsService static method)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.status">(cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
+        <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir.status">(cloudmesh.vdir.api.manager.Vdir method)</a>
+</li>
       </ul></li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.stop">stop() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -2812,8 +3051,18 @@
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch">StopWatch (class in cloudmesh.common.StopWatch)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.StorageABC.StorageABC">StorageABC (class in cloudmesh.abstractclass.StorageABC)</a>
+
+      <ul>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC">(class in cloudmesh.storage.StorageABC)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC">(class in cloudmesh.storage.StorageNewABC)</a>
+</li>
+      </ul></li>
+      <li><a href="api/cloudmesh.storage.command.html#cloudmesh.storage.command.storage.StorageCommand">StorageCommand (class in cloudmesh.storage.command.storage)</a>
 </li>
       <li><a href="api/cloudmesh.data.api.storage.html#cloudmesh.data.api.storage.StorageProviderABC.StorageProviderABC">StorageProviderABC (class in cloudmesh.data.api.storage.StorageProviderABC)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue">StorageQueue (class in cloudmesh.storage.queue.StorageQueue)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.str_banner">str_banner() (in module cloudmesh.common.util)</a>
 </li>
@@ -2823,7 +3072,7 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.SubprocessError">SubprocessError</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sudo">sudo() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.sudo">sudo() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.suspend">suspend() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -2849,6 +3098,8 @@
         <li><a href="api/cloudmesh.vbox.html#cloudmesh.vbox.Provider.Provider.suspend">(cloudmesh.vbox.Provider.Provider method)</a>
 </li>
       </ul></li>
+      <li><a href="api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.sync">sync() (cloudmesh.storage.queue.StorageQueue.StorageQueue method)</a>
+</li>
       <li><a href="api/cloudmesh.sys.command.html#cloudmesh.sys.command.sys.SysCommand">SysCommand (class in cloudmesh.sys.command.sys)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.systeminfo.systeminfo">systeminfo() (in module cloudmesh.common.systeminfo)</a>
@@ -2867,11 +3118,11 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.TableParser.TableParser">TableParser (class in cloudmesh.common.TableParser)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.tail">tail() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.tail">tail() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.tempdir">tempdir() (in module cloudmesh.common.util)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">terminal() (cloudmesh.common.Shell.Shell class method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">terminal() (cloudmesh.common.Shell.Shell method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal_type">terminal_type() (cloudmesh.common.Shell.Shell class method)</a>
 </li>
@@ -2889,12 +3140,12 @@
 </li>
       <li><a href="api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.timer">timer() (in module cloudmesh.compute.azureaz.Provider)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.timer_elapsed">timer_elapsed (cloudmesh.common.StopWatch.StopWatch attribute)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.timer_end">timer_end (cloudmesh.common.StopWatch.StopWatch attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.timer_start">timer_start (cloudmesh.common.StopWatch.StopWatch attribute)</a>
 </li>
       <li><a href="api/cloudmesh.common3.html#cloudmesh.common3.DateTime.DateTime.timezone">timezone (cloudmesh.common3.DateTime.DateTime attribute)</a>
@@ -2919,6 +3170,16 @@
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.debug.tracefunc">tracefunc() (in module cloudmesh.common.debug)</a>
 </li>
+      <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.tree">tree() (cloudmesh.storage.provider.local.Provider.Provider method)</a>
+
+      <ul>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.tree">(cloudmesh.storage.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageABC.StorageABC.tree">(cloudmesh.storage.StorageABC.StorageABC method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.html#cloudmesh.storage.StorageNewABC.StorageABC.tree">(cloudmesh.storage.StorageNewABC.StorageABC method)</a>
+</li>
+      </ul></li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.console.Console.txt_msg">txt_msg() (cloudmesh.common.console.Console static method)</a>
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.SSHkey.SSHkey.type">type() (cloudmesh.management.configuration.SSHkey.SSHkey property)</a>
@@ -2968,6 +3229,14 @@
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.update_dict">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
+        <li><a href="api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.update_dict">(cloudmesh.storage.provider.awss3.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.update_dict">(cloudmesh.storage.provider.azureblob.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.update_dict">(cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
+</li>
+        <li><a href="api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.update_dict">(in module cloudmesh.storage.provider.box.Provider)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -2986,6 +3255,8 @@
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.update_old">update_old() (cloudmesh.mongo.CmDatabase.CmDatabase method)</a>
 </li>
       <li><a href="api/cloudmesh.sys.html#cloudmesh.sys.manage.Git.upload">upload() (cloudmesh.sys.manage.Git class method)</a>
+</li>
+      <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.upload_file">upload_file() (cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.upload_secgroup">upload_secgroup() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -3037,10 +3308,14 @@
 </li>
       <li><a href="api/cloudmesh.vcluster.command.html#cloudmesh.vcluster.command.vcluster.VclusterCommand">VclusterCommand (class in cloudmesh.vcluster.command.vcluster)</a>
 </li>
-      <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.verbose">verbose (cloudmesh.common.StopWatch.StopWatch attribute)</a>
+      <li><a href="api/cloudmesh.vdir.api.html#cloudmesh.vdir.api.manager.Vdir">Vdir (class in cloudmesh.vdir.api.manager)</a>
+</li>
+      <li><a href="api/cloudmesh.vdir.command.html#cloudmesh.vdir.command.vdir.VdirCommand">VdirCommand (class in cloudmesh.vdir.command.vdir)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.verbose">verbose (cloudmesh.common.StopWatch.StopWatch attribute)</a>
+</li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.debug.VERBOSE">VERBOSE() (in module cloudmesh.common.debug)</a>
 </li>
       <li><a href="api/cloudmesh.sys.html#cloudmesh.sys.manage.Version">Version (class in cloudmesh.sys.manage)</a>
