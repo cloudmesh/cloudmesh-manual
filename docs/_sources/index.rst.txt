@@ -22,8 +22,9 @@ Cloudmesh Version 4
    :caption: CONCEPTS
    :maxdepth: 2
 
-   storage/storage
-   database/database
+   concepts/compute
+   concepts/storage
+   concepts/database
 
 .. toctree::
    :caption: MANUAL PAGES

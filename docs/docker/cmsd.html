@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cloudmesh Multi Cloud Storage Interface" href="../storage/storage.html" />
+    <link rel="next" title="Multicloud Compute Interfaces" href="../concepts/compute.html" />
     <link rel="prev" title="Cloudmesh Database" href="../installation/mongo.html" /> 
 </head>
 
@@ -99,14 +99,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh Container</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#user-installation">User installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#developer-installation">Developer installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#update">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-installation-update">Developer installation Update</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -229,6 +231,14 @@ $ cmsd <span class="nb">help</span>
 </div>
 <p>Now modify the <cite>~/.cloudmesh/cloudmesh.yaml</cite> file as discussed in the
 manual elsewhere.</p>
+<p>To find the version you can say</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmsd version
+</pre></div>
+</div>
+<p>In case you need to update please use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmsd update
+</pre></div>
+</div>
 </div>
 <div class="section" id="developer-installation">
 <h2>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h2>
@@ -255,8 +265,8 @@ automatically is that developers may need to have <cite>cmsd</cite> and <cite>cm
 their systems at the same time.</p>
 <p>Note that <cite>cmsd</cite> assumes you use <cite>~/cloudmesh/.cloudmesh.yaml</cite></p>
 </div>
-<div class="section" id="update">
-<h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="developer-installation-update">
+<h2>Developer installation Update<a class="headerlink" href="#developer-installation-update" title="Permalink to this headline">¶</a></h2>
 <p>If you used this method before an and you need to update it, you can
 either do a git pull in the <cite>cloudmesh-cmsd</cite> directory or with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> cm
@@ -282,7 +292,7 @@ $ cloudmesh-installer git pull docker
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../storage/storage.html" class="btn btn-neutral float-right" title="Cloudmesh Multi Cloud Storage Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../concepts/compute.html" class="btn btn-neutral float-right" title="Multicloud Compute Interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../installation/mongo.html" class="btn btn-neutral float-left" title="Cloudmesh Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
