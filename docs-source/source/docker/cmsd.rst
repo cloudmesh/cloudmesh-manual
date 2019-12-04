@@ -6,13 +6,32 @@ command line interface is typically complex for users. Hence, we wrapped them
 into a convenient command that can be installed with `pip`.
 
 
-Developer installation
----------------------
+User installation
+-----------------
 
-At this time we have not yet released this on pypi as we currently still
-develop its features. However you can install it in a conveneient fashion on
-your system with (we recommend you use a python venv as not to create
-side effects on your sytsem):
+.. warning:: The user installation is not yet working, use the
+	     developers installation for now.
+
+
+.. code:: bash
+
+   $ pip install cloudmesh-cmsd
+   $ cmsd help
+
+Now modify the `~/.cloudmesh/cloudmesh.yaml` file as discussed in the
+manual elsewhere. 
+   
+	     
+   
+
+Developer installation
+----------------------
+
+At this time we have not yet released this on `PyPi` as we currently still
+develop its features. However you can install it in a convenient fashion on
+your system with (we recommend you use a python `venv` as not to create
+side effects on your system).
+
 
 .. code:: bash
 
@@ -30,20 +49,20 @@ Now you can use the command
 
     $ cmsd help
 
-The command `cmsd` is supposed to be an inplace replacement of `cms`.
+The command `cmsd` is supposed to be an in-place replacement of `cms`.
 
-If you like in your shell to rather use cms, you can also set an alias for
-`cms` that points to `cmsd`. The reason we did not do this automatically is
-that developers may need to have cmsd and cms on their systems at the smae
-time.
+If you like in your shell to rather use cms, you can also set an alias
+for `cms` that points to `cmsd`. The reason we did not do this
+automatically is that developers may need to have `cmsd` and `cms` on
+their systems at the same time.
 
-Note that cmsd assumes you use `~/cloudmesh/.cloudmesh.yaml`
+Note that `cmsd` assumes you use `~/cloudmesh/.cloudmesh.yaml`
 
 Update
 ------
 
-If you used this method before an and you need to update it, you can either do a git pull
-in the cloudmesh-cmsd directory or with
+If you used this method before an and you need to update it, you can
+either do a git pull in the `cloudmesh-cmsd` directory or with
 
 .. code:: bash
 

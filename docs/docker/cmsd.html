@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh Cmsd &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Container &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -96,7 +96,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh Cmsd</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#user-installation">User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-installation">Developer installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update">Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -186,7 +192,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Cloudmesh Cmsd</li>
+      <li>Cloudmesh Container</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -205,16 +211,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cloudmesh-cmsd">
-<h1>Cloudmesh Cmsd<a class="headerlink" href="#cloudmesh-cmsd" title="Permalink to this headline">¶</a></h1>
-<p>Cloudmesh is also distributed via docker. However as the docker command line
-interface is complex, we wrapped them into a convenient command that can be
-installed with <cite>pip</cite>.</p>
-<p>At this time we have not yet released this on pypi as we currently still
-develop its features. However you can install it in a conveneient fashion on
-your system with (we recommend you use a python venv as not to create
-sideffects on your sytsem):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pip -U
+  <div class="section" id="cloudmesh-container">
+<h1>Cloudmesh Container<a class="headerlink" href="#cloudmesh-container" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh is also distributed via a docker container. However as the docker
+command line interface is typically complex for users. Hence, we wrapped them
+into a convenient command that can be installed with <cite>pip</cite>.</p>
+<div class="section" id="user-installation">
+<h2>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The user installation is not yet working, use the
+developers installation for now.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-cmsd
+$ cmsd <span class="nb">help</span>
+</pre></div>
+</div>
+<p>Now modify the <cite>~/.cloudmesh/cloudmesh.yaml</cite> file as discussed in the
+manual elsewhere.</p>
+</div>
+<div class="section" id="developer-installation">
+<h2>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this headline">¶</a></h2>
+<p>At this time we have not yet released this on <cite>PyPi</cite> as we currently still
+develop its features. However you can install it in a convenient fashion on
+your system with (we recommend you use a python <cite>venv</cite> as not to create
+side effects on your system).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
+$ <span class="nb">cd</span> cm
+$ pip install pip -U
 $ pip install cloudmesh-installer -U
 $ cloudmesh-installer git clone docker
 $ cloudmesh-installer git install docker
@@ -224,14 +248,30 @@ $ cloudmesh-installer git install docker
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd <span class="nb">help</span>
 </pre></div>
 </div>
-<p>The command <cite>cmsd</cite> is supposed to be an inplace replacement of <cite>cms</cite>.</p>
-<p>If you like in your shell to rather use cms, you can also set an alias for
-<cite>cms</cite> that points to <cite>cmsd</cite>. The reason we did not do this automatically is
-that developers may need to have cmsd and cms on their systems at the smae
-time.</p>
-<p>Note that cmsd assumes you use <cite>~/cloudmesh/.cloudmesh.yaml</cite></p>
-<p>MORE INFORMATION WILL BE PLACED HERE SHORTLY, such as pointers to the manual
-page and api documentation.</p>
+<p>The command <cite>cmsd</cite> is supposed to be an in-place replacement of <cite>cms</cite>.</p>
+<p>If you like in your shell to rather use cms, you can also set an alias
+for <cite>cms</cite> that points to <cite>cmsd</cite>. The reason we did not do this
+automatically is that developers may need to have <cite>cmsd</cite> and <cite>cms</cite> on
+their systems at the same time.</p>
+<p>Note that <cite>cmsd</cite> assumes you use <cite>~/cloudmesh/.cloudmesh.yaml</cite></p>
+</div>
+<div class="section" id="update">
+<h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p>If you used this method before an and you need to update it, you can
+either do a git pull in the <cite>cloudmesh-cmsd</cite> directory or with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> cm
+$ cloudmesh-installer git pull docker
+</pre></div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>MORE INFORMATION WILL BE PLACED HERE SHORTLY</p>
+<ul class="simple">
+<li><p>pointers to the manual</p></li>
+<li><p>page and api documentation.</p></li>
+</ul>
+</div>
 </div>
 
 
