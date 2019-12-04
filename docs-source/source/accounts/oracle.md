@@ -166,6 +166,96 @@ private key and hit `Enter`.
 Step 6: Copy the contents of the public key to the clipboard as you will
 require this.
 
+Step 7: Add the passphrase to your config file `cloudmesh.yaml` under oracle
+section.
+
+### User
+
+The value for `user` in the config file is the OCID of your user of the
+oracle cloud account. You can find this using the following steps:
+
+Step 1: Click on the profile menu on the right and click on `User Settings`.
+
+![User-Details](images/oracle/user-settings.png)
+
+Step 2: The user OCID can be found under `User Information`. Copy and
+paste it to the config file.
+ 
+![User](images/oracle/user.png)
+
+Step 3: Go to the end of web page and click on `Add Public Key` under `API
+Keys`.
+ 
+![Public Key](images/oracle/public-key.png)
+ 
+Step 4: Paste the contents of the public key `~/.oci/oci_api_key_public.pem
+` to the text-box in the pop-up and click `Add`.
+ 
+![Add Public Key](images/oracle/add-public-key.png)
+
+Step 5: A new key will be added to the API Keys. Copy the `Fingerprint` of
+the key and paste it in the config file.
+
+### Tenancy
+
+The value for `tenancy` in the config file is the OCID of your tenancy account. 
+You can find this using the following steps:
+
+Step 1: Click on the navigation menu on the left, go to `Administration` and 
+click on `Tenancy Details`.
+
+![Tenancy](images/oracle/tenancy.png)
+
+Step 2: The tenancy OCID can be found under `Tenancy Information`. Copy and
+paste it to the config file.
+ 
+![Tenancy Details](images/oracle/tenancy-details.png)
+
+### Compartment
+
+The value for `compartment` in the config file is the OCID of your
+selected compartment. You can find this using the following steps:
+
+Step 1: Click on the navigation menu on the left, go to `Identity` and 
+click on `Compartments`.
+
+![Identity](images/oracle/identity.png)
+
+Step 2: Select your root compartment from the compartment list.
+
+![Select Compartment](images/oracle/select-compartment.png)
+
+Step 3: The compartment OCID can be found under `Compartment Information`. 
+Copy and paste it to the config file.
+ 
+![Compartment Details](images/oracle/compartment-details.png)
+
+## Compute Service
+
+The first thing we need to make sure is that a private public ssh key pair
+has been set up in the default directory `~\.ssh\id_rsa.pub`. This key will
+be used to login into the virtual machine instances created by us.
+
+To set the cloud to oracle, use the command:
+
+`cms set cloud=oracle`
+
+To create a new instance on oracle cloud, use the command:
+
+`cms vm boot`
+
+To login into the instance, use the command:
+
+`cms vm ssh`
+
+To stop the instance, use the command:
+
+`cms vm stop 'VM Name'`
+
+To terminate the instance, use the command:
+
+`cms vm stop 'VM Name'`
+ 
 ## Storage Service
 
 ## References
