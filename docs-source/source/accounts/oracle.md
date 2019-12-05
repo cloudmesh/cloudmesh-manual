@@ -260,4 +260,5 @@ To terminate the instance, use the command:
 
 ## References
 
+- OCI Documentation, <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
 - Required Keys and OCIDs, <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>
