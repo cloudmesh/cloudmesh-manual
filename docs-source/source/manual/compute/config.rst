@@ -8,8 +8,10 @@ config
      config cat [less]
      config check
      config secinit
+     config security add (--secret=REGEXP | --exception=REGEXP )
+     config security rmv (--secret=REGEXP | --exception=REGEXP )
      config encrypt 
-     config decrypt 
+     config decrypt [--nopass]
      config edit [ATTRIBUTE]
      config set ATTRIBUTE=VALUE
      config get ATTRIBUTE [--output=OUTPUT]
@@ -33,11 +35,18 @@ config
                       in the configuration file
                       If the attribute is a password, * is written instead
                       of the character included
+     REGEXP           python regular expression
 
    Options:
-      --name=KEYNAME     The name of a key
-      --output=OUTPUT    The output format [default: yaml]
-      --secrets          Print the secrets. Use carefully.
+      --secret=REGEXP       ensures all attributes within cloudmesh.yaml 
+                            whose dot path matches REGEXP are not encrypted
+                            (even if listed in secrets)
+      --exception=REGEXP    ensures attributes within cloudmesh.yaml whose 
+                            dot path matches REGEXP are encrypted
+      --name=KEYNAME        The name of a key
+      --nopass              Indicates if private key is password protected
+      --output=OUTPUT       The output format [default: yaml]
+      --secrets             Print the secrets. Use carefully.
 
    Description:
 
