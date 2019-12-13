@@ -1,6 +1,6 @@
-# Google Account Creation
+# Google Account
 
-... INTRODUCTION MISSING
+.. todo:: INTRODUCTION MISSING
 
 
 ## Google Drive

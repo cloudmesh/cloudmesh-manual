@@ -12,6 +12,7 @@ For cloudmesh, two services are important Oracle Cloud Compute Resources and
 Oracle Storage.
 
 ## Account Creation
+
 Please follow the steps to create a new oracle cloud account and set up the
 keys and values required for the cloudmesh config file.
 
@@ -75,7 +76,9 @@ To develop or run code related to oracle, its API called OCI (Oracle Cloud
 Infrastructure) needs to be installed. To do this, run the command using the
 command line.
 
-`pip install oci`
+```bash
+$ pip install oci
+```
 
 ## Cloudmesh Config File
 
@@ -85,7 +88,10 @@ compute and storage respectively.
 ### Compute Entry
 
 ```
-oracle:
+cloudmesh:
+  ...
+  compute:
+    oracle:
       cm:
         active: true
         heading: ORACLE
@@ -111,7 +117,9 @@ oracle:
 ### Storage Entry
 
 ```
-oracle:
+cloudmesh:
+  ...
+  storage:
       cm:
         active: true
         heading: Oracle
@@ -143,31 +151,46 @@ Run the following commands using command line.
 
 Step 1: Create a directory `.oci` to store the credentials.
 
-`mkdir ~/.oci`
+```bash
+$ mkdir ~/.oci
+```
 
 Step 2: Generate the key using the command:
 
-`openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 -passout stdin 2048`
+```bash
+$ openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 -passout stdin 2048
+```
 
 Step 3: You will then be prompted for a passphrase. Select a passphrase and hit
 `Enter`.
 
 Step 4: To ensure that only you can read the key, run the following command:
 
-`chmod go-rwx ~/.oci/oci_api_key.pem`
+```bash
+$ chmod go-rwx ~/.oci/oci_api_key.pem
+```
 
 Step 5: Now, generate the public key and hit enter. You will again be prompted
 for the passphrase. Please enter the passphrase created while creating the
 private key and hit `Enter`.
 
-`openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out
-~/.oci/oci_api_key_public.pem -passin stdin`
+```bash
+$ openssl rsa -pubout -in ~/.oci/oci_api_key.pem \
+              -out ~/.oci/oci_api_key_public.pem \
+              -passin stdin`
+```
 
 Step 6: Copy the contents of the public key to the clipboard as you will
 require this.
 
 Step 7: Add the passphrase to your config file `cloudmesh.yaml` under oracle
 section.
+
+:o2: you should have a program that does thsi for you such as 
+
+```
+cms register oracle [--dir=~/.oci]
+```
 
 ### User
 
@@ -238,27 +261,37 @@ be used to login into the virtual machine instances created by us.
 
 To set the cloud to oracle, use the command:
 
-`cms set cloud=oracle`
+```bash
+$ cms set cloud=oracle
+```
 
 To create a new instance on oracle cloud, use the command:
 
-`cms vm boot`
+```bash
+$ cms vm boot
+```
 
 To login into the instance, use the command:
 
-`cms vm ssh`
+```bash
+$ cms vm ssh
+```
 
 To stop the instance, use the command:
 
-`cms vm stop 'VM Name'`
+```bash
+$ cms vm stop 'vm-name'
+```
 
 To terminate the instance, use the command:
 
-`cms vm stop 'VM Name'`
+```bash
+$ cms vm stop 'vm-name'
+```
  
 ## Storage Service
 
 ## References
 
-- OCI Documentation, <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
-- Required Keys and OCIDs, <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>
+* OCI Documentation, <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
+* Required Keys and OCIDs, <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>

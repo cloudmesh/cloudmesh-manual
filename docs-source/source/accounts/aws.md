@@ -1,4 +1,4 @@
-# AWS Account Creation
+# AWS Account
 
 Amazon Web Services (AWS) provides a wide variety of cloud-based
 products including analytics, application integration, AR and VR, cost
