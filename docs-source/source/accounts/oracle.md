@@ -12,6 +12,7 @@ For cloudmesh, two services are important Oracle Cloud Compute Resources and
 Oracle Storage.
 
 ## Account Creation
+
 Please follow the steps to create a new oracle cloud account and set up the
 keys and values required for the cloudmesh config file.
 
@@ -75,7 +76,9 @@ To develop or run code related to oracle, its API called OCI (Oracle Cloud
 Infrastructure) needs to be installed. To do this, run the command using the
 command line.
 
-`pip install oci`
+```bash
+$ pip install oci
+```
 
 ## Cloudmesh Config File
 
@@ -85,7 +88,10 @@ compute and storage respectively.
 ### Compute Entry
 
 ```
-oracle:
+cloudmesh:
+  ...
+  compute:
+    oracle:
       cm:
         active: true
         heading: ORACLE
@@ -111,7 +117,9 @@ oracle:
 ### Storage Entry
 
 ```
-oracle:
+cloudmesh:
+  ...
+  storage:
       cm:
         active: true
         heading: Oracle
@@ -122,7 +130,6 @@ oracle:
         service: storage
       default:
         directory: TBD
-        bucket: home
       credentials:
         user : TBD
         fingerprint : TBD
@@ -144,31 +151,46 @@ Run the following commands using command line.
 
 Step 1: Create a directory `.oci` to store the credentials.
 
-`mkdir ~/.oci`
+```bash
+$ mkdir ~/.oci
+```
 
 Step 2: Generate the key using the command:
 
-`openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 -passout stdin 2048`
+```bash
+$ openssl genrsa -out ~/.oci/oci_api_key.pem -aes128 -passout stdin 2048
+```
 
 Step 3: You will then be prompted for a passphrase. Select a passphrase and hit
 `Enter`.
 
 Step 4: To ensure that only you can read the key, run the following command:
 
-`chmod go-rwx ~/.oci/oci_api_key.pem`
+```bash
+$ chmod go-rwx ~/.oci/oci_api_key.pem
+```
 
 Step 5: Now, generate the public key and hit enter. You will again be prompted
 for the passphrase. Please enter the passphrase created while creating the
 private key and hit `Enter`.
 
-`openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out
-~/.oci/oci_api_key_public.pem -passin stdin`
+```bash
+$ openssl rsa -pubout -in ~/.oci/oci_api_key.pem \
+              -out ~/.oci/oci_api_key_public.pem \
+              -passin stdin`
+```
 
 Step 6: Copy the contents of the public key to the clipboard as you will
 require this.
 
 Step 7: Add the passphrase to your config file `cloudmesh.yaml` under oracle
 section.
+
+:o2: you should have a program that does thsi for you such as 
+
+```
+cms register oracle [--dir=~/.oci]
+```
 
 ### User
 
@@ -237,62 +259,39 @@ The first thing we need to make sure is that a private public ssh key pair
 has been set up in the default directory `~\.ssh\id_rsa.pub`. This key will
 be used to login into the virtual machine instances created by us.
 
-* To set the cloud to oracle, use the command:
+To set the cloud to oracle, use the command:
 
-    `cms set cloud=oracle`
+```bash
+$ cms set cloud=oracle
+```
 
-* To create a new instance on oracle cloud, use the command:
+To create a new instance on oracle cloud, use the command:
 
-    `cms vm boot`
+```bash
+$ cms vm boot
+```
 
-* To login into the instance, use the command:
+To login into the instance, use the command:
 
-    `cms vm ssh`
+```bash
+$ cms vm ssh
+```
 
-* To stop the instance, use the command:
+To stop the instance, use the command:
 
-    `cms vm stop 'VM Name'`
+```bash
+$ cms vm stop 'vm-name'
+```
 
-* To terminate the instance, use the command:
+To terminate the instance, use the command:
 
-    `cms vm stop 'VM Name'`
+```bash
+$ cms vm stop 'vm-name'
+```
  
 ## Storage Service
 
-The first time you try to access storage services, it wil be empty and any
-operation to `list/get/delete` will result in an error. Hence, to start first
-`put` a new file on the cloud. This will result in creation of a new bucket
-with the name specified in `cloudmesh.yaml`.
-
-`create dir` command to create a directory on the cloud object storage
-system is not supported in Oracle. Only when uploading a file can a
-directory structure be created. IF all the files in the directory are
-deleted, the directory is deleted too. 
-
-* To upload a new file/directory to the cloud, use the command:
-
-    `cms storage --storage=oracle put SOURCE DESTINATION`
-
-* To download a file from the cloud, use the command:
-
-    `cms storage --storage=oracle get SOURCE DESTINATION`
-
-* To list all the files from the bucket/directory, use the command:
-
-    `cms storage --storage=oracle list SOURCE`
-
-* To delete a file/directory from the cloud, use the command:
-
-    `cms storage --storage=oracle delete SOURCE`
-
-    Note that if a directory is deleted, all the files inside the directory are
-also deleted.
-
-* To search a file in a particular directory, use the command:
-
-    `cms storage --storage=oracle search DIRECTORY FILENAME`
-
 ## References
 
-- OCI Documentation, <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
-- Required Keys and OCIDs, <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>
+* OCI Documentation, <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
+* Required Keys and OCIDs, <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>

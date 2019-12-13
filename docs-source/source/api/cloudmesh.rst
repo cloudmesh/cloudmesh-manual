@@ -22,6 +22,7 @@ Subpackages
    cloudmesh.etc
    cloudmesh.flavor
    cloudmesh.group
+   cloudmesh.host
    cloudmesh.image
    cloudmesh.init
    cloudmesh.inventory

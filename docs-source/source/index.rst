@@ -62,9 +62,11 @@ Cloudmesh Version 4
    :caption: CLOUD ACCOUNTS
    :maxdepth: 2
 
+   accounts/openstack
    accounts/aws
    accounts/azure
    accounts/google
+   accounts/oracle
    accounts/box
    accounts/accountcreation-old
 

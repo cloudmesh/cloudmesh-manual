@@ -17,8 +17,11 @@ define banner
 	@echo "###################################"
 endef
 
+
 all:
-	$(call banner, "use: make doc")
+	make -f Makefile manual
+
+# $(call banner, "use: make manual")
 
 dest/gitinspector/gitinspector.py:
 	mkdir -p dest
@@ -136,6 +139,8 @@ COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
 
 STORAGE_COMMAND= storage vdir
 
+GROUP_COMMAND= group
+
 
 #MANUAL=$(CMD5_COMMAND) $(COMPUTE_COMMAND) $(STORAGE_COMMAND)
 
@@ -157,36 +162,12 @@ manual:
 	echo "========" >> $(SOURCE)/manual/commands.rst
 	echo  >> $(SOURCE)/manual/commands.rst
 	tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/commands.rst
-	#
-	# CMD5
-	#
-	mkdir -p $(SOURCE)/manual/cmd5
-	for c in $(CMD5_COMMAND) ; do \
-	  echo Generate man page for $$c ; \
-	  cms man $$c --format=rst  > $(SOURCE)/manual/cmd5/$$c.rst; \
-	done
-	#
-	# GROUP
-	#
-	mkdir -p $(SOURCE)/manual/group
-	cms man group --format=rst > $(SOURCE)/manual/group/group.rst
-	#
-	# COMPUTE
-	#
-	mkdir -p $(SOURCE)/manual/compute
-	for c in $(COMPUTE_COMMAND) ; do \
-	  echo Generate man page for $$c ; \
-	  cms man  $$c --format=rst > $(SOURCE)/manual/compute/$$c.rst; \
-	done
 
-	#
-	# STORAGE
-	#
-	mkdir -p $(SOURCE)/manual/storage
-	for c in $(STORAGE_COMMAND) ; do \
-	  echo Generate man page for $$c ; \
-	  cms man  $$c --format=rst > $(SOURCE)/manual/storage/$$c.rst; \
-	done
+	cms man --dir=$(SOURCE)/manual/cmd5 --format=rst $(CMD5_COMMAND)
+	cms man --dir=$(SOURCE)/manual/group --format=rst $(group_COMMAND)
+	cms man --dir=$(SOURCE)/manual/compute --format=rst $(COMPUTE_COMMAND)
+	cms man --dir=$(SOURCE)/manual/storage --format=rst $(STORAGE_COMMAND)
+
 	make -f Makefile doc
 
 authors:
