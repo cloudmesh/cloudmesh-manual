@@ -1,13 +1,13 @@
 Commands
 ========
 
-EOF                 data     image      pause     set        sys           
-admin               debug    info       plugin    shell      var           
-banner              default  init       provider  sleep      vbox          
-bookmanagerservice  echo     inventory  q         source     vcluster      
-clear               flavor   ip         quit      ssh        version       
-commands            group    key        register  start      vm            
-config              help     man        sec       stop       workflow_draft
-container           host     open       service   stopwatch
+EOF                 data     image      pause     service  stopwatch     
+admin               debug    info       plugin    set      sys           
+banner              default  init       provider  shell    var           
+bookmanagerservice  echo     inventory  py        sleep    vbox          
+clear               flavor   ip         q         source   vcluster      
+commands            group    key        quit      ssh      version       
+config              help     man        register  start    vm            
+container           host     open       sec       stop     workflow_draft
 
 Timer: 0.0000s (help)

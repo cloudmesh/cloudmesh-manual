@@ -187,6 +187,57 @@ information about your machine on which you run the benchmarks. You can get this
 
     cms stopwatch benchmark
 
+Accessing Python
+~~~~~~~~~~~~~~~~
+
+You can access python in a commandline while using the prefix py
+
+```
+cms py 1 + 1
+2
+  ```
+Or redirectiong the python output to a cloudmesh variable as part of the set command
+
+
+```
+cms set a=\"py 1 + 1\"
+a='2'
+```
+
+
+Accessing Shell Commands
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can access shell commands while starting a line with !
+
+```
+cms \!pwd
+```
+
+or you can use it as part of a variable assignment
+
+```
+cms set a=\!pwd
+```
+
+Accessing the yaml file
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can read values from a yaml configuration file in `~/.cloudmesh/cloudmesh.yaml`
+
+
+```
+cms set a=cloudmesh.profile.user
+```
+
+where it is defined as
+
+```
+cloudmesh:
+profile:
+  user: gregor
+```
+
 Plugins
 -------
 
