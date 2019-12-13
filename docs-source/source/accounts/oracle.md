@@ -122,6 +122,7 @@ oracle:
         service: storage
       default:
         directory: TBD
+        bucket: home
       credentials:
         user : TBD
         fingerprint : TBD
@@ -236,27 +237,60 @@ The first thing we need to make sure is that a private public ssh key pair
 has been set up in the default directory `~\.ssh\id_rsa.pub`. This key will
 be used to login into the virtual machine instances created by us.
 
-To set the cloud to oracle, use the command:
+* To set the cloud to oracle, use the command:
 
-`cms set cloud=oracle`
+    `cms set cloud=oracle`
 
-To create a new instance on oracle cloud, use the command:
+* To create a new instance on oracle cloud, use the command:
 
-`cms vm boot`
+    `cms vm boot`
 
-To login into the instance, use the command:
+* To login into the instance, use the command:
 
-`cms vm ssh`
+    `cms vm ssh`
 
-To stop the instance, use the command:
+* To stop the instance, use the command:
 
-`cms vm stop 'VM Name'`
+    `cms vm stop 'VM Name'`
 
-To terminate the instance, use the command:
+* To terminate the instance, use the command:
 
-`cms vm stop 'VM Name'`
+    `cms vm stop 'VM Name'`
  
 ## Storage Service
+
+The first time you try to access storage services, it wil be empty and any
+operation to `list/get/delete` will result in an error. Hence, to start first
+`put` a new file on the cloud. This will result in creation of a new bucket
+with the name specified in `cloudmesh.yaml`.
+
+`create dir` command to create a directory on the cloud object storage
+system is not supported in Oracle. Only when uploading a file can a
+directory structure be created. IF all the files in the directory are
+deleted, the directory is deleted too. 
+
+* To upload a new file/directory to the cloud, use the command:
+
+    `cms storage --storage=oracle put SOURCE DESTINATION`
+
+* To download a file from the cloud, use the command:
+
+    `cms storage --storage=oracle get SOURCE DESTINATION`
+
+* To list all the files from the bucket/directory, use the command:
+
+    `cms storage --storage=oracle list SOURCE`
+
+* To delete a file/directory from the cloud, use the command:
+
+    `cms storage --storage=oracle delete SOURCE`
+
+    Note that if a directory is deleted, all the files inside the directory are
+also deleted.
+
+* To search a file in a particular directory, use the command:
+
+    `cms storage --storage=oracle search DIRECTORY FILENAME`
 
 ## References
 
