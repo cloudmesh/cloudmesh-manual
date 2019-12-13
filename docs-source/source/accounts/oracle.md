@@ -130,6 +130,7 @@ cloudmesh:
         service: storage
       default:
         directory: TBD
+        bucket: home
       credentials:
         user : TBD
         fingerprint : TBD
@@ -291,7 +292,52 @@ $ cms vm stop 'vm-name'
  
 ## Storage Service
 
+The first time you try to access storage services, it wil be empty and any
+operation to `list/get/delete` will result in an error. Hence, to start first
+`put` a new file on the cloud. This will result in creation of a new bucket
+with the name specified in `cloudmesh.yaml`.
+
+`create dir` command to create a directory on the cloud object storage
+system is not supported in Oracle. Only when uploading a file can a
+directory structure be created. IF all the files in the directory are
+deleted, the directory is deleted too. 
+
+To upload a new file/directory to the cloud, use the command:
+
+```bash
+$ cms storage --storage=oracle put SOURCE DESTINATION
+```
+
+To download a file from the cloud, use the command:
+
+```bash
+$ cms storage --storage=oracle get SOURCE DESTINATION
+```
+
+To list all the files from the bucket/directory, use the command:
+
+```bash
+$ cms storage --storage=oracle list SOURCE
+```
+
+To delete a file/directory from the cloud, use the command:
+
+```bash
+$ cms storage --storage=oracle delete SOURCE
+```
+
+Note that if a directory is deleted, all the files inside the directory are
+also deleted.
+
+To search a file in a particular directory, use the command:
+
+```bash
+$ cms storage --storage=oracle search DIRECTORY FILENAME
+```
+
 ## References
 
-* OCI Documentation, <https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
-* Required Keys and OCIDs, <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>
+* OCI Documentation, 
+<https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
+* Required Keys and OCIDs, 
+<https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>
