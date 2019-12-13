@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh Yaml file Encryption &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Config File Encryption &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -142,14 +142,23 @@
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../tbd.html">OTHER</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Yaml file Encryption</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisits">Prerequisits</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#encryption">Encryption</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#decryption">Decryption</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-integration">Cloudmesh Integration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#editing-the-configuration-file">Editing the Configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-information-to-the-configuration">Adding information to the configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#separating-the-sensitive-information">Separating the sensitive information</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Config File Encryption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encrypting-the-config-file">Encrypting the Config File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decrypting-the-config-file">Decrypting the Config File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-configuration-options">Additional Configuration Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-secinit-directory">Changing the secinit Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cms-key-gen-options">CMS Key Gen Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-attributes-to-encrypt">Selecting Attributes to Encrypt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-attributes-to-exclude-from-encryption">Selecting Attributes to Exclude from Encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-integration">Cloudmesh Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cmsencryptor">CmsEncryptor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmshasher">CmsHasher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keyloader">KeyLoader</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../group.html">Group command</a></li>
@@ -220,7 +229,7 @@
         
           <li><a href="../tbd.html">OTHER</a> &raquo;</li>
         
-      <li>Cloudmesh Yaml file Encryption</li>
+      <li>Cloudmesh Config File Encryption</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -239,137 +248,240 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cloudmesh-yaml-file-encryption">
-<h1>Cloudmesh Yaml file Encryption<a class="headerlink" href="#cloudmesh-yaml-file-encryption" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cloudmesh-config-file-encryption">
+<h1>Cloudmesh Config File Encryption<a class="headerlink" href="#cloudmesh-config-file-encryption" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>THIS SECTION IS UNDER DEVELOPMENT AND THE CONTENT DESCRIBED IS NOT
-YET FULLY WORKING</p>
+<p>THIS SECTION IS UNDER DEVELOPMENT AND NOT FULLY INTEGRATED</p>
 </div>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
-<p>verify the entire content of the encryption command</p>
+<p>Ensure compatible with Windows and Mac operating systems</p>
 </div>
-<p>The cloudmesh yaml file can contain some information to simplify
-authentication. In order not tos store the file in clear text we have
-provided a replacement function for the configuration that allows
-encryption of the file with your ssh key. IT is important that your ssh
-key is generated with a passphrase. If you do not, even if you encrypt,
-the file can without a passphrase decrypted which is the same as having
-it in clear text. So make sure tour ssh-key has a passphrase.</p>
-<div class="section" id="prerequisits">
-<h2>Prerequisits<a class="headerlink" href="#prerequisits" title="Permalink to this headline">¶</a></h2>
-<p>You have an ssh key</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Implement capabilities to query for value of encrypted attribute</p>
 </div>
-<div class="section" id="encryption">
-<h2>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h2>
-<p>To encrypt the file, pleas use the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config encrypt
+<p>The cloudmesh.yaml configuration file stores passwords and other secrets
+to simplify accessing machines. By default <strong>none</strong> of the passwords are
+encrypted. Encryption allows you to store your secrets within the file
+and prevents the accidental exposure of your secrets (if you edit your
+config while sharing a screen) and makes it harder for malicious users
+to steal your passwords. This is all done through the
+<code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">config</span> <span class="pre">encrypt</span></code> and <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">config</span> <span class="pre">decrypt</span></code> commands.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You must be sure that cloudmesh is installed. The easiest way to install
+cloudmseh is via pip. However, it is not yet released with the security
+extensions we discuss below. If you would like to use them you need to
+install cloudmesh-cloud from source. Which is discussed in the
+<a class="reference external" href="https://cloudmesh.github.io/cloudmesh-manual/installation/install.html">cloudmesh manual</a>.
+To remind you how easy it is you can use the following steps.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
+$ <span class="nb">cd</span> cm
+$ pip install cloudmesh-installer
+$ cloudmesh-installer git clone cloud
+$ cloudmesh-installer install cloud
+$ cms <span class="nb">help</span>
 </pre></div>
 </div>
-<p>This command will encrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file and place it
-under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml.enc</span></code>. It will ask you if you like
-to delete the original yaml file.</p>
-</div>
-<div class="section" id="decryption">
-<h2>Decryption<a class="headerlink" href="#decryption" title="Permalink to this headline">¶</a></h2>
-<p>To decrypt the file, pleas use the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config decrypt
+<p>Please remember that after this you will have to configure your
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
+<p>After the system has been installed cloudmesh will need to initialize its
+security capabilities. If you wish to control where it is initialized
+reference the <a class="reference internal" href="#additional-configuration-options">Additional Configuration Options</a> section below.
+Otherwise, initialize the configuration capabilities by running the the
+following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config secinit
 </pre></div>
 </div>
-<p>This command will decrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml.enc</span></code> file and place it
-under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml.enc.enc</span></code>. It will ask you if you
-like to delete the original yaml file.</p>
+<p>Now that we have the proper system related properties initialized we need
+an RSA public-private key pair to execute encryption and decryption of
+the data. The public key is used to encrypt data and the private key is
+used to decrypt. If you have previously generated an RSA key pair please
+reference the <a href="#id4"><span class="problematic" id="id5">`Additional Configuration Options`__</span></a> section below.
+Otherwise run the following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms key gen rsa --set_path
+</pre></div>
+</div>
+<p>Now that we have the initialized system and RSA key pair we can encrypt
+the config.</p>
+</div>
+<div class="section" id="encrypting-the-config-file">
+<h2>Encrypting the Config File<a class="headerlink" href="#encrypting-the-config-file" title="Permalink to this headline">¶</a></h2>
+<p>The configuration file can be encrypted by running the following
+command. By default the encryption command will encrypt everything
+within the cloudmesh.yaml file that is not necessary for decryption. To
+edit which attributes are encrypted or excluded from encryption
+reference the <a class="reference internal" href="#additional-configuration-options">Additional Configuration Options</a> section below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config encrypt
+</pre></div>
+</div>
+<p>After this command is completed all of the explicitly defined secrets
+are encrypted at rest. This means that even if the data is exposed the
+data should be secured by typical definitions of security. This also
+means that any other cloudmesh command that references an encrypted
+attribute will return an encrypted value. Thus, care should be taken to
+not call commands that require encrypted attributes. To reference the
+original values you must decrypt the config file.</p>
+</div>
+<div class="section" id="decrypting-the-config-file">
+<h2>Decrypting the Config File<a class="headerlink" href="#decrypting-the-config-file" title="Permalink to this headline">¶</a></h2>
+<p>The configuration file can be decrypted by running the following
+command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config decrypt
+</pre></div>
+</div>
+<p>If the private key was password protected you must enter the password
+when prompted. If the key has no password either hit enter immediately
+after being prompted or run the following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config decrypt --nopass
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-configuration-options">
+<span id="id3"></span><h2>Additional Configuration Options<a class="headerlink" href="#additional-configuration-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changing-the-secinit-directory">
+<h3>Changing the secinit Directory<a class="headerlink" href="#changing-the-secinit-directory" title="Permalink to this headline">¶</a></h3>
+<p>The secinit directory controls where encryption related data is stored.
+The default location is ~/.cloudmesh/security. If you wish to change
+this location you must edit the <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.secpath</span></code>
+attribute. For example, if you wish that cloudmesh secrets are stored
+within <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/.foosec</span></code> run the following</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config <span class="nb">set</span> cloudmesh.security.secpath<span class="o">=</span>~/.cloudmesh/.foosec
+$ cms config secinit
+</pre></div>
+</div>
+</div>
+<div class="section" id="cms-key-gen-options">
+<h3>CMS Key Gen Options<a class="headerlink" href="#cms-key-gen-options" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="changing-key-names">
+<h4>Changing Key Names<a class="headerlink" href="#changing-key-names" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">key</span> <span class="pre">gen</span></code> command will automatically generate the key pair
+into the default locations of <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa</span></code> and
+<code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa.pub</span></code>. If this key already exists or if you prefer a
+different location use the –name=KEYNAME flag. Where KEYNAME is the
+full path to the key you would like to generate. For example, if we
+would like to have a keys called <code class="docutils literal notranslate"><span class="pre">cms</span></code> and <code class="docutils literal notranslate"><span class="pre">cms.pub</span></code> in the .ssh
+directory execute</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms key gen rsa --name<span class="o">=</span>~/.ssh/cms
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-keys-for-encryption-without-key-gen-command">
+<h4>Setting Keys for Encryption Without Key Gen Command<a class="headerlink" href="#setting-keys-for-encryption-without-key-gen-command" title="Permalink to this headline">¶</a></h4>
+<p>The path to the encryption and decryption keys are located in
+<code class="docutils literal notranslate"><span class="pre">cloudmesh.security.pubickey</span></code> and <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.privatekey</span></code>
+respectively. When keys are generated with the <code class="docutils literal notranslate"><span class="pre">--set_path</span></code> argument
+they set these attributes after the keys are generated.</p>
+<p>If you already have RSA keys that are PEM encoded you can set the path
+directly. For instance let us assume we already had <code class="docutils literal notranslate"><span class="pre">~/.ssh/priv/cms</span></code>
+and its public key pair <code class="docutils literal notranslate"><span class="pre">~/.ssh/pub/cms.pub</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config <span class="nb">set</span> cloudmesh.security.privatekey<span class="o">=</span>~/.ssh/priv/cms
+$ cms config <span class="nb">set</span> cloudmesh.security.publickey<span class="o">=</span>~/.ssh/pub/cms.pub
+</pre></div>
+</div>
+<p>Note: the keys can be located anywhere since they are looked up before
+encryption.</p>
+</div>
+<div class="section" id="generating-a-key-without-a-password">
+<h4>Generating a Key Without a Password<a class="headerlink" href="#generating-a-key-without-a-password" title="Permalink to this headline">¶</a></h4>
+<p>Passwords for your RSA private key are recommended. It is much easier to
+<strong>lose all security guarantees</strong> if you private key is not encrypted.
+Unless you have a good reason, keep a password on your private file. If
+you understand this and still wish to generate a key without a password
+run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms key gen rsa --nopass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="selecting-attributes-to-encrypt">
+<h3>Selecting Attributes to Encrypt<a class="headerlink" href="#selecting-attributes-to-encrypt" title="Permalink to this headline">¶</a></h3>
+<p>Internally, Cloudmesh represents all attributes as the yaml dot path to
+the attribute. The <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.secrets</span></code> attribute takes a list
+of python regular expressions that will be matched on the dot paths to
+the attributes.</p>
+<p>To learn the specifics about python regular expression please reference
+the <a class="reference external" href="https://docs.python.org/3.7/library/re.html">python re documentation</a>.</p>
+<p>By default, the secrets section has <code class="docutils literal notranslate"><span class="pre">.*</span></code> which encrypts everything</p>
+<p>If you wish to encrypt all <code class="docutils literal notranslate"><span class="pre">AZURE_SECRET_KEY</span></code> attributes you can
+execute</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config security add --secrets<span class="o">=</span>.*AZURE_SECRET_KEY
+</pre></div>
+</div>
+<p>If you wish to encrypt a specific attribute you can provide the dot
+path. For instance, to encrypt the mongo database <code class="docutils literal notranslate"><span class="pre">MONGO_PASSWORD</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config security add --secrets<span class="o">=</span>cloudmesh.data.mongo.MONGO_PASSWORD
+</pre></div>
+</div>
+<p>If you wish to remove any regular expressions from secrets run the
+following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config security rmv --secrets<span class="o">=</span>cloudmesh.data.mongo.MONGO_PASSWORD
+</pre></div>
+</div>
+</div>
+<div class="section" id="selecting-attributes-to-exclude-from-encryption">
+<h3>Selecting Attributes to Exclude from Encryption<a class="headerlink" href="#selecting-attributes-to-exclude-from-encryption" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.exceptions</span></code> section is intended to list
+attributes that must <strong>not</strong> be encrypted. This section also explicitly
+uses python regular expressions to capture the attribute dot paths. The
+default exceptions included in the exceptions section are necessary for
+the decryption of data.</p>
+<p>Note that the exceptions section has priority over the secrets section.
+If there is ever an attribute that is matched on both secrets and
+exceptions regular expressions the attribute will <strong>not</strong> be encrypted.</p>
+<p>For instance, if you wish to ensure that none of the
+<code class="docutils literal notranslate"><span class="pre">AZURE_SECRET_KEY</span></code> attributes are encrypted run the following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config security add --exceptions<span class="o">=</span>.*AZURE_SECRET_KEY
+</pre></div>
+</div>
+<p>If you wish to exclude a specific attribute give the dot path.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config security add --exceptions<span class="o">=</span>cloudmesh.data.mongo.MDB_PASSWORD
+</pre></div>
+</div>
+<p>If you wish to remove any regular expressions within the exceptions
+section run the <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">config</span> <span class="pre">security</span> <span class="pre">rmv</span></code> command. For instance to
+remove the example exceptions.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms config security rmv --exceptions<span class="o">=</span>.*AZURE_SECRET_KEY
+$ cms config security rmv --exceptions<span class="o">=</span>cloudmesh.data.mongo.MDB_PASSWORD
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="cloudmesh-integration">
 <h2>Cloudmesh Integration<a class="headerlink" href="#cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
-<p>We have provided a new
-<code class="docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.ConfigCrypt()</span></code> That will be
-integrated in future (once verified it works) into the regular
-<code class="docutils literal notranslate"><span class="pre">Config()</span></code></p>
-<p>The functionality tht is provided by <code class="docutils literal notranslate"><span class="pre">ConfigCrypt()</span></code> includes</p>
-<ul class="simple">
-<li><p>if <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml.enc</span></code> exist a warning is
-written that both files exist and it recommended in production to
-delete the unencrypted file.</p></li>
-<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> exist a warning is written that an
-unencrypted yaml file is used</p></li>
-<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml.enc</span></code> exists it is unencrypted and loaded
-into memory. Please note that <code class="docutils literal notranslate"><span class="pre">ConfigCrypt()</span></code> just as Config() is
-implemented as Borg class so that the decryption and loading loading
-is conducted only once.</p></li>
-</ul>
+<p>We have provided new classes to handle the foundation of security for cloudmesh.
+All of the tools are located within <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-configuration/blob/master/cloudmesh/configuration/security/encrypt.py">cloudmesh.configuration.security.encrypt</a>.</p>
+<div class="section" id="cmsencryptor">
+<h3>CmsEncryptor<a class="headerlink" href="#cmsencryptor" title="Permalink to this headline">¶</a></h3>
+<p>The CmsEncryptor class is a general encryptor tool used for both symmetric and
+asymmetric encryption schemes. Currently RSA and AES-GCM encryption schemes
+are the only available schemes for encryption. This is used to take bytes of
+data and return the encrypted bytes with other data if necessary. This can
+also be used for full file encryption. Due however note that this particular
+functionality has not been tested with arbitrarily large file sizes.</p>
 </div>
-<div class="section" id="editing-the-configuration-file">
-<h2>Editing the Configuration file<a class="headerlink" href="#editing-the-configuration-file" title="Permalink to this headline">¶</a></h2>
-<p>Editing the configuration file can be done by first decrypting the
-file with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TBD
-</pre></div>
+<div class="section" id="cmshasher">
+<h3>CmsHasher<a class="headerlink" href="#cmshasher" title="Permalink to this headline">¶</a></h3>
+<p>The CmsHasher class is used for hashing techniques. Currently SHA256 and MD5
+are supported. Note MD5 is an <strong>insecure</strong> hashing tool. It should only be
+used when you are absolutely sure that the data being hashed does not need to
+be kept secret. The default and recommended hashing tool is SHA256. The
+Hasher is used hash the attribute dot paths that are encrypted and use the
+hash as a base file name. MD5 is used in this instance since the security
+of the secrets does not rely on hiding the path of the attribute that was
+encrypted.</p>
 </div>
-<p>Than you can use your favourite editor to make modifications. Let us
-assume this is emacs.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emacs ~/.cloudmesh/cloudmesh.yaml
-</pre></div>
+<div class="section" id="keyloader">
+<h3>KeyLoader<a class="headerlink" href="#keyloader" title="Permalink to this headline">¶</a></h3>
+<p>The KeyLoader class is responsible for generating, writing, loading, and
+verifying the encoding and format of a given key file. Some variety of keys
+and formats are supported. Currently, private keys can have PKCS8 or OpenSSL
+format and Public keys can have SubjectInfo or OpenSSH formats.
+Both PEM and SSH encoding is supported. It can support both passwordless
+and password-protected private key files.</p>
 </div>
-<p>Once written back quit your editor and encrypt the file with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config encrypt
-</pre></div>
-</div>
-</div>
-<div class="section" id="adding-information-to-the-configuration">
-<h2>Adding information to the configuration<a class="headerlink" href="#adding-information-to-the-configuration" title="Permalink to this headline">¶</a></h2>
-<p>It is also possible to add configurations to the encrypted file while
-storing the new values in a temporary yaml file.</p>
-<p>Let us assume the temporary file <code class="docutils literal notranslate"><span class="pre">./change.yaml</span></code> contains the
-following information:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
-  <span class="n">profile</span><span class="p">:</span>
-    <span class="n">firstname</span><span class="p">:</span> <span class="n">Gregor</span>
-    <span class="n">lastname</span><span class="p">:</span> <span class="n">von</span> <span class="n">Laszewski</span>
-</pre></div>
-</div>
-<p>Than the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config add ./change.yaml
-</pre></div>
-</div>
-<p>Will update the existing <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> or cloudmesh.yaml.enc`
-file with the provided information. This is taking place regardless if
-the yaml file is encrypted or not. If both files exist, both files will
-be modified. A warning is however issued if the unencrypted yaml file
-exists to remind the user to delete it.</p>
-<p>Alternatively the convenient dot notation cloudmesh provides for
-configuration files can be used. This is done by having the ending
-<code class="docutils literal notranslate"><span class="pre">txt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">yml</span></code> We illustrated this on the following example
-where the data is stored in <code class="docutils literal notranslate"><span class="pre">change.txt</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">firstname</span><span class="p">:</span> <span class="n">Gregor</span>
-<span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">lastname</span><span class="p">:</span> <span class="n">von</span> <span class="n">Laszewski</span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config add ./change.txt
-</pre></div>
-</div>
-</div>
-<div class="section" id="separating-the-sensitive-information">
-<h2>Separating the sensitive information<a class="headerlink" href="#separating-the-sensitive-information" title="Permalink to this headline">¶</a></h2>
-<p>As it may be beneficial to separate the sensitive form the non sensitive
-information, we also provide a mechanism for authentication with a
-merged file. This way you could for example store the sensitive
-information on a USB key.</p>
-<p>For this to work we specify in the yaml file a field called</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh:
-  encrypted: ~/.cloudmesh/cloudmesh4-secrets.yaml.enc
-</pre></div>
-</div>
-<p>You can name the file anything you like and you could point it to your
-location of the USB key.</p>
-<p>in this file we store only the sensitive information such as</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh.storage.azure.credentials.AZURE_SUBSCRIPTION_ID: <span class="s1">&#39;xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#39;</span>
-</pre></div>
-</div>
-<p>PLease note that we leverage the convenient dot notation cloudmesh
-provides for configuration files so we can formulate the value in a
-single line&gt;</p>
 </div>
 </div>
 

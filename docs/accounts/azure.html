@@ -136,13 +136,17 @@
 <li class="toctree-l1"><a class="reference internal" href="aws.html">AWS Account Creation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Azure Account Creation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#azure-account">Azure Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#azure-cli">Azure CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-cli">Azure CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-azure-cli-on-ubuntu-os">Installing Azure CLI on Ubuntu OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-azure-cli-on-windows-10">Installing Azure CLI on Windows 10</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage">Azure Resource Group (for Storage)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#azure-api-credentials">Azure API Credentials</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#azure-subscription-id">Azure_Subscription_ID</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure-tenant-id-azure-client-id">Azure_Tenant_ID &amp; Azure_Client_ID</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure-secret-key">Azure_Secret_Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#grant-permission-to-applicaiton">Grant permission to applicaiton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grant-permission-to-application">Grant permission to application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-the-credentials-to-cloudmesh-yaml">Add the credentials to cloudmesh.yaml</a></li>
 </ul>
 </li>
@@ -276,63 +280,82 @@ card to complete the upgrade steps. Go to the next link and click on
 <ul class="simple">
 <li><p><a class="reference external" href="https://azure.microsoft.com/en-us/offers/ms-azr-0003p/">https://azure.microsoft.com/en-us/offers/ms-azr-0003p/</a></p></li>
 </ul>
-<p>Congratulation, you can now use Azure.</p>
+<p>Congratulations, you can now use Azure.</p>
 </div>
 <div class="section" id="azure-cli">
 <h2>Azure CLI<a class="headerlink" href="#azure-cli" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have an account we want to test if it works. The most
 convenient way to test your access this from the command line is to
 install the azure command line client. You can access azure services by
-just typing command on your local shell. It can be installed on on
+just typing command on your local shell. It can be installed on
 Windows, macOS and Linux systems.</p>
 <p>For detailed instructions for your system of interest we recommend you
 visit the page</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</a></p></li>
 </ul>
+<div class="section" id="installing-azure-cli-on-ubuntu-os">
+<h3>Installing Azure CLI on Ubuntu OS<a class="headerlink" href="#installing-azure-cli-on-ubuntu-os" title="Permalink to this headline">¶</a></h3>
 <p>In the following steps we will only discuss how to install it on an
 Ubuntu OS. First, make sure you have an up to date OS and that curl is
 installed with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update 
-$ sudo apt-get install curl 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get install curl
 </pre></div>
 </div>
 <p>The installation is conducted with the following command that you will
 have to run as superuser:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -sL https://aka.ms/InstallAzureCLIDeb <span class="p">|</span> sudo bash 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -sL https://aka.ms/InstallAzureCLIDeb <span class="p">|</span> sudo bash
 </pre></div>
 </div>
 <p>When the installation is finished, you can test your az command by
 trying to use it to connect to your azure account. Type the next command
 in your bash:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ az login 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ az login
 </pre></div>
 </div>
 <p>It opens your default browser and to conduct a sign-in to azure. If it
 does not open, please go to <a class="reference external" href="https://aka.ms/devicelogin">https://aka.ms/devicelogin</a> in your
 browser. Once the page is loaded, you can sign in with your account
 credentials in the browser.</p>
-<p>Now you are ready to use the <code class="docutils literal notranslate"><span class="pre">az</span></code> command to interact with
-Azure.</p>
+</div>
+<div class="section" id="installing-azure-cli-on-windows-10">
+<h3>Installing Azure CLI on Windows 10<a class="headerlink" href="#installing-azure-cli-on-windows-10" title="Permalink to this headline">¶</a></h3>
+<p>The following steps document an Azure CLI installation for Windows 10.</p>
+<p>Start with opening up Windows PowerShell in Administrative Mode, then run the following:</p>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span>cd ~
+~\ENV3\Scripts\Activate.ps1
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList &#39;/I AzureCLI.msi /quiet&#39;
+</pre></div>
+</div>
+<p>Once installed, the next step is to test using the new <code class="docutils literal notranslate"><span class="pre">az</span></code> command. Let’s start by running <code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">login</span></code>, which will then prompt you to login via your default browser.
+Note: you can now utilize Windows Command Prompt or PowerShell for interacting with the Azure CLI:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>az login
+</pre></div>
+</div>
+<p>Sign in via the default browser using your Azure credentials.
+<img alt="Sign in" src="../_images/azure-confirm-signin.png" />
+<img alt="Sign in2" src="../_images/azure-confirm-signin2.png" /></p>
+<p>Now you are ready to use the <code class="docutils literal notranslate"><span class="pre">az</span></code> command to interact with Azure.</p>
+</div>
 </div>
 <div class="section" id="azure-resource-group-for-storage">
 <h2>Azure Resource Group (for Storage)<a class="headerlink" href="#azure-resource-group-for-storage" title="Permalink to this headline">¶</a></h2>
 <p>To use any resource on Azure, you first need to create a resource group.
 This is potentially a confusing step as information in the internet may
 point you to outdated information. If you use other information from the
-internet. make sure it is up to date. loud services subscription
+internet, make sure it is up to date and references the services subscription
 account. After you logged into the Azure portal at:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://portal.azure.com/">https://portal.azure.com/</a></p></li>
 </ul>
 <p>You will be presented with a window such as</p>
 <p><img alt="AZ-Portal" src="../_images/azure-portal.png" /></p>
-<p>In the Azure window, click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">resource</span></code> on the top
-left corner.</p>
+<p>In the Azure window, click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">resource</span></code> on the top left corner.</p>
 <p><img alt="AZ-Resource" src="../_images/azure-resource.png" /></p>
 <p>Now, select <code class="docutils literal notranslate"><span class="pre">Storage</span> <span class="pre">Account</span></code> from the options shown</p>
 <p><img alt="AZ-Account" src="../_images/azure-account.png" /></p>
-<p>Follow the  steps carefully:</p>
+<p>Follow the steps carefully:</p>
 <ol class="simple">
 <li><p>Select the subscription in which to create the storage account.</p></li>
 <li><p>Under the <code class="docutils literal notranslate"><span class="pre">Resource</span> <span class="pre">group</span></code> field, select Create new.
@@ -343,12 +366,10 @@ default location.</p></li>
 <li><p>Select <code class="docutils literal notranslate"><span class="pre">create</span></code></p></li>
 </ol>
 <p>After the completion of above steps, Azure blob storage service will be
-ready for use. As a first step, a <code class="docutils literal notranslate"><span class="pre">Container</span></code> should be
-created in the Blob storage. A container organizes a set of blobs,
-similar to a directory in a file system. A default
-<code class="docutils literal notranslate"><span class="pre">Container</span></code> should be set in the
-<code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, details of which are outlined
-<a class="reference external" href="configuration/configuration">here</a></p>
+ready for use.</p>
+<p><img alt="AZ-Account" src="../_images/azure-create-resourcegroup.png" /></p>
+<p>As a first step, a <code class="docutils literal notranslate"><span class="pre">Container</span></code> should be created in the Blob storage. A container organizes a set of blobs, similar to a directory in a file system. A default <code class="docutils literal notranslate"><span class="pre">Container</span></code> should be set in the
+<code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, details of which are outlined <a class="reference external" href="configuration/configuration">here</a></p>
 </div>
 <div class="section" id="azure-api-credentials">
 <h2>Azure API Credentials<a class="headerlink" href="#azure-api-credentials" title="Permalink to this headline">¶</a></h2>
@@ -378,8 +399,8 @@ Then select “New Registration”</p>
 <p>After creation, copy the new client secret to notepad
 <img alt="new client secret" src="../_images/image10.PNG" /></p>
 </div>
-<div class="section" id="grant-permission-to-applicaiton">
-<h3>Grant permission to applicaiton<a class="headerlink" href="#grant-permission-to-applicaiton" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="grant-permission-to-application">
+<h3>Grant permission to application<a class="headerlink" href="#grant-permission-to-application" title="Permalink to this headline">¶</a></h3>
 <p>After we have collected 4 credentials,
 we need to add a role assignment to the application that we just created,
 so it can access the resources</p>
@@ -403,8 +424,7 @@ that we just collected to the “azure” section of cloudmesh.yaml</p>
 <div class="section" id="azure-resource-group-for-compute">
 <h2>Azure Resource Group (for Compute)<a class="headerlink" href="#azure-resource-group-for-compute" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>[ ] TODO: Azure. Compute Resource Group. To be completed by
-students</p></li>
+<li><p>[ ] TODO: Azure. Compute Resource Group. To be completed by students</p></li>
 </ul>
 </div>
 <div class="section" id="azure-resource-group-for-storage-and-compute">

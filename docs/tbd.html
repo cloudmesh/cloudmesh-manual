@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cloudmesh Yaml file Encryption" href="configuration/encryption.html" />
+    <link rel="next" title="Cloudmesh Config File Encryption" href="configuration/encryption.html" />
     <link rel="prev" title="VM Providers (outdated)" href="accounts/accountcreation-old.html" /> 
 </head>
 
@@ -142,7 +142,7 @@
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OTHER</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Yaml file Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Config File Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="group.html">Group command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm/vm.html">Virtual Machine Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vm/image.html">Images</a></li>
@@ -237,14 +237,28 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Yaml file Encryption</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#prerequisits">Prerequisits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#encryption">Encryption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#decryption">Decryption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#cloudmesh-integration">Cloudmesh Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#editing-the-configuration-file">Editing the Configuration file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#adding-information-to-the-configuration">Adding information to the configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#separating-the-sensitive-information">Separating the sensitive information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Config File Encryption</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#encrypting-the-config-file">Encrypting the Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#decrypting-the-config-file">Decrypting the Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#additional-configuration-options">Additional Configuration Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#changing-the-secinit-directory">Changing the secinit Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#cms-key-gen-options">CMS Key Gen Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#changing-key-names">Changing Key Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#setting-keys-for-encryption-without-key-gen-command">Setting Keys for Encryption Without Key Gen Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#generating-a-key-without-a-password">Generating a Key Without a Password</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#selecting-attributes-to-encrypt">Selecting Attributes to Encrypt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#selecting-attributes-to-exclude-from-encryption">Selecting Attributes to Exclude from Encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#cloudmesh-integration">Cloudmesh Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#cmsencryptor">CmsEncryptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#cmshasher">CmsHasher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#keyloader">KeyLoader</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -390,7 +404,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="configuration/encryption.html" class="btn btn-neutral float-right" title="Cloudmesh Yaml file Encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="configuration/encryption.html" class="btn btn-neutral float-right" title="Cloudmesh Config File Encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="accounts/accountcreation-old.html" class="btn btn-neutral float-left" title="VM Providers (outdated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
