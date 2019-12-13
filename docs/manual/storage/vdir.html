@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>vdir &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Manual Other" href="../../manual-other.html" />
-    <link rel="prev" title="storage" href="storage.html" /> 
+    <link rel="prev" title="&lt;no title&gt;" href="storage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,20 +96,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/database.html">Multicloud Database Interfaces</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">Compute Manual Pages</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../manual-storage.html">Storage Manual Pages</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="storage.html">storage</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">vdir</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
@@ -187,7 +190,7 @@
         
           <li><a href="../../manual-storage.html">Storage Manual Pages</a> &raquo;</li>
         
-      <li>vdir</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -206,61 +209,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="vdir">
-<h1>vdir<a class="headerlink" href="#vdir" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-      <span class="n">vdir</span> <span class="n">mkdir</span> <span class="n">DIR</span>
-      <span class="n">vdir</span> <span class="n">cd</span> <span class="p">[</span><span class="n">DIR</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">ls</span> <span class="p">[</span><span class="n">DIR</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">add</span> <span class="p">[</span><span class="n">FILEENDPOINT</span><span class="p">]</span> <span class="p">[</span><span class="n">DIR_AND_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">delete</span> <span class="p">[</span><span class="n">DIR_OR_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">status</span> <span class="p">[</span><span class="n">DIR_OR_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">get</span> <span class="n">NAME</span> <span class="n">DESTINATION</span>
-
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">DIR</span>           <span class="n">a</span> <span class="n">directory</span> <span class="n">name</span>
-    <span class="n">FILEENDPOINT</span>  <span class="n">location</span> <span class="n">of</span> <span class="n">file</span>
-    <span class="n">DIR_AND_NAME</span>  <span class="n">path</span> <span class="n">of</span> <span class="n">file</span> <span class="n">link</span>
-    <span class="n">DIR_OR_NAME</span>   <span class="n">name</span> <span class="n">of</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">link</span>
-    <span class="n">DESTINATION</span>   <span class="n">directory</span> <span class="n">to</span> <span class="n">download</span> <span class="n">to</span>
-    <span class="n">NAME</span>          <span class="n">name</span> <span class="n">of</span> <span class="n">link</span>
-
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
-
-<span class="n">Description</span><span class="p">:</span>
-
-    <span class="n">A</span> <span class="n">virtual</span> <span class="n">directory</span> <span class="ow">is</span> <span class="n">explained</span> <span class="ow">in</span> <span class="n">our</span> <span class="n">NIST</span> <span class="n">documentation</span><span class="o">.</span> <span class="n">It</span>
-    <span class="n">contains</span> <span class="n">a</span> <span class="n">number</span> <span class="n">of</span> <span class="n">links</span> <span class="n">that</span> <span class="n">point</span> <span class="n">to</span> <span class="n">other</span> <span class="n">storage</span> <span class="n">services</span> <span class="n">on</span>
-    <span class="n">which</span> <span class="n">the</span> <span class="n">file</span> <span class="ow">is</span> <span class="n">stored</span><span class="o">.</span> <span class="n">The</span> <span class="n">links</span> <span class="n">include</span> <span class="n">the</span> <span class="n">provider</span><span class="p">,</span> <span class="n">the</span> <span class="n">name</span>
-    <span class="n">of</span> <span class="n">the</span> <span class="n">provider</span> <span class="ow">and</span> <span class="n">its</span> <span class="nb">type</span> <span class="n">are</span> <span class="n">identified</span> <span class="ow">in</span> <span class="n">the</span>
-    <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">yaml</span> <span class="n">file</span><span class="o">.</span>
-
-    <span class="n">the</span> <span class="n">location</span> <span class="ow">is</span> <span class="n">identified</span> <span class="k">as</span>
-
-       <span class="p">{</span><span class="n">provider</span><span class="p">}:{</span><span class="n">directory</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">file</span><span class="p">}</span>
-
-    <span class="n">A</span> <span class="n">cloudmesh</span> <span class="n">directory</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">uniquely</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span><span class="p">:</span>
-
-       <span class="n">cm</span><span class="p">:</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">the</span> <span class="n">unique</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
-          <span class="n">kind</span><span class="p">:</span> <span class="n">vdir</span>
-          <span class="n">cloud</span><span class="p">:</span> <span class="n">local</span>
-          <span class="n">directory</span><span class="p">:</span> <span class="n">directory</span>
-          <span class="n">filename</span><span class="p">:</span> <span class="n">filename</span>
-          <span class="n">directory</span><span class="p">:</span> <span class="n">directory</span>
-          <span class="n">provider</span><span class="p">:</span> <span class="n">provider</span>
-          <span class="n">created</span><span class="p">:</span> <span class="n">date</span>
-          <span class="n">modified</span><span class="p">:</span> <span class="n">date</span>
-
-    <span class="n">vdir</span> <span class="n">get</span> <span class="n">NAME</span> <span class="n">DESTINATION</span>
-
-       <span class="n">locates</span> <span class="n">the</span> <span class="n">file</span> <span class="k">with</span> <span class="n">the</span> <span class="n">name</span> <span class="n">on</span> <span class="n">a</span> <span class="n">storage</span> <span class="n">provider</span><span class="p">,</span>
-       <span class="ow">and</span> <span class="n">fetches</span> <span class="n">it</span> <span class="kn">from</span> <span class="nn">there.</span>
-</pre></div>
-</div>
+  <p>‘CMShell’ object has no attribute ‘do_vdir’
+Traceback (most recent call last):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py”, line 375, in onecmd</dt><dd><p>return func(arg)</p>
+</dd>
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/command.py”, line 103, in new</dt><dd><p>func(instance, args, arguments)</p>
+</dd>
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/man/command/man.py”, line 125, in do_man</dt><dd><p>data = self._get_help(entry)</p>
+</dd>
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/man/command/man.py”, line 20, in _get_help</dt><dd><p>h = eval(“self.do_{what}.__doc__”.format(what=what))</p>
+</dd>
+</dl>
+<p>File “&lt;string&gt;”, line 1, in &lt;module&gt;</p>
+</div></blockquote>
+<p>AttributeError: ‘CMShell’ object has no attribute ‘do_vdir’</p>
 <p>Timer: 0.0000s (man vdir –format=rst)</p>
-</div>
 
 
            </div>
@@ -273,7 +238,7 @@
         <a href="../../manual-other.html" class="btn btn-neutral float-right" title="Manual Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="storage.html" class="btn btn-neutral float-left" title="storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="storage.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

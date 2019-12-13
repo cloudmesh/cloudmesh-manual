@@ -363,12 +363,37 @@
                         <span class="k">pass</span>
             <span class="n">Print</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">load</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span>
+
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">load</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span><span class="p">)</span> <span class="ow">or</span> \
+            <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">load</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">GROUP</span><span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">examples</span> <span class="o">=</span> <span class="n">SecgroupExamples</span><span class="p">()</span>
+            <span class="n">examples</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+            <span class="n">list_all</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">load</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span>
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">)</span>
             <span class="n">provider</span><span class="o">.</span><span class="n">upload_secgroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">GROUP</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rule</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
+
+            <span class="n">found</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">found</span><span class="p">:</span>
+                <span class="n">group_rules</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group_rules</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">group_rules</span><span class="p">)</span>
+
+            <span class="n">Print</span><span class="p">(</span><span class="s2">&quot;secgroup&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
+
+            <span class="n">found</span> <span class="o">=</span> <span class="n">rules</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+            <span class="n">Print</span><span class="p">(</span><span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
+
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span><span class="p">:</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span>
@@ -466,16 +491,6 @@
 
             <span class="n">found</span> <span class="o">=</span> <span class="n">rules</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
             <span class="n">Print</span><span class="p">(</span><span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
-
-            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-
-
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">load</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
-
-            <span class="n">examples</span> <span class="o">=</span> <span class="n">SecgroupExamples</span><span class="p">()</span>
-            <span class="n">examples</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-            <span class="n">list_all</span><span class="p">()</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 

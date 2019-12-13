@@ -685,6 +685,8 @@
 <span class="sd">        start the MongoDB server</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MODE&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;running&quot;</span><span class="p">:</span>
+            <span class="k">return</span>
 
         <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;docker&#39;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.mongo.MongoDocker</span> <span class="kn">import</span> <span class="n">MongoDocker</span>

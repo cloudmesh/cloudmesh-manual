@@ -263,8 +263,6 @@
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">OracleComputeProvider</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">OracleComputeProvider</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RRRR&quot;</span><span class="p">)</span>
-
         <span class="c1"># elif self.kind in [&quot;vagrant&quot;, &quot;virtualbox&quot;]:</span>
         <span class="c1">#    from cloudmesh.compute.virtualbox.Provider import \</span>
         <span class="c1">#        Provider as VirtualboxCloudProvider</span>
@@ -365,8 +363,6 @@
 
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">name_generator</span> <span class="o">=</span> <span class="n">Name</span><span class="p">()</span>
-            <span class="c1"># name_generator.incr() # this is already called in the vm.py not</span>
-            <span class="c1"># needed to be called here.</span>
             <span class="n">vms</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">name_generator</span><span class="p">)]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">vms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -400,19 +396,22 @@
         <span class="c1"># Step 2. identify the image and flavor from kwargs and if they do</span>
         <span class="c1"># not exist read them for that cloud from the yaml file</span>
 
-        <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;image not specified&quot;</span><span class="p">)</span>
 
-        <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
 
-        <span class="n">arguments</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arguments</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;size&#39;</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;size not specified&quot;</span><span class="p">)</span>
 
         <span class="c1"># Step 3: use the create command to create the vms</span>

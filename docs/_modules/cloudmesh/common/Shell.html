@@ -188,8 +188,6 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-          <li><a href="../common.html">cloudmesh.common</a> &raquo;</li>
-        
       <li>cloudmesh.common.Shell</li>
     
     
@@ -456,7 +454,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="Shell.live"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.live">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">live</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">cwd</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
@@ -476,7 +474,7 @@
             <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">rc</span><span class="p">,</span>
             <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">output</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
         <span class="p">})</span>
-        <span class="k">return</span> <span class="n">data</span></div>
+        <span class="k">return</span> <span class="n">data</span>
 
 <div class="viewcode-block" id="Shell.get_python"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.get_python">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">get_python</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
@@ -992,6 +990,40 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">platform</span></div>
 
+<div class="viewcode-block" id="Shell.run"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.run">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">exit</span><span class="o">=</span><span class="s2">&quot;; exit 0&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        executes the command and returns the output as string</span>
+<span class="sd">        :param command:</span>
+<span class="sd">        :param encoding:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{command}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{command}</span><span class="s2"> </span><span class="si">{exit}</span><span class="s2">&quot;</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">command</span><span class="p">,</span>
+                                    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
+                                    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">encoding</span> <span class="o">==</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Shell.live"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.live">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">live</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">),</span>
+                                   <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">output</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+        <span class="n">return_code</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">return_code</span></div>
 
 <div class="viewcode-block" id="Shell.execute"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.execute">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>

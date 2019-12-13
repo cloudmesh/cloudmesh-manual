@@ -8,16 +8,14 @@ config
      config cat [less]
      config check
      config secinit
+     config security add (--secret=REGEXP | --exception=REGEXP )
+     config security rmv (--secret=REGEXP | --exception=REGEXP )
      config encrypt 
-     config decrypt 
+     config decrypt [--nopass]
      config edit [ATTRIBUTE]
      config set ATTRIBUTE=VALUE
      config get ATTRIBUTE [--output=OUTPUT]
      config value ATTRIBUTE
-     config ssh keygen
-     config ssh verify
-     config ssh check
-     config ssh pem
      config cloud verify NAME [KIND]
      config cloud edit [NAME] [KIND]
      config cloud list NAME [KIND] [--secrets]
@@ -33,11 +31,18 @@ config
                       in the configuration file
                       If the attribute is a password, * is written instead
                       of the character included
+     REGEXP           python regular expression
 
    Options:
-      --name=KEYNAME     The name of a key
-      --output=OUTPUT    The output format [default: yaml]
-      --secrets          Print the secrets. Use carefully.
+      --secret=REGEXP       ensures all attributes within cloudmesh.yaml 
+                            whose dot path matches REGEXP are not encrypted
+                            (even if listed in secrets)
+      --exception=REGEXP    ensures attributes within cloudmesh.yaml whose 
+                            dot path matches REGEXP are encrypted
+      --name=KEYNAME        The name of a key
+      --nopass              Indicates if private key is password protected
+      --output=OUTPUT       The output format [default: yaml]
+      --secrets             Print the secrets. Use carefully.
 
    Description:
 
@@ -47,27 +52,19 @@ config
 
      Key generation
 
-        Keys must be generated with
+        Keys can be generated with 
 
-            ssh-keygen -t rsa -m pem
-            openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
+            cms key gen ssh 
 
-        or
-            cms config ssh keygen
+        Key validity and password can be verified with
 
-        Key validity can be checked with
-
-            cms config check
-
-        The key password can be verified with
-
-            cms config verify
-
+            cms key verify 
 
         ssh-add
 
-        cms config encrypt ~/.cloudmesh/cloudmesh.yaml
-        cms config decrypt ~/.cloudmesh/cloudmesh.yaml
+        cms config encrypt 
+
+        cms config decrypt 
 
 
         config set ATTRIBUTE=VALUE

@@ -12,6 +12,7 @@ Cloudmesh Command API
    cloudmesh.default.command
    cloudmesh.flavor.command
    cloudmesh.group.command
+   cloudmesh.host.command
    cloudmesh.image.command
    cloudmesh.init.command
    cloudmesh.inventory.command
@@ -76,6 +77,7 @@ Cloudmesh API
    cloudmesh.etc
    cloudmesh.flavor
    cloudmesh.group
+   cloudmesh.host
    cloudmesh.image
    cloudmesh.init
    cloudmesh.inventory

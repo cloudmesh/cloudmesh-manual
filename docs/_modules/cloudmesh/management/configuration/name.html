@@ -282,16 +282,16 @@
         <span class="c1"># init dict with schema, path, kwargs</span>
         <span class="c1">#</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/name.yaml&quot;</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/name.yaml&quot;</span><span class="p">)</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="s2">&quot;path&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span>
-                    <span class="s2">&quot;~/.cloudmesh/name.yaml&quot;</span><span class="p">)</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">path</span>  <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/name.yaml&quot;</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
@@ -316,6 +316,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;schema&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">schema</span></div>
 
 <div class="viewcode-block" id="Name.assign"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.name.Name.assign">[docs]</a>    <span class="k">def</span> <span class="nf">assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1"># VERBOSE(data)</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">entry</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">entry</span><span class="p">]</span></div>
 
@@ -323,7 +324,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">d</span></div>
 
 <div class="viewcode-block" id="Name.load"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.name.Name.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;wrong&quot;</span><span class="p">:</span> <span class="s2">&quot;True&quot;</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dbfile</span><span class="p">:</span>
@@ -339,7 +340,6 @@
                 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;WARNING: please set cloudmesh.profile.user we found TBD&quot;</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s1">&#39;counter&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="n">path</span><span class="p">,</span>
                 <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s1">&#39;vm&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;schema&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{user}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">-</span><span class="si">{counter}</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">user</span>
@@ -348,12 +348,9 @@
         <span class="k">return</span> <span class="n">data</span></div>
 
 <div class="viewcode-block" id="Name.flush"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.name.Name.flush">[docs]</a>    <span class="k">def</span> <span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span>
-
-        <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
             <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">yaml_file</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

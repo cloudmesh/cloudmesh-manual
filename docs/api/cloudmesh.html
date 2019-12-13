@@ -138,6 +138,7 @@
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.group.html">cloudmesh.group package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.host.html">cloudmesh.host package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.image.html">cloudmesh.image package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.init.html">cloudmesh.init package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.inventory.html">cloudmesh.inventory package</a></li>
@@ -203,6 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html">cloudmesh.group package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.html">cloudmesh.host package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.image.html">cloudmesh.image package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.init.html">cloudmesh.init package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.inventory.html">cloudmesh.inventory package</a></li>
@@ -404,6 +406,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.Benchmark">cloudmesh.common.Benchmark module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.DateTime">cloudmesh.common.DateTime module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.DictList">cloudmesh.common.DictList module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.FlatDict">cloudmesh.common.FlatDict module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.Printer">cloudmesh.common.Printer module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.Shell">cloudmesh.common.Shell module</a></li>
@@ -412,6 +417,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.console">cloudmesh.common.console module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.debug">cloudmesh.common.debug module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.default">cloudmesh.common.default module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.deprecated">cloudmesh.common.deprecated module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.dotdict">cloudmesh.common.dotdict module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.error">cloudmesh.common.error module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html#module-cloudmesh.common.locations">cloudmesh.common.locations module</a></li>
@@ -427,9 +433,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.common3.html">cloudmesh.common3 package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.Benchmark">cloudmesh.common3.Benchmark module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.DateTime">cloudmesh.common3.DateTime module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.DictList">cloudmesh.common3.DictList module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.Shell">cloudmesh.common3.Shell module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.host">cloudmesh.common3.host module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3">Module contents</a></li>
@@ -631,6 +634,21 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html#module-cloudmesh.group.Group">cloudmesh.group.Group module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html#module-cloudmesh.group">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudmesh.host.html">cloudmesh.host package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.host.command.html">cloudmesh.host.command package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.host.command.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.host.command.html#module-cloudmesh.host.command.host">cloudmesh.host.command.host module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.host.command.html#module-cloudmesh.host.command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.html#module-cloudmesh.host.host">cloudmesh.host.host module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.html#module-cloudmesh.host">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.image.html">cloudmesh.image package</a><ul>
@@ -914,63 +932,63 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.storage.command.html">cloudmesh.storage.command package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.command.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.command.html#module-cloudmesh.storage.command.storage">cloudmesh.storage.command.storage module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.command.html#module-cloudmesh.storage.command">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.command.html#cloudmesh-storage-command-storage-module">cloudmesh.storage.command.storage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.command.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.storage.provider.html">cloudmesh.storage.provider package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.provider.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html">cloudmesh.storage.provider.awss3 package</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html#module-cloudmesh.storage.provider.awss3.Provider">cloudmesh.storage.provider.awss3.Provider module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html#module-cloudmesh.storage.provider.awss3">Module contents</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html#cloudmesh-storage-provider-awss3-provider-module">cloudmesh.storage.provider.awss3.Provider module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html">cloudmesh.storage.provider.azureblob package</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html#module-cloudmesh.storage.provider.azureblob.Provider">cloudmesh.storage.provider.azureblob.Provider module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html#module-cloudmesh.storage.provider.azureblob">Module contents</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html#cloudmesh-storage-provider-azureblob-provider-module">cloudmesh.storage.provider.azureblob.Provider module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.storage.provider.box.html">cloudmesh.storage.provider.box package</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.box.html#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.box.html#module-cloudmesh.storage.provider.box.Provider">cloudmesh.storage.provider.box.Provider module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.box.html#module-cloudmesh.storage.provider.box">Module contents</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.box.html#cloudmesh-storage-provider-box-provider-module">cloudmesh.storage.provider.box.Provider module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.box.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html">cloudmesh.storage.provider.gdrive package</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html#module-cloudmesh.storage.provider.gdrive.Provider">cloudmesh.storage.provider.gdrive.Provider module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html#module-cloudmesh.storage.provider.gdrive">Module contents</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html#cloudmesh-storage-provider-gdrive-provider-module">cloudmesh.storage.provider.gdrive.Provider module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l5"><a class="reference internal" href="cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.local.html#submodules">Submodules</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.local.html#module-cloudmesh.storage.provider.local.Provider">cloudmesh.storage.provider.local.Provider module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.local.html#module-cloudmesh.storage.provider.local">Module contents</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.local.html#cloudmesh-storage-provider-local-provider-module">cloudmesh.storage.provider.local.Provider module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cloudmesh.storage.provider.local.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.provider.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.provider.html#cloudmesh-storage-provider-storage-module">cloudmesh.storage.provider.storage module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.provider.html#module-cloudmesh.storage.provider">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.provider.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.storage.queue.html">cloudmesh.storage.queue package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.queue.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.queue.html#module-cloudmesh.storage.queue.StorageQueue">cloudmesh.storage.queue.StorageQueue module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.queue.html#cloudmesh-storage-queue-storagequeue-module">cloudmesh.storage.queue.StorageQueue module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.queue.html#cloudmesh-storage-queue-test-module">cloudmesh.storage.queue.test module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.queue.html#module-cloudmesh.storage.queue">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.storage.queue.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#module-cloudmesh.storage.Provider">cloudmesh.storage.Provider module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#module-cloudmesh.storage.StorageABC">cloudmesh.storage.StorageABC module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#module-cloudmesh.storage.StorageNewABC">cloudmesh.storage.StorageNewABC module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#module-cloudmesh.storage">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#cloudmesh-storage-provider-module">cloudmesh.storage.Provider module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#cloudmesh-storage-storageabc-module">cloudmesh.storage.StorageABC module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#cloudmesh-storage-storagenewabc-module">cloudmesh.storage.StorageNewABC module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.sys.html">cloudmesh.sys package</a><ul>
@@ -1052,19 +1070,19 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vdir.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.vdir.api.html">cloudmesh.vdir.api package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.api.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.api.html#module-cloudmesh.vdir.api.manager">cloudmesh.vdir.api.manager module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.api.html#module-cloudmesh.vdir.api">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.api.html#cloudmesh-vdir-api-manager-module">cloudmesh.vdir.api.manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.api.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.vdir.command.html">cloudmesh.vdir.command package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.command.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.command.html#module-cloudmesh.vdir.command.vdir">cloudmesh.vdir.command.vdir module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.command.html#module-cloudmesh.vdir.command">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.command.html#cloudmesh-vdir-command-vdir-module">cloudmesh.vdir.command.vdir module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.vdir.command.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vdir.html#module-cloudmesh.vdir">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vdir.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a><ul>

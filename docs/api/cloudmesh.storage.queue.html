@@ -152,6 +152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html">cloudmesh.group package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.html">cloudmesh.host package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.image.html">cloudmesh.image package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.init.html">cloudmesh.init package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.inventory.html">cloudmesh.inventory package</a></li>
@@ -184,9 +185,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.storage.queue package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.queue.StorageQueue">cloudmesh.storage.queue.StorageQueue module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-queue-storagequeue-module">cloudmesh.storage.queue.StorageQueue module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-queue-test-module">cloudmesh.storage.queue.test module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.queue">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.html">cloudmesh.sys package</a></li>
@@ -300,133 +301,14 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.queue.StorageQueue">
-<span id="cloudmesh-storage-queue-storagequeue-module"></span><h2>cloudmesh.storage.queue.StorageQueue module<a class="headerlink" href="#module-cloudmesh.storage.queue.StorageQueue" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.queue.StorageQueue.</code><code class="sig-name descname">StorageQueue</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">destination</em>, <em class="sig-param">name='local'</em>, <em class="sig-param">parallelism=4</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>This class specifies a storage object queue, that allows the queuing of
-files to be copied between services.</p>
-<p>The queue has a maximal parallelism that can be set to execute the copy in
-multiple threads.</p>
-<p>Please note that actions only add modify the queue in the db, however,
-the run command executes them one by one.</p>
-<p>It will be up to thes method to quarantee order. For example, in case of a
-recursive copy it wwould make sens to create directories first.</p>
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.action">
-<code class="sig-name descname">action</code><span class="sig-paren">(</span><em class="sig-param">specification</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>executes the action identified by the specification. This is used by the
-run command.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>specification</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel">
-<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><em class="sig-param">id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel" title="Permalink to this definition">¶</a></dt>
-<dd><p>cancels a job with a specific id
-:param id:
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_file">
-<code class="sig-name descname">copy_file</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_tree">
-<code class="sig-name descname">copy_tree</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_tree" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">service</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>adds a deleta action to the queue</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – service must be either source or destination</p></li>
-<li><p><strong>path</strong> – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions">
-<code class="sig-name descname">get_actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.get_actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.mkdir">
-<code class="sig-name descname">mkdir</code><span class="sig-paren">(</span><em class="sig-param">service</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.mkdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.mkdir" title="Permalink to this definition">¶</a></dt>
-<dd><p>adds a mkdir action to the queue</p>
-<p>create the directory in the storage service
-:param service: service must be either source or destination
-:param path:
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>runs the copy process for all jobs in the queue and completes when all
-actions are completed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>provides that status of the queue</p>
-<dl class="simple">
-<dt>{</dt><dd><p>“length”: 100,
-“completed”: 10,
-“waiting”: 80,
-“inprogress”: 10</p>
-</dd>
-</dl>
-<p>}</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.sync">
-<code class="sig-name descname">sync</code><span class="sig-paren">(</span><em class="sig-param">sourcetree</em>, <em class="sig-param">destinationtree</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.sync" title="Permalink to this definition">¶</a></dt>
-<dd><p>just a more convenient name for copy_tree
-:param sourcetree:
-:param destinationtree:
-:return:</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cloudmesh-storage-queue-storagequeue-module">
+<h2>cloudmesh.storage.queue.StorageQueue module<a class="headerlink" href="#cloudmesh-storage-queue-storagequeue-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="cloudmesh-storage-queue-test-module">
 <h2>cloudmesh.storage.queue.test module<a class="headerlink" href="#cloudmesh-storage-queue-test-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.queue">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.queue" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

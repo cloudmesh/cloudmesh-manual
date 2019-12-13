@@ -219,13 +219,13 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.DictList</span> <span class="kn">import</span> <span class="n">DictList</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DictList</span> <span class="kn">import</span> <span class="n">DictList</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.image.Image</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">ComputeProviderPlugin</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.secgroup.Secgroup</span> <span class="kn">import</span> <span class="n">Secgroup</span><span class="p">,</span> <span class="n">SecgroupRule</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common3.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.image.Image</span> <span class="kn">import</span> <span class="n">Image</span>
 
@@ -418,9 +418,13 @@
         <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
              <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
              <span class="s1">&#39;auth_url&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;project_id&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_NAME&#39;</span><span class="p">],</span>
+
              <span class="s1">&#39;region_name&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_REGION_NAME&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;tenant_id&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_ID&#39;</span><span class="p">]}</span>
+             <span class="p">}</span>
+        <span class="k">if</span> <span class="s1">&#39;OS_TENANT_ID&#39;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_ID&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;OS_TENANT_NAME&#39;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s1">&#39;project_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_NAME&#39;</span><span class="p">]</span>
         <span class="c1"># d[&#39;project_domain_name&#39;] = config[&#39;OS_PROJECT_NAME&#39;]</span>
         <span class="k">return</span> <span class="n">d</span>
 
@@ -1182,6 +1186,11 @@
             <span class="c1"># print(&quot;ssh -i {key} root@{ip}&quot;.format(</span>
             <span class="c1">#    key=PRIVATE_KEYPAIR_FILE,</span>
             <span class="c1">#    ip=server.access_ipv4))</span>
+
+        <span class="k">except</span> <span class="n">openstack</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceTimeout</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Problem starting vm in time.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TimeoutError</span>
+
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Problem starting vm&quot;</span><span class="p">,</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

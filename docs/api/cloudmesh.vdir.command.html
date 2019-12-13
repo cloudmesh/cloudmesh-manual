@@ -127,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.command.html">cloudmesh.default.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.command.html">cloudmesh.flavor.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html">cloudmesh.group.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.command.html">cloudmesh.host.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.image.command.html">cloudmesh.image.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.init.command.html">cloudmesh.init.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.inventory.command.html">cloudmesh.inventory.command package</a></li>
@@ -151,8 +152,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.command.html">cloudmesh.vcluster.command package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.vdir.command package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vdir.command.vdir">cloudmesh.vdir.command.vdir module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vdir.command">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-vdir-command-vdir-module">cloudmesh.vdir.command.vdir module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.command.html">cloudmesh.vm.command package</a></li>
@@ -254,73 +255,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.vdir.command.vdir">
-<span id="cloudmesh-vdir-command-vdir-module"></span><h2>cloudmesh.vdir.command.vdir module<a class="headerlink" href="#module-cloudmesh.vdir.command.vdir" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.vdir.command.vdir.VdirCommand">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.vdir.command.vdir.</code><code class="sig-name descname">VdirCommand</code><a class="reference internal" href="../_modules/cloudmesh/vdir/command/vdir.html#VdirCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.command.vdir.VdirCommand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.vdir.command.vdir.VdirCommand.do_vdir">
-<code class="sig-name descname">do_vdir</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.vdir.command.vdir.VdirCommand.do_vdir" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-      <span class="n">vdir</span> <span class="n">mkdir</span> <span class="n">DIR</span>
-      <span class="n">vdir</span> <span class="n">cd</span> <span class="p">[</span><span class="n">DIR</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">ls</span> <span class="p">[</span><span class="n">DIR</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">add</span> <span class="p">[</span><span class="n">FILEENDPOINT</span><span class="p">]</span> <span class="p">[</span><span class="n">DIR_AND_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">delete</span> <span class="p">[</span><span class="n">DIR_OR_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">status</span> <span class="p">[</span><span class="n">DIR_OR_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">get</span> <span class="n">NAME</span> <span class="n">DESTINATION</span>
-
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">DIR</span>           <span class="n">a</span> <span class="n">directory</span> <span class="n">name</span>
-    <span class="n">FILEENDPOINT</span>  <span class="n">location</span> <span class="n">of</span> <span class="n">file</span>
-    <span class="n">DIR_AND_NAME</span>  <span class="n">path</span> <span class="n">of</span> <span class="n">file</span> <span class="n">link</span>
-    <span class="n">DIR_OR_NAME</span>   <span class="n">name</span> <span class="n">of</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">link</span>
-    <span class="n">DESTINATION</span>   <span class="n">directory</span> <span class="n">to</span> <span class="n">download</span> <span class="n">to</span>
-    <span class="n">NAME</span>          <span class="n">name</span> <span class="n">of</span> <span class="n">link</span>
-
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
-
-<span class="n">Description</span><span class="p">:</span>
-
-    <span class="n">A</span> <span class="n">virtual</span> <span class="n">directory</span> <span class="ow">is</span> <span class="n">explained</span> <span class="ow">in</span> <span class="n">our</span> <span class="n">NIST</span> <span class="n">documentation</span><span class="o">.</span> <span class="n">It</span>
-    <span class="n">contains</span> <span class="n">a</span> <span class="n">number</span> <span class="n">of</span> <span class="n">links</span> <span class="n">that</span> <span class="n">point</span> <span class="n">to</span> <span class="n">other</span> <span class="n">storage</span> <span class="n">services</span> <span class="n">on</span>
-    <span class="n">which</span> <span class="n">the</span> <span class="n">file</span> <span class="ow">is</span> <span class="n">stored</span><span class="o">.</span> <span class="n">The</span> <span class="n">links</span> <span class="n">include</span> <span class="n">the</span> <span class="n">provider</span><span class="p">,</span> <span class="n">the</span> <span class="n">name</span>
-    <span class="n">of</span> <span class="n">the</span> <span class="n">provider</span> <span class="ow">and</span> <span class="n">its</span> <span class="nb">type</span> <span class="n">are</span> <span class="n">identified</span> <span class="ow">in</span> <span class="n">the</span>
-    <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">yaml</span> <span class="n">file</span><span class="o">.</span>
-
-    <span class="n">the</span> <span class="n">location</span> <span class="ow">is</span> <span class="n">identified</span> <span class="k">as</span>
-
-       <span class="p">{</span><span class="n">provider</span><span class="p">}:{</span><span class="n">directory</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">file</span><span class="p">}</span>
-
-    <span class="n">A</span> <span class="n">cloudmesh</span> <span class="n">directory</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">uniquely</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span><span class="p">:</span>
-
-       <span class="n">cm</span><span class="p">:</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">the</span> <span class="n">unique</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
-          <span class="n">kind</span><span class="p">:</span> <span class="n">vdir</span>
-          <span class="n">cloud</span><span class="p">:</span> <span class="n">local</span>
-          <span class="n">directory</span><span class="p">:</span> <span class="n">directory</span>
-          <span class="n">filename</span><span class="p">:</span> <span class="n">filename</span>
-          <span class="n">directory</span><span class="p">:</span> <span class="n">directory</span>
-          <span class="n">provider</span><span class="p">:</span> <span class="n">provider</span>
-          <span class="n">created</span><span class="p">:</span> <span class="n">date</span>
-          <span class="n">modified</span><span class="p">:</span> <span class="n">date</span>
-
-    <span class="n">vdir</span> <span class="n">get</span> <span class="n">NAME</span> <span class="n">DESTINATION</span>
-
-       <span class="n">locates</span> <span class="n">the</span> <span class="n">file</span> <span class="k">with</span> <span class="n">the</span> <span class="n">name</span> <span class="n">on</span> <span class="n">a</span> <span class="n">storage</span> <span class="n">provider</span><span class="p">,</span>
-       <span class="ow">and</span> <span class="n">fetches</span> <span class="n">it</span> <span class="kn">from</span> <span class="nn">there.</span>
-</pre></div>
+<div class="section" id="cloudmesh-vdir-command-vdir-module">
+<h2>cloudmesh.vdir.command.vdir module<a class="headerlink" href="#cloudmesh-vdir-command-vdir-module" title="Permalink to this headline">¶</a></h2>
 </div>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-cloudmesh.vdir.command">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.vdir.command" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
