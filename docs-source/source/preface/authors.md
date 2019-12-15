@@ -5,7 +5,7 @@
     Manipon*, *Gregor von Laszewski*, *Himanshu Gupta*, *Jeevan Reddy Rachepalli*,
     *Jing Huang*, *Joaquin Avila Eggleton*, *Karthick*, *Keli Fine*, *Kimball Wu*,
     *Mallik Challa*, *Manjunath Sivan*, *Ritesh Tandon*, *Rob Ludwig*, *Rui Li*,
-    *Sachith Danushka Withana*, *Saurabh Swaroop*, *Scott McClary*, *Sriman*,
+    *Sachith Danushka Withana*, *Saurabh Swaroop*, *Scott McClary*, *Sriman Pullakhandam*,
     *Tarun Rawat*, *Tharak Vangalapat*, *Vafa Andalibi*, *Xiao Yue*, *Yu Luo*,
     *Yue, Xiao*, *Zhengyi Li*, *arshadmm*, *brianfunk3*, *javilaeg*, *jkandima*,
     *katukota*, *kkp*, *nayeem*, *niranda perera*, *nirandaperera*,
