@@ -9,7 +9,8 @@ flow
 ====
 
 ::
-  Usage:
+
+   Usage:
         flow list [--flow=NAME] [--output=FORMAT]
         flow add [--flowname=FLOWNAME] --flowfile=FILENAME
         flow run [--flowname=FLOWNAME] [--flowfile=FILENAME]
@@ -22,10 +23,10 @@ flow
         flow visualize stop
         flow refresh
 
-  This command manages and executes workflows
-  The default workflow is just named "workflow" but you can specify multiple
+   This command manages and executes workflows
+   The default workflow is just named "workflow" but you can specify multiple
 
-  Arguments:
+   Arguments:
       NAME       the name of the workflow
       FILENAME   a file name
       NODENAME   the name of the node
@@ -33,11 +34,10 @@ flow
       TO         the edge destination (a node name)
       NODE       the name of the node
 
-  Options:
+   Options:
       --flow=NAME   the name or the flow
       --file    specify the file
       --log     specify the log file
       --flowname=FLOWNAME   the name or the workflow
       --output=OUTPUT       the output format [default: table]
 
-Timer: 0.0147s (man --kind=rst flow)

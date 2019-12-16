@@ -32,7 +32,7 @@ Cloudmesh Version 4
 
    cmd5
    reference-card
-   manual/commands
+   manual/all
    manual-cmd5
    manual-group
    manual-compute
