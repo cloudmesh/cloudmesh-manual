@@ -6,4 +6,5 @@ Storage Manual Pages
 
    manual/storage
    manual/vdir
+   manual/google
 

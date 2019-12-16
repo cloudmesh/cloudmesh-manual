@@ -137,6 +137,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Google Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instaltion-of-cloudmesh-google-providers">Instaltion of Cloudmesh Google Providers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#google-account-for-using-cloudmesh-storage-service">Google Account for using Cloudmesh Storage Service</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-the-google-json-files">Getting the google json files</a></li>
 </ul>
@@ -226,10 +227,31 @@
   <div class="section" id="google-account">
 <h1>Google Account<a class="headerlink" href="#google-account" title="Permalink to this headline">¶</a></h1>
 <p>A new google account can be created using following information:</p>
-<p><a class="reference external" href="https://myaccount.google.com/intro">New Google Account Introduction</a></p>
-<p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&amp;continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&amp;gmb=exp&amp;biz=false&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp&amp;nogm=true">Create your Google Account</a></p>
-<p>Here is additional reference link for account creation support page:</p>
-<p><a class="reference external" href="https://support.google.com/accounts/answer/27441">Create a Google Account- Google Account Help</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://myaccount.google.com/intro">New Google Account Introduction</a></p></li>
+<li><p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&amp;continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&amp;gmb=exp&amp;biz=false&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp&amp;nogm=true">Create your Google Account</a></p></li>
+</ul>
+<p>Additional reference link for account creation support page:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.google.com/accounts/answer/27441">Create a Google Account- Google Account Help</a></p></li>
+</ul>
+<div class="section" id="instaltion-of-cloudmesh-google-providers">
+<h2>Instaltion of Cloudmesh Google Providers<a class="headerlink" href="#instaltion-of-cloudmesh-google-providers" title="Permalink to this headline">¶</a></h2>
+<p>To install the cloudmesh google providers you can simply use (not yet supported):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-google
+</pre></div>
+</div>
+<p>For developers the best way to install it is to use <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
+<span class="nb">cd</span> cm
+pip install cloudmesh-installer
+cloudmesh-installer git clone google
+cloudmesh-installer git install google
+</pre></div>
+</div>
+<p>Next you have to cerate a google account and integarte it into a configuration
+file called <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
+</div>
 <div class="section" id="google-account-for-using-cloudmesh-storage-service">
 <h2>Google Account for using Cloudmesh Storage Service<a class="headerlink" href="#google-account-for-using-cloudmesh-storage-service" title="Permalink to this headline">¶</a></h2>
 <p><strong>TODO Introduction is missing 1 paragraph</strong></p>

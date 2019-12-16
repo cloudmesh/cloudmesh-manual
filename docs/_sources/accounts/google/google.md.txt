@@ -2,13 +2,33 @@
 
 A new google account can be created using following information:
 
-[New Google Account Introduction](https://myaccount.google.com/intro)
-
- [Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true)
+* [New Google Account Introduction](https://myaccount.google.com/intro)
+* [Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true)
  
- Here is additional reference link for account creation support page:
+Additional reference link for account creation support page:
   
- [Create a Google Account- Google Account Help](<https://support.google.com/accounts/answer/27441>)
+* [Create a Google Account- Google Account Help](<https://support.google.com/accounts/answer/27441>)
+
+## Instaltion of Cloudmesh Google Providers
+
+To install the cloudmesh google providers you can simply use (not yet supported):
+
+```bash
+$ pip install cloudmesh-google
+```
+
+For developers the best way to install it is to use `cloudmesh-installer`. 
+
+```bash
+mkdir cm
+cd cm
+pip install cloudmesh-installer
+cloudmesh-installer git clone google
+cloudmesh-installer git install google
+```
+
+Next you have to cerate a google account and integarte it into a configuration
+file called `~/.cloudmesh/cloudmesh.yaml`
 
 ## Google Account for using Cloudmesh Storage Service
 
