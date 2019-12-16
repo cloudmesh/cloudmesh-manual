@@ -1,0 +1,1467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.compute.openstack.Provider &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.compute.openstack.Provider</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.compute.openstack.Provider</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
+<span class="kn">import</span> <span class="nn">ctypes</span>
+
+<span class="kn">import</span> <span class="nn">openstack</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DictList</span> <span class="kn">import</span> <span class="n">DictList</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.image.Image</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">ComputeProviderPlugin</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.secgroup.Secgroup</span> <span class="kn">import</span> <span class="n">Secgroup</span><span class="p">,</span> <span class="n">SecgroupRule</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.image.Image</span> <span class="kn">import</span> <span class="n">Image</span>
+
+
+<div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">,</span> <span class="n">ComputeProviderPlugin</span><span class="p">):</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;openstack&quot;</span>
+
+    <span class="n">vm_state</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BUILDING&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DELETED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;HARD_REBOOT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PASSWORD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PAUSED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;REBOOT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;REBUILD&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RESCUED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RESIZED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;REVERT_RESIZE&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SHUTOFF&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SOFT_DELETED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;STOPPED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SUSPENDED&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;UNKNOWN&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;VERIFY_RESIZE&#39;</span>
+    <span class="p">]</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.cloud&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;vm_state&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;task_state&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Cloud&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;State&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Task&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;vm&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.cloud&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;vm_state&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;task_state&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;metadata.image&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;metadata.flavor&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;ip_public&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;ip_private&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;project_id&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;launched_at&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.kind&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Cloud&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;State&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Task&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Flavor&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Public IPs&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Private IPs&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Project ID&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Started at&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Kind&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;humanize&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;launched_at&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;extra.minDisk&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;min_disk&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;min_ram&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.driver&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Size (Bytes)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;MinDisk (GB)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;MinRam (MB)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Driver&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;flavor&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;vcpus&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;disk&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;vcpus&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;ram&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;disk&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;VCPUS&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;RAM&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Disk&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;fingerprint&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;comment&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Format&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Fingerprint&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Comment&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;secrule&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;direction&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;ethertype&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;port_range_max&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;port_range_min&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;protocol&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;remote_ip_prefix&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;remote_group_id&quot;</span>
+                      <span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Direction&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Ethertype&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Port range max&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Port range min&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Protocol&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Range&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Remote group id&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;secgroup&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;rules&quot;</span>
+                      <span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Rules&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s1">&#39;floating_ip_address&#39;</span><span class="p">,</span> <span class="s1">&#39;fixed_ip_address&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s1">&#39;Floating&#39;</span><span class="p">,</span> <span class="s1">&#39;Fixed&#39;</span><span class="p">]</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="c1"># noinspection PyPep8Naming</span>
+<div class="viewcode-block" id="Provider.Print"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;secrule&quot;</span><span class="p">:</span>
+                <span class="c1"># this is just a temporary fix, both in sec.py and here the secgruops and secrules should be separated</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                    <span class="c1"># for rule in group[&#39;security_group_rules&#39;]:</span>
+                    <span class="c1">#     rule[&#39;name&#39;] = group[&#39;name&#39;]</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">result</span>
+
+            <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+            <span class="c1"># humanize = self.output[kind][&#39;humanize&#39;]  # not pretty</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                    <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                                    <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                                    <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                                    <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+                                    <span class="c1"># humanize=humanize</span>
+                                    <span class="p">)</span>
+                  <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_credentials</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal function to create a dict for the openstacksdk credentials.</span>
+
+<span class="sd">        :param config: The credentials from the cloudmesh yaml file</span>
+<span class="sd">        :return: the dict for the openstacksdk</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;auth_url&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">],</span>
+
+             <span class="s1">&#39;region_name&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_REGION_NAME&#39;</span><span class="p">],</span>
+             <span class="p">}</span>
+        <span class="k">if</span> <span class="s1">&#39;OS_TENANT_ID&#39;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_ID&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;OS_TENANT_NAME&#39;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s1">&#39;project_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_NAME&#39;</span><span class="p">]</span>
+        <span class="c1"># d[&#39;project_domain_name&#39;] = config[&#39;OS_PROJECT_NAME&#39;]</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the provider. The default parameters are read from the</span>
+<span class="sd">        configuration file that is defined in yaml format.</span>
+
+<span class="sd">        :param name: The name of the provider as defined in the yaml file</span>
+<span class="sd">        :param configuration: The location of the yaml configuration file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">conf</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">configuration</span><span class="p">)[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">conf</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spec</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s2">&quot;cloud&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;credentials&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;TBD&#39;</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The password TBD is not allowed in cloud </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credential</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_credentials</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cred</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="n">openstack</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">credential</span><span class="p">)</span>
+
+        <span class="c1"># self.default_image = deft[&quot;image&quot;]</span>
+        <span class="c1"># self.default_size = deft[&quot;size&quot;]</span>
+        <span class="c1"># self.default.location = cred[&quot;datacenter&quot;]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">public_key_path</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">key_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span>
+                <span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">])</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">key_val</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the public key location is not set in the &quot;</span>
+                             <span class="s2">&quot;profile of the yaml file.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        THis function adds a cloudmesh cm dict to each dict in the list</span>
+<span class="sd">        elements.</span>
+<span class="sd">        Libcloud</span>
+<span class="sd">        returns an object or list of objects With the dict method</span>
+<span class="sd">        this object is converted to a dict. Typically this method is used</span>
+<span class="sd">        internally.</span>
+
+<span class="sd">        :param elements: the list of original dicts. If elements is a single</span>
+<span class="sd">                         dict a list with a single element is returned.</span>
+<span class="sd">        :param kind: for some kinds special attributes are added. This includes</span>
+<span class="sd">                     key, vm, image, flavor.</span>
+<span class="sd">        :return: The list with the modified dicts</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">elements</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">_elements</span> <span class="o">=</span> <span class="n">elements</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">elements</span><span class="p">]</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">_elements</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="s2">&quot;cm&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;ip&#39;</span><span class="p">:</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;floating_ip_address&#39;</span><span class="p">]</span>
+
+            <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+                <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span>
+                <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span><span class="p">,</span>
+                <span class="s2">&quot;cloud&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+            <span class="p">})</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;key&#39;</span><span class="p">:</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ssh-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;vm&#39;</span><span class="p">:</span>
+
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+                <span class="k">if</span> <span class="s2">&quot;created_at&quot;</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;created&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">])</span>
+                    <span class="c1"># del entry[&quot;created_at&quot;]</span>
+                    <span class="k">if</span> <span class="s1">&#39;status&#39;</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                        <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;created&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;modified&quot;</span><span class="p">]</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;flavor&#39;</span><span class="p">:</span>
+
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;created&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+                    <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;image&#39;</span><span class="p">:</span>
+
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;created&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+                    <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+
+            <span class="c1"># elif kind == &#39;secgroup&#39;:</span>
+            <span class="c1">#    pass</span>
+
+            <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span></div>
+
+<div class="viewcode-block" id="Provider.find"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds an element in elements with the specified name.</span>
+
+<span class="sd">        :param elements: The elements</span>
+<span class="sd">        :param name: The name to be found</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">element</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">element</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Provider.keys"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the keys on the cloud</span>
+
+<span class="sd">        :return: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_keypairs</span><span class="p">(),</span>
+                             <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.key_upload"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.key_upload">[docs]</a>    <span class="k">def</span> <span class="nf">key_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        uploads the key specified in the yaml configuration to the cloud</span>
+<span class="sd">        :param key:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">cloud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;upload the key: </span><span class="si">{name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_keypair</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>  <span class="c1"># openstack.exceptions.ConflictException:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;key already exists: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.key_delete"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.key_delete">[docs]</a>    <span class="k">def</span> <span class="nf">key_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        deletes the key with the given name</span>
+<span class="sd">        :param name: The name of the key</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cloud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delete the key: </span><span class="si">{name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">delete_keypair</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.list_secgroups"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_secgroups">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the named security group</span>
+
+<span class="sd">        :param name: The name of the group, if None all will be returned</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">security_groups</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span><span class="p">]</span>
+                    <span class="k">break</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span>
+            <span class="n">groups</span><span class="p">,</span>
+            <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secgroup&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.list_secgroup_rules"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_secgroup_rules">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroup_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the named security group</span>
+
+<span class="sd">        :param name: The name of the group, if None all will be returned</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.add_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds the</span>
+<span class="sd">        :param name: Name of the group</span>
+<span class="sd">        :param description: The description</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">description</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">description</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_security_group</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+                                                    <span class="n">description</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;secgroup </span><span class="si">{name}</span><span class="s2"> already exists in cloud. &quot;</span>
+                                <span class="sa">f</span><span class="s2">&quot;skipping.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cloud not initialized&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.add_secgroup_rule"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_secgroup_rule">[docs]</a>    <span class="k">def</span> <span class="nf">add_secgroup_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                          <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># group name</span>
+                          <span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">protocol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">ip_range</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds the</span>
+<span class="sd">        :param name: Name of the group</span>
+<span class="sd">        :param description: The description</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">portmin</span><span class="p">,</span> <span class="n">portmax</span> <span class="o">=</span> <span class="n">port</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">portmin</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">portmax</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_security_group_rule</span><span class="p">(</span>
+                <span class="n">name</span><span class="p">,</span>
+                <span class="n">port_range_min</span><span class="o">=</span><span class="n">portmin</span><span class="p">,</span>
+                <span class="n">port_range_max</span><span class="o">=</span><span class="n">portmax</span><span class="p">,</span>
+                <span class="n">protocol</span><span class="o">=</span><span class="n">protocol</span><span class="p">,</span>
+                <span class="n">remote_ip_prefix</span><span class="o">=</span><span class="n">ip_range</span><span class="p">,</span>
+                <span class="n">remote_group_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;ingress&#39;</span><span class="p">,</span>
+                <span class="n">ethertype</span><span class="o">=</span><span class="s1">&#39;IPv4&#39;</span><span class="p">,</span>
+                <span class="n">project_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cloud not initialized&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.remove_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.remove_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete the names security group</span>
+
+<span class="sd">        :param name: The name</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">delete_security_group</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cloud not initialized&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.upload_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.upload_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">upload_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">cgroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">group_exists</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cgroups</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning group already exists&quot;</span><span class="p">)</span>
+            <span class="n">group_exists</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">groups</span> <span class="o">=</span> <span class="n">Secgroup</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="n">SecgroupRule</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+
+        <span class="c1"># pprint (rules)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">rule</span>
+
+        <span class="c1"># pprint (groups)</span>
+
+        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;upload group:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">group_exists</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
+
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">r</span> <span class="o">!=</span> <span class="s1">&#39;nothing&#39;</span><span class="p">:</span>
+                    <span class="n">found</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;rule:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup_rule</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">port</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ports&quot;</span><span class="p">],</span>
+                        <span class="n">protocol</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;protocol&quot;</span><span class="p">],</span>
+                        <span class="n">ip_range</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ip_range&quot;</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">r</span> <span class="o">!=</span> <span class="s1">&#39;nothing&#39;</span><span class="p">:</span>
+                    <span class="n">found</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;rule:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">add_rules_to_secgroup</span><span class="p">(</span>
+                        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">rules</span><span class="o">=</span><span class="p">[</span><span class="n">found</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]])</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.add_rules_to_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_rules_to_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules_to_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">rules</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;name or rules are None&quot;</span><span class="p">)</span>
+
+        <span class="n">cgroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cgroups</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group does not exist&quot;</span><span class="p">)</span>
+
+        <span class="n">groups</span> <span class="o">=</span> <span class="n">DictList</span><span class="p">(</span><span class="n">Secgroup</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
+        <span class="n">rules_details</span> <span class="o">=</span> <span class="n">DictList</span><span class="p">(</span><span class="n">SecgroupRule</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group does not exist&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="n">rules_details</span><span class="p">[</span><span class="n">rule</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup_rule</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                                       <span class="n">port</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ports&quot;</span><span class="p">],</span>
+                                       <span class="n">protocol</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;protocol&quot;</span><span class="p">],</span>
+                                       <span class="n">ip_range</span><span class="o">=</span><span class="n">found</span><span class="p">[</span><span class="s2">&quot;ip_range&quot;</span><span class="p">])</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;rule can not be found&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># not tested</span>
+<div class="viewcode-block" id="Provider.remove_rules_from_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.remove_rules_from_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_rules_from_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">rules</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;name or rules are None&quot;</span><span class="p">)</span>
+
+        <span class="n">cgroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cgroups</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group does not exist&quot;</span><span class="p">)</span>
+
+        <span class="n">groups</span> <span class="o">=</span> <span class="n">DictList</span><span class="p">(</span><span class="n">Secgroup</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
+        <span class="n">rules_details</span> <span class="o">=</span> <span class="n">DictList</span><span class="p">(</span><span class="n">SecgroupRule</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group does not exist&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="n">rules_details</span><span class="p">[</span><span class="n">rule</span><span class="p">]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">pmin</span><span class="p">,</span> <span class="n">pmax</span> <span class="o">=</span> <span class="n">rules</span><span class="p">[</span><span class="s1">&#39;ports&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">pmin</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">pmax</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;rule can not be found&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cgroups</span><span class="p">[</span><span class="s1">&#39;security_group_rules&#39;</span><span class="p">]:</span>
+
+                <span class="n">test</span> <span class="o">=</span> \
+                    <span class="n">r</span><span class="p">[</span><span class="s2">&quot;port_range_max&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pmin</span> <span class="ow">and</span> \
+                    <span class="n">r</span><span class="p">[</span><span class="s2">&quot;port_range_min&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pmax</span> <span class="ow">and</span> \
+                    <span class="n">r</span><span class="p">[</span><span class="s2">&quot;protocol&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">found</span><span class="p">[</span><span class="s2">&quot;protocol&quot;</span><span class="p">]</span> <span class="ow">and</span> \
+                    <span class="n">r</span><span class="p">[</span><span class="s2">&quot;remote_ip_prefix&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">found</span><span class="p">[</span><span class="s2">&quot;ports&quot;</span><span class="p">]</span>
+                <span class="c1"># r[&quot;direction&quot;] == &quot;egress&quot; \</span>
+                <span class="c1"># r[&quot;ethertype&quot;] == &quot;IPv6&quot; \</span>
+                <span class="c1"># r[&quot;id&quot;] == &quot;1234e4e3-ba72-4e33-9844-...&quot; \</span>
+                <span class="c1"># r[&quot;remote_group_id&quot;]] == null \</span>
+                <span class="c1"># r[&quot;tenant_id&quot;]] == &quot;CH-12345&quot;</span>
+
+                <span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+                    <span class="nb">id</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;security_group_id&quot;</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">delete_security_group_rule</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.get_list"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_list">[docs]</a>    <span class="k">def</span> <span class="nf">get_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the dict d on the cloud</span>
+<span class="sd">        :return: dict or libcloud object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">entry</span><span class="p">))</span>
+            <span class="c1"># VERBOSE(entries)</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Provider.images"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.images">[docs]</a>    <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the images on the cloud</span>
+<span class="sd">        :return: dict or libcloud object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">images</span><span class="p">(),</span>
+                             <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.image"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.image">[docs]</a>    <span class="k">def</span> <span class="nf">image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the image with a given name</span>
+<span class="sd">        :param name: The name of the image</span>
+<span class="sd">        :return: the dict of the image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.flavors"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.flavors">[docs]</a>    <span class="k">def</span> <span class="nf">flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the flavors on the cloud</span>
+
+<span class="sd">        :return: dict of flavors</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">flavors</span><span class="p">(),</span>
+                                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flavor&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">flavors</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">),</span>
+                                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;flavor&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Provider.flavor"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.flavor">[docs]</a>    <span class="k">def</span> <span class="nf">flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the flavor with a given name</span>
+<span class="sd">        :param name: The name of the flavor</span>
+<span class="sd">        :return: The dict of the flavor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flavors</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.start"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start a server with the given name</span>
+
+<span class="sd">        :param name: A list of node name</span>
+<span class="sd">        :return:  A list of dict representing the nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">start_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stop a list of nodes with the given name</span>
+
+<span class="sd">        :param name: A list of node name</span>
+<span class="sd">        :return:  A list of dict representing the nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">stop_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.pause"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.pause">[docs]</a>    <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start a server with the given name</span>
+
+<span class="sd">        :param name: A list of node name</span>
+<span class="sd">        :return:  A list of dict representing the nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">pause_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.unpause"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.unpause">[docs]</a>    <span class="k">def</span> <span class="nf">unpause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stop a list of nodes with the given name</span>
+
+<span class="sd">        :param name: A list of node name</span>
+<span class="sd">        :return:  A list of dict representing the nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">unpause_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.info"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the information of a node with a given name</span>
+
+<span class="sd">        :param name: The name of teh virtual machine</span>
+<span class="sd">        :return: The dict representing the node including updated status</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_servers</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        vms = self.list()</span>
+<span class="sd">        print (&quot;VMS&quot;, vms)</span>
+<span class="sd">        data = None</span>
+<span class="sd">        for entry in vms:</span>
+<span class="sd">            print (&quot;FFF&quot;, entry[&#39;name&#39;])</span>
+<span class="sd">            if entry[&#39;name&#39;] == name:</span>
+<span class="sd">                data = entry</span>
+<span class="sd">                break</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;vm not found </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.status"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_servers</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Provider.suspend"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.suspend">[docs]</a>    <span class="k">def</span> <span class="nf">suspend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        NOT YET IMPLEMENTED.</span>
+
+<span class="sd">        suspends the node with the given name.</span>
+
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :return: The dict representing the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># UNTESTED</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">suspend_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        raise NotImplementedError</span>
+
+<span class="sd">        #</span>
+<span class="sd">        # BUG THIS CODE DOES NOT WORK</span>
+<span class="sd">        #</span>
+<span class="sd">        nodes = self.list()</span>
+<span class="sd">        for node in nodes:</span>
+<span class="sd">            if node.name == name:</span>
+<span class="sd">                r = self.cloudman.ex_stop_node(self._get_node(node.name),</span>
+<span class="sd">                                               deallocate=False)</span>
+<span class="sd">                # print(r)</span>
+<span class="sd">                # BUG THIS IS NOT A DICT</span>
+<span class="sd">                return(node, name=name)</span>
+<span class="sd">                self.cloudman.destroy_node(node)</span>
+
+<span class="sd">        #</span>
+<span class="sd">        # should return the updated names dict, e.g. status and so on</span>
+<span class="sd">        # the above specification is for one name</span>
+<span class="sd">        #</span>
+<span class="sd">        </span>
+<span class="sd">        return None</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="Provider.resume"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.resume">[docs]</a>    <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        resume a stopped node.</span>
+
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :return: the dict of the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">resume_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the vms on the cloud</span>
+
+<span class="sd">        :return: dict of vms</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">servers</span><span class="p">(),</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">servers</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="s1">&#39;cm&#39;</span> <span class="ow">in</span> <span class="n">server</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]:</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="n">server</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;cm&#39;</span><span class="p">]</span>
+                <span class="n">cm</span> <span class="o">=</span> <span class="n">literal_eval</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s1">&#39;cm&#39;</span> <span class="ow">in</span> <span class="n">server</span><span class="p">:</span>
+                    <span class="n">server</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">server</span><span class="p">[</span><span class="s1">&#39;ip_public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_public_ip</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">server</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">server</span><span class="p">[</span><span class="s1">&#39;ip_private&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_private_ip</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">server</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Destroys the node</span>
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :return: the dict of the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">delete_server</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">server</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;DELETED&#39;</span>
+
+        <span class="n">servers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">([</span><span class="n">server</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;vm&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">servers</span></div>
+
+<div class="viewcode-block" id="Provider.reboot"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.reboot">[docs]</a>    <span class="k">def</span> <span class="nf">reboot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reboot a list of nodes with the given name</span>
+
+<span class="sd">        :param name: A list of node name</span>
+<span class="sd">        :return:  A list of dict representing the nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">reboot_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Provider.set_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.set_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cm</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the server metadata from the cm dict</span>
+
+<span class="sd">        :param name: The name of the vm</span>
+<span class="sd">        :param cm: The cm dict</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">cm</span><span class="p">)}</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.get_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server_meta</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">&#39;server_vars&#39;</span><span class="p">][</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Provider.delete_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.delete_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">delete_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">delete_server_metadata</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server_meta</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">&#39;server_vars&#39;</span><span class="p">][</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+               <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">secgroup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">public</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        creates a named node</span>
+
+
+<span class="sd">        :param group: the list of groups the vm belongs to</span>
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :param image: the image used</span>
+<span class="sd">        :param size: the size of the image</span>
+<span class="sd">        :param timeout: a timeout in seconds that is invoked in case the image</span>
+<span class="sd">                        does not boot. The default is set to 3 minutes.</span>
+<span class="sd">        :param kwargs: additional arguments HEADING(c=&quot;.&quot;)ed along at time of</span>
+<span class="sd">                       boot</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">image_use</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">flavor_use</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># keyname = Config()[&quot;cloudmesh&quot;][&quot;profile&quot;][&quot;user&quot;]</span>
+        <span class="c1"># ex_keyname has to be the registered keypair name in cloud</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        https://docs.openstack.org/openstacksdk/latest/user/connection.html#openstack.connection.Connection.create_server</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s1">&#39;flavor&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Guess user name</span>
+
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">guess_username</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="c1"># image_name = image.lower()</span>
+            <span class="c1"># if image_name.startswith(&quot;cc-&quot;):</span>
+            <span class="c1">#    user = &quot;cc&quot;</span>
+            <span class="c1"># if &quot;centos&quot; in image_name:</span>
+            <span class="c1">#    user = &quot;centos&quot;</span>
+            <span class="c1"># elif &quot;ubuntu&quot; in image_name:</span>
+            <span class="c1">#    user = &quot;ubuntu&quot;</span>
+
+        <span class="c1"># get IP</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ip</span> <span class="ow">and</span> <span class="n">public</span><span class="p">:</span>
+            <span class="n">ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_available_public_ip</span><span class="p">()</span>
+            <span class="c1"># pprint(entry)</span>
+
+        <span class="k">elif</span> <span class="n">ip</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_public_ips</span><span class="p">(</span><span class="n">ip</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="n">available</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ip not available&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The ip can not be assigned </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">groups</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+        <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Create Server&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Name:    &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    User:    &quot;</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    IP:      &quot;</span><span class="p">,</span> <span class="n">ip</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Image:   &quot;</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Size:    &quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Public:  &quot;</span><span class="p">,</span> <span class="n">public</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Key:     &quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    location:&quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    timeout: &quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    secgroup:&quot;</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    group:   &quot;</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    groups:  &quot;</span><span class="p">,</span> <span class="n">groups</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_server</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>
+                                                 <span class="n">flavor</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+                                                 <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+                                                 <span class="n">key_name</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
+                                                 <span class="n">security_groups</span><span class="o">=</span><span class="p">[</span><span class="n">secgroup</span><span class="p">],</span>
+                                                 <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span>
+                                                 <span class="c1"># tags=groups,</span>
+                                                 <span class="c1"># wait=True</span>
+                                                 <span class="p">)</span>
+            <span class="n">server</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">wait_for_server</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">add_ips_to_server</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">ips</span><span class="o">=</span><span class="n">ip</span><span class="p">)</span>
+            <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">image</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">size</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_secgroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">secgroup</span><span class="p">)</span>
+
+            <span class="c1"># server = self.cloudman.compute.wait_for_server(server)</span>
+
+            <span class="c1"># print(&quot;ssh -i {key} root@{ip}&quot;.format(</span>
+            <span class="c1">#    key=PRIVATE_KEYPAIR_FILE,</span>
+            <span class="c1">#    ip=server.access_ipv4))</span>
+
+        <span class="k">except</span> <span class="n">openstack</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ResourceTimeout</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Problem starting vm in time.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TimeoutError</span>
+
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Problem starting vm&quot;</span><span class="p">,</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.list_public_ips"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_public_ips">[docs]</a>    <span class="k">def</span> <span class="nf">list_public_ips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                        <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">available</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">ip</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ips</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_floating_ips</span><span class="p">({</span><span class="s1">&#39;floating_ip_address&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ips</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_floating_ips</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">available</span><span class="p">:</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">ips</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;fixed_ip_address&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+                <span class="n">ips</span> <span class="o">=</span> <span class="n">found</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">ips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;ip&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.delete_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.delete_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">delete_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ip</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ips</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_floating_ips</span><span class="p">(</span><span class="n">available</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ips</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_floating_ips</span><span class="p">(</span>
+                    <span class="p">{</span><span class="s1">&#39;floating_ip_address&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">})</span>
+            <span class="k">for</span> <span class="n">_ip</span> <span class="ow">in</span> <span class="n">ips</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">delete_floating_ip</span><span class="p">(</span><span class="n">_ip</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.create_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.create_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">create_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_floating_ip</span><span class="p">()</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.find_available_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.find_available_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">find_available_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">available_floating_ip</span><span class="p">()</span>
+        <span class="n">ip</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;floating_ip_address&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">ip</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.attach_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.attach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">attach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">add_ips_to_server</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">ips</span><span class="o">=</span><span class="n">ip</span><span class="p">)</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.detach_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.detach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">detach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">list_floating_ips</span><span class="p">({</span><span class="s1">&#39;floating_ip_address&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ip_id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">detach_ip_from_server</span><span class="p">(</span><span class="n">server_id</span><span class="o">=</span><span class="n">server</span><span class="p">,</span>
+                                                   <span class="n">floating_ip_id</span><span class="o">=</span><span class="n">ip_id</span><span class="p">)</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.get_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                      <span class="n">server</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">server</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">ip</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">ips</span> <span class="o">=</span> <span class="n">server</span><span class="p">[</span><span class="s1">&#39;addresses&#39;</span><span class="p">]</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ips</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">addresses</span> <span class="o">=</span> <span class="n">ips</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">addresses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;OS-EXT-IPS:type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;floating&#39;</span><span class="p">:</span>
+                <span class="n">ip</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;addr&#39;</span><span class="p">]</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">ip</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="Provider.get_private_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_private_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_private_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                       <span class="n">server</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">server</span><span class="p">:</span>
+            <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">ip</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">ips</span> <span class="o">=</span> <span class="n">server</span><span class="p">[</span><span class="s1">&#39;addresses&#39;</span><span class="p">]</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ips</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">addresses</span> <span class="o">=</span> <span class="n">ips</span><span class="p">[</span><span class="n">first</span><span class="p">]</span>
+
+        <span class="n">found</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">addresses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;OS-EXT-IPS:type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;fixed&#39;</span><span class="p">:</span>
+                <span class="n">ip</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;addr&#39;</span><span class="p">]</span>
+                <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">found</span></div>
+
+<div class="viewcode-block" id="Provider.console"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.console">[docs]</a>    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server_console</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">server</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.log"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># same as console!!!!</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">_get_server_console_output</span><span class="p">(</span><span class="n">server</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.rename"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.rename">[docs]</a>    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        rename a node. NOT YET IMPLEMENTED.</span>
+
+<span class="sd">        :param destination</span>
+<span class="sd">        :param name: the current name</span>
+<span class="sd">        :return: the dict with the new name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1">#</span>
+        <span class="c1"># TODO: fix user name issue, should be stored in db</span>
+        <span class="c1">#</span>
+
+        <span class="c1"># VERBOSE(vm)</span>
+
+        <span class="n">ip</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;ip_public&#39;</span><span class="p">]</span>
+        <span class="n">key_name</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;key_name&#39;</span><span class="p">]</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">guess_username</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_all_by_name</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">key_name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;location&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;private&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">key</span> <span class="o">=</span> <span class="n">k</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">][</span><span class="s1">&#39;private&#39;</span><span class="p">]</span>
+                    <span class="k">break</span>
+
+        <span class="n">cm</span><span class="o">.</span><span class="n">close_client</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">ip</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">user</span> <span class="o">+</span> <span class="s1">&#39;@&#39;</span> <span class="o">+</span> <span class="n">ip</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;ssh &quot;</span> \
+              <span class="s2">&quot;-o StrictHostKeyChecking=no &quot;</span> \
+              <span class="s2">&quot;-o UserKnownHostsFile=/dev/null &quot;</span> \
+              <span class="sa">f</span><span class="s2">&quot;-i </span><span class="si">{key}</span><span class="s2"> </span><span class="si">{location}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="c1"># VERBOSE(cmd)</span>
+
+        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+                <span class="k">class</span> <span class="nc">disable_file_system_redirection</span><span class="p">:</span>
+                    <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
+                    <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
+
+                    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span>
+                            <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
+
+                    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
+
+                <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+                <span class="k">class</span> <span class="nc">disable_file_system_redirection</span><span class="p">:</span>
+                    <span class="n">_disable</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64DisableWow64FsRedirection</span>
+                    <span class="n">_revert</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">kernel32</span><span class="o">.</span><span class="n">Wow64RevertWow64FsRedirection</span>
+
+                    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">old_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disable</span><span class="p">(</span>
+                            <span class="n">ctypes</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">))</span>
+
+                    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_revert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">old_value</span><span class="p">)</span>
+
+                <span class="k">with</span> <span class="n">disable_file_system_redirection</span><span class="p">():</span>
+                    <span class="n">ssh</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span>
+                                           <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                           <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                                           <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ssh</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span>
+                                       <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                                       <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Provider.wait"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.wait">[docs]</a>    <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">interval</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># if interval is too low, OS will block your ip (I think)</span>
+            <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">timeout</span> <span class="o">=</span> <span class="mi">360</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;waiting for instance </span><span class="si">{name}</span><span class="s2"> to be reachable: Interval: </span><span class="si">{interval}</span><span class="s2">, Timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">timer</span> <span class="o">&lt;</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+            <span class="n">timer</span> <span class="o">+=</span> <span class="n">interval</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">&#39;echo IAmReady&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="s1">&#39;IAmReady&#39;</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

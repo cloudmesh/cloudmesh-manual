@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.key.command.key &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.key.command.key</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.key.command.key</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.key.Key</span> <span class="kn">import</span> <span class="n">Key</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.SSHkey</span> <span class="kn">import</span> <span class="n">SSHkey</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.arguments</span> <span class="kn">import</span> <span class="n">Arguments</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.security.encrypt</span> <span class="kn">import</span> <span class="n">KeyHandler</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span><span class="p">,</span> <span class="n">yn_choice</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<div class="viewcode-block" id="KeyCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.key.command.html#cloudmesh.key.command.key.KeyCommand">[docs]</a><span class="k">class</span> <span class="nc">KeyCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+
+    <span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/KeyCommand.py</span>
+    <span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/AkeyCommand.py</span>
+
+    <span class="c1"># noinspection PyUnusedLocal</span>
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">           Usage:</span>
+<span class="sd">             key  -h | --help</span>
+<span class="sd">             key list --cloud=CLOUDS [--output=OUTPUT]</span>
+<span class="sd">             key list --source=ssh [--dir=DIR] [--output=OUTPUT]</span>
+<span class="sd">             key list --source=git [--output=OUTPUT] [--username=USERNAME]</span>
+<span class="sd">             key list [--output=OUTPUT]</span>
+<span class="sd">             key init</span>
+<span class="sd">             key add NAME --filename=FILENAME [--output=OUTPUT]</span>
+<span class="sd">             key add [NAME] [--source=FILENAME]</span>
+<span class="sd">             key add [NAME] [--source=git]</span>
+<span class="sd">             key add [NAME] [--source=ssh]</span>
+<span class="sd">             key delete NAMES [--cloud=CLOUDS] [--dryrun]</span>
+<span class="sd">             key upload [NAMES] [--cloud=CLOUDS] [--dryrun]</span>
+<span class="sd">             key upload [NAMES] [VMS] [--dryrun]</span>
+<span class="sd">             key group upload [NAMES] [--group=GROUPNAMES] [--cloud=CLOUDS] [--dryrun]</span>
+<span class="sd">             key group add [--group=GROUPNAMES] [--cloud=CLOUDS] [--dryrun]</span>
+<span class="sd">             key group add --file=FILENAME</span>
+<span class="sd">             key group delete [--group=GROUPNAMES] [NAMES] [--dryrun]</span>
+<span class="sd">             key group list [--group=GROUPNAMES] [--output=OUTPUT]</span>
+<span class="sd">             key group export --group=GROUNAMES --filename=FILENAME</span>
+<span class="sd">             key gen (rsa | ssh) [--filename=FILENAME] [--nopass] [--set_path]</span>
+<span class="sd">             key verify (ssh | pem) --filename=FILENAME [--pub]</span>
+
+<span class="sd">           Arguments:</span>
+<span class="sd">             VMS            Parameterized list of virtual machines</span>
+<span class="sd">             CLOUDS         The clouds</span>
+<span class="sd">             NAME           The name of the key.</span>
+<span class="sd">             SOURCE         db, ssh, all</span>
+<span class="sd">             KEYNAME        The desired full path name to the key file</span>
+<span class="sd">             OUTPUT         The format of the output (table, json, yaml)</span>
+<span class="sd">             FILENAME       The filename with full path in which the key is located</span>
+
+<span class="sd">           Options:</span>
+<span class="sd">              --dir=DIR             the directory with keys [default: ~/.ssh]</span>
+<span class="sd">              --filename=FILENAME   the name and full path to the file</span>
+<span class="sd">              --nopass              Flag indicating if the key has no password</span>
+<span class="sd">              --output=OUTPUT       the format of the output [default: table]</span>
+<span class="sd">              --pub                 Indicates that the public key is passed in</span>
+<span class="sd">              --set_path            Sets the security key paths to KEYNAME</span>
+<span class="sd">              --source=SOURCE       the source for the keys</span>
+<span class="sd">              --username=USERNAME   the source for the keys [default: none]</span>
+
+
+<span class="sd">           Description:</span>
+
+<span class="sd">               Please note that some values are read from the cloudmesh.yaml</span>
+<span class="sd">               file. One such value is cloudmesh.profile.user</span>
+
+<span class="sd">               Manages public keys is an essential component of accessing</span>
+<span class="sd">               virtual machine sin the cloud. There are a number of sources</span>
+<span class="sd">               where you can find public keys. This includes teh ~/.ssh</span>
+<span class="sd">               directory and for example github.</span>
+
+<span class="sd">               Keys will be uploaded into cloudmesh database with the add</span>
+<span class="sd">               command under the given NAME. If the name is not specified the name</span>
+<span class="sd">               cloudmesh.profile.user is assumed.</span>
+
+<span class="sd">                key add NAME  --source=ssh</span>
+<span class="sd">                    adds the default key in ~/.ssh/id_rsa.pub</span>
+<span class="sd">                key add NAME  --source=FILENAME</span>
+<span class="sd">                    adds the key specified by the filename with the given name</span>
+<span class="sd">                key add NAME --git --username=username</span>
+<span class="sd">                    adds a named github key from a user with the given github</span>
+<span class="sd">                    username.</span>
+
+<span class="sd">                key set</span>
+<span class="sd">                    adds the ~/.ssh/id_rsa.pub key with the name specified in</span>
+<span class="sd">                    cloudmesh.profile.user.</span>
+<span class="sd">                    It also sets the variable key to that user.</span>
+
+
+<span class="sd">               Once the keys are uploaded to github, they can be listed</span>
+<span class="sd">               To list these keys the following list functions are provided.</span>
+
+<span class="sd">                key list --source=git  [--username=USERNAME]</span>
+<span class="sd">                    lists all keys in git for the specified user. If the</span>
+<span class="sd">                    name is not specified it is read from cloudmesh.yaml</span>
+<span class="sd">                key list --source=ssh  [--dir=DIR] [--output=OUTPUT]</span>
+<span class="sd">                    lists all keys in the directory. If the directory is not</span>
+<span class="sd">                    specified the default will be ~/.ssh</span>
+
+<span class="sd">                key list NAMES</span>
+<span class="sd">                    lists all keys in the named virtual machines.</span>
+
+
+<span class="sd">                List command can use the [--output=OUTPUT] option</span>
+
+<span class="sd">                    list the keys loaded to cloudmesh in the given format:</span>
+<span class="sd">                    json, yaml, table. table is default. The NAME can be</span>
+<span class="sd">                    specified and if omitted the name cloudmesh.profile.user</span>
+<span class="sd">                    is assumed.</span>
+
+<span class="sd">                To get keys from the cloudmesh database the following commands</span>
+<span class="sd">                are available:</span>
+
+<span class="sd">                key delete NAMES</span>
+<span class="sd">                    deletes the Named keys. This may also have an impact on groups</span>
+<span class="sd">                key rename NAME NEW</span>
+<span class="sd">                    renames the key from NAME to NEW in the cloudmesh database.</span>
+
+<span class="sd">               Group management of keys is an important concept in cloudmesh,</span>
+<span class="sd">               allowing multiple users to be added to virtual machines while</span>
+<span class="sd">               managing the keys associated with them. The keys must be uploaded</span>
+<span class="sd">               to cloudmesh database with a name so they can be used in a</span>
+<span class="sd">               group. The --dryrun option executes the command without</span>
+<span class="sd">               uploading the information to the clouds. If no group name is</span>
+<span class="sd">               specified the group name default is assumed. If no cloudnamesh</span>
+<span class="sd">               are specified, all active clouds are assumed. active clouds</span>
+<span class="sd">               can be set in the cloudmesh.yaml file.</span>
+
+<span class="sd">                key group delete [GROUPNAMES] [NAMES] [--dryrun]</span>
+<span class="sd">                    deletes the named keys from the named groups.</span>
+
+<span class="sd">                key group list [GROUPNAMES] [--output=OUTPUT]</span>
+<span class="sd">                    list the key names and details in the group.</span>
+
+<span class="sd">                key group upload [GROUPNAMES] [CLOUDS] [--dryrun]</span>
+<span class="sd">                    uploads the named groups to the specified clouds.</span>
+
+<span class="sd">               In some cases you may want to store the public keys in files. For</span>
+<span class="sd">               this reason we support the following commands.</span>
+
+<span class="sd">                key group add --group=GROUPNAME --file=FILENAME</span>
+<span class="sd">                    the command adds the keys to the given group. The keys are</span>
+<span class="sd">                    written in the files in yaml format.</span>
+
+
+<span class="sd">                key group export --group=GROUNAMES --filename=FILENAME</span>
+<span class="sd">                    the command exports the keys to the given group. The keys are</span>
+<span class="sd">                    written in the files in yaml format.</span>
+
+
+<span class="sd">                The yaml format is as follows:</span>
+
+<span class="sd">                cloudmesh:</span>
+<span class="sd">                  keys:</span>
+<span class="sd">                    NAMEOFKEY:</span>
+<span class="sd">                      name: NAMEOFKEY</span>
+<span class="sd">                      key: ssh-rsa AAAA..... comment</span>
+<span class="sd">                      group:</span>
+<span class="sd">                      - GROUPNAME</span>
+<span class="sd">                    ...</span>
+
+<span class="sd">                If a key is included in multiple groups they will be added</span>
+<span class="sd">                to the grouplist of the key</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">print_keys</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="n">keys</span><span class="p">,</span>
+                <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;fingerprint&quot;</span><span class="p">,</span> <span class="s2">&quot;comment&quot;</span><span class="p">],</span>
+                <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="s2">&quot;Fingerprint&quot;</span><span class="p">,</span> <span class="s2">&quot;Comment&quot;</span><span class="p">],</span>
+                <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
+                       <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;dir&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;filename&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;nopass&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;output&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;pub&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;pwd&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;set_path&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;source&#39;</span><span class="p">)</span>
+
+        <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;git&quot;</span><span class="p">:</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">username</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.github&quot;</span><span class="p">]</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="p">()</span><span class="o">.</span><span class="n">get_from_git</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+
+            <span class="n">print_keys</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;ssh&quot;</span><span class="p">:</span>
+            <span class="c1"># this is much simpler</span>
+
+            <span class="n">sshkey</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="p">()</span>
+
+            <span class="n">print_keys</span><span class="p">([</span><span class="n">sshkey</span><span class="p">])</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span>
+
+            <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">clouds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+                <span class="n">cloudname</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;cloud&#39;</span><span class="p">]</span>
+                <span class="n">clouds</span> <span class="o">=</span> <span class="p">[</span><span class="n">cloudname</span><span class="p">]</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+                <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+
+            <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
+            <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-key&quot;</span><span class="p">)</span>
+
+            <span class="n">print_keys</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">             key add [NAME] [--source=FILENAME] # NOT IMPLEMENTED YET</span>
+<span class="sd">             key add [NAME] [--source=git]</span>
+<span class="sd">             key add [NAME] [--source=ssh]</span>
+<span class="sd">             &quot;&quot;&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">Key</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--source&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ssh&quot;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">or</span> <span class="s2">&quot;ssh&quot;</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ssh&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--source&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;git&quot;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">or</span> <span class="s2">&quot;git&quot;</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;git&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
+                <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;ssh&quot;</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">init</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            key init </span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">username</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">username</span> <span class="o">==</span> <span class="s2">&quot;TBD&quot;</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="s2">&quot;Please set cloudmesh.profile.user in ~/.cloudmesh.yaml&quot;</span><span class="p">)</span>
+                <span class="n">u</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;USER&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;To change it you can use the command. Define a NAME such as &#39;</span><span class="si">{u}</span><span class="s2">&#39; e.g.&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  cms config set cloudmesh.profile.user=</span><span class="si">{u}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+            <span class="n">key</span> <span class="o">=</span> <span class="n">Key</span><span class="p">()</span>
+
+            <span class="n">key</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="s2">&quot;ssh&quot;</span><span class="p">)</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">upload</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            key upload [NAMES] [--cloud=CLOUDS] [--dryrun]</span>
+<span class="sd">            key upload [NAMES] [VMS] [--dryrun]</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+            <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">)</span>
+
+            <span class="c1"># this may have a bug if NAMES is ommitted</span>
+
+            <span class="c1">#</span>
+            <span class="c1"># Step 0. Set keyname to variable</span>
+            <span class="c1">#</span>
+
+            <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+                <span class="n">username</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">username</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+                <span class="k">if</span> <span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                    <span class="n">old</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">old</span> <span class="o">!=</span> <span class="n">name</span><span class="p">:</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Changing defualt key from </span><span class="si">{old}</span><span class="s2"> to </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+            <span class="c1">#</span>
+            <span class="c1"># Step 1. keys = find keys to upload</span>
+            <span class="c1">#</span>
+
+            <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
+            <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+            <span class="n">db_keys</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-key&quot;</span><span class="p">)</span>
+
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">db_keys</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;No keys with the names </span><span class="si">{names}</span><span class="s2"> found in cloudmesh. </span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;       Use the command &#39;key add&#39; to add the key.&quot;</span><span class="p">)</span>
+
+            <span class="c1">#</span>
+            <span class="c1"># Step 2. iterate over the clouds to upload</span>
+            <span class="c1">#</span>
+
+            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+                                                          <span class="n">arguments</span><span class="p">,</span>
+                                                          <span class="n">variables</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">db_keys</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">r</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">key_upload</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;upload key &#39;</span><span class="si">{name}</span><span class="s2"> successful&#39;. &quot;</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">&quot;key &#39;</span><span class="si">{name}</span><span class="s2"> already exists in </span><span class="si">{cloud}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">:</span>
+
+            <span class="c1"># key delete NAMES --cloud=CLOUDS [--dryrun]</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">)</span>
+            <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dryrun: delete </span><span class="si">{name}</span><span class="s2"> in </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">images</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">key_delete</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">gen</span><span class="p">:</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            key gen (rsa | ssh) [--filename=FILENAME] [--nopass] [--set_path]</span>
+<span class="sd">            Generate an RSA key pair with pem or ssh encoding for the public</span>
+<span class="sd">            key. The private key is always encoded as a PEM file.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+            <span class="c1"># Check if password will be requested</span>
+            <span class="n">ap</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">nopass</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ap</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span> <span class="s2">&quot;Private key will NOT have a password&quot;</span> <span class="p">)</span>
+                <span class="n">cnt</span> <span class="o">=</span> <span class="n">yn_choice</span><span class="p">(</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Continue, despite risk?&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">cnt</span><span class="p">:</span>
+                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+            <span class="c1"># Discern the name of the public and private keys</span>
+            <span class="n">rk_path</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">uk_path</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">==</span> <span class="s2">&quot;.pub&quot;</span><span class="p">:</span>
+                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
+                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s2">&quot;.priv&quot;</span><span class="p">:</span>
+                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">rk_path</span> <span class="o">+</span> <span class="s2">&quot;.pub&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.privatekey&#39;</span><span class="p">])</span>
+                <span class="n">uk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.publickey&#39;</span><span class="p">])</span>
+
+            <span class="c1"># Set the path if requested</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">set_path</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
+                <span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.privatekey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rk_path</span>
+                <span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.publickey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uk_path</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Private key: </span><span class="si">{rk_path}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;Public  key: </span><span class="si">{uk_path}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Generate the Private and Public keys</span>
+            <span class="n">kh</span> <span class="o">=</span> <span class="n">KeyHandler</span><span class="p">()</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">new_rsa_key</span><span class="p">()</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">get_pub_key</span><span class="p">(</span><span class="n">priv</span> <span class="o">=</span> <span class="n">r</span><span class="p">)</span>
+
+            <span class="c1"># Serialize and write the private key to the path</span>
+            <span class="n">sr</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">serialize_key</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">r</span><span class="p">,</span> <span class="n">key_type</span> <span class="o">=</span> <span class="s2">&quot;PRIV&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;PEM&quot;</span><span class="p">,</span>
+                                  <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;PKCS8&quot;</span><span class="p">,</span> <span class="n">ask_pass</span> <span class="o">=</span> <span class="n">ap</span><span class="p">)</span>
+            <span class="n">kh</span><span class="o">.</span><span class="n">write_key</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">sr</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">rk_path</span><span class="p">)</span>
+
+            <span class="c1"># Determine the public key format and encoding</span>
+            <span class="n">enc</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">forma</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ssh</span><span class="p">:</span>
+                <span class="n">enc</span> <span class="o">=</span> <span class="s2">&quot;SSH&quot;</span>
+                <span class="n">forma</span> <span class="o">=</span> <span class="s2">&quot;SSH&quot;</span>
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rsa</span><span class="p">:</span>
+                <span class="n">enc</span> <span class="o">=</span> <span class="s2">&quot;PEM&quot;</span>
+                <span class="n">forma</span> <span class="o">=</span> <span class="s2">&quot;SubjectInfo&quot;</span>
+
+            <span class="c1"># Serialize and write the public key to the path</span>
+            <span class="n">su</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">serialize_key</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">key_type</span> <span class="o">=</span> <span class="s2">&quot;PUB&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="n">enc</span><span class="p">,</span>
+                                  <span class="nb">format</span> <span class="o">=</span> <span class="n">forma</span><span class="p">,</span> <span class="n">ask_pass</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="n">kh</span><span class="o">.</span><span class="n">write_key</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">su</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">uk_path</span><span class="p">)</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Success&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">verify</span><span class="p">:</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            key verify (ssh | pem) --filename=FILENAME --pub</span>
+<span class="sd">            Verifies the encoding (pem or ssh) of the key (private or public)</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">kh</span> <span class="o">=</span> <span class="n">KeyHandler</span><span class="p">()</span>
+            <span class="n">fp</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span>
+            <span class="n">kt</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">enc</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># Discern key type</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">pub</span><span class="p">:</span>
+                <span class="n">kt</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span>
+                <span class="c1"># Discern public key encoding</span>
+                <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ssh</span><span class="p">:</span>
+                    <span class="n">enc</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;OpenSSH&quot;</span><span class="p">,</span> <span class="s2">&quot;SSH&quot;</span>
+                <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">pem</span><span class="p">:</span> <span class="c1">#PEM encoding</span>
+                    <span class="n">enc</span> <span class="o">=</span> <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;PEM&quot;</span>
+
+                <span class="c1"># Load the public key, if no error occurs formatting is correct</span>
+                <span class="n">u</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">load_key</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="s2">&quot;PUB&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">ask_pass</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">kt</span><span class="p">,</span> <span class="n">enc</span> <span class="o">=</span> <span class="s2">&quot;private&quot;</span><span class="p">,</span> <span class="s2">&quot;PEM&quot;</span>
+
+                <span class="c1"># Load the private key to verify the formatting and password of</span>
+                <span class="c1"># the key file. If no error occurs the format and pwd are correct</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">load_key</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">fp</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="s2">&quot;PRIV&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">enc</span><span class="p">,</span> <span class="n">ask_pass</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="n">m</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Success the </span><span class="si">{kt}</span><span class="s2"> key </span><span class="si">{fp}</span><span class="s2"> has proper </span><span class="si">{enc}</span><span class="s2"> format&quot;</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span> <span class="n">m</span> <span class="p">)</span>
+                
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">:</span>
+            <span class="c1"># key delete NAMES [--dryrun]</span>
+
+            <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">)</span>
+
+            <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
+            <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+            <span class="n">db_keys</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-key&quot;</span><span class="p">)</span>
+
+            <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">db_keys</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dryrun: delete </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="s2">&quot;local-key&quot;</span><span class="p">,</span>
+                                  <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delete </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+            
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
