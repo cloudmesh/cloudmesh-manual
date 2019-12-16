@@ -134,10 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD Manuals (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-ufo.html">Google Account Creation Tutorial</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -551,7 +555,6 @@
 
             <span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span><span class="p">:</span>
 
             <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
@@ -597,7 +600,6 @@
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ping</span><span class="p">:</span>
 
             <span class="sd">&quot;&quot;&quot;</span>
@@ -632,7 +634,7 @@
             <span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">ips</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
                 <span class="n">banner</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
-                <span class="nb">print</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">()</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">check</span><span class="p">:</span>
@@ -864,7 +866,6 @@
             <span class="c1"># determine names</span>
             <span class="c1">#</span>
 
-
             <span class="k">if</span> <span class="n">names</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">n</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;When using --n=</span><span class="si">{arguments.n}</span><span class="s2">, you can only specify one name&quot;</span><span class="p">)</span>
@@ -886,7 +887,6 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
-
                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="n">n</span> <span class="o">=</span> <span class="n">Name</span><span class="p">()</span>
@@ -901,17 +901,13 @@
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">n</span><span class="p">:</span>
 
                 <span class="n">name</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">n</span><span class="p">)):</span>
-
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">n</span><span class="p">)):</span>
                     <span class="n">_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-</span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">names</span> <span class="o">=</span> <span class="n">_names</span>
 
-
             <span class="c1"># pprint(parameters)</span>
 
-
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-
 
                 <span class="n">parameters</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
                 <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--dryrun&#39;</span><span class="p">]:</span>
@@ -935,11 +931,12 @@
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">vms</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">parameters</span><span class="p">)</span>
                     <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
-                        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timeout during vm creation. There may be a problem with the cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Timeout during vm creation. There may be a problem with the cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
 
                     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                         <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;create problem&quot;</span><span class="p">)</span>
-                        <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
                         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
                     <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -1245,7 +1242,8 @@
                         <span class="k">try</span><span class="p">:</span>
                             <span class="n">ip</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;public_ips&#39;</span><span class="p">]</span>
                         <span class="k">except</span><span class="p">:</span>
-                            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;could not find a public ip for vm </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">&quot;could not find a public ip for vm </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
                             <span class="k">return</span>
 
                         <span class="c1"># get the username</span>
@@ -1253,9 +1251,12 @@
                             <span class="n">user</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
                         <span class="k">except</span><span class="p">:</span>
                             <span class="c1"># username not in vm...guessing</span>
-                            <span class="n">imagename</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="n">cloud</span> <span class="o">+</span> <span class="s1">&#39;-image&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;ImageId&#39;</span><span class="p">:</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;ImageId&#39;</span><span class="p">]}))[</span><span class="mi">0</span><span class="p">][</span>
+                            <span class="n">imagename</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                                <span class="n">cm</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="n">cloud</span> <span class="o">+</span> <span class="s1">&#39;-image&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                                    <span class="p">{</span><span class="s1">&#39;ImageId&#39;</span><span class="p">:</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;ImageId&#39;</span><span class="p">]}))[</span><span class="mi">0</span><span class="p">][</span>
                                 <span class="s1">&#39;name&#39;</span><span class="p">]</span>
-                            <span class="n">user</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">guess_username</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">imagename</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+                            <span class="n">user</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">guess_username</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">imagename</span><span class="p">,</span>
+                                                        <span class="n">cloud</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
                         <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;scp -i </span><span class="si">{key}</span><span class="s1"> </span><span class="si">{source}</span><span class="s1"> </span><span class="si">{user}</span><span class="s1">@</span><span class="si">{ip}</span><span class="s1">:</span><span class="si">{destination}</span><span class="s1">&#39;</span>
                         <span class="nb">print</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
                         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>

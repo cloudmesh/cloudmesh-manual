@@ -134,10 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD Manuals (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-ufo.html">Google Account Creation Tutorial</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -211,6 +215,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
 
+
 <div class="viewcode-block" id="KeyGroupDatabase"><a class="viewcode-back" href="../../../api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroupDatabase">[docs]</a><span class="k">class</span> <span class="nc">KeyGroupDatabase</span><span class="p">:</span>
 
     <span class="c1"># noinspection PyShadowingBuiltins</span>
@@ -270,6 +275,7 @@
             <span class="p">}</span>
         <span class="k">return</span> <span class="n">entries</span></div></div>
 
+
 <div class="viewcode-block" id="KeyGroup"><a class="viewcode-back" href="../../../api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroup">[docs]</a><span class="k">class</span> <span class="nc">KeyGroup</span><span class="p">(</span><span class="n">KeyGroupDatabase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       &quot;_id&quot; : ObjectId(&quot;5dd766f3d860ed9e50f374c4&quot;),</span>
@@ -316,7 +322,7 @@
                        <span class="s2">&quot;Comment&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Fingerprint&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Publickey&quot;</span>
-                      <span class="p">]</span>
+                       <span class="p">]</span>
         <span class="p">},</span>
         <span class="s2">&quot;keygroup&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
@@ -327,8 +333,6 @@
         <span class="p">}</span>
 
     <span class="p">}</span>
-
-
 
     <span class="c1"># noinspection PyPep8Naming</span>
 <div class="viewcode-block" id="KeyGroup.Print"><a class="viewcode-back" href="../../../api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroup.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -353,7 +357,6 @@
                   <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div>
-
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;keygroup&quot;</span><span class="p">)</span>

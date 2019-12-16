@@ -134,10 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD Manuals (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-ufo.html">Google Account Creation Tutorial</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -815,7 +819,7 @@
             <span class="n">tmp_keys</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[:]</span>
             <span class="c1"># indices = range(1,len(tmp_keys)+1)</span>
             <span class="k">for</span> <span class="n">key_idx</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
-                <span class="n">key</span><span class="p">[</span><span class="s1">&#39;idx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">key</span><span class="p">[</span><span class="s1">&#39;idx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_idx</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">tmp_keys</span><span class="p">,</span>
                                     <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;idx&quot;</span><span class="p">],</span>
                                     <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;idx&#39;</span><span class="p">,</span> <span class="s1">&#39;KeyName&#39;</span><span class="p">,</span> <span class="s1">&#39;KeyFingerprint&#39;</span><span class="p">],</span>
@@ -1107,8 +1111,8 @@
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">instance_id</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
             <span class="n">instance_id</span> <span class="o">=</span> <span class="p">[</span><span class="n">instance_id</span><span class="p">]</span>
         <span class="n">instance_status</span> <span class="o">=</span> \
-        <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">describe_instance_status</span><span class="p">(</span><span class="n">InstanceIds</span><span class="o">=</span><span class="n">instance_id</span><span class="p">)[</span>
-            <span class="s1">&#39;InstanceStatuses&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ec2_client</span><span class="o">.</span><span class="n">describe_instance_status</span><span class="p">(</span><span class="n">InstanceIds</span><span class="o">=</span><span class="n">instance_id</span><span class="p">)[</span>
+                <span class="s1">&#39;InstanceStatuses&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">instance_status</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
             <span class="n">status</span> <span class="o">=</span> <span class="n">instance_status</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;InstanceStatus&#39;</span><span class="p">][</span><span class="s1">&#39;Details&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
                 <span class="s1">&#39;Status&#39;</span><span class="p">]</span>

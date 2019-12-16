@@ -134,10 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD Manuals (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-ufo.html">Google Account Creation Tutorial</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -209,25 +213,17 @@
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
+
 <span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
-<span class="kn">import</span> <span class="nn">tempfile</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="kn">import</span> <span class="n">flatten</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span><span class="p">,</span> <span class="n">writefd</span><span class="p">,</span> <span class="n">readfile</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.configuration.security.encrypt</span> <span class="kn">import</span> <span class="n">CmsEncryptor</span><span class="p">,</span> <span class="n">KeyHandler</span><span class="p">,</span> <span class="n">CmsHasher</span>
-<span class="kn">from</span> <span class="nn">progress.bar</span> <span class="kn">import</span> <span class="n">Bar</span>
-
-<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copy2</span>
 
 
 <div class="viewcode-block" id="ConfigCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.config.command.html#cloudmesh.config.command.config.ConfigCommand">[docs]</a><span class="k">class</span> <span class="nc">ConfigCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
@@ -326,9 +322,9 @@
 
         <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
                        <span class="s2">&quot;exception&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;keep&quot;</span><span class="p">,</span> 
+                       <span class="s2">&quot;keep&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;nopass&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;output&quot;</span><span class="p">,</span> 
+                       <span class="s2">&quot;output&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;secret&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;secrets&quot;</span><span class="p">)</span>
 
@@ -491,8 +487,8 @@
             <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
             <span class="n">secpath</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.secpath&#39;</span><span class="p">])</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">secpath</span><span class="p">):</span>
-                <span class="n">Shell</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">secpath</span><span class="p">)</span> <span class="c1"># Use Shell that makes all dirs as needed</span>
-        
+                <span class="n">Shell</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">secpath</span><span class="p">)</span>  <span class="c1"># Use Shell that makes all dirs as needed</span>
+
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">security</span><span class="p">:</span>
             <span class="c1"># Get the regular expression from command line</span>
             <span class="n">regexp</span> <span class="o">=</span> <span class="kc">None</span>
@@ -505,7 +501,7 @@
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regexp</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">re</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;Invalid Python RegExp:</span><span class="si">{regexp}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid Python RegExp:</span><span class="si">{regexp}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
             <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
@@ -528,17 +524,17 @@
                 <span class="k">if</span> <span class="n">regexp</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exps</span><span class="p">:</span>
                     <span class="n">config</span><span class="p">[</span><span class="n">path</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">regexp</span><span class="p">)</span>
                     <span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;Added </span><span class="si">{regexp}</span><span class="s2"> to </span><span class="si">{section}</span><span class="s2">&quot;</span> <span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added </span><span class="si">{regexp}</span><span class="s2"> to </span><span class="si">{section}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{regexp}</span><span class="s2"> already in </span><span class="si">{section}</span><span class="s2">&quot;</span> <span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{regexp}</span><span class="s2"> already in </span><span class="si">{section}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="c1"># Remove argument from expressions in related section</span>
             <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rmv</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">regexp</span> <span class="ow">in</span> <span class="n">exps</span><span class="p">:</span>
                     <span class="n">config</span><span class="p">[</span><span class="n">path</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">regexp</span><span class="p">)</span>
                     <span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;Removed </span><span class="si">{regexp}</span><span class="s2"> from </span><span class="si">{section}</span><span class="s2">&quot;</span> <span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removed </span><span class="si">{regexp}</span><span class="s2"> from </span><span class="si">{section}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{regexp}</span><span class="s2"> not in </span><span class="si">{section}</span><span class="s2">&quot;</span> <span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{regexp}</span><span class="s2"> not in </span><span class="si">{section}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">:</span>
 

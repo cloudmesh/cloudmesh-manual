@@ -1,4 +1,3 @@
-
 # Google Account Creation Tutorial
 
 Google Cloud Platform (GCP), offered by Google, is a suite of cloud

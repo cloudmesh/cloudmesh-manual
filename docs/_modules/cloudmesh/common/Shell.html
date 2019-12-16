@@ -134,10 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD Manuals (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-ufo.html">Google Account Creation Tutorial</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -232,6 +236,17 @@
 
 <span class="kn">import</span> <span class="nn">stat</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1">#from functools import wraps</span>
+<span class="c1">#def timer(func):</span>
+<span class="c1">#    @wraps(func)</span>
+<span class="c1">#    def wrapper(*args,**kwargs):</span>
+<span class="c1">#        print(f&quot;{func.__name__!r} begins&quot;)</span>
+<span class="c1">#        start_time = time.time()</span>
+<span class="c1">#        result = func(*args,**kwargs)</span>
+<span class="c1">#        print(f&quot;{func.__name__!r} ends in {time.time()-start_time}  secs&quot;)</span>
+<span class="c1">#        return result</span>
+<span class="c1">#    return wrapper</span>
 
 <span class="c1">#def NotImplementedInWindows(f):</span>
 <span class="c1">#    def new_f(*args):</span>
@@ -447,8 +462,8 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python -m webbrowser -t </span><span class="si">{file}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Shell.terminal"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="c1"># @NotImplementedInWindows</span>
+<div class="viewcode-block" id="Shell.terminal"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">terminal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">&#39;pwd&#39;</span><span class="p">):</span>
         <span class="n">NotImplementedInWindows</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
