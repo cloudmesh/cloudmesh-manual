@@ -1,6 +1,15 @@
 # Google Account
 
-.. todo:: INTRODUCTION MISSING
+A new google account can be created using following information:
+
+[New Google Account Introduction](https://myaccount.google.com/intro)
+
+ [Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true)
+ 
+ Here is additional reference link for account creation support page:
+  
+ [Create a Google Account- Google Account Help](<https://support.google.com/accounts/answer/27441>)
+
 
 
 ## Google Drive
@@ -108,16 +117,16 @@ this document.
 
 ### Step-by-Step Guide to create a Google Cloud account
 
-* ***Step 1 - Create Google Account*** Use the following link provided
+* ***Step 1 - Create Google Cloud Account*** Use the following link provided
 by google to create a free google account. (This account can provide
 you $300 in credits to use google cloud.)
 
   [Get Started for Free](https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE)
 
   After you click this option, you can choose you existing google account or
-  create a new account using following link:
+  create a new account using previously provided information.
   
-  [Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true)
+ 
 
   students also have option to use follwing option:
   
