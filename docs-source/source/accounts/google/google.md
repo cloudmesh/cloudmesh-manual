@@ -47,9 +47,9 @@ you $300 in credits to use google cloud.)
   
    * From here create a new project or select an alredy created project as seen in the next three screenshots:
    
-   ![Create first account_01](images/google/MyFirstAccount_01.png)
-   ![Create first account_02](images/google/MyFirstAccount_02.png)
-   ![Create first account_03](images/google/MyFirstAccount_03.png)
+   ![Create first account_01](images/MyFirstAccount_01.png)
+   ![Create first account_02](images/MyFirstAccount_02.png)
+   ![Create first account_03](images/MyFirstAccount_03.png)
    
    After project is created, create a service account.
   * Note: There are many methods for authentication while working on google cloud. 
@@ -72,7 +72,7 @@ cloudmesh4.yaml in parameter "path_to_json_file"
 
    * Go to [create service account page](https://cloud.google.com/docs/authentication/production)
    
-   ![Create service account_01](images/google/CreateServiceAccount_01.png)
+   ![Create service account_01](images/CreateServiceAccount_01.png)
 
    * Go to section :Creating a service account 
    
@@ -80,7 +80,7 @@ cloudmesh4.yaml in parameter "path_to_json_file"
   
     [Create Service Account Key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
     
-    ![Create service key](images/google/CreateServiceKey_01.png)
+    ![Create service key](images/CreateServiceKey_01.png)
 
       Sample files:
        `client_secret.json` 
