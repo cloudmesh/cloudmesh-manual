@@ -183,7 +183,7 @@ List google storage bucket using following command, if bucket exists list will b
 ```
 cms google list_bucket
 ```
-Use desired bucket from the list and add to yamal file `default.directory`.
+Please pick bucket of choice from the list and add to yaml file `default.directory`.
 
 If bucket is not listed use folling command to create new bucket:
 
