@@ -115,7 +115,7 @@ cloudmesh4.yaml in parameter "path_to_json_file"
   credentials are modified :
 
 ```
-cms google yaml add ~/.cloudmesh/google.json
+cms google yaml add ~/.cloudmesh/google.json --service=google
 ```
 
 * Once this command is successfully executed you can validate the entry in yaml file.
@@ -181,17 +181,19 @@ cms google yaml add ~/.cloudmesh/google.json
 
 List google storage bucket using following command, if bucket exists list will be displayed. 
 ```
-cms google list_bucket
+cms google list bucket
 ```
-Please pick bucket of choice from the list and add to yaml file `default.directory`.
+From the displayed list please pick bucket of your choice and add bucket name to yaml file in the storage section for google provider  `storage > google > default > directory`.
 
 If bucket is not listed use folling command to create new bucket:
 
 ```
-cms google create_bucket BUCKETNAME
+cms google create bucket --name=NAME --service=google
 
 ```
-
+where NAME is new bucket name.
+Note: Bucket name needs to be globally unique, you may choose combinantion of your class ID and bucket name. 
+`e.g. f19_516_xxx_bucket_name`
 
 ### Getting the google json files
 
