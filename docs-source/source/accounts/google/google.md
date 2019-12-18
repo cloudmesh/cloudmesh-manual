@@ -115,7 +115,7 @@ you $300 in credits to use google cloud.)
   credentials are modified :
 
 ```
-cms google yaml write ~/.cloudmesh/google.json
+cms google yaml add ~/.cloudmesh/google.json --service=google
 ```
 
 * Once this command is successfully executed you can validate the entry in yaml file.
@@ -177,7 +177,23 @@ cms google yaml write ~/.cloudmesh/google.json
         client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/user%40imposing-coast-12345.iam.gserviceaccount.com
    
    ```
+* ***Step5 - list or create  google storage bucket and add to config file*** 
 
+List google storage bucket using following command, if bucket exists list will be displayed. 
+```
+cms google list bucket
+```
+From the displayed list please pick bucket of your choice and add bucket name to yaml file in the storage section for google provider  `storage > google > default > directory`.
+
+If bucket is not listed use folling command to create new bucket:
+
+```
+cms google create bucket --name=NAME --service=google
+
+```
+where NAME is new bucket name.
+Note: Bucket name needs to be globally unique, you may choose combinantion of your class ID and bucket name. 
+`e.g. f19_516_xxx_bucket_name`
 
 ### Getting the google json files
 
