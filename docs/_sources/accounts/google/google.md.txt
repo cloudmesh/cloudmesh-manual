@@ -79,14 +79,14 @@ you $300 in credits to use google cloud.)
   [Authentication Overview | Authentication | Google Cloud](https://cloud.google.com/docs/authentication/)
   
 * ***Step 3 - Create Service Account*** Select the newly created
-project and go to IAM & Admin -> Service Accounts -> Create service
-account to create a new service account. Select “Furnish a new private
-key” to create and download new private key you will use to
-authenticate. Opt for the new preferred JSON format, download the file
-and save it to a secure location (e.g. ~/.cloudmesh). For google cloud storage 
-this file will be used to update Yaml entry in ~/.cloudmesh/cloudmesh.yaml.
-Also for gdrive storage option JSON file is referenced in the
-cloudmesh4.yaml in parameter "path_to_json_file"
+  project and go to IAM & Admin -> Service Accounts -> Create service
+  account to create a new service account. Select “Furnish a new private
+  key” to create and download new private key you will use to
+  authenticate. Opt for the new preferred JSON format, download the file
+  and save it to a secure location (e.g. ~/.cloudmesh). For google cloud storage 
+  this file will be used to update Yaml entry in ~/.cloudmesh/cloudmesh.yaml.
+  Also for gdrive storage option JSON file is referenced in the
+  cloudmesh.yaml in parameter "path_to_json_file"
 
 * Alternatively you can do this as follows:
 

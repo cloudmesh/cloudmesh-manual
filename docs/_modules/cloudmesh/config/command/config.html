@@ -288,18 +288,41 @@
 
 <span class="sd">                Keys can be generated with </span>
 
-<span class="sd">                    cms key gen ssh </span>
+<span class="sd">                    cms key gen (ssh | pem) </span>
 
 <span class="sd">                Key validity and password can be verified with</span>
 
-<span class="sd">                    cms key verify </span>
+<span class="sd">                    cms key verify (ssh | pem) </span>
+
+<span class="sd">             key verify (ssh | pem) [--filename=FILENAME] [--pub]</span>
 
 <span class="sd">                ssh-add</span>
 
 <span class="sd">                cms config encrypt </span>
+<span class="sd">                    Encrypts the config data at-rest. This means that the data</span>
+<span class="sd">                    is encrypted when not in use. This command checks two</span>
+<span class="sd">                    attributes within the cloudmesh config file</span>
+
+<span class="sd">                        1. cloudmesh.security.secrets:</span>
+<span class="sd">                            This attribute will hold a list of python regular</span>
+<span class="sd">                            expressions that detail which attributes will be </span>
+<span class="sd">                            encrypted by the command. </span>
+<span class="sd">                            ex) .*: will encrypt all attributes</span>
+<span class="sd">                            ex) .*mdbpwd.*: will encrypt all paths with mdbpwd</span>
+
+<span class="sd">                        2. cloudmesh.security.exceptions:</span>
+<span class="sd">                            This attribute will hold a list of python regular</span>
+<span class="sd">                            expressions that detail which attributes will not</span>
+<span class="sd">                            be encrypted by the command. </span>
+<span class="sd">                            ex) .*pubkey.*: ensures no pubkey path is encrypted </span>
+
+<span class="sd">                    Currently the data will not be decrypted upon query. </span>
+<span class="sd">                    This means that you should decrypt the data when needed.</span>
 
 <span class="sd">                cms config decrypt </span>
-
+<span class="sd">                    Decrypts the config data that was held in rest. This </span>
+<span class="sd">                    command decrypts and attributes that were encrypted</span>
+<span class="sd">                    using the sister `cms config encrypt` command. </span>
 
 <span class="sd">                config set ATTRIBUTE=VALUE</span>
 

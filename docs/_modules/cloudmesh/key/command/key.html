@@ -260,15 +260,14 @@
 <span class="sd">             key group delete [--group=GROUPNAMES] [NAMES] [--dryrun]</span>
 <span class="sd">             key group list [--group=GROUPNAMES] [--output=OUTPUT]</span>
 <span class="sd">             key group export --group=GROUNAMES --filename=FILENAME</span>
-<span class="sd">             key gen (rsa | ssh) [--filename=FILENAME] [--nopass] [--set_path]</span>
-<span class="sd">             key verify (ssh | pem) --filename=FILENAME [--pub]</span>
+<span class="sd">             key gen (ssh | pem) [--filename=FILENAME] [--nopass] [--set_path]</span>
+<span class="sd">             key verify (ssh | pem) [--filename=FILENAME] [--pub]</span>
 
 <span class="sd">           Arguments:</span>
 <span class="sd">             VMS            Parameterized list of virtual machines</span>
 <span class="sd">             CLOUDS         The clouds</span>
 <span class="sd">             NAME           The name of the key.</span>
 <span class="sd">             SOURCE         db, ssh, all</span>
-<span class="sd">             KEYNAME        The desired full path name to the key file</span>
 <span class="sd">             OUTPUT         The format of the output (table, json, yaml)</span>
 <span class="sd">             FILENAME       The filename with full path in which the key is located</span>
 
@@ -278,7 +277,8 @@
 <span class="sd">              --nopass              Flag indicating if the key has no password</span>
 <span class="sd">              --output=OUTPUT       the format of the output [default: table]</span>
 <span class="sd">              --pub                 Indicates that the public key is passed in</span>
-<span class="sd">              --set_path            Sets the security key paths to KEYNAME</span>
+<span class="sd">              --set_path            Sets the cloudmesh encryption key path to</span>
+<span class="sd">                                    the full path of the generated keys</span>
 <span class="sd">              --source=SOURCE       the source for the keys</span>
 <span class="sd">              --username=USERNAME   the source for the keys [default: none]</span>
 
@@ -596,7 +596,7 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">gen</span><span class="p">:</span>
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            key gen (rsa | ssh) [--filename=FILENAME] [--nopass] [--set_path]</span>
+<span class="sd">            key gen (ssh | pem) [--filename=FILENAME] [--nopass] [--set_path]</span>
 <span class="sd">            Generate an RSA key pair with pem or ssh encoding for the public</span>
 <span class="sd">            key. The private key is always encoded as a PEM file.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
@@ -615,14 +615,16 @@
             <span class="n">rk_path</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">uk_path</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">==</span> <span class="s2">&quot;.pub&quot;</span><span class="p">:</span>
-                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
-                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s2">&quot;.priv&quot;</span><span class="p">:</span>
-                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:])</span>
+                <span class="n">fp</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                <span class="n">fname</span><span class="p">,</span> <span class="n">fext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">fext</span> <span class="o">==</span> <span class="s2">&quot;.pub&quot;</span> <span class="ow">or</span> <span class="n">fext</span> <span class="o">==</span> <span class="s2">&quot;.ssh&quot;</span><span class="p">:</span>
+                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">fname</span>
+                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">fp</span>
+                <span class="k">elif</span> <span class="n">fext</span> <span class="o">==</span> <span class="s2">&quot;.priv&quot;</span> <span class="ow">or</span> <span class="n">fext</span> <span class="o">==</span> <span class="s2">&quot;.pem&quot;</span><span class="p">:</span>
+                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">fp</span>
+                    <span class="n">uk_path</span> <span class="o">=</span> <span class="n">fname</span> <span class="o">+</span> <span class="s2">&quot;.pub&quot;</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                    <span class="n">rk_path</span> <span class="o">=</span> <span class="n">fp</span>
                     <span class="n">uk_path</span> <span class="o">=</span> <span class="n">rk_path</span> <span class="o">+</span> <span class="s2">&quot;.pub&quot;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">rk_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.privatekey&#39;</span><span class="p">])</span>
@@ -653,7 +655,7 @@
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ssh</span><span class="p">:</span>
                 <span class="n">enc</span> <span class="o">=</span> <span class="s2">&quot;SSH&quot;</span>
                 <span class="n">forma</span> <span class="o">=</span> <span class="s2">&quot;SSH&quot;</span>
-            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rsa</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">pem</span><span class="p">:</span>
                 <span class="n">enc</span> <span class="o">=</span> <span class="s2">&quot;PEM&quot;</span>
                 <span class="n">forma</span> <span class="o">=</span> <span class="s2">&quot;SubjectInfo&quot;</span>
 
@@ -666,15 +668,26 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">verify</span><span class="p">:</span>
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            key verify (ssh | pem) --filename=FILENAME --pub</span>
+<span class="sd">            key verify (ssh | pem) [--filename=FILENAME] [--pub]</span>
 <span class="sd">            Verifies the encoding (pem or ssh) of the key (private or public)</span>
 <span class="sd">            &quot;&quot;&quot;</span>
+            <span class="c1"># Initialize variables</span>
             <span class="n">kh</span> <span class="o">=</span> <span class="n">KeyHandler</span><span class="p">()</span>
-            <span class="n">fp</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span>
-            <span class="n">kt</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="n">enc</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># Determine filepath</span>
+            <span class="n">fp</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">pub</span><span class="p">:</span>
+                    <span class="n">fp</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.profile.publickey&#39;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fp</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.privatekey&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fp</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span>
 
             <span class="c1"># Discern key type</span>
+            <span class="n">kt</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">enc</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">pub</span><span class="p">:</span>
                 <span class="n">kt</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span>
                 <span class="c1"># Discern public key encoding</span>
@@ -724,6 +737,8 @@
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
         <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+
+
 </pre></div>
 
            </div>

@@ -270,84 +270,107 @@
 <dl class="method">
 <dt id="cloudmesh.config.command.config.ConfigCommand.do_config">
 <code class="sig-name descname">do_config</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.config.command.config.ConfigCommand.do_config" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-  <span class="n">config</span>  <span class="o">-</span><span class="n">h</span> <span class="o">|</span> <span class="o">--</span><span class="n">help</span>
-  <span class="n">config</span> <span class="n">cat</span> <span class="p">[</span><span class="n">less</span><span class="p">]</span>
-  <span class="n">config</span> <span class="n">check</span>
-  <span class="n">config</span> <span class="n">secinit</span>
-  <span class="n">config</span> <span class="n">security</span> <span class="n">add</span> <span class="p">(</span><span class="o">--</span><span class="n">secret</span><span class="o">=</span><span class="n">REGEXP</span> <span class="o">|</span> <span class="o">--</span><span class="n">exception</span><span class="o">=</span><span class="n">REGEXP</span> <span class="p">)</span>
-  <span class="n">config</span> <span class="n">security</span> <span class="n">rmv</span> <span class="p">(</span><span class="o">--</span><span class="n">secret</span><span class="o">=</span><span class="n">REGEXP</span> <span class="o">|</span> <span class="o">--</span><span class="n">exception</span><span class="o">=</span><span class="n">REGEXP</span> <span class="p">)</span>
-  <span class="n">config</span> <span class="n">encrypt</span> 
-  <span class="n">config</span> <span class="n">decrypt</span> <span class="p">[</span><span class="o">--</span><span class="n">nopass</span><span class="p">]</span>
-  <span class="n">config</span> <span class="n">edit</span> <span class="p">[</span><span class="n">ATTRIBUTE</span><span class="p">]</span>
-  <span class="n">config</span> <span class="nb">set</span> <span class="n">ATTRIBUTE</span><span class="o">=</span><span class="n">VALUE</span>
-  <span class="n">config</span> <span class="n">get</span> <span class="n">ATTRIBUTE</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">config</span> <span class="n">value</span> <span class="n">ATTRIBUTE</span>
-  <span class="n">config</span> <span class="n">cloud</span> <span class="n">verify</span> <span class="n">NAME</span> <span class="p">[</span><span class="n">KIND</span><span class="p">]</span>
-  <span class="n">config</span> <span class="n">cloud</span> <span class="n">edit</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">KIND</span><span class="p">]</span>
-  <span class="n">config</span> <span class="n">cloud</span> <span class="nb">list</span> <span class="n">NAME</span> <span class="p">[</span><span class="n">KIND</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">secrets</span><span class="p">]</span>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
+  config  -h | --help
+  config cat [less]
+  config check
+  config secinit
+  config security add (--secret=REGEXP | --exception=REGEXP )
+  config security rmv (--secret=REGEXP | --exception=REGEXP )
+  config encrypt 
+  config decrypt [--nopass]
+  config edit [ATTRIBUTE]
+  config set ATTRIBUTE=VALUE
+  config get ATTRIBUTE [--output=OUTPUT]
+  config value ATTRIBUTE
+  config cloud verify NAME [KIND]
+  config cloud edit [NAME] [KIND]
+  config cloud list NAME [KIND] [--secrets]
 
 
-<span class="n">Arguments</span><span class="p">:</span>
-  <span class="n">SOURCE</span>           <span class="n">the</span> <span class="n">file</span> <span class="n">to</span> <span class="n">encrypted</span> <span class="ow">or</span> <span class="n">decrypted</span><span class="o">.</span>
-                   <span class="n">an</span> <span class="o">.</span><span class="n">enc</span> <span class="ow">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">filename</span> <span class="ow">or</span> <span class="n">removed</span> <span class="n">form</span> <span class="n">it</span>
-                   <span class="n">dependent</span> <span class="n">of</span> <span class="k">if</span> <span class="n">you</span> <span class="n">encrypt</span> <span class="ow">or</span> <span class="n">decrypt</span>
-  <span class="n">ATTRIBUTE</span><span class="o">=</span><span class="n">VALUE</span>  <span class="n">sets</span> <span class="n">the</span> <span class="n">attribute</span> <span class="k">with</span> <span class="o">.</span> <span class="n">notation</span> <span class="ow">in</span> <span class="n">the</span>
-                   <span class="n">configuration</span> <span class="n">file</span><span class="o">.</span>
-  <span class="n">ATTRIBUTE</span>        <span class="n">reads</span> <span class="n">the</span> <span class="n">attribute</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">container</span> <span class="ow">and</span> <span class="n">sets</span> <span class="n">it</span>
-                   <span class="ow">in</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">file</span>
-                   <span class="n">If</span> <span class="n">the</span> <span class="n">attribute</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">password</span><span class="p">,</span> <span class="o">*</span> <span class="ow">is</span> <span class="n">written</span> <span class="n">instead</span>
-                   <span class="n">of</span> <span class="n">the</span> <span class="n">character</span> <span class="n">included</span>
-  <span class="n">REGEXP</span>           <span class="n">python</span> <span class="n">regular</span> <span class="n">expression</span>
+Arguments:
+  SOURCE           the file to encrypted or decrypted.
+                   an .enc is added to the filename or removed form it
+                   dependent of if you encrypt or decrypt
+  ATTRIBUTE=VALUE  sets the attribute with . notation in the
+                   configuration file.
+  ATTRIBUTE        reads the attribute from the container and sets it
+                   in the configuration file
+                   If the attribute is a password, * is written instead
+                   of the character included
+  REGEXP           python regular expression
 
-<span class="n">Options</span><span class="p">:</span>
-   <span class="o">--</span><span class="n">secret</span><span class="o">=</span><span class="n">REGEXP</span>       <span class="n">ensures</span> <span class="nb">all</span> <span class="n">attributes</span> <span class="n">within</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">yaml</span> 
-                         <span class="n">whose</span> <span class="n">dot</span> <span class="n">path</span> <span class="n">matches</span> <span class="n">REGEXP</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">encrypted</span>
-                         <span class="p">(</span><span class="n">even</span> <span class="k">if</span> <span class="n">listed</span> <span class="ow">in</span> <span class="n">secrets</span><span class="p">)</span>
-   <span class="o">--</span><span class="n">exception</span><span class="o">=</span><span class="n">REGEXP</span>    <span class="n">ensures</span> <span class="n">attributes</span> <span class="n">within</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">yaml</span> <span class="n">whose</span> 
-                         <span class="n">dot</span> <span class="n">path</span> <span class="n">matches</span> <span class="n">REGEXP</span> <span class="n">are</span> <span class="n">encrypted</span>
-   <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">KEYNAME</span>        <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">key</span>
-   <span class="o">--</span><span class="n">nopass</span>              <span class="n">Indicates</span> <span class="k">if</span> <span class="n">private</span> <span class="n">key</span> <span class="ow">is</span> <span class="n">password</span> <span class="n">protected</span>
-   <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span>       <span class="n">The</span> <span class="n">output</span> <span class="nb">format</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">yaml</span><span class="p">]</span>
-   <span class="o">--</span><span class="n">secrets</span>             <span class="n">Print</span> <span class="n">the</span> <span class="n">secrets</span><span class="o">.</span> <span class="n">Use</span> <span class="n">carefully</span><span class="o">.</span>
+Options:
+   --secret=REGEXP       ensures all attributes within cloudmesh.yaml 
+                         whose dot path matches REGEXP are not encrypted
+                         (even if listed in secrets)
+   --exception=REGEXP    ensures attributes within cloudmesh.yaml whose 
+                         dot path matches REGEXP are encrypted
+   --name=KEYNAME        The name of a key
+   --nopass              Indicates if private key is password protected
+   --output=OUTPUT       The output format [default: yaml]
+   --secrets             Print the secrets. Use carefully.
 
-<span class="n">Description</span><span class="p">:</span>
+Description:
 
-  <span class="n">config</span> <span class="n">check</span>
-     <span class="n">checks</span> <span class="k">if</span> <span class="n">the</span> <span class="n">ssh</span> <span class="n">key</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span> <span class="n">has</span> <span class="n">a</span> <span class="n">password</span><span class="o">.</span> <span class="n">Verifies</span> <span class="n">it</span>
-     <span class="n">through</span> <span class="n">entering</span> <span class="n">the</span> <span class="n">passphrase</span>
+  config check
+     checks if the ssh key ~/.ssh/id_rsa has a password. Verifies it
+     through entering the passphrase
 
-  <span class="n">Key</span> <span class="n">generation</span>
+  Key generation
 
-     <span class="n">Keys</span> <span class="n">can</span> <span class="n">be</span> <span class="n">generated</span> <span class="k">with</span> 
+     Keys can be generated with 
 
-         <span class="n">cms</span> <span class="n">key</span> <span class="n">gen</span> <span class="n">ssh</span> 
+         cms key gen (ssh | pem) 
 
-     <span class="n">Key</span> <span class="n">validity</span> <span class="ow">and</span> <span class="n">password</span> <span class="n">can</span> <span class="n">be</span> <span class="n">verified</span> <span class="k">with</span>
+     Key validity and password can be verified with
 
-         <span class="n">cms</span> <span class="n">key</span> <span class="n">verify</span> 
+         cms key verify (ssh | pem) 
 
-     <span class="n">ssh</span><span class="o">-</span><span class="n">add</span>
+  key verify (ssh | pem) [--filename=FILENAME] [--pub]
 
-     <span class="n">cms</span> <span class="n">config</span> <span class="n">encrypt</span> 
+     ssh-add
 
-     <span class="n">cms</span> <span class="n">config</span> <span class="n">decrypt</span> 
+     cms config encrypt 
+         Encrypts the config data at-rest. This means that the data
+         is encrypted when not in use. This command checks two
+         attributes within the cloudmesh config file
 
+             1. cloudmesh.security.secrets:
+                 This attribute will hold a list of python regular
+                 expressions that detail which attributes will be 
+                 encrypted by the command. 
+                 ex) .*: will encrypt all attributes
+                 ex) .*mdbpwd.*: will encrypt all paths with mdbpwd
 
-     <span class="n">config</span> <span class="nb">set</span> <span class="n">ATTRIBUTE</span><span class="o">=</span><span class="n">VALUE</span>
+             2. cloudmesh.security.exceptions:
+                 This attribute will hold a list of python regular
+                 expressions that detail which attributes will not
+                 be encrypted by the command. 
+                 ex) .*pubkey.*: ensures no pubkey path is encrypted 
 
-         <span class="n">config</span> <span class="nb">set</span> <span class="n">profile</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">Gregor</span>
+         Currently the data will not be decrypted upon query. 
+         This means that you should decrypt the data when needed.
 
-     <span class="n">In</span> <span class="n">case</span> <span class="n">the</span> <span class="n">ATTRIBUTE</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span> <span class="n">defined</span> <span class="n">under</span>
-     <span class="n">cloudmesh</span><span class="o">.</span><span class="n">cloud</span><span class="p">,</span> <span class="n">the</span> <span class="n">value</span> <span class="n">will</span> <span class="n">be</span> <span class="n">written</span> <span class="n">into</span> <span class="n">the</span> <span class="n">credentials</span>
-     <span class="n">attributes</span> <span class="k">for</span> <span class="n">that</span> <span class="n">cloud</span> <span class="n">this</span> <span class="n">way</span> <span class="n">you</span> <span class="n">can</span> <span class="n">safe</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">of</span>
-     <span class="n">typing</span><span class="o">.</span> <span class="n">An</span> <span class="n">example</span> <span class="ow">is</span>
+     cms config decrypt 
+         Decrypts the config data that was held in rest. This 
+         command decrypts and attributes that were encrypted
+         using the sister `cms config encrypt` command. 
 
-         <span class="n">cms</span> <span class="n">config</span> <span class="nb">set</span> <span class="n">aws</span><span class="o">.</span><span class="n">AWS_TEST</span><span class="o">=</span><span class="n">Gregor</span>
+     config set ATTRIBUTE=VALUE
 
-     <span class="n">which</span> <span class="n">would</span> <span class="n">write</span> <span class="n">the</span> <span class="n">AWS_TEST</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">credentials</span>
-     <span class="n">of</span> <span class="n">the</span> <span class="n">cloud</span> <span class="n">aws</span><span class="o">.</span> <span class="n">This</span> <span class="n">can</span> <span class="n">naturally</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="nb">set</span> <span class="k">for</span>
-     <span class="n">example</span> <span class="n">username</span> <span class="ow">and</span> <span class="n">password</span><span class="o">.</span>
+         config set profile.name=Gregor
+
+     In case the ATTRIBUTE is the name of a cloud defined under
+     cloudmesh.cloud, the value will be written into the credentials
+     attributes for that cloud this way you can safe a lot of
+     typing. An example is
+
+         cms config set aws.AWS_TEST=Gregor
+
+     which would write the AWS_TEST attribute in the credentials
+     of the cloud aws. This can naturally be used to set for
+     example username and password.
 </pre></div>
 </div>
 </dd></dl>
