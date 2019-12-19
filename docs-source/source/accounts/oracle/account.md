@@ -83,14 +83,15 @@ $ pip install oci
 ## Cloudmesh Config File
 
 Cloudmesh config file (cloudmesh.yaml) will have the following entries for
-compute and storage respectively.
+compute and storage respectively. Add them to the config file if not already
+there.
 
 ### Compute Entry
 
 ```
 cloudmesh:
   ...
-  compute:
+  cloud:
     oracle:
       cm:
         active: true
@@ -103,7 +104,6 @@ cloudmesh:
       default:
         image: Oracle-Linux-7.7-2019.11.12-0
         size: VM.Standard.E2.1
-        key: TBD
       credentials:
         user : TBD
         fingerprint : TBD
@@ -120,6 +120,7 @@ cloudmesh:
 cloudmesh:
   ...
   storage:
+    oracle:
       cm:
         active: true
         heading: Oracle
@@ -178,7 +179,7 @@ private key and hit `Enter`.
 ```bash
 $ openssl rsa -pubout -in ~/.oci/oci_api_key.pem \
               -out ~/.oci/oci_api_key_public.pem \
-              -passin stdin`
+              -passin stdin
 ```
 
 Step 6: Copy the contents of the public key to the clipboard as you will
@@ -254,6 +255,11 @@ Copy and paste it to the config file.
  
 ![Compartment Details](images/compartment-details.png)
 
+### Public Key
+
+Add the path to the ssh public key in the cloudmesh.yaml file in cloudmesh
+/profile/publickey.
+
 ## Compute Service
 
 The first thing we need to make sure is that a private public ssh key pair
@@ -287,7 +293,7 @@ $ cms vm stop 'vm-name'
 To terminate the instance, use the command:
 
 ```bash
-$ cms vm stop 'vm-name'
+$ cms vm terminate 'vm-name'
 ```
  
 ## Storage Service
@@ -338,6 +344,7 @@ $ cms storage --storage=oracle search DIRECTORY FILENAME
 ## References
 
 * OCI Documentation, 
-<https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/index.html>
+<https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest
+/index.html>
 * Required Keys and OCIDs, 
 <https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm>
