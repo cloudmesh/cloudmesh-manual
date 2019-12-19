@@ -7,7 +7,7 @@ storage
      storage [--storage=SERVICE] create dir DIRECTORY
      storage [--storage=SERVICE] get SOURCE DESTINATION [--recursive]
      storage [--storage=SERVICE] put SOURCE DESTINATION [--recursive]
-     storage [--storage=SERVICE] list SOURCE [--recursive] [--output=OUTPUT]
+     storage [--storage=SERVICE] list [SOURCE] [--recursive] [--output=OUTPUT]
      storage [--storage=SERVICE] delete SOURCE
      storage [--storage=SERVICE] search  DIRECTORY FILENAME [--recursive] [--output=OUTPUT]
      storage [--storage=SERVICE] sync SOURCE DESTINATION [--name=NAME] [--async]
@@ -73,9 +73,10 @@ storage
        Lists the configures storage services in the yaml file
 
      storage copy SOURCE DESTINATION
-       Copies objects from SOURCE CSP to DESTINATION CSP
-       SOURCE: awss3:source
-       DESTINATION: azure:target
+       Copies files from source storage to destination storage.
+       The syntax of SOURCE and DESTINATION is:
+       SOURCE - awss3:source.txt
+       DESTINATION - azure:target.txt
 
    Example:
       set storage=azureblob
@@ -83,3 +84,5 @@ storage
 
       is the same as
       storage --storage=azureblob put SOURCE DESTINATION --recursive
+
+      storage copy azure:source.txt oracle:target.txt

@@ -135,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -244,6 +244,7 @@
 <span class="sd">             config secinit</span>
 <span class="sd">             config security add (--secret=REGEXP | --exception=REGEXP )</span>
 <span class="sd">             config security rmv (--secret=REGEXP | --exception=REGEXP )</span>
+<span class="sd">             config security list</span>
 <span class="sd">             config encrypt </span>
 <span class="sd">             config decrypt [--nopass]</span>
 <span class="sd">             config edit [ATTRIBUTE]</span>
@@ -300,8 +301,13 @@
 
 <span class="sd">                cms config encrypt </span>
 <span class="sd">                    Encrypts the config data at-rest. This means that the data</span>
-<span class="sd">                    is encrypted when not in use. This command checks two</span>
-<span class="sd">                    attributes within the cloudmesh config file</span>
+<span class="sd">                    is encrypted when not in use. This command is reliant upon</span>
+<span class="sd">                    the cloudmesh.security.secrets attribute and the</span>
+<span class="sd">                    cloudmesh.security.exceptions attribute within the</span>
+<span class="sd">                    cloudmesh.yaml file. Note, that the encrypted data is not </span>
+<span class="sd">                    encrypted upon request/query to the attribute. This means </span>
+<span class="sd">                    you must decrypt the config when needed in use and</span>
+<span class="sd">                    re-encrypt when not using the file, or delivering the file.</span>
 
 <span class="sd">                        1. cloudmesh.security.secrets:</span>
 <span class="sd">                            This attribute will hold a list of python regular</span>
@@ -315,9 +321,22 @@
 <span class="sd">                            expressions that detail which attributes will not</span>
 <span class="sd">                            be encrypted by the command. </span>
 <span class="sd">                            ex) .*pubkey.*: ensures no pubkey path is encrypted </span>
+<span class="sd">                    </span>
+<span class="sd">                security add --secret=REGEXP </span>
+<span class="sd">                    Adds valid REGEXP to the cloudmesh.security.secrets section</span>
 
-<span class="sd">                    Currently the data will not be decrypted upon query. </span>
-<span class="sd">                    This means that you should decrypt the data when needed.</span>
+<span class="sd">                security rmv --secret=REGEXP </span>
+<span class="sd">                    Removes REGEXP from the cloudmesh.security.secrets section</span>
+
+<span class="sd">                security add --exception=REGEXP</span>
+<span class="sd">                    Adds valid REGEXP to cloudmesh.security.exceptions section</span>
+
+<span class="sd">                security rmv --exception=REGEXP</span>
+<span class="sd">                    Removes REGEXP from cloudmesh.security.exceptions section</span>
+
+<span class="sd">                security list</span>
+<span class="sd">                    Prints a list of all the attribute dot-paths that are </span>
+<span class="sd">                    referenced by cms config encryption and decryption commands</span>
 
 <span class="sd">                cms config decrypt </span>
 <span class="sd">                    Decrypts the config data that was held in rest. This </span>
@@ -511,6 +530,12 @@
             <span class="n">secpath</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;cloudmesh.security.secpath&#39;</span><span class="p">])</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">secpath</span><span class="p">):</span>
                 <span class="n">Shell</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">secpath</span><span class="p">)</span>  <span class="c1"># Use Shell that makes all dirs as needed</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">security</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">secrets</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_list_secrets</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">secrets</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">security</span><span class="p">:</span>
             <span class="c1"># Get the regular expression from command line</span>

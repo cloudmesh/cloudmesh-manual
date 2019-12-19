@@ -135,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -231,7 +231,7 @@
 <span class="sd">             storage [--storage=SERVICE] create dir DIRECTORY</span>
 <span class="sd">             storage [--storage=SERVICE] get SOURCE DESTINATION [--recursive]</span>
 <span class="sd">             storage [--storage=SERVICE] put SOURCE DESTINATION [--recursive]</span>
-<span class="sd">             storage [--storage=SERVICE] list SOURCE [--recursive] [--output=OUTPUT]</span>
+<span class="sd">             storage [--storage=SERVICE] list [SOURCE] [--recursive] [--output=OUTPUT]</span>
 <span class="sd">             storage [--storage=SERVICE] delete SOURCE</span>
 <span class="sd">             storage [--storage=SERVICE] search  DIRECTORY FILENAME [--recursive] [--output=OUTPUT]</span>
 <span class="sd">             storage [--storage=SERVICE] sync SOURCE DESTINATION [--name=NAME] [--async]</span>
@@ -297,9 +297,10 @@
 <span class="sd">               Lists the configures storage services in the yaml file</span>
 
 <span class="sd">             storage copy SOURCE DESTINATION</span>
-<span class="sd">               Copies objects from SOURCE CSP to DESTINATION CSP</span>
-<span class="sd">               SOURCE: awss3:source</span>
-<span class="sd">               DESTINATION: azure:target</span>
+<span class="sd">               Copies files from source storage to destination storage.</span>
+<span class="sd">               The syntax of SOURCE and DESTINATION is:</span>
+<span class="sd">               SOURCE - awss3:source.txt</span>
+<span class="sd">               DESTINATION - azure:target.txt</span>
 
 <span class="sd">           Example:</span>
 <span class="sd">              set storage=azureblob</span>
@@ -307,6 +308,8 @@
 
 <span class="sd">              is the same as</span>
 <span class="sd">              storage --storage=azureblob put SOURCE DESTINATION --recursive</span>
+
+<span class="sd">              storage copy azure:source.txt oracle:target.txt</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># arguments.CONTAINER = arguments[&quot;--container&quot;]</span>
@@ -356,10 +359,12 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
 
-             <span class="k">for</span> <span class="n">storage</span> <span class="ow">in</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">SOURCE</span> <span class="ow">or</span> <span class="s1">&#39;.&#39;</span>
+
+            <span class="k">for</span> <span class="n">storage</span> <span class="ow">in</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span><span class="p">:</span>
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">storage</span><span class="p">)</span>
 
-                <span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">SOURCE</span><span class="p">,</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">source</span><span class="p">,</span>
                                        <span class="n">arguments</span><span class="o">.</span><span class="n">recursive</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span><span class="p">:</span>
@@ -386,7 +391,8 @@
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">copy</span><span class="p">:</span>
             <span class="n">VERBOSE</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;COPY: Executing Copy command from </span><span class="si">{arguments.SOURCE}</span><span class="s2"> to &quot;</span>
                     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.DESTINATION}</span><span class="s2"> providers&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INITIALIZE with </span><span class="si">{arguments.storage[0]}</span><span class="s2"> provider.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DEBUG storage.py: INITIALIZE with </span><span class="si">{arguments.storage[0]}</span><span class="s2"> &quot;</span>
+                  <span class="s2">&quot;provider.&quot;</span><span class="p">)</span>
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">storage</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 

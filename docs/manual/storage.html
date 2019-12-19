@@ -142,7 +142,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -226,7 +226,7 @@
   <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">create</span> <span class="nb">dir</span> <span class="n">DIRECTORY</span>
   <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">get</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span>
   <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="nb">list</span> <span class="n">SOURCE</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="nb">list</span> <span class="p">[</span><span class="n">SOURCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
   <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">delete</span> <span class="n">SOURCE</span>
   <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">search</span>  <span class="n">DIRECTORY</span> <span class="n">FILENAME</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
   <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">sync</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="k">async</span><span class="p">]</span>
@@ -292,9 +292,10 @@
     <span class="n">Lists</span> <span class="n">the</span> <span class="n">configures</span> <span class="n">storage</span> <span class="n">services</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">yaml</span> <span class="n">file</span>
 
   <span class="n">storage</span> <span class="n">copy</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span>
-    <span class="n">Copies</span> <span class="n">objects</span> <span class="kn">from</span> <span class="nn">SOURCE</span> <span class="n">CSP</span> <span class="n">to</span> <span class="n">DESTINATION</span> <span class="n">CSP</span>
-    <span class="n">SOURCE</span><span class="p">:</span> <span class="n">awss3</span><span class="p">:</span><span class="n">source</span>
-    <span class="n">DESTINATION</span><span class="p">:</span> <span class="n">azure</span><span class="p">:</span><span class="n">target</span>
+    <span class="n">Copies</span> <span class="n">files</span> <span class="kn">from</span> <span class="nn">source</span> <span class="n">storage</span> <span class="n">to</span> <span class="n">destination</span> <span class="n">storage</span><span class="o">.</span>
+    <span class="n">The</span> <span class="n">syntax</span> <span class="n">of</span> <span class="n">SOURCE</span> <span class="ow">and</span> <span class="n">DESTINATION</span> <span class="ow">is</span><span class="p">:</span>
+    <span class="n">SOURCE</span> <span class="o">-</span> <span class="n">awss3</span><span class="p">:</span><span class="n">source</span><span class="o">.</span><span class="n">txt</span>
+    <span class="n">DESTINATION</span> <span class="o">-</span> <span class="n">azure</span><span class="p">:</span><span class="n">target</span><span class="o">.</span><span class="n">txt</span>
 
 <span class="n">Example</span><span class="p">:</span>
    <span class="nb">set</span> <span class="n">storage</span><span class="o">=</span><span class="n">azureblob</span>
@@ -302,6 +303,8 @@
 
    <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span>
    <span class="n">storage</span> <span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">azureblob</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="o">--</span><span class="n">recursive</span>
+
+   <span class="n">storage</span> <span class="n">copy</span> <span class="n">azure</span><span class="p">:</span><span class="n">source</span><span class="o">.</span><span class="n">txt</span> <span class="n">oracle</span><span class="p">:</span><span class="n">target</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </div>

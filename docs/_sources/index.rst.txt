@@ -66,7 +66,7 @@ Cloudmesh Version 4
    accounts/aws
    accounts/azure
    accounts/google/google
-   accounts/oracle
+   accounts/oracle/account
    accounts/box
    accounts/accountcreation-old
 

@@ -173,6 +173,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.register.AWSRegister">cloudmesh.register.AWSRegister module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.register.Entry">cloudmesh.register.Entry module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.register.Register">cloudmesh.register.Register module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.register">Module contents</a></li>
 </ul>
@@ -224,7 +225,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -363,6 +364,46 @@
 <dl class="method">
 <dt id="cloudmesh.register.AWSRegister.AWSRegister.user_exists">
 <code class="sig-name descname">user_exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/AWSRegister.html#AWSRegister.user_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.AWSRegister.AWSRegister.user_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.register.Entry">
+<span id="cloudmesh-register-entry-module"></span><h2>cloudmesh.register.Entry module<a class="headerlink" href="#module-cloudmesh.register.Entry" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.register.Entry.Entry">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.register.Entry.</code><code class="sig-name descname">Entry</code><a class="reference internal" href="../_modules/cloudmesh/register/Entry.html#Entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Entry.Entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>add an entry to the yaml file.</p>
+<p>entry_text = ‘’’
+cloudmesh:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sample:</dt><dd><dl class="simple">
+<dt>cm:</dt><dd><p>name:</p>
+</dd>
+<dt>credential:</dt><dd><p>value:</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>‘’’</p>
+<p>entry = Entry.add(entry=entry_text, path=”~/.cloudmesh/cloudmesh.yaml, )</p>
+<dl class="method">
+<dt id="cloudmesh.register.Entry.Entry.add">
+<em class="property">static </em><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">entry=None</em>, <em class="sig-param">base='cloudmesh.cloud'</em>, <em class="sig-param">path='~/.cloudmesh/cloudmesh.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Entry.html#Entry.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Entry.Entry.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.register.Entry.Entry.extract">
+<em class="property">static </em><code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">base</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Entry.html#Entry.extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Entry.Entry.extract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.register.Entry.Entry.verify">
+<em class="property">static </em><code class="sig-name descname">verify</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Entry.html#Entry.verify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Entry.Entry.verify" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

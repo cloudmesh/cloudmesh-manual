@@ -219,7 +219,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -317,35 +317,69 @@
 <dl class="method">
 <dt id="cloudmesh.storage.provider.awss3.Provider.Provider.bucket_create">
 <code class="sig-name descname">bucket_create</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/awss3/Provider.html#Provider.bucket_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_create" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>gets the source name from the put function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>name</strong> – the bucket name which needs to be created</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict,Boolean</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.awss3.Provider.Provider.bucket_exists">
 <code class="sig-name descname">bucket_exists</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/awss3/Provider.html#Provider.bucket_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_exists" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>gets the source from the put function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>name</strong> – the bucket name which needs to be checked for exists</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Boolean</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.awss3.Provider.Provider.create_dir">
 <code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/awss3/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.awss3.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>creates a directory
-:param service: the name of the service in the yaml file
-:param directory: the name of the directory
-:return: dict</p>
+<dd><p>creates a directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>directory</strong> – the name of the directory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.awss3.Provider.Provider.delete">
 <code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">source=None</em>, <em class="sig-param">recursive=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/awss3/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.awss3.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>deletes the source
-:param service: the name of the service in the yaml file
-:param source: the source which either can be a directory or file
-:param recursive: in case of directory the recursive refers to all</p>
-<blockquote>
-<div><p>subdirectories in the specified source</p>
-</div></blockquote>
+<dd><p>deletes the source</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dict</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -358,8 +392,9 @@
 <dl class="method">
 <dt id="cloudmesh.storage.provider.awss3.Provider.Provider.get">
 <code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/awss3/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.awss3.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>gets the source from the service</dt><dd><dl class="field-list simple">
+<dd><p>gets the source from the service</p>
+<blockquote>
+<div><dl class="field-list simple">
 <dt class="field-odd">param service</dt>
 <dd class="field-odd"><p>the name of the service in the yaml file</p>
 </dd>
@@ -377,8 +412,7 @@ subdirectories in the specified source</p>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -413,19 +447,27 @@ subdirectories in the specified source</p></li>
 <dl class="method">
 <dt id="cloudmesh.storage.provider.awss3.Provider.Provider.put">
 <code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/awss3/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.awss3.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>puts the source on the service
-:param service: the name of the service in the yaml file
-:param source: the source which either can be a directory or file
-:param destination: the destination which either can be a directory or file
-:param recursive: in case of directory the recursive refers to all</p>
+<dd><p>puts the source on the service</p>
 <blockquote>
-<div><p>subdirectories in the specified source</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<div><dl class="field-list simple">
+<dt class="field-odd">param service</dt>
+<dd class="field-odd"><p>the name of the service in the yaml file</p>
+</dd>
+<dt class="field-even">param source</dt>
+<dd class="field-even"><p>the source which either can be a directory or file</p>
+</dd>
+<dt class="field-odd">param destination</dt>
+<dd class="field-odd"><p>the destination which either can be a directory or file</p>
+</dd>
+<dt class="field-even">param recursive</dt>
+<dd class="field-even"><p>in case of directory the recursive refers to all
+subdirectories in the specified source</p>
+</dd>
+<dt class="field-odd">return</dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">

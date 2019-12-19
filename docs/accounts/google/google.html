@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Oracle Cloud Account" href="../oracle.html" />
+    <link rel="next" title="Oracle Cloud Account" href="../oracle/account.html" />
     <link rel="prev" title="Azure Account" href="../azure.html" /> 
 </head>
 
@@ -148,7 +148,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -318,7 +318,7 @@ cloudmesh.yaml in parameter “path_to_json_file”</p></li>
 <li><p>Run follwing cloudmesh command, for the first time and every time your
 credentials are modified :</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">yaml</span> <span class="n">write</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">google</span><span class="o">.</span><span class="n">json</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">yaml</span> <span class="n">add</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">google</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">google</span>
 </pre></div>
 </div>
 <ul>
@@ -380,7 +380,20 @@ Here is the sample yaml file entry for google storage :</p>
 </pre></div>
 </div>
 </li>
+<li><p><em><strong>Step5 - list or create  google storage bucket and add to config file</strong></em></p></li>
 </ul>
+<p>List google storage bucket using following command, if bucket exists list will be displayed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="nb">list</span> <span class="n">bucket</span>
+</pre></div>
+</div>
+<p>From the displayed list please pick bucket of your choice and add bucket name to yaml file in the storage section for google provider  <code class="docutils literal notranslate"><span class="pre">storage</span> <span class="pre">&gt;</span> <span class="pre">google</span> <span class="pre">&gt;</span> <span class="pre">default</span> <span class="pre">&gt;</span> <span class="pre">directory</span></code>.</p>
+<p>If bucket is not listed use folling command to create new bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">create</span> <span class="n">bucket</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">google</span>
+</pre></div>
+</div>
+<p>where NAME is new bucket name.
+Note: Bucket name needs to be globally unique, you may choose combinantion of your class ID and bucket name.
+<code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">f19_516_xxx_bucket_name</span></code></p>
 <div class="section" id="getting-the-google-json-files">
 <h3>Getting the google json files<a class="headerlink" href="#getting-the-google-json-files" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -481,7 +494,7 @@ Google Drive.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../oracle.html" class="btn btn-neutral float-right" title="Oracle Cloud Account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../oracle/account.html" class="btn btn-neutral float-right" title="Oracle Cloud Account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../azure.html" class="btn btn-neutral float-left" title="Azure Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

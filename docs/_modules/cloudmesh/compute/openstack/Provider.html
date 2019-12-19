@@ -135,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -238,6 +238,36 @@
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">,</span> <span class="n">ComputeProviderPlugin</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;openstack&quot;</span>
+
+    <span class="n">sample</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    cloudmesh:</span>
+<span class="s2">      cloud:</span>
+<span class="s2">        </span><span class="si">{name}</span><span class="s2">:</span>
+<span class="s2">          cm:</span>
+<span class="s2">            active: true</span>
+<span class="s2">            heading: </span><span class="si">{name}</span><span class="s2"></span>
+<span class="s2">            host: TBD</span>
+<span class="s2">            label: </span><span class="si">{name}</span><span class="s2"></span>
+<span class="s2">            kind: openstack</span>
+<span class="s2">            version: liberty</span>
+<span class="s2">            service: compute</span>
+<span class="s2">          credentials:</span>
+<span class="s2">            OS_AUTH_URL: https://</span><span class="si">{uri}</span><span class="s2">:5000/v2.0</span>
+<span class="s2">            OS_USERNAME: TBD</span>
+<span class="s2">            OS_PASSWORD: TBD</span>
+<span class="s2">            OS_TENANT_NAME: </span><span class="si">{tenant}</span><span class="s2"></span>
+<span class="s2">            OS_TENANT_ID: </span><span class="si">{tenant}</span><span class="s2"></span>
+<span class="s2">            OS_PROJECT_NAME: </span><span class="si">{tenant}</span><span class="s2"></span>
+<span class="s2">            OS_PROJECT_DOMAIN_ID: default</span>
+<span class="s2">            OS_USER_DOMAIN_ID: default</span>
+<span class="s2">            OS_VERSION: kilo</span>
+<span class="s2">            OS_REGION_NAME: </span><span class="si">{region}</span><span class="s2"></span>
+<span class="s2">            OS_KEY_PATH: ~/.ssh/id_rsa.pub</span>
+<span class="s2">          default:</span>
+<span class="s2">            size: m1.medium</span>
+<span class="s2">            image: CC-Ubuntu18.04</span>
+<span class="s2">            username: TBD</span>
+<span class="s2">        &quot;&quot;&quot;</span>
 
     <span class="n">vm_state</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span>

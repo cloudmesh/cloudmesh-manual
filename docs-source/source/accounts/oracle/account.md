@@ -6,7 +6,7 @@ database for free for an unlimited time. The free tier though, has limits for
 various services. Two virtual machines and two block volumes, and 10 GB each of
 object and archive storage is the current limit for free cloud tier accounts.
 
-![Free Services](images/oracle/free-tier-services.png)
+![Free Services](images/free-tier-services.png)
 
 For cloudmesh, two services are important Oracle Cloud Compute Resources and
 Oracle Storage.
@@ -22,29 +22,29 @@ Step 1: Go to the Oracle Cloud website to sign up for a free account.
 
 Step 2: Fill out your email address and click on `Next`.
 
-![Create Account](images/oracle/create-new-account.png)
+![Create Account](images/create-new-account.png)
 
 Step 3: You will be directed to a page to enter your account details. Select
 `Account Type` as `Personal`. Fill out all the other fields and click `Next`.
 
-![Acoount Details](images/oracle/account-details.png)
+![Acoount Details](images/account-details.png)
 
 Step 4: Verify you mobile number using the code that will be messaged to you. 
 
 Step 5: Next, you will be asked to select a password. Please select one and
 click 'Next'.
 
-![Password](images/oracle/password.png)
+![Password](images/password.png)
 
 Step 6: Fill out your payment information and proceed.
 
-![Payment](images/oracle/payment-information.png)
+![Payment](images/payment-information.png)
 
 Oracle has now created for you a free account with $300 credit for 30 days.
 After 30 days you can still use the 'Always Free' resources. Unless you
 upgrade, your account will always be free.
 
-![Trial](images/oracle/trial.png)
+![Trial](images/trial.png)
 
 ## Account Login
 
@@ -53,12 +53,12 @@ To login to your account, follow the steps.
 Step 1: Go to <https://www.oracle.com/cloud/sign-in.html?>. Enter the cloud
 account name you used while registration and click `Next`.
 
-![Login](images/oracle/login.png)
+![Login](images/login.png)
 
 Step 2: Enter the email address and password you used for registration, and
 click on `Sign In`.
 
-![Login-Next](images/oracle/login-next.png)
+![Login-Next](images/login-next.png)
 
 Now you've successfully signed in to the Oracle Cloud.
 
@@ -68,7 +68,7 @@ select a compartment. A compartment is a logical container to organize you
 resources. A default compartment with the same name as your cloud name is
 created. It is easiest to select that compartment.
 
-![Compartment](images/oracle/compartment.png)
+![Compartment](images/compartment.png)
 
 ## Oracle API
 
@@ -200,22 +200,22 @@ oracle cloud account. You can find this using the following steps:
 
 Step 1: Click on the profile menu on the right and click on `User Settings`.
 
-![User-Details](images/oracle/user-settings.png)
+![User-Details](images/user-settings.png)
 
 Step 2: The user OCID can be found under `User Information`. Copy and
 paste it to the config file.
  
-![User](images/oracle/user.png)
+![User](images/user.png)
 
 Step 3: Go to the end of web page and click on `Add Public Key` under `API
 Keys`.
  
-![Public Key](images/oracle/public-key.png)
+![Public Key](images/public-key.png)
  
 Step 4: Paste the contents of the public key `~/.oci/oci_api_key_public.pem
 ` to the text-box in the pop-up and click `Add`.
  
-![Add Public Key](images/oracle/add-public-key.png)
+![Add Public Key](images/add-public-key.png)
 
 Step 5: A new key will be added to the API Keys. Copy the `Fingerprint` of
 the key and paste it in the config file.
@@ -228,12 +228,12 @@ You can find this using the following steps:
 Step 1: Click on the navigation menu on the left, go to `Administration` and 
 click on `Tenancy Details`.
 
-![Tenancy](images/oracle/tenancy.png)
+![Tenancy](images/tenancy.png)
 
 Step 2: The tenancy OCID can be found under `Tenancy Information`. Copy and
 paste it to the config file.
  
-![Tenancy Details](images/oracle/tenancy-details.png)
+![Tenancy Details](images/tenancy-details.png)
 
 ### Compartment
 
@@ -243,16 +243,16 @@ selected compartment. You can find this using the following steps:
 Step 1: Click on the navigation menu on the left, go to `Identity` and 
 click on `Compartments`.
 
-![Identity](images/oracle/identity.png)
+![Identity](images/identity.png)
 
 Step 2: Select your root compartment from the compartment list.
 
-![Select Compartment](images/oracle/select-compartment.png)
+![Select Compartment](images/select-compartment.png)
 
 Step 3: The compartment OCID can be found under `Compartment Information`. 
 Copy and paste it to the config file.
  
-![Compartment Details](images/oracle/compartment-details.png)
+![Compartment Details](images/compartment-details.png)
 
 ## Compute Service
 

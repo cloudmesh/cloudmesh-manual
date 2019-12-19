@@ -220,7 +220,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -725,6 +725,11 @@ returned.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.openstack.Provider.Provider.sample">
+<code class="sig-name descname">sample</code><em class="property"> = '\n    cloudmesh:\n      cloud:\n        {name}:\n          cm:\n            active: true\n            heading: {name}\n            host: TBD\n            label: {name}\n            kind: openstack\n            version: liberty\n            service: compute\n          credentials:\n            OS_AUTH_URL: https://{uri}:5000/v2.0\n            OS_USERNAME: TBD\n            OS_PASSWORD: TBD\n            OS_TENANT_NAME: {tenant}\n            OS_TENANT_ID: {tenant}\n            OS_PROJECT_NAME: {tenant}\n            OS_PROJECT_DOMAIN_ID: default\n            OS_USER_DOMAIN_ID: default\n            OS_VERSION: kilo\n            OS_REGION_NAME: {region}\n            OS_KEY_PATH: ~/.ssh/id_rsa.pub\n          default:\n            size: m1.medium\n            image: CC-Ubuntu18.04\n            username: TBD\n        '</em><a class="headerlink" href="#cloudmesh.compute.openstack.Provider.Provider.sample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.openstack.Provider.Provider.set_server_metadata">

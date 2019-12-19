@@ -10,6 +10,7 @@ config
      config secinit
      config security add (--secret=REGEXP | --exception=REGEXP )
      config security rmv (--secret=REGEXP | --exception=REGEXP )
+     config security list
      config encrypt 
      config decrypt [--nopass]
      config edit [ATTRIBUTE]
@@ -66,8 +67,13 @@ config
 
         cms config encrypt 
             Encrypts the config data at-rest. This means that the data
-            is encrypted when not in use. This command checks two
-            attributes within the cloudmesh config file
+            is encrypted when not in use. This command is reliant upon
+            the cloudmesh.security.secrets attribute and the
+            cloudmesh.security.exceptions attribute within the
+            cloudmesh.yaml file. Note, that the encrypted data is not 
+            encrypted upon request/query to the attribute. This means 
+            you must decrypt the config when needed in use and
+            re-encrypt when not using the file, or delivering the file.
 
                 1. cloudmesh.security.secrets:
                     This attribute will hold a list of python regular
@@ -82,8 +88,21 @@ config
                     be encrypted by the command. 
                     ex) .*pubkey.*: ensures no pubkey path is encrypted 
 
-            Currently the data will not be decrypted upon query. 
-            This means that you should decrypt the data when needed.
+        security add --secret=REGEXP 
+            Adds valid REGEXP to the cloudmesh.security.secrets section
+
+        security rmv --secret=REGEXP 
+            Removes REGEXP from the cloudmesh.security.secrets section
+
+        security add --exception=REGEXP
+            Adds valid REGEXP to cloudmesh.security.exceptions section
+
+        security rmv --exception=REGEXP
+            Removes REGEXP from cloudmesh.security.exceptions section
+
+        security list
+            Prints a list of all the attribute dot-paths that are 
+            referenced by cms config encryption and decryption commands
 
         cms config decrypt 
             Decrypts the config data that was held in rest. This 

@@ -1,7 +1,7 @@
 
     *Alex Axthelm*, *Anthon van der Neut*, *Anthony Duer*, *Aravind
-    Mannarswamy*, *Ashok*, *Badi Abdul-Wahid*, *Bo Feng*, *Chenxu*, *Dave
-    DeMeulenaere*, *ElectricErudite*, *Eric Collins*, *Fugang Wang*, *Gerald
+    Mannarswamy*, *Ashok*, *Badi Abdul-Wahid*, *Bo Feng*, *Brian Funk*, *Chenxu*,
+    *Dave DeMeulenaere*, *ElectricErudite*, *Eric Collins*, *Fugang Wang*, *Gerald
     Manipon*, *Gregor von Laszewski*, *Himanshu Gupta*, *Jeevan Reddy Rachepalli*,
     *Jing Huang*, *Joaquin Avila Eggleton*, *Karthick*, *Keli Fine*, *KetanP*,
     *Kimball Wu*, *Mallik Challa*, *Manjunath Sivan*, *Ritesh Tandon*, *Rob

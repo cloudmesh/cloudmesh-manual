@@ -135,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -581,7 +581,8 @@
 <span class="sd">    :return: </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_expand</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
-        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="writefd"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.writefd">[docs]</a><span class="k">def</span> <span class="nf">writefd</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">O_RDWR</span><span class="o">|</span><span class="n">os</span><span class="o">.</span><span class="n">O_CREAT</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="mo">0o600</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -597,6 +598,7 @@
 
     <span class="k">with</span> <span class="n">os</span><span class="o">.</span><span class="n">fdopen</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">mask</span><span class="p">),</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
         <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
         <span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
 <span class="c1"># Reference: http://interactivepython.org/runestone/static/everyday/2013/01/3_password.html</span>

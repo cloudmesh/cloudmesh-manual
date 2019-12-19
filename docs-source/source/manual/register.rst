@@ -9,6 +9,8 @@ register
       register azure [FILENAME] [--keep]
       register google [FILENAME] [--keep]
       register chameleon [FILENAME] [--keep]
+      register new [-v] KIND SERVICE NAME [ATTRIBUTES...]
+      register list KIND SERVICE NAME [ATTRIBUTES...]
 
 
   This command adds the registration information the th cloudmesh
@@ -51,3 +53,32 @@ register
     Chameleon Cloud
 
         is not yet implemented
+
+  Register from template:
+
+    register list KIND SERVICE NAME [ATTRIBUTES...]
+
+        This command lists the template for a provider and fills it out
+        with the attributes. It can be used to check what information
+        would be added with the new command. The template is included in
+        the Provider itself. Leaving the attributes off, just prints the
+        template
+
+        Examples:
+
+            cms register list compute openstack ABC
+            cms register list compute openstack ABC uri=TBD tenant=TBD region=TBD
+
+            In the last example the values for uri, tennant, and region
+            will be cahnged to TBD
+
+    register new KIND SERVICE NAME ATTRIBUTES...
+
+        A new cloud can be added to the existing cloudmesh.yaml file
+        with thsi command. AN example is
+
+        cms register -v  compute aws ABC                     region=one                     EC2_ACCESS_ID=TBD
+            EC2_SECRET_KEY=TBD
+            EC2_SECRET_KEY=TBD
+
+        This command can also be used to overwrite an existing entry

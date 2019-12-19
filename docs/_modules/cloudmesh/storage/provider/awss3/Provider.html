@@ -135,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -221,6 +221,7 @@
 
 <span class="kn">import</span> <span class="nn">platform</span>
 
+
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">StorageABC</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
@@ -230,7 +231,7 @@
 <span class="sd">        :param service: TBD</span>
 <span class="sd">        :param config: TBD</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1">#pprint(service)</span>
+        <span class="c1"># pprint(service)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;bucket&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span>
@@ -280,7 +281,7 @@
 
         <span class="c1"># expand home directory in path</span>
         <span class="n">massaged_path</span> <span class="o">=</span> <span class="n">massaged_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
-        <span class="c1">#pprint(massaged_path)</span>
+        <span class="c1"># pprint(massaged_path)</span>
 
         <span class="c1"># expand possible current directory reference in path</span>
         <span class="k">if</span> <span class="n">massaged_path</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="ow">or</span> <span class="n">massaged_path</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;./&#39;</span><span class="p">:</span>
@@ -314,13 +315,23 @@
 
         <span class="k">return</span> <span class="n">info</span></div>
 
-<div class="viewcode-block" id="Provider.bucket_create"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_create">[docs]</a>    <span class="k">def</span> <span class="nf">bucket_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.bucket_create"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_create">[docs]</a>    <span class="k">def</span> <span class="nf">bucket_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the source name from the put function</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
+<span class="sd">        :param name: the bucket name which needs to be created</span>
+
+<span class="sd">        :return: dict,Boolean</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">create_bucket</span><span class="p">(</span>
-            <span class="n">ACL</span><span class="o">=</span><span class="s1">&#39;private&#39;</span><span class="p">,</span>
-            <span class="n">Bucket</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">ACL</span><span class="o">=</span><span class="s1">&#39;private&#39;</span><span class="p">,</span>
+                <span class="n">Bucket</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
             <span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bucket Created:&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bucket Created:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">fileContent</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
             <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bucket_create&#39;</span>
@@ -353,14 +364,22 @@
 
 
         <span class="k">except</span> <span class="n">botocore</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-             <span class="k">if</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;One or more errors occurred while creating the bucket: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">e</span><span class="p">)</span>
                 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
                 <span class="k">return</span> <span class="kc">True</span></div>
 
+<div class="viewcode-block" id="Provider.bucket_exists"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_exists">[docs]</a>    <span class="k">def</span> <span class="nf">bucket_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the source from the put function</span>
 
-<div class="viewcode-block" id="Provider.bucket_exists"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_exists">[docs]</a>    <span class="k">def</span> <span class="nf">bucket_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="sd">        :param service: the name of the service in the yaml file</span>
+<span class="sd">        :param name: the bucket name which needs to be checked for exists</span>
+
+<span class="sd">        :return: Boolean</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_bucket</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -383,9 +402,12 @@
 <div class="viewcode-block" id="Provider.create_dir"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.create_dir">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        creates a directory</span>
+
 <span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param directory: the name of the directory</span>
+
 <span class="sd">        :return: dict</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">fileContent</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="c1"># filePath = self.joinFileNameDir(self.directory_marker_file_name, directory)</span>
@@ -397,7 +419,7 @@
 
         <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket_exists</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">):</span>
-           <span class="bp">self</span><span class="o">.</span><span class="n">bucket_create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bucket_create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">)</span>
 
         <span class="c1"># obj = list(self.s3_resource.Bucket(self.container_name).objects.filter(Prefix=filePath))</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span> \
@@ -435,7 +457,6 @@
 
         <span class="c1"># function to list file  or directory</span>
 
-
 <div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        lists the information as dict</span>
@@ -444,10 +465,11 @@
 <span class="sd">        :param dir_only: Only the directory names</span>
 <span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
 <span class="sd">                          subdirectories in the specified source</span>
+
 <span class="sd">        :return: dict</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1">#if dir_only:</span>
+        <span class="c1"># if dir_only:</span>
         <span class="c1">#    raise NotImplementedError</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;list&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
@@ -458,7 +480,7 @@
 
         <span class="n">dir_files_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">trimmed_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-        <span class="c1">#trimmed_source = source</span>
+        <span class="c1"># trimmed_source = source</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">recursive</span><span class="p">:</span>
@@ -467,10 +489,9 @@
                 <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)):</span>
                     <span class="n">pprint</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
                     <span class="n">file_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span>
-                    <span class="c1">#obj.key.replace(self.directory_marker_file_name,</span>
+                    <span class="c1"># obj.key.replace(self.directory_marker_file_name,</span>
                     <span class="c1">#                            &#39;&#39;)</span>
                     <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
-
 
                         <span class="c1"># Its a directory</span>
                         <span class="sd">&#39;&#39;&#39;</span>
@@ -524,7 +545,7 @@
                 <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)):</span>
                     <span class="c1"># print(obj.key)</span>
                     <span class="n">file_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span>
-                    <span class="c1">#file_name = obj.key.replace(self.directory_marker_file_name,</span>
+                    <span class="c1"># file_name = obj.key.replace(self.directory_marker_file_name,</span>
                     <span class="c1">#                            &#39;&#39;)</span>
                     <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
                         <span class="c1"># Its a directory</span>
@@ -562,13 +583,16 @@
 <div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        deletes the source</span>
+
 <span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: the source which either can be a directory or file</span>
 <span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
 <span class="sd">                          subdirectories in the specified source</span>
+
 <span class="sd">        :return: dict</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1">#self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;delete&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
@@ -669,7 +693,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source Deleted&#39;</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
-                        <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source has child objects. Please delete &#39;</span>\
+                        <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source has child objects. Please delete &#39;</span> \
                                      <span class="s1">&#39;child objects first or use recursive option&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dir_files_list</span>
@@ -681,25 +705,26 @@
     <span class="c1"># function to upload file or directory</span>
 <div class="viewcode-block" id="Provider.put"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        puts the source on the service</span>
+<span class="sd">       puts the source on the service</span>
+
 <span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: the source which either can be a directory or file</span>
 <span class="sd">        :param destination: the destination which either can be a directory or file</span>
 <span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
 <span class="sd">                          subdirectories in the specified source</span>
 <span class="sd">        :return: dict</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1">#src_service, src = source.split(&quot;:&quot;, 1)</span>
-        <span class="c1">#dest_service, dest = destination.split(&quot;:&quot;, 1)</span>
+        <span class="c1"># src_service, src = source.split(&quot;:&quot;, 1)</span>
+        <span class="c1"># dest_service, dest = destination.split(&quot;:&quot;, 1)</span>
 
         <span class="c1"># check if the source an destination roots exist</span>
 
-
-        <span class="c1">#self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;put&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span> <span class="c1">#src</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;destination&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">destination</span> <span class="c1">#dest</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>  <span class="c1"># src</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;destination&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">destination</span>  <span class="c1"># dest</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
         <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
 
@@ -778,12 +803,10 @@
                                 <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                                    <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span>
-                            <span class="c1">#print(&#39;FILE :&#39;, os.path.join(dirpath, f))</span>
-                            <span class="c1">#dir ,tgtfile = os.path.split(f)</span>
-                            <span class="c1">#files_to_upload.append(tgtfile)</span>
-
-
+                                <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span>
+                            <span class="c1"># print(&#39;FILE :&#39;, os.path.join(dirpath, f))</span>
+                            <span class="c1"># dir ,tgtfile = os.path.split(f)</span>
+                            <span class="c1"># files_to_upload.append(tgtfile)</span>
 
                 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files_to_upload</span><span class="p">:</span>
                     <span class="nb">dir</span><span class="p">,</span> <span class="n">tgtfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
@@ -806,11 +829,11 @@
                 <span class="n">files_to_upload</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">):</span>
                     <span class="k">for</span> <span class="n">fileName</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
-                     <span class="c1">#   print(&#39;/&#39;+self.massage_path(dirpath)+&#39;/&#39;+fileName)</span>
-                     
+                        <span class="c1">#   print(&#39;/&#39;+self.massage_path(dirpath)+&#39;/&#39;+fileName)</span>
+
                         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
                             <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                                    <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                                 <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
@@ -818,7 +841,7 @@
                 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files_to_upload</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span>
                                                <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
-                                               <span class="n">trimmed_destination</span> <span class="o">+</span>  <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                                               <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
                                                    <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span>
                                                                 <span class="s1">&#39;&#39;</span><span class="p">)))</span>
 
@@ -832,12 +855,12 @@
                     <span class="c1"># obj dict to extract meta data</span>
                     <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
                         <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
-                        <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_destination</span> <span class="o">+</span>  <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                        <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_destination</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
                             <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
                         <span class="p">)</span>
                     <span class="p">)</span>
                     <span class="n">files_uploaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span>
-                        <span class="n">trimmed_destination</span> <span class="o">+</span>  <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                        <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
                             <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
                         <span class="p">)</span>
                         <span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
@@ -858,6 +881,7 @@
 <div class="viewcode-block" id="Provider.get"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       gets the source from the service</span>
+
 <span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: the source which either can be a directory or file</span>
 <span class="sd">        :param destination: the destination which either can be a directory or file</span>
@@ -865,7 +889,7 @@
 <span class="sd">                          subdirectories in the specified source</span>
 <span class="sd">        :return: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1">#self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;get&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;destination&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">destination</span>
@@ -1079,7 +1103,7 @@
 <span class="sd">        :return: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="c1">#self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;search&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;search&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">directory</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>

@@ -135,7 +135,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -263,6 +263,41 @@
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">,</span> <span class="n">ComputeProviderPlugin</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;azure&#39;</span>
+
+    <span class="n">sample</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        cloudmesh:</span>
+<span class="s2">          cloud:</span>
+<span class="s2">            </span><span class="si">{name}</span><span class="s2">:</span>
+<span class="s2">              cm:</span>
+<span class="s2">                active: true</span>
+<span class="s2">                heading: </span><span class="si">{name}</span><span class="s2"></span>
+<span class="s2">                host: TBD</span>
+<span class="s2">                label: </span><span class="si">{name}</span><span class="s2"></span>
+<span class="s2">                kind: azure</span>
+<span class="s2">                version: latest</span>
+<span class="s2">                service: compute</span>
+<span class="s2">              default:</span>
+<span class="s2">                image: Canonical:UbuntuServer:16.04.0-LTS:latest</span>
+<span class="s2">                size: Basic_A0</span>
+<span class="s2">                resource_group: cloudmesh</span>
+<span class="s2">                storage_account: cmdrive</span>
+<span class="s2">                network: cmnetwork</span>
+<span class="s2">                subnet: cmsubnet</span>
+<span class="s2">                blob_container: vhds</span>
+<span class="s2">                AZURE_VM_IP_CONFIG: cloudmesh-ip-config</span>
+<span class="s2">                AZURE_VM_NIC: cloudmesh-nic</span>
+<span class="s2">                AZURE_VM_DISK_NAME: cloudmesh-os-disk</span>
+<span class="s2">                AZURE_VM_USER: TBD</span>
+<span class="s2">                AZURE_VM_PASSWORD: TBD</span>
+<span class="s2">                AZURE_VM_NAME: cloudmeshVM</span>
+<span class="s2">              credentials:</span>
+<span class="s2">                AZURE_TENANT_ID: </span><span class="si">{tenantid}</span><span class="s2"></span>
+<span class="s2">                AZURE_SUBSCRIPTION_ID: </span><span class="si">{subscriptionid}</span><span class="s2"></span>
+<span class="s2">                AZURE_APPLICATION_ID: </span><span class="si">{applicationid}</span><span class="s2"></span>
+<span class="s2">                AZURE_SECRET_KEY: </span><span class="si">{secretkey}</span><span class="s2"></span>
+<span class="s2">                AZURE_REGION: eastus</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
 
     <span class="n">vm_state</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span>

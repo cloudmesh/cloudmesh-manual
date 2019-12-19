@@ -187,7 +187,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-provider-storage-module">cloudmesh.storage.provider.storage module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.storage">cloudmesh.storage.provider.storage module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider">Module contents</a></li>
 </ul>
 </li>
@@ -227,7 +227,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -351,8 +351,120 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-storage-provider-storage-module">
-<h2>cloudmesh.storage.provider.storage module<a class="headerlink" href="#cloudmesh-storage-provider-storage-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.storage.provider.storage">
+<span id="cloudmesh-storage-provider-storage-module"></span><h2>cloudmesh.storage.provider.storage module<a class="headerlink" href="#module-cloudmesh.storage.provider.storage" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.storage.provider.storage.Provider">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.provider.storage.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">config='~/.cloudmesh/.cloudmesh.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.create_dir">
+<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a directory
+:param service: the name of the service in the yaml file
+:param directory: the name of the directory
+:return: dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the source
+:param service: the name of the service in the yaml file
+:param source: the source which either can be a directory or file
+:param recursive: in case of directory the recursive refers to all</p>
+<blockquote>
+<div><p>subdirectories in the specified source</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source
+:param service: the name of the service in the yaml file
+:param source: the source which either can be a directory or file
+:param destination: the destination which either can be a directory or file
+:param recursive: in case of directory the recursive refers to all</p>
+<blockquote>
+<div><p>subdirectories in the specified source</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the information as dict
+:param service: the name of the service in the yaml file
+:param source: the source which either can be a directory or file
+:param recursive: in case of directory the recursive refers to all</p>
+<blockquote>
+<div><p>subdirectories in the specified source</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.put">
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>puts the source on the service
+:param service: the name of the service in the yaml file
+:param source: the source which either can be a directory or file
+:param destination: the destination which either can be a directory or file
+:param recursive: in case of directory the recursive refers to all</p>
+<blockquote>
+<div><p>subdirectories in the specified source</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">directory=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source
+:param service: the name of the service in the yaml file
+:param directory: the directory which either can be a directory or file
+:param recursive: in case of directory the recursive refers to all</p>
+<blockquote>
+<div><p>subdirectories in the specified source</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.storage.Provider.tree">
+<code class="sig-name descname">tree</code><span class="sig-paren">(</span><em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/storage.html#Provider.tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.storage.Provider.tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a visual representation of the files and directories
+:param directory:
+:type directory:
+:return:
+:rtype:</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.storage.provider">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.provider" title="Permalink to this headline">¶</a></h2>

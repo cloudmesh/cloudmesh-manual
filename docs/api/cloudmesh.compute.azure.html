@@ -220,7 +220,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -671,6 +671,11 @@ List VM in resource group
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.azure.Provider.Provider.sample">
+<code class="sig-name descname">sample</code><em class="property"> = '\n        cloudmesh:\n          cloud:\n            {name}:\n              cm:\n                active: true\n                heading: {name}\n                host: TBD\n                label: {name}\n                kind: azure\n                version: latest\n                service: compute\n              default:\n                image: Canonical:UbuntuServer:16.04.0-LTS:latest\n                size: Basic_A0\n                resource_group: cloudmesh\n                storage_account: cmdrive\n                network: cmnetwork\n                subnet: cmsubnet\n                blob_container: vhds\n                AZURE_VM_IP_CONFIG: cloudmesh-ip-config\n                AZURE_VM_NIC: cloudmesh-nic\n                AZURE_VM_DISK_NAME: cloudmesh-os-disk\n                AZURE_VM_USER: TBD\n                AZURE_VM_PASSWORD: TBD\n                AZURE_VM_NAME: cloudmeshVM\n              credentials:\n                AZURE_TENANT_ID: {tenantid}\n                AZURE_SUBSCRIPTION_ID: {subscriptionid}\n                AZURE_APPLICATION_ID: {applicationid}\n                AZURE_SECRET_KEY: {secretkey}\n                AZURE_REGION: eastus\n        '</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.sample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.set_server_metadata">
