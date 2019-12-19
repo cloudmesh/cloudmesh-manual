@@ -42,7 +42,24 @@ register
 
     Azure
 
-        Is not yet implemented
+        Prerequisites for Azure assume you have Azure CLI installed and an Azure
+        account created. This command leverages the Azure CLI to extract
+        specific account parameters and update the cloudmesh.yaml configuration
+        file.
+
+
+        1. When this command is run, the 'az login' Azure CLI command is executed,
+           prompting you to login to your azure account via your default browser,
+           which should then redirect you back to your CLI.
+        2. The azure cli command for 'az account show' is then referenced to pull
+           the account's subscription id and tenant id.
+        3. Next, the following azure cli command is run, 'az ad sp create-for-rbac --name http://cloudmesh',
+           which is then used to reference the application id and secret key.
+           NOTE: If there is already a secret key reference in the cloudmesh.yaml file,
+           it will be rendered useless once the new secret key is obtained; requiring you
+           to ensure the key has been successfully applied in the next step to the configuration file
+           and cms init is called.
+        4. Lastly, the credentials will be added to the cloudmesh yaml configuration file.
 
     Google
 
