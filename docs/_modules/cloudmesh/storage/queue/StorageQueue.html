@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.storage.queue.StorageQueue &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive.html">Google Drive</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.storage.queue.StorageQueue</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.storage.queue.StorageQueue</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span>  <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+
+<div class="viewcode-block" id="StorageQueue"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue">[docs]</a><span class="k">class</span> <span class="nc">StorageQueue</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class specifies a storage object queue, that allows the queuing of</span>
+<span class="sd">    files to be copied between services.</span>
+
+<span class="sd">    The queue has a maximal parallelism that can be set to execute the copy in</span>
+<span class="sd">    multiple threads.</span>
+
+<span class="sd">    Please note that actions only add modify the queue in the db, however,</span>
+<span class="sd">    the run command executes them one by one.</span>
+
+<span class="sd">    It will be up to thes method to quarantee order. For example, in case of a</span>
+<span class="sd">    recursive copy it wwould make sens to create directories first.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DB object</span>
+<span class="sd">    </span>
+<span class="sd">    cm:</span>
+<span class="sd">       id: uuid</span>
+<span class="sd">       collection: storage-queue-{source}-{destination}</span>
+<span class="sd">       ...</span>
+<span class="sd">    action: copy</span>
+<span class="sd">    source: the/source/path</span>
+<span class="sd">    destination: the/destination/path</span>
+<span class="sd">    created: date</span>
+<span class="sd">    status: </span>
+<span class="sd">    </span>
+<span class="sd">    Actions can be for example</span>
+<span class="sd">    </span>
+<span class="sd">        copy</span>
+<span class="sd">        mkdir</span>
+<span class="sd">        delete</span>
+<span class="sd">        cancel</span>
+
+<span class="sd">    cancel has a specific action allowing all jobs that have not </span>
+<span class="sd">    yet been finished to be canceled.</span>
+
+<span class="sd">    Each file can be in the state: completed, waiting, inprogress, canceled</span>
+<span class="sd">    </span>
+<span class="sd">    here is an example for the status of the queue. </span>
+<span class="sd">        {</span>
+<span class="sd">           &quot;length&quot;: 100, </span>
+<span class="sd">           &quot;completed&quot;: 10,</span>
+<span class="sd">           &quot;waiting&quot;: 80,</span>
+<span class="sd">           &quot;inprogress&quot;: 10,</span>
+<span class="sd">           &quot;canceled&quot;: 0</span>
+<span class="sd">        }</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">source</span><span class="p">,</span>
+                 <span class="n">destination</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+                 <span class="n">parallelism</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param name: The name of the queue (used as a collection in mongodb)</span>
+<span class="sd">        :param source: The name of the service in cloudmesh.data from which</span>
+<span class="sd">                       to copy</span>
+<span class="sd">        :param destination: The name of the service in cloudmesh.data from</span>
+<span class="sd">                            which to copy</span>
+<span class="sd">        :param parallelism: The number of parallel threads</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span> <span class="o">=</span> <span class="n">parallelism</span>
+
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_spec</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.storage.</span><span class="si">{source}</span><span class="s2">&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destination_spec</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.storage.</span><span class="si">{destination}</span><span class="s2">&quot;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider_source</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider_destination</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">destination</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;storage-queue-</span><span class="si">{name}</span><span class="s2">-</span><span class="si">{source}</span><span class="s2">-</span><span class="si">{destination}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1">#</span>
+        <span class="c1"># TODO: create collection in mongodb</span>
+        <span class="c1">#</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collection: </span><span class="si">{self.name}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_copy_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a copy action to the queue</span>
+
+<span class="sd">        copies the file from the source service to the destination service using</span>
+<span class="sd">        the file located in the path and storing it into the remote. If remote</span>
+<span class="sd">        is not specified path is used for it.</span>
+
+<span class="sd">        The copy will not be performed if the files are the same.</span>
+
+<span class="sd">        :param sourcefile:</span>
+<span class="sd">        :param destinationfile:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        cm:</span>
+<span class="s2">           number: </span><span class="si">{self.number}</span><span class="s2"></span>
+<span class="s2">           name: &quot;</span><span class="si">{self.source}</span><span class="s2">:</span><span class="si">{sourcefile}</span><span class="s2">&quot;</span>
+<span class="s2">           kind: storage</span>
+<span class="s2">           id: </span><span class="si">{uuid_str}</span><span class="s2"></span>
+<span class="s2">           cloud: </span><span class="si">{self.collection}</span><span class="s2"></span>
+<span class="s2">           collection: </span><span class="si">{self.collection}</span><span class="s2"></span>
+<span class="s2">           created: </span><span class="si">{date}</span><span class="s2"></span>
+<span class="s2">        action: copy</span>
+<span class="s2">        source: </span>
+<span class="s2">          service: </span><span class="si">{self.source}</span><span class="s2"></span>
+<span class="s2">          path: </span><span class="si">{sourcefile}</span><span class="s2"></span>
+<span class="s2">        destination: </span>
+<span class="s2">          service: </span><span class="si">{self.destination}</span><span class="s2"></span>
+<span class="s2">          path: </span><span class="si">{destinationfile}</span><span class="s2"></span>
+<span class="s2">        status: waiting</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">copy_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a copy action to the queue</span>
+
+<span class="sd">        copies the file from the source service to the destination service using</span>
+<span class="sd">        the file located in the path and storing it into the remote. If remote</span>
+<span class="sd">        is not specified path is used for it.</span>
+
+<span class="sd">        The copy will not be performed if the files are the same.</span>
+
+<span class="sd">        :param sourcefile:</span>
+<span class="sd">        :param destinationfile:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_copy_file</span><span class="p">(</span><span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">)</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">copy_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcetree</span><span class="p">,</span> <span class="n">destinationtree</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a tree to be copied to the queue</span>
+<span class="sd">        it will recursively add all files within the tree</span>
+
+<span class="sd">        :param sourcetree:</span>
+<span class="sd">        :param destinationtree:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># goes recursively through the dree and adds_the file</span>
+
+        <span class="n">sources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider_source</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">sourcetree</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dirs</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">source</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]):</span>
+                <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dirs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">source</span><span class="p">))</span>
+
+
+        <span class="c1"># create dirs first</span>
+
+        <span class="n">actions</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span>
+            <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="n">location</span><span class="p">))</span>
+
+        <span class="c1"># now copy files</span>
+
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span>
+            <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_copy_file</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">location</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">actions</span>
+
+<div class="viewcode-block" id="StorageQueue.sync"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.sync">[docs]</a>    <span class="k">def</span> <span class="nf">sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcetree</span><span class="p">,</span> <span class="n">destinationtree</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        just a more convenient name for copy_tree</span>
+<span class="sd">        :param sourcetree:</span>
+<span class="sd">        :param destinationtree:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">copy_tree</span><span class="p">(</span><span class="n">sourcetree</span><span class="p">,</span> <span class="n">destinationtree</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="StorageQueue.mkdir"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.mkdir">[docs]</a>    <span class="k">def</span> <span class="nf">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a mkdir action to the queue</span>
+
+<span class="sd">        create the directory in the storage service</span>
+<span class="sd">        :param service: service must be either source or destination</span>
+<span class="sd">        :param path:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                cm:</span>
+<span class="s2">                   number: </span><span class="si">{self.number}</span><span class="s2"></span>
+<span class="s2">                   name: &quot;</span><span class="si">{service}</span><span class="s2">:</span><span class="si">{path}</span><span class="s2">&quot;</span>
+<span class="s2">                   kind: storage</span>
+<span class="s2">                   id: </span><span class="si">{uuid_str}</span><span class="s2"></span>
+<span class="s2">                   cloud: </span><span class="si">{self.collection}</span><span class="s2"></span>
+<span class="s2">                   collection: </span><span class="si">{self.collection}</span><span class="s2"></span>
+<span class="s2">                   created: </span><span class="si">{date}</span><span class="s2"></span>
+<span class="s2">                action: mkdir</span>
+<span class="s2">                source: </span>
+<span class="s2">                  service: </span><span class="si">{service}</span><span class="s2"></span>
+<span class="s2">                  path: </span><span class="si">{path}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">entries</span></div>
+
+<div class="viewcode-block" id="StorageQueue.delete"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a deleta action to the queue</span>
+
+<span class="sd">        :param service: service must be either source or destination</span>
+<span class="sd">        :param path:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                cm:</span>
+<span class="s2">                   number: </span><span class="si">{self.number}</span><span class="s2"></span>
+<span class="s2">                   name: &quot;</span><span class="si">{self.service}</span><span class="s2">:</span><span class="si">{path}</span><span class="s2">&quot;</span>
+<span class="s2">                   kind: storage</span>
+<span class="s2">                   id: </span><span class="si">{uuid_str}</span><span class="s2"></span>
+<span class="s2">                   cloud: </span><span class="si">{self.collection}</span><span class="s2"></span>
+<span class="s2">                   collection: </span><span class="si">{self.collection}</span><span class="s2"></span>
+<span class="s2">                   created: </span><span class="si">{date}</span><span class="s2"></span>
+<span class="s2">                action: delete</span>
+<span class="s2">                source: </span>
+<span class="s2">                  service: </span><span class="si">{self.service}</span><span class="s2"></span>
+<span class="s2">                  path: </span><span class="si">{path}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span></div>
+
+<div class="viewcode-block" id="StorageQueue.status"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        provides that status of the queue</span>
+
+<span class="sd">        {</span>
+<span class="sd">           &quot;length&quot;: 100,</span>
+<span class="sd">           &quot;completed&quot;: 10,</span>
+<span class="sd">           &quot;waiting&quot;: 80,</span>
+<span class="sd">           &quot;inprogress&quot;: 10</span>
+<span class="sd">        }</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># find all teh values from within the MongoDB</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="StorageQueue.cancel"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel">[docs]</a>    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        cancels a job with a specific id</span>
+<span class="sd">        :param id:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># if None all are canceled</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+
+<div class="viewcode-block" id="StorageQueue.action"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">specification</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        executes the action identified by the specification. This is used by the</span>
+<span class="sd">        run command.</span>
+
+<span class="sd">        :param specification:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">specification</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;copy&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;COPY&quot;</span><span class="p">,</span> <span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;delete&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;mkdir&quot;</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MKDIR&quot;</span><span class="p">,</span> <span class="n">specification</span><span class="p">)</span></div>
+            <span class="c1"># update status</span>
+
+<div class="viewcode-block" id="StorageQueue.get_actions"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions">[docs]</a>    <span class="k">def</span> <span class="nf">get_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">,</span>
+                          <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;storage&#39;</span><span class="p">)</span>
+        <span class="n">mkdir</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">copy</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="n">pprint</span> <span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mkdir&#39;</span><span class="p">:</span>
+                <span class="n">mkdir</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;copy&#39;</span><span class="p">:</span>
+                <span class="n">copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span></div>
+
+<div class="viewcode-block" id="StorageQueue.run"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        runs the copy process for all jobs in the queue and completes when all</span>
+<span class="sd">        actions are completed</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_actions</span><span class="p">()</span>
+
+        <span class="c1"># create directories</span>
+        <span class="c1">#</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">mkdir</span><span class="p">)</span>
+
+        <span class="c1"># COPY FILES</span>
+        <span class="c1">#</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

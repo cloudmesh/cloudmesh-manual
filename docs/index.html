@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cloudmesh Version 4 &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About" href="preface/about.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/oracle.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-drive.html">Google Drive</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Cloudmesh Version 4</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudmesh-version-4">
+<h1>Cloudmesh Version 4<a class="headerlink" href="#cloudmesh-version-4" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preface/about.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preface/about.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface/about.html#open-projects-for-the-future">Open projects for the Future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preface/about.html#contact">Contact</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preface/contributors.html">Contributors</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#installation-of-cloudmesh-end-user">Installation of Cloudmesh (End User)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#installation-of-cloudmesh-source-install-for-developers">Installation of Cloudmesh (Source Install for Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#cloudmesh-directory">.cloudmesh directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#installation-of-mongodb">Installation of MongoDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#prerequisites-for-ssh-key">Prerequisites for ssh key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install.html#installation-of-cloudmesh-with-docker">Installation of cloudmesh with Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#manual">Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#generating-the-key-and-certificate">Generating the Key and Certificate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#validate-and-verify-the-key">Validate and verify the key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#initialize-keys-and-security-groups">Initialize keys and Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#command-line">Command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#interactive-shell">Interactive shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#command-scripts">Command scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#cache">Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#using-quotes">Using quotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#configuring-chameleon-cloud">Configuring chameleon cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#timer">Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quickstart.html#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#cloudmesh-yaml-file-object-definitions">Cloudmesh Yaml File Object definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#getting-values">Getting Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#setting-values">Setting values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#editing-values">Editing Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#advanced-yaml-variables">Advanced Yaml Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#profile">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#default">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#general-service-attributes">General Service Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#compute-cloud-providers">Compute Cloud Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#storage-providers">Storage Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#batch">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#rest">REST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#log-file">Log File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#mongo">Mongo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/mongo.html#database-decorator">Database Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/mongo.html#database-access">Database Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/mongo.html#creating-unique-names">Creating Unique Names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker/cmsd.html">Cloudmesh Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker/cmsd.html#user-installation">User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker/cmsd.html#developer-installation">Developer installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker/cmsd.html#developer-installation-update">Developer installation Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker/cmsd.html#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/storage.html">Multicloud Storage Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#general-storage-command">General Storage Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#aws-s3-cloudmesh-integration">AWS S3 Cloudmesh Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#pytests">Pytests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#general-features">General features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#virtual-directory">Virtual Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts/storage.html#google-drive">Google drive</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmd5.html">Cmd5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd5.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd5.html#plugins">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd5.html#docker">Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference-card.html">Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference-card.html#shell-invocation">Shell invocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-card.html#shell-basic-commands">Shell basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-card.html#cloud-commands">Cloud commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference-card.html#comet">Comet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-cmd5.html">Manual Cmd5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/admin.html">admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/banner.html">banner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/clear.html">clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/commands.html">commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/default.html">default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/echo.html">echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/EOF.html">EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/help.html">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/info.html">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/man.html">man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/pause.html">pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/plugin.html">plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/py.html">py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/q.html">q</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/quit.html">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/set.html">set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/shell.html">shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/sleep.html">sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/stopwatch.html">stopwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/sys.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/var.html">var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/version.html">version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual-group.html">Manual Group</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/group.html">group</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual-compute.html">Compute Manual Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/debug.html">debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/flavor.html">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/image.html">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/key.html">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/ip.html">ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/open.html">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/ssh.html">ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/vbox.html">vbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/vcluster.html">vcluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/vm.html">vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/config.html">config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/container.html">container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/group.html">group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/register.html">register</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual-storage.html">Storage Manual Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/storage.html">storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/vdir.html">vdir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/google.html">google</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual-other.html">Manual Other</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/flow.html">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/openapi.html">openapi</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyter Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyter/index.html#api-calls">API calls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Cloudmesh Command API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.admin.command.html">cloudmesh.admin.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.config.command.html">cloudmesh.config.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.container.command.html">cloudmesh.container.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.data.command.html">cloudmesh.data.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.debug.command.html">cloudmesh.debug.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.default.command.html">cloudmesh.default.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.flavor.command.html">cloudmesh.flavor.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.group.command.html">cloudmesh.group.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.host.command.html">cloudmesh.host.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.image.command.html">cloudmesh.image.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.init.command.html">cloudmesh.init.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.inventory.command.html">cloudmesh.inventory.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.ip.command.html">cloudmesh.ip.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.key.command.html">cloudmesh.key.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.man.command.html">cloudmesh.man.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.open.command.html">cloudmesh.open.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.provider.command.html">cloudmesh.provider.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.register.command.html">cloudmesh.register.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.sec.command.html">cloudmesh.sec.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.service.command.html">cloudmesh.service.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.set.command.html">cloudmesh.set.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.source.command.html">cloudmesh.source.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.ssh.command.html">cloudmesh.ssh.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.start.command.html">cloudmesh.start.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.stop.command.html">cloudmesh.stop.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.command.html">cloudmesh.storage.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.sys.command.html">cloudmesh.sys.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.terminal.command.html">cloudmesh.terminal.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.var.command.html">cloudmesh.var.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vbox.command.html">cloudmesh.vbox.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vcluster.command.html">cloudmesh.vcluster.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vdir.command.html">cloudmesh.vdir.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vm.command.html">cloudmesh.vm.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.workflow_draft.command.html">cloudmesh.workflow_draft.command package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html#cloudmesh-api">Cloudmesh API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.html">cloudmesh package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.common.html">cloudmesh.common package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.common.notebook.html">cloudmesh.common.notebook package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.common.run.html">cloudmesh.common.run package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.common.ssh.html">cloudmesh.common.ssh package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.common3.html">cloudmesh.common3 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.html">cloudmesh.compute package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.config.html">cloudmesh.config package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.container.html">cloudmesh.container package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.data.html">cloudmesh.data package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.db.html">cloudmesh.db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.debug.html">cloudmesh.debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.etc.html">cloudmesh.etc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.group.html">cloudmesh.group package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.host.html">cloudmesh.host package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.image.html">cloudmesh.image package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.init.html">cloudmesh.init package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.inventory.html">cloudmesh.inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.inventory.etc.html">cloudmesh.inventory.etc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.inventory.schema.html">cloudmesh.inventory.schema package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.ip.html">cloudmesh.ip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.key.html">cloudmesh.key package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.man.html">cloudmesh.man package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.management.html">cloudmesh.management package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.management.configuration.html">cloudmesh.management.configuration package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.mongo.html">cloudmesh.mongo package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.open.html">cloudmesh.open package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.provider.html">cloudmesh.provider package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.register.html">cloudmesh.register package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.sec.html">cloudmesh.sec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.secgroup.html">cloudmesh.secgroup package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.service.html">cloudmesh.service package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.set.html">cloudmesh.set package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.shell.html">cloudmesh.shell package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.source.html">cloudmesh.source package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.ssh.html">cloudmesh.ssh package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.start.html">cloudmesh.start package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.stop.html">cloudmesh.stop package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.html">cloudmesh.storage package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.provider.html">cloudmesh.storage.provider package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.provider.awss3.html">cloudmesh.storage.provider.awss3 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.provider.azureblob.html">cloudmesh.storage.provider.azureblob package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.provider.box.html">cloudmesh.storage.provider.box package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.provider.gdrive.html">cloudmesh.storage.provider.gdrive package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.storage.queue.html">cloudmesh.storage.queue package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.sys.html">cloudmesh.sys package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.terminal.html">cloudmesh.terminal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.var.html">cloudmesh.var package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vbox.html">cloudmesh.vbox package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vcluster.api.html">cloudmesh.vcluster.api package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vdir.html">cloudmesh.vdir package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vdir.api.html">cloudmesh.vdir.api package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.vm.html">cloudmesh.vm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/modules.html">cloudmesh</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="projects/index.html">Cloudmesh Development Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-ai.html">Cloudmesh Cloud AI Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-compute.html">Cloudmesh Compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-frugal.html">Cloudmesh Frugal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-gui.html">Cloudmesh Graphical User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-mini-ocal.html">Cloudmesh Local Compute and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-pi-burn.html">Cloudmesh Raspberry Cloud Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-storage.html">Cloudmesh Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-twister2.html">Cloudmesh Twister2 Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects/project-workflow.html">Cloudmesh Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/manual.html">Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/manual.html#contributing-to-documentation">Contributing to documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/pytest.html">Pytest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/pytest.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pytest.html#cloudmesh-debugging-information">Cloudmesh Debugging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/pytest.html#test-specification-and-execution">Test Specification and Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev/todo.html">ToDo</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">AWS Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/aws.html#access-key">Access Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/aws.html#compute-service">Compute Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/aws.html#storage-service">Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/aws.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">Azure Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#id1">Azure Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-cli">Azure CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-resource-group-for-storage">Azure Resource Group (for Storage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-api-credentials">Azure API Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-resource-group-for-compute">Azure Resource Group (for Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-resource-group-for-storage-and-compute">Azure Resource Group (for Storage and Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#faq">FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google.html">Google Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/google.html#instaltion-of-cloudmesh-google-providers">Instaltion of Cloudmesh Google Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/google.html#google-account-for-using-cloudmesh-storage-service">Google Account for using Cloudmesh Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/google.html#python-google-drive-api">Python Google Drive API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/oracle.html">Oracle Cloud Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#account-creation">Account Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#account-login">Account Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#oracle-api">Oracle API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#cloudmesh-config-file">Cloudmesh Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#required-keys-and-ocids">Required Keys and OCIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#compute-service">Compute Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#storage-service">Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/oracle.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">Box Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#sign-up">Sign up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#creating-an-app">Creating an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#authentication-with-jwt">Authentication with JWT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">VM Providers (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#general-cloud-providers-access">General Cloud Providers Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#general-interface">General Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#explicit-use-with-options">Explicit Use with Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#vagrant">Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#aws">AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#azure">Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#openstack">OpenStack</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-drive.html">Google Drive</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="other">
+<h1>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tbd.html">OTHER</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Config File Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group.html">Group command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm/vm.html">Virtual Machine Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm/image.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm/flavor.html">Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">Infrastructure Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpc/refcard.html">HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi/README-storage-openapi.html">Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openapi/ufo.html">REST Service (outdated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/benchmark.html">Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tbd.html#outdated">OUTDATED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CM4README.html">CM4 Details (outdated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcluster.html">Virtual Cluster (in progress)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="preface/about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
