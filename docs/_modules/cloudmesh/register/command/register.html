@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.register.command.register &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive.html">Google Drive</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.register.command.register</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.register.command.register</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.register.Entry</span> <span class="kn">import</span> <span class="n">Entry</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
+
+<div class="viewcode-block" id="RegisterCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.register.command.html#cloudmesh.register.command.register.RegisterCommand">[docs]</a><span class="k">class</span> <span class="nc">RegisterCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+
+    <span class="c1"># noinspection PyUnusedLocal</span>
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          Usage:</span>
+<span class="sd">              register aws yaml</span>
+<span class="sd">              register aws [FILENAME] [--keep]</span>
+<span class="sd">              register azure [FILENAME] [--keep]</span>
+<span class="sd">              register google [FILENAME] [--keep]</span>
+<span class="sd">              register chameleon [FILENAME] [--keep]</span>
+<span class="sd">              register new [-v] KIND SERVICE NAME [ATTRIBUTES...]</span>
+<span class="sd">              register list KIND SERVICE NAME [ATTRIBUTES...]</span>
+
+
+<span class="sd">          This command adds the registration information the th cloudmesh</span>
+<span class="sd">          yaml file. The permissions of theFILENAME will also be changed.</span>
+<span class="sd">          A y/n question will be asked if the files with the filename should</span>
+<span class="sd">          be deleted after integration</span>
+
+<span class="sd">          Arguments:</span>
+<span class="sd">              FILENAME   a filename in which the cloud credentials are stored</span>
+
+<span class="sd">          Options:</span>
+<span class="sd">              --keep    keeps the file with the filename.</span>
+
+<span class="sd">          Description:</span>
+
+<span class="sd">            AWS</span>
+
+<span class="sd">                AWS dependent on how you downloaded the credentials will either</span>
+<span class="sd">                use the filename `credentials.csv` or `accessKey.csv`</span>
+
+<span class="sd">                Our command is smart provides some convenience functionality.</span>
+
+
+<span class="sd">                1. If either file is found in ~/Downloads, it is moved to</span>
+<span class="sd">                   ~/.cloudmesh and the permissions are changed</span>
+<span class="sd">                2. If such a file already exists there it will ask if it should</span>
+<span class="sd">                   be overwritten in case the content is not the same</span>
+<span class="sd">                3. The content of the file will be read to determine if it is</span>
+<span class="sd">                   likely to be an AWS credential</span>
+<span class="sd">                4. The credential will be added to the cloudmesh yaml file</span>
+
+<span class="sd">            Azure</span>
+
+<span class="sd">                Is not yet implemented</span>
+
+<span class="sd">            Google</span>
+
+<span class="sd">                Is not yet implemented</span>
+
+<span class="sd">            Chameleon Cloud</span>
+
+<span class="sd">                is not yet implemented</span>
+
+<span class="sd">          Register from template:</span>
+
+<span class="sd">            register list KIND SERVICE NAME [ATTRIBUTES...]</span>
+
+<span class="sd">                This command lists the template for a provider and fills it out</span>
+<span class="sd">                with the attributes. It can be used to check what information</span>
+<span class="sd">                would be added with the new command. The template is included in</span>
+<span class="sd">                the Provider itself. Leaving the attributes off, just prints the</span>
+<span class="sd">                template</span>
+
+<span class="sd">                Examples:</span>
+
+<span class="sd">                    cms register list compute openstack ABC</span>
+<span class="sd">                    cms register list compute openstack ABC uri=TBD tenant=TBD region=TBD</span>
+
+<span class="sd">                    In the last example the values for uri, tennant, and region</span>
+<span class="sd">                    will be cahnged to TBD</span>
+
+<span class="sd">            register new KIND SERVICE NAME ATTRIBUTES...</span>
+
+<span class="sd">                A new cloud can be added to the existing cloudmesh.yaml file</span>
+<span class="sd">                with thsi command. AN example is</span>
+
+<span class="sd">                cms register -v  compute aws ABC \</span>
+<span class="sd">                    region=one \</span>
+<span class="sd">                    EC2_ACCESS_ID=TBD</span>
+<span class="sd">                    EC2_SECRET_KEY=TBD</span>
+<span class="sd">                    EC2_SECRET_KEY=TBD</span>
+
+<span class="sd">                This command can also be used to overwrite an existing entry</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span><span class="p">:</span>
+            <span class="c1"># Pandas should not be used, but</span>
+            <span class="c1"># TODO: change csv</span>
+            <span class="c1"># import csv</span>
+            <span class="c1"># the csv code needs to be changed</span>
+
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
+                <span class="n">AWSReg</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
+                    <span class="s2">&quot;cloudmesh.register.AWSRegister&quot;</span><span class="p">)</span>
+                <span class="n">AWSregisterer</span> <span class="o">=</span> <span class="n">AWSReg</span><span class="o">.</span><span class="n">AWSRegister</span><span class="p">()</span>
+                <span class="n">AWSregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">azure</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">google</span><span class="p">:</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">chameleon</span><span class="p">:</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+
+            <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KIND</span>
+            <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">SERVICE</span>
+            <span class="n">attributes</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
+
+            <span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                            <span class="s1">&#39;service&#39;</span><span class="p">:</span> <span class="n">service</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+                <span class="n">replacements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;openstack&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.compute.openstack.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.compute.azure.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.compute.aws.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="n">sample</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">sample</span>
+
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">sample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">replacements</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for </span><span class="si">{e}</span><span class="s2"> is not specified&quot;</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">new</span><span class="p">:</span>
+
+            <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KIND</span>
+            <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">SERVICE</span>
+            <span class="n">attributes</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
+
+            <span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                            <span class="s1">&#39;service&#39;</span><span class="p">:</span> <span class="n">service</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+                <span class="n">replacements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;openstack&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.compute.openstack.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.compute.azure.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.compute.aws.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="n">sample</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">sample</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">sample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">replacements</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-v&quot;</span><span class="p">]:</span>
+                    <span class="nb">print</span> <span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+                <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
+                        <span class="n">base</span><span class="o">=</span><span class="s2">&quot;cloudmesh.cloud&quot;</span><span class="p">,</span>
+                        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
+
+
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for </span><span class="si">{e}</span><span class="s2"> is not specified&quot;</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

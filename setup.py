@@ -39,6 +39,9 @@ recommonmark
 cloudmesh-common
 cloudmesh-cmd5
 cloudmesh-sys
+cloudmesh-storage
+cloudmesh-google
+cloudmesh-oracle
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']

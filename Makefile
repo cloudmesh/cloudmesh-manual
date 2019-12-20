@@ -36,7 +36,7 @@ inspect-book:
 		--format=htmlembedded > $(SOURCE)/inspector/book.html
 	cp -r $(SOURCE)/inspector docs/inspector
 
-MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud cloudmesh-inventory
+MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud cloudmesh-inventory cloudmesh-storage
 
 api:
 	rm -rf docs-source/source/api
@@ -141,6 +141,8 @@ STORAGE_COMMAND= storage vdir
 
 GROUP_COMMAND= group
 
+CMSD_COMMAND= cmsd
+
 
 #MANUAL=$(CMD5_COMMAND) $(COMPUTE_COMMAND) $(STORAGE_COMMAND)
 
@@ -158,15 +160,12 @@ manual:
 	cms set timmer=False
 	mkdir -p $(SOURCE)/manual
 	cms help > /tmp/commands.rst
-	echo "Commands" > $(SOURCE)/manual/commands.rst
-	echo "========" >> $(SOURCE)/manual/commands.rst
-	echo  >> $(SOURCE)/manual/commands.rst
-	tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/commands.rst
-
-	cms man --dir=$(SOURCE)/manual/cmd5 --format=rst $(CMD5_COMMAND)
-	cms man --dir=$(SOURCE)/manual/group --format=rst $(group_COMMAND)
-	cms man --dir=$(SOURCE)/manual/compute --format=rst $(COMPUTE_COMMAND)
-	cms man --dir=$(SOURCE)/manual/storage --format=rst $(STORAGE_COMMAND)
+	-echo "# Commands" > $(SOURCE)/manual/all.md
+	-echo  >> $(SOURCE)/manual/all.md
+	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
+	-tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/all.md
+	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
+	cms man --dir=$(SOURCE)/manual --format=rst
 
 	make -f Makefile doc
 
