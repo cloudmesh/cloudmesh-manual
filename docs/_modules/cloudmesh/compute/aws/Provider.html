@@ -134,14 +134,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-storage.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -282,6 +288,7 @@
                       <span class="s2">&quot;image&quot;</span><span class="p">,</span>
                       <span class="s2">&quot;public_ips&quot;</span><span class="p">,</span>
                       <span class="s2">&quot;private_ips&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.creation_time&quot;</span><span class="p">,</span>
                       <span class="s2">&quot;created&quot;</span><span class="p">,</span>
                       <span class="s2">&quot;cm.kind&quot;</span><span class="p">],</span>
             <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
@@ -291,6 +298,7 @@
                        <span class="s2">&quot;Image&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Public IPs&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Private IPs&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Creation Time&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Started at&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Kind&quot;</span><span class="p">]</span>
         <span class="p">},</span>
@@ -1281,31 +1289,19 @@
             <span class="k">return</span> <span class="kc">None</span>
 
         <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Create Server&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Name:    </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    IP:      </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Image:   </span><span class="si">{image}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Size:    </span><span class="si">{size}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Public:  </span><span class="si">{public}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Key:     </span><span class="si">{key}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    location:</span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    timeout: </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    secgroup:</span><span class="si">{secgroup}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    group:   </span><span class="si">{group}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-        <span class="c1"># Validate if there is any VM with same tag name and state other than Terminated.</span>
-        <span class="c1"># If there is any VM, throw error</span>
-
-        <span class="c1"># ec2_reservations = self.info(name)[&#39;Reservations&#39;]</span>
-        <span class="c1">#</span>
-        <span class="c1"># if ec2_reservations:</span>
-        <span class="c1">#     reservation_instances = None</span>
-        <span class="c1">#     for reservation in ec2_reservations:</span>
-        <span class="c1">#         reservation_instances = list(</span>
-        <span class="c1">#             filter(lambda instance: instance[&#39;State&#39;][&#39;Name&#39;] != &#39;terminated&#39;, reservation[&#39;Instances&#39;]))</span>
-        <span class="c1">#</span>
-        <span class="c1">#     if reservation_instances:</span>
-        <span class="c1">#         Console.error(&quot;Tag name already exists, Please use different tag name.&quot;)</span>
-        <span class="c1">#         return</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Name:     </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    User:     </span><span class="si">{user}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    IP:       </span><span class="si">{ip}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Image:    </span><span class="si">{image}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Size:     </span><span class="si">{size}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Public:   </span><span class="si">{public}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Key:      </span><span class="si">{key}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Location: </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Timeout:  </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Secgroup: </span><span class="si">{secgroup}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Group:    </span><span class="si">{group}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Console.msg(f&quot;    Groups:   {groups}&quot;)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">secgroup</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">secgroup</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span>

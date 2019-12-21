@@ -222,14 +222,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-storage.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -721,7 +727,7 @@ returned.</p>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.aws.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['ID', 'Name', 'Price', 'Family', 'VCPUS', 'RAM', 'Disk', 'Processor', 'Network'], 'order': ['cm.name', 'attributes.instanceType', 'price.pricePerUnit.USD', 'attributes.instanceFamily', 'attributes.vcpu', 'attributes.memory', 'attributes.storage', 'attributes.physicalProcessor', 'attributes.networkPerformance'], 'sort_keys': ['cm.name']}, 'image': {'header': ['Name', 'Architecture', 'ID', 'State', 'Hypervisor', 'VirtualizationType'], 'order': ['cm.name', 'Architecture', 'ImageId', 'State', 'Hypervisor', 'VirtualizationType'], 'sort_keys': ['cm.name', 'State']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'ToPort', 'FromPort', 'IpProtocol', 'IpRanges', 'UserIdGroupPairs'], 'sort_keys': ['name']}, 'secrule': {'header': ['Name', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'direction', 'ethertype', 'ToPort', 'FromPort', 'IpProtocol', 'ipRange', 'groupId'], 'sort_keys': ['name']}, 'vm': {'header': ['Name', 'Cloud', 'Instance ID', 'Status', 'Image', 'Public IPs', 'Private IPs', 'Started at', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'instance_id', 'status', 'image', 'public_ips', 'private_ips', 'created', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['ID', 'Name', 'Price', 'Family', 'VCPUS', 'RAM', 'Disk', 'Processor', 'Network'], 'order': ['cm.name', 'attributes.instanceType', 'price.pricePerUnit.USD', 'attributes.instanceFamily', 'attributes.vcpu', 'attributes.memory', 'attributes.storage', 'attributes.physicalProcessor', 'attributes.networkPerformance'], 'sort_keys': ['cm.name']}, 'image': {'header': ['Name', 'Architecture', 'ID', 'State', 'Hypervisor', 'VirtualizationType'], 'order': ['cm.name', 'Architecture', 'ImageId', 'State', 'Hypervisor', 'VirtualizationType'], 'sort_keys': ['cm.name', 'State']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'ToPort', 'FromPort', 'IpProtocol', 'IpRanges', 'UserIdGroupPairs'], 'sort_keys': ['name']}, 'secrule': {'header': ['Name', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'direction', 'ethertype', 'ToPort', 'FromPort', 'IpProtocol', 'ipRange', 'groupId'], 'sort_keys': ['name']}, 'vm': {'header': ['Name', 'Cloud', 'Instance ID', 'Status', 'Image', 'Public IPs', 'Private IPs', 'Creation Time', 'Started at', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'instance_id', 'status', 'image', 'public_ips', 'private_ips', 'cm.creation_time', 'created', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

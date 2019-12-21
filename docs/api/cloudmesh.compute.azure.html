@@ -219,14 +219,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-storage.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -313,6 +319,10 @@
 <dt id="cloudmesh.compute.azure.Provider.Provider">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name='azure'</em>, <em class="sig-param">configuration=None</em>, <em class="sig-param">credentials=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a>, <a class="reference internal" href="cloudmesh.provider.html#cloudmesh.provider.ComputeProviderPlugin" title="cloudmesh.provider.ComputeProviderPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.provider.ComputeProviderPlugin</span></code></a></p>
+<p>verbosity</p>
+<p>8 - prints major actions
+9 - prints all images
+10 - prints all update dicts</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.Print">
 <code class="sig-name descname">Print</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">output=None</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.Print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.Print" title="Permalink to this definition">¶</a></dt>
@@ -353,6 +363,17 @@ rules
 <dt id="cloudmesh.compute.azure.Provider.Provider.attach_public_ip">
 <code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.attach_public_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>attaches a public ip to a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> – </p></li>
+<li><p><strong>ip</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -368,6 +389,15 @@ rules
 <li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image
 does not boot. The default is set to 3 minutes.</p></li>
 <li><p><strong>kwargs</strong> – additional arguments passed along at time of boot</p></li>
+<li><p><strong>location</strong> – </p></li>
+<li><p><strong>key</strong> – </p></li>
+<li><p><strong>secgroup</strong> – </p></li>
+<li><p><strong>ip</strong> – </p></li>
+<li><p><strong>user</strong> – </p></li>
+<li><p><strong>public</strong> – </p></li>
+<li><p><strong>group</strong> – </p></li>
+<li><p><strong>metadata</strong> – </p></li>
+<li><p><strong>flavor</strong> – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -380,23 +410,38 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dt id="cloudmesh.compute.azure.Provider.Provider.create_public_ip">
 <code class="sig-name descname">create_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create_public_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates public IP for the group using the ip name provided in the config
-as a prefix
-:return:</p>
+as a prefix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.delete_public_ip">
 <code class="sig-name descname">delete_public_ip</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.delete_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.delete_public_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>deletes public ip by name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ip</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.delete_server_metadata">
 <code class="sig-name descname">delete_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.delete_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the metadata for the server</p>
+<dd><p>TBD</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – </p></li>
+<li><p><strong>key</strong> – </p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -407,18 +452,27 @@ as a prefix
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.destroy">
 <code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destroys the node
-:param name: the name of the node
-:return: the dict of the node</p>
+<dd><p>Destroys the node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the node</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.detach_public_ip">
 <code class="sig-name descname">detach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">node=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.detach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.detach_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>adds a public ip to the named vm</p>
+<dd><p>TBD</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> – </p></li>
+<li><p><strong>ip</strong> – </p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -447,16 +501,26 @@ as a prefix
 <dt id="cloudmesh.compute.azure.Provider.Provider.find_available_public_ip">
 <code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Azure currenly has no direct API to check if an IP is available or not!
-hence create an IP everytime this method is called!
-:return:</p>
+hence create an IP everytime this method is called!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.flavor">
 <code class="sig-name descname">flavor</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.flavor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the flavor with a given name
-:param name: The name of the flavor
-:return: The dict of the flavor</p>
+<dd><p>Gets the flavor with a given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the flavor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict of the flavor</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -473,25 +537,43 @@ hence create an IP everytime this method is called!
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.get_list">
 <code class="sig-name descname">get_list</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">kind=None</em>, <em class="sig-param">debug=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lists the dict d on the cloud
-:return: dict or libcloud object</p>
+<dd><p>Lists the dict d on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> – </p></li>
+<li><p><strong>kind</strong> – </p></li>
+<li><p><strong>debug</strong> – </p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.get_public_ip">
 <code class="sig-name descname">get_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns public IP by name from the Az public IPs
-:param name:
-:return:</p>
+<dd><p>returns public IP by name from the Az public IPs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.get_server_metadata">
 <code class="sig-name descname">get_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_server_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the metadata for the server</p>
+<dd><p>TBD</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+<dd class="field-odd"><p><strong>name</strong> – </p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -502,16 +584,32 @@ hence create an IP everytime this method is called!
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.image">
 <code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the image with a given nmae
-:param name: The name of the image
-:return: the dict of the image</p>
+<dd><p>Gets the image with a given nmae</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the image</p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the image</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.images">
 <code class="sig-name descname">images</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.images" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lists the images on the cloud
-:return: dict or libcloud object</p>
+<dd><p>Lists the images on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -527,22 +625,47 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.key_delete">
 <code class="sig-name descname">key_delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.key_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.key_delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>azure does not allow explicit key upload!</p>
+<dd><p>TODO: implement alternative</p>
+<blockquote>
+<div><p>azure does not allow explicit key upload!</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.key_upload">
 <code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
-<dd><p>azure does not allow explicit key upload!</p>
+<dd><p>TODO: implement alternative</p>
+<p>azure does not allow explicit key upload!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.keys">
 <code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.keys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lists the keys on the cloud</p>
+<dd><p>The keys command in Azure is not supported</p>
+<dl class="simple">
+<dt>TODO: BUG: therefore it should just return the keys form the local db to</dt><dd><p>make it appear it is supported. So instead do get the output,
+see how it is implemented in key list</p>
+</dd>
+</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p></p>
 </dd>
 </dl>
 </dd></dl>
@@ -555,14 +678,29 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list">
 <code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>List all Azure Virtual Machines from my Account
-:return: dict or libcloud object</p>
+<dd><p>List all Azure Virtual Machines from my Account</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list_public_ips">
 <code class="sig-name descname">list_public_ips</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em>, <em class="sig-param">available=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_public_ips" title="Permalink to this definition">¶</a></dt>
 <dd><p>lists public ips of the group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ip</strong> – </p></li>
+<li><p><strong>available</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -680,12 +818,12 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.set_server_metadata">
 <code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">cm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>sets the metadata for the server</p>
+<dd><p>TBD</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – name of the fm</p></li>
-<li><p><strong>metadata</strong> – the metadata</p></li>
+<li><p><strong>name</strong> – </p></li>
+<li><p><strong>cm</strong> – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -697,7 +835,19 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.ssh">
 <code class="sig-name descname">ssh</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">command=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.ssh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.ssh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>TBD</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vm</strong> – </p></li>
+<li><p><strong>command</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.start">
@@ -719,7 +869,16 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.status">
 <code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>TBD</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.stop">
@@ -758,8 +917,8 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.update_dict">
 <code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">elements</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Libcloud returns an object or list of objects With the dict method
-this object is converted to a dict. Typically this method is used
+<dd><p>The cloud returns an object or list of objects With the dict method this
+object is converted to a cloudmesh dict. Typically this method is used
 internally.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -790,7 +949,20 @@ internally.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.wait">
 <code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param">vm=None</em>, <em class="sig-param">interval=None</em>, <em class="sig-param">timeout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.wait" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>TBD</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vm</strong> – </p></li>
+<li><p><strong>interval</strong> – </p></li>
+<li><p><strong>timeout</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

@@ -134,14 +134,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/google-storage.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -215,7 +221,6 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
 
-
 <div class="viewcode-block" id="KeyGroupDatabase"><a class="viewcode-back" href="../../../api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroupDatabase">[docs]</a><span class="k">class</span> <span class="nc">KeyGroupDatabase</span><span class="p">:</span>
 
     <span class="c1"># noinspection PyShadowingBuiltins</span>
@@ -275,41 +280,8 @@
             <span class="p">}</span>
         <span class="k">return</span> <span class="n">entries</span></div></div>
 
-
 <div class="viewcode-block" id="KeyGroup"><a class="viewcode-back" href="../../../api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroup">[docs]</a><span class="k">class</span> <span class="nc">KeyGroup</span><span class="p">(</span><span class="n">KeyGroupDatabase</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">       &quot;_id&quot; : ObjectId(&quot;5dd766f3d860ed9e50f374c4&quot;),</span>
-<span class="sd">    &quot;profile&quot; : {</span>
-<span class="sd">        &quot;firstname&quot; : &quot;Nayeem&quot;,</span>
-<span class="sd">        &quot;lastname&quot; : &quot;Baig&quot;,</span>
-<span class="sd">        &quot;email&quot; : &quot;&quot;,</span>
-<span class="sd">        &quot;user&quot; : &quot;nayeemb&quot;,</span>
-<span class="sd">        &quot;github&quot; : &quot;nayeembaig&quot;,</span>
-<span class="sd">        &quot;publickey&quot; : &quot;~/.ssh/cloud.key.pub&quot;</span>
-<span class="sd">    },</span>
-<span class="sd">    &quot;path&quot; : &quot;/home/nayeem/.ssh/cloud.key.pub&quot;,</span>
-<span class="sd">    &quot;uri&quot; : &quot;file:///home/nayeem/.ssh/cloud.key.pub&quot;,</span>
-<span class="sd">    &quot;public_key&quot; : &quot;&quot;,</span>
-<span class="sd">    &quot;type&quot; : &quot;ssh-rsa&quot;,</span>
-<span class="sd">    &quot;key&quot; : &quot;&quot;,</span>
-<span class="sd">    &quot;comment&quot; : &quot;nayeem@DESKTOP-3SA2H9T&quot;,</span>
-<span class="sd">    &quot;fingerprint&quot; : &quot;&quot;,</span>
-<span class="sd">    &quot;name&quot; : &quot;nayeemb&quot;,</span>
-<span class="sd">    &quot;source&quot; : &quot;ssh&quot;,</span>
-<span class="sd">    &quot;location&quot; : {</span>
-<span class="sd">        &quot;public&quot; : &quot;/home/nayeem/.ssh/cloud.key.pub&quot;,</span>
-<span class="sd">        &quot;private&quot; : &quot;/home/nayeem/.ssh/cloud.key&quot;</span>
-<span class="sd">    },</span>
-<span class="sd">    &quot;cm&quot; : {</span>
-<span class="sd">        &quot;kind&quot; : &quot;key&quot;,</span>
-<span class="sd">        &quot;cloud&quot; : &quot;local&quot;,</span>
-<span class="sd">        &quot;name&quot; : &quot;nayeemb&quot;,</span>
-<span class="sd">        &quot;collection&quot; : &quot;local-key&quot;,</span>
-<span class="sd">        &quot;created&quot; : &quot;2019-11-22 04:41:23.181287&quot;,</span>
-<span class="sd">        &quot;modified&quot; : &quot;2019-11-29 15:39:47.850334&quot;</span>
-<span class="sd">    }</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
@@ -322,7 +294,7 @@
                        <span class="s2">&quot;Comment&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Fingerprint&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Publickey&quot;</span>
-                       <span class="p">]</span>
+                      <span class="p">]</span>
         <span class="p">},</span>
         <span class="s2">&quot;keygroup&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
@@ -333,6 +305,8 @@
         <span class="p">}</span>
 
     <span class="p">}</span>
+
+
 
     <span class="c1"># noinspection PyPep8Naming</span>
 <div class="viewcode-block" id="KeyGroup.Print"><a class="viewcode-back" href="../../../api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroup.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -358,67 +332,71 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div>
 
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;keygroup&quot;</span><span class="p">)</span>
 
     <span class="c1"># noinspection PyBroadException</span>
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keyname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        adds a key to a given group. If the group does not exist, it will be</span>
 <span class="sd">        created.</span>
 
-<span class="sd">        :param name:</span>
-<span class="sd">        :param keys:</span>
+<span class="sd">        :param groupname:</span>
+<span class="sd">        :param keyname:</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">new_key</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
-            <span class="n">new_key</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="c1">#print(&#39;In KeyGroup&#39;)</span>
+        <span class="c1">#print(&#39;name: &#39; , keyname)</span>
+        <span class="n">new_key</span> <span class="o">=</span> <span class="n">keyname</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">new_key</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;key have wrong type&quot;</span><span class="p">)</span>
 
         <span class="c1"># noinspection PyUnusedLocal</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">groupname</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">entry</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">groupname</span><span class="p">,</span>
+                <span class="s1">&#39;keys&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">keyname</span><span class="p">]</span>
             <span class="p">}</span>
 
-        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">old</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">new_key</span> <span class="o">+</span> <span class="n">old</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">groupname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;keys&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">new_key</span><span class="p">))</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;keys&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;keys&#39;</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;keys&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">new_key</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict_list</span><span class="p">([</span><span class="n">entry</span><span class="p">])</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keyname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        deletes the groups</span>
-<span class="sd">        :param name:</span>
-<span class="sd">        :param rules:</span>
+<span class="sd">        deletes the key from group</span>
+<span class="sd">        :param groupname:</span>
+<span class="sd">        :param keyname:</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">delete_key</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
-            <span class="n">delete_key</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">delete_key</span> <span class="o">=</span> <span class="n">keyname</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">delete_key</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">keyname</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;key have wrong type&quot;</span><span class="p">)</span>
         <span class="n">delete_key</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">delete_key</span><span class="p">)</span>
 
-        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">groupname</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">old</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">groupname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">old</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;keys&#39;</span><span class="p">])</span>
             <span class="n">old</span> <span class="o">-=</span> <span class="n">delete_key</span>
-            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">old</span><span class="p">)</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;keys&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">old</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">entry</span></div>
 </pre></div>

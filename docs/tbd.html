@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Cloudmesh Config File Encryption" href="configuration/encryption.html" />
-    <link rel="prev" title="Google Drive" href="accounts/google/google-drive.html" /> 
+    <link rel="prev" title="Python Google Drive API" href="accounts/google/gdrive/gdrive.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -136,14 +136,20 @@
 <li class="toctree-l1"><a class="reference internal" href="accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/google.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CLOUD MANUALS (not used)</span></p>
+<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-storage.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul class="current">
@@ -244,25 +250,22 @@
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Config File Encryption</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#quick-start">Quick-Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#preparation">Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#encrypting-the-config-file">Encrypting the Config File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#decrypting-the-config-file">Decrypting the Config File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#additional-configuration-options">Additional Configuration Options</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#changing-the-secinit-directory">Changing the secinit Directory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#cms-key-gen-options">CMS Key Gen Options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#changing-key-names">Changing Key Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#setting-non-default-names-for-key-generation">Setting Non-Default Names for Key Generation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#setting-keys-for-encryption-without-key-gen-command">Setting Keys for Encryption Without Key Gen Command</a></li>
 <li class="toctree-l4"><a class="reference internal" href="configuration/encryption.html#generating-a-key-without-a-password">Generating a Key Without a Password</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#selecting-attributes-to-encrypt">Selecting Attributes to Encrypt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#selecting-attributes-to-exclude-from-encryption">Selecting Attributes to Exclude from Encryption</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#cloudmesh-integration">Cloudmesh Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#cmsencryptor">CmsEncryptor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#cmshasher">CmsHasher</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/encryption.html#keyloader">KeyLoader</a></li>
 </ul>
 </li>
 </ul>
@@ -413,7 +416,7 @@
         <a href="configuration/encryption.html" class="btn btn-neutral float-right" title="Cloudmesh Config File Encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="accounts/google/google-drive.html" class="btn btn-neutral float-left" title="Google Drive" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="accounts/google/gdrive/gdrive.html" class="btn btn-neutral float-left" title="Python Google Drive API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
