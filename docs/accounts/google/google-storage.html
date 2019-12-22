@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Google Cloud Storage &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Google Storage Account &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -35,9 +35,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Python Google Drive API" href="gdrive/gdrive.html" />
-    <link rel="prev" title="Google Cloud Platform" href="google-gcp.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -140,17 +138,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="FIXME.html">Google Fix me</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google-docs.html">Google Docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google-drive-ufo.html">Google Account Creation Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google-gcp.html">Google Cloud Platform</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Google Cloud Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gdrive/gdrive.html">Python Google Drive API</a></li>
-</ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tbd.html">OTHER</a></li>
@@ -200,7 +187,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Google Cloud Storage</li>
+      <li>Google Storage Account</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -219,26 +206,165 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="google-cloud-storage">
-<h1><a class="reference external" href="https://cloud.google.com/products/storage/">Google Cloud Storage</a><a class="headerlink" href="#google-cloud-storage" title="Permalink to this headline">¶</a></h1>
-<p>Google cloud platform provides varity of storage products which are simple,
-reliable, and secure solutions for your media, analytics, and application data.</p>
-<p>The following are avalaible as google cloud storage products:</p>
-<ol class="simple">
-<li><p>OBJECT OR BLOB STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud Storage</a></p></li>
-<li><p>BLOCK STORAGE <a class="reference external" href="https://cloud.google.com/persistent-disk/">Storage Type: Persistent Disk</a></p></li>
-<li><p>ARCHIVAL STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud Storage</a></p></li>
-<li><p>FILE STORAGE <a class="reference external" href="https://cloud.google.com/filestore/">Storage Type: Cloud Filestore</a></p></li>
-<li><p>MOBILE APPLICATION <a class="reference external" href="https://firebase.google.com/products/storage/">Storage Type: Cloud Storage for Firebase</a></p></li>
-<li><p>DATA TRANSFER <a class="reference external" href="https://cloud.google.com/products/data-transfer/">Storage Type: Data Transfer Services</a></p></li>
-<li><p>COLLABORATION <a class="reference external" href="https://cloud.google.com/drive-enterprise/">Storage Type: Drive enterprise</a></p></li>
-</ol>
-<p>You can refer <a class="reference external" href="https://cloud.google.com/storage/docs/">google storage
-documentation</a> for more details on
-google cloud storage documentation. Cloudmesh currently supports <a class="reference external" href="https://cloud.google.com/storage/docs/how-to">object/blob
-storage</a> in beta version. Users
-can follow instruction to configure google could platform described as part of
-this document.</p>
+  <div class="section" id="google-storage-account">
+<h1>Google Storage Account<a class="headerlink" href="#google-storage-account" title="Permalink to this headline">¶</a></h1>
+<p>A new google account can be created using following information:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://myaccount.google.com/intro">New Google Account Introduction</a></p></li>
+<li><p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount?service=cloudconsole&amp;continue=https%3A%2F%2Fcloud.google.com%2Fstorage%2F%3Frefresh%3D1&amp;gmb=exp&amp;biz=false&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp&amp;nogm=true">Create your Google Account</a></p></li>
+</ul>
+<p>Additional reference link for account creation support page:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.google.com/accounts/answer/27441">Create a Google Account- Google Account Help</a></p></li>
+</ul>
+<div class="section" id="instaltion-of-cloudmesh-google-providers">
+<h2>Instaltion of Cloudmesh Google Providers<a class="headerlink" href="#instaltion-of-cloudmesh-google-providers" title="Permalink to this headline">¶</a></h2>
+<p>To install the cloudmesh google providers you can simply use (not yet supported):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-google
+</pre></div>
+</div>
+<p>For developers the best way to install it is to use <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
+$ <span class="nb">cd</span> cm
+$ pip install cloudmesh-installer
+$ cloudmesh-installer git clone google
+$ cloudmesh-installer git install google
+</pre></div>
+</div>
+<p>Next you have to cerate a google account and integarte it into a configuration
+file called <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
+</div>
+<div class="section" id="google-account-for-using-cloudmesh-storage-service">
+<h2>Google Account for using Cloudmesh Storage Service<a class="headerlink" href="#google-account-for-using-cloudmesh-storage-service" title="Permalink to this headline">¶</a></h2>
+<p>For google cloud storage cloudmesh services(cms) provides command line
+interface which is part of part of cloudmesh-google storage application.
+Various available operations using cms are put(file upload), get(file downlod),
+list, delete <code class="docutils literal notranslate"><span class="pre">object/blob</span></code>, create directory. First, we need to create an
+account as follows:</p>
+<div class="section" id="create-a-google-cloud-account">
+<h3>Create a Google Cloud Account<a class="headerlink" href="#create-a-google-cloud-account" title="Permalink to this headline">¶</a></h3>
+<p>Use the following link provided by google to create a free google account.
+This account can provide you $300 in credits to use google cloud.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&amp;_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE">Get Started for Free</a></p></li>
+</ul>
+<p>After you click this option, you can choose you existing google account or
+create a new account using previously provided information. Students also have
+option to use follwing option:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://edu.google.com/products/google-cloud-platform/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&amp;utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&amp;utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&amp;gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&amp;modal_active=none">Google Cloud Platform | Google for Education</a></p></li>
+</ul>
+<p>Limitations exists for the education account as you may need additional
+approvals and professor need to request for choosing this option. For help on
+questions with the account creatione please visit</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.google.com/accounts/answer/27441">Create a Google Account- Google Account Help</a></p></li>
+</ul>
+</div>
+<div class="section" id="create-a-project">
+<h3>Create a Project<a class="headerlink" href="#create-a-project" title="Permalink to this headline">¶</a></h3>
+<p>Next, you will need to create a project in your Google cloud account. We recommend that you simply use the name
+<code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>. You can create such a project at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console.cloud.google.com/">Google Storage - Online Data Storage | Cloud Storage | Google Cloud</a></p></li>
+</ul>
+<p>The three screenshots show the workflow on how to create a project:</p>
+<p><img alt="Create first account_01" src="../../_images/MyFirstAccount_01.png" />
+<img alt="Create first account_02" src="../../_images/MyFirstAccount_02.png" />
+<img alt="Create first account_03" src="../../_images/MyFirstAccount_03.png" /></p>
+</div>
+<div class="section" id="create-a-service-account">
+<h3>Create a Service Account ???????????<a class="headerlink" href="#create-a-service-account" title="Permalink to this headline">¶</a></h3>
+<p>Now you need to also create a service account. Although, there are many other
+methods for authentication, we use a service account as it is easy to set up
+and configure. Additional methods are listed at:</p>
+<ul>
+<li><p><a class="reference external" href="https://cloud.google.com/docs/authentication/">Authentication Overview | Authentication | Google Cloud</a></p>
+<p>https://console.cloud.google.com/apis/credentials/serviceaccountkey?pli=1&amp;project=cloudmesh-class&amp;folder&amp;organizationId</p>
+</li>
+</ul>
+<p>To create it you need to select the newly created project and go to</p>
+<ul>
+<li><p><a class="reference external" href="https://cloud.google.com/docs/authentication/production">Create service account page</a></p>
+<p><img alt="Create service account_01" src="../../_images/CreateServiceAccount_01.png" /></p>
+<ul class="simple">
+<li><p>Go to section :Creating a service account</p></li>
+</ul>
+<p>Following is the direct link to generate credentials from google :</p>
+<p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">Create Service Account Key</a></p>
+<p><img alt="Create service key" src="../../_images/CreateServiceKey_01.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sample files:
+ `client_secret.json` 
+ `google-drive-credentials.json`
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To create and download new private key you will use to authenticate. Select the
+JSON format and download the file and save it to</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code></p>
+<p>Make sure you keep that directory secure.</p>
+<p>todo:: in future we want a link to a security section here</p>
+<p>This file will be used to update the YAML  entry in the file</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
+<p>We recommend that you rename the downloaded file to <code class="docutils literal notranslate"><span class="pre">google.json</span></code> when you save
+it.</p>
+</div>
+<div class="section" id="update-cloudmesh-with-the-google-storage-account-information">
+<h3>Update Cloudmesh with the Google Storage Account Information<a class="headerlink" href="#update-cloudmesh-with-the-google-storage-account-information" title="Permalink to this headline">¶</a></h3>
+<p>After you downlod the credentials in json format please execute the command</p>
+<p>First and an entry for googl in the yaml file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">register</span> <span class="n">new</span> <span class="o">-</span><span class="n">v</span>  <span class="n">storage</span> <span class="n">google</span> <span class="n">google</span> <span class="n">bucket</span><span class="o">=</span><span class="n">gregor</span> 
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">yaml</span> <span class="n">add</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">google</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">google</span> 
+</pre></div>
+</div>
+<p>MOVE THE CONTENT FROM HERE INTO CONFIGURATION SECTION …</p>
+<p>Mor details of the configuration can v=be looked up in the <a class="reference external" href="MISSING">Cloudmesh  Configuration Section</a></p>
+<p>THE COMMANDS HAVE TO BE REVISITED</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="nb">list</span> <span class="c1"># what does thsi do?</span>
+</pre></div>
+</div>
+<p>THIS NEEDS TO BE RENAMED TO</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">config</span> <span class="nb">list</span>  <span class="c1"># logical</span>
+<span class="n">cms</span> <span class="n">google</span> <span class="n">yaml</span> <span class="nb">list</span> <span class="n">storage</span> <span class="c1"># somewhat logical</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-the-google-storage">
+<h1>Using the Google Storage<a class="headerlink" href="#using-the-google-storage" title="Permalink to this headline">¶</a></h1>
+<p>If google storage bucket is alredy created, you can list google storage bucket
+using following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="nb">list</span> <span class="n">bucket</span>
+</pre></div>
+</div>
+<p>From the displayed list please pick bucket of your choice and add bucket name to yaml
+file in the storage section for google provider  <code class="docutils literal notranslate"><span class="pre">storage</span> <span class="pre">&gt;</span> <span class="pre">google</span> <span class="pre">&gt;</span> <span class="pre">default</span> <span class="pre">&gt;</span> <span class="pre">directory</span></code>.</p>
+<p>If bucket doesnot exist use folling command to create new bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms google create bucket --name=NAME --service=google
+</pre></div>
+</div>
+<p>NAME: is new bucket name.
+Important note: Bucket name needs to be globally unique, you may choose combinantion
+of your class ID and bucket name.
+<code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">f19_516_xxx_bucket_name</span></code></p>
+<p>You are all set with account setup.</p>
+<div class="section" id="junk">
+<h2>JUNK<a class="headerlink" href="#junk" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>You can certainly do it by hand ::::::</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IAM</span> <span class="pre">&amp;</span> <span class="pre">Admin</span> <span class="pre">-&gt;</span> <span class="pre">Service</span> <span class="pre">Accounts</span> <span class="pre">-&gt;</span> <span class="pre">Create</span> <span class="pre">service</span> <span class="pre">account</span></code></p></li>
+</ul>
+<p>to create a new service account. Select</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Furnish</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">private</span> <span class="pre">key</span></code></p></li>
+</ul>
+<hr class="docutils" />
+</div>
 </div>
 
 
@@ -246,15 +372,6 @@ this document.</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="gdrive/gdrive.html" class="btn btn-neutral float-right" title="Python Google Drive API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="google-gcp.html" class="btn btn-neutral float-left" title="Google Cloud Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

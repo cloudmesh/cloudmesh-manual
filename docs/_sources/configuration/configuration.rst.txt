@@ -610,6 +610,56 @@ The ``cloudmesh.yaml`` file needs to be set up as follows for the
          default: 
            directory: TBD
 
+Google Cloud Storage
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    cloudmesh:
+      ...
+
+      storage:
+        ...
+        google:
+          cm:
+            name: google
+            active: 'true'
+            heading: GCP
+            host: https://console.cloud.google.com/storage
+            kind: google
+            version: TBD
+            service: storage
+          default:
+            directory: cloudmesh_gcp
+            Location_type: Region
+            Location: us - east1
+            Default_storage_class: Standard
+            Access_control: Uniform
+            Encryption: Google-managed
+            Link_URL: https://console.cloud.google.com/storage/browser/cloudmesh_gcp
+            Link_for_gsutil: gs://cloudmesh_gcp
+          credentials:
+            type: service_account
+            project_id: imposing-coast-123456
+            private_key_id: a1b2c3d4*********
+            private_key: '-----BEGIN PRIVATE KEY-----
+
+              ***********************************************************
+              ***********************************************************
+              ...
+              ***********************************************************
+
+              -----END PRIVATE KEY-----
+
+              '
+            client_email: user@imposing-coast-123456.iam.gserviceaccount.com
+            client_id: '1234567******23456'
+            auth_uri: https://accounts.google.com/o/oauth2/auth
+            token_uri: https://oauth2.googleapis.com/token
+            auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+            client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/user%40imposing-coast-12345.iam.gserviceaccount.com
+
+
 Box
 ~~~
 

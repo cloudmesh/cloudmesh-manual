@@ -1,4 +1,4 @@
-# Google Account
+# Google Storage Account
 
 A new google account can be created using following information:
 

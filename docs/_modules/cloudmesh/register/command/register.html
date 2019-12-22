@@ -138,17 +138,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">GOOGLE MESS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/FIXME.html">Google Fix me</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-docs.html">Google Docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-storage.html">Google Cloud Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
-</ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
@@ -435,6 +424,24 @@
             <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
                 <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;storage&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
+                <span class="c1"># cloud = name</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The provider </span><span class="si">{google}</span><span class="s2"> for </span><span class="si">{kind}</span><span class="s2">&quot;</span>
+                              <span class="s2">&quot; does not have a sample configuration&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+            <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;compute&quot;</span><span class="p">,</span> <span class="s2">&quot;cloud&quot;</span><span class="p">]:</span>
+                <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;cloud&quot;</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;storage&quot;</span><span class="p">]:</span>
+                <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;storage&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;the kind </span><span class="si">{kind}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+
             <span class="n">sample</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">sample</span>
 
             <span class="k">try</span><span class="p">:</span>
@@ -443,10 +450,10 @@
                 <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-v&quot;</span><span class="p">]:</span>
                     <span class="nb">print</span> <span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 
-                <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
-                        <span class="n">base</span><span class="o">=</span><span class="s2">&quot;cloudmesh.cloud&quot;</span><span class="p">,</span>
-                        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
 
+                <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
+                        <span class="n">base</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for </span><span class="si">{e}</span><span class="s2"> is not specified&quot;</span><span class="p">)</span>

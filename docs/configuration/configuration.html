@@ -124,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#aws-s3">AWS S3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure-1">Azure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#google-drive">Google drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-cloud-storage">Google Cloud Storage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#box">Box</a></li>
 </ul>
 </li>
@@ -149,7 +150,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
@@ -174,9 +175,10 @@
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -475,7 +477,7 @@ of cloudmesh will encrypt the information by default.</p>
 <div class="section" id="aws">
 <h3>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h3>
 <p>To obtain an account on AWS you can follow our instructions at
-<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>. The configuration file contains the
+<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account</span></a>. The configuration file contains the
 following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
@@ -511,7 +513,7 @@ following:</p>
 deprecate this for a more elaborate provider</p>
 </div>
 <p>To obtain an account on Azure you can follow our instructions at</p>
-<p><a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>. The configuration file containes the following:</p>
+<p><a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account</span></a>. The configuration file containes the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -551,7 +553,7 @@ deprecate this for a more elaborate provider</p>
 <p>This provider leverages the “az” command. and is the preferred az
 provider at this time. It has npt yet been fully verified.</p>
 <p>To obtain an account on Azure you can follow our instructions at
-<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>. THe configuration file contains the
+<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account</span></a>. THe configuration file contains the
 following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span>
    <span class="o">...</span>
@@ -710,7 +712,7 @@ the following description:</p>
 <h3>AWS S3<a class="headerlink" href="#aws-s3" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
-<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>.</p>
+<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account</span></a>.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, the ‘aws’ section under ‘storage’
 describes an example configuration or a AWS S3 storage provider. In
 the credentials section under aws, specify the access key id and
@@ -749,7 +751,7 @@ Client or resource for that geographic area. Here is a sample:</p>
 <span id="id11"></span><h3>Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Microsoft Azure. However we do provide a convenient documentation at
-<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>.</p>
+<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account</span></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file needs to be set up as follows for the
 ‘azureblob’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
@@ -792,7 +794,7 @@ yet included it in the Provider code. This needs to be fixed before we
 can do this.</p>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
-<a class="reference internal" href="../accounts/google.html"><span class="doc">Google Storage Providers</span></a>.</p>
+<span class="xref std std-doc">../accounts/google</span>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
@@ -822,6 +824,54 @@ on Google. However we do provide a convenient documentation at
         <span class="n">token_uri</span><span class="p">:</span> <span class="s2">&quot;https://oauth2.googleapis.com/token&quot;</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">directory</span><span class="p">:</span> <span class="n">TBD</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="google-cloud-storage">
+<h3>Google Cloud Storage<a class="headerlink" href="#google-cloud-storage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="o">...</span>
+
+  <span class="n">storage</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="n">google</span><span class="p">:</span>
+      <span class="n">cm</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">google</span>
+        <span class="n">active</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span>
+        <span class="n">heading</span><span class="p">:</span> <span class="n">GCP</span>
+        <span class="n">host</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">console</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">storage</span>
+        <span class="n">kind</span><span class="p">:</span> <span class="n">google</span>
+        <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
+      <span class="n">default</span><span class="p">:</span>
+        <span class="n">directory</span><span class="p">:</span> <span class="n">cloudmesh_gcp</span>
+        <span class="n">Location_type</span><span class="p">:</span> <span class="n">Region</span>
+        <span class="n">Location</span><span class="p">:</span> <span class="n">us</span> <span class="o">-</span> <span class="n">east1</span>
+        <span class="n">Default_storage_class</span><span class="p">:</span> <span class="n">Standard</span>
+        <span class="n">Access_control</span><span class="p">:</span> <span class="n">Uniform</span>
+        <span class="n">Encryption</span><span class="p">:</span> <span class="n">Google</span><span class="o">-</span><span class="n">managed</span>
+        <span class="n">Link_URL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">console</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">storage</span><span class="o">/</span><span class="n">browser</span><span class="o">/</span><span class="n">cloudmesh_gcp</span>
+        <span class="n">Link_for_gsutil</span><span class="p">:</span> <span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">cloudmesh_gcp</span>
+      <span class="n">credentials</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">service_account</span>
+        <span class="n">project_id</span><span class="p">:</span> <span class="n">imposing</span><span class="o">-</span><span class="n">coast</span><span class="o">-</span><span class="mi">123456</span>
+        <span class="n">private_key_id</span><span class="p">:</span> <span class="n">a1b2c3d4</span><span class="o">*********</span>
+        <span class="n">private_key</span><span class="p">:</span> <span class="s1">&#39;-----BEGIN PRIVATE KEY-----</span>
+
+          <span class="o">***********************************************************</span>
+          <span class="o">***********************************************************</span>
+          <span class="o">...</span>
+          <span class="o">***********************************************************</span>
+
+          <span class="o">-----</span><span class="n">END</span> <span class="n">PRIVATE</span> <span class="n">KEY</span><span class="o">-----</span>
+
+          <span class="s1">&#39;</span>
+        <span class="n">client_email</span><span class="p">:</span> <span class="n">user</span><span class="nd">@imposing</span><span class="o">-</span><span class="n">coast</span><span class="o">-</span><span class="mf">123456.</span><span class="n">iam</span><span class="o">.</span><span class="n">gserviceaccount</span><span class="o">.</span><span class="n">com</span>
+        <span class="n">client_id</span><span class="p">:</span> <span class="s1">&#39;1234567******23456&#39;</span>
+        <span class="n">auth_uri</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">accounts</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">o</span><span class="o">/</span><span class="n">oauth2</span><span class="o">/</span><span class="n">auth</span>
+        <span class="n">token_uri</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">oauth2</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">token</span>
+        <span class="n">auth_provider_x509_cert_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">oauth2</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">certs</span>
+        <span class="n">client_x509_cert_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">robot</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">metadata</span><span class="o">/</span><span class="n">x509</span><span class="o">/</span><span class="n">user</span><span class="o">%</span><span class="mi">40</span><span class="n">imposing</span><span class="o">-</span><span class="n">coast</span><span class="o">-</span><span class="mf">12345.</span><span class="n">iam</span><span class="o">.</span><span class="n">gserviceaccount</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
 </div>

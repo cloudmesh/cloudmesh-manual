@@ -1,5 +1,5 @@
 Cloudmesh Version 4
-===============================
+===================
 
 .. toctree::
    :caption: PREFACE
@@ -68,19 +68,6 @@ Cloudmesh Version 4
    accounts/oracle/account
    accounts/box
    accounts/accountcreation-old
-
-.. toctree::
-   :caption: GOOGLE MESS
-   :maxdepth: 2
-
-   accounts/google/FIXME.md
-   accounts/google/google
-   accounts/google/google-docs
-   accounts/google/google-drive-account
-   accounts/google/google-drive-ufo
-   accounts/google/google-gcp
-   accounts/google/google-storage
-   accounts/google/gdrive/gdrive
 
 .. toctree::
    :caption: CLOUD MANUALS (not used)
