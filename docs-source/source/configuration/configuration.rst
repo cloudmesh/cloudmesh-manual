@@ -195,6 +195,47 @@ service
         version: 1.0
         service: compute
 
+
+Adding Templates
+----------------
+
+Cloudmesh has the feature of being able to create ne services into the yaml
+file based on temples provided by the cloudmesh providers.
+
+This includes
+
+* compute:
+
+  * aws
+  * azure
+  * google
+  * openstack
+  * oracle
+
+* storage
+
+  * google
+  * oracle
+
+THisi s eay to do with the following command
+
+CURRENT COMMAND:
+
+```
+cms register new -v  storage google google bucket=gregor
+```
+
+FUTURE COMMAND:
+
+```
+cms register new -v  --kind=storage
+                     --servie=google
+                     --name=google
+                     --bucket=gregor
+```
+
+.. todo:: describe the parameters, add a see also to the manual page
+
 Compute Cloud Providers
 -----------------------
 

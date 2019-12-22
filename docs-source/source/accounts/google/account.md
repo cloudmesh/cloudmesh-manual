@@ -1,4 +1,6 @@
-# Google Storage Account
+# Google
+
+## Google Account
 
 A new google account can be created using following information:
 
@@ -27,10 +29,7 @@ $ cloudmesh-installer git clone google
 $ cloudmesh-installer git install google
 ```
 
-Next you have to cerate a google account and integarte it into a configuration
-file called `~/.cloudmesh/cloudmesh.yaml`
-
-## Google Account for using Cloudmesh Storage Service
+### Google Account for using Cloudmesh Storage Service
 
 For google cloud storage cloudmesh services(cms) provides command line
 interface which is part of part of cloudmesh-google storage application.
@@ -38,7 +37,7 @@ Various available operations using cms are put(file upload), get(file downlod),
 list, delete `object/blob`, create directory. First, we need to create an
 account as follows:
 
-### Create a Google Cloud Account 
+#### Create a Google Cloud Account 
 
 Use the following link provided by google to create a free google account.
 This account can provide you $300 in credits to use google cloud.
@@ -58,7 +57,7 @@ questions with the account creatione please visit
 * [Create a Google Account- Google Account Help](<https://support.google.com/accounts/answer/27441>)
 
 
-### Create a Project
+#### Create a Project
 
 Next, you will need to create a project in your Google cloud account. We recommend that you simply use the name 
 `cloudmesh`. You can create such a project at 
@@ -71,7 +70,7 @@ The three screenshots show the workflow on how to create a project:
 ![Create first account_02](images/MyFirstAccount_02.png)
 ![Create first account_03](images/MyFirstAccount_03.png)
    
-### Create a Service Account ???????????
+#### Create a Service Account ???????????
 
 Now you need to also create a service account. Although, there are many other
 methods for authentication, we use a service account as it is easy to set up
@@ -115,17 +114,20 @@ This file will be used to update the YAML  entry in the file
 We recommend that you rename the downloaded file to `google.json` when you save
 it.
 
-### Update Cloudmesh with the Google Storage Account Information
-
-After you downlod the credentials in json format please execute the command
-
-First and an entry for googl in the yaml file
-```
-cms register new -v  storage google google bucket=gregor 
-```
+IMPLEMNET:
 
 ```
-cms google yaml add ~/.cloudmesh/google.json --service=google 
+$ cms register google google.json
+```
+
+
+
+#### Update Cloudmesh with the Google Storage Account Information
+
+
+
+```
+cms google config add ~/.cloudmesh/google.json --service=google 
 ```
 
 
@@ -150,17 +152,20 @@ cms google yaml list storage # somewhat logical
 
 
 
-# Using the Google Storage
+### Using the Google Storage
 
 
 If google storage bucket is alredy created, you can list google storage bucket
 using following command:
 
 ```
-cms google list bucket
+cms google list 
 ```
-From the displayed list please pick bucket of your choice and add bucket name to yaml 
-file in the storage section for google provider  `storage > google > default > directory`.
+
+From the displayed list please pick bucket of your choice and add bucket name
+to yaml file in the storage section for google provider
+
+`storage > google > default > directory`.
 
 If bucket doesnot exist use folling command to create new bucket:
 
@@ -175,7 +180,7 @@ of your class ID and bucket name.
 
 You are all set with account setup.
 
-## JUNK
+#### JUNK
 
 -----------------
 

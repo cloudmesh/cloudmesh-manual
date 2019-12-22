@@ -65,16 +65,20 @@ Cloudmesh Version 4
    accounts/openstack
    accounts/aws
    accounts/azure
+   accounts/google/account
    accounts/oracle/account
    accounts/box
    accounts/accountcreation-old
 
 .. toctree::
-   :caption: CLOUD MANUALS (not used)
+   :caption: OUTDATED ACCOUNT MANUALS
    :maxdepth: 2
 
-   accounts/google/google-drive
+   accounts/google/google-account
+   accounts/google/google-docs
    accounts/google/google-ufo
+   accounts/google/google-gcp
+   accounts/google/google-storage1
 
 Indices and tables
 ==================
