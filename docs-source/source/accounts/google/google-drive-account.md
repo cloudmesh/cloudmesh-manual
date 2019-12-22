@@ -68,3 +68,9 @@ Link for additional information:
 
 * <https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md>
 
+## UFO
+
+THIS HAS BEEN COPIED FORM ELSEWHERE INTEGRATE
+
+Also for gdrive storage option JSON file is referenced in the cloudmesh.yaml in
+parameter "path_to_json_file"
