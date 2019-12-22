@@ -134,7 +134,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
@@ -519,6 +518,11 @@ and  –cloud=CLOUD is mapped to arguments[“cloud”]</p>
 <span class="n">Description</span><span class="p">:</span>
     <span class="n">List</span> <span class="n">available</span> <span class="n">commands</span> <span class="k">with</span> <span class="s2">&quot;help&quot;</span> <span class="ow">or</span> <span class="n">detailed</span> <span class="n">help</span> <span class="k">with</span>
     <span class="s2">&quot;help COMMAND&quot;</span><span class="o">.</span>
+
+    <span class="n">In</span> <span class="n">addition</span> <span class="n">to</span> <span class="n">the</span> <span class="n">commands</span> <span class="n">it</span> <span class="n">also</span> <span class="n">allows</span> <span class="n">to</span> <span class="nb">print</span> <span class="n">the</span> <span class="n">api</span><span class="o">.</span>
+    <span class="n">The</span> <span class="n">classes</span> <span class="n">that</span> <span class="n">help</span> <span class="ow">is</span> <span class="n">available</span> <span class="k">for</span> <span class="n">can</span> <span class="n">be</span> <span class="n">listed</span> <span class="k">with</span>
+
+        <span class="n">cms</span> <span class="n">info</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -527,11 +531,25 @@ and  –cloud=CLOUD is mapped to arguments[“cloud”]</p>
 <dt id="cloudmesh.shell.shell.CMShell.do_info">
 <code class="sig-name descname">do_info</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_info" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-      <span class="n">info</span> <span class="p">[</span><span class="n">path</span><span class="o">|</span><span class="n">commands</span><span class="o">|</span><span class="n">files</span><span class="o">|</span><span class="n">cloudmesh</span><span class="p">]</span>
+  <span class="n">info</span> <span class="n">path</span>
+  <span class="n">info</span> <span class="n">commands</span>
+  <span class="n">info</span> <span class="n">files</span> <span class="p">[</span><span class="n">errors</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+  <span class="n">info</span> <span class="n">cloudmesh</span>
+  <span class="n">info</span> <span class="n">errors</span> <span class="p">[</span><span class="o">--</span><span class="n">trace</span><span class="p">]</span>
+  <span class="n">info</span> <span class="n">sys</span> <span class="p">[</span><span class="n">KEYWORD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">plugins</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+  <span class="n">info</span>
+
+<span class="n">Options</span><span class="p">:</span>
+  <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span>  <span class="n">the</span> <span class="nb">format</span> <span class="n">to</span> <span class="nb">print</span> <span class="n">the</span> <span class="n">versions</span> <span class="ow">in</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">table</span><span class="p">]</span>
 
 <span class="n">Description</span><span class="p">:</span>
-      <span class="n">info</span>
-          <span class="n">provides</span> <span class="n">internal</span> <span class="n">info</span> <span class="n">about</span> <span class="n">the</span> <span class="n">shell</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">packages</span>
+
+  <span class="n">info</span>
+      <span class="n">provides</span> <span class="n">internal</span> <span class="n">info</span> <span class="n">about</span> <span class="n">the</span> <span class="n">shell</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">packages</span>
+
+  <span class="n">The</span> <span class="nb">format</span> <span class="n">option</span> <span class="n">only</span> <span class="n">works</span> <span class="k">for</span>
+
+      <span class="n">cms</span> <span class="n">info</span> <span class="n">files</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -789,11 +807,6 @@ Otherwise the commands can be explicitly specified with</p>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="cloudmesh.shell.shell.inheritors">
-<code class="sig-prename descclassname">cloudmesh.shell.shell.</code><code class="sig-name descname">inheritors</code><span class="sig-paren">(</span><em class="sig-param">klass</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#inheritors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.inheritors" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="cloudmesh.shell.shell.iter_namespace">
 <code class="sig-prename descclassname">cloudmesh.shell.shell.</code><code class="sig-name descname">iter_namespace</code><span class="sig-paren">(</span><em class="sig-param">ns_pkg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#iter_namespace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.iter_namespace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -826,13 +839,6 @@ otherwise quit [default: False]</p>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="cloudmesh.shell.shell.print_list">
-<code class="sig-prename descclassname">cloudmesh.shell.shell.</code><code class="sig-name descname">print_list</code><span class="sig-paren">(</span><em class="sig-param">elements</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#print_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.print_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints the element of a list
-:param elements: the elements to be printed</p>
 </dd></dl>
 
 </div>

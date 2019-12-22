@@ -2,11 +2,7 @@
 
 Google cloud platform provides varity of storage products which are simple,
 reliable, and secure solutions for your media, analytics, and application data.
-Cloudmesh services(cms) provides command line cloud to cloud storage and
-transfer servicies for google cloud storage part of cloudmesh-google storage
-application. At this time it supports google cloud platform "object or blob
-storage". Various available operations using cms are put(file upload), get(file
-downlod), list, delete `object/blob`, create directory.
+
 
 The following are avalaible as google cloud storage products:
 

@@ -166,7 +166,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
@@ -385,7 +384,13 @@
 <dl class="method">
 <dt id="cloudmesh.common.Benchmark.Benchmark.debug">
 <em class="property">static </em><code class="sig-name descname">debug</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Benchmark.html#Benchmark.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Benchmark.Benchmark.debug" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>sets the cms shell variables</p>
+<blockquote>
+<div><p>trace = True
+debug = True
+verbose = 10</p>
+</div></blockquote>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.Benchmark.Benchmark.file">
@@ -573,7 +578,13 @@ print (d.list())
 <dl class="method">
 <dt id="cloudmesh.common.DictList.DictList.list">
 <code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/DictList.html#DictList.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.DictList.DictList.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Lists the entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -584,8 +595,8 @@ print (d.list())
 <dt id="cloudmesh.common.FlatDict.FlatDict">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.FlatDict.</code><code class="sig-name descname">FlatDict</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">sep='__'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.common.FlatDict.FlatDict.dict" title="cloudmesh.common.FlatDict.FlatDict.dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
-<p>A data structure to manage a flattened dict. It is initialized by passing the dict
-at time of initialization.</p>
+<p>A data structure to manage a flattened dict. It is initialized by passing
+the dict at time of initialization.</p>
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.add">
 <code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.add" title="Permalink to this definition">¶</a></dt>
@@ -594,12 +605,20 @@ at time of initialization.</p>
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.dict">
 <em class="property">property </em><code class="sig-name descname">dict</code><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>returns the dict
+:return: dict</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.keys">
-<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's keys<a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.keys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the keys</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of keys</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.search">
@@ -619,8 +638,14 @@ at time of initialization.</p>
 
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.values">
-<code class="sig-name descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D's values<a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.values" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of all values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -1570,11 +1595,30 @@ warnings, errors, ok and regular messages.</p>
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.TODO">
 <em class="property">static </em><code class="sig-name descname">TODO</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">prefix=True</em>, <em class="sig-param">traceflag=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.TODO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.TODO" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints an TODO message
-:param message: the message
-:param prefix: if set to true it prints TODO: as prefix
-:param traceflag: if true the stack trace is retrieved and printed
-:return:</p>
+<dd><p>prints an TODO message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – the message</p></li>
+<li><p><strong>prefix</strong> – if set to true it prints TODO: as prefix</p></li>
+<li><p><strong>traceflag</strong> – if true the stack trace is retrieved and printed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.console.Console.bullets">
+<em class="property">static </em><code class="sig-name descname">bullets</code><span class="sig-paren">(</span><em class="sig-param">elements</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.bullets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.bullets" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints elemnets of a list as bullet list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>elements</strong> – the list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -1585,11 +1629,19 @@ warnings, errors, ok and regular messages.</p>
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.cprint">
 <em class="property">static </em><code class="sig-name descname">cprint</code><span class="sig-paren">(</span><em class="sig-param">color='BLUE'</em>, <em class="sig-param">prefix=''</em>, <em class="sig-param">message=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.cprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.cprint" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints a message in a given color
-:param color: the color as defined in the theme
-:param prefix: the prefix (a string)
-:param message: the message
-:return:</p>
+<dd><p>prints a message in a given color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – the color as defined in the theme</p></li>
+<li><p><strong>prefix</strong> – the prefix (a string)</p></li>
+<li><p><strong>message</strong> – the message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -1600,87 +1652,147 @@ warnings, errors, ok and regular messages.</p>
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.debug_msg">
 <em class="property">static </em><code class="sig-name descname">debug_msg</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.debug_msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.debug_msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>print a debug message
-:param message: the message
-:return:</p>
+<dd><p>print a debug message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – the message</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.error">
 <em class="property">classmethod </em><code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">prefix=True</em>, <em class="sig-param">traceflag=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.error" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints an error message
-:param message: the message
-:param prefix: a prefix for the message
-:param traceflag: if true the stack trace is retrieved and printed
-:return:</p>
+<dd><p>prints an error message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – the message</p></li>
+<li><p><strong>prefix</strong> – a prefix for the message</p></li>
+<li><p><strong>traceflag</strong> – if true the stack trace is retrieved and printed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.get">
 <em class="property">static </em><code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the default theme for printing console messages
-:param name: the name of the theme
-:return:</p>
+<dd><p>returns the default theme for printing console messages</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the theme</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.info">
 <em class="property">static </em><code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints an informational message
-:param message: the message
-:return:</p>
+<dd><p>prints an informational message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – the message</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.init">
 <em class="property">static </em><code class="sig-name descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.init" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>initializes the Console</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.msg">
 <em class="property">static </em><code class="sig-name descname">msg</code><span class="sig-paren">(</span><em class="sig-param">*message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints a message
-:param message: the message to print
-:return:</p>
+<dd><p>prints a message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – the message to print</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.ok">
 <em class="property">static </em><code class="sig-name descname">ok</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.ok"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.ok" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints an ok message
-:param message: the message&lt;
-:return:</p>
+<dd><p>prints an ok message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – the message&lt;</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.set_debug">
 <em class="property">classmethod </em><code class="sig-name descname">set_debug</code><span class="sig-paren">(</span><em class="sig-param">on=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.set_debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.set_debug" title="Permalink to this definition">¶</a></dt>
-<dd><p>sets debugging on or of
-:param on: if on debugging is set
-:return:</p>
+<dd><p>sets debugging on or of</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>on</strong> – if on debugging is set</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.set_theme">
 <em class="property">static </em><code class="sig-name descname">set_theme</code><span class="sig-paren">(</span><em class="sig-param">color=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.set_theme"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.set_theme" title="Permalink to this definition">¶</a></dt>
-<dd><p>defines if the console messages are printed in color
-:param color: if True its printed in color
-:return:</p>
+<dd><p>defines if the console messages are printed in color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>color</strong> – if True its printed in color</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.terminate">
 <em class="property">static </em><code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.terminate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.terminate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>terminates the program</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.text">
 <em class="property">static </em><code class="sig-name descname">text</code><span class="sig-paren">(</span><em class="sig-param">color='RED'</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">message=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a message in a given color
-:param color: the color as defined in the theme
-:param prefix: the prefix (a string)
-:param message: the message
-:return:</p>
+<dd><p>returns a message in a given color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – the color as defined in the theme</p></li>
+<li><p><strong>prefix</strong> – the prefix (a string)</p></li>
+<li><p><strong>message</strong> – the message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -1701,18 +1813,32 @@ warnings, errors, ok and regular messages.</p>
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.txt_msg">
 <em class="property">static </em><code class="sig-name descname">txt_msg</code><span class="sig-paren">(</span><em class="sig-param">message</em>, <em class="sig-param">width=79</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.txt_msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.txt_msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints a message to the screen
-:param message: the message to print
-:param width: teh width of the line
-:return:</p>
+<dd><p>prints a message to the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – the message to print</p></li>
+<li><p><strong>width</strong> – teh width of the line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.console.Console.warning">
 <em class="property">static </em><code class="sig-name descname">warning</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.warning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.warning" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints a warning
-:param message: the message
-:return:</p>
+<dd><p>prints a warning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>message</strong> – the message</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1741,7 +1867,8 @@ warnings, errors, ok and regular messages.</p>
 <dl class="function">
 <dt id="cloudmesh.common.debug.TRACE">
 <code class="sig-prename descclassname">cloudmesh.common.debug.</code><code class="sig-name descname">TRACE</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/debug.html#TRACE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.debug.TRACE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>prints the current trace stack</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="cloudmesh.common.debug.VERBOSE">
@@ -1820,53 +1947,93 @@ when the function is used.</p>
 <dl class="method">
 <dt id="cloudmesh.common.error.Error.debug">
 <em class="property">classmethod </em><code class="sig-name descname">debug</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">debug=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.debug" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints a debug message.
-:param msg: the message
-:return:</p>
+<dd><p>prints a debug message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> – the message</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.error.Error.exit">
 <em class="property">classmethod </em><code class="sig-name descname">exit</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.exit" title="Permalink to this definition">¶</a></dt>
-<dd><p>call a system exit
-:param msg: 
-:return:</p>
+<dd><p>call a system exit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.error.Error.info">
 <em class="property">classmethod </em><code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">debug=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints an info msg. 
-:param msg: the message
-:return:</p>
+<dd><p>prints an info msg.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> – the message</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.error.Error.msg">
 <em class="property">classmethod </em><code class="sig-name descname">msg</code><span class="sig-paren">(</span><em class="sig-param">error=None</em>, <em class="sig-param">debug=True</em>, <em class="sig-param">trace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints the error message
-:param error: the error message
-:param debug: only prints it if debug is set to true
-:param trace: if true prints the trace
-:return:</p>
+<dd><p>prints the error message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error</strong> – the error message</p></li>
+<li><p><strong>debug</strong> – only prints it if debug is set to true</p></li>
+<li><p><strong>trace</strong> – if true prints the trace</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.error.Error.traceback">
 <em class="property">classmethod </em><code class="sig-name descname">traceback</code><span class="sig-paren">(</span><em class="sig-param">error=None</em>, <em class="sig-param">debug=True</em>, <em class="sig-param">trace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.traceback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.traceback" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints the trace
-:param error: a message preceding the trace
-:param debug: prints it if debug is set to true
-:param trace: 
-:return:</p>
+<dd><p>prints the trace</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error</strong> – a message preceding the trace</p></li>
+<li><p><strong>debug</strong> – prints it if debug is set to true</p></li>
+<li><p><strong>trace</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.error.Error.warning">
 <em class="property">classmethod </em><code class="sig-name descname">warning</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">debug=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.warning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.warning" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints a warning message. 
-:param msg: 
-:return:</p>
+<dd><p>prints a warning message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

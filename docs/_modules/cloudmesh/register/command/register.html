@@ -265,17 +265,47 @@
 <span class="sd">                Our command is smart provides some convenience functionality.</span>
 
 
-<span class="sd">                1. If either file is found in ~/Downloads, it is moved to</span>
-<span class="sd">                   ~/.cloudmesh and the permissions are changed</span>
+<span class="sd">                1. If either file is found in `~/Downloads`, it is moved to</span>
+<span class="sd">                   `~/.cloudmesh` and the permissions are changed</span>
 <span class="sd">                2. If such a file already exists there it will ask if it should</span>
 <span class="sd">                   be overwritten in case the content is not the same</span>
 <span class="sd">                3. The content of the file will be read to determine if it is</span>
 <span class="sd">                   likely to be an AWS credential</span>
 <span class="sd">                4. The credential will be added to the cloudmesh yaml file</span>
 
-<span class="sd">            Azure</span>
+<span class="sd">            Azure (TODO: THIS HAS TO BE IMPLEMENTED)</span>
 
-<span class="sd">                Is not yet implemented</span>
+<span class="sd">                To use this command you must have an Azure account and Azure CLI</span>
+<span class="sd">                installed. Mote deatils to this can be found at:</span>
+
+<span class="sd">                   TBD: include link</span>
+
+<span class="sd">                This command leverages the Azure CLI to extract specific account</span>
+<span class="sd">                parameters and update the `cloudmesh.yaml` configuration file.</span>
+
+<span class="sd">                1. When this command is run, the `az login` Azure CLI command is</span>
+<span class="sd">                   executed, prompting you to login to your azure account via</span>
+<span class="sd">                   your default browser, which should then redirect you back to</span>
+<span class="sd">                   your CLI.</span>
+
+<span class="sd">                2. The azure cli command for `az account show` is then</span>
+<span class="sd">                   referenced to pull the account&#39;s subscription id and tenant</span>
+<span class="sd">                   id.</span>
+
+<span class="sd">                3. Run the command</span>
+
+<span class="sd">                        `az ad sp create-for-rbac --name http://cloudmesh`</span>
+
+<span class="sd">                   to reference the application id and secret key.</span>
+
+<span class="sd">                   NOTE: If there is already a secret key reference in the</span>
+<span class="sd">                   `cloudmesh.yaml` file, it will be rendered useless once the new</span>
+<span class="sd">                   secret key is obtained; requiring you to ensure the key has</span>
+<span class="sd">                   been successfully applied in the next step to the</span>
+<span class="sd">                   configuration file and cms init is called.</span>
+
+<span class="sd">                4. The credentials will be added to the</span>
+<span class="sd">                   `~/.cloudmesh.yaml` configuration file.</span>
 
 <span class="sd">            Google</span>
 
@@ -319,10 +349,6 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span><span class="p">:</span>
-            <span class="c1"># Pandas should not be used, but</span>
-            <span class="c1"># TODO: change csv</span>
-            <span class="c1"># import csv</span>
-            <span class="c1"># the csv code needs to be changed</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
                 <span class="n">AWSReg</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
@@ -334,7 +360,12 @@
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">azure</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
+                <span class="n">Registry</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
+                    <span class="s2">&quot;cloudmesh.register.AzRegister&quot;</span><span class="p">)</span>
+                <span class="n">AZregisterer</span> <span class="o">=</span> <span class="n">Registry</span><span class="o">.</span><span class="n">AzRegister</span><span class="p">()</span>
+                <span class="n">AZregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+            <span class="c1">#Console.error(&quot;not yet implemented&quot;)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">google</span><span class="p">:</span>
 

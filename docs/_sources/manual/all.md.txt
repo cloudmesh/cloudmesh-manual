@@ -1,15 +1,15 @@
 # Commands
 
 ```
-EOF                 data     image      pause     set        sys           
-admin               debug    info       plugin    shell      var           
-analytics           default  init       provider  sleep      vbox          
-banner              echo     inventory  py        source     vcluster      
-bookmanagerservice  flavor   ip         q         ssh        vdir          
-clear               google   key        quit      start      version       
-commands            group    man        register  stop       vm            
-config              help     open       sec       stopwatch  workflow_draft
-container           host     oracle     service   storage  
+EOF                 data     host       oracle    service    storage       
+admin               debug    image      pause     set        sys           
+analytics           default  info       plugin    shell      var           
+banner              echo     init       provider  sleep      vbox          
+bookmanagerservice  flavor   inventory  py        source     vcluster      
+clear               google   ip         q         ssh        vdir          
+commands            group    key        quit      start      version       
+config              gui      man        register  stop       vm            
+container           help     open       sec       stopwatch  workflow_draft
 
 Timer: 0.0000s (help)
 ```

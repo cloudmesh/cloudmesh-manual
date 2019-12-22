@@ -313,10 +313,16 @@
 
 <div class="viewcode-block" id="Console.init"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.init">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        initializes the Console</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">colorama</span><span class="o">.</span><span class="n">init</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Console.terminate"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.terminate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">terminate</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        terminates the program</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">os</span><span class="o">.</span><span class="n">_exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
 
 
@@ -324,6 +330,7 @@
     <span class="k">def</span> <span class="nf">set_debug</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        sets debugging on or of</span>
+
 <span class="sd">        :param on: if on debugging is set</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -333,6 +340,7 @@
     <span class="k">def</span> <span class="nf">set_theme</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        defines if the console messages are printed in color</span>
+
 <span class="sd">        :param color: if True its printed in color</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -346,6 +354,7 @@
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns the default theme for printing console messages</span>
+
 <span class="sd">        :param name: the name of the theme</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -358,6 +367,7 @@
     <span class="k">def</span> <span class="nf">txt_msg</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">79</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a message to the screen</span>
+
 <span class="sd">        :param message: the message to print</span>
 <span class="sd">        :param width: teh width of the line</span>
 <span class="sd">        :return: </span>
@@ -368,16 +378,29 @@
     <span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="o">*</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a message</span>
+
 <span class="sd">        :param message: the message to print</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Console.bullets"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.bullets">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">bullets</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        prints elemnets of a list as bullet list</span>
+
+<span class="sd">        :param elements: the list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="Console.error"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.error">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an error message</span>
+
 <span class="sd">        :param message: the message</span>
 <span class="sd">        :param prefix: a prefix for the message</span>
 <span class="sd">        :param traceflag: if true the stack trace is retrieved and printed</span>
@@ -409,6 +432,7 @@
     <span class="k">def</span> <span class="nf">TODO</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an TODO message</span>
+
 <span class="sd">        :param message: the message</span>
 <span class="sd">        :param prefix: if set to true it prints TODO: as prefix</span>
 <span class="sd">        :param traceflag: if true the stack trace is retrieved and printed</span>
@@ -435,6 +459,7 @@
     <span class="k">def</span> <span class="nf">debug_msg</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        print a debug message</span>
+
 <span class="sd">        :param message: the message</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -448,6 +473,7 @@
     <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an informational message</span>
+
 <span class="sd">        :param message: the message</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -461,6 +487,7 @@
     <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a warning</span>
+
 <span class="sd">        :param message: the message</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -474,6 +501,7 @@
     <span class="k">def</span> <span class="nf">ok</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an ok message</span>
+
 <span class="sd">        :param message: the message&lt;</span>
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -487,6 +515,7 @@
     <span class="k">def</span> <span class="nf">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a message in a given color</span>
+
 <span class="sd">        :param color: the color as defined in the theme</span>
 <span class="sd">        :param prefix: the prefix (a string)</span>
 <span class="sd">        :param message: the message</span>
@@ -504,6 +533,7 @@
     <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;RED&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns a message in a given color</span>
+
 <span class="sd">        :param color: the color as defined in the theme</span>
 <span class="sd">        :param prefix: the prefix (a string)</span>
 <span class="sd">        :param message: the message</span>

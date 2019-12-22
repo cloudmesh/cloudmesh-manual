@@ -219,29 +219,23 @@
 <span></span><span class="kn">import</span> <span class="nn">ctypes</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-
 <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
 
 <span class="kn">from</span> <span class="nn">azure.common.credentials</span> <span class="kn">import</span> <span class="n">ServicePrincipalCredentials</span>
 <span class="kn">from</span> <span class="nn">azure.mgmt.compute</span> <span class="kn">import</span> <span class="n">ComputeManagementClient</span>
 <span class="kn">from</span> <span class="nn">azure.mgmt.network</span> <span class="kn">import</span> <span class="n">NetworkManagementClient</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.network.v2018_12_01.models</span> <span class="kn">import</span> <span class="n">SecurityRule</span>
 <span class="kn">from</span> <span class="nn">azure.mgmt.resource</span> <span class="kn">import</span> <span class="n">ResourceManagementClient</span>
-<span class="kn">from</span> <span class="nn">azure.mgmt.network.v2018_12_01.models</span> <span class="kn">import</span> <span class="n">NetworkSecurityGroup</span><span class="p">,</span> \
-    <span class="n">SecurityRule</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.DictList</span> <span class="kn">import</span> <span class="n">DictList</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
-<span class="kn">import</span> <span class="nn">azure.mgmt.network.models</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">ComputeProviderPlugin</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">HEADING</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">HEADING</span><span class="p">,</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">ComputeProviderPlugin</span>
 <span class="kn">from</span> <span class="nn">msrestazure.azure_exceptions</span> <span class="kn">import</span> <span class="n">CloudError</span>
 
 <span class="n">CLOUDMESH_YAML_PATH</span> <span class="o">=</span> <span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span>
@@ -311,7 +305,6 @@
 <span class="s2">                AZURE_SECRET_KEY: </span><span class="si">{secretkey}</span><span class="s2"></span>
 <span class="s2">                AZURE_REGION: eastus</span>
 <span class="s2">        &quot;&quot;&quot;</span>
-
 
     <span class="n">vm_state</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span>
@@ -614,9 +607,6 @@
 <span class="sd">        :param key:</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        azure does not allow explicit key upload!</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Azure does not allow explicit key upload! &#39;</span>
                       <span class="sa">f</span><span class="s1">&#39;Please use </span><span class="se">\&#39;</span><span class="s1">cms key</span><span class="se">\&#39;</span><span class="s1"> operations to add keys to the &#39;</span>
                       <span class="sa">f</span><span class="s1">&#39;local db and reference them at the VM creation!&#39;</span><span class="p">)</span>
@@ -638,16 +628,20 @@
                       <span class="sa">f</span><span class="s2">&quot;the local db!&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
+    <span class="k">def</span> <span class="nf">_get_az_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip_name</span><span class="p">):</span>
+        <span class="n">ip</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_public_ips</span><span class="p">()</span> <span class="k">if</span>
+                   <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ip_name</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ip</span>
+
 <div class="viewcode-block" id="Provider.get_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.get_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns public IP by name from the Az public IPs</span>
+<span class="sd">        returns public IP by vm name from the Az public IPs</span>
 
 <span class="sd">        :param name:</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ip</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_public_ips</span><span class="p">()</span> <span class="k">if</span>
-                   <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ip</span></div>
+        <span class="n">_</span><span class="p">,</span> <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pub_ip_for_vm</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pub_ip</span><span class="p">[</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span></div>
 
     <span class="c1"># these are available to be associated</span>
 <div class="viewcode-block" id="Provider.list_public_ips"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.list_public_ips">[docs]</a>    <span class="k">def</span> <span class="nf">list_public_ips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">available</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -698,14 +692,13 @@
             <span class="p">}</span>
         <span class="p">}</span>
 
-        <span class="n">creation_result</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">public_ip_addresses</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.PUBLIC_IP__NAME}</span><span class="s2">_</span><span class="si">{current_pub_count}</span><span class="s2">&quot;</span><span class="p">,</span>
-                <span class="n">public_ip_params</span><span class="p">,</span>
-            <span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">]</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">creation_result</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;ip&#39;</span><span class="p">)</span></div>
+        <span class="n">creation_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">public_ip_addresses</span><span class="o">.</span> \
+            <span class="n">create_or_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+                             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.PUBLIC_IP__NAME}</span><span class="s2">_</span><span class="si">{current_pub_count}</span><span class="s2">&quot;</span><span class="p">,</span>
+                             <span class="n">public_ip_params</span><span class="p">,</span>
+                             <span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Public IP created: &quot;</span> <span class="o">+</span> <span class="n">creation_result</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">([</span><span class="n">creation_result</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;ip&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.find_available_public_ip"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.find_available_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">find_available_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -810,17 +803,7 @@
 
         <span class="k">return</span> <span class="n">vm_search</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vm_search</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        TBD</span>
-
-<span class="sd">        :param vm:</span>
-<span class="sd">        :param command:</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">vm</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;vm or command can not be null&quot;</span><span class="p">)</span>
-
+    <span class="k">def</span> <span class="nf">_get_pub_ip_for_vm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">vm_obj</span> <span class="o">=</span> <span class="n">vm</span>
         <span class="k">else</span><span class="p">:</span>
@@ -832,6 +815,25 @@
         <span class="k">if</span> <span class="n">pub_ip</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unable to find public IP for </span><span class="si">{vm}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+        <span class="k">return</span> <span class="n">vm_obj</span><span class="p">,</span> <span class="n">pub_ip</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        TBD</span>
+
+<span class="sd">        :param vm:</span>
+<span class="sd">        :param command:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">vm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;vm or command can not be null&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">vm_obj</span><span class="p">,</span> <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pub_ip_for_vm</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+
         <span class="c1"># in the current API (vm/Provider), it does not provide a key name for</span>
         <span class="c1"># ssh. therefore, the key needs to be pulled from the vm. And therefore</span>
         <span class="c1"># key name is injected to the local db entry as &#39;ssh_key_name&#39;</span>
@@ -841,7 +843,7 @@
               <span class="s2">&quot;-o StrictHostKeyChecking=no &quot;</span> \
               <span class="s2">&quot;-o UserKnownHostsFile=/dev/null &quot;</span> \
               <span class="sa">f</span><span class="s2">&quot;-i </span><span class="si">{key_obj[&#39;location&#39;][&#39;private&#39;]}</span><span class="s2"> &quot;</span> \
-              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.USERNAME}</span><span class="s2">@</span><span class="si">{pub_ip.ip_address}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.USERNAME}</span><span class="s2">@</span><span class="si">{pub_ip[&#39;ip_address&#39;]}</span><span class="s2"> </span><span class="si">{command}</span><span class="s2">&quot;</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
@@ -903,10 +905,12 @@
         <span class="k">if</span> <span class="n">groups</span><span class="o">.</span><span class="n">check_existence</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Create or Update Resource group</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Create Azure Resource Group&#39;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">groups</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">})</span>
+            <span class="c1"># Create or Update Resource groupCreating new public IP</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating Azure Resource Group&#39;</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+                                          <span class="p">{</span><span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">})</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Azure Resource Group created: &#39;</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">res</span>
 
 <div class="viewcode-block" id="Provider.set_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.set_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1139,7 +1143,6 @@
         <span class="n">result_add_security_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span> \
             <span class="n">network_security_groups</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
                                                      <span class="n">parameters</span><span class="p">)</span>
-        <span class="n">result_add_security_group</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">result_add_security_group</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 
@@ -1350,7 +1353,6 @@
 <span class="sd">        :return:</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>
 
@@ -1363,32 +1365,29 @@
         <span class="k">if</span> <span class="n">ip</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_available_public_ip</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_public_ip</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">ip</span><span class="p">)</span>
+            <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_az_public_ip</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
 
-        <span class="c1"># BUG: THIS IS OBVIOUSLY A BUG, variables[&quot;key&quot;]</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;test-key&#39;</span>  <span class="c1"># todo default key is named test-key? why?</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span>
 
         <span class="k">if</span> <span class="n">flavor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">flavor</span> <span class="o">=</span> <span class="s1">&#39;Standard_B1s&#39;</span>
 
         <span class="n">vm_parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_vm_parameters</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">,</span> <span class="n">pub_ip</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
                                                    <span class="n">flavor</span><span class="p">)</span>
-        <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Create Server&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR ERROR ERROR . YOU NEED TO INCLUDE FOLLOWING INFO, SEE AWS AND OPENSTACK&quot;</span><span class="p">)</span>
-        <span class="c1"># Console.msg(f&quot;    Name:     {name}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    User:     {user}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    IP:       {ip}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Image:    {image}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Size:     {size}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Public:   {public}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Key:      {key}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Location: {location}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Timeout:  {timeout}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Secgroup: {secgroup}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Group:    {group}&quot;)</span>
-        <span class="c1"># Console.msg(f&quot;    Groups:   {groups}&quot;)</span>
-        <span class="c1"># Console.msg(&quot;&quot;)</span>
+        <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Creating Server&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Name:     </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    User:     </span><span class="si">{user}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    IP:       </span><span class="si">{pub_ip[&#39;name&#39;]}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Image:    </span><span class="si">{image}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Size:     </span><span class="si">{size}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Public:   ?&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Key:      </span><span class="si">{key}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Location: </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Timeout:  </span><span class="si">{timeout}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Secgroup: </span><span class="si">{secgroup}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Group:    </span><span class="si">{group}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
         <span class="n">vm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
             <span class="n">group</span><span class="p">,</span>
@@ -1441,6 +1440,9 @@
         <span class="n">updated_dict</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ACTIVE&#39;</span>
         <span class="n">updated_dict</span><span class="p">[</span><span class="s1">&#39;ssh_key_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 
+        <span class="n">_</span><span class="p">,</span> <span class="n">pub_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pub_ip_for_vm</span><span class="p">(</span><span class="n">updated_dict</span><span class="p">)</span>
+        <span class="n">updated_dict</span><span class="p">[</span><span class="s1">&#39;public_ip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pub_ip</span><span class="p">[</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">updated_dict</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;vm&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
     <span class="k">def</span> <span class="nf">_get_local_key_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key_name</span><span class="p">):</span>
@@ -1477,7 +1479,7 @@
         <span class="n">vm_parameters</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">,</span>
             <span class="s1">&#39;os_profile&#39;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s1">&#39;computer_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span><span class="p">,</span>
+                <span class="s1">&#39;computer_name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                 <span class="s1">&#39;admin_username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">USERNAME</span><span class="p">,</span>
                 <span class="s1">&#39;admin_password&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">PASSWORD</span><span class="p">,</span>
                 <span class="s1">&#39;linux_configuration&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -1542,7 +1544,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">vnet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">virtual_networks</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">vnet</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">VNET_NAME</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;vnet exists!&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;vnet </span><span class="si">{vnet.name}</span><span class="s2"> exists!&quot;</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">vnet</span>
 
         <span class="n">async_vnet_creation</span> <span class="o">=</span> \
@@ -1556,7 +1558,9 @@
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">)</span>
-        <span class="k">return</span> <span class="n">async_vnet_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">async_vnet_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;VNET created: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
 
     <span class="k">def</span> <span class="nf">_create_az_subnet_if_not_exitsts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1568,7 +1572,7 @@
         <span class="k">for</span> <span class="n">subnet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">subnets</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
                                                        <span class="bp">self</span><span class="o">.</span><span class="n">VNET_NAME</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">subnet</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">SUBNET_NAME</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;subnet exists!&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subnet </span><span class="si">{subnet.name}</span><span class="s2"> exists!&quot;</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">subnet</span>
 
         <span class="n">subnet_params</span> <span class="o">=</span> <span class="p">{</span>
@@ -1585,7 +1589,9 @@
             <span class="n">subnet_parameters</span><span class="o">=</span><span class="n">subnet_params</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">async_subnet_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">async_subnet_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Subnet created: &quot;</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
 
     <span class="k">def</span> <span class="nf">_create_az_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroup</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1602,15 +1608,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_az_sec_group_if_not_exists</span><span class="p">(</span><span class="n">secgroup</span><span class="p">)</span>
 
         <span class="c1"># Create Virtual Network</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s1">&#39;Create Vnet&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating Vnet&#39;</span><span class="p">)</span>
         <span class="n">vnet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_az_vnet_if_not_exists</span><span class="p">()</span>
 
         <span class="c1"># Create Subnet</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s1">&#39;Create Subnet&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating Subnet&#39;</span><span class="p">)</span>
         <span class="n">subnet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_az_subnet_if_not_exitsts</span><span class="p">(</span><span class="n">secgroup</span><span class="p">)</span>
 
         <span class="c1"># Create NIC</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s1">&#39;Create NIC&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Creating NIC&#39;</span><span class="p">)</span>
 
         <span class="c1"># each vm needs a nic. so, use self.NIC_NAME as a prefix for the NICs</span>
         <span class="n">nic_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span>
@@ -1656,7 +1662,7 @@
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
 
         <span class="c1"># Start the VM</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Starting Azure VM&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Starting Azure VM&#39;</span><span class="p">)</span>
         <span class="n">async_vm_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">async_vm_start</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;ACTIVE&#39;</span><span class="p">)</span></div>
@@ -1675,7 +1681,7 @@
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
 
         <span class="c1"># Restart the VM</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Restarting Azure VM&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Restarting Azure VM&#39;</span><span class="p">)</span>
         <span class="n">async_vm_restart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">restart</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">async_vm_restart</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 
@@ -1695,7 +1701,7 @@
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
 
         <span class="c1"># Stop the VM</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Stopping Azure VM&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Stopping Azure VM&#39;</span><span class="p">)</span>
         <span class="n">async_vm_stop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">power_off</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">async_vm_stop</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;SHUTOFF&#39;</span><span class="p">)</span></div>
@@ -1800,7 +1806,7 @@
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vms</span><span class="p">:</span>
             <span class="n">elm</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Deleting Azure Virtual Machine&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Deleting Azure Virtual Machine&#39;</span><span class="p">)</span>
             <span class="n">del_vm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="n">vm</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
             <span class="n">del_vm</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 
@@ -1813,7 +1819,7 @@
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;vm&#39;</span><span class="p">)</span>
 
         <span class="c1"># # Delete Resource Group</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Deleting Azure Resource Group&#39;</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Deleting Azure Resource Group&#39;</span><span class="p">)</span>
         <span class="n">async_group_delete</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">resource_client</span><span class="o">.</span><span class="n">resource_groups</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">)</span>
         <span class="n">async_group_delete</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
@@ -1877,7 +1883,7 @@
                                                 <span class="n">sku</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                                                 <span class="n">version</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                                             <span class="p">)</span>
-                                            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+                                            <span class="n">Console</span><span class="o">.</span><span class="n">debug_msg</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
                                             <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result_get</span><span class="p">)</span>
                                         <span class="k">except</span><span class="p">:</span>
                                             <span class="nb">print</span><span class="p">(</span>
@@ -2006,9 +2012,6 @@
             <span class="p">})</span>
 
             <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;vm&#39;</span><span class="p">:</span>
-                <span class="c1">#</span>
-                <span class="c1"># TODO: BUG: public ip if present is not copied to entry[&quot;public_ip&quot;</span>
-                <span class="c1">#</span>
                 <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
                 <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
                 <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span>
@@ -2056,7 +2059,7 @@
                 <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;updated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
 
             <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="c1"># VERBOSE(d, verbose=10)</span>
 
         <span class="k">return</span> <span class="n">d</span></div>
 

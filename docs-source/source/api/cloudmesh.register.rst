@@ -19,6 +19,14 @@ cloudmesh.register.AWSRegister module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.register.AzRegister module
+------------------------------------
+
+.. automodule:: cloudmesh.register.AzRegister
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.register.Entry module
 -------------------------------
 

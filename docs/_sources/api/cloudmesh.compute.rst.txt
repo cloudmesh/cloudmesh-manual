@@ -9,7 +9,6 @@ Subpackages
    cloudmesh.compute.aws
    cloudmesh.compute.azure
    cloudmesh.compute.azureaz
-   cloudmesh.compute.azurelibcloud
    cloudmesh.compute.docker
    cloudmesh.compute.libcloud
    cloudmesh.compute.openstack

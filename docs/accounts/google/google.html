@@ -145,10 +145,7 @@
 <li class="toctree-l1"><a class="reference internal" href="FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Google Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#instaltion-of-cloudmesh-google-providers">Instaltion of Cloudmesh Google Providers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#google-account-for-using-cloudmesh-storage-service">Google Account for using Cloudmesh Storage Service</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#getting-the-google-json-files">Getting the google json files</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#google-account-for-using-cloudmesh-storage-service">Google Account for using Cloudmesh Storage Service</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="google-docs.html">Google Docs</a></li>
@@ -256,7 +253,11 @@ file called <code class="docutils literal notranslate"><span class="pre">~/.clou
 </div>
 <div class="section" id="google-account-for-using-cloudmesh-storage-service">
 <h2>Google Account for using Cloudmesh Storage Service<a class="headerlink" href="#google-account-for-using-cloudmesh-storage-service" title="Permalink to this headline">¶</a></h2>
-<p><strong>TODO Introduction is missing 1 paragraph</strong></p>
+<p>For google cloud storage cloudmesh services(cms) provides command line interface
+which is part of part of cloudmesh-google storage application. Various available
+operations using cms are put(file upload), get(file downlod), list,
+delete <code class="docutils literal notranslate"><span class="pre">object/blob</span></code>, create directory.</p>
+<p>Please follow following instructions to setup google cloud :</p>
 <ul>
 <li><p><em><strong>Step 1 - Create Google Cloud Account</strong></em> Use the following link provided
 by google to create a free google account. (This account can provide
@@ -324,9 +325,15 @@ credentials are modified :</p></li>
 </pre></div>
 </div>
 <ul>
-<li><p>Once this command is successfully executed you can validate the entry in yaml file.
+<li><p>Once this command is successfully executed it creates a yaml entry for google
+storage, you can validate this entry in cloudmesh.yaml file at <code class="docutils literal notranslate"><span class="pre">storage:</span></code> section.
 Here is the sample yaml file entry for google storage :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">google</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span><span class="o">..</span>
+<span class="o">.</span>
+<span class="o">.</span>
+<span class="n">storage</span><span class="p">:</span><span class="o">...</span>
+<span class="o">.</span>
+ <span class="n">google</span><span class="p">:</span>
     <span class="n">cm</span><span class="p">:</span>
       <span class="n">name</span><span class="p">:</span> <span class="n">google</span>
       <span class="n">active</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span>
@@ -384,47 +391,21 @@ Here is the sample yaml file entry for google storage :</p>
 </li>
 <li><p><em><strong>Step5 - list or create  google storage bucket and add to config file</strong></em></p></li>
 </ul>
-<p>List google storage bucket using following command, if bucket exists list will be displayed.</p>
+<p>If google storage bucket is alredy created, you can list google storage bucket using following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="nb">list</span> <span class="n">bucket</span>
 </pre></div>
 </div>
-<p>From the displayed list please pick bucket of your choice and add bucket name to yaml file in the storage section for google provider  <code class="docutils literal notranslate"><span class="pre">storage</span> <span class="pre">&gt;</span> <span class="pre">google</span> <span class="pre">&gt;</span> <span class="pre">default</span> <span class="pre">&gt;</span> <span class="pre">directory</span></code>.</p>
-<p>If bucket is not listed use folling command to create new bucket:</p>
+<p>From the displayed list please pick bucket of your choice and add bucket name to yaml
+file in the storage section for google provider  <code class="docutils literal notranslate"><span class="pre">storage</span> <span class="pre">&gt;</span> <span class="pre">google</span> <span class="pre">&gt;</span> <span class="pre">default</span> <span class="pre">&gt;</span> <span class="pre">directory</span></code>.</p>
+<p>If bucket doesnot exist use folling command to create new bucket:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">create</span> <span class="n">bucket</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">google</span>
 </pre></div>
 </div>
-<p>where NAME is new bucket name.
-Note: Bucket name needs to be globally unique, you may choose combinantion of your class ID and bucket name.
+<p>NAME: is new bucket name.
+Important note: Bucket name needs to be globally unique, you may choose combinantion
+of your class ID and bucket name.
 <code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">f19_516_xxx_bucket_name</span></code></p>
-<div class="section" id="getting-the-google-json-files">
-<h3>Getting the google json files<a class="headerlink" href="#getting-the-google-json-files" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>[ ] TODO: Google account. the documentation on how to get the json
-files is missing</p></li>
-<li><p>[ ] TODO: Google account. A program that takes the json files and integrates them
-into [cloudmesh.yaml]{.title-ref}</p></li>
-<li><p>[ ] TODO: Google account. The documentation for getting access to
-google cloud is incomplete, see related entries.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p></li>
-</ul>
-<p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then the
-required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file and
-creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the following path
-<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code></p>
-<ul class="simple">
-<li><p>[ ] TODO: The Authentication.py program was removed, so this can not work.</p></li>
-</ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> creates a <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> folder under the
-following path <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code> if it does not exist and creates a
-<code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code> file under the following folder
-<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/.credentials/</span></code></p>
-<p>So, for the <strong>first time</strong> browser will be opened up automatically and
-asks for the Google Drive(gmail) credentials i.e., login email and
-password. If you provide these 2 then the Authentication step is
-completed and then it will create the <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code>
-and place it in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/.credentials/</span></code> folder.</p>
-</div>
+<p>You are all set with account setup.</p>
 </div>
 </div>
 
