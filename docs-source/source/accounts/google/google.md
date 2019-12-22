@@ -32,8 +32,12 @@ file called `~/.cloudmesh/cloudmesh.yaml`
 
 ## Google Account for using Cloudmesh Storage Service
 
-**TODO Introduction is missing 1 paragraph**
+For google cloud storage cloudmesh services(cms) provides command line interface 
+which is part of part of cloudmesh-google storage application. Various available 
+operations using cms are put(file upload), get(file downlod), list, 
+delete `object/blob`, create directory.
 
+Please follow following instructions to setup google cloud :
 
 * ***Step 1 - Create Google Cloud Account*** Use the following link provided
 by google to create a free google account. (This account can provide
@@ -118,10 +122,16 @@ you $300 in credits to use google cloud.)
 cms google yaml add ~/.cloudmesh/google.json --service=google
 ```
 
-* Once this command is successfully executed you can validate the entry in yaml file.
+* Once this command is successfully executed it creates a yaml entry for google
+storage, you can validate this entry in cloudmesh.yaml file at `storage:` section.
  Here is the sample yaml file entry for google storage :
 
   ```
+  cloudmesh:..
+  .
+  .
+  storage:...
+  .
    google:
       cm:
         name: google
@@ -179,53 +189,23 @@ cms google yaml add ~/.cloudmesh/google.json --service=google
    ```
 * ***Step5 - list or create  google storage bucket and add to config file*** 
 
-List google storage bucket using following command, if bucket exists list will be displayed. 
+If google storage bucket is alredy created, you can list google storage bucket using following command:
 ```
 cms google list bucket
 ```
-From the displayed list please pick bucket of your choice and add bucket name to yaml file in the storage section for google provider  `storage > google > default > directory`.
+From the displayed list please pick bucket of your choice and add bucket name to yaml 
+file in the storage section for google provider  `storage > google > default > directory`.
 
-If bucket is not listed use folling command to create new bucket:
+If bucket doesnot exist use folling command to create new bucket:
 
 ```
 cms google create bucket --name=NAME --service=google
 
 ```
-where NAME is new bucket name.
-Note: Bucket name needs to be globally unique, you may choose combinantion of your class ID and bucket name. 
+NAME: is new bucket name.
+Important note: Bucket name needs to be globally unique, you may choose combinantion
+of your class ID and bucket name. 
 `e.g. f19_516_xxx_bucket_name`
 
-### Getting the google json files
+You are all set with account setup.
 
-* [ ] TODO: Google account. the documentation on how to get the json
-  files is missing
-
-
-* [ ] TODO: Google account. A program that takes the json files and integrates them
-  into [cloudmesh.yaml]{.title-ref}
-
-* [ ] TODO: Google account. The documentation for getting access to
-  google cloud is incomplete, see related entries.
-
-
-* `client_secret.json`
-* `google-drive-credentials.json`
-
-If we run the Google Drive `Provider.py` for the **First time** then the
-required keys, tokens are taken from the `cloudmesh.yaml` file and
-creates a `client_secret.json` file in the following path
-`~/.cloudmesh/gdrive/`
-
-* [ ] TODO: The Authentication.py program was removed, so this can not work.
-
-
-The `Authentication.py` creates a `.credentials` folder under the
-following path `~/.cloudmesh/gdrive/` if it does not exist and creates a
-`google-drive-credentials.json` file under the following folder
-`~/.cloudmesh/gdrive/.credentials/`
-
-So, for the **first time** browser will be opened up automatically and
-asks for the Google Drive(gmail) credentials i.e., login email and
-password. If you provide these 2 then the Authentication step is
-completed and then it will create the `google-drive-credentials.json`
-and place it in `~/.cloudmesh/gdrive/.credentials/` folder.
