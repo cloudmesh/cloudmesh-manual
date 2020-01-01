@@ -12,7 +12,6 @@ Subpackages
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common
-   cloudmesh.common3
    cloudmesh.compute
    cloudmesh.config
    cloudmesh.container

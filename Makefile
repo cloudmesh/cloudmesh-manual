@@ -74,7 +74,7 @@ api-index:
 
 
 	cd $(API); ls -1 *.rst \
-	| fgrep -v command.rst \
+	| fgrep -v command.rst | fgrep -v index.rst | fgrep -v modules.rst \
 	| sed 's/^/   /' \
 	| sed 's/.rst//' \
 	| sort -u >> index.rst

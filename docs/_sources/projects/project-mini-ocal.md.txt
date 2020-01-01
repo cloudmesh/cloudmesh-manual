@@ -33,7 +33,7 @@ done in python. Python is easy to learn.
 * Possible collaborate with *other* teams that work on clouds to jointly 
   identify how pricing information can be identified. 
 * This project must use AWS, Azure, and Google information
-* You must use the parallel ssh available in cloudmesh.common3.Host. 
+* You must use the parallel ssh available in cloudmesh.common.Host. 
   You will enhance this to enable scp also.
 * You will be defining extensive pytests for this and other functionality. 
   See the test_ping.py fro an example

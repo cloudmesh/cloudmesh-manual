@@ -45,6 +45,14 @@ cloudmesh.common.FlatDict module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.common.Host module
+----------------------------
+
+.. automodule:: cloudmesh.common.Host
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.common.Printer module
 -------------------------------
 

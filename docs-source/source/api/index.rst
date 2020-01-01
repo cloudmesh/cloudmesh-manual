@@ -56,11 +56,9 @@ Cloudmesh API
    cloudmesh.common.notebook
    cloudmesh.common.run
    cloudmesh.common.ssh
-   cloudmesh.common3
    cloudmesh.compute
    cloudmesh.compute.aws
    cloudmesh.compute.azure
-   cloudmesh.compute.azureaz
    cloudmesh.compute.docker
    cloudmesh.compute.libcloud
    cloudmesh.compute.virtualbox
@@ -119,5 +117,3 @@ Cloudmesh API
    cloudmesh.vdir.api
    cloudmesh.vm
    cloudmesh.workflow_draft
-   index
-   modules

@@ -111,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
@@ -447,26 +448,22 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
 
-            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cloudmesh.data.mongo&quot;</span><span class="p">]</span>
-            <span class="c1"># self.expanduser()</span>
+
+            <span class="c1">#config = Config()</span>
+            <span class="c1">#data = config[&quot;cloudmesh.data.mongo&quot;]</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rest Service status&quot;</span><span class="p">)</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB status&quot;</span><span class="p">)</span>
 
-            <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
-
-            <span class="nb">print</span><span class="p">(</span><span class="n">mongo</span><span class="p">)</span>
-            <span class="c1"># mongo.expanduser()</span>
-            <span class="c1"># data = mongo.data</span>
-            <span class="c1"># print (&quot;DDD&quot;, data)</span>
-
-            <span class="c1"># data[&quot;MONGO_VERSION&quot;]  = &#39;.&#39;.join(str(x) for x in mongo.version())</span>
-
-            <span class="c1"># print (data)</span>
-            <span class="c1"># print(Printer.attribute(data))</span>
-            <span class="c1"># mongo.set_auth()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+                <span class="n">mongo</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">mongo</span><span class="o">.</span><span class="n">status</span><span class="p">()[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ok&#39;</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;MOngo is running&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Mongo is not running&quot;</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">system</span><span class="p">:</span>
 

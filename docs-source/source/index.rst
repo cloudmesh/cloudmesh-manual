@@ -37,6 +37,7 @@ Cloudmesh Version 4
    cmd5
    reference-card
    manual/all
+   manual-configuration
    manual-cmd5
    manual-group
    manual-compute

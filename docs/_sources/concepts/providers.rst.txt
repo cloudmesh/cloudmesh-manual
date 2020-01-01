@@ -13,7 +13,6 @@ Let us demonstarte this for a compute provider. For convenience to document
 this, we assume that the diectories are stored in ~/cm. However they can be
 stored in any directory. We have the following structure::
 
-
     ~/cm/
         cloudmesh/compute
             ComputeABC.py
@@ -45,9 +44,10 @@ Example: The yaml file ~/.cloudmesh/cludmesh.yaml contains the entry::
             size: ...
             image: ...
 
-Now when we call
+Now when we call::
 
     provider = cloudmesh.compute.Provider(service="mycloud")
+
 
 The Provider will load in the provider from the aws directory, as the cm.kind
 is specified as `aws`. Thus the main provider delegates the tasks to interface

@@ -111,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-compute.html">Compute Manual Pages</a></li>
@@ -539,10 +540,24 @@
              <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        wais till the given VM can be logged into</span>
+
+<span class="sd">        :param vm: name of the vm</span>
+<span class="sd">        :param interval: interval for checking</span>
+<span class="sd">        :param timeout: timeout</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="ComputeNodeABC.console"><a class="viewcode-back" href="../../../api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.console">[docs]</a>    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the output from the console</span>
+
+<span class="sd">        :param vm: name of the VM</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
 

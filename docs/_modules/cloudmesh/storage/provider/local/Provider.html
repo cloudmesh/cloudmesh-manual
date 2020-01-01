@@ -111,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Manual Pages</a></li>
@@ -270,7 +271,8 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Provider</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">filename</span>
@@ -281,7 +283,8 @@
         <span class="n">location</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">dirname</span>
         <span class="k">return</span> <span class="n">location</span>
 
-<div class="viewcode-block" id="Provider.identifier"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.identifier">[docs]</a>    <span class="k">def</span> <span class="nf">identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;ok&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.identifier"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.identifier">[docs]</a>    <span class="k">def</span> <span class="nf">identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                   <span class="n">status</span><span class="o">=</span><span class="s2">&quot;ok&quot;</span><span class="p">):</span>
         <span class="n">stat_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="n">uid</span> <span class="o">=</span> <span class="n">stat_info</span><span class="o">.</span><span class="n">st_uid</span>
         <span class="n">gid</span> <span class="o">=</span> <span class="n">stat_info</span><span class="o">.</span><span class="n">st_gid</span>
@@ -306,19 +309,21 @@
             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span>
             <span class="c1"># &quot;owner&quot;: pwd.getpwuid(uid)[0],</span>
             <span class="c1"># &quot;group&quot;: pwd.getgrgid(gid)[0],</span>
-            <span class="s2">&quot;creation&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">creation_date</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y, %H:%M:%S&quot;</span><span class="p">)</span>
+            <span class="s2">&quot;creation&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span>
+                <span class="n">creation_date</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y, %H:%M:%S&quot;</span><span class="p">)</span>
 
         <span class="p">}</span>
         <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
-            <span class="n">identity</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">=</span><span class="kc">True</span>
+            <span class="n">identity</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="n">identity</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">identity</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">=</span><span class="kc">False</span>
+            <span class="n">identity</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="n">identity</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
-        <span class="c1">#print (&quot;DATA&quot;, filename, dirname, self.credentials[&quot;directory&quot;])</span>
+        <span class="c1"># print (&quot;DATA&quot;, filename, dirname, self.credentials[&quot;directory&quot;])</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">absolute</span><span class="p">:</span>
-            <span class="n">identity</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">identity</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s2">&quot;directory&quot;</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">identity</span></div>
 
@@ -336,9 +341,9 @@
 
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dirname</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
         <span class="n">d</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
-        <span class="c1">#print(directory)</span>
-        <span class="c1">#identity = self.identifier(directory,None,None)</span>
-        <span class="c1">#return identity</span>
+        <span class="c1"># print(directory)</span>
+        <span class="c1"># identity = self.identifier(directory,None,None)</span>
+        <span class="c1"># return identity</span>
 
 <div class="viewcode-block" id="Provider.create_dir_from_filename"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.create_dir_from_filename">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir_from_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -350,7 +355,8 @@
         <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_dir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">files_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">files_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+             <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        lists the information as dict</span>
 
@@ -386,7 +392,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        
+
         <span class="c1"># Code added to handle case when input is a file name</span>
         <span class="k">if</span> <span class="n">location</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
             <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">location</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -394,20 +400,23 @@
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
             <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">result</span>
-        
+
         <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
 
             <span class="n">is_dir</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
             <span class="n">is_file</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
 
             <span class="k">if</span> <span class="n">dir_only</span> <span class="ow">and</span> <span class="n">is_dir</span><span class="p">:</span>
-                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                        <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
                 <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">files_only</span> <span class="ow">and</span> <span class="n">is_file</span><span class="p">:</span>
-                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">is_file</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">is_file</span><span class="p">,</span>
+                                        <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">)</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
                 <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
@@ -473,7 +482,8 @@
 <span class="sd">        :return: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dirname</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-        <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;deleted&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">,</span>
+                             <span class="n">status</span><span class="o">=</span><span class="s2">&quot;deleted&quot;</span><span class="p">)</span>
         <span class="c1"># shutil.rmtree doesn&#39;t work if source is a file object.</span>
         <span class="c1"># Code modified to implement delete for file objects as well.</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>

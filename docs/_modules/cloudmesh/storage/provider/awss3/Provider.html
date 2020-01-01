@@ -111,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Manual Pages</a></li>
@@ -348,7 +349,8 @@
                 <span class="c1"># make head call to extract meta data</span>
                 <span class="c1"># and derive obj dict</span>
                 <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
-                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span>
+                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                    <span class="n">Key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span>
                 <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
                     <span class="n">metadata</span><span class="p">)</span>
@@ -360,7 +362,6 @@
             <span class="c1"># return self.storage_dict</span>
             <span class="k">return</span> <span class="n">dict_obj</span>
             <span class="k">return</span> <span class="kc">True</span>
-
 
         <span class="k">except</span> <span class="n">botocore</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">e</span><span class="p">:</span>
@@ -831,7 +832,8 @@
                                 <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                                <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
+                                <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                                    <span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
 
                 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files_to_upload</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span>

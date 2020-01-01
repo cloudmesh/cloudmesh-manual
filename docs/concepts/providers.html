@@ -258,10 +258,10 @@ cm.kind that identifies which Provider sis read upon loading it by name.</p>
         <span class="n">image</span><span class="p">:</span> <span class="o">...</span>
 </pre></div>
 </div>
-<p>Now when we call</p>
-<blockquote>
-<div><p>provider = cloudmesh.compute.Provider(service=”mycloud”)</p>
-</div></blockquote>
+<p>Now when we call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span> <span class="o">=</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;mycloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The Provider will load in the provider from the aws directory, as the cm.kind
 is specified as <cite>aws</cite>. Thus the main provider delegates the tasks to interface
 with teh particular cloud type via the definitions coming from the cloudmesh

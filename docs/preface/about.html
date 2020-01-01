@@ -108,12 +108,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
@@ -138,9 +142,11 @@
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -214,14 +220,15 @@
             
   <div class="section" id="about">
 <h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
-<p>Cloudmesh enables you to access multi-cloud environments such as AWS, Azure, Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say</p>
+<p>Cloudmesh enables you to access multi-cloud environments such as AWS, Azure,
+Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=AWS</span>
+<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=aws</span>
 <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">boot</span>
 <span class="pre">`</span></code></p>
-<p>To start one on Azure, simply set the cloud accordingly</p>
+<p>To start one on Azure, set the cloud accordingly</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=AWS</span>
+<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=aws</span>
 <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">boot</span>
 <span class="pre">`</span></code></p>
 <p><a class="reference external" href="https://cloudmesh-community.github.io/cm/">Cloudmesh</a> is
@@ -234,7 +241,7 @@ of cloud providers.</p>
 <li><p>Documentation: <a class="reference external" href="https://cloudmesh.github.io/cloudmesh-manual/">https://cloudmesh.github.io/cloudmesh-manual/</a></p></li>
 <li><p>Code: <a class="reference external" href="https://github.com/cloudmesh/">https://github.com/cloudmesh/</a></p></li>
 </ul>
-<p>It has a variety of repositories that add features to cloudmesh based on
+<p>It has a variety of repositories that add features to Cloudmesh based on
 needs by the user.</p>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
@@ -316,7 +323,7 @@ needs by the user.</p>
 <td><p>open</p></td>
 </tr>
 <tr class="row-even"><td><p>Electron</p></td>
-<td><p>A java script interface to cloudmesh</p></td>
+<td><p>A java script interface to Cloudmesh</p></td>
 <td><p>open</p></td>
 </tr>
 </tbody>
