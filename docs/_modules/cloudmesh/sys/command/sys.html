@@ -101,6 +101,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,6 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -219,6 +224,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
+
 <div class="viewcode-block" id="SysCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.sys.command.html#cloudmesh.sys.command.sys.SysCommand">[docs]</a><span class="k">class</span> <span class="nc">SysCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The system command</span>
@@ -268,7 +274,7 @@
 <span class="sd">            cms sys command generate NAME .</span>
 
 <span class="sd">                the code will be installed in the current directory. This is</span>
-<span class="sd">                helpful, if you already are in adirectory fof the name</span>
+<span class="sd">                helpful, if you already are in a directory fof the name</span>
 <span class="sd">                cloudmesh-NAME, e.g. if you already created it in github and</span>
 <span class="sd">                like to add a command in that github directory.</span>
 
@@ -329,12 +335,10 @@
                     <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;cloudmesh-</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
 
-
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">version</span><span class="p">:</span>
 
             <span class="n">version</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">VERSION</span>
             <span class="n">Version</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">version</span><span class="p">)</span></div>
-
 </pre></div>
 
            </div>

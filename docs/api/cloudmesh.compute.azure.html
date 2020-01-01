@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html">cloudmesh.common package</a></li>
@@ -142,7 +147,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">cloudmesh.config package</a></li>
@@ -218,6 +222,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -488,8 +493,8 @@ as a prefix</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.find_available_public_ip">
 <code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Azure currenly has no direct API to check if an IP is available or not!
-hence create an IP everytime this method is called!</p>
+<dd><p>Azure currently has no direct API to check if an IP is available or not!
+Hence create an IP everytime this method is called!</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p></p>
@@ -604,10 +609,19 @@ hence create an IP everytime this method is called!</p>
 <dt id="cloudmesh.compute.azure.Provider.Provider.info">
 <code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">status=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.info" title="Permalink to this definition">¶</a></dt>
 <dd><p>gets the information of a node with a given name
-List VM in resource group
-:param group: the unique Resource Group name
-:param name: the unique Virtual Machine name
-:return: The dict representing the node including updated status</p>
+list VM in resource group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – the unique Resource Group name</p></li>
+<li><p><strong>name</strong> – the unique Virtual Machine name</p></li>
+<li><p><strong>status</strong> – TODO</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict representing the node including updated status</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -888,7 +902,8 @@ see how it is implemented in key list</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.suspend">
 <code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
-<dd><p>suspends the node with the given name since Azure does not handle suspend it uses stop</p>
+<dd><p>suspends the node with the given name since Azure does not handle
+suspend it uses stop</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

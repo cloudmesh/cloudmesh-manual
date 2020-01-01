@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html">cloudmesh.common package</a></li>
@@ -136,7 +141,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">cloudmesh.config package</a></li>
@@ -217,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -314,10 +319,7 @@
 <dd><p>gets the source name from the put function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>name</strong> – the bucket name which needs to be created</p></li>
-</ul>
+<dd class="field-odd"><p><strong>name</strong> – the bucket name which needs to be created</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>dict,Boolean</p>
@@ -331,10 +333,7 @@
 <dd><p>gets the source from the put function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>name</strong> – the bucket name which needs to be checked for exists</p></li>
-</ul>
+<dd class="field-odd"><p><strong>name</strong> – the bucket name which needs to be checked for exists</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Boolean</p>
@@ -348,10 +347,7 @@
 <dd><p>creates a directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>directory</strong> – the name of the directory</p></li>
-</ul>
+<dd class="field-odd"><p><strong>directory</strong> – the name of the directory</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>dict</p>
@@ -366,7 +362,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
 <li><p><strong>recursive</strong> – in case of directory the recursive refers to all
 subdirectories in the specified source</p></li>
@@ -389,21 +384,18 @@ subdirectories in the specified source</p></li>
 <dd><p>gets the source from the service</p>
 <blockquote>
 <div><dl class="field-list simple">
-<dt class="field-odd">param service</dt>
-<dd class="field-odd"><p>the name of the service in the yaml file</p>
+<dt class="field-odd">param source</dt>
+<dd class="field-odd"><p>the source which either can be a directory or file</p>
 </dd>
-<dt class="field-even">param source</dt>
-<dd class="field-even"><p>the source which either can be a directory or file</p>
+<dt class="field-even">param destination</dt>
+<dd class="field-even"><p>the destination which either can be a directory or file</p>
 </dd>
-<dt class="field-odd">param destination</dt>
-<dd class="field-odd"><p>the destination which either can be a directory or file</p>
-</dd>
-<dt class="field-even">param recursive</dt>
-<dd class="field-even"><p>in case of directory the recursive refers to all
+<dt class="field-odd">param recursive</dt>
+<dd class="field-odd"><p>in case of directory the recursive refers to all
 subdirectories in the specified source</p>
 </dd>
-<dt class="field-odd">return</dt>
-<dd class="field-odd"><p>dict</p>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -444,21 +436,18 @@ subdirectories in the specified source</p></li>
 <dd><p>puts the source on the service</p>
 <blockquote>
 <div><dl class="field-list simple">
-<dt class="field-odd">param service</dt>
-<dd class="field-odd"><p>the name of the service in the yaml file</p>
+<dt class="field-odd">param source</dt>
+<dd class="field-odd"><p>the source which either can be a directory or file</p>
 </dd>
-<dt class="field-even">param source</dt>
-<dd class="field-even"><p>the source which either can be a directory or file</p>
+<dt class="field-even">param destination</dt>
+<dd class="field-even"><p>the destination which either can be a directory or file</p>
 </dd>
-<dt class="field-odd">param destination</dt>
-<dd class="field-odd"><p>the destination which either can be a directory or file</p>
-</dd>
-<dt class="field-even">param recursive</dt>
-<dd class="field-even"><p>in case of directory the recursive refers to all
+<dt class="field-odd">param recursive</dt>
+<dd class="field-odd"><p>in case of directory the recursive refers to all
 subdirectories in the specified source</p>
 </dd>
-<dt class="field-odd">return</dt>
-<dd class="field-odd"><p>dict</p>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -471,7 +460,6 @@ subdirectories in the specified source</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
 <li><p><strong>filename</strong> – filename</p></li>
 <li><p><strong>recursive</strong> – in case of directory the recursive refers to all

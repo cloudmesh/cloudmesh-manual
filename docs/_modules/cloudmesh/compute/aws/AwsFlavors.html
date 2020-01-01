@@ -101,6 +101,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,6 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -212,9 +217,10 @@
 <span class="c1"># please use requests</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">I do not yet understand why flavor is restricted and we do not just use what the dict under product returns</span>
+<span class="sd">I do not yet understand why flavor is restricted and we do not </span>
+<span class="sd">just use what the dict under product returns</span>
 
-<span class="sd"> I see for example. Are all of them returned, or just some selected values?</span>
+<span class="sd">I see for example. Are all of them returned, or just some selected values?</span>
 <span class="sd"> </span>
 <span class="sd"> {</span>
 <span class="sd">    &quot;WR4JPHDYW77XS7MC&quot; : {</span>
@@ -258,7 +264,8 @@
 <span class="sd">        &quot;priceDimensions&quot; : {</span>
 <span class="sd">            &quot;DBCQPZ6Z853WRE98.JRTCKXETXF.6YS6EN2CT7&quot; : {</span>
 <span class="sd">                &quot;rateCode&quot; : &quot;DBCQPZ6Z853WRE98.JRTCKXETXF.6YS6EN2CT7&quot;,</span>
-<span class="sd">                &quot;description&quot; : &quot;$3.586 per Unused Reservation RHEL r5d.12xlarge Instance Hour&quot;,</span>
+<span class="sd">                &quot;description&quot; : &quot;$3.586 per Unused Reservation RHEL &quot;</span>
+<span class="sd">                                &quot;r5d.12xlarge Instance Hour&quot;,</span>
 <span class="sd">                &quot;beginRange&quot; : &quot;0&quot;,</span>
 <span class="sd">                &quot;endRange&quot; : &quot;Inf&quot;,</span>
 <span class="sd">                &quot;unit&quot; : &quot;Hrs&quot;,</span>
@@ -307,10 +314,12 @@
               <span class="n">offer</span><span class="o">=</span><span class="s1">&#39;AmazonEC2&#39;</span>
               <span class="p">):</span>
         <span class="k">if</span> <span class="n">url</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">offer_index_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pricing.</span><span class="si">{region}</span><span class="s2">.amazonaws.com/offers/v1.0/aws/index.json&quot;</span>
+            <span class="n">offer_index_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pricing.</span><span class="si">{region}</span><span class="s2">&quot;</span>\
+                              <span class="s2">&quot;.amazonaws.com/offers/v1.0/aws/index.json&quot;</span>
             <span class="n">offer_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_json_file</span><span class="p">(</span><span class="n">offer_index_url</span><span class="p">)</span>
             <span class="n">offer_file_api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pricing.</span><span class="si">{region}</span><span class="s2">.amazonaws.com&quot;</span>
-            <span class="c1"># offer_file_path = offer_index[&#39;offers&#39;][&#39;AmazonEC2&#39;][&#39;currentVersionUrl&#39;]</span>
+            <span class="c1"># offer_file_path = offer_index[&#39;offers&#39;][&#39;AmazonEC2&#39;]\</span>
+            <span class="c1">#                   [&#39;currentVersionUrl&#39;]</span>
             <span class="n">region_file_path</span> <span class="o">=</span> <span class="n">offer_index</span><span class="p">[</span><span class="s1">&#39;offers&#39;</span><span class="p">][</span><span class="n">offer</span><span class="p">][</span>
                 <span class="s1">&#39;currentRegionIndexUrl&#39;</span><span class="p">]</span>
             <span class="n">regions_url</span> <span class="o">=</span> <span class="n">offer_file_api_url</span> <span class="o">+</span> <span class="n">region_file_path</span>
@@ -322,6 +331,7 @@
         <span class="n">offer_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_json_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">offer_data</span></div>
 
+    <span class="c1"># noinspection PyMethodMayBeStatic</span>
 <div class="viewcode-block" id="AwsFlavor.list"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.AwsFlavors.AwsFlavor.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offer</span><span class="p">):</span>
 
         <span class="n">bar</span> <span class="o">=</span> <span class="n">Bar</span><span class="p">(</span><span class="s1">&#39;Processing Flavor Products&#39;</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">offer</span><span class="p">[</span><span class="s2">&quot;products&quot;</span><span class="p">]))</span>

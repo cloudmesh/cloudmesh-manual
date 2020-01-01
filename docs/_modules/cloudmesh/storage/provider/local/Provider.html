@@ -101,6 +101,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,6 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -337,9 +342,9 @@
 
 <div class="viewcode-block" id="Provider.create_dir_from_filename"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.Provider.create_dir_from_filename">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir_from_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        creates a directory</span>
+<span class="sd">        creates a directory form a filename</span>
 
-<span class="sd">        :param directory: the name of the directory for the filename</span>
+<span class="sd">        :param filename: the filename path</span>
 <span class="sd">        :return: dict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
@@ -485,7 +490,6 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        gets the destination and copies it in source</span>
 
-<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param directory: the directory which either can be a directory or file</span>
 <span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
 <span class="sd">                          subdirectories in the specified source</span>

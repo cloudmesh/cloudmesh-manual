@@ -12,10 +12,26 @@ cloudmesh.compute.aws.AwsFlavors\-Gregor module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.compute.aws.AwsFlavors\-dev module
+--------------------------------------------
+
+.. automodule:: cloudmesh.compute.aws.AwsFlavors-dev
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.compute.aws.AwsFlavors module
 ---------------------------------------
 
 .. automodule:: cloudmesh.compute.aws.AwsFlavors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cloudmesh.compute.aws.Provider\-dev module
+------------------------------------------
+
+.. automodule:: cloudmesh.compute.aws.Provider-dev
    :members:
    :undoc-members:
    :show-inheritance:

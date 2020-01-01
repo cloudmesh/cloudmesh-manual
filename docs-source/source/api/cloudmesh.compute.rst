@@ -11,7 +11,6 @@ Subpackages
    cloudmesh.compute.azureaz
    cloudmesh.compute.docker
    cloudmesh.compute.libcloud
-   cloudmesh.compute.openstack
    cloudmesh.compute.virtualbox
    cloudmesh.compute.vm
 

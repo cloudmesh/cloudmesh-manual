@@ -102,6 +102,10 @@
 <li class="toctree-l1"><a class="reference internal" href="concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -135,6 +139,7 @@
 <li class="toctree-l1"><a class="reference internal" href="accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -286,8 +291,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.add_rules_to_secgroup">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_rules_to_secgroup">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.add_rules_to_secgroup">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -300,8 +303,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.add_secgroup">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_secgroup">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.add_secgroup">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -311,8 +312,6 @@
         <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.add_secgroup_rule">(cloudmesh.compute.aws.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.add_secgroup_rule">(cloudmesh.compute.azure.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.add_secgroup_rule">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.add_secgroup_rule">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -343,8 +342,6 @@
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.attach_public_ip">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.attach_public_ip">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.attach_public_ip">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.attach_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -449,6 +446,8 @@
         <li><a href="api/cloudmesh.common3.html#cloudmesh.common3.Shell.Shell.check_python">(cloudmesh.common3.Shell.Shell class method)</a>
 </li>
       </ul></li>
+      <li><a href="api/cloudmesh.check.command.html#cloudmesh.check.command.check.CheckCommand">CheckCommand (class in cloudmesh.check.command.check)</a>
+</li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.Plugin.class_name">class_name() (cloudmesh.shell.shell.Plugin class method)</a>
 </li>
       <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.shell.Plugin.classes">classes() (cloudmesh.shell.shell.Plugin class method)</a>
@@ -514,6 +513,12 @@
       <li><a href="api/cloudmesh.admin.command.html#module-cloudmesh.admin.command">cloudmesh.admin.command (module)</a>
 </li>
       <li><a href="api/cloudmesh.admin.command.html#module-cloudmesh.admin.command.admin">cloudmesh.admin.command.admin (module)</a>
+</li>
+      <li><a href="api/cloudmesh.check.html#module-cloudmesh.check">cloudmesh.check (module)</a>
+</li>
+      <li><a href="api/cloudmesh.check.command.html#module-cloudmesh.check.command">cloudmesh.check.command (module)</a>
+</li>
+      <li><a href="api/cloudmesh.check.command.html#module-cloudmesh.check.command.check">cloudmesh.check.command.check (module)</a>
 </li>
       <li><a href="api/cloudmesh.cloud.html#module-cloudmesh.cloud">cloudmesh.cloud (module)</a>
 </li>
@@ -616,12 +621,6 @@
       <li><a href="api/cloudmesh.compute.libcloud.html#module-cloudmesh.compute.libcloud">cloudmesh.compute.libcloud (module)</a>
 </li>
       <li><a href="api/cloudmesh.compute.libcloud.html#module-cloudmesh.compute.libcloud.Provider">cloudmesh.compute.libcloud.Provider (module)</a>
-</li>
-      <li><a href="api/cloudmesh.compute.openstack.html#module-cloudmesh.compute.openstack">cloudmesh.compute.openstack (module)</a>
-</li>
-      <li><a href="api/cloudmesh.compute.openstack.html#module-cloudmesh.compute.openstack.Provider">cloudmesh.compute.openstack.Provider (module)</a>
-</li>
-      <li><a href="api/cloudmesh.compute.openstack.html#module-cloudmesh.compute.openstack.test_openstacksdk">cloudmesh.compute.openstack.test_openstacksdk (module)</a>
 </li>
       <li><a href="api/cloudmesh.compute.virtualbox.html#module-cloudmesh.compute.virtualbox">cloudmesh.compute.virtualbox (module)</a>
 </li>
@@ -787,12 +786,12 @@
 </li>
       <li><a href="api/cloudmesh.open.command.html#module-cloudmesh.open.command">cloudmesh.open.command (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.open.command.html#module-cloudmesh.open.command.open">cloudmesh.open.command.open (module)</a>
 </li>
       <li><a href="api/cloudmesh.provider.html#module-cloudmesh.provider">cloudmesh.provider (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.provider.command.html#module-cloudmesh.provider.command">cloudmesh.provider.command (module)</a>
 </li>
       <li><a href="api/cloudmesh.provider.command.html#module-cloudmesh.provider.command.provider">cloudmesh.provider.command.provider (module)</a>
@@ -1048,8 +1047,6 @@
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.console">console() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
       <ul>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.console">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.console">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -1095,8 +1092,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.create">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.create">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.create">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.create">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -1148,8 +1143,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.create_public_ip">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.create_public_ip">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.create_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -1164,8 +1157,6 @@
       <li><a href="api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.create_user">create_user() (cloudmesh.register.AWSRegister.AWSRegister method)</a>
 </li>
       <li><a href="api/cloudmesh.storage.provider.local.html#cloudmesh.storage.provider.local.Provider.creation_date">creation_date() (in module cloudmesh.storage.provider.local.Provider)</a>
-</li>
-      <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.test_openstacksdk.credentials">credentials() (in module cloudmesh.compute.openstack.test_openstacksdk)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.csv">csv() (cloudmesh.common.Printer.Printer class method)</a>
 </li>
@@ -1290,8 +1281,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.delete_public_ip">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.delete_public_ip">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.delete_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -1303,8 +1292,6 @@
         <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.delete_server_metadata">(cloudmesh.compute.aws.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.delete_server_metadata">(cloudmesh.compute.azure.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.delete_server_metadata">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.delete_server_metadata">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -1326,8 +1313,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.destroy">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.destroy">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.destroy">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.destroy">(cloudmesh.compute.vm.Provider.Provider method)</a>
@@ -1337,8 +1322,6 @@
         <li><a href="api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy">(cloudmesh.vcluster.api.VirtualCluster.VirtualCluster method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.detach_public_ip">detach_public_ip() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
       <ul>
@@ -1348,11 +1331,11 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.detach_public_ip">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.detach_public_ip">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.detach_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dialog">dialog() (cloudmesh.common.Shell.Shell class method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.FlatDict.FlatDict.dict">dict() (cloudmesh.common.FlatDict.FlatDict property)</a>
@@ -1382,6 +1365,8 @@
       <li><a href="api/cloudmesh.admin.command.html#cloudmesh.admin.command.admin.AdminCommand.do_admin">do_admin() (cloudmesh.admin.command.admin.AdminCommand method)</a>
 </li>
       <li><a href="api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand.do_banner">do_banner() (cloudmesh.terminal.command.terminal.TerminalCommand method)</a>
+</li>
+      <li><a href="api/cloudmesh.check.command.html#cloudmesh.check.command.check.CheckCommand.do_check">do_check() (cloudmesh.check.command.check.CheckCommand method)</a>
 </li>
       <li><a href="api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand.do_clear">do_clear() (cloudmesh.terminal.command.terminal.TerminalCommand method)</a>
 </li>
@@ -1594,8 +1579,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.find">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.find">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.find">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroupDatabase.find">(cloudmesh.key.KeyGroup.KeyGroupDatabase method)</a>
@@ -1616,8 +1599,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.find_available_public_ip">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.find_available_public_ip">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.find_available_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -1637,10 +1618,10 @@
 </li>
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_name">find_name() (cloudmesh.mongo.CmDatabase.CmDatabase method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_names">find_names() (cloudmesh.mongo.CmDatabase.CmDatabase method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_ok">find_ok() (cloudmesh.mongo.CmDatabase.CmDatabase method)</a>
 </li>
       <li><a href="api/cloudmesh.cmd5.html#cloudmesh.cmd5.CloudmeshPlugin.CloudmeshPlugin.find_PluginCommands_in_sys">find_PluginCommands_in_sys() (cloudmesh.cmd5.CloudmeshPlugin.CloudmeshPlugin static method)</a>
@@ -1648,6 +1629,8 @@
       <li><a href="api/cloudmesh.management.html#cloudmesh.management.script.find_process">find_process() (in module cloudmesh.management.script)</a>
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.SSHkey.SSHkey.fingerprint">fingerprint() (cloudmesh.management.configuration.SSHkey.SSHkey property)</a>
+</li>
+      <li><a href="api/cloudmesh.host.html#cloudmesh.host.host.Host.fix_keys_file">fix_keys_file() (cloudmesh.host.host.Host static method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.FlatDict.FlatDict">FlatDict (class in cloudmesh.common.FlatDict)</a>
 </li>
@@ -1668,8 +1651,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.flavor">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.flavor">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.flavor">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -1685,8 +1666,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.flavors">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.flavors">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.flavors">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.flavors">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -1789,12 +1768,12 @@
 </li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_commands">get_commands() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.storage.provider.gdrive.html#cloudmesh.storage.provider.gdrive.Provider.Provider.get_credentials">get_credentials() (cloudmesh.storage.provider.gdrive.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.common.ssh.html#cloudmesh.common.ssh.authorized_keys.get_fingerprint_from_public_key">get_fingerprint_from_public_key() (in module cloudmesh.common.ssh.authorized_keys)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_flavor">get_flavor() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
 </li>
       <li><a href="api/cloudmesh.key.html#cloudmesh.key.Key.Key.get_from_dir">get_from_dir() (cloudmesh.key.Key.Key class method)</a>
@@ -1812,16 +1791,10 @@
       <li><a href="api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.get_ip">get_ip() (cloudmesh.compute.azureaz.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.get_list">get_list() (cloudmesh.compute.azure.Provider.Provider method)</a>
-
-      <ul>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_list">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
-      </ul></li>
       <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_names">get_names() (cloudmesh.management.configuration.arguments.Arguments static method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.get_pid">get_pid() (cloudmesh.common.Shell.Shell static method)</a>
-</li>
-      <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_private_ip">get_private_ip() (cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_public_ip">get_public_ip() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -1829,8 +1802,6 @@
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.get_public_ip">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.get_public_ip">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_public_ip">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.get_public_ip">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -1843,8 +1814,6 @@
         <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.get_server_metadata">(cloudmesh.compute.aws.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.get_server_metadata">(cloudmesh.compute.azure.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_server_metadata">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.get_server_metadata">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -1934,8 +1903,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.image">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.image">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
       </ul></li>
       <li><a href="api/cloudmesh.image.command.html#cloudmesh.image.command.image.ImageCommand">ImageCommand (class in cloudmesh.image.command.image)</a>
 </li>
@@ -1949,8 +1916,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.images">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.images">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.images">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.images">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -1993,8 +1958,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.info">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.info">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.info">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.info">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -2082,8 +2045,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.key_delete">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.key_delete">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.key_delete">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -2099,8 +2060,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.key_upload">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.key_upload">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.key_upload">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.key_upload">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -2128,8 +2087,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.keys">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.keys">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.keys">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig.keys">(cloudmesh.management.configuration.generic_config.GenericConfig method)</a>
@@ -2155,8 +2112,6 @@
         <li><a href="api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.kind">(cloudmesh.compute.azureaz.Provider.Provider attribute)</a>
 </li>
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.kind">(cloudmesh.compute.docker.Provider.Provider attribute)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.kind">(cloudmesh.compute.openstack.Provider.Provider attribute)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.kind">(cloudmesh.compute.virtualbox.Provider.Provider attribute)</a>
 </li>
@@ -2195,8 +2150,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.list">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.list">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.list">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -2252,8 +2205,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.list_public_ips">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_public_ips">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_public_ips">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -2270,8 +2221,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.list_secgroup_rules">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_secgroup_rules">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
       </ul></li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups">list_secgroups() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -2281,8 +2230,6 @@
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.list_secgroups">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.list_secgroups">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.list_secgroups">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_secgroups">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -2324,8 +2271,6 @@
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.log">log() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
       <ul>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.log">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.log">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -2482,8 +2427,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.output">(cloudmesh.compute.libcloud.Provider.Provider attribute)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.output">(cloudmesh.compute.openstack.Provider.Provider attribute)</a>
-</li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.output">(cloudmesh.compute.virtualbox.Provider.Provider attribute)</a>
 </li>
         <li><a href="api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroup.output">(cloudmesh.key.KeyGroup.KeyGroup attribute)</a>
@@ -2514,8 +2457,6 @@
       <li><a href="api/cloudmesh.source.html#cloudmesh.source.Source.Source.patch">patch() (cloudmesh.source.Source.Source method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.util.path_expand">path_expand() (in module cloudmesh.common.util)</a>
-</li>
-      <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.pause">pause() (cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
       <li><a href="api/cloudmesh.common.ssh.html#cloudmesh.common.ssh.encrypt.EncryptFile.pem_cat">pem_cat() (cloudmesh.common.ssh.encrypt.EncryptFile method)</a>
 </li>
@@ -2568,8 +2509,6 @@
       <ul>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.Print">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.Print">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.Print">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.key.html#cloudmesh.key.KeyGroup.KeyGroup.Print">(cloudmesh.key.KeyGroup.KeyGroup method)</a>
@@ -2595,8 +2534,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider">(class in cloudmesh.compute.docker.Provider)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider">(class in cloudmesh.compute.libcloud.Provider)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider">(class in cloudmesh.compute.openstack.Provider)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider">(class in cloudmesh.compute.virtualbox.Provider)</a>
 </li>
@@ -2682,8 +2619,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.reboot">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.reboot">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.reboot">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -2720,8 +2655,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.remove_rules_from_secgroup">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.remove_rules_from_secgroup">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
       </ul></li>
       <li><a href="api/cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_secgroup">remove_secgroup() (cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC method)</a>
 
@@ -2731,8 +2664,6 @@
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.remove_secgroup">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.remove_secgroup">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.remove_secgroup">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.remove_secgroup">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -2749,8 +2680,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.rename">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.rename">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.rename">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.rename">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -2785,8 +2714,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.resume">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.resume">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.resume">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.resume">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -2855,8 +2782,6 @@
 
       <ul>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.sample">(cloudmesh.compute.azure.Provider.Provider attribute)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.sample">(cloudmesh.compute.openstack.Provider.Provider attribute)</a>
 </li>
       </ul></li>
       <li><a href="api/cloudmesh.inventory.html#cloudmesh.inventory.inventory.Inventory.save">save() (cloudmesh.inventory.inventory.Inventory method)</a>
@@ -2950,8 +2875,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.set_server_metadata">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.set_server_metadata">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.set_server_metadata">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
       </ul></li>
@@ -3004,8 +2927,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.ssh">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.ssh">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.ssh">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.host.html#cloudmesh.host.host.Host.ssh">(cloudmesh.host.host.Host static method)</a>
@@ -3042,8 +2963,6 @@
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.start">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
 </li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.start">(cloudmesh.compute.openstack.Provider.Provider method)</a>
-</li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.start">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.start">(cloudmesh.compute.vm.Provider.Provider method)</a>
@@ -3069,8 +2988,6 @@
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.status">(cloudmesh.compute.azure.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.azureaz.html#cloudmesh.compute.azureaz.Provider.Provider.status">(cloudmesh.compute.azureaz.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.status">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.status">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -3105,8 +3022,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.stop">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.stop">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.stop">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.stop">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -3161,8 +3076,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.suspend">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.suspend">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.suspend">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.suspend">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -3273,7 +3186,7 @@
         <li><a href="api/cloudmesh.shell.html#cloudmesh.shell.plugin.PluginManager.uninstall">(cloudmesh.shell.plugin.PluginManager method)</a>
 </li>
       </ul></li>
-      <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.unpause">unpause() (cloudmesh.compute.openstack.Provider.Provider method)</a>
+      <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.unix_ls">unix_ls() (cloudmesh.common.Shell.Shell class method)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.unzip">unzip() (cloudmesh.common.Shell.Shell method)</a>
 </li>
@@ -3299,8 +3212,6 @@
         <li><a href="api/cloudmesh.compute.docker.html#cloudmesh.compute.docker.Provider.Provider.update_dict">(cloudmesh.compute.docker.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.libcloud.html#cloudmesh.compute.libcloud.Provider.Provider.update_dict">(cloudmesh.compute.libcloud.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.update_dict">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.update_dict">(cloudmesh.compute.virtualbox.Provider.Provider method)</a>
 </li>
@@ -3339,8 +3250,6 @@
         <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.upload_secgroup">(cloudmesh.compute.aws.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.upload_secgroup">(cloudmesh.compute.azure.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.upload_secgroup">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.upload_secgroup">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>
@@ -3412,11 +3321,7 @@
       <li><a href="api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster">VirtualCluster (class in cloudmesh.vcluster.api.VirtualCluster)</a>
 </li>
       <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.vm_state">vm_state (cloudmesh.compute.azure.Provider.Provider attribute)</a>
-
-      <ul>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.vm_state">(cloudmesh.compute.openstack.Provider.Provider attribute)</a>
 </li>
-      </ul></li>
       <li><a href="api/cloudmesh.vm.command.html#cloudmesh.vm.command.vm.VmCommand">VmCommand (class in cloudmesh.vm.command.vm)</a>
 </li>
       <li><a href="api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable.vrules">vrules() (cloudmesh.common.prettytable.PrettyTable property)</a>
@@ -3433,8 +3338,6 @@
         <li><a href="api/cloudmesh.compute.aws.html#cloudmesh.compute.aws.Provider.Provider.wait">(cloudmesh.compute.aws.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.azure.html#cloudmesh.compute.azure.Provider.Provider.wait">(cloudmesh.compute.azure.Provider.Provider method)</a>
-</li>
-        <li><a href="api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.wait">(cloudmesh.compute.openstack.Provider.Provider method)</a>
 </li>
         <li><a href="api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.wait">(cloudmesh.compute.vm.Provider.Provider method)</a>
 </li>

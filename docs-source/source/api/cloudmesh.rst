@@ -8,6 +8,7 @@ Subpackages
 
    cloudmesh.abstractclass
    cloudmesh.admin
+   cloudmesh.check
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common

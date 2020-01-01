@@ -3,6 +3,16 @@ OTHER
 =====
 
 .. toctree::
+   :caption: GOOGLE ACCOUNT MANUALS
+   :maxdepth: 2
+
+   accounts/google/google-account
+   accounts/google/google-docs
+   accounts/google/google-ufo
+   accounts/google/google-gcp
+   accounts/google/google-storage1
+
+.. toctree::
    :caption: CODE
 
    configuration/encryption

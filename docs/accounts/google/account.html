@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Google Account &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Oracle Cloud Account" href="../oracle/account.html" />
+    <link rel="prev" title="Azure Account" href="../azure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/cmsd.html">Cloudmesh Container</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/database.html">Multicloud Database Interfaces</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Google Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisits">Prerequisits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-google-account">Creating the Google account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activation-google-storage-service">Activation Google Storage Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-project">Create a Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-service-account">Create a Service Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-cloudmesh-with-the-google-storage-account-information">Update Cloudmesh with the Google Storage Account Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-google-storage">Using the Google Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#junk">JUNK</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Google Account</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/accounts/google/account.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="google-account">
+<h1>Google Account<a class="headerlink" href="#google-account" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisits">
+<h2>Prerequisits<a class="headerlink" href="#prerequisits" title="Permalink to this headline">¶</a></h2>
+<p>We assume you have the cloudmesh google provider installed. This can be done with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-google
+</pre></div>
+</div>
+<p>For developers the best way to install it is to use <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
+$ <span class="nb">cd</span> cm
+$ pip install cloudmesh-installer
+$ cloudmesh-installer git clone google
+$ cloudmesh-installer git install google
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-the-google-account">
+<h2>Creating the Google account<a class="headerlink" href="#creating-the-google-account" title="Permalink to this headline">¶</a></h2>
+<p>A new google account can be created using following information:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount">Create your Google Account</a></p></li>
+</ul>
+</div>
+<div class="section" id="activation-google-storage-service">
+<h2>Activation Google Storage Service<a class="headerlink" href="#activation-google-storage-service" title="Permalink to this headline">¶</a></h2>
+<p>Google allows you to apply for an account offering you $300 in credits to use
+google storage cloud. To apply for it you can use either of the follwoing links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&amp;_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE">Get Started for Free</a></p></li>
+<li><p><a class="reference external" href="https://edu.google.com/products/google-cloud-platform/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&amp;utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&amp;utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&amp;gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&amp;modal_active=none">Google Cloud Platform | Google for Education</a></p></li>
+</ul>
+<p>Please chose the one that is most appropriate for you. For the eductaional
+account you may need a verifiaction from your school or an email that is
+registered as an educational insititution.</p>
+<div class="section" id="create-a-project">
+<h3>Create a Project<a class="headerlink" href="#create-a-project" title="Permalink to this headline">¶</a></h3>
+<p>Next, you will need to create a Google project. We recommend that you simply
+use the name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>. You can create such a project at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://console.cloud.google.com/">Google Storage - Online Data Storage | Cloud Storage | Google Cloud</a></p></li>
+</ul>
+<p>The three screenshots show the workflow on how to create a project:</p>
+<p><img alt="../../_images/MyFirstAccount_01.png" src="../../_images/MyFirstAccount_01.png" />Create first account_01
+<img alt="../../_images/MyFirstAccount_02.png" src="../../_images/MyFirstAccount_02.png" />Create first account_02
+<img alt="../../_images/MyFirstAccount_03.png" src="../../_images/MyFirstAccount_03.png" />Create first account_03</p>
+</div>
+<div class="section" id="create-a-service-account">
+<h3>Create a Service Account<a class="headerlink" href="#create-a-service-account" title="Permalink to this headline">¶</a></h3>
+<p>Now you need to also create a service account by clicking the follwoing link:</p>
+<p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey?project=cloudmesh-class&amp;folder&amp;organizationId">Create a Service Account</a></p>
+<p>To create it you need to select the newly created project and go to</p>
+<ul>
+<li><p><a class="reference external" href="https://cloud.google.com/docs/authentication/production">Create service account page</a></p>
+<p><img alt="../../_images/CreateServiceAccount_01.png" src="../../_images/CreateServiceAccount_01.png" />Create service account_01</p>
+<ul class="simple">
+<li><p>Go to section :Creating a service account</p></li>
+</ul>
+<p>Following is the direct link to generate credentials from google :</p>
+<p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">Create Service Account Key</a></p>
+<p><img alt="../../_images/CreateServiceKey_01.png" src="../../_images/CreateServiceKey_01.png" />Create service key</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sample files:
+ `client_secret.json` 
+ `google-drive-credentials.json`
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To create and download new private key you will use to authenticate. Select the
+JSON format and download the file and save it to</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code></p>
+<p>Make sure you keep that directory secure.</p>
+<p>todo:: in future we want a link to a security section here</p>
+<p>This file will be used to update the YAML  entry in the file</p>
+<p><code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
+<p>We recommend that you rename the downloaded file to <code class="docutils literal notranslate"><span class="pre">google.json</span></code> when you save
+it.</p>
+<p>IMPLEMNET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms register google google.json
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-cloudmesh-with-the-google-storage-account-information">
+<h3>Update Cloudmesh with the Google Storage Account Information<a class="headerlink" href="#update-cloudmesh-with-the-google-storage-account-information" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">config</span> <span class="n">add</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">google</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">google</span> 
+</pre></div>
+</div>
+<p>MOVE THE CONTENT FROM HERE INTO CONFIGURATION SECTION …</p>
+<p>Mor details of the configuration can v=be looked up in the <a class="reference external" href="MISSING">Cloudmesh  Configuration Section</a></p>
+<p>THE COMMANDS HAVE TO BE REVISITED</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="nb">list</span> <span class="c1"># what does thsi do?</span>
+</pre></div>
+</div>
+<p>THIS NEEDS TO BE RENAMED TO</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="n">config</span> <span class="nb">list</span>  <span class="c1"># logical</span>
+<span class="n">cms</span> <span class="n">google</span> <span class="n">yaml</span> <span class="nb">list</span> <span class="n">storage</span> <span class="c1"># somewhat logical</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-google-storage">
+<h3>Using the Google Storage<a class="headerlink" href="#using-the-google-storage" title="Permalink to this headline">¶</a></h3>
+<p>If google storage bucket is alredy created, you can list google storage bucket
+using following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">google</span> <span class="nb">list</span> 
+</pre></div>
+</div>
+<p>From the displayed list please pick bucket of your choice and add bucket name
+to yaml file in the storage section for google provider</p>
+<p><code class="docutils literal notranslate"><span class="pre">storage</span> <span class="pre">&gt;</span> <span class="pre">google</span> <span class="pre">&gt;</span> <span class="pre">default</span> <span class="pre">&gt;</span> <span class="pre">directory</span></code>.</p>
+<p>If bucket doesnot exist use folling command to create new bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms google create bucket --name=NAME --service=google
+</pre></div>
+</div>
+<p>NAME: is new bucket name.
+Important note: Bucket name needs to be globally unique, you may choose combinantion
+of your class ID and bucket name.
+<code class="docutils literal notranslate"><span class="pre">e.g.</span> <span class="pre">f19_516_xxx_bucket_name</span></code></p>
+<p>You are all set with account setup.</p>
+<div class="section" id="junk">
+<h4>JUNK<a class="headerlink" href="#junk" title="Permalink to this headline">¶</a></h4>
+<hr class="docutils" />
+<p>For google cloud storage cloudmesh services <code class="docutils literal notranslate"><span class="pre">cms</span></code> provides command line
+interface which is part of part of cloudmesh-google storage application.</p>
+<p>Various available operations using cms are file operations for put to upload, get to download,
+list, delete <code class="docutils literal notranslate"><span class="pre">object/blob</span></code>, create directory. First, we need to create an
+account as follows:</p>
+<p>You can certainly do it by hand ::::::</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IAM</span> <span class="pre">&amp;</span> <span class="pre">Admin</span> <span class="pre">-&gt;</span> <span class="pre">Service</span> <span class="pre">Accounts</span> <span class="pre">-&gt;</span> <span class="pre">Create</span> <span class="pre">service</span> <span class="pre">account</span></code></p></li>
+</ul>
+<p>to create a new service account. Select</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Furnish</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">private</span> <span class="pre">key</span></code></p></li>
+</ul>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://myaccount.google.com/intro">New Google Account Introduction</a></p></li>
+<li><p><a class="reference external" href="https://support.google.com/accounts/answer/27441">Create a Google Account- Google Account Help</a></p></li>
+<li><p><a class="reference external" href="https://cloud.google.com/docs/authentication/">Authentication Overview | Authentication | Google Cloud</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../oracle/account.html" class="btn btn-neutral float-right" title="Oracle Cloud Account" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../azure.html" class="btn btn-neutral float-left" title="Azure Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

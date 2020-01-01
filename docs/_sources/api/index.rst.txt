@@ -5,6 +5,7 @@ Cloudmesh Command API
    :maxdepth: 1
 
    cloudmesh.admin.command
+   cloudmesh.check.command
    cloudmesh.config.command
    cloudmesh.container.command
    cloudmesh.data.command
@@ -48,6 +49,7 @@ Cloudmesh API
    cloudmesh
    cloudmesh.abstractclass
    cloudmesh.admin
+   cloudmesh.check
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common
@@ -61,7 +63,6 @@ Cloudmesh API
    cloudmesh.compute.azureaz
    cloudmesh.compute.docker
    cloudmesh.compute.libcloud
-   cloudmesh.compute.openstack
    cloudmesh.compute.virtualbox
    cloudmesh.compute.vm
    cloudmesh.config

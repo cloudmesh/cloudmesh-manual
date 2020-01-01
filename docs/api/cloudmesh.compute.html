@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html">cloudmesh.common package</a></li>
@@ -137,7 +142,6 @@
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 </ul>
@@ -150,7 +154,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">cloudmesh.config package</a></li>
@@ -226,6 +229,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -311,7 +315,9 @@
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#cloudmesh-compute-aws-awsflavors-gregor-module">cloudmesh.compute.aws.AwsFlavors-Gregor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#cloudmesh-compute-aws-awsflavors-dev-module">cloudmesh.compute.aws.AwsFlavors-dev module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#module-cloudmesh.compute.aws.AwsFlavors">cloudmesh.compute.aws.AwsFlavors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#cloudmesh-compute-aws-provider-dev-module">cloudmesh.compute.aws.Provider-dev module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#module-cloudmesh.compute.aws.Provider">cloudmesh.compute.aws.Provider module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#module-cloudmesh.compute.aws.gregor_flavor">cloudmesh.compute.aws.gregor_flavor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html#cloudmesh-compute-aws-test-boto-module">cloudmesh.compute.aws.test_boto module</a></li>
@@ -341,13 +347,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html#module-cloudmesh.compute.libcloud.Provider">cloudmesh.compute.libcloud.Provider module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html#module-cloudmesh.compute.libcloud">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html#module-cloudmesh.compute.openstack.Provider">cloudmesh.compute.openstack.Provider module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html#module-cloudmesh.compute.openstack.test_openstacksdk">cloudmesh.compute.openstack.test_openstacksdk module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html#module-cloudmesh.compute.openstack">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a><ul>

@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html">cloudmesh.common package</a></li>
@@ -134,7 +139,9 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.aws package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-aws-awsflavors-gregor-module">cloudmesh.compute.aws.AwsFlavors-Gregor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-aws-awsflavors-dev-module">cloudmesh.compute.aws.AwsFlavors-dev module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws.AwsFlavors">cloudmesh.compute.aws.AwsFlavors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-aws-provider-dev-module">cloudmesh.compute.aws.Provider-dev module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws.Provider">cloudmesh.compute.aws.Provider module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws.gregor_flavor">cloudmesh.compute.aws.gregor_flavor module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-aws-test-boto-module">cloudmesh.compute.aws.test_boto module</a></li>
@@ -145,7 +152,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">cloudmesh.config package</a></li>
@@ -221,6 +227,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -307,6 +314,9 @@
 <div class="section" id="cloudmesh-compute-aws-awsflavors-gregor-module">
 <h2>cloudmesh.compute.aws.AwsFlavors-Gregor module<a class="headerlink" href="#cloudmesh-compute-aws-awsflavors-gregor-module" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="cloudmesh-compute-aws-awsflavors-dev-module">
+<h2>cloudmesh.compute.aws.AwsFlavors-dev module<a class="headerlink" href="#cloudmesh-compute-aws-awsflavors-dev-module" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-cloudmesh.compute.aws.AwsFlavors">
 <span id="cloudmesh-compute-aws-awsflavors-module"></span><h2>cloudmesh.compute.aws.AwsFlavors module<a class="headerlink" href="#module-cloudmesh.compute.aws.AwsFlavors" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -330,6 +340,9 @@
 
 </dd></dl>
 
+</div>
+<div class="section" id="cloudmesh-compute-aws-provider-dev-module">
+<h2>cloudmesh.compute.aws.Provider-dev module<a class="headerlink" href="#cloudmesh-compute-aws-provider-dev-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.compute.aws.Provider">
 <span id="cloudmesh-compute-aws-provider-module"></span><h2>cloudmesh.compute.aws.Provider module<a class="headerlink" href="#module-cloudmesh.compute.aws.Provider" title="Permalink to this headline">¶</a></h2>
@@ -355,12 +368,11 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – Adds security group</p></li>
-<li><p><strong>description</strong> – <p>name = name of the security group to be added/created
-description: Description of the security group. If its none then default description</p>
-<blockquote>
-<div><p>is added with user name and time of creation</p>
-</div></blockquote>
-</p></li>
+<li><p><strong>description</strong> – name = name of the security group to be
+added/created
+description: Description of the security group. If
+its none then default description
+is added with user name and time of creation</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -376,7 +388,8 @@ description: Description of the security group. If its none then default descrip
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – Name of the security group to which rfule needs to be added</p></li>
+<li><p><strong>name</strong> – Name of the security group to which rfule needs to be
+added</p></li>
 <li><p><strong>port</strong> – The start and end port range for the TCP and UDP protocols</p></li>
 <li><p><strong>protocol</strong> – </p></li>
 <li><p><strong>ip_range</strong> – </p></li>
@@ -614,10 +627,20 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.instance_is_reachable">
 <code class="sig-name descname">instance_is_reachable</code><span class="sig-paren">(</span><em class="sig-param">instance_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.instance_is_reachable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.instance_is_reachable" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the information of a statuso of a VM with a given name, useful for when you want to check if the vm is ready for ssh
-Note: describe_instance_status doesn’t filter by tag , so we should use instance ID
-:param name: name
-:return:</p>
+<dd><p>gets the information of a statuso of a VM with a given name, useful for
+when you want to check if the vm is ready for ssh Note:
+describe_instance_status doesn’t filter by tag , so we should use
+instance ID</p>
+<p>previously name was used. Figure out what shoudl be documented an if it
+is in compliance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>instance_id</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -705,7 +728,8 @@ returned.</p>
 <dd><p>List the named security groups</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the security group. If not provided, returns all security group</p>
+<dd class="field-odd"><p><strong>name</strong> – Name of the security group. If not provided, returns all
+security group</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>List of dict</p>
@@ -767,11 +791,12 @@ returned.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.set_server_metadata">
 <code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>TODO</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – virtual machine name</p></li>
-<li><p><strong>m</strong> – cm dict</p></li>
+<li><p><strong>data</strong> – cm dict</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

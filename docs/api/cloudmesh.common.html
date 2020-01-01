@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.common package</a><ul>
@@ -168,7 +173,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">cloudmesh.config package</a></li>
@@ -244,6 +248,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -1151,10 +1156,10 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 
 <dl class="method">
 <dt id="cloudmesh.common.Shell.Shell.ls">
-<em class="property">classmethod </em><code class="sig-name descname">ls</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">match</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.ls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.ls" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">ls</code><span class="sig-paren">(</span><em class="sig-param">match='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.ls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.ls" title="Permalink to this definition">¶</a></dt>
 <dd><p>executes ls with the given arguments
 :param args: 
-:return:</p>
+:return: list</p>
 </dd></dl>
 
 <dl class="method">
@@ -1341,6 +1346,14 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 <dt id="cloudmesh.common.Shell.Shell.terminal_type">
 <em class="property">classmethod </em><code class="sig-name descname">terminal_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.terminal_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.terminal_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns  darwin, cygwin, cmd, or linux</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.Shell.Shell.unix_ls">
+<em class="property">classmethod </em><code class="sig-name descname">unix_ls</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.unix_ls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.unix_ls" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes ls with the given arguments
+:param args:
+:return:</p>
 </dd></dl>
 
 <dl class="method">

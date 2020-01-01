@@ -106,8 +106,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#cm">cm</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-templates">Adding Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compute-cloud-providers">Compute Cloud Providers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Default</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#credentials">credentials</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aws">AWS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure">Azure</a></li>
@@ -178,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -427,6 +429,47 @@ service provider</p>
 </div>
 </div>
 </div>
+<div class="section" id="adding-templates">
+<h2>Adding Templates<a class="headerlink" href="#adding-templates" title="Permalink to this headline">¶</a></h2>
+<p>Cloudmesh has the feature of being able to create ne services into the yaml
+file based on temples provided by the cloudmesh providers.</p>
+<p>This includes</p>
+<ul class="simple">
+<li><p>compute:</p>
+<ul>
+<li><p>aws</p></li>
+<li><p>azure</p></li>
+<li><p>google</p></li>
+<li><p>openstack</p></li>
+<li><p>oracle</p></li>
+</ul>
+</li>
+<li><p>storage</p>
+<ul>
+<li><p>google</p></li>
+<li><p>oracle</p></li>
+</ul>
+</li>
+</ul>
+<p>THisi s eay to do with the following command</p>
+<p>CURRENT COMMAND:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">cms</span> <span class="pre">register</span> <span class="pre">new</span> <span class="pre">-v</span>&#160; <span class="pre">storage</span> <span class="pre">google</span> <span class="pre">google</span> <span class="pre">bucket=gregor</span>
+<span class="pre">`</span></code></p>
+<p>FUTURE COMMAND:</p>
+<p><a href="#id4"><span class="problematic" id="id5">``</span></a>`
+cms register new -v  –kind=storage</p>
+<blockquote>
+<div><p>–servie=google
+–name=google
+–bucket=gregor</p>
+</div></blockquote>
+<p><a href="#id6"><span class="problematic" id="id7">``</span></a><a href="#id8"><span class="problematic" id="id9">`</span></a></p>
+<div class="admonition-todo admonition" id="id10">
+<p class="admonition-title">Todo</p>
+<p>describe the parameters, add a see also to the manual page</p>
+</div>
+</div>
 <div class="section" id="compute-cloud-providers">
 <h2>Compute Cloud Providers<a class="headerlink" href="#compute-cloud-providers" title="Permalink to this headline">¶</a></h2>
 <p>The default yaml file includes templates to configure various clouds.
@@ -446,8 +489,8 @@ explain this in a bit more detail.</p>
 <p>The cloudmesh entry for a compute service is divided into three portions:
 <code class="docutils literal notranslate"><span class="pre">cm</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, and <code class="docutils literal notranslate"><span class="pre">credentials</span></code>. The format of the <code class="docutils literal notranslate"><span class="pre">cm</span></code>
 is explained previously.</p>
-<div class="section" id="id4">
-<h3>Default<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Default<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>The next category are defaults that can be preset for each cloud.
 However defaults are overwritten by the cloudmesh shell
 variables. So they are only used once at startup if these
@@ -507,7 +550,7 @@ following:</p>
 </div>
 <div class="section" id="azure">
 <h3>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id5">
+<div class="admonition-todo admonition" id="id12">
 <p class="admonition-title">Todo</p>
 <p>az arm provider this has to be verified. We will likely
 deprecate this for a more elaborate provider</p>
@@ -546,7 +589,7 @@ deprecate this for a more elaborate provider</p>
 </div>
 <div class="section" id="az">
 <h3>AZ<a class="headerlink" href="#az" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id6">
+<div class="admonition-todo admonition" id="id13">
 <p class="admonition-title">Todo</p>
 <p>AzProvider. Verify it works</p>
 </div>
@@ -684,21 +727,21 @@ the following description:</p>
 </div>
 <div class="section" id="ssh">
 <h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id7">
+<div class="admonition-todo admonition" id="id14">
 <p class="admonition-title">Todo</p>
 <p>SSH,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="local">
 <h3>Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id8">
+<div class="admonition-todo admonition" id="id15">
 <p class="admonition-title">Todo</p>
 <p>Local,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="docker">
 <h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id9">
+<div class="admonition-todo admonition" id="id16">
 <p class="admonition-title">Todo</p>
 <p>Docker,  STUDENT CONTRIBUTE HERE</p>
 </div>
@@ -742,13 +785,13 @@ Client or resource for that geographic area. Here is a sample:</p>
         <span class="n">region</span><span class="p">:</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="id10">
+<div class="admonition-todo admonition" id="id17">
 <p class="admonition-title">Todo</p>
 <p>Make credentials more uniform between compute and data</p>
 </div>
 </div>
 <div class="section" id="azure-1">
-<span id="id11"></span><h3>Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
+<span id="id18"></span><h3>Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Microsoft Azure. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account</span></a>.</p>
@@ -903,14 +946,14 @@ file you created as described in the Box chapter:</p>
 </div>
 <div class="section" id="batch">
 <h2>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="id12">
+<div class="admonition-todo admonition" id="id19">
 <p class="admonition-title">Todo</p>
 <p>TBD</p>
 </div>
 </div>
 <div class="section" id="rest">
 <h2>REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="id13">
+<div class="admonition-todo admonition" id="id20">
 <p class="admonition-title">Todo</p>
 <p>TBD</p>
 </div>

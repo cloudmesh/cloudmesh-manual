@@ -25,6 +25,10 @@ Cloudmesh Version 4
    concepts/compute
    concepts/storage
    concepts/database
+   concepts/providers
+   concepts/openapi
+   concepts/namespaces
+   concepts/commandshell
 
 .. toctree::
    :caption: MANUAL PAGES
@@ -69,16 +73,6 @@ Cloudmesh Version 4
    accounts/oracle/account
    accounts/box
    accounts/accountcreation-old
-
-.. toctree::
-   :caption: OUTDATED ACCOUNT MANUALS
-   :maxdepth: 2
-
-   accounts/google/google-account
-   accounts/google/google-docs
-   accounts/google/google-ufo
-   accounts/google/google-gcp
-   accounts/google/google-storage1
 
 Indices and tables
 ==================

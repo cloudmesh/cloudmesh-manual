@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">cloudmesh.cmd5 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html">cloudmesh.common package</a></li>
@@ -136,7 +141,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">cloudmesh.compute.openstack package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">cloudmesh.compute.vm package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">cloudmesh.config package</a></li>
@@ -217,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -311,56 +316,112 @@
 <dl class="method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.create_dir">
 <code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>creates a new directory
-:param directory: path for new directory
-:return: dict of new directory</p>
+<dd><p>creates a new directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>directory</strong> – path for new directory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict of new directory</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.delete">
 <code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>deletes file or directory
-:param source: file or directory to be deleted
-:return: None</p>
+<dd><p>deletes file or directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>source</strong> – file or directory to be deleted</p></li>
+<li><p><strong>recursive</strong> – copy the directory recurseively</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.get">
 <code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>downloads file from Box, if recursive is true and source is directory downloads all files in directory
-:param source: cloud file or directory to download
-:param destination: local directory to be downloaded into
-:param recursive: if true download all files in source directory, source must be directory
-:return: file dict(s) that have been downloaded</p>
+<dd><p>downloads file from Box, if recursive is true and source is directory downloads all files in directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>source</strong> – cloud file or directory to download</p></li>
+<li><p><strong>destination</strong> – local directory to be downloaded into</p></li>
+<li><p><strong>recursive</strong> – if true download all files in source directory, source must be directory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>file dict(s) that have been downloaded</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.list">
 <code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>lists all contents of directory, if recursive lists contents of subdirectories as well
-:param source: cloud directory to list all contents of
-:param recursive: if true list contents of all child directories
-:return: dict(s) of files and directories</p>
+<dd><p>lists all contents of directory, if recursive lists contents of subdirectories as well</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>source</strong> – cloud directory to list all contents of</p></li>
+<li><p><strong>recursive</strong> – if true list contents of all child directories</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict(s) of files and directories</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.put">
 <code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>uploads file to Box, if source is directory and recursive is true uploads all files in source directory
-:param source: local file or directory to be uploaded
-:param destination: cloud directory to upload to
-:param recursive: if true upload all files in source directory, source must be directory not file
-:return: file dict(s) that have been uploaded</p>
+<dd><p>uploads file to Box, if source is directory and recursive is true
+uploads all files in source directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>source</strong> – local file or directory to be uploaded</p></li>
+<li><p><strong>destination</strong> – cloud directory to upload to</p></li>
+<li><p><strong>recursive</strong> – if true upload all files in source directory, source must be directory not file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>file dict(s) that have been uploaded</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.search">
 <code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">directory=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>searches directory for file, if recursive searches all subdirectories
-:param directory: cloud directory to search in
-:param filename: name of file to search for
-:param recursive: if true search all child directories of original directory
-:return: file dict(s) matching filename in specified directory</p>
+<dd><p>searches directory for file, if recursive searches all subdirectories</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>directory</strong> – cloud directory to search in</p></li>
+<li><p><strong>filename</strong> – name of file to search for</p></li>
+<li><p><strong>recursive</strong> – if true search all child directories of original directory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>file dict(s) matching filename in specified directory</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

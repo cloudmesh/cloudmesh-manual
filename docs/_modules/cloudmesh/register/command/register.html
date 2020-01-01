@@ -101,6 +101,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,6 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -209,6 +214,7 @@
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
 <span class="kn">import</span> <span class="nn">importlib</span>
@@ -337,16 +343,12 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
 
-            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
-                <span class="n">AWSReg</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
-                    <span class="s2">&quot;cloudmesh.register.AWSRegister&quot;</span><span class="p">)</span>
-                <span class="n">AWSregisterer</span> <span class="o">=</span> <span class="n">AWSReg</span><span class="o">.</span><span class="n">AWSRegister</span><span class="p">()</span>
-                <span class="n">AWSregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
-
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+            <span class="n">AWSReg</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
+                <span class="s2">&quot;cloudmesh.register.AWSRegister&quot;</span><span class="p">)</span>
+            <span class="n">AWSregisterer</span> <span class="o">=</span> <span class="n">AWSReg</span><span class="o">.</span><span class="n">AWSRegister</span><span class="p">()</span>
+            <span class="n">AWSregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">azure</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
@@ -354,15 +356,28 @@
                     <span class="s2">&quot;cloudmesh.register.AzRegister&quot;</span><span class="p">)</span>
                 <span class="n">AZregisterer</span> <span class="o">=</span> <span class="n">Registry</span><span class="o">.</span><span class="n">AzRegister</span><span class="p">()</span>
                 <span class="n">AZregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
-            <span class="c1">#Console.error(&quot;not yet implemented&quot;)</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">google</span><span class="p">:</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Read the  specification from json and write to yaml file&quot;</span><span class="p">)</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span>
+                <span class="n">arguments</span><span class="o">.</span><span class="n">FILE_JSON</span> <span class="ow">or</span> <span class="s2">&quot;~/.cloudmesh/google.json&quot;</span><span class="p">)</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
+            <span class="n">Provider</span><span class="o">.</span><span class="n">json_to_yaml</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;deleting </span><span class="si">{path}</span><span class="s2"> not implemented&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">chameleon</span><span class="p">:</span>
 
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
 
@@ -388,6 +403,9 @@
 
             <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
                 <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;storage&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
             <span class="n">sample</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">sample</span>
 
@@ -425,7 +443,6 @@
                 <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
             <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;storage&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
-                <span class="c1"># cloud = name</span>
                 <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
             <span class="k">else</span><span class="p">:</span>

@@ -101,6 +101,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,6 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/google/account.html">Google Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
@@ -281,7 +286,10 @@
 
 <div class="viewcode-block" id="Provider.put"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        uploads file to Box, if source is directory and recursive is true uploads all files in source directory</span>
+<span class="sd">        uploads file to Box, if source is directory and recursive is true</span>
+<span class="sd">        uploads all files in source directory</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: local file or directory to be uploaded</span>
 <span class="sd">        :param destination: cloud directory to upload to</span>
 <span class="sd">        :param recursive: if true upload all files in source directory, source must be directory not file</span>
@@ -354,6 +362,8 @@
 <div class="viewcode-block" id="Provider.get"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        downloads file from Box, if recursive is true and source is directory downloads all files in directory</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: cloud file or directory to download</span>
 <span class="sd">        :param destination: local directory to be downloaded into</span>
 <span class="sd">        :param recursive: if true download all files in source directory, source must be directory</span>
@@ -409,6 +419,8 @@
 <div class="viewcode-block" id="Provider.search"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        searches directory for file, if recursive searches all subdirectories</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param directory: cloud directory to search in</span>
 <span class="sd">        :param filename: name of file to search for</span>
 <span class="sd">        :param recursive: if true search all child directories of original directory</span>
@@ -455,6 +467,8 @@
 <div class="viewcode-block" id="Provider.create_dir"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.create_dir">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        creates a new directory</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param directory: path for new directory</span>
 <span class="sd">        :return: dict of new directory</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -483,6 +497,8 @@
 <div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        lists all contents of directory, if recursive lists contents of subdirectories as well</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: cloud directory to list all contents of</span>
 <span class="sd">        :param recursive: if true list contents of all child directories</span>
 <span class="sd">        :return: dict(s) of files and directories</span>
@@ -524,7 +540,10 @@
 <div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.box.html#cloudmesh.storage.provider.box.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        deletes file or directory</span>
+
+<span class="sd">        :param service: the name of the service in the yaml file</span>
 <span class="sd">        :param source: file or directory to be deleted</span>
+<span class="sd">        :param recursive: copy the directory recurseively</span>
 <span class="sd">        :return: None</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
