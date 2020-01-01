@@ -1,17 +1,18 @@
 About
 =====
 
-Cloudmesh enables you to access multi-cloud environments such as AWS, Azure, Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say
+Cloudmesh enables you to access multi-cloud environments such as AWS, Azure,
+Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say
 
 ```
-cms set cloud=AWS
+cms set cloud=aws
 cms vm boot
 ```
 
-To start one on Azure, simply set the cloud accordingly
+To start one on Azure, set the cloud accordingly
 
 ```
-cms set cloud=AWS
+cms set cloud=aws
 cms vm boot
 ```
 
@@ -27,7 +28,7 @@ It is under active development and managed in github at
 - Documentation: https://cloudmesh.github.io/cloudmesh-manual/
 - Code: https://github.com/cloudmesh/
 
-It has a variety of repositories that add features to cloudmesh based on
+It has a variety of repositories that add features to Cloudmesh based on
 needs by the user.
 
 Features
@@ -85,7 +86,7 @@ Open projects for the Future
      - Plugin to support local storage providers
      - open
    * - Electron
-     - A java script interface to cloudmesh
+     - A java script interface to Cloudmesh
      - open
 
 Contact

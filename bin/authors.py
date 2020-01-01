@@ -8,7 +8,16 @@ debug = False
 names = []
 
 for d in [".",
+          "../cloudmesh-installer",
+          "../cloudmesh-inventory",
+          "../cloudmesh-gui",
+          "../cloudmesh-configuration",
           "../cloudmesh-cmd5",
+          "../cloudmesh-aws",
+          "../cloudmesh-azure",
+          "../cloudmesh-openstack",
+          "../cloudmesh-google",
+          "../cloudmesh-oracle",
           "../cloudmesh-common",
           "../cloudmesh-sys",
           "../cloudmesh-openapi",
@@ -29,6 +38,10 @@ for d in [".",
 names = list(set(names))
 
 names.sort()
+
+# names = " ".join(names)
+# names = names.replace("ElectricErudite", "Andrew Holland")
+
 
 name_string = '\n    '.join(textwrap.wrap(', '.join(names), 79, initial_indent="    "))
 
@@ -55,6 +68,8 @@ The contributors that we are aware of include:
 print("\n".join(textwrap.wrap(msg, 79)))
 print()
 '''
+
+
 print()
 print (name_string)
 print()
