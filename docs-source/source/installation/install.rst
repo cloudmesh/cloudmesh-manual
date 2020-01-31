@@ -17,11 +17,13 @@ your terminal and execute it as it could have unexpected consequences.
 Prerequisites
 -------------
 
-.. note:: Before you install make sure that you have at minimum python 3.7.4
-          installed. Likely the code will work with earlier versions, but we
-          do the development in python 3.7.4. This version can be downloaded
-          and installed from https://www.python.org/downloads/.
-          See the below subsections for system-specific prerequisites.
+.. note::
+
+          Before you install make sure that you have an up to date version of
+          python installed. Likely the code will work with earlier versions
+          such as 3.7.4. However we recommend you use 3.8.1 or newer. Python
+          can be downloaded and installed from
+          https://www.python.org/downloads/.
 
 Prerequisites for Ubuntu 19.04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,7 +168,7 @@ Windows System Installation Approach
   Python 3.7 can be installed on Windows 10 using: https://www.python.org/downloads/
 
 * Create a venv. This step is not required, but highly recommended.
-  See section on prerequisites for venv below for more details on setup instructions.
+  See section on prerequisites for venv provides more details.
 
 Linux Subsystem Installation Approach
 """""""""""""""""""""""""""""""""""""

@@ -70,7 +70,7 @@ Installation
 
 You must be sure that cloudmesh is installed. The easiest way to install
 cloudmesh is via pip. However, it is not yet released with the security
-extensions we discuss below. If you would like to use them you need to install
+extensions we discuss next. If you would like to use them you need to install
 cloudmesh-cloud from source. Which is discussed in the `cloudmesh manual <https://cloudmesh.github.io/cloudmesh-manual/installation/install.html>`_.
 
 To remind you how easy it is you can use the following steps.
@@ -92,7 +92,7 @@ Preparation
 
 After the system has been installed cloudmesh will need to initialize its
 security capabilities. If you wish to control where it is initialized
-reference the `Changing the secinit Directory`_ section below.
+reference the `Changing the secinit Directory`_ section.
 Otherwise, initialize the configuration capabilities by running the the
 following.
 
@@ -105,7 +105,7 @@ an RSA public-private key pair to execute encryption and decryption of
 the data. The public key is used to encrypt data and the private key is
 used to decrypt. **If you have previously generated an RSA key pair** please
 reference the `Setting Keys for Encryption Without Key Gen Command`_
-section below. Otherwise, run the following to generate a key pair.
+section. Otherwise, run the following to generate a key pair.
 
 .. code:: bash
 

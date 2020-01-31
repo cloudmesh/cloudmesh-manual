@@ -142,7 +142,7 @@ set_public_ip(vm_name, public_ip)
 remove_public_ip(vm_name)
   remove the public ip from virtual machine with specified name
 
-Below we list some sample of running these functions for virtual
+Next we list some sample of running these functions for virtual
 machines in AWS, Azure and Openstack.
 
 AWS VM Operations (Yu)

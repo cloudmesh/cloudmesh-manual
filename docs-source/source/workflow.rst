@@ -9,7 +9,7 @@ functions on a workflow class, and specify when to execute them via the
 command line or in a YAML file. You can then visualize the result of
 your workflow execution.
 
-An example is given below.
+An example is given next.
 
 .. code:: python
 
