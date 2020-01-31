@@ -18,26 +18,12 @@ Prerequisites
 -------------
 
 .. note::
-
           Before you install make sure that you have an up to date version of
           python installed. Likely the code will work with earlier versions
           such as 3.7.4. However we recommend you use 3.8.1 or newer. Python
           can be downloaded and installed from
           https://www.python.org/downloads/.
 
-Prerequisites for Ubuntu 19.04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
-prerequisites. However we recommend that you update to the newest version of
-python and pip. Please visit: https://www.python.org/downloads/
-
-Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
-
-.. code:: bash
-
-    sudo apt -y update
-    sudo apt -y install openssl curl
 
 Prerequisites for macOS
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,21 +63,46 @@ instruction in their `web page <https://brew.sh/#install>`_:
 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-Then you should be able to install Python 3.7.4 using:
+Then you should be able to install Python 3.8.1 using:
 
 .. code:: bash
 
     brew install python
 
 
-Prerequisites for Ubuntu 18.04
+Prerequisites for Ubuntu 19.10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. warning:: We recommend you update your ubuntu version to 19.04 and
-             follow the instructions for that version instead, as it is
-             significantly easier. If you however are not able to do so, the
-             following instructions may be helpful.
+Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
+and can be conducted with the following steps.
 
+Additionally, Cloudmesh requires
+OpenSSL and Curl installed in the system.
+
+.. code:: bash
+
+    sudo apt -y update
+    sudo apt -y install openssl curl
+
+
+Please download Python from:
+
+* https://www.python.org/downloads
+
+place the code in a directory and change to that directory. Than say
+
+```
+tar -xvf Python-3.8.1.tgz
+cd Python-3.8.0/
+./configure
+make
+sudo make altinstall
+python3.8 --version
+```
+
+
+Prerequisites for Ubuntu 18.04
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
@@ -109,7 +120,7 @@ If the version is not 3.7.4 or newer, you can update it as follows:
     sudo apt-get install python3.7 python3-dev python3.7-dev
 
 You can then check the installed version
-using ``python3.7 --version`` which should be ``3.7.4``.
+using ``python3.7 --version`` which should be ``3.8.1``.
 
 Now we will create a new virtual environment:
 
