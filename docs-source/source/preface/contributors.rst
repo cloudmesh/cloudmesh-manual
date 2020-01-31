@@ -29,7 +29,7 @@ contributed (they may not have used this particular git), please let us know. We
 will add you.
 
 
-The contributors that we are aware of
+The contributors sorted by the first letter of the firstname that we are aware of
 include:
  
 
