@@ -18,12 +18,23 @@ Prerequisites
 -------------
 
 .. note::
-          Before you install make sure that you have an up to date version of
-          python installed. Likely the code will work with earlier versions
-          such as 3.7.4. However we recommend you use 3.8.1 or newer. Python
-          can be downloaded and installed from
-          https://www.python.org/downloads/.
 
+          Before you install make sure that you have an up to date version of
+          python installed.
+          We recommend you use 3.8.1 or newer. Python can be
+          downloaded and installed from https://www.python.org/downloads/.
+
+          Likely the code will work with earlier versions starting from 3.7.4.
+          We know that Python 3.6 has bugs and should not be used. Although
+          cloudmesh previously was supported in Python 2.7 and newer, we have
+          removed Python 2 as supported platform.
+
+.. note::
+
+          We recommend that you use  Python `venv` to isolate the system Python
+          form the user python. For simplicity we assime and document on how to
+          set up a virtual environment in the home directory under the
+          directory `ENV3`.
 
 Prerequisites for macOS
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,23 +62,10 @@ https://www.python.org/downloads. Please, visit the page and follow the
 instructions. After this install you have `python3` available from the
 command line.
 
-Python Installation from Homebrew
-"""""""""""""""""""""""""""""""""
-
-An alternative installation is provided from Homebrew. To use this install
-method, you need to install Homebrew first. Start the process by installing
-the python 3 using ``homebrew``. Install ``homebrew`` using the
-instruction in their `web page <https://brew.sh/#install>`_:
-
 .. code:: bash
 
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-Then you should be able to install Python 3.8.1 using:
-
-.. code:: bash
-
-    brew install python
+   python3 -m venv ~/ENV3
+   source ~/ENV3/bin/activate
 
 
 Prerequisites for Ubuntu 19.10
@@ -76,29 +74,26 @@ Prerequisites for Ubuntu 19.10
 Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
 and can be conducted with the following steps.
 
-Additionally, Cloudmesh requires
-OpenSSL and Curl installed in the system.
-
-.. code:: bash
-
-    sudo apt -y update
-    sudo apt -y install openssl curl
-
-
+Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
 Please download Python from:
 
 * https://www.python.org/downloads
 
 place the code in a directory and change to that directory. Than say
 
-```
-tar -xvf Python-3.8.1.tgz
-cd Python-3.8.0/
-./configure
-make
-sudo make altinstall
-python3.8 --version
-```
+
+.. code:: bash
+
+   sudo apt -y update
+   sudo apt -y install openssl curl
+   tar -xvf Python-3.8.1.tgz
+   cd Python-3.8.0/
+   ./configure
+   make
+   sudo make altinstall
+   python3.8 --version
+   python3 -m venv ~/ENV3
+   source ~/ENV3/bin/activate
 
 
 Prerequisites for Ubuntu 18.04
@@ -108,55 +103,18 @@ We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the version with::
 
-    python3 --version
-
-If the version is not 3.7.4 or newer, you can update it as follows:
-
 .. code:: bash
 
-    sudo apt-get update
-    sudo apt install software-properties-common
+    sudo apt-get -y update
+    sudo apt-get -y install openssl curl
+    sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
-    sudo apt-get install python3.7 python3-dev python3.7-dev
-
-You can then check the installed version
-using ``python3.7 --version`` which should be ``3.8.1``.
-
-Now we will create a new virtual environment:
-
-.. code:: bash
-
-    python3.7 -m venv --without-pip ~/ENV3
-
-The edit the ``~/.bashrc`` file and add the following line at the end:
-
-.. code:: bash
-
-    alias ENV3="source ~/ENV3/bin/activate"
-    ENV3
-
-now activate the virtual environment using:
-
-.. code:: bash
-
-    source ~/.bashrc
-
-now you can install the pip for the virtual environment without conflicting
-with the native pip:
-
-.. code:: bash
-
+    sudo apt-get install python3.8 python3-dev python3.8-dev
+    python3.8 -m venv --without-pip ~/ENV3
+    source ~/ENV3/bin/activate
     curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
     python get-pip.py
     rm get-pip.py
-
-
-Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.
-
-.. code:: bash
-
-    sudo apt -y update
-    sudo apt -y install openssl curl
 
 
 Prerequisites for Windows 10
@@ -175,8 +133,8 @@ Alternatively, you can also use the docker version of cloudmesh.
 Windows System Installation Approach
 """"""""""""""""""""""""""""""""""""
 
-* Ensure that python 3.7 (or higher) has been installed.
-  Python 3.7 can be installed on Windows 10 using: https://www.python.org/downloads/
+* Ensure that python 3.8 (or higher) has been installed. Python 3.8 can be
+  installed on Windows 10 using: https://www.python.org/downloads/
 
 * Create a venv. This step is not required, but highly recommended.
   See section on prerequisites for venv provides more details.
@@ -185,8 +143,8 @@ Linux Subsystem Installation Approach
 """""""""""""""""""""""""""""""""""""
 
 .. warning:: MongoDB reports that mongo is not yet working on Linux
-	     Subsystem. As cloudmesh uses mongo, please do not yet use
-	     the Linux Subsystem install.
+	         Subsystem. As cloudmesh uses mongo, please do not yet use
+	         the Linux Subsystem install.
 
 To activate the Linux Subsystem, please follow the instructions at
 
@@ -203,28 +161,28 @@ Prerequisites for venv (ENV3)
 
 .. _Use a venv:
 
-VirtualEnv (or ``venv``) is a Python module which allows the creation
-of an isolated Python environment. Implementing this step is highly
-recommended to ensure cloudmesh and cloudmesh-related installations do
-not interfere with a system-level installation of python.
+VirtualEnv (or ``venv``) allows the creation of an isolated Python environment.
+Using a venv is highly recommended to ensure cloudmesh and cloudmesh-related
+installations do not interfere with a system-level installation of python.
 
 .. warning:: Not using a `venv` could have catastrophic consequences and
   result in the destruction of operating system tools which rely on
   Python.
 
-Once `venv` has been implemented, activation of the `venv` is very simple,
-and will contain subsequent package installations within the
-virutalenv; mitigating risks of global package installations.
+Once `venv` has been created and activated, packages installed with venv will
+be installed in this virtual environment and not in the global Python site packages.
+This mitigates risks of global package installations.
 
-For our purposes we assume that you use the directory::
+For our purposes we assume that you use the venv directory::
 
     ~/ENV3
 
 .. note:: In a Linux subsystem, `~/` is the default location, assumed
    to be the home directory.  In a windows system, this location is
-   assumed to be under `C:\Users\USERNAME`.
+   assumed to be under `C:\\Users\\USERNAME`.
 
-**venv Setup on Linux and macOS**
+venv Setup on Linux and macOS
+"""""""""""""""""""""""""""""
 
 For the `venv` setup on Linux or macOs, run the following:
 
@@ -240,17 +198,18 @@ You can add at the end of your `.bashrc` (ubuntu) or `.bash_profile`
 
    source ~/ENV3/bin/activate
 
-**venv Setup on Windows**
+venv Setup on Windows
+"""""""""""""""""""""
 
-Similarly, for Windows, run the following while under the default
-directory of under `C:\Users\USERNAME`:
+on Windows, you run the following command from your home directory at
+`C:\\Users\\USERNAME`:
 
 .. code:: cmd
 
   python -m venv --without-pip ENV3
 
 Next, create a Windows system variable named `ENV3` and update the
-variable value to `C:\Users\USERNAME\ENV3\Scripts\activate`.
+variable value to `C:\\Users\\USERNAME\\ENV3\\Scripts\\activate`.
 
 .. image:: images/ENV3variable.png
 
@@ -264,35 +223,35 @@ file.
 
 .. code:: cmd
 
-  C:\Users\USERNAME\ENV3\Scripts\activate.bat
+  C:\\Users\\USERNAME\\ENV3\\Scripts\\activate.bat
 
-.. note:: The same can be done Windows Powershell by creating a `ENV3.ps1` to
-  reference the activate.ps1 command.
+.. note:: The same can be done in Windows Powershell by creating a `ENV3.ps1` to
+          reference the activation command.
 
+**Test the venv activation**
 
-**Testing venv Activation**
-
-In command prompt, type "ENV3" while under the default directory;
-or if the bat file was not created, simply reference the system variable %ENV3%.
+We recommend  that you test the venv activation. In a command prompt, type
+`ENV3` while under the home directory; or if the bat file was not created,
+simply reference the system variable %ENV3%.
 
 Example using bat file activation:
 
 .. code:: bash
 
-   C:\Users\USERNAME> ENV3
+   C:\\Users\\USERNAME> ENV3
 
    ...
 
-   (ENV3) C:\Users\USERNAME>
+   (ENV3) C:\\Users\\USERNAME>
 
 
 Example using Windows environment variable:
 
 .. code:: bash
 
-   C:\Users\USERNAME> %ENV3%
+   C:\\Users\\USERNAME> %ENV3%
 
-   (ENV3) C:\Users\USERNAME>
+   (ENV3) C:\\Users\\USERNAME>
 
 In both cases you will see the command prompt starting with `(ENV3)`.
 
@@ -368,7 +327,7 @@ in which you can find the configuration file::
 Anaconda and Conda
 ^^^^^^^^^^^^^^^^^^
 
-.. warning:: At this time the conda install is not supported.
+Cloudmesh can be installed in anaconda with pip.
 
 We also have the base packages available as conda packages on conda hub
 in the chanel ``laszewski``. This includes
@@ -377,9 +336,8 @@ in the chanel ``laszewski``. This includes
 -  cloudmesh-cmd5
 -  cloudmesh-sys
 
-Note that the conda packages will always be a behind the version you will
-find in pypi. Therefore we recommend you use the pip based installation.
-
+However, these packages are no longer maintained. We find that the use of pip
+is the prefered mechanism for installing python packages.
 
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------
@@ -474,7 +432,7 @@ update the yaml file to the newest format. You can check the yaml file with
 
 
 As developer sometimes it may be best to make a backup of the `cm` and
-`~\.cloudmesh` directory or individual repositories in the cm
+`~\\.cloudmesh` directory or individual repositories in the cm
 directory. Then copy your changes into the newest code. Make sure to
 remove all python artifacts in the backup directory the command
 
@@ -578,7 +536,7 @@ command line  without using an editor by running the following:
 Another item to note is the default location of the MongoDB installation.
 In a Linux/MacOS environment, the default installation path will be under
 ``~/local/mongo/bin``. In a Windows environment, the default path is under
-``C:\Users\USERNAME\.cloudmesh\mongo``. If you would like to change these
+``C:\\Users\\USERNAME\\.cloudmesh\\mongo``. If you would like to change these
 paths, be sure to update these in the cloudmesh.yaml file.
 
 Once configuration of the cloudmesh.yaml file has been completed,  run the
@@ -640,7 +598,7 @@ Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
 (i.e. ``cms admin mongo install``), Mongo is not installed with a service by
 default, and can be simply uninstalled by removing the install directories
-under ``~\.cloudmesh`` (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
+under ``~\\.cloudmesh`` (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
 variables within the cloudmesh.yaml file for specifics).
 
 If, however, you have a pre-existing installation of MongoDB, or
