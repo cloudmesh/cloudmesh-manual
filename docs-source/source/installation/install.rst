@@ -86,6 +86,10 @@ place the code in a directory and change to that directory. Than say
 
    sudo apt -y update
    sudo apt -y install openssl curl
+   # sudo apt -y install libreadline-gplv2-dev libncursesw5-dev
+   # sudo apt -y libssl-dev
+   # sudo apt -y libsqlite3-dev tk-dev
+   # sudo apt -y libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
    tar -xvf Python-3.8.1.tgz
    cd Python-3.8.1
    ./configure
