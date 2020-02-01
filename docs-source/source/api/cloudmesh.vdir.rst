@@ -1,0 +1,18 @@
+cloudmesh.vdir package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+   cloudmesh.vdir.api
+   cloudmesh.vdir.command
+
+Module contents
+---------------
+
+.. automodule:: cloudmesh.vdir
+   :members:
+   :undoc-members:
+   :show-inheritance:
