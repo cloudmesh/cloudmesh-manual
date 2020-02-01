@@ -68,56 +68,32 @@ command line.
    source ~/ENV3/bin/activate
 
 
-Python Installation from Homebrew
-"""""""""""""""""""""""""""""""""
-
-An alternative installation is provided from Homebrew. To use this install
-method, you need to install Homebrew first. Start the process by installing
-the python 3 using ``homebrew``. Install ``homebrew`` using the
-instruction in their `web page <https://brew.sh/#install>`_:
-
-.. code:: bash
-
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-Then you should be able to install Python 3.8.1 using:
-
-.. code:: bash
-
-   brew install python
-   python3 -m venv ~/ENV3
-   source ~/ENV3/bin/activate
-
-
 Prerequisites for Ubuntu 19.10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
 and can be conducted with the following steps.
 
-Additionally, Cloudmesh requires
-OpenSSL and Curl installed in the system.
-
-.. code:: bash
-
-   sudo apt -y update
-   sudo apt -y install openssl curl
-
-
+Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
 Please download Python from:
 
 * https://www.python.org/downloads
 
 place the code in a directory and change to that directory. Than say
 
+
 .. code:: bash
 
+   sudo apt -y update
+   sudo apt -y install openssl curl
    tar -xvf Python-3.8.1.tgz
-   cd Python-3.8.0/
+   cd Python-3.8.1
    ./configure
    make
    sudo make altinstall
    python3.8 --version
+   python3 --version
+   # Should be 3.8.1
    python3 -m venv ~/ENV3
    source ~/ENV3/bin/activate
 
@@ -129,55 +105,18 @@ We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the version with::
 
-    python3 --version
-
-If the version is not 3.8.1 or newer, you can update it as follows:
-
 .. code:: bash
 
-    sudo apt-get update
-    sudo apt install software-properties-common
+    sudo apt-get -y update
+    sudo apt-get -y install openssl curl
+    sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt-get install python3.8 python3-dev python3.8-dev
-
-You can then check the installed version
-using ``python3.8 --version`` which should be ``3.8.1``.
-
-Now we will create a new virtual environment:
-
-.. code:: bash
-
     python3.8 -m venv --without-pip ~/ENV3
-
-The edit the ``~/.bashrc`` file and add the following line at the end:
-
-.. code:: bash
-
-    alias ENV3="source ~/ENV3/bin/activate"
-    ENV3
-
-now activate the virtual environment using:
-
-.. code:: bash
-
-    source ~/.bashrc
-
-now you can install the pip for the virtual environment without conflicting
-with the native pip:
-
-.. code:: bash
-
+    source ~/ENV3/bin/activate
     curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
     python get-pip.py
     rm get-pip.py
-
-
-Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.
-
-.. code:: bash
-
-    sudo apt -y update
-    sudo apt -y install openssl curl
 
 
 Prerequisites for Windows 10
@@ -390,7 +329,7 @@ in which you can find the configuration file::
 Anaconda and Conda
 ^^^^^^^^^^^^^^^^^^
 
-.. warning:: At this time the conda install is not supported.
+Cloudmesh can be installed in anaconda with pip.
 
 We also have the base packages available as conda packages on conda hub
 in the chanel ``laszewski``. This includes
@@ -399,9 +338,8 @@ in the chanel ``laszewski``. This includes
 -  cloudmesh-cmd5
 -  cloudmesh-sys
 
-Note that the conda packages will always be a behind the version you will
-find in pypi. Therefore we recommend you use the pip based installation.
-
+However, these packages are no longer maintained. We find that the use of pip
+is the prefered mechanism for installing python packages.
 
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------

@@ -87,11 +87,13 @@ place the code in a directory and change to that directory. Than say
    sudo apt -y update
    sudo apt -y install openssl curl
    tar -xvf Python-3.8.1.tgz
-   cd Python-3.8.0/
+   cd Python-3.8.1
    ./configure
    make
    sudo make altinstall
    python3.8 --version
+   python3 --version
+   # Should be 3.8.1
    python3 -m venv ~/ENV3
    source ~/ENV3/bin/activate
 

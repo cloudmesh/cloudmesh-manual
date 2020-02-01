@@ -97,7 +97,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-macos">Prerequisites for macOS</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#installation-of-xcode">Installation of XCode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#python-installation-from-python-org">Python Installation from python.org</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#python-installation-from-homebrew">Python Installation from Homebrew</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-19-10">Prerequisites for Ubuntu 19.10</a></li>
@@ -317,44 +316,27 @@ command line.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="python-installation-from-homebrew">
-<h4>Python Installation from Homebrew<a class="headerlink" href="#python-installation-from-homebrew" title="Permalink to this headline">¶</a></h4>
-<p>An alternative installation is provided from Homebrew. To use this install
-method, you need to install Homebrew first. Start the process by installing
-the python 3 using <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>. Install <code class="docutils literal notranslate"><span class="pre">homebrew</span></code> using the
-instruction in their <a class="reference external" href="https://brew.sh/#install">web page</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-<p>Then you should be able to install Python 3.8.1 using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install python
-python3 -m venv ~/ENV3
-<span class="nb">source</span> ~/ENV3/bin/activate
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="prerequisites-for-ubuntu-19-10">
 <h3>Prerequisites for Ubuntu 19.10<a class="headerlink" href="#prerequisites-for-ubuntu-19-10" title="Permalink to this headline">¶</a></h3>
 <p>Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
 and can be conducted with the following steps.</p>
-<p>Additionally, Cloudmesh requires
-OpenSSL and Curl installed in the system.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y update
-sudo apt -y install openssl curl
-</pre></div>
-</div>
-<p>Please download Python from:</p>
+<p>Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
+Please download Python from:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.python.org/downloads">https://www.python.org/downloads</a></p></li>
 </ul>
 <p>place the code in a directory and change to that directory. Than say</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -xvf Python-3.8.1.tgz
-<span class="nb">cd</span> Python-3.8.0/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y update
+sudo apt -y install openssl curl
+tar -xvf Python-3.8.1.tgz
+<span class="nb">cd</span> Python-3.8.1
 ./configure
 make
 sudo make altinstall
 python3.8 --version
+python3 --version
+<span class="c1"># Should be 3.8.1</span>
 python3 -m venv ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
 </pre></div>
@@ -365,43 +347,21 @@ python3 -m venv ~/ENV3
 <p>We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the version with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="p">::</span> <span class="n">bash</span>
 </pre></div>
 </div>
-<p>If the version is not 3.8.1 or newer, you can update it as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
-sudo apt install software-properties-common
+<blockquote>
+<div><p>sudo apt-get -y update
+sudo apt-get -y install openssl curl
+sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get install python3.8 python3-dev python3.8-dev
-</pre></div>
-</div>
-<p>You can then check the installed version
-using <code class="docutils literal notranslate"><span class="pre">python3.8</span> <span class="pre">--version</span></code> which should be <code class="docutils literal notranslate"><span class="pre">3.8.1</span></code>.</p>
-<p>Now we will create a new virtual environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.8 -m venv --without-pip ~/ENV3
-</pre></div>
-</div>
-<p>The edit the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file and add the following line at the end:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">ENV3</span><span class="o">=</span><span class="s2">&quot;source ~/ENV3/bin/activate&quot;</span>
-ENV3
-</pre></div>
-</div>
-<p>now activate the virtual environment using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
-</pre></div>
-</div>
-<p>now you can install the pip for the virtual environment without conflicting
-with the native pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl <span class="s2">&quot;https://bootstrap.pypa.io/get-pip.py&quot;</span> -o <span class="s2">&quot;get-pip.py&quot;</span>
+python3.8 -m venv –without-pip ~/ENV3
+source ~/ENV3/bin/activate
+curl “https://bootstrap.pypa.io/get-pip.py” -o “get-pip.py”
 python get-pip.py
-rm get-pip.py
-</pre></div>
-</div>
-<p>Please note that, Cloudmesh requires OpenSSL and Curl installed in the system.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y update
-sudo apt -y install openssl curl
-</pre></div>
-</div>
+rm get-pip.py</p>
+</div></blockquote>
 </div>
 <div class="section" id="prerequisites-for-windows-10">
 <h3>Prerequisites for Windows 10<a class="headerlink" href="#prerequisites-for-windows-10" title="Permalink to this headline">¶</a></h3>
@@ -582,10 +542,7 @@ in which you can find the configuration file:</p>
 </div>
 <div class="section" id="anaconda-and-conda">
 <h3>Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>At this time the conda install is not supported.</p>
-</div>
+<p>Cloudmesh can be installed in anaconda with pip.</p>
 <p>We also have the base packages available as conda packages on conda hub
 in the chanel <code class="docutils literal notranslate"><span class="pre">laszewski</span></code>. This includes</p>
 <ul class="simple">
@@ -593,8 +550,8 @@ in the chanel <code class="docutils literal notranslate"><span class="pre">lasze
 <li><p>cloudmesh-cmd5</p></li>
 <li><p>cloudmesh-sys</p></li>
 </ul>
-<p>Note that the conda packages will always be a behind the version you will
-find in pypi. Therefore we recommend you use the pip based installation.</p>
+<p>However, these packages are no longer maintained. We find that the use of pip
+is the prefered mechanism for installing python packages.</p>
 </div>
 </div>
 <div class="section" id="installation-of-cloudmesh-source-install-for-developers">
