@@ -136,8 +136,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.run.html">cloudmesh.common.run package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.ssh.html">cloudmesh.common.ssh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.libcloud package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -311,7 +309,7 @@
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a></p>
 <dl class="attribute">
 <dt id="cloudmesh.compute.libcloud.Provider.Provider.ProviderMapper">
-<code class="sig-name descname">ProviderMapper</code><em class="property"> = {'aws': 'ec2', 'azure_arm': 'azure_arm', 'google': 'gce', 'openstack': 'openstack'}</em><a class="headerlink" href="#cloudmesh.compute.libcloud.Provider.Provider.ProviderMapper" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ProviderMapper</code><em class="property"> = {'aws': ec2, 'azure_arm': azure_arm, 'google': gce, 'openstack': openstack}</em><a class="headerlink" href="#cloudmesh.compute.libcloud.Provider.Provider.ProviderMapper" title="Permalink to this definition">¶</a></dt>
 <dd><p>this may be buggy as the fields could be differentbased on the provider
 TODO: fix output base on provider
 so we may need to do</p>
@@ -362,7 +360,10 @@ so we may need to do</p>
 <dd><p>adds a public ip to the named vm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the vm</p></li>
+<li><p><strong>ip</strong> – The ip address</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -380,6 +381,7 @@ so we may need to do</p>
 <li><p><strong>name</strong> – the name of the node</p></li>
 <li><p><strong>image</strong> – the image used</p></li>
 <li><p><strong>size</strong> – the size of the image</p></li>
+<li><p><strong>location</strong> – the location of the image</p></li>
 <li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image
 does not boot. The default is set to 3 minutes.</p></li>
 <li><p><strong>kwargs</strong> – additional arguments HEADING(c=”.”)ed along at time of
@@ -406,7 +408,10 @@ boot</p></li>
 <dd><p>adds a public ip to the named vm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the vm</p></li>
+<li><p><strong>ip</strong> – The ip address</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>

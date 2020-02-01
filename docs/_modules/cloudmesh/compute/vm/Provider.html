@@ -251,12 +251,10 @@
         <span class="n">providers</span> <span class="o">=</span> <span class="n">ProviderList</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span>
-<span class="c1">#            &#39;openstack&#39;,</span>
-             <span class="s1">&#39;azure&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;docker&#39;</span><span class="p">,</span>
-             <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;azureaz&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;virtualbox&quot;</span><span class="p">]:</span>
+            <span class="c1">#            &#39;openstack&#39;,</span>
+            <span class="s1">&#39;docker&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;virtualbox&quot;</span><span class="p">]:</span>
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">providers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">]</span>
 
@@ -275,6 +273,16 @@
             <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">OracleComputeProvider</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">OracleComputeProvider</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;azure&#39;</span><span class="p">]:</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.azure.compute.Provider</span> <span class="kn">import</span> \
+                <span class="n">Provider</span> <span class="k">as</span> <span class="n">AzureComputeProvider</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">AzureComputeProvider</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;aws&#39;</span><span class="p">]:</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.aws.compute.Provider</span> <span class="kn">import</span> \
+                <span class="n">Provider</span> <span class="k">as</span> <span class="n">AWSComputeProvider</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">AWSComputeProvider</span>
 
         <span class="c1"># elif self.kind in [&quot;vagrant&quot;, &quot;virtualbox&quot;]:</span>
         <span class="c1">#    from cloudmesh.compute.virtualbox.Provider import \</span>
@@ -410,13 +418,15 @@
         <span class="c1"># not exist read them for that cloud from the yaml file</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+            <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                                                  <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;image not specified&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+            <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
+                                                  <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">arguments</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
@@ -545,7 +555,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        sets the metadata for the server</span>
 
-<span class="sd">        :param name: name of the fm</span>
+<span class="sd">        :param name: name of the vm</span>
 <span class="sd">        :param metadata: the metadata</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -555,7 +565,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        gets the metadata for the server</span>
 
-<span class="sd">        :param name: name of the fm</span>
+<span class="sd">        :param name: name of the vm</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">get_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -565,7 +575,9 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        gets the metadata for the server</span>
 
-<span class="sd">        :param name: name of the fm</span>
+<span class="sd">        :param name: name of the vm</span>
+<span class="sd">        :param key: name of the key</span>
+
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">delete_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
@@ -662,6 +674,7 @@
 
 <div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># VERBOSE(vm)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.console"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.console">[docs]</a>    <span class="k">def</span> <span class="nf">console</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>

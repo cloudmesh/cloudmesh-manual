@@ -24,6 +24,7 @@ vm
                 [--username=USERNAME]
                 [--image=IMAGE]
                 [--flavor=FLAVOR]
+                [--network=NETWORK]
                 [--public]
                 [--secgroup=SECGROUPs]
                 [--group=GROUPs]

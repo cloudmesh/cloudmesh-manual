@@ -144,8 +144,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.run.html">cloudmesh.common.run package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.ssh.html">cloudmesh.common.ssh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
@@ -331,7 +329,10 @@
 <dd><p>adds a public ip to the named vm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the vm</p></li>
+<li><p><strong>ip</strong> – The ip address</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -428,7 +429,10 @@ The default is set to 3 minutes.</p></li>
 <dd><p>adds a public ip to the named vm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the vm</p></li>
+<li><p><strong>ip</strong> – The ip address</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -606,7 +610,7 @@ returned.</p>
 <dd><p>Reboot a list of nodes with the given names</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>names</strong> – A list of node names</p>
+<dd class="field-odd"><p><strong>name</strong> – A list of node names</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A list of dict representing the nodes</p>

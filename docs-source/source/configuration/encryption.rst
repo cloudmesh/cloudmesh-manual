@@ -242,7 +242,7 @@ of python regular expressions that will be matched on the dot paths to
 the attributes to decide which attributes will be encrypted.
 
 To learn the specifics about python regular expression please reference
-the `python re documentation <https://docs.python.org/3.7/library/re.html>`_.
+the `python re documentation <https://docs.python.org/3.8/library/re.html>`_.
 
 loudmesh encrypts some values by default. To reference which values
 will be encrypted run the ``cms config security list`` command. This will

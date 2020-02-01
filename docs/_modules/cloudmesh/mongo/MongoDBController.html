@@ -357,12 +357,12 @@
 
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)):</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;Distributor&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
-                <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;Debian&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;Distributor&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;Debian&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
                     <span class="n">distro</span> <span class="o">=</span> <span class="s2">&quot;debian&quot;</span>
-                <span class="k">elif</span> <span class="p">(</span><span class="s2">&quot;Ubuntu&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
+                <span class="k">elif</span> <span class="s2">&quot;Ubuntu&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
                     <span class="n">distro</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
-            <span class="k">elif</span> <span class="p">(</span><span class="s2">&quot;Release&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
+            <span class="k">elif</span> <span class="s2">&quot;Release&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
                 <span class="n">version</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="s2">&quot;debian&quot;</span> <span class="o">==</span> <span class="n">distro</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">debian</span><span class="p">(</span><span class="n">sudo</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
@@ -1026,10 +1026,10 @@
         <span class="k">return</span> <span class="n">output</span></div>
 
 <div class="viewcode-block" id="MongoDBController.is_installed_as_win_service"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.is_installed_as_win_service">[docs]</a>    <span class="k">def</span> <span class="nf">is_installed_as_win_service</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns True if mongodb is installed as a windows service</span>
 <span class="sd">        :return:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
             <span class="n">win_services</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">win_service_iter</span><span class="p">())</span>
             <span class="n">mongo_service</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1044,10 +1044,10 @@
             <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="MongoDBController.win_service_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.win_service_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">win_service_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns True if mongodb running</span>
 <span class="sd">        :return:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
             <span class="c1"># if self.is_installed_as_win_service():</span>
             <span class="c1">#     win_services = list(psutil.win_service_iter())</span>
@@ -1069,10 +1069,10 @@
             <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="MongoDBController.linux_process_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.linux_process_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">linux_process_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns True if mongod is running</span>
 <span class="sd">        :return:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;linux&#39;</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="s2">&quot;pgrep mongo&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span>
@@ -1086,10 +1086,10 @@
             <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="MongoDBController.mac_process_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.mac_process_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">mac_process_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns True if mongod is running</span>
 <span class="sd">        :return:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="s2">&quot;pgrep mongo&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span>
@@ -1103,10 +1103,10 @@
             <span class="k">return</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="MongoDBController.service_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.service_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">service_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        checks if mongo service is running</span>
 <span class="sd">        :return:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;linux&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linux_process_is_running</span><span class="p">()</span>
         <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
@@ -1139,10 +1139,10 @@
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MongoDBController.start_if_not_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.start_if_not_running">[docs]</a>    <span class="k">def</span> <span class="nf">start_if_not_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        checks if mongo service is running</span>
 <span class="sd">        :return:</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MODE&#39;</span><span class="p">]</span>
 

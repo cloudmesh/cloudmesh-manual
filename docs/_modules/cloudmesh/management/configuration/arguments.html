@@ -275,7 +275,7 @@
         <span class="c1"># TODO: bug this only works for vm, but not images and so on</span>
         <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># this is a temporary patch for &quot;image list --cloud=XX --refresh&quot; so not to print the error</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">None</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;you need to specify a vm&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">None</span>

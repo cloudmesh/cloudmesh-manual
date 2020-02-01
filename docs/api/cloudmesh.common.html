@@ -169,8 +169,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.run.html">cloudmesh.common.run package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.ssh.html">cloudmesh.common.ssh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.docker.html">cloudmesh.compute.docker package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">cloudmesh.compute.libcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">cloudmesh.compute.virtualbox package</a></li>
@@ -615,16 +613,23 @@ the dict at time of initialization.</p>
 
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">&quot;cloudmesh.cloud.*.cm.active&quot;</em>, <em class="sig-param">True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.search" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">value=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns from a flatdict all keys that match the given pattern and
+have the given value. If the value None is specified or ommitted, all
+keys are returned regardless of value.</p>
+<p>Example:</p>
+<blockquote>
+<div><p>search(“cloudmesh.cloud.*.cm.active”, True)</p>
+</div></blockquote>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – </p></li>
-<li><p><strong>value</strong> – </p></li>
+<li><p><strong>key</strong> – The key pattern to be searched (given as regex)</p></li>
+<li><p><strong>value</strong> – The value</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>keys matching the vakue in flat dict format.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1477,7 +1482,8 @@ allows execution of 32 bit commands.</p>
 <dt id="cloudmesh.common.Shell.Subprocess">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.Shell.</code><code class="sig-name descname">Subprocess</code><span class="sig-paren">(</span><em class="sig-param">cmd</em>, <em class="sig-param">cwd=None</em>, <em class="sig-param">stderr=-1</em>, <em class="sig-param">stdout=-1</em>, <em class="sig-param">env=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Subprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Subprocess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Executes a command. This class should not be directly used, but instead you should use Shell.</p>
+<p>Executes a command. This class should not be directly used, but
+instead you should use Shell.</p>
 </dd></dl>
 
 <dl class="exception">
@@ -2848,7 +2854,7 @@ String matching only, does not do REs as currently implemented.</p>
 <dd><p>A contextmanager to work in an auto-removed temporary directory</p>
 <p>Arguments are passed through to tempfile.mkdtemp</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">tempdir</span><span class="p">()</span> <span class="k">as</span> <span class="n">path</span><span class="p">:</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">tempdir</span><span class="p">()</span> <span class="k">as</span> <span class="n">path</span><span class="p">:</span>
 <span class="gp">... </span>   <span class="k">pass</span>
 </pre></div>
 </div>

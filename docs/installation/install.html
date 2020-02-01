@@ -94,20 +94,24 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-19-04">Prerequisites for Ubuntu 19.04</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-macos">Prerequisites for macOS</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#installation-of-xcode">Installation of XCode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#python-installation-from-python-org">Python Installation from python.org</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#python-installation-from-homebrew">Python Installation from Homebrew</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-19-10">Prerequisites for Ubuntu 19.10</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-18-04">Prerequisites for Ubuntu 18.04</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-windows-10">Prerequisites for Windows 10</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#windows-system-installation-approach">Windows System Installation Approach</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#linux-subsystem-installation-approach">Linux Subsystem Installation Approach</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-venv-env3">Prerequisites for venv (ENV3)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-venv-env3">Prerequisites for venv (ENV3)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#venv-setup-on-linux-and-macos">venv Setup on Linux and macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#venv-setup-on-windows">venv Setup on Windows</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-of-cloudmesh-end-user">Installation of Cloudmesh (End User)</a><ul>
@@ -139,12 +143,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
@@ -169,9 +178,11 @@
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
@@ -263,22 +274,21 @@ packages are outdated.</p>
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before you install make sure that you have at minimum python 3.7.4
-installed. Likely the code will work with earlier versions, but we
-do the development in python 3.7.4. This version can be downloaded
-and installed from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.
-See the below subsections for system-specific prerequisites.</p>
+<p>Before you install make sure that you have an up to date version of
+python installed.
+We recommend you use 3.8.1 or newer. Python can be
+downloaded and installed from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
+<p>Likely the code will work with earlier versions starting from 3.7.4.
+We know that Python 3.6 has bugs and should not be used. Although
+cloudmesh previously was supported in Python 2.7 and newer, we have
+removed Python 2 as supported platform.</p>
 </div>
-<div class="section" id="prerequisites-for-ubuntu-19-04">
-<h3>Prerequisites for Ubuntu 19.04<a class="headerlink" href="#prerequisites-for-ubuntu-19-04" title="Permalink to this headline">¶</a></h3>
-<p>Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
-prerequisites. However we recommend that you update to the newest version of
-python and pip. Please visit: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
-<p>Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y update
-sudo apt -y install openssl curl
-</pre></div>
-</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend that you use  Python <cite>venv</cite> to isolate the system Python
+form the user python. For simplicity we assime and document on how to
+set up a virtual environment in the home directory under the
+directory <cite>ENV3</cite>.</p>
 </div>
 <div class="section" id="prerequisites-for-macos">
 <h3>Prerequisites for macOS<a class="headerlink" href="#prerequisites-for-macos" title="Permalink to this headline">¶</a></h3>
@@ -302,6 +312,10 @@ from python.org or from homebrew.</p>
 <a class="reference external" href="https://www.python.org/downloads">https://www.python.org/downloads</a>. Please, visit the page and follow the
 instructions. After this install you have <cite>python3</cite> available from the
 command line.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv ~/ENV3
+<span class="nb">source</span> ~/ENV3/bin/activate
+</pre></div>
+</div>
 </div>
 <div class="section" id="python-installation-from-homebrew">
 <h4>Python Installation from Homebrew<a class="headerlink" href="#python-installation-from-homebrew" title="Permalink to this headline">¶</a></h4>
@@ -312,38 +326,59 @@ instruction in their <a class="reference external" href="https://brew.sh/#instal
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>Then you should be able to install Python 3.7.4 using:</p>
+<p>Then you should be able to install Python 3.8.1 using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install python
+python3 -m venv ~/ENV3
+<span class="nb">source</span> ~/ENV3/bin/activate
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="prerequisites-for-ubuntu-19-10">
+<h3>Prerequisites for Ubuntu 19.10<a class="headerlink" href="#prerequisites-for-ubuntu-19-10" title="Permalink to this headline">¶</a></h3>
+<p>Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
+and can be conducted with the following steps.</p>
+<p>Additionally, Cloudmesh requires
+OpenSSL and Curl installed in the system.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y update
+sudo apt -y install openssl curl
+</pre></div>
+</div>
+<p>Please download Python from:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/downloads">https://www.python.org/downloads</a></p></li>
+</ul>
+<p>place the code in a directory and change to that directory. Than say</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -xvf Python-3.8.1.tgz
+<span class="nb">cd</span> Python-3.8.0/
+./configure
+make
+sudo make altinstall
+python3.8 --version
+python3 -m venv ~/ENV3
+<span class="nb">source</span> ~/ENV3/bin/activate
+</pre></div>
+</div>
+</div>
 <div class="section" id="prerequisites-for-ubuntu-18-04">
 <h3>Prerequisites for Ubuntu 18.04<a class="headerlink" href="#prerequisites-for-ubuntu-18-04" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>We recommend you update your ubuntu version to 19.04 and
-follow the instructions for that version instead, as it is
-significantly easier. If you however are not able to do so, the
-following instructions may be helpful.</p>
-</div>
 <p>We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the version with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
-<p>If the version is not 3.7.4 or newer, you can update it as follows:</p>
+<p>If the version is not 3.8.1 or newer, you can update it as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get install python3.7 python3-dev python3.7-dev
+sudo apt-get install python3.8 python3-dev python3.8-dev
 </pre></div>
 </div>
 <p>You can then check the installed version
-using <code class="docutils literal notranslate"><span class="pre">python3.7</span> <span class="pre">--version</span></code> which should be <code class="docutils literal notranslate"><span class="pre">3.7.4</span></code>.</p>
+using <code class="docutils literal notranslate"><span class="pre">python3.8</span> <span class="pre">--version</span></code> which should be <code class="docutils literal notranslate"><span class="pre">3.8.1</span></code>.</p>
 <p>Now we will create a new virtual environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m venv --without-pip ~/ENV3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.8 -m venv --without-pip ~/ENV3
 </pre></div>
 </div>
 <p>The edit the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file and add the following line at the end:</p>
@@ -386,10 +421,10 @@ Alternatively, you can also use the docker version of cloudmesh.</p>
 <div class="section" id="windows-system-installation-approach">
 <h4>Windows System Installation Approach<a class="headerlink" href="#windows-system-installation-approach" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Ensure that python 3.7 (or higher) has been installed.
-Python 3.7 can be installed on Windows 10 using: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
+<li><p>Ensure that python 3.8 (or higher) has been installed. Python 3.8 can be
+installed on Windows 10 using: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
 <li><p>Create a venv. This step is not required, but highly recommended.
-See section on prerequisites for venv below for more details on setup instructions.</p></li>
+See section on prerequisites for venv provides more details.</p></li>
 </ul>
 </div>
 <div class="section" id="linux-subsystem-installation-approach">
@@ -413,20 +448,19 @@ the Linux Subsystem install.</p>
 </div>
 <div class="section" id="prerequisites-for-venv-env3">
 <h3>Prerequisites for venv (ENV3)<a class="headerlink" href="#prerequisites-for-venv-env3" title="Permalink to this headline">¶</a></h3>
-<p id="use-a-venv">VirtualEnv (or <code class="docutils literal notranslate"><span class="pre">venv</span></code>) is a Python module which allows the creation
-of an isolated Python environment. Implementing this step is highly
-recommended to ensure cloudmesh and cloudmesh-related installations do
-not interfere with a system-level installation of python.</p>
+<p id="use-a-venv">VirtualEnv (or <code class="docutils literal notranslate"><span class="pre">venv</span></code>) allows the creation of an isolated Python environment.
+Using a venv is highly recommended to ensure cloudmesh and cloudmesh-related
+installations do not interfere with a system-level installation of python.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Not using a <cite>venv</cite> could have catastrophic consequences and
 result in the destruction of operating system tools which rely on
 Python.</p>
 </div>
-<p>Once <cite>venv</cite> has been implemented, activation of the <cite>venv</cite> is very simple,
-and will contain subsequent package installations within the
-virutalenv; mitigating risks of global package installations.</p>
-<p>For our purposes we assume that you use the directory:</p>
+<p>Once <cite>venv</cite> has been created and activated, packages installed with venv will
+be installed in this virtual environment and not in the global Python site packages.
+This mitigates risks of global package installations.</p>
+<p>For our purposes we assume that you use the venv directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">ENV3</span>
 </pre></div>
 </div>
@@ -434,9 +468,10 @@ virutalenv; mitigating risks of global package installations.</p>
 <p class="admonition-title">Note</p>
 <p>In a Linux subsystem, <cite>~/</cite> is the default location, assumed
 to be the home directory.  In a windows system, this location is
-assumed to be under <cite>C:UsersUSERNAME</cite>.</p>
+assumed to be under <cite>C:\Users\USERNAME</cite>.</p>
 </div>
-<p><strong>venv Setup on Linux and macOS</strong></p>
+<div class="section" id="venv-setup-on-linux-and-macos">
+<h4>venv Setup on Linux and macOS<a class="headerlink" href="#venv-setup-on-linux-and-macos" title="Permalink to this headline">¶</a></h4>
 <p>For the <cite>venv</cite> setup on Linux or macOs, run the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv  ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
@@ -447,43 +482,46 @@ assumed to be under <cite>C:UsersUSERNAME</cite>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/ENV3/bin/activate
 </pre></div>
 </div>
-<p><strong>venv Setup on Windows</strong></p>
-<p>Similarly, for Windows, run the following while under the default
-directory of under <cite>C:UsersUSERNAME</cite>:</p>
+</div>
+<div class="section" id="venv-setup-on-windows">
+<h4>venv Setup on Windows<a class="headerlink" href="#venv-setup-on-windows" title="Permalink to this headline">¶</a></h4>
+<p>on Windows, you run the following command from your home directory at
+<cite>C:\Users\USERNAME</cite>:</p>
 <div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>python -m venv --without-pip ENV3
 </pre></div>
 </div>
 <p>Next, create a Windows system variable named <cite>ENV3</cite> and update the
-variable value to <cite>C:UsersUSERNAMEENV3Scriptsactivate</cite>.</p>
+variable value to <cite>C:\Users\USERNAME\ENV3\Scripts\activate</cite>.</p>
 <img alt="../_images/ENV3variable.png" src="../_images/ENV3variable.png" />
 <p>Then add the <cite>ENV3</cite> variable name to the Path variable.</p>
 <img alt="../_images/ENV3addedtoPath.png" src="../_images/ENV3addedtoPath.png" />
 <p>Lastly, to simplify the <cite>venv</cite> activation call, create a new <cite>ENV3.bat</cite>
 file under the default directory, and add the following content to the
 file.</p>
-<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>C:\Users\USERNAME\ENV3\Scripts\activate.bat
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>C:\\Users\\USERNAME\\ENV3\\Scripts\\activate.bat
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The same can be done Windows Powershell by creating a <cite>ENV3.ps1</cite> to
-reference the activate.ps1 command.</p>
+<p>The same can be done in Windows Powershell by creating a <cite>ENV3.ps1</cite> to
+reference the activation command.</p>
 </div>
-<p><strong>Testing venv Activation</strong></p>
-<p>In command prompt, type “ENV3” while under the default directory;
-or if the bat file was not created, simply reference the system variable %ENV3%.</p>
+<p><strong>Test the venv activation</strong></p>
+<p>We recommend  that you test the venv activation. In a command prompt, type
+<cite>ENV3</cite> while under the home directory; or if the bat file was not created,
+simply reference the system variable %ENV3%.</p>
 <p>Example using bat file activation:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt; ENV3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt; ENV3
 
 ...
 
-<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
+<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt;
 </pre></div>
 </div>
 <p>Example using Windows environment variable:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt; %ENV3%
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt; %ENV3%
 
-<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
+<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt;
 </pre></div>
 </div>
 <p>In both cases you will see the command prompt starting with <cite>(ENV3)</cite>.</p>
@@ -497,6 +535,7 @@ or if the bat file was not created, simply reference the system variable %ENV3%.
 </pre></div>
 </div>
 <p>Now you are ready to install cloudmesh.</p>
+</div>
 </div>
 </div>
 <div class="section" id="installation-of-cloudmesh-end-user">
@@ -713,7 +752,7 @@ cms config <span class="nb">set</span> cloudmesh.data.mongo.MONGO_PASSWORD<span 
 <p>Another item to note is the default location of the MongoDB installation.
 In a Linux/MacOS environment, the default installation path will be under
 <code class="docutils literal notranslate"><span class="pre">~/local/mongo/bin</span></code>. In a Windows environment, the default path is under
-<code class="docutils literal notranslate"><span class="pre">C:\Users\USERNAME\.cloudmesh\mongo</span></code>. If you would like to change these
+<code class="docutils literal notranslate"><span class="pre">C:\\Users\\USERNAME\\.cloudmesh\\mongo</span></code>. If you would like to change these
 paths, be sure to update these in the cloudmesh.yaml file.</p>
 <p>Once configuration of the cloudmesh.yaml file has been completed,  run the
 following command to install mongo:</p>
@@ -761,7 +800,7 @@ file.</p>
 installed MongoDB using the cloudmesh installer
 (i.e. <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code>), Mongo is not installed with a service by
 default, and can be simply uninstalled by removing the install directories
-under <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
+under <code class="docutils literal notranslate"><span class="pre">~\\.cloudmesh</span></code> (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
 variables within the cloudmesh.yaml file for specifics).</p>
 <p>If, however, you have a pre-existing installation of MongoDB, or
 have MongoDB Server Service installed through an alternative installation method
