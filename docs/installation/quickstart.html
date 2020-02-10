@@ -94,6 +94,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-with-the-gui">Configuration with the GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#manual">Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generating-the-key-and-certificate">Generating the Key and Certificate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#validate-and-verify-the-key">Validate and verify the key</a></li>
@@ -250,6 +251,37 @@ information.</p>
 formated. This can be done with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config check
 </pre></div>
+</div>
+<div class="section" id="configuration-with-the-gui">
+<h2>Configuration with the GUI<a class="headerlink" href="#configuration-with-the-gui" title="Permalink to this headline">¶</a></h2>
+<p>Cloudmesh comes with a simple GUI program that can only be used on the machines
+natively. E.g. It does not workin containers and the Linux Subsystem on
+Windows.</p>
+<p>To install it as user you can do it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cloudmesh</span><span class="o">-</span><span class="n">gui</span>
+</pre></div>
+</div>
+<p>You will have the command <cite>cms gui</cite> available. You will need to configure the
+profile, activate clouds, and add credentials for a cloud. For this you can
+use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">gui</span> <span class="n">profile</span>
+<span class="n">cms</span> <span class="n">gui</span> <span class="n">activate</span>
+<span class="n">cms</span> <span class="n">gui</span> <span class="n">cloud</span> <span class="n">chameleon</span>
+</pre></div>
+</div>
+<p>We assome here you like to configure the credentials for the chameleon cloud.</p>
+<div class="align-center figure" id="id2">
+<a class="reference internal image-reference" href="../_images/profile.png"><img alt="alternate text" src="../_images/profile.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Figure: Setting the profile <cite>cms gui profile</cite></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id3">
+<a class="reference internal image-reference" href="../_images/activate.png"><img alt="alternate text" src="../_images/activate.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Figure: Activate clouds <cite>cms gui activate</cite></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id4">
+<a class="reference internal image-reference" href="../_images/credentials.png"><img alt="alternate text" src="../_images/credentials.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Figure: Update credentials <cite>cms gui cloud chameleon</cite></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="manual">
 <h2>Manual<a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h2>

@@ -465,7 +465,7 @@ This mitigates risks of global package installations.</p>
 <p class="admonition-title">Note</p>
 <p>In a Linux subsystem, <cite>~/</cite> is the default location, assumed
 to be the home directory.  In a windows system, this location is
-assumed to be under <cite>C:\Users\USERNAME</cite>.</p>
+assumed to be under <cite>C:UsersUSERNAME</cite>.</p>
 </div>
 <div class="section" id="venv-setup-on-linux-and-macos">
 <h4>venv Setup on Linux and macOS<a class="headerlink" href="#venv-setup-on-linux-and-macos" title="Permalink to this headline">¶</a></h4>
@@ -483,12 +483,12 @@ assumed to be under <cite>C:\Users\USERNAME</cite>.</p>
 <div class="section" id="venv-setup-on-windows">
 <h4>venv Setup on Windows<a class="headerlink" href="#venv-setup-on-windows" title="Permalink to this headline">¶</a></h4>
 <p>on Windows, you run the following command from your home directory at
-<cite>C:\Users\USERNAME</cite>:</p>
+<cite>C:UsersUSERNAME</cite>:</p>
 <div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>python -m venv --without-pip ENV3
 </pre></div>
 </div>
 <p>Next, create a Windows system variable named <cite>ENV3</cite> and update the
-variable value to <cite>C:\Users\USERNAME\ENV3\Scripts\activate</cite>.</p>
+variable value to <cite>C:UsersUSERNAMEENV3Scriptsactivate</cite>.</p>
 <div class="align-center figure" id="id4">
 <a class="reference internal image-reference" href="../_images/ENV3variable.png"><img alt="alternate text" src="../_images/ENV3variable.png" style="width: 200px; height: 100px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Figure: Setting the ENV3 variable</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
@@ -501,7 +501,7 @@ variable value to <cite>C:\Users\USERNAME\ENV3\Scripts\activate</cite>.</p>
 <p>Lastly, to simplify the <cite>venv</cite> activation call, create a new <cite>ENV3.bat</cite>
 file under the default directory, and add the following content to the
 file.</p>
-<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>C:\\Users\\USERNAME\\ENV3\\Scripts\\activate.bat
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>C:\Users\USERNAME\ENV3\Scripts\activate.bat
 </pre></div>
 </div>
 <div class="admonition note">
@@ -514,17 +514,17 @@ reference the activation command.</p>
 <cite>ENV3</cite> while under the home directory; or if the bat file was not created,
 simply reference the system variable %ENV3%.</p>
 <p>Example using bat file activation:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt; ENV3
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt; ENV3
 
 ...
 
-<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt;
+<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
 </pre></div>
 </div>
 <p>Example using Windows environment variable:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt; %ENV3%
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt; %ENV3%
 
-<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\\</span>Users<span class="se">\\</span>USERNAME&gt;
+<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
 </pre></div>
 </div>
 <p>In both cases you will see the command prompt starting with <cite>(ENV3)</cite>.</p>
@@ -745,7 +745,7 @@ cms config <span class="nb">set</span> cloudmesh.data.mongo.MONGO_PASSWORD<span 
 <p>Another item to note is the default location of the MongoDB installation.
 In a Linux/MacOS environment, the default installation path will be under
 <code class="docutils literal notranslate"><span class="pre">~/local/mongo/bin</span></code>. In a Windows environment, the default path is under
-<code class="docutils literal notranslate"><span class="pre">C:\\Users\\USERNAME\\.cloudmesh\\mongo</span></code>. If you would like to change these
+<code class="docutils literal notranslate"><span class="pre">C:\Users\USERNAME\.cloudmesh\mongo</span></code>. If you would like to change these
 paths, be sure to update these in the cloudmesh.yaml file.</p>
 <p>Once configuration of the cloudmesh.yaml file has been completed,  run the
 following command to install mongo:</p>
@@ -760,14 +760,20 @@ silent installer will attempt to install and start the
 MongoDB System Service. When prompted that the Service
 failed to start, simply select <code class="docutils literal notranslate"><span class="pre">Ignore</span></code>.</p>
 </div>
-<img alt="../_images/MongoInstall_Windows_Ignore.png" src="../_images/MongoInstall_Windows_Ignore.png" />
+<div class="align-center figure" id="id6">
+<a class="reference internal image-reference" href="../_images/MongoInstall_Windows_Ignore.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_Ignore.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Figure: Mongo Windows install. Make sure to press ignore</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
 <p>After the installation completes, in a Linux/MacOS environment, confirm the
 MongoDB installation path was added to the <code class="docutils literal notranslate"><span class="pre">.bash_*</span></code> file. This should have
 already been done automatically if the <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> command
 was used to kick off the installation.</p>
 <p>In a Windows environment, however, the default path is not automatically added
 to the Path variable, so you will need to add this manually:</p>
-<img alt="../_images/MongoInstall_Windows_Path.png" src="../_images/MongoInstall_Windows_Path.png" />
+<div class="align-center figure" id="id7">
+<a class="reference internal image-reference" href="../_images/MongoInstall_Windows_Path.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_Path.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Figure: Mongo Windows path configuration</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
 <p>Now that MongoDB has been installed, we can simultaneously password protect
 mongo (as per the password you’ve entered in the yaml file), and test the
 installation by running the following command:</p>
@@ -793,7 +799,7 @@ file.</p>
 installed MongoDB using the cloudmesh installer
 (i.e. <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code>), Mongo is not installed with a service by
 default, and can be simply uninstalled by removing the install directories
-under <code class="docutils literal notranslate"><span class="pre">~\\.cloudmesh</span></code> (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
+under <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
 variables within the cloudmesh.yaml file for specifics).</p>
 <p>If, however, you have a pre-existing installation of MongoDB, or
 have MongoDB Server Service installed through an alternative installation method
@@ -810,13 +816,19 @@ command line:</p>
 <p>Next, delete the Mongo installation directories. Please reference the
 cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
 <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> was attempted at some point.</p>
-<img alt="../_images/MongoInstall_Windows_InstallPathYAML.png" src="../_images/MongoInstall_Windows_InstallPathYAML.png" />
+<div class="align-center figure" id="id8">
+<a class="reference internal image-reference" href="../_images/MongoInstall_Windows_InstallPathYAML.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_InstallPathYAML.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Figure: Mongo install path</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
 <p>Finally, execute the mongodb <cite>msiexe</cite> installer to check if there are
 any remaining components that need to be uninstalled. Once launched,
 click on the <cite>Remove</cite> button. Note that this installer can be
 downloaded locally using the URL found under the MONGO_DOWNLOAD
 variable in the cloudmesh.yaml file.</p>
-<img alt="../_images/MongoInstall_Windows_msiexec.png" src="../_images/MongoInstall_Windows_msiexec.png" />
+<div class="align-center figure" id="id9">
+<a class="reference internal image-reference" href="../_images/MongoInstall_Windows_msiexec.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_msiexec.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Figure: Mongo installation</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If Compass was installed, this can simply be removed by

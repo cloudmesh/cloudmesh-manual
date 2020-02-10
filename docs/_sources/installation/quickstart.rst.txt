@@ -25,6 +25,54 @@ formated. This can be done with
 
    cms config check
 
+Configuration with the GUI
+--------------------------
+
+Cloudmesh comes with a simple GUI program that can only be used on the machines
+natively. E.g. It does not workin containers and the Linux Subsystem on
+Windows.
+
+To install it as user you can do it with::
+
+    pip install cloudmesh-gui
+
+You will have the command `cms gui` available. You will need to configure the
+profile, activate clouds, and add credentials for a cloud. For this you can
+use::
+
+    cms gui profile
+    cms gui activate
+    cms gui cloud chameleon
+
+We assome here you like to configure the credentials for the chameleon cloud.
+
+.. figure:: images/profile.png
+   :width: 200px
+   :align: center
+   :height: 100px
+   :alt: alternate text
+   :figclass: align-center
+
+   Figure: Setting the profile `cms gui profile`
+
+.. figure:: images/activate.png
+   :width: 200px
+   :align: center
+   :height: 100px
+   :alt: alternate text
+   :figclass: align-center
+
+   Figure: Activate clouds `cms gui activate`
+
+.. figure:: images/credentials.png
+   :width: 200px
+   :align: center
+   :height: 100px
+   :alt: alternate text
+   :figclass: align-center
+
+   Figure: Update credentials `cms gui cloud chameleon`
+
 Manual
 ------
 
