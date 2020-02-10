@@ -778,7 +778,8 @@ The `cms init` includes this automatically.
 Installation of cloudmesh with Docker
 -------------------------------------
 
-Cloudmesh can also be installed with a specialized `cloudmesh-cmsd`
-command that is distributed as source and on PyPi.
+This instalation can be conducted on all OSes on which docker and python 3.8.1
+is installed. Cloudmesh can also be installed with a specialized
+`cloudmesh-cmsd` command that is distributed as source and on PyPi.
 
-TODO: describe
+See  :doc:`../cmsd` for more information.
