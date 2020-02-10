@@ -11,8 +11,6 @@ Please read the installation section in this manual completely, and understand
 the items explained before you install. Do not just paste and copy text in
 your terminal and execute it as it could have unexpected consequences.
 
-.. warning:: At this time we do not recommend the conda install, as the conda
-             packages are outdated.
 
 Prerequisites
 -------------
@@ -20,9 +18,10 @@ Prerequisites
 .. note::
 
           Before you install make sure that you have an up to date version of
-          python installed.
-          We recommend you use 3.8.1 or newer. Python can be
-          downloaded and installed from https://www.python.org/downloads/.
+          python installed. We recommend you use 3.8.1 or newer. Python can be
+          downloaded and installed from https://www.python.org/downloads/. On
+          Windows you will also need to install the C++ commandline build tools
+          as some cryptographic libraries need to be recompiled in 3.8.1.
 
           Likely the code will work with earlier versions starting from 3.7.4.
           We know that Python 3.6 has bugs and should not be used. Although
@@ -126,24 +125,91 @@ the new version with
 Prerequisites for Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On Windows 10 you can install cloudmesh by either using a Windows
-System installation approach or a Linux Subsystem installation
+On Windows 10 you can install cloudmesh by either using
+
+* a Windows native installation,
+* a Linux Subsystem installation,
+* a Docker instalation,
+
 approach. We recommend that you use the Professional or the
 Educational version of Windows, as the Home edition is very limited.
 Alternatively, you can also use the docker version of cloudmesh.
+We explain the various methods.
 
-.. warning:: The docker version of cloudmesh is still under development.
 
-.. warning:: We do not recommend or support other versions of Windows.
-
-Windows System Installation Approach
+Windows native Installation Approach
 """"""""""""""""""""""""""""""""""""
 
 * Ensure that python 3.8 (or higher) has been installed. Python 3.8 can be
   installed on Windows 10 using: https://www.python.org/downloads/
 
-* Create a venv. This step is not required, but highly recommended.
-  See section on prerequisites for venv provides more details.
+* Create a venv. See section on prerequisites for venv provides more details.
+
+* Some Python librarier may need to be compiled. In order for you to complete
+  your Python instalation you will need to install th *VC C++ command line Build Tools*.
+  You can find them at:
+
+  * https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
+
+  Once you run the installer
+  you need to check on the choices as shown in the next image.
+
+  .. figure:: images/VSprintscreen.PNG
+     :width: 200px
+     :align: center
+     :height: 100px
+     :alt: alternate text
+     :figclass: align-center
+
+     Figure: select the commandline (CLI) build tools
+
+
+* You will also have to add the following path to the PATH variable::
+
+     C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\
+
+  If you have a newer version, please update the Path accordingly. The next two
+  images show screenshots on what you need to change. You will naturally have a
+  different username.
+
+  .. figure:: images/EnvironmentVariables.png
+     :width: 200px
+     :align: center
+     :height: 100px
+     :alt: alternate text
+     :figclass: align-center
+
+     Figure: add the build tool path to the PATH variable
+
+  .. figure:: images/windowsbuildtoolspath.png
+     :width: 200px
+     :align: center
+     :height: 100px
+     :alt: alternate text
+     :figclass: align-center
+
+     Figure: add the build tool path to the PATH variable
+
+
+
+Windows Container Approach
+""""""""""""""""""""""""""
+
+The user container for cloudmesh shell is called cmsd (cloudmesh shell docker).
+It can be installed with pip as follows
+
+    pip install cloudmesh-cmsd
+
+Please note that in order for you do develop cloudmesh you need to do this
+within the container However we do recommend that Windows developer use the
+Windows native cloudmesh approach. However regular user will have a very
+transparent acces to cloudmesh as most commands ar just passed along to the
+container.
+
+The manual page for cmsd is located at :doc:`../cmsd`
+
+
+
 
 Linux Subsystem Installation Approach
 """""""""""""""""""""""""""""""""""""
@@ -217,11 +283,27 @@ on Windows, you run the following command from your home directory at
 Next, create a Windows system variable named `ENV3` and update the
 variable value to `C:\\Users\\USERNAME\\ENV3\\Scripts\\activate`.
 
-.. image:: images/ENV3variable.png
+.. figure:: images/ENV3variable.png
+     :width: 200px
+     :align: center
+     :height: 100px
+     :alt: alternate text
+     :figclass: align-center
+
+     Figure: Setting the ENV3 variable
+
 
 Then add the `ENV3` variable name to the Path variable.
 
-.. image:: images/ENV3addedtoPath.png
+.. figure:: images/ENV3addedtoPath.png
+     :width: 200px
+     :align: center
+     :height: 100px
+     :alt: alternate text
+     :figclass: align-center
+
+     Figure: Add the variable to the path
+
 
 Lastly, to simplify the `venv` activation call, create a new `ENV3.bat`
 file under the default directory, and add the following content to the
@@ -333,17 +415,10 @@ in which you can find the configuration file::
 Anaconda and Conda
 ^^^^^^^^^^^^^^^^^^
 
-Cloudmesh can be installed in anaconda with pip.
+Cloudmesh can be installed in anaconda with pip. Please volow our pip
+instructions, but make sure you create your own virtualenv with conda and asure
+you use python 3.8.1 or newer.
 
-We also have the base packages available as conda packages on conda hub
-in the chanel ``laszewski``. This includes
-
--  cloudmesh-common
--  cloudmesh-cmd5
--  cloudmesh-sys
-
-However, these packages are no longer maintained. We find that the use of pip
-is the prefered mechanism for installing python packages.
 
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------

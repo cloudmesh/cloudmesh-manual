@@ -36,7 +36,7 @@ inspect-book:
 		--format=htmlembedded > $(SOURCE)/inspector/book.html
 	cp -r $(SOURCE)/inspector docs/inspector
 
-MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud cloudmesh-inventory cloudmesh-storage
+MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud cloudmesh-inventory cloudmesh-storage cloudmesh-cmsd
 
 api:
 	rm -rf docs-source/source/api
@@ -109,6 +109,7 @@ names-dir:
 	@cd ../cloudmesh-cloud; git log | fgrep Author
 	@cd ../cloudmesh-storage; git log | fgrep Author
 	@cd ../cloudmesh-manual; git log | fgrep Author
+	@cd ../cloudmesh-cmsd; git log | fgrep Author
 
 source:
 	cd ../cloudmesh.common; make source
@@ -118,7 +119,9 @@ source:
 
 install:
 	cd ..; cloudmesh-installer git pull storage
-	cd ..; cloudmesh-installer install storage -e
+	cd ..; cloudmesh-installer git pull cmsd
+	cd ..; cloudmesh-installer install storage
+	cd ..; cloudmesh-installer install cmsd
 	cd ../cloudmesh-batch ; git pull; pip install -e .
 	cd ../cloudmesh-emr ; git pull; pip install -e .
 

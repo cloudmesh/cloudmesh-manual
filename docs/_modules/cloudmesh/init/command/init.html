@@ -282,24 +282,31 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
             <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB stop&quot;</span><span class="p">)</span>
-                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;MongoDB is not running. ok&quot;</span><span class="p">)</span>
-            <span class="n">machine</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-            <span class="n">location</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span>
-                                       <span class="sa">f</span><span class="s1">&#39;cloudmesh.data.mongo.MONGO_DOWNLOAD.</span><span class="si">{machine}</span><span class="s1">.MONGO_PATH&#39;</span><span class="p">])</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB folder deleted&quot;</span><span class="p">)</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not delete </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Please try to run cms init again ... &quot;</span><span class="p">)</span>
-                    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.data.mongo.MODE&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;running&#39;</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB stop&quot;</span><span class="p">)</span>
+                    <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;MongoDB is not running. ok&quot;</span><span class="p">)</span>
+                <span class="n">machine</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="n">location</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">config</span><span class="p">[</span>
+                                           <span class="sa">f</span><span class="s1">&#39;cloudmesh.data.mongo.MONGO_DOWNLOAD.</span><span class="si">{machine}</span><span class="s1">.MONGO_PATH&#39;</span><span class="p">])</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB folder deleted&quot;</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not delete </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Please try to run cms init again ... &quot;</span><span class="p">)</span>
+                        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB create&quot;</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo create&quot;</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo start&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB is on </span><span class="se">\&quot;</span><span class="s2">running</span><span class="se">\&quot;</span><span class="s2"> mode!&quot;</span><span class="p">)</span>
+
             <span class="n">user</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
 
             <span class="n">secgroup</span> <span class="o">=</span> <span class="s2">&quot;flask&quot;</span>
@@ -315,9 +322,6 @@
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Config Security Initialization&quot;</span><span class="p">)</span>
             <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;cms&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;secinit&quot;</span><span class="p">])</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB create&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo create&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo start&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms sec load&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms key add&quot;</span><span class="p">)</span>
 

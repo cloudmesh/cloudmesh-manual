@@ -49,8 +49,8 @@ side effects on your system).
     $ cd cm
     $ pip install pip -U
     $ pip install cloudmesh-installer -U
-    $ cloudmesh-installer git clone docker
-    $ cloudmesh-installer git install docker
+    $ cloudmesh-installer git clone cmsd
+    $ cloudmesh-installer git install cmsd
 
 
 Now you can use the command
@@ -77,7 +77,7 @@ either do a git pull in the `cloudmesh-cmsd` directory or with
 .. code:: bash
 
     $ cd cm
-    $ cloudmesh-installer git pull docker
+    $ cloudmesh-installer git pull cmsd
 
 
 See Also

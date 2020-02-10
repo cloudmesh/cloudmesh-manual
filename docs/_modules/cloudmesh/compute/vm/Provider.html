@@ -253,7 +253,6 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span>
             <span class="c1">#            &#39;openstack&#39;,</span>
             <span class="s1">&#39;docker&#39;</span><span class="p">,</span>
-            <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
             <span class="s2">&quot;virtualbox&quot;</span><span class="p">]:</span>
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">providers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">]</span>
@@ -311,8 +310,7 @@
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># bug should determine provider from name</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">destroy</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">r</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">destroy</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Provider.loop_name"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.loop_name">[docs]</a>    <span class="k">def</span> <span class="nf">loop_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
         <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
@@ -559,7 +557,7 @@
 <span class="sd">        :param metadata: the metadata</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.get_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.get_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -695,10 +693,10 @@
                                         <span class="n">ip_range</span><span class="o">=</span><span class="n">ip_range</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.add_rules_to_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.add_rules_to_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules_to_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">add_rules_to_secgroup</span><span class="p">(</span><span class="n">secgroupname</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">newrules</span><span class="o">=</span><span class="n">rules</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">add_rules_to_secgroup</span><span class="p">(</span><span class="n">secgroupname</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">newrules</span><span class="o">=</span><span class="n">rules</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">destroy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div></div>
+    <span class="c1"># def destroy(self, name=None):</span>
+    <span class="c1">#     return self.p.destroy(name=name)</span>
 </pre></div>
 
            </div>
