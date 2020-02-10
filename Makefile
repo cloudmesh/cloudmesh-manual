@@ -160,7 +160,7 @@ CMSD_COMMAND= cmsd
 
 
 manual:
-	cms set timmer=False
+	cms set timer=False
 	mkdir -p $(SOURCE)/manual
 	cms help > /tmp/commands.rst
 	-echo "# Commands" > $(SOURCE)/manual/all.md
@@ -169,6 +169,7 @@ manual:
 	-tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/all.md
 	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
 	cms man --dir=$(SOURCE)/manual --format=rst
+	cms version --number > $(SOURCE)/manual/versions.txt
 
 	make -f Makefile doc
 

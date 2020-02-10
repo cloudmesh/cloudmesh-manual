@@ -2,19 +2,15 @@ About
 =====
 
 Cloudmesh enables you to access multi-cloud environments such as AWS, Azure,
-Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say
+Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say::
 
-```
-cms set cloud=aws
-cms vm boot
-```
+    cms set cloud=aws
+    cms vm boot
 
-To start one on Azure, set the cloud accordingly
+To start one on Azure, set the cloud accordingly::
 
-```
-cms set cloud=aws
-cms vm boot
-```
+    cms set cloud=aws
+    cms vm boot
 
 
 `Cloudmesh <https://cloudmesh-community.github.io/cm/>`__ is
@@ -50,12 +46,18 @@ Features
    * - `Installer <https://github.com/cloudmesh/cloudmesh-installer>`_
      - convenient source code installer and manager for developers
      - stable
+   * - `Database <https://github.com/cloudmesh/cloudmesh-gui>`_
+     - A GUI program to configure ~/.cloudmesh/cloudmesh.yaml
+     - stable
    * - `Database <https://github.com/cloudmesh/cloudmesh-cloud>`_
      - A database for caching cloud interactions (based on MongoDB)
      - stable
+   * - `Container <https://github.com/cloudmesh/cloudmesh-cmsd>`_
+     - A container that runs cloudmesh shell
+     - stable
    * - `Cloud Compute <https://github.com/cloudmesh/cloudmesh-cloud>`_
      - Cloud Compute Providers for AWS, Azure, Google, Openstack
-     - beta
+     - stable
    * - `Cloud Storage <https://github.com/cloudmesh/cloudmesh-storage>`_
      - Cloud Storage Providers for AWS, Azure, Google, Openstack
      - beta
@@ -68,6 +70,12 @@ Features
    * - OpenApi
      - OpenAPI based REST service interfaces
      - alpha
+
+Versions
+--------
+
+.. literalinclude:: /manual/versions.txt
+
 
 Open projects for the Future
 -----------------------------

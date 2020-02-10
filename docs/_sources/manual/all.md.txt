@@ -10,5 +10,4 @@ commands   git      inventory  plugin     set       storage    workflow_draft
 config     group    ip         provider   shell     sys      
 container  gui      key        py         sleep     var      
 
-Timer: 0.0000s (help)
 ```
