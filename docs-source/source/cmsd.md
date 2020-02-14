@@ -24,8 +24,8 @@ For developers it can be installed in an easy fashion with
     mkdir cm
     cd cm
     pip install cloudmesh-installer -U
-    cloudmesh-installer git clone docker
-    cloudmesh-installer git install docker
+    cloudmesh-installer git clone cmsd
+    cloudmesh-installer git install cmsd
  
 Now you can use the command 
 
