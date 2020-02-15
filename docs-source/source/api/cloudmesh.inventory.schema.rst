@@ -4,10 +4,10 @@ cloudmesh.inventory.schema package
 Submodules
 ----------
 
-cloudmesh.inventory.schema.inventory.settings module
-----------------------------------------------------
+cloudmesh.inventory.schema.inventory module
+-------------------------------------------
 
-.. automodule:: cloudmesh.inventory.schema.inventory.settings
+.. automodule:: cloudmesh.inventory.schema.inventory
    :members:
    :undoc-members:
    :show-inheritance:
