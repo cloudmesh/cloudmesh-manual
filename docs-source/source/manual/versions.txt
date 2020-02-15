@@ -1,14 +1,40 @@
-+------------------------------+---------+
-| Package                      | Version |
-+------------------------------+---------+
-| cloudmesh.bookmanagerservice | 1.0.0   |
-| cloudmesh.cloud              | 4.3.0   |
-| cloudmesh.cmd5               | 4.2.14  |
-| cloudmesh.common             | 4.2.30  |
-| cloudmesh.configuration      | 4.2.5   |
-| cloudmesh.gui                | 4.1.3   |
-| cloudmesh.inventory          | 4.1.3   |
-| cloudmesh.multipass          | 4.1.3   |
-| cloudmesh.openstack          | 4.3.2   |
-| cloudmesh.sys                | 4.1.4   |
-+------------------------------+---------+
+Traceback (most recent call last):
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/command.py", line 170, in new
+    func(instance, args, arguments)
+  File "/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py", line 893, in do_version
+    i = importlib.import_module(pname)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'cloudmesh.cmsd'
+--number
+ERROR: Could not execute the command.
+ERROR: Check usage..
+
+::
+
+  Usage:
+    version pip [PACKAGE]
+    version [--format=FORMAT] [--check=CHECK] [--number]
+
+
+
+  Options:
+    --format=FORMAT  the format to print the versions in [default: table]
+    --check=CHECK    boolean tp conduct an additional check [default: True]
+
+  Description:
+    version 
+        Prints out the version number
+    version pip
+        Prints the contents of pip list
+
+  Limitations:
+    Package names must not have a . in them instead you need to use -
+    Thus to query for cloudmesh-cmd5 use
+
+      cms version pip cloudmesh-cmd5
+
+

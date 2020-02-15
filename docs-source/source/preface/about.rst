@@ -77,25 +77,6 @@ Versions
 .. literalinclude:: /manual/versions.txt
 
 
-Open projects for the Future
------------------------------
-
-.. list-table:: Future Projects
-   :widths: 20 65 10
-   :header-rows: 1
-
-   * - Library
-     - Description
-     - Status
-   * - `Batch Jobs <https://github.com/cloudmesh/cloudmesh-batch>`_
-     - Plugin to manage simple experiments on HPC systems
-     - progressing
-   * - Local Storage
-     - Plugin to support local storage providers
-     - open
-   * - Electron
-     - A java script interface to Cloudmesh
-     - open
 
 Contact
 -------
