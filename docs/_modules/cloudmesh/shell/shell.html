@@ -1103,7 +1103,10 @@
                     <span class="c1">#</span>
                     <span class="n">pname</span> <span class="o">=</span> <span class="n">pkg</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;cloudmesh_&quot;</span><span class="p">,</span> <span class="s2">&quot;cloudmesh.&quot;</span><span class="p">)</span>
 
-                    <span class="n">i</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pname</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">i</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pname</span><span class="p">)</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="k">continue</span>
 
                     <span class="n">location</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="vm">__file__</span>
 
