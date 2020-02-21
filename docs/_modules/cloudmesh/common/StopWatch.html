@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -239,11 +239,28 @@
     <span class="n">timer_end</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="c1"># Timer diff</span>
     <span class="n">timer_elapsed</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># records a status</span>
+    <span class="n">timer_status</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="StopWatch.keys"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.keys">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;returns the names of the timers&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="StopWatch.status"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.status">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        starts a timer with the given name.</span>
+
+<span class="sd">        :param name: the name of the timer</span>
+<span class="sd">        :type name: string</span>
+<span class="sd">        :param status: the name of a status</span>
+<span class="sd">        :type status: bool</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_status</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 <div class="viewcode-block" id="StopWatch.start"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.start">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -256,8 +273,8 @@
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;started ...&quot;</span><span class="p">)</span>
         <span class="bp">cls</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
-
+        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_status</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="StopWatch.stop"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.stop">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -270,6 +287,16 @@
         <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;stopped ...&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="StopWatch.get_status"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.get_status">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        stops the timer with a given name.</span>
+
+<span class="sd">        :param name: the name of the timer</span>
+<span class="sd">        :type name: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_status</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="StopWatch.get"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.get">[docs]</a>    <span class="nd">@classmethod</span>
@@ -322,9 +349,10 @@
             <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span>
                     <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">t</span><span class="p">]),</span>
                     <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">t</span><span class="p">]),</span>
+                    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">timer_status</span><span class="p">[</span><span class="n">t</span><span class="p">]),</span>
                     <span class="s2">&quot;elapsed&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span>
                     <span class="s2">&quot;newline&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">}</span>
-            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{label}</span><span class="s2"> </span><span class="si">{start}</span><span class="s2"> </span><span class="si">{end}</span><span class="s2"> </span><span class="si">{elapsed}</span><span class="s2"> </span><span class="si">{newline}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{label}</span><span class="s2"> </span><span class="si">{start}</span><span class="s2"> </span><span class="si">{end}</span><span class="s2"> </span><span class="si">{elapsed}</span><span class="s2"> </span><span class="si">{status}</span><span class="s2"> </span><span class="si">{newline}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">s</span>
 
 <div class="viewcode-block" id="StopWatch.benchmark"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.benchmark">[docs]</a>    <span class="nd">@classmethod</span>
@@ -407,6 +435,7 @@
                     <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span>
                                            <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">timer</span><span class="p">])),</span>
                     <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+                    <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">StopWatch</span><span class="o">.</span><span class="n">get_status</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span>
                     <span class="s1">&#39;timer&#39;</span><span class="p">:</span> <span class="n">timer</span><span class="p">,</span>
                     <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="n">tag</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span>
                 <span class="p">}</span>
@@ -419,9 +448,21 @@
                     <span class="n">data_timers</span><span class="p">[</span><span class="n">timer</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_platform</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
 
             <span class="c1"># print(Printer.attribute(data_timers, header=[&quot;Command&quot;, &quot;Time/s&quot;]))</span>
+
+            <span class="k">if</span> <span class="s1">&#39;benchmark_start_stop&#39;</span> <span class="ow">in</span> <span class="n">data_timers</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">data_timers</span><span class="p">[</span><span class="s1">&#39;benchmark_start_stop&#39;</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data_timers</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;benchmark_start_stop&#39;</span> <span class="ow">and</span> <span class="n">data_timers</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">data_timers</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;failed&quot;</span>
+                <span class="k">elif</span> <span class="n">data_timers</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">data_timers</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">data_timers</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>
+
+
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
                 <span class="n">data_timers</span><span class="p">,</span>
                 <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;status&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;start&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
@@ -436,6 +477,7 @@
             <span class="nb">print</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">csv</span><span class="p">:</span>
                 <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;csv&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;status&quot;</span>
                          <span class="s2">&quot;timer&quot;</span><span class="p">,</span>
                          <span class="s2">&quot;time&quot;</span><span class="p">,</span>
                          <span class="s2">&quot;start&quot;</span>

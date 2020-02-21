@@ -4,11 +4,15 @@ multipass
 .. parsed-literal::
 
   Usage:
+        multipass deploy [--dryrun]
         multipass list [--output=OUTPUT] [--dryrun]
         multipass images [--output=OUTPUT] [--dryrun]
-        multipass start NAMES [--output=OUTPUT] [--dryrun]
-        multipass stop NAMES [--output=OUTPUT] [--dryrun]
-        multipass reboot NAMES [--output=OUTPUT] [--dryrun]
+        multipass create NAMES [--image=IMAGE]
+                               [--size=SIZE]
+                               [--mem=MEMORY]
+                               [--cpus=CPUS]
+                               [--cloud-init=FILE]
+                               [--dryrun]
         multipass delete NAMES [--output=OUTPUT][--dryrun]
         multipass destroy NAMES [--output=OUTPUT][--dryrun]
         multipass shell NAMES [--dryrun]
@@ -16,27 +20,32 @@ multipass
         multipass info NAMES [--output=OUTPUT] [--dryrun]
         multipass suspend NAMES [--output=OUTPUT] [--dryrun]
         multipass resume NAMES [--output=OUTPUT] [--dryrun]
-        multipass destroy NAMES [--dryrun]
-        multipass create NAMES [--image=IMAGE]
-                               [--size=SIZE]
-                               [--mem=MEMORY]
-                               [--cpus=CPUS]
-                               [--cloud-init=CLOUDINIT]
-                               [--dryrun]
-        multipass reboot NAMES [--dryrun]
+        multipass start NAMES [--output=OUTPUT] [--dryrun]
+        multipass stop NAMES [--output=OUTPUT] [--dryrun]
+        multipass reboot NAMES [--output=OUTPUT] [--dryrun]
         multipass mount SOURCE DESTINATION [--dryrun]
         multipass umount SOURCE [--dryrun]
         multipass transfer SOURCE DESTINATION [--dryrun]
         multipass set key=VALUE [--dryrun]
         multipass get [key] [--dryrun]
-        multipass deploy [--dryrun]
 
   Interface to multipass
 
   Options:
-       --output=OUTPUT  the output format [default: table]. Other values are yaml, csv and json.
+       --output=OUTPUT      the output format [default: table]. Other values are yaml, csv and json.
 
-       --image=IMAGE    the image name to be used to create a VM.
+       --image=IMAGE        the image name to be used to create a VM.
+
+       --cpus=CPUS          Number of CPUs to allocate.
+                            Minimum: 1, default: 1.
+
+       --size=SIZE          Disk space to allocate. Positive integers, in bytes, or with K, M, G suffix.
+                            Minimum: 512M, default: 5G.
+
+       --mem=MEMORY         Amount of memory to allocate. Positive integers, in bytes, or with K, M, G suffix.
+                            Minimum: 128M, default: 1G.
+
+       --cloud-init=FILE    Path to a user-data cloud-init configuration
 
   Arguments:
       NAMES   the names of the virtual machine

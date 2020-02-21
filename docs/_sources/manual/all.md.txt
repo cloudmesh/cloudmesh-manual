@@ -2,14 +2,14 @@
 
 ```
 EOF                 container  host       openstack  service    sys           
-admin               data       image      oracle     set        var           
-aws                 debug      info       pause      shell      vbox          
-azure               default    init       plugin     sleep      vcluster      
-banner              echo       inventory  provider   source     vdir          
-bookmanagerservice  flavor     ip         py         ssh        version       
-check               google     key        q          start      vm            
-clear               group      man        quit       stop       workflow_draft
-commands            gui        multipass  register   stopwatch
-config              help       open       sec        storage  
+admin               data       image      oracle     set        test          
+aws                 debug      info       pause      shell      var           
+azure               default    init       plugin     sleep      vbox          
+banner              echo       inventory  provider   source     vcluster      
+bookmanagerservice  flavor     ip         py         ssh        vdir          
+check               google     key        q          start      version       
+clear               group      man        quit       stop       vm            
+commands            gui        multipass  register   stopwatch  windows       
+config              help       open       sec        storage    workflow_draft
 
 ```

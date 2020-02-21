@@ -6,6 +6,7 @@ gui
   Usage:
         gui activate
         gui profile
+        gui mongo [user]
         gui cloud CLOUD [--show]
         gui edit KEY [--show]
 

@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -258,11 +258,18 @@
         <span class="k">return</span> <span class="n">method</span></div>
 
 <div class="viewcode-block" id="Benchmark.Start"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Benchmark.Benchmark.Start">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">Start</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">Start</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        starts a timer while using the name of the calling method</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Benchmark</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">with_class</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Benchmark.Status"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Benchmark.Benchmark.Status">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">Status</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        starts a timer while using the name of the calling method</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">StopWatch</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="n">Benchmark</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">with_class</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">value</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Benchmark.Stop"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Benchmark.Benchmark.Stop">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">Stop</span><span class="p">():</span>

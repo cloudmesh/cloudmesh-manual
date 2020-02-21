@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -493,7 +493,8 @@
             <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo_log</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Folder </span><span class="si">{self.mongo_log}</span><span class="s2"> already exists&quot;</span><span class="p">)</span>
-        <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;msiexec.exe /l*v </span><span class="si">{self.mongo_log}</span><span class="s2">/mdbinstall.log  /qb /i </span><span class="si">{self.mongo_code}</span><span class="s2"> INSTALLLOCATION=&quot;</span><span class="si">{self.mongo_home}</span><span class="s2">&quot; ADDLOCAL=&quot;all&quot; &quot;&quot;&quot;</span>
+
+        <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;msiexec.exe /l*v </span><span class="si">{self.mongo_log}</span><span class="se">\\</span><span class="s2">mdbinstall.log  /qb /i </span><span class="si">{self.mongo_code}</span><span class="s2"> INSTALLLOCATION=&quot;</span><span class="si">{self.mongo_home}</span><span class="s2">&quot; ADDLOCAL=&quot;all&quot; &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
@@ -667,7 +668,9 @@
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting mongo without authentication ... &quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">security</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Creating admin user ... &quot;</span><span class="p">)</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">set_auth</span><span class="p">()</span>
+
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Stopping the service ... &quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
@@ -721,20 +724,33 @@
                 <span class="c1"># if out == b&#39;&#39;:</span>
                 <span class="c1">#    Console.error(&quot;mongo command not found&quot;)</span>
                 <span class="c1">#    sys.exit()</span>
-                <span class="n">mongo_runner</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="si">{self.mongo_home}</span><span class="se">\\</span><span class="s2">bin\mongod</span><span class="se">\&quot;</span><span class="s2"> </span><span class="si">{auth}</span><span class="s2"> &quot;</span> \
+
+                <span class="n">mongo_runner</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;mongod </span><span class="si">{auth}</span><span class="s2"> &quot;</span> \
                                <span class="sa">f</span><span class="s2">&quot;--bind_ip </span><span class="si">{mongo_host}</span><span class="s2">&quot;</span> \
                                <span class="sa">f</span><span class="s2">&quot; --dbpath </span><span class="se">\&quot;</span><span class="si">{self.mongo_path}</span><span class="se">\&quot;</span><span class="s2"> --logpath </span><span class="se">\&quot;</span><span class="si">{self.mongo_log}</span><span class="s2">\mongod.log</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
+                <span class="c1">#mongo_runner = f&quot;\&quot;{self.mongo_home}\\bin\mongod\&quot; {auth} &quot; \</span>
+                <span class="c1">#               f&quot;--bind_ip {mongo_host}&quot; \</span>
+                <span class="c1">#               f&quot; --dbpath \&quot;{self.mongo_path}\&quot; --logpath \&quot;{self.mongo_log}\mongod.log\&quot;&quot;</span>
+
                 <span class="nb">print</span><span class="p">(</span><span class="n">mongo_runner</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="s1">/invisible.vbs&#39;</span><span class="p">):</span>
-                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="s1">/invisible.vbs&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+
+
+
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="se">\\</span><span class="s1">invisible.vbs&#39;</span><span class="p">):</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="se">\\</span><span class="s1">invisible.vbs&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
                             <span class="s1">&#39;CreateObject(&quot;Wscript.Shell&quot;).Run &quot;&quot;&quot;&quot; &amp; WScript.Arguments(0) &amp; &quot;&quot;&quot;&quot;, 0, False&#39;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="s1">/mongo_starter.bat&#39;</span><span class="p">):</span>
-                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="s1">/mongo_starter.bat&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="se">\\</span><span class="s1">mongo_starter.bat&#39;</span><span class="p">):</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{self.mongo_path}</span><span class="se">\\</span><span class="s1">mongo_starter.bat&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mongo_runner</span><span class="p">)</span>
-                <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;wscript.exe </span><span class="se">\&quot;</span><span class="si">{self.mongo_path}</span><span class="s1">/invisible.vbs</span><span class="se">\&quot;</span><span class="s1"> </span><span class="se">\&quot;</span><span class="si">{self.mongo_path}</span><span class="s1">/mongo_starter.bat</span><span class="se">\&quot;</span><span class="s1">&#39;</span>
+                <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;wscript.exe &quot;</span><span class="si">{self.mongo_path}</span><span class="se">\\</span><span class="s1">invisible.vbs&quot; &quot;</span><span class="si">{self.mongo_path}</span><span class="se">\\</span><span class="s1">mongo_starter.bat&quot;&#39;</span>
+
                 <span class="nb">print</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
-                <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">script</span><span class="p">,</span>
+                                     <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                     <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                                      <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;mongod child process should be started successfully.&quot;</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -742,7 +758,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;mongod </span><span class="si">{auth}</span><span class="s2"> --bind_ip </span><span class="si">{mongo_host}</span><span class="s2">&quot;</span> \
-                         <span class="sa">f</span><span class="s2">&quot; --dbpath </span><span class="si">{self.mongo_path}</span><span class="s2"> --logpath </span><span class="si">{self.mongo_log}</span><span class="s2">/mongod.log --fork&quot;</span>
+                         <span class="sa">f</span><span class="s2">&quot; --dbpath </span><span class="si">{self.mongo_path}</span><span class="s2"> --logpath </span><span class="si">{self.mongo_log}</span><span class="se">\\</span><span class="s2">mongod.log --fork&quot;</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -760,6 +776,7 @@
 <span class="sd">        linux and darwin have different way to shutdown the server, the common way is kill</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MODE&#39;</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Result unkown&quot;</span>
 
         <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;docker&#39;</span><span class="p">:</span>
 
@@ -769,28 +786,35 @@
             <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Container is down&quot;</span>
 
         <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
-            <span class="n">MONGO</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="si">{self.mongo_home}</span><span class="se">\\</span><span class="s2">bin\mongo</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
-            <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{MONGO}</span><span class="s1"> --eval &quot;db.getSiblingDB(</span><span class="se">\&#39;</span><span class="s1">admin</span><span class="se">\&#39;</span><span class="s1">).shutdownServer()&quot;&#39;</span>
-            <span class="n">p1</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-                                  <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">)</span>
-            <span class="n">MONGO_USERNAME</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MONGO_USERNAME&#39;</span><span class="p">]</span>
-            <span class="n">MONGO_PASSWORD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MONGO_PASSWORD&#39;</span><span class="p">]</span>
-            <span class="n">shutdown_with_auth1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{MONGO}</span><span class="s2"> -u </span><span class="si">{MONGO_USERNAME}</span><span class="s2"> -p </span><span class="si">{MONGO_PASSWORD}</span><span class="s2"> --eval &quot;db.getSiblingDB(</span><span class="se">\&#39;</span><span class="s2">admin</span><span class="se">\&#39;</span><span class="s2">).shutdownServer()&quot; &quot;&quot;&quot;</span>
-            <span class="c1"># print(shutdown_with_auth1)</span>
-            <span class="c1"># print(script)</span>
-            <span class="n">p2</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">shutdown_with_auth1</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                  <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">)</span>
-            <span class="n">shutdown_with_auth</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{MONGO}</span><span class="s2"> --eval &quot;db.getSiblingDB(</span><span class="se">\&#39;</span><span class="s2">admin</span><span class="se">\&#39;</span><span class="s2">).shutdownServer()&quot; &quot;&quot;&quot;</span>
-            <span class="c1"># print(shutdown_with_auth)</span>
-            <span class="c1"># print(script)</span>
-            <span class="n">p3</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">shutdown_with_auth</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                  <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">)</span>
-            <span class="n">r1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-            <span class="n">r2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="s1">&#39;server should be down...&#39;</span> <span class="ow">in</span> <span class="n">r1</span> <span class="ow">or</span> <span class="s1">&#39;connect failed&#39;</span> <span class="ow">in</span> <span class="n">r2</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;server should be down...&#39;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;server is already down...&#39;</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            MONGO = f&quot;\&quot;{self.mongo_home}\\bin\mongo\&quot;&quot;</span>
+<span class="sd">            script = f&#39;{MONGO} --eval &quot;db.getSiblingDB(\&#39;admin\&#39;).shutdownServer()&quot;&#39;</span>
+<span class="sd">            p1 = subprocess.Popen(script, shell=True, stdout=subprocess.PIPE,</span>
+<span class="sd">                                  stderr=STDOUT)</span>
+<span class="sd">            MONGO_USERNAME = self.data[&#39;MONGO_USERNAME&#39;]</span>
+<span class="sd">            MONGO_PASSWORD = self.data[&#39;MONGO_PASSWORD&#39;]</span>
+<span class="sd">            shutdown_with_auth1 = f&quot;&quot;&quot;{MONGO} -u {MONGO_USERNAME} -p {MONGO_PASSWORD} --eval &quot;db.getSiblingDB(\&#39;admin\&#39;).shutdownServer()&quot; &quot;&quot;&quot;</span>
+<span class="sd">            # print(shutdown_with_auth1)</span>
+<span class="sd">            # print(script)</span>
+<span class="sd">            p2 = subprocess.Popen(shutdown_with_auth1, shell=True,</span>
+<span class="sd">                                  stdout=subprocess.PIPE, stderr=STDOUT)</span>
+<span class="sd">            shutdown_with_auth = f&quot;&quot;&quot;{MONGO} --eval &quot;db.getSiblingDB(\&#39;admin\&#39;).shutdownServer()&quot; &quot;&quot;&quot;</span>
+<span class="sd">            # print(shutdown_with_auth)</span>
+<span class="sd">            # print(script)</span>
+<span class="sd">            p3 = subprocess.Popen(shutdown_with_auth, shell=True,</span>
+<span class="sd">                                  stdout=subprocess.PIPE, stderr=STDOUT)</span>
+<span class="sd">            r1 = p1.stdout.read().decode(&#39;utf-8&#39;)</span>
+<span class="sd">            r2 = p2.stdout.read().decode(&#39;utf-8&#39;)</span>
+<span class="sd">            if &#39;server should be down...&#39; in r1 or &#39;connect failed&#39; in r2:</span>
+<span class="sd">                result = &#39;server should be down...&#39;</span>
+<span class="sd">            else:</span>
+<span class="sd">                result = &#39;server is already down...&#39;</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;taskkill /IM mongod.exe /F&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">pid</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;pgrep mongo&#39;</span><span class="p">)</span>
@@ -821,7 +845,7 @@
             <span class="k">return</span>
 
         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>  <span class="c1"># don&#39;t remove this otherwise init won&#39;t work in windows, eval should start with double quote in windows</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MONGO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.mongo_home}</span><span class="se">\\</span><span class="s2">bin\mongo&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MONGO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;mongo&quot;</span>
             <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; &quot;</span><span class="si">{MONGO}</span><span class="s2">&quot; --eval &quot;db.getSiblingDB(&#39;admin&#39;).createUser({{ user:&#39;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&#39;,pwd:&#39;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&#39;,roles:[{{role:&#39;root&#39;,db:&#39;admin&#39;}}]}}) ; db.shutdownServer()&quot; &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
             <span class="c1"># print(script)</span>

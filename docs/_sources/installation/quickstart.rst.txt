@@ -43,6 +43,7 @@ use::
     cms gui profile
     cms gui activate
     cms gui cloud chameleon
+    cms gui mongo user
 
 We assome here you like to configure the credentials for the chameleon cloud.
 

@@ -96,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../docker/cmsd.html">Cloudmesh Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -362,7 +362,13 @@
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cloudmesh.common.Benchmark.Benchmark.Start">
-<em class="property">static </em><code class="sig-name descname">Start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Benchmark.html#Benchmark.Start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Benchmark.Benchmark.Start" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">Start</code><span class="sig-paren">(</span><em class="sig-param">status=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Benchmark.html#Benchmark.Start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Benchmark.Benchmark.Start" title="Permalink to this definition">¶</a></dt>
+<dd><p>starts a timer while using the name of the calling method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.Benchmark.Benchmark.Status">
+<em class="property">static </em><code class="sig-name descname">Status</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Benchmark.html#Benchmark.Status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Benchmark.Benchmark.Status" title="Permalink to this definition">¶</a></dt>
 <dd><p>starts a timer while using the name of the calling method</p>
 </dd></dl>
 
@@ -1545,6 +1551,17 @@ THis command should not be directly called. Instead use SHell</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.common.StopWatch.StopWatch.get_status">
+<em class="property">classmethod </em><code class="sig-name descname">get_status</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch.get_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.get_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>stops the timer with a given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – the name of the timer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.common.StopWatch.StopWatch.keys">
 <em class="property">classmethod </em><code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.keys" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the names of the timers</p>
@@ -1565,6 +1582,20 @@ THis command should not be directly called. Instead use SHell</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – the name of the timer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.StopWatch.StopWatch.status">
+<em class="property">classmethod </em><code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>starts a timer with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – the name of the timer</p></li>
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – the name of a status</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1593,6 +1624,11 @@ THis command should not be directly called. Instead use SHell</p>
 <dl class="attribute">
 <dt id="cloudmesh.common.StopWatch.StopWatch.timer_start">
 <code class="sig-name descname">timer_start</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.timer_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.StopWatch.StopWatch.timer_status">
+<code class="sig-name descname">timer_status</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.timer_status" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
