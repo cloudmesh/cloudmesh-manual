@@ -37,8 +37,8 @@ as an in-place replacement for the cms command.
 
 The containers are called
 
-- `cloudmesh-cms` 
-- `cloudmesh-mongo` 
+*  `cloudmesh-cms` 
+*  `cloudmesh-mongo` 
 
 
 
@@ -75,13 +75,15 @@ To run cmsd, you would need a configuration directory that is mounted into the c
 Let us call this `CLOUDMESH_CONFIG_DIR`. Set `CLOUDMESH_CONFIG_DIR` as an environment variable. 
 
 For Unix:
+
 ```
-$ export CLOUDMESH_CONFIG_DIR=<path to CLOUDMESH_HOME_DIR>
+$ export CLOUDMESH_CONFIG_DIR=<path to CLOUDMESH_HOME_DIR
 ```
 
 For Windows:
+
 ```
-> set CLOUDMESH_CONFIG_DIR=<path to CLOUDMESH_HOME_DIR>
+set CLOUDMESH_CONFIG_DIR=<path to CLOUDMESH_HOME_DIR>
 ```
 
 > NOTE: 
@@ -143,7 +145,7 @@ $ cmsd set cloud=aws
 Set AWS key name 
 
 ```
-$ cmsd set key=<key name> 
+$ cmsd set key=NAME
 ```
 
 Boot a vm with the default config
@@ -210,10 +212,8 @@ $ cmsd vm boot
 
         When no command is specified cms will be run in interactive
         mode.
-
-
-
 ```
+
 ## Quickstart
 
 ### macOS with python 3.8.1 from python.org
