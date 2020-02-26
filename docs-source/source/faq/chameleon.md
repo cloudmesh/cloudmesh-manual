@@ -37,6 +37,17 @@ cms key list --cloud=chameleon
 
 ## What is the chameleon account bug?
 
+Preriquisite:
+
+1. We assue you start by deleting your .cloudmesh directory and have install a
+   proper version of cms.
+
+
+2. Before you do anything verify if you can remember your password. You must
+   logout of the chameleon cloud.org dashboart and login, while not using an auto
+   completion Web password completer. Make sure to remove your password if you use
+   one of them.
+
 Chameleon has several strange bugs we know of that will hopefully be fixed
 
 1. Any account in chameleon that wants to use OpenStack KVM **must** first
@@ -66,3 +77,7 @@ Chameleon has several strange bugs we know of that will hopefully be fixed
   
    Than you do the previous steps and check if you can use this account in cms.
    If it works fine, if it does not file a ticket with chameleon cloud.
+
+Gregor completely hats to do 3. and 4. but chameleon cloud have not provided
+any proper solutions.
+
