@@ -75,6 +75,13 @@ Cloudmesh Version 4
    accounts/box
    accounts/accountcreation-old
 
+.. toctree::
+   :caption: FAQ AND TIPS
+   :maxdepth: 2
+
+   faq/automated-install
+
+
 Indices and tables
 ==================
 

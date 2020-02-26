@@ -1,8 +1,87 @@
 # FAQ
 
-## Draft: Cms Mostly automated install on macOS and Linux
+## Where is the manual
+
+A Manual is available at 
+
+* <https://cloudmesh.github.io/cloudmesh-manual>
 
 
+## Videos
+
+* TBD
+
+
+## Deployment Tip Collection
+
+The biggest issue is to install cms and configure it. If you have issues with this, use cmsd.
+
+SSH:
+as you already created a key for the Horizon assignment you can skip this one
+
+### Install MongoDB
+
+osx and Linux:
+
+```
+cms admin mongo install
+```
+
+Windows:
+
+install the msi, BUT DO NOT check on server install, compass. You must uninstall all previous versions of MongoDB
+
+### Do an update of the source
+
+```
+pip install cloudmesh-installer -U
+cloudmes-installer git clone cloud
+cloudmesh-installer git clone openstack
+cloudmes-installer git pull cloud
+cloudmesh-installer git pull openstack
+cloudmes-installer install cloud
+cloudmesh-installer install openstack
+cms help
+cms gui quick
+cms test 
+cms init
+```
+
+```
+cms key list 
+```
+
+### Interact with Chameleon CLoud
+
+```
+cms test
+cms gui quick
+```
+
+```
+cms key list --cloud=chameleon
+```
+remove all keys you see with
+```
+cms key delete NAMEOFTHEKEY --cloud=chameleon
+```
+
+```
+cms key list
+cms key upload --cloud=chameleon
+cms image --refresh
+cms vm --refresh
+cms vm boot
+cms vm --refresh
+cms vm log
+cms vm ssh 
+```
+
+
+
+### Draft: Cms Mostly automated install on macOS and Linux
+
+Note: Use at your own risk
 
 If you di not understand line by line what this does you should not execute it
 Verify correctnett works on linux and OSX, I have this not yet tested  on
