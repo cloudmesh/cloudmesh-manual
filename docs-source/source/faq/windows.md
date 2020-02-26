@@ -2,7 +2,16 @@
 
 ## Videos
 
+Showcase the complete install of CMS in a video assumong you have done
+the prerequisits as discussed later
+
+* <https://iu.zoom.us/rec/share/yuZcE_Lg2DlLSKOd7hmEXaALRrbHaaa80yVK-aAOn0iCwnrZnokx6Rxwl91bIWqy>
+* <https://iu.zoom.us/rec/share/tJZUK5DJ_2BOa5WWwRzQd758Qav4aaa823NPqPcOy06Vcf-xaVmuyG3Bnq70OujX>
+
+Other:
+
 * <https://www.youtube.com/watch?v=5GpwfSjM9Lg>
+
 
 ## CMS restrictions
 

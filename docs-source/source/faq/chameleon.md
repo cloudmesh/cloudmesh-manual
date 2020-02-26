@@ -28,6 +28,8 @@ instructions, we will no longer help if you have not
    Make sure not to delete the directories unrelated to that. 
    Be careful that you do not delete the `cloudmesh-*` folder 
    that you worked on. make a backup copy.   
+4. after the new install and help call use the command `cms test` 
+   and observe and interprete the output.
 
 Cloudmesh is trivial to install.
 
