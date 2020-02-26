@@ -236,6 +236,7 @@ clean:
 	rm -rf .tox
 	rm -f *.whl
 	rm -rf docs
+	rm -rf tmp
 
 #	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
 #	rm -f ./docs/todo.html

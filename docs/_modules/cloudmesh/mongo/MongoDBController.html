@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../docker/cmsd.html">Cloudmesh cmsd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -361,6 +361,8 @@
                 <span class="k">if</span> <span class="s2">&quot;Debian&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
                     <span class="n">distro</span> <span class="o">=</span> <span class="s2">&quot;debian&quot;</span>
                 <span class="k">elif</span> <span class="s2">&quot;Ubuntu&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+                    <span class="n">distro</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
+                <span class="k">elif</span> <span class="s2">&quot;Mint&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
                     <span class="n">distro</span> <span class="o">=</span> <span class="s2">&quot;ubuntu&quot;</span>
             <span class="k">elif</span> <span class="s2">&quot;Release&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
                 <span class="n">version</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -758,7 +760,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;mongod </span><span class="si">{auth}</span><span class="s2"> --bind_ip </span><span class="si">{mongo_host}</span><span class="s2">&quot;</span> \
-                         <span class="sa">f</span><span class="s2">&quot; --dbpath </span><span class="si">{self.mongo_path}</span><span class="s2"> --logpath </span><span class="si">{self.mongo_log}</span><span class="se">\\</span><span class="s2">mongod.log --fork&quot;</span>
+                         <span class="sa">f</span><span class="s2">&quot; --dbpath </span><span class="si">{self.mongo_path}</span><span class="s2"> --logpath </span><span class="si">{self.mongo_log}</span><span class="s2">/mongod.log --fork&quot;</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>

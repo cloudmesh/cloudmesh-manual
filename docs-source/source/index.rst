@@ -16,7 +16,7 @@ Cloudmesh Version 4
    installation/quickstart
    configuration/configuration
    installation/mongo
-   docker/cmsd
+   cmsd
 
 .. toctree::
    :caption: CONCEPTS

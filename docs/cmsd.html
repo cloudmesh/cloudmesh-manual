@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multicloud Compute Interfaces" href="concepts/compute.html" />
+    <link rel="prev" title="Cloudmesh Database" href="installation/mongo.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,12 +91,33 @@
 <li class="toctree-l1"><a class="reference internal" href="preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker/cmsd.html">Cloudmesh Container</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh cmsd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequesites">Prerequesites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-cmsd">How to use <em>cmsd</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-installation">User installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#developer-source-installation">Developer Source installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defult-setup">Defult setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-cmsd-setup">Custom cmsd setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#containers">Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usecase-creating-a-vm-in-chameleon-cloud">Example Usecase - Creating a vm in Chameleon Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usecase-creating-a-vm-in-aws">Example Usecase - Creating a vm in AWS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mongodb-and-mongo-client-connections">MongoDB and Mongo client connections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-page">Manual Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#macos-with-python-3-8-1-from-python-org">macOS with python 3.8.1 from python.org</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#demonstration-of-the-different-uses-of-cmsd">Demonstration of the different uses of cmsd</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -214,95 +237,146 @@
             
   <div class="section" id="cloudmesh-cmsd">
 <h1>Cloudmesh cmsd<a class="headerlink" href="#cloudmesh-cmsd" title="Permalink to this headline">¶</a></h1>
-<p>Cloudmesh cmsd is a command to run cloudmesh in a container regardless of
-the OS. Thus it is extremely easy to install and use.</p>
-<p>cmsd will, however, use locally installed keys in <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> and cloud
-configurations stored in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code>. The YAML file
-is created upon the first call of <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> if it is not available.</p>
+<p>Cloudmesh <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> is a command to run cloudmesh in a container regardless
+of the OS. Thus it is extremely easy to install and use in case your
+machine has docker installed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cmsd</span></code> uses the locally installed keys in <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> and typically
+cloud configurations stored in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code>. This YAML
+file is created upon the first call of <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> if it is not available.</p>
+<div class="section" id="prerequesites">
+<h2>Prerequesites<a class="headerlink" href="#prerequesites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Docker</p></li>
+<li><p>Python 3.8 or newer</p></li>
+<li><p>We strongly recommended using a python virtual environment</p></li>
+<li><p>ssh public key in ~/.ssh/id_rsa.pub</p></li>
+</ul>
+</div>
 <div class="section" id="how-to-use-cmsd">
 <h2>How to use <em>cmsd</em><a class="headerlink" href="#how-to-use-cmsd" title="Permalink to this headline">¶</a></h2>
 <p>Important. You must have cms in debug off mode. to use the cmsd command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">debug</span> <span class="n">off</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms debug off
 </pre></div>
 </div>
-<div class="section" id="prerequesites">
-<h3>Prerequesites<a class="headerlink" href="#prerequesites" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Docker</p></li>
-<li><p>python 3.8 or newer</p></li>
-<li><p>We strongly recommended using a python virtual environment</p></li>
-<li><p>Install <em>cloudmesh-installer</em> by following the documentation in
-the <a class="reference external" href="https://cloudmesh.github.io/cloudmesh-manual/installation/install.html#installation-of-cloudmesh-source-install-for-developers">Cloudmesh manual</a></p></li>
-</ul>
+<div class="section" id="user-installation">
+<h3>User installation<a class="headerlink" href="#user-installation" title="Permalink to this headline">¶</a></h3>
+<p>Please use a python virtualenv as to not interfere with your system
+python and activate your python venv.</p>
+<p>Linux, osx:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3.8 -m venv ~/ENV3
+$ <span class="nb">source</span> ~/ENV3/bin/activate
+$ pip install pip -U 
+</pre></div>
 </div>
-<div class="section" id="user-instalation">
-<h3>User instalation<a class="headerlink" href="#user-instalation" title="Permalink to this headline">¶</a></h3>
-<p>Please use a python virtualenv as to not interfere with your system python.
-Activate your python venv. Next just call</p>
+<p>In Windows, you can do this with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m venv ENV3
+$ ENV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+$ pip install pip -U 
+</pre></div>
+</div>
+<p>Now you can install cloudmesh <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-cmsd
 </pre></div>
 </div>
-<p>This will install a command <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> in your environment that you can use
-as an in-place replacement for the cms command.</p>
-<p>The containers are called</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">cloudmesh-cms</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cloudmesh-mongo</span></code></p></li>
-</ul>
 </div>
-</div>
-<div class="section" id="developer-source-install">
-<h2>Developer Source install<a class="headerlink" href="#developer-source-install" title="Permalink to this headline">¶</a></h2>
-<p>For developers, it can be installed in an easy fashion with</p>
+<div class="section" id="developer-source-installation">
+<h3>Developer Source installation<a class="headerlink" href="#developer-source-installation" title="Permalink to this headline">¶</a></h3>
+<p>Developers install <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> from source with our
+<code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code></p>
+<p>Linux, osx:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3.8 -m venv ~/ENV3
 $ <span class="nb">source</span> ~/ENV3/bin/activate
+$ pip install pip -U
 $ mkdir cm   
 $ <span class="nb">cd</span> cm  
 $ pip install cloudmesh-installer -U 
 $ cloudmesh-installer git clone cmsd 
-$ cloudmesh-installer git install cmsd   
+$ cloudmesh-installer install cmsd   
 </pre></div>
 </div>
-<p>Now you can use the command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmsd</span> <span class="n">help</span>  
-<span class="n">cmsd</span> <span class="o">--</span><span class="n">setup</span>
+<p>Windows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m venv ENV3
+$ ENV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+$ pip install pip -U
+$ mkdir cm   
+$ <span class="nb">cd</span> cm  
+$ pip install cloudmesh-installer -U 
+$ cloudmesh-installer git clone cmsd 
+$ cloudmesh-installer install cmsd   
 </pre></div>
 </div>
-<p>The source code is contained in</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">cmsd</span>
+<p>You will see in the <code class="docutils literal notranslate"><span class="pre">cm</span></code> directory a number of cloudmesh related
+repositories. One of them is <code class="docutils literal notranslate"><span class="pre">cloudmesh-cmsd</span></code> in which the cmsd command
+related code is stored. The other repositories contain code that may be
+used by <code class="docutils literal notranslate"><span class="pre">cloudmesh-cmsd</span></code>.</p>
+</div>
+<div class="section" id="defult-setup">
+<h3>Defult setup<a class="headerlink" href="#defult-setup" title="Permalink to this headline">¶</a></h3>
+<p>To run <code class="docutils literal notranslate"><span class="pre">cmsd</span></code>, you need a configuration directory that is mounted
+into the container.  The default setup is done with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd --setup
 </pre></div>
 </div>
-<div class="section" id="cmsd-setup">
-<h3>cmsd setup<a class="headerlink" href="#cmsd-setup" title="Permalink to this headline">¶</a></h3>
-<p>To run cmsd, you would need a configuration directory that is mounted into the container.
-Let us call this <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>. Set <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> as an environment variable.</p>
-<p>For Unix:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export CLOUDMESH_CONFIG_DIR=&lt;path to CLOUDMESH_HOME_DIR
+<p>This will set up a number of configurations including a cloudmesh
+configuration YAML file in</p>
+<ul class="simple">
+<li><p>masOS and Linux: <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p></li>
+<li><p>Windows <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\.cloudmesh\cloudmesh.yaml</span></code></p></li>
+</ul>
+<p>You are asked to enter some details that are required for the setup,
+such as profile details, Mongo DB credentials.</p>
+</div>
+<div class="section" id="custom-cmsd-setup">
+<h3>Custom cmsd setup<a class="headerlink" href="#custom-cmsd-setup" title="Permalink to this headline">¶</a></h3>
+<p>In case you need to place the configuration files elsewhere you can
+specify the location with the environment variable
+<code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>.</p>
+<p>For macOS and Linux you set it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export CLOUDMESH_CONFIG_DIR=&lt;path to CLOUDMESH_HOME_DIR&gt;
 </pre></div>
 </div>
-<p>For Windows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">CLOUDMESH_CONFIG_DIR</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">CLOUDMESH_HOME_DIR</span><span class="o">&gt;</span>
+<p>For Windows you set it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">CLOUDMESH_CONFIG_DIR</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">CLOUDMESH_HOME_DIR</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <blockquote>
-<div><p>NOTE:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> path must not have in any spaces.</p></li>
-<li><p>Clarification for Windows users:</p></li>
-<li><p>For example <code class="docutils literal notranslate"><span class="pre">C:\.cloudmesh</span></code> will work, so does
-<code class="docutils literal notranslate"><span class="pre">C:\Users\gregor\.cloudmesh</span></code>, but not <code class="docutils literal notranslate"><span class="pre">C:\Users\gregor</span> <span class="pre">von</span> <span class="pre">Laszewski\.cloudmesh</span></code>)</p></li>
-<li><p>Make sure that the drive of the <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> is granted file
-access in Docker settings</p></li>
-</ul>
+<div><p><strong>Note:</strong> avoid spaces:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> path must not have in any spaces in it.
+For example <code class="docutils literal notranslate"><span class="pre">C:\.cloudmesh</span></code> will work, so does
+<code class="docutils literal notranslate"><span class="pre">C:\Users\gregor\.cloudmesh</span></code>, but not <code class="docutils literal notranslate"><span class="pre">C:\Users\gregor</span> <span class="pre">von</span> <span class="pre">Laszewski\.cloudmesh</span></code>,
+as it includes a space in th eusername.</p>
 </div></blockquote>
-<p>Run setup. If you are running setup on an empty <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>,  you
-will be asked to key in some details that are required for the setup, such as
-profile details, Mongo DB credentials, etc.</p>
+<blockquote>
+<div><p><strong>Note:</strong> grant access:</p>
+<p>Make sure that the drive of the <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> is granted file
+access in Docker settings</p>
+</div></blockquote>
+<p>Next, you run the setup just like in the default case. If you are running
+setup on an empty <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>,  you will be asked to enter
+some details that are required for the setup, such as profile details,
+Mongo DB credentials.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --setup 
 </pre></div>
 </div>
-<p>Run the following command to see if the <code class="docutils literal notranslate"><span class="pre">cloudmesh-cms-container</span></code> is running!
-Additionally, check <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> contains the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file.</p>
+</div>
+<div class="section" id="containers">
+<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h3>
+<p>It the setup installs cloudmesh into two containerscontainers. The containers are called</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloudmesh-cms</span></code> for the cms command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cloudmesh-mongo</span></code>  for the mongodb that is used by cms</p></li>
+</ul>
+<p>Run the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --ps
+</pre></div>
+</div>
+<p>to see if the containers are running. Additionally, check
+<code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> or ~/.cloudmesh contains the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code>
+file, dependent where you asked <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> to look for it.</p>
+</div>
+<div class="section" id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h3>
+<p>To list the containers, please use</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --ps
 </pre></div>
 </div>
@@ -311,55 +385,96 @@ properly reflected in the <code class="docutils literal notranslate"><span class
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd config cat
 </pre></div>
 </div>
+<p>To initialize the cloudmesh database use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd init
+</pre></div>
 </div>
-<div class="section" id="cmsd-usages">
-<h3>cmsd usages<a class="headerlink" href="#cmsd-usages" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>To stop the containers, use <code class="docutils literal notranslate"><span class="pre">cmsd</span> <span class="pre">--stop</span></code>.</p></li>
-<li><p>To start/restart the containers, use <code class="docutils literal notranslate"><span class="pre">cmsd</span> <span class="pre">--start</span></code>.</p></li>
-<li><p>To clean the containers (remove stopped containers), use <code class="docutils literal notranslate"><span class="pre">cmsd</span> <span class="pre">--clean</span></code>.</p></li>
-<li><p>To log into the running <code class="docutils literal notranslate"><span class="pre">cloudmesh-cms-container</span></code>, use <code class="docutils literal notranslate"><span class="pre">cmsd</span> <span class="pre">--shell</span></code>.</p></li>
-</ul>
+<p>To test if things are working use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd key list 
+</pre></div>
 </div>
-<div class="section" id="mongodb-and-mongo-client-connections">
-<h3>MongoDB and Mongo client connections<a class="headerlink" href="#mongodb-and-mongo-client-connections" title="Permalink to this headline">¶</a></h3>
-<p>cmsd is running an official MongoDB container from Docker Hub. Refer <a class="reference external" href="https://hub.docker.com/_/mongo">here</a>.</p>
-<p>Mongo server container is bound to <code class="docutils literal notranslate"><span class="pre">127.0.0.1:27071</span></code> port. Therefore you can use
-any Mongo client to explore the database by connecting to this port.</p>
+<p>To stop the containers use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --stop
+</pre></div>
+</div>
+<p>To start the containers use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --start
+</pre></div>
+</div>
+<p>To remove the containers use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --clean
+</pre></div>
+</div>
+<p>To login to the container via a shell use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd --shell
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-usecase-creating-a-vm-in-chameleon-cloud">
+<h3>Example Usecase - Creating a vm in Chameleon Cloud<a class="headerlink" href="#example-usecase-creating-a-vm-in-chameleon-cloud" title="Permalink to this headline">¶</a></h3>
+<p>To modify the parameters use the command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmsd</span> <span class="o">--</span><span class="n">gui</span> <span class="n">quick</span>
+</pre></div>
+</div>
+<p>and make sure the MongoDB MODE is set to <code class="docutils literal notranslate"><span class="pre">running</span></code>. This is automatically
+done by the setup. Make sure you add your username and password, as
+well as the network id and the project id and name. Test if it works with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmsd</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="o">--</span><span class="n">refresh</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="example-usecase-creating-a-vm-in-aws">
 <h3>Example Usecase - Creating a vm in AWS<a class="headerlink" href="#example-usecase-creating-a-vm-in-aws" title="Permalink to this headline">¶</a></h3>
 <p>Create an AWS account and add the authentication information in the
-<code class="docutils literal notranslate"><span class="pre">CLOUDMESH_HOME_DIR/cloudmesh.yaml</span></code> file. Refer <a class="reference external" href="https://cloudmesh.github.io/cloudmesh-manual/accounts/aws.html">Cloudmesh Manual - AWS</a></p>
-<p>Set cloud to <code class="docutils literal notranslate"><span class="pre">aws</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">CLOUDMESH_HOME_DIR/cloudmesh.yaml</span></code> file. Please see the <a class="reference external" href="https://cloudmesh.github.io/cloudmesh-manual/accounts/aws.html">Cloudmesh
+Manual -
+AWS</a>
+form more details about AWS.</p>
+<p>Set the cloud to <code class="docutils literal notranslate"><span class="pre">aws</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd set cloud=aws 
 </pre></div>
 </div>
-<p>Set AWS key name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd set key=NAME
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd key upload --cloud=aws
 </pre></div>
 </div>
-<p>Boot a vm with the default config</p>
+<p>where the key name is specified by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">var</span> <span class="n">key</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">config</span> <span class="n">get</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>or</p>
+<p>Make sure you have an ssh key generated prior to booting a vm with the
+default configuration with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmsd vm boot 
 </pre></div>
 </div>
+</div>
+<div class="section" id="mongodb-and-mongo-client-connections">
+<h3>MongoDB and Mongo client connections<a class="headerlink" href="#mongodb-and-mongo-client-connections" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cmsd</span></code> is running an official MongoDB container from
+<a class="reference external" href="https://hub.docker.com/_/mongo">DockerHub</a>.</p>
+<p>The Mongo server container is bound to <code class="docutils literal notranslate"><span class="pre">127.0.0.1:27071</span></code>. You can use
+use any Mongo client to explore the database by connecting to this port.</p>
 </div>
 </div>
 <div class="section" id="manual-page">
 <h2>Manual Page<a class="headerlink" href="#manual-page" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  Usage:
-        cmsd --help
-        cmsd --setup
-        cmsd --clean
-        cmsd --version
-        cmsd --update
-        cmsd --start
-        cmsd --stop
-        cmsd --ps
-        cmsd --gui COMMAND...
-        cmsd --shell
-        cmsd --pipe
-        cmsd COMMAND...
+    cmsd --help
+    cmsd --setup
+    cmsd --clean
+    cmsd --version
+    cmsd --update
+    cmsd --start
+    cmsd --stop
+    cmsd --ps
+    cmsd --gui COMMAND...
+    cmsd --shell
+    cmsd --pipe
+    cmsd COMMAND...
 
 
   This <span class="nb">command</span> passes the arguments to a docker container
@@ -384,14 +499,41 @@ any Mongo client to explore the database by connecting to this port.</p>
 
     cmsd --version
 
-        prints out the verison of cmsd and the version of the container
-
-    cmsd --gui
-        runs cloudmesh gui on the docker container
+        prints out the version of cmsd and the version of the container
 
     cmsd --update
 
         gets a new container form dockerhub
+
+    cmsd --start
+
+        starts the mongodb
+
+    cmsd --stop
+
+        stops the mongodb
+
+    cmsd --ps
+
+        lists the container processes
+
+    cmsd --gui <span class="nb">help</span>
+
+        find out which gui commands are available
+
+    cmsd --gui quick
+
+        runs cloudmesh gui on the docker container
+
+    cmsd --shell
+
+        enters the cms container and starts an interactive shell
+
+    cmsd --pipe
+
+        You can pipe commands or scripts to the cmsd container
+
+            <span class="nb">echo</span> <span class="s2">&quot;banner a&quot;</span> <span class="p">|</span> cmsd --pipe
 
     cmsd COMMAND
 
@@ -400,7 +542,7 @@ any Mongo client to explore the database by connecting to this port.</p>
 
     cmsd
 
-        When no <span class="nb">command</span> is specified cms will be run in interactive
+        When no <span class="nb">command</span> is specified, cmsd will be run in interactive
         mode.
 </pre></div>
 </div>
@@ -412,36 +554,23 @@ any Mongo client to explore the database by connecting to this port.</p>
 <ol>
 <li><p>Requirements:</p>
 <ul class="simple">
-<li><p>Have a sername without a space.</p></li>
+<li><p>Have a username without a space.</p></li>
 <li><p>Have docker installed and accessible to the user.</p></li>
 <li><p>Have python 3.8.1 from python.org installed.</p></li>
+<li><p>Create a key <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa</span></code> if you do not already have one</p></li>
 </ul>
-<p>Create a key <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa</span></code> if you do not already have one</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen
 </pre></div>
 </div>
 </li>
 <li><p>Install:</p>
-<p>Open a new terminal,</p>
+<p>In a new terminal execute</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3.8 -m venv ~/ENV3
 $ <span class="nb">source</span> ~/ENV3/bin/activate
 $ pip install cloudmesh-cmsd
-</pre></div>
-</div>
-</li>
-<li><p>Setup:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd <span class="nb">help</span>
-$ cmsd --gui profile
-$ cmsd --gui activate
-$ cmsd --gui mongo user
 $ cmsd --setup
 $ cmsd init
-</pre></div>
-</div>
-</li>
-<li><p>Do some simple tests to see if it works</p>
-<p>Testing help command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd <span class="nb">help</span>
+$ cmsd <span class="nb">help</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -488,8 +617,8 @@ $ cmsd init
 </ol>
 </div>
 </div>
-<div class="section" id="demonstartion-of-the-different-uses-of-cmsd">
-<h2>Demonstartion of the different uses of cmsd<a class="headerlink" href="#demonstartion-of-the-different-uses-of-cmsd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="demonstration-of-the-different-uses-of-cmsd">
+<h2>Demonstration of the different uses of cmsd<a class="headerlink" href="#demonstration-of-the-different-uses-of-cmsd" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p>Commandline</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd banner hallo
@@ -571,6 +700,15 @@ root@docker-desktop:/cm#
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts/compute.html" class="btn btn-neutral float-right" title="Multicloud Compute Interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation/mongo.html" class="btn btn-neutral float-left" title="Cloudmesh Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

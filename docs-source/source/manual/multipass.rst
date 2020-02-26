@@ -28,24 +28,28 @@ multipass
         multipass transfer SOURCE DESTINATION [--dryrun]
         multipass set key=VALUE [--dryrun]
         multipass get [key] [--dryrun]
+        multipass version
 
   Interface to multipass
 
   Options:
-       --output=OUTPUT      the output format [default: table]. Other values are yaml, csv and json.
+       --output=OUTPUT    the output format [default: table]. Other
+                          values are yaml, csv and json.
 
-       --image=IMAGE        the image name to be used to create a VM.
+       --image=IMAGE      the image name to be used to create a VM.
 
-       --cpus=CPUS          Number of CPUs to allocate.
-                            Minimum: 1, default: 1.
+       --cpus=CPUS        Number of CPUs to allocate.
+                          Minimum: 1, default: 1.
 
-       --size=SIZE          Disk space to allocate. Positive integers, in bytes, or with K, M, G suffix.
-                            Minimum: 512M, default: 5G.
+       --size=SIZE        Disk space to allocate. Positive integers,
+                          in bytes, or with K, M, G suffix.
+                          Minimum: 512M, default: 5G.
 
-       --mem=MEMORY         Amount of memory to allocate. Positive integers, in bytes, or with K, M, G suffix.
-                            Minimum: 128M, default: 1G.
+       --mem=MEMORY       Amount of memory to allocate. Positive
+                          integers, in bytes, or with K, M, G suffix.
+                          Minimum: 128M, default: 1G.
 
-       --cloud-init=FILE    Path to a user-data cloud-init configuration
+       --cloud-init=FILE  Path to a user-data cloud-init configuration
 
   Arguments:
       NAMES   the names of the virtual machine
@@ -66,7 +70,8 @@ multipass
 
         cms multipass create NAMES
 
-        Optionally you can provide image name, size, memory, # of cpus to create an instance.
+        Optionally you can provide image name, size, memory,
+        number of cpus to create an instance.
 
     Start one or multiple multipass vms with
 
@@ -104,7 +109,8 @@ multipass
 
         cms multipass destroy NAMES
 
-        Caution: Once destroyed everything in vm will be deleted and cannot be recovered.
+        Caution: Once destroyed everything in vm will be deleted
+                 and cannot be recovered.
 
     WHEN YOU IMPLEMENT A FUNCTION INCLUDE MINIMAL
       DOCUMENTATION HERE

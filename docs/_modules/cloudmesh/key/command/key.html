@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../docker/cmsd.html">Cloudmesh cmsd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -590,12 +590,14 @@
                     <span class="n">old</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
                     <span class="k">if</span> <span class="n">old</span> <span class="o">!=</span> <span class="n">name</span><span class="p">:</span>
                         <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">&quot;Changing defualt key from </span><span class="si">{old}</span><span class="s2"> to </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="sa">f</span><span class="s2">&quot;Changing default key from </span><span class="si">{old}</span><span class="s2"> to </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
                         <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
 
             <span class="c1">#</span>
             <span class="c1"># Step 1. keys = find keys to upload</span>
             <span class="c1">#</span>
+
+
 
             <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
             <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
@@ -615,7 +617,7 @@
             <span class="c1"># Step 2. iterate over the clouds to upload</span>
             <span class="c1">#</span>
 
-            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+            <span class="n">clouds</span><span class="p">,</span> <span class="n">vmnames</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
                                                           <span class="n">arguments</span><span class="p">,</span>
                                                           <span class="n">variables</span><span class="p">)</span>
 
