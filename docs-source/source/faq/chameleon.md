@@ -135,3 +135,71 @@ timed out'))
 
 This will liekly not work as your cell phone company has likely some
 restrictions.
+
+
+## Can I keep my instance running when not in use?
+
+No you shout terminate and restart it. However if you initially have issues
+keep it running and find in the manaul how to suspend and resume it.
+You can also do this from horizon if you prefer.
+
+
+## What is `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`
+
+THis is hapening when a previously used ip address is used on another vm
+You need to remove the ip from ~/.ssh/kown hosts by using
+
+ssh-keygen -R <IP>
+
+and than try again
+
+
+## ssh-keygen vs putty
+
+use ssh-keygen as it is far easier. 
+
+
+## Can I give my own network when booting
+
+Yes 
+
+```
+cms vm boot --name=gregor-02 \
+            --image=CC-Ubuntu18.04 \
+            --network=e01ee12e-fd22-4b21-a050-d3e015f42bb1
+```
+
+## How do I upload the secgroups
+
+```
+cms sec group load --cloud=chameleon
+```
+
+## Are there additional Videos
+
+### Starting vms in horizon
+
+ wonderful video was shot by Rahul. I do recommend however if you can just to
+keep the keyname on your computer to be id_rsa. 
+
+In horizon you naturally use a keyname such as rahul-222 (e.g. what rahul used)
+
+
+The reason is that in the future we use cloudmesn and we have a default key for
+cloudmesh set as `id_rsa`. This simplifies debugging in case something does not
+go right
+
+
+* <https://www.youtube.com/watch?v=-2RgDrhN02Q>
+
+ 
+### Starting VMs in cloudmesh
+
+Rahul has done a video also to show how to start vms in cloudmesh
+Also we added the network id to
+the cloudmesh.yaml file, so if you have a new version its no longer needed to
+add the network
+ 
+* <https://www.youtube.com/watch?v=bDue67M1xl0>
+
+

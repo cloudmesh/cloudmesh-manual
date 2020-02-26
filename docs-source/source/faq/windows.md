@@ -139,3 +139,20 @@ stop when your host computer sleeps, so the build engine gets stuck in the past
 
 If you have a spce in your username, simply create a new Windows user account
 without spaces.
+
+
+## What to do if windows still does not work for you?
+
+First of all we have to say the issue is not with cloudmesh but your
+computer. We as teacher should not be the system administrator fixing
+your OS. Therfor you have several options. Here are just a view:
+
+
+1. use a virtual machine on your computer (multipass or virtual box)
+2. use a virtual machine on chameleon cloud
+3. use an ubuntu container and install cloudmesh in the container 
+4. dual boot into ubuntu
+ 
+
+Make sure you do backups.
+

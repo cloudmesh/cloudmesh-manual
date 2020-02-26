@@ -11,6 +11,17 @@ A Manual is available at
 
 * TBD
 
+## Having control over your computers
+
+Cloudmesh is easy to install, but we have seen issues with the following
+that you must solve yourself:
+
+1. Virus checkers switch on that prevent instalation of programs and containers
+2. Computers managed by a workplace with stricter security rules.
+
+Any of these cases are up to you to find out and solve. We have tested
+CMS on an operationg system that was downloaded stright from Microsoft
+and verofied it works.
 
 ## Deployment Tip Collection
 
@@ -219,4 +230,16 @@ Remeber that cmsd will automatically upon --setup change the mode to running. SO
 
 Please be aware there coudl be issues with Mongo runing natively or in a
 container. Try it out. IF it does not work, remove the .cloudmesh directory
+
+## What is KeyError: 'auth'
+
+If you see this:
+
+```
+KeyError: 'auth',
+```
+
+You have an outdated version of the .cloudmesh/cloudmesh.yaml file. stop
+mongo and reinstall cloudmesh and the ENV3
+
 
