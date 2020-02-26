@@ -197,15 +197,26 @@ Start a vm
 cms vm boot
 ```
 
+## Switching between cms and cmsd
 
+It is best to delete the .cloudmesh directory and start new.
 
-## Command that do not work on Windows 
+However you can also try to set the MONGO mode accordingly.
+
+For cms you use
 
 ```
-cms admin mongo install
+cms config set cloudmesh.data.mongo.MODE=native
 ```
 
-Instead you need to install Mongo form the MSI. but not select the service mode
+For cmsd you use
 
+```
+cmsd config set cloudmesh.data.mongo.MODE=running
+```
 
+Remeber that cmsd will automatically upon --setup change the mode to running. SO if you like to swithc back do so.
+
+Please be aware there coudl be issues with Mongo runing natively or in a
+container. Try it out. IF it does not work, remove the .cloudmesh directory
 
