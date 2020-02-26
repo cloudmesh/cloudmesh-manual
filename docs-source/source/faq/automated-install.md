@@ -1,6 +1,6 @@
 # FAQ
 
-## Cms Mostly automated install on macOS and Linux
+## Draft: Cms Mostly automated install on macOS and Linux
 
 
 
