@@ -7,6 +7,29 @@ All FAQ's related to chameleon cloud asume
 3. `cms init` worked and 
 
 
+## Did cms ever worked?
+
+`cms` Worked from day one ov this class. Due to an change within 
+chameleon cloud some parameters needed to be changed in the `cloudmesh.yaml`
+file. We informed the entire class to delete the `cloudmesh.yaml` file and create
+it again via `cms help`. However, we found that this was often not executed and
+a lot of errors could be traced back to that the file was not deleted.
+Chameleon also updated the way the network works and we had to integrate at
+that time also a mechanism to deal with this. Again if you deleted your yaml
+file and recreated it you will have no issue.
+
+If you completely erase your ENV3, the `cloudmesh-*` folder in cm and do a fresh
+install you can avoid this. As we had students not following our clear
+instructions, we will no longer help if you have not
+
+1. deleted the .cloudmesh directory
+2. deleted your virtualnv (for example ENV3)
+3. deleted your source cod in cm related to cloudmesh 
+   Make sure not to delete the directories unrelated to that. 
+   Be careful that you do not delete the `cloudmesh-*` folder 
+   that you worked on. make a backup copy.   
+
+Cloudmesh is trivial to install.
 
 ## How check if chmaeleon cloud works
 
