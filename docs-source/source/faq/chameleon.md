@@ -130,3 +130,8 @@ NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at
 0x7f63fc14a040>: Failed to establish a new connection: [Errno 110] Connection
 timed out'))
 ```
+
+## Tethering you computer through a cell phone
+
+This will liekly not work as your cell phone company has likely some
+restrictions.
