@@ -32,7 +32,7 @@ All of the following commands must return a valid path. If not install them
 where cls
 where mongod
 where ssh
-where ss-keygen
+where ssh-keygen
 ```
 
 You must use Python 3.8.1, 64 bit
@@ -63,6 +63,19 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.
 ```
 
 This is also extensively discussed in our regular install notes
+
+
+## MongoDB
+
+The instructions for MongoDB are provided at
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+
+Please make ssure to switch of all Mongo Services and uninstall all previous versions of MongoDB. THan please install version 4.2.3.
+
+However there are different ways to install Mongo. We **do not want** to install Mongo as a service.
+When going to the doscumentation, you will see two panels. One MongoDB Service (which we do not want to use) and one MongoDB. The later containse the proper install instructions including images.
+
 
 
 ## Which version of Windows do I need to use multipass?
