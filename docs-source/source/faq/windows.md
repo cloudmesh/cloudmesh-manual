@@ -69,7 +69,7 @@ This is also extensively discussed in our regular install notes
 
 The instructions for MongoDB are provided at
 
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+* <https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/>
 
 Please make ssure to switch of all Mongo Services and uninstall all previous versions of MongoDB. THan please install version 4.2.3.
 
