@@ -113,7 +113,7 @@ IU GUEST or any other insecure network:
 If you are at IU, chameleon cloud does not allow you to connect to it from IU
 guest. So if you say cms vm list --refresh and it hangs there for a long time
 you will at one point see "Failed to discover available identity versions when
-contacting https://kvm.tacc.chameleoncloud.org:5000/v3. Attempting to parse
+contacting <https://kvm.tacc.chameleoncloud.org:5000/v3>. Attempting to parse
 version from URL."
 
 This indicates you can not connect to chamelon cloud as you are on an insecure
@@ -126,8 +126,8 @@ keystoneauth1.exceptions.connection.ConnectFailure: Unable to establish
 connection to https://kvm.tacc.chameleoncloud.org:5000/v3/auth/tokens:
 HTTPSConnectionPool(host='kvm.tacc.chameleoncloud.org', port=5000): Max retries
 exceeded with url: /v3/auth/tokens (Caused by
-NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at
-0x7f63fc14a040>: Failed to establish a new connection: [Errno 110] Connection
+NewConnectionError(' \< urllib3.connection.VerifiedHTTPSConnection object at
+0x7f63fc14a040 \> : Failed to establish a new connection: [Errno 110] Connection
 timed out'))
 ```
 
