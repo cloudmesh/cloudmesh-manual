@@ -149,9 +149,9 @@ You can also do this from horizon if you prefer.
 THis is hapening when a previously used ip address is used on another vm
 You need to remove the ip from ~/.ssh/kown hosts by using
 
-ssh-keygen -R <IP>
+ssh-keygen -R IPADDRESS
 
-and than try again
+where IPADDRESS is the address to be removed, and than try again
 
 
 ## ssh-keygen vs putty
@@ -179,7 +179,7 @@ cms sec group load --cloud=chameleon
 
 ### Starting vms in horizon
 
- wonderful video was shot by Rahul. I do recommend however if you can just to
+A video was shot by Rahul. I do recommend however if you can just to
 keep the keyname on your computer to be id_rsa. 
 
 In horizon you naturally use a keyname such as rahul-222 (e.g. what rahul used)
@@ -195,7 +195,7 @@ go right
  
 ### Starting VMs in cloudmesh
 
-Rahul has done a video also to show how to start vms in cloudmesh
+Rahul has done a video to show how to start vms in cloudmesh
 Also we added the network id to
 the cloudmesh.yaml file, so if you have a new version its no longer needed to
 add the network

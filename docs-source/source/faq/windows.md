@@ -156,3 +156,8 @@ your OS. Therfor you have several options. Here are just a view:
 
 Make sure you do backups.
 
+## How to install ssh on Windows
+
+* <https://winaero.com/blog/enable-openssh-server-windows-10/>
+* <https://ittutorials.net/microsoft/windows-10/enable-ssh-windows-10-command-prompt/>
+* <https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse>
