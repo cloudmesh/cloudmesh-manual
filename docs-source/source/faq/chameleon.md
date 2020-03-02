@@ -149,9 +149,9 @@ You can also do this from horizon if you prefer.
 THis is hapening when a previously used ip address is used on another vm
 You need to remove the ip from ~/.ssh/kown hosts by using
 
-ssh-keygen -R <IP>
+ssh-keygen -R IPADDRESS
 
-and than try again
+where IPADDRESS is the ip of the host, and than try again
 
 
 ## ssh-keygen vs putty
