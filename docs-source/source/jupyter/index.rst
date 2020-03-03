@@ -23,6 +23,7 @@ integrate it into jupyter. The following image shows how easy it is
 
 However, naturally we can also use build in fetuares of jupyter such as
 running shell commands with
+
 .. code:: bash
 
    [1] !cms set cloud=AWS
