@@ -618,14 +618,17 @@ In a Linux/MacOS environment, the default installation path will be under
 paths, be sure to update these in the cloudmesh.yaml file.
 
 Once configuration of the cloudmesh.yaml file has been completed,  run the
-following command to install mongo:
+following command to install mongo **in an administrative shell** (assuming you
+have the user in the c drive), where USERNAME is the username you installe
+dcloudmesh in:
 
 .. code:: bash
 
+  C:/Users/USERNAME\ENV3\Scripts\activate
   cms admin mongo install
 
 .. note:: In a Windows installation, we are only required to install
-          MongoDB Server, *not* MongoDB Service. By default, the
+          MongoDB commands, *not* MongoDB Service. By default, the
           silent installer will attempt to install and start the
           MongoDB System Service. When prompted that the Service
           failed to start, simply select ``Ignore``.
