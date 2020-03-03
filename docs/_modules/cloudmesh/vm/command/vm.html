@@ -279,7 +279,7 @@
 <span class="sd">                vm meta list [NAME]</span>
 <span class="sd">                vm meta set [NAME] KEY=VALUE...</span>
 <span class="sd">                vm meta delete [NAME] KEY...</span>
-<span class="sd">                vm script [--name=NAMES]</span>
+<span class="sd">                vm script [NAMES]</span>
 <span class="sd">                          [--username=USERNAME]</span>
 <span class="sd">                          [--key=KEY]</span>
 <span class="sd">                          [--dryrun]</span>
@@ -355,103 +355,103 @@
 
 
 <span class="sd">            Description:</span>
-<span class="sd">                commands used to boot, start or delete servers of a cloud</span>
+<span class="sd">                 commands used to boot, start or delete servers of a cloud</span>
 
-<span class="sd">                vm default [options...]</span>
-<span class="sd">                    Displays default parameters that are set for vm boot either</span>
-<span class="sd">                    on the default cloud or the specified cloud.</span>
+<span class="sd">                 vm default [options...]</span>
+<span class="sd">                     Displays default parameters that are set for vm boot either</span>
+<span class="sd">                     on the default cloud or the specified cloud.</span>
 
-<span class="sd">                vm boot [options...]</span>
-<span class="sd">                    Boots servers on a cloud, user may specify flavor, image</span>
-<span class="sd">                    .etc, otherwise default values will be used, see how to set</span>
-<span class="sd">                    default values of a cloud: cloud help</span>
+<span class="sd">                 vm boot [options...]</span>
+<span class="sd">                     Boots servers on a cloud, user may specify flavor, image</span>
+<span class="sd">                     .etc, otherwise default values will be used, see how to set</span>
+<span class="sd">                     default values of a cloud: cloud help</span>
 
-<span class="sd">                vm start [options...]</span>
-<span class="sd">                    Starts a suspended or stopped vm instance.</span>
+<span class="sd">                 vm start [options...]</span>
+<span class="sd">                     Starts a suspended or stopped vm instance.</span>
 
-<span class="sd">                vm stop [options...]</span>
-<span class="sd">                    Stops a vm instance .</span>
+<span class="sd">                 vm stop [options...]</span>
+<span class="sd">                     Stops a vm instance .</span>
 
-<span class="sd">                vm delete [options...]</span>
+<span class="sd">                 vm delete [options...]</span>
 
-<span class="sd">                    Delete servers of a cloud, user may delete a server by its</span>
-<span class="sd">                    name or id, delete servers of a group or servers of a cloud,</span>
-<span class="sd">                    give prefix and/or range to find servers by their names.</span>
-<span class="sd">                    Or user may specify more options to narrow the search</span>
+<span class="sd">                     Delete servers of a cloud, user may delete a server by its</span>
+<span class="sd">                     name or id, delete servers of a group or servers of a cloud,</span>
+<span class="sd">                     give prefix and/or range to find servers by their names.</span>
+<span class="sd">                     Or user may specify more options to narrow the search</span>
 
-<span class="sd">                vm floating_ip_assign [options...]</span>
-<span class="sd">                    assign a public ip to a VM of a cloud</span>
+<span class="sd">                 vm floating_ip_assign [options...]</span>
+<span class="sd">                     assign a public ip to a VM of a cloud</span>
 
-<span class="sd">                vm ip show [options...]</span>
-<span class="sd">                    show the ips of VMs</span>
+<span class="sd">                 vm ip show [options...]</span>
+<span class="sd">                     show the ips of VMs</span>
 
-<span class="sd">                vm ssh [options...]</span>
-<span class="sd">                    login to a server or execute commands on it</span>
+<span class="sd">                 vm ssh [options...]</span>
+<span class="sd">                     login to a server or execute commands on it</span>
 
-<span class="sd">                vm list [options...]</span>
-<span class="sd">                    same as command &quot;list vm&quot;, please refer to it</span>
+<span class="sd">                 vm list [options...]</span>
+<span class="sd">                     same as command &quot;list vm&quot;, please refer to it</span>
 
-<span class="sd">                vm status [options...]</span>
-<span class="sd">                    Retrieves status of last VM booted on cloud and displays it.</span>
+<span class="sd">                 vm status [options...]</span>
+<span class="sd">                     Retrieves status of last VM booted on cloud and displays it.</span>
 
-<span class="sd">                vm refresh [--cloud=CLOUDS]</span>
-<span class="sd">                    this command refreshes the data for virtual machines,</span>
-<span class="sd">                    images and flavors for the specified clouds.</span>
+<span class="sd">                 vm refresh [--cloud=CLOUDS]</span>
+<span class="sd">                     this command refreshes the data for virtual machines,</span>
+<span class="sd">                     images and flavors for the specified clouds.</span>
 
-<span class="sd">                vm ping [NAMES] [--cloud=CLOUDS] [--count=N] [--processors=PROCESSORS]</span>
-<span class="sd">                     pings the specified virtual machines, while using at most N pings.</span>
-<span class="sd">                     The ping is executed in parallel.</span>
-<span class="sd">                     If names are specifies the ping is restricted to the given names in</span>
-<span class="sd">                     parameter format. If clouds are specified, names that are not in</span>
-<span class="sd">                     these clouds are ignored. If the name is set in the variables</span>
-<span class="sd">                     this name is used.</span>
+<span class="sd">                 vm ping [NAMES] [--cloud=CLOUDS] [--count=N] [--processors=PROCESSORS]</span>
+<span class="sd">                      pings the specified virtual machines, while using at most N pings.</span>
+<span class="sd">                      The ping is executed in parallel.</span>
+<span class="sd">                      If names are specifies the ping is restricted to the given names in</span>
+<span class="sd">                      parameter format. If clouds are specified, names that are not in</span>
+<span class="sd">                      these clouds are ignored. If the name is set in the variables</span>
+<span class="sd">                      this name is used.</span>
 
-<span class="sd">                cms vm ssh --command=\&quot;uname -a\&quot;</span>
+<span class="sd">                 cms vm ssh --command=\&quot;uname -a\&quot;</span>
 
-<span class="sd">                      executes the uname command on the last booted vm</span>
+<span class="sd">                       executes the uname command on the last booted vm</span>
 
-<span class="sd">                vm script [--name=NAMES]</span>
-<span class="sd">                          [--username=USERNAME]</span>
-<span class="sd">                          [--key=KEY]</span>
-<span class="sd">                          [--dryrun]</span>
-<span class="sd">                          [--dir=DESTINATION]</span>
-<span class="sd">                          [--shell=SHELL]</span>
-<span class="sd">                          SCRIPT</span>
+<span class="sd">                 vm script [--name=NAMES]</span>
+<span class="sd">                           [--username=USERNAME]</span>
+<span class="sd">                           [--key=KEY]</span>
+<span class="sd">                           [--dryrun]</span>
+<span class="sd">                           [--dir=DESTINATION]</span>
+<span class="sd">                           [--shell=SHELL]</span>
+<span class="sd">                           SCRIPT</span>
 
-<span class="sd">                   The script command copies a shell script to the specified vms</span>
-<span class="sd">                   into the DESTINATION directory and than execute it. With</span>
-<span class="sd">                   SHELL you can set the shell for executing the command,</span>
-<span class="sd">                   this coudl even be a python interpreter. Examples for</span>
-<span class="sd">                   SHELL are /bin/sh, /usr/bin/env python</span>
+<span class="sd">                    The script command copies a shell script to the specified vms</span>
+<span class="sd">                    into the DESTINATION directory and than execute it. With</span>
+<span class="sd">                    SHELL you can set the shell for executing the command,</span>
+<span class="sd">                    this coudl even be a python interpreter. Examples for</span>
+<span class="sd">                    SHELL are /bin/sh, /usr/bin/env python</span>
 
-<span class="sd">                vm put SOURCE DESTINATION [NAMES]</span>
+<span class="sd">                 vm put SOURCE DESTINATION [NAMES]</span>
 
-<span class="sd">                    puts the file defined by SOURCE into the DESINATION folder</span>
+<span class="sd">                     puts the file defined by SOURCE into the DESINATION folder</span>
 <span class="sd">                    on the specified machines. If the file exists it is</span>
-<span class="sd">                    overwritten, so be careful.</span>
+<span class="sd">                     overwritten, so be careful.</span>
 
-<span class="sd">                vm get SOURCE DESTINATION [NAMES]</span>
+<span class="sd">                 vm get SOURCE DESTINATION [NAMES]</span>
 
-<span class="sd">                    gets  the file defined by SOURCE into the DESINATION folder</span>
-<span class="sd">                    on the specified machines. The SOURCE is on the remote</span>
-<span class="sd">                    machine. If one machine is specified, the SOURCE is the same</span>
-<span class="sd">                    name as on the remote machine. If multiple machines are</span>
-<span class="sd">                    specified, the name of the machine will be a prefix to the</span>
-<span class="sd">                    filename. If the filenames exists, they will be overwritten,</span>
-<span class="sd">                    so be careful.</span>
+<span class="sd">                     gets  the file defined by SOURCE into the DESINATION folder</span>
+<span class="sd">                     on the specified machines. The SOURCE is on the remote</span>
+<span class="sd">                     machine. If one machine is specified, the SOURCE is the same</span>
+<span class="sd">                     name as on the remote machine. If multiple machines are</span>
+<span class="sd">                     specified, the name of the machine will be a prefix to the</span>
+<span class="sd">                     filename. If the filenames exists, they will be overwritten,</span>
+<span class="sd">                     so be careful.</span>
 
-<span class="sd">            Tip:</span>
-<span class="sd">                give the VM name, but in a hostlist style, which is very</span>
-<span class="sd">                convenient when you need a range of VMs e.g. sample[1-3]</span>
-<span class="sd">                =&gt; [&#39;sample1&#39;, &#39;sample2&#39;, &#39;sample3&#39;]</span>
+<span class="sd">              Tip:</span>
+<span class="sd">                 give the VM name, but in a hostlist style, which is very</span>
+<span class="sd">                 convenient when you need a range of VMs e.g. sample[1-3]</span>
+<span class="sd">                 =&gt; [&#39;sample1&#39;, &#39;sample2&#39;, &#39;sample3&#39;]</span>
 <span class="sd">                sample[1-3,18] =&gt; [&#39;sample1&#39;, &#39;sample2&#39;, &#39;sample3&#39;, &#39;sample18&#39;]</span>
 
-<span class="sd">            Quoting commands:</span>
-<span class="sd">                cm vm login gregor-004 --command=\&quot;uname -a\&quot;</span>
+<span class="sd">              Quoting commands:</span>
+<span class="sd">                 cm vm login gregor-004 --command=\&quot;uname -a\&quot;</span>
 
-<span class="sd">            Limitations:</span>
+<span class="sd">              Limitations:</span>
 
-<span class="sd">                Azure: rename is not supported</span>
+<span class="sd">                 Azure: rename is not supported</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
@@ -1096,7 +1096,8 @@
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ssh</span><span class="p">:</span>
 
             <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            vm ssh [NAMES] [--username=USER]</span>
+<span class="sd">            vm ssh [NAMES] </span>
+<span class="sd">                 [--username=USER]</span>
 <span class="sd">                 [--quiet]</span>
 <span class="sd">                 [--ip=IP]</span>
 <span class="sd">                 [--key=KEY]</span>

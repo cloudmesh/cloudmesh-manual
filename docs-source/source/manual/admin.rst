@@ -17,6 +17,7 @@ admin
     admin mongo password PASSWORD
     admin mongo list [--output=OUTPUT]
     admin mongo ssh
+    admin mongo mode [MODE]
     admin status
     admin system info
 
@@ -69,3 +70,10 @@ admin
 
       is only supported for docker and allows for debugging to login
       to the running container. This function may be disabled in future.
+
+
+    admin mongo mode native
+       switches configuration file to use native mode
+
+    admin mongo mode running
+        switches the configuration to use running mode

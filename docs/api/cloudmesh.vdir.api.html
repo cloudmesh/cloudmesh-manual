@@ -183,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.box.html">cloudmesh.storage.provider.box package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html">cloudmesh.storage.provider.gdrive package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parallelawss3.html">cloudmesh.storage.provider.parallelawss3 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.queue.html">cloudmesh.storage.queue package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.html">cloudmesh.sys package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.terminal.html">cloudmesh.terminal package</a></li>
@@ -193,8 +194,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vdir.html">cloudmesh.vdir package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.vdir.api package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vdir.api.manager">cloudmesh.vdir.api.manager module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vdir.api">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-vdir-api-manager-module">cloudmesh.vdir.api.manager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a></li>
@@ -301,52 +302,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.vdir.api.manager">
-<span id="cloudmesh-vdir-api-manager-module"></span><h2>cloudmesh.vdir.api.manager module<a class="headerlink" href="#module-cloudmesh.vdir.api.manager" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.vdir.api.manager.Vdir">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.vdir.api.manager.</code><code class="sig-name descname">Vdir</code><a class="reference internal" href="../_modules/cloudmesh/vdir/api/manager.html#Vdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.cd">
-<code class="sig-name descname">cd</code><span class="sig-paren">(</span><em class="sig-param">dirname=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vdir/api/manager.html#Vdir.cd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.cd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">dir_or_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vdir/api/manager.html#Vdir.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.delete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vdir/api/manager.html#Vdir.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.get" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.ls">
-<code class="sig-name descname">ls</code><span class="sig-paren">(</span><em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vdir/api/manager.html#Vdir.ls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.ls" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.mkdir">
-<code class="sig-name descname">mkdir</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.mkdir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.vdir.api.manager.Vdir.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">dir_or_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/vdir/api/manager.html#Vdir.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vdir.api.manager.Vdir.status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cloudmesh-vdir-api-manager-module">
+<h2>cloudmesh.vdir.api.manager module<a class="headerlink" href="#cloudmesh-vdir-api-manager-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.vdir.api">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.vdir.api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

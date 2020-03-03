@@ -152,8 +152,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.stop.command.html">cloudmesh.stop.command package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.storage.command package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.command.storage">cloudmesh.storage.command.storage module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.command">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-command-storage-module">cloudmesh.storage.command.storage module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.command.html">cloudmesh.sys.command package</a></li>
@@ -263,107 +263,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.command.storage">
-<span id="cloudmesh-storage-command-storage-module"></span><h2>cloudmesh.storage.command.storage module<a class="headerlink" href="#module-cloudmesh.storage.command.storage" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.storage.command.storage.StorageCommand">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.command.storage.</code><code class="sig-name descname">StorageCommand</code><a class="reference internal" href="../_modules/cloudmesh/storage/command/storage.html#StorageCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.command.storage.StorageCommand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.storage.command.storage.StorageCommand.do_storage">
-<code class="sig-name descname">do_storage</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.command.storage.StorageCommand.do_storage" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">create</span> <span class="nb">dir</span> <span class="n">DIRECTORY</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">get</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="nb">list</span> <span class="p">[</span><span class="n">SOURCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">delete</span> <span class="n">SOURCE</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">search</span>  <span class="n">DIRECTORY</span> <span class="n">FILENAME</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">sync</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="k">async</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="p">[</span><span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span> <span class="n">sync</span> <span class="n">status</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="n">config</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">storage</span> <span class="n">copy</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="o">--</span><span class="n">recursive</span><span class="p">]</span>
-
-
-<span class="n">This</span> <span class="n">command</span> <span class="n">does</span> <span class="n">some</span> <span class="n">useful</span> <span class="n">things</span><span class="o">.</span>
-
-<span class="n">Arguments</span><span class="p">:</span>
-  <span class="n">SOURCE</span>        <span class="n">SOURCE</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">file</span>
-  <span class="n">DESTINATION</span>   <span class="n">DESTINATION</span> <span class="n">can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">file</span>
-  <span class="n">DIRECTORY</span>     <span class="n">DIRECTORY</span> <span class="n">refers</span> <span class="n">to</span> <span class="n">a</span> <span class="n">folder</span> <span class="n">on</span> <span class="n">the</span> <span class="n">cloud</span> <span class="n">service</span>
-
-
-<span class="n">Options</span><span class="p">:</span>
-  <span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">SERVICE</span>  <span class="n">specify</span> <span class="n">the</span> <span class="n">cloud</span> <span class="n">service</span> <span class="n">name</span> <span class="n">like</span> <span class="n">aws</span> <span class="ow">or</span>
-                     <span class="n">azure</span> <span class="ow">or</span> <span class="n">box</span> <span class="ow">or</span> <span class="n">google</span>
-
-<span class="n">Description</span><span class="p">:</span>
-  <span class="n">commands</span> <span class="n">used</span> <span class="n">to</span> <span class="n">upload</span><span class="p">,</span> <span class="n">download</span><span class="p">,</span> <span class="nb">list</span> <span class="n">files</span> <span class="n">on</span> <span class="n">different</span>
-  <span class="n">cloud</span> <span class="n">storage</span> <span class="n">services</span><span class="o">.</span>
-
-  <span class="n">storage</span> <span class="n">put</span> <span class="p">[</span><span class="n">options</span><span class="o">..</span><span class="p">]</span>
-    <span class="n">Uploads</span> <span class="n">the</span> <span class="n">file</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">filename</span> <span class="n">to</span> <span class="n">specified</span>
-    <span class="n">cloud</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">SOURCEDIR</span><span class="o">.</span>
-
-  <span class="n">storage</span> <span class="n">get</span> <span class="p">[</span><span class="n">options</span><span class="o">..</span><span class="p">]</span>
-    <span class="n">Downloads</span> <span class="n">the</span> <span class="n">file</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">filename</span> <span class="kn">from</span> <span class="nn">the</span>
-    <span class="n">specified</span> <span class="n">cloud</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DESTDIR</span><span class="o">.</span>
-
-  <span class="n">storage</span> <span class="n">delete</span> <span class="p">[</span><span class="n">options</span><span class="o">..</span><span class="p">]</span>
-     <span class="n">Deletes</span> <span class="n">the</span> <span class="n">file</span> <span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">filename</span> <span class="kn">from</span> <span class="nn">the</span>
-     <span class="n">specified</span> <span class="n">cloud</span><span class="o">.</span>
-
-  <span class="n">storage</span> <span class="nb">list</span> <span class="p">[</span><span class="n">options</span><span class="o">..</span><span class="p">]</span>
-    <span class="n">lists</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">files</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">container</span> <span class="n">name</span> <span class="n">specified</span> <span class="n">on</span>
-    <span class="n">the</span> <span class="n">specified</span> <span class="n">cloud</span><span class="o">.</span>
-
-  <span class="n">storage</span> <span class="n">create</span> <span class="nb">dir</span> <span class="p">[</span><span class="n">options</span><span class="o">..</span><span class="p">]</span>
-    <span class="n">creates</span> <span class="n">a</span> <span class="n">folder</span> <span class="k">with</span> <span class="n">the</span> <span class="n">directory</span> <span class="n">name</span> <span class="n">specified</span> <span class="n">on</span> <span class="n">the</span>
-    <span class="n">specified</span> <span class="n">cloud</span><span class="o">.</span>
-
-  <span class="n">storage</span> <span class="n">search</span> <span class="p">[</span><span class="n">options</span><span class="o">..</span><span class="p">]</span>
-    <span class="n">searches</span> <span class="k">for</span> <span class="n">the</span> <span class="n">source</span> <span class="ow">in</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">folders</span> <span class="n">on</span> <span class="n">the</span> <span class="n">specified</span>
-    <span class="n">cloud</span><span class="o">.</span>
-
-  <span class="n">sync</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span>
-    <span class="n">puts</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">source</span> <span class="n">to</span> <span class="n">the</span> <span class="n">destination</span><span class="o">.</span>
-     <span class="n">If</span> <span class="o">--</span><span class="n">recursive</span> <span class="ow">is</span> <span class="n">specified</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">done</span> <span class="n">recursively</span> <span class="kn">from</span>
-        <span class="nn">the</span> <span class="n">source</span>
-     <span class="n">If</span> <span class="o">--</span><span class="k">async</span> <span class="ow">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">done</span> <span class="n">asynchronously</span>
-     <span class="n">If</span> <span class="n">a</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">process</span> <span class="n">can</span> <span class="n">also</span> <span class="n">be</span> <span class="n">monitored</span>
-        <span class="k">with</span> <span class="n">the</span> <span class="n">status</span> <span class="n">command</span> <span class="n">by</span> <span class="n">name</span><span class="o">.</span>
-     <span class="n">If</span> <span class="n">the</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">specified</span> <span class="nb">all</span> <span class="n">date</span> <span class="ow">is</span> <span class="n">monitored</span><span class="o">.</span>
-
-  <span class="n">sync</span> <span class="n">status</span>
-    <span class="n">The</span> <span class="n">status</span> <span class="k">for</span> <span class="n">the</span> <span class="n">asynchronous</span> <span class="n">sync</span> <span class="n">can</span> <span class="n">be</span> <span class="n">seen</span> <span class="k">with</span> <span class="n">this</span>
-    <span class="n">command</span>
-
-  <span class="n">config</span> <span class="nb">list</span>
-    <span class="n">Lists</span> <span class="n">the</span> <span class="n">configures</span> <span class="n">storage</span> <span class="n">services</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">yaml</span> <span class="n">file</span>
-
-  <span class="n">storage</span> <span class="n">copy</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span>
-    <span class="n">Copies</span> <span class="n">files</span> <span class="kn">from</span> <span class="nn">source</span> <span class="n">storage</span> <span class="n">to</span> <span class="n">destination</span> <span class="n">storage</span><span class="o">.</span>
-    <span class="n">The</span> <span class="n">syntax</span> <span class="n">of</span> <span class="n">SOURCE</span> <span class="ow">and</span> <span class="n">DESTINATION</span> <span class="ow">is</span><span class="p">:</span>
-    <span class="n">SOURCE</span> <span class="o">-</span> <span class="n">awss3</span><span class="p">:</span><span class="n">source</span><span class="o">.</span><span class="n">txt</span>
-    <span class="n">DESTINATION</span> <span class="o">-</span> <span class="n">azure</span><span class="p">:</span><span class="n">target</span><span class="o">.</span><span class="n">txt</span>
-
-<span class="n">Example</span><span class="p">:</span>
-   <span class="nb">set</span> <span class="n">storage</span><span class="o">=</span><span class="n">azureblob</span>
-   <span class="n">storage</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="o">--</span><span class="n">recursive</span>
-
-   <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span> <span class="k">as</span>
-   <span class="n">storage</span> <span class="o">--</span><span class="n">storage</span><span class="o">=</span><span class="n">azureblob</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="o">--</span><span class="n">recursive</span>
-
-   <span class="n">storage</span> <span class="n">copy</span> <span class="n">azure</span><span class="p">:</span><span class="n">source</span><span class="o">.</span><span class="n">txt</span> <span class="n">oracle</span><span class="p">:</span><span class="n">target</span><span class="o">.</span><span class="n">txt</span>
-</pre></div>
+<div class="section" id="cloudmesh-storage-command-storage-module">
+<h2>cloudmesh.storage.command.storage module<a class="headerlink" href="#cloudmesh-storage-command-storage-module" title="Permalink to this headline">¶</a></h2>
 </div>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-cloudmesh.storage.command">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.command" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

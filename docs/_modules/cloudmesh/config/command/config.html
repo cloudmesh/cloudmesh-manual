@@ -413,7 +413,10 @@
             <span class="n">banner</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{action}</span><span class="s2"> cloudmesh.</span><span class="si">{kind}</span><span class="s2">.</span><span class="si">{cloud}</span><span class="s2"> in ~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
 
-            <span class="n">lines</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="c1"># Bug: should this not be splitlines()</span>
+            <span class="c1">#</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
             <span class="n">secrets</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">secrets</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">cat_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">mask_secrets</span><span class="o">=</span><span class="n">secrets</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
@@ -461,14 +464,14 @@
             <span class="kn">import</span> <span class="nn">shutil</span>
             <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
 
-            <span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
 
             <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">less</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="p">(</span><span class="n">rows</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;qQxX&#39;</span><span class="p">:</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="s1">&#39;q&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
                             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
                 <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>

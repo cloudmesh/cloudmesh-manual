@@ -1,22 +1,31 @@
-+------------------------------+---------+
-| Package                      | Version |
-+------------------------------+---------+
-| cloudmesh.aws                | 4.1.3   |
-| cloudmesh.azure              | 4.1.3   |
-| cloudmesh.bookmanagerservice | 1.0.0   |
-| cloudmesh.box                | 4.0.0   |
-| cloudmesh.cloud              | 4.3.0   |
-| cloudmesh.cmd5               | 4.2.15  |
-| cloudmesh.common             | 4.2.33  |
-| cloudmesh.configuration      | 4.2.11  |
-| cloudmesh.encrypt            | 4.1.3   |
-| cloudmesh.google             | 4.1.3   |
-| cloudmesh.gui                | 4.1.6   |
-| cloudmesh.inventory          | 4.1.3   |
-| cloudmesh.multipass          | 4.1.3   |
-| cloudmesh.openstack          | 4.3.3   |
-| cloudmesh.oracle             | 4.1.3   |
-| cloudmesh.storage            | 4.0.12  |
-| cloudmesh.sys                | 4.1.4   |
-| cloudmesh.test               | 4.1.5   |
-+------------------------------+---------+
+--number
+ERROR: Could not execute the command.
+ERROR: Check usage..
+Usage:
+    version pip [PACKAGE]
+    version [--format=FORMAT] [--check=CHECK]
+
+::
+
+  Usage:
+    version pip [PACKAGE]
+    version [--format=FORMAT] [--check=CHECK]
+
+
+  Options:
+    --format=FORMAT  the format to print the versions in [default: table]
+    --check=CHECK    boolean tp conduct an additional check [default: True]
+
+  Description:
+    version 
+        Prints out the version number
+    version pip
+        Prints the contents of pip list
+
+  Limitations:
+    Package names must not have a . in them instead you need to use -
+    Thus to query for cloudmesh-cmd5 use
+
+      cms version pip cloudmesh-cmd5
+
+

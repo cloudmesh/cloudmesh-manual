@@ -41,7 +41,7 @@ sys
     cms sys command generate NAME .
 
         the code will be installed in the current directory. This is
-        helpful, if you already are in a directory fof the name
+        helpful, if you already are in adirectory fof the name
         cloudmesh-NAME, e.g. if you already created it in github and
         like to add a command in that github directory.
 

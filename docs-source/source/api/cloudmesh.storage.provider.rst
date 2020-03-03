@@ -11,6 +11,7 @@ Subpackages
    cloudmesh.storage.provider.box
    cloudmesh.storage.provider.gdrive
    cloudmesh.storage.provider.local
+   cloudmesh.storage.provider.parallelawss3
 
 Submodules
 ----------

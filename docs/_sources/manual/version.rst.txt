@@ -5,8 +5,7 @@ version
 
   Usage:
     version pip [PACKAGE]
-    version [--format=FORMAT] [--check=CHECK] [--number]
-
+    version [--format=FORMAT] [--check=CHECK]
 
 
   Options:

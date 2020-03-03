@@ -212,13 +212,10 @@
             
   <h1>Source code for cloudmesh.host.host</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">readfile</span><span class="p">,</span> <span class="n">writefile</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
+<div class="viewcode-block" id="Host"><a class="viewcode-back" href="../../../api/cloudmesh.host.html#cloudmesh.host.host.Host">[docs]</a><span class="k">class</span> <span class="nc">Host</span> <span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-<div class="viewcode-block" id="Host"><a class="viewcode-back" href="../../../api/cloudmesh.host.html#cloudmesh.host.host.Host">[docs]</a><span class="k">class</span> <span class="nc">Host</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
-    <span class="c1"># noinspection PyPep8</span>
 <div class="viewcode-block" id="Host.ssh"><a class="viewcode-back" href="../../../api/cloudmesh.host.html#cloudmesh.host.host.Host.ssh">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">dryrun</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -239,10 +236,9 @@
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
             <span class="n">_command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 
-            <span class="n">_command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ssh </span><span class="si">{name}</span><span class="s2"> </span><span class="si">{_command}</span><span class="s2">&quot;</span>
-            <span class="k">if</span> <span class="n">dryrun</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">_command</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ssh </span><span class="si">{name}</span><span class="s2"> </span><span class="si">{_command}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">dryrun</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">_command</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;lines&quot;</span><span class="p">:</span>
@@ -268,7 +264,7 @@
             <span class="n">command</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scp  </span><span class="si">{source}</span><span class="s2"> </span><span class="si">{destination}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="c1"># result = command.format(name=name)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">dryrun</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
@@ -286,25 +282,10 @@
         <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
             <span class="n">name</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">result</span></div>
-
-<div class="viewcode-block" id="Host.fix_keys_file"><a class="viewcode-back" href="../../../api/cloudmesh.host.html#cloudmesh.host.host.Host.fix_keys_file">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">fix_keys_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="c1"># concatenate ~/.ssh/id_rsa.pub</span>
-        <span class="n">lines</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">))</span>
-
-        <span class="n">authorized_keys</span> <span class="o">=</span> <span class="n">lines</span> <span class="o">+</span> <span class="n">key</span>
-        <span class="n">keys</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">authorized_keys</span><span class="p">)</span>
-
-        <span class="c1"># remove duplicates and empty lines</span>
-        <span class="n">keys_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">keys</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()))</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
-        <span class="n">keys</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keys_list</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-        <span class="n">writefile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span></div></div>
+        <span class="k">return</span> <span class="n">result</span></div></div>
 </pre></div>
 
            </div>
