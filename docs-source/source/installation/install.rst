@@ -642,6 +642,8 @@ dcloudmesh in:
 
      Figure: Mongo Windows install. Make sure to press ignore
 
+After the instalation of Mongo completes, you can leave the administrative
+shell.
 
 After the installation completes, in a Linux/MacOS environment, confirm the
 MongoDB installation path was added to the ``.bash_*`` file. This should have
