@@ -747,14 +747,17 @@ In a Linux/MacOS environment, the default installation path will be under
 <code class="docutils literal notranslate"><span class="pre">C:\Users\USERNAME\.cloudmesh\mongo</span></code>. If you would like to change these
 paths, be sure to update these in the cloudmesh.yaml file.</p>
 <p>Once configuration of the cloudmesh.yaml file has been completed,  run the
-following command to install mongo:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo install
+following command to install mongo <strong>in an administrative shell</strong> (assuming you
+have the user in the c drive), where USERNAME is the username you installe
+dcloudmesh in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:/Users/USERNAME<span class="se">\E</span>NV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+cms admin mongo install
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In a Windows installation, we are only required to install
-MongoDB Server, <em>not</em> MongoDB Service. By default, the
+MongoDB commands, <em>not</em> MongoDB Service. By default, the
 silent installer will attempt to install and start the
 MongoDB System Service. When prompted that the Service
 failed to start, simply select <code class="docutils literal notranslate"><span class="pre">Ignore</span></code>.</p>
@@ -763,6 +766,8 @@ failed to start, simply select <code class="docutils literal notranslate"><span 
 <a class="reference internal image-reference" href="../_images/MongoInstall_Windows_Ignore.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_Ignore.png" style="width: 200px; height: 100px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Figure: Mongo Windows install. Make sure to press ignore</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
+<p>After the instalation of Mongo completes, you can leave the administrative
+shell.</p>
 <p>After the installation completes, in a Linux/MacOS environment, confirm the
 MongoDB installation path was added to the <code class="docutils literal notranslate"><span class="pre">.bash_*</span></code> file. This should have
 already been done automatically if the <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> command
