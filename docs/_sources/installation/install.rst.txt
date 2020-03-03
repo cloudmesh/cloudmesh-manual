@@ -273,12 +273,14 @@ You can add at the end of your `.bashrc` (ubuntu) or `.bash_profile`
 venv Setup on Windows
 """""""""""""""""""""
 
-on Windows, you run the following command from your home directory at
+On Windows, you run the following command from your home directory at
 `C:\Users\USERNAME`:
 
 .. code:: cmd
 
-  python -m venv --without-pip ENV3
+  python -m venv ENV3
+  source ENV3\Scripts\activate
+  python -m pip install --upgrade pip
 
 Next, create a Windows system variable named `ENV3` and update the
 variable value to `C:\Users\USERNAME\ENV3\Scripts\activate`.
@@ -345,17 +347,12 @@ In both cases you will see the command prompt starting with `(ENV3)`.
 
 **Validate Python and Pip Version in venv**
 
-Check if you have the right version of python installed with
+Check if you have the right version of python and pip installed with
 
 .. code:: bash
 
    python --version
-
-To make sure you have an up to date version of pip issue the command
-
-.. code:: bash
-
-   pip install pip -U
+   pip --version
 
 Now you are ready to install cloudmesh.
 

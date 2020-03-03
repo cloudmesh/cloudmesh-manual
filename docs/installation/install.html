@@ -482,9 +482,11 @@ assumed to be under <cite>C:UsersUSERNAME</cite>.</p>
 </div>
 <div class="section" id="venv-setup-on-windows">
 <h4>venv Setup on Windows<a class="headerlink" href="#venv-setup-on-windows" title="Permalink to this headline">¶</a></h4>
-<p>on Windows, you run the following command from your home directory at
+<p>On Windows, you run the following command from your home directory at
 <cite>C:UsersUSERNAME</cite>:</p>
-<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>python -m venv --without-pip ENV3
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>python -m venv ENV3
+source ENV3\Scripts\activate
+python -m pip install --upgrade pip
 </pre></div>
 </div>
 <p>Next, create a Windows system variable named <cite>ENV3</cite> and update the
@@ -529,12 +531,9 @@ simply reference the system variable %ENV3%.</p>
 </div>
 <p>In both cases you will see the command prompt starting with <cite>(ENV3)</cite>.</p>
 <p><strong>Validate Python and Pip Version in venv</strong></p>
-<p>Check if you have the right version of python installed with</p>
+<p>Check if you have the right version of python and pip installed with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python --version
-</pre></div>
-</div>
-<p>To make sure you have an up to date version of pip issue the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pip -U
+pip --version
 </pre></div>
 </div>
 <p>Now you are ready to install cloudmesh.</p>
