@@ -104,7 +104,7 @@ $ cms register google google.json
 
 
 ```
-cms google config add ~/.cloudmesh/google.json --service=google 
+$ cms google config add ~/.cloudmesh/google.json --service=google 
 ```
 
 
@@ -116,14 +116,14 @@ Mor details of the configuration can v=be looked up in the [Cloudmesh  Configura
 THE COMMANDS HAVE TO BE REVISITED
 
 ```
-cms google list # what does thsi do?
+$ cms google list # what does thsi do?
 ```
 
 THIS NEEDS TO BE RENAMED TO 
 
 ```
-cms google config list  # logical
-cms google yaml list storage # somewhat logical
+$ cms google config list  # logical
+$ cms google yaml list storage # somewhat logical
 
 ```
 
@@ -136,7 +136,7 @@ If google storage bucket is alredy created, you can list google storage bucket
 using following command:
 
 ```
-cms google list 
+$ cms google list 
 ```
 
 From the displayed list please pick bucket of your choice and add bucket name
