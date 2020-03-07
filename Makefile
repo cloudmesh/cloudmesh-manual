@@ -1,4 +1,4 @@
-package=cloud
+package=manual
 UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
 
