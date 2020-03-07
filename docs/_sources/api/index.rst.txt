@@ -6,7 +6,6 @@ Cloudmesh Command API
 
    cloudmesh.admin.command
    cloudmesh.check.command
-   cloudmesh.config.command
    cloudmesh.container.command
    cloudmesh.data.command
    cloudmesh.debug.command
@@ -61,7 +60,6 @@ Cloudmesh API
    cloudmesh.compute.libcloud
    cloudmesh.compute.virtualbox
    cloudmesh.compute.vm
-   cloudmesh.config
    cloudmesh.container
    cloudmesh.data
    cloudmesh.data.api

@@ -383,28 +383,28 @@ ready for use.</p>
 <div class="section" id="azure-subscription-id">
 <h3>Azure_Subscription_ID<a class="headerlink" href="#azure-subscription-id" title="Permalink to this headline">¶</a></h3>
 <p>Navigate to subscriptions</p>
-<p><img alt="Navigate to Subs" src="../_images/image3.PNG" /></p>
+<p><img alt="Navigate to Subs" src="../_images/image31.png" /></p>
 <p>Copy the Subscription ID to notepad</p>
-<p><img alt="sub ID" src="../_images/image4.PNG" /></p>
+<p><img alt="sub ID" src="../_images/image41.png" /></p>
 </div>
 <div class="section" id="azure-tenant-id-azure-client-id">
 <h3>Azure_Tenant_ID &amp; Azure_Client_ID<a class="headerlink" href="#azure-tenant-id-azure-client-id" title="Permalink to this headline">¶</a></h3>
 <p>Navigate to “Azure Active Directory” service and select “App Registrations”.
 Then select “New Registration”</p>
-<p><img alt="app register" src="../_images/image5.PNG" /></p>
+<p><img alt="app register" src="../_images/image51.png" /></p>
 <p>You can input any name for the application</p>
-<p><img alt="app creation" src="../_images/image6.PNG" /></p>
+<p><img alt="app creation" src="../_images/image61.png" /></p>
 <p>After creation, you will be navigated to the overview page of the application, on this page copy the client ID and tenant ID to notepad</p>
-<p><img alt="app overview" src="../_images/image7.PNG" /></p>
+<p><img alt="app overview" src="../_images/image71.png" /></p>
 </div>
 <div class="section" id="azure-secret-key">
 <h3>Azure_Secret_Key<a class="headerlink" href="#azure-secret-key" title="Permalink to this headline">¶</a></h3>
 <p>In the same application page, navigate to Certificates &amp; secrets and select “New client secret”</p>
-<p><img alt="cert and sec" src="../_images/image8.PNG" /></p>
+<p><img alt="cert and sec" src="../_images/image81.png" /></p>
 <p>You can give any meaningful name to the new secret, use the default expiration for security purpose</p>
-<p><img alt="add client secret" src="../_images/image9.PNG" /></p>
+<p><img alt="add client secret" src="../_images/image91.png" /></p>
 <p>After creation, copy the new client secret to notepad
-<img alt="new client secret" src="../_images/image10.PNG" /></p>
+<img alt="new client secret" src="../_images/image101.png" /></p>
 </div>
 <div class="section" id="grant-permission-to-application">
 <h3>Grant permission to application<a class="headerlink" href="#grant-permission-to-application" title="Permalink to this headline">¶</a></h3>
@@ -413,19 +413,19 @@ we need to add a role assignment to the application that we just created,
 so it can access the resources</p>
 <p>Navigate to the subscription overview page and select “Access control(IAM)”
 then select “add”, “Add role assignment”</p>
-<p><img alt="add role assignment" src="../_images/image11.PNG" /></p>
+<p><img alt="add role assignment" src="../_images/image111.png" /></p>
 <p>You can give the application “Contributor” role,
 the “contributor” role has enough access for compute resources.
 Leave the second option as “Azure AD user, group, or service principal”.
 For third option, you need to input the application name that you just created,
 it doesn’t show up by default</p>
-<p><img alt="grant role assignment" src="../_images/image12.PNG" /></p>
+<p><img alt="grant role assignment" src="../_images/image121.png" /></p>
 </div>
 <div class="section" id="add-the-credentials-to-cloudmesh-yaml">
 <h3>Add the credentials to cloudmesh.yaml<a class="headerlink" href="#add-the-credentials-to-cloudmesh-yaml" title="Permalink to this headline">¶</a></h3>
 <p>Now we need to open cloudmesh.yaml and add the 4 credentials
 that we just collected to the “azure” section of cloudmesh.yaml</p>
-<p><img alt="cloudmesh.yaml" src="../_images/image13.PNG" /></p>
+<p><img alt="cloudmesh.yaml" src="../_images/image131.png" /></p>
 </div>
 </div>
 <div class="section" id="azure-resource-group-for-compute">

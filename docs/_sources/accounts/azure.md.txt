@@ -174,39 +174,39 @@ As a first step, a `Container` should be created in the Blob storage. A containe
 
 Navigate to subscriptions
 
-![Navigate to Subs](images/azure/image3.PNG)
+![Navigate to Subs](images/azure/image3.png)
 
 Copy the Subscription ID to notepad
 
-![sub ID](images/azure/image4.PNG)
+![sub ID](images/azure/image4.png)
 
 ### Azure_Tenant_ID & Azure_Client_ID
 
 Navigate to "Azure Active Directory" service and select "App Registrations".
 Then select "New Registration"
 
-![app register](images/azure/image5.PNG)
+![app register](images/azure/image5.png)
 
 You can input any name for the application
 
-![app creation](images/azure/image6.PNG)
+![app creation](images/azure/image6.png)
 
 After creation, you will be navigated to the overview page of the application, on this page copy the client ID and tenant ID to notepad
 
-![app overview](images/azure/image7.PNG)
+![app overview](images/azure/image7.png)
 
 ### Azure_Secret_Key
 
 In the same application page, navigate to Certificates & secrets and select "New client secret"
 
-![cert and sec](images/azure/image8.PNG)
+![cert and sec](images/azure/image8.png)
 
 You can give any meaningful name to the new secret, use the default expiration for security purpose
 
-![add client secret](images/azure/image9.PNG)
+![add client secret](images/azure/image9.png)
 
  After creation, copy the new client secret to notepad
- ![new client secret](images/azure/image10.PNG)
+ ![new client secret](images/azure/image10.png)
 
 ### Grant permission to application
 
@@ -217,7 +217,7 @@ so it can access the resources
 Navigate to the subscription overview page and select "Access control(IAM)"
 then select "add", "Add role assignment"
 
-![add role assignment](images/azure/image11.PNG)
+![add role assignment](images/azure/image11.png)
 
 You can give the application "Contributor" role,
 the "contributor" role has enough access for compute resources.
@@ -225,14 +225,14 @@ Leave the second option as "Azure AD user, group, or service principal".
 For third option, you need to input the application name that you just created,
 it doesn't show up by default
 
-![grant role assignment](images/azure/image12.PNG)
+![grant role assignment](images/azure/image12.png)
 
 ### Add the credentials to cloudmesh.yaml
 
 Now we need to open cloudmesh.yaml and add the 4 credentials
 that we just collected to the "azure" section of cloudmesh.yaml
 
-![cloudmesh.yaml](images/azure/image13.PNG)
+![cloudmesh.yaml](images/azure/image13.png)
 
 ## Azure Resource Group (for Compute)
 

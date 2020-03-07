@@ -288,9 +288,12 @@
 <span class="n">RANDOM</span> <span class="o">=</span> <span class="mi">20</span>
 
 <span class="k">def</span> <span class="nf">_get_size</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
     <span class="n">height</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-    <span class="n">width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">_str_block_width</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">_str_block_width</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
         
 <div class="viewcode-block" id="PrettyTable"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.prettytable.PrettyTable">[docs]</a><span class="k">class</span> <span class="nc">PrettyTable</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1264,7 +1267,7 @@
        
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_field_names</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_widths</span><span class="p">):</span>
             <span class="c1"># Enforce max widths</span>
-            <span class="n">lines</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
             <span class="n">new_lines</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> 
                 <span class="k">if</span> <span class="n">_str_block_width</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">:</span>
@@ -1293,7 +1296,7 @@
         <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_field_names</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_widths</span><span class="p">):</span>
 
             <span class="n">valign</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_valign</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
-            <span class="n">lines</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
             <span class="n">dHeight</span> <span class="o">=</span> <span class="n">row_height</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">dHeight</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">valign</span> <span class="o">==</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span>

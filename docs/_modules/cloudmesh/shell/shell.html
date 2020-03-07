@@ -883,7 +883,7 @@
 <div class="viewcode-block" id="CMShell.preloop"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell.preloop">[docs]</a>    <span class="k">def</span> <span class="nf">preloop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;adds the banner to the preloop&quot;&quot;&quot;</span>
 
-        <span class="n">lines</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">banner</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">banner</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
             <span class="c1"># Console.cprint(&quot;BLUE&quot;, &quot;&quot;, line)</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></div>
@@ -982,7 +982,8 @@
 
 <span class="sd">          Usage:</span>
 <span class="sd">            version pip [PACKAGE]</span>
-<span class="sd">            version [--format=FORMAT] [--check=CHECK]</span>
+<span class="sd">            version [--format=FORMAT] [--check=CHECK] [--number]</span>
+
 <span class="sd">           </span>
 
 <span class="sd">          Options:</span>
@@ -1058,9 +1059,10 @@
             <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">((</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="s2">&quot;cloudmesh&quot;</span><span class="p">),</span>
                                              <span class="n">stdin</span><span class="o">=</span><span class="n">pipcheck</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
                 <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-            <span class="n">pkglines</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">pkglines</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
 
             <span class="k">for</span> <span class="n">pkgline</span> <span class="ow">in</span> <span class="n">pkglines</span><span class="p">:</span>
+                <span class="c1"># print (pkgline)</span>
                 <span class="k">if</span> <span class="s2">&quot;==&quot;</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">:</span>
                     <span class="n">values</span> <span class="o">=</span> <span class="n">pkgline</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;==&quot;</span><span class="p">)</span>
                     <span class="n">pkg</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1086,7 +1088,7 @@
                             <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span>
                             <span class="s2">&quot;VERSION&quot;</span><span class="p">:</span> <span class="n">v</span>
                         <span class="p">}</span>
-                <span class="k">elif</span> <span class="s2">&quot;git&quot;</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">:</span>
+                <span class="k">elif</span> <span class="s2">&quot;git&quot;</span> <span class="ow">in</span> <span class="n">pkgline</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;installer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;pi_burn&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">):</span>
 
                     <span class="n">pkgline</span> <span class="o">=</span> <span class="n">pkgline</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
                         <span class="s2">&quot;-e git+git@github.com:cloudmesh-community/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -1101,7 +1103,10 @@
                     <span class="c1">#</span>
                     <span class="n">pname</span> <span class="o">=</span> <span class="n">pkg</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;cloudmesh_&quot;</span><span class="p">,</span> <span class="s2">&quot;cloudmesh.&quot;</span><span class="p">)</span>
 
-                    <span class="n">i</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pname</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">i</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">pname</span><span class="p">)</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="k">continue</span>
 
                     <span class="n">location</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="vm">__file__</span>
 
@@ -1163,11 +1168,31 @@
 <span class="sd">        print (versions)</span>
 <span class="sd">        &#39;&#39;&#39;</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">versions</span><span class="p">,</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--number&quot;</span><span class="p">]:</span>
+
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">entry</span> <span class="ow">in</span> <span class="n">versions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;package&#39;</span><span class="p">],</span>
+                        <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;VERSION&#39;</span><span class="p">]</span>
+                    <span class="p">}</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
                             <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">],</span>
-                            <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;package&quot;</span><span class="p">,</span> <span class="s2">&quot;VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span>
-                                   <span class="s2">&quot;source&quot;</span><span class="p">],</span>
+                                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">],</span>
+                                <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Package&quot;</span><span class="p">,</span> <span class="s2">&quot;Version&quot;</span><span class="p">],</span>
                             <span class="n">sort_keys</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">versions</span><span class="p">,</span>
+                                <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">],</span>
+                                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;package&quot;</span><span class="p">,</span> <span class="s2">&quot;VERSION&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span>
+                                       <span class="s2">&quot;source&quot;</span><span class="p">],</span>
+                                <span class="n">sort_keys</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--check&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;True&quot;</span><span class="p">]:</span>
             <span class="n">Shell</span><span class="o">.</span><span class="n">check_python</span><span class="p">()</span></div>
 

@@ -324,8 +324,8 @@
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Config Security Initialization&quot;</span><span class="p">)</span>
             <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;cms&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;secinit&quot;</span><span class="p">])</span>
 
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms sec load&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms key add&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms sec load&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">CLOUD</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">cloud</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">CLOUD</span>

@@ -13,7 +13,6 @@ Subpackages
    cloudmesh.cmd5
    cloudmesh.common
    cloudmesh.compute
-   cloudmesh.config
    cloudmesh.container
    cloudmesh.data
    cloudmesh.db
