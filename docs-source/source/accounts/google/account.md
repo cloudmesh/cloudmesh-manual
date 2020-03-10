@@ -46,9 +46,9 @@ use the name `cloudmesh`. You can create such a project at
   
 The three screenshots show the workflow on how to create a project:
    
-![Create first account_01](images/MyFirstAccount_01.png)
-![Create first account_02](images/MyFirstAccount_02.png)
-![Create first account_03](images/MyFirstAccount_03.png)
+![Create first account_01](https://github.com/cloudmesh-community/sp20-516-235/blob/master/images/create1.png)
+![Create first account_02](https://github.com/cloudmesh-community/sp20-516-235/blob/master/images/create2.png)
+![Create first account_03](https://github.com/cloudmesh-community/sp20-516-235/blob/master/images/create3.png)
    
 #### Create a Service Account
 
@@ -60,7 +60,7 @@ To create it you need to select the newly created project and go to
 
 * [Create service account page](https://cloud.google.com/docs/authentication/production)
    
-   ![Create service account_01](images/CreateServiceAccount_01.png)
+   ![Create service account_01](https://github.com/cloudmesh-community/sp20-516-235/blob/master/images/create4.png)
 
    * Go to section :Creating a service account 
    
@@ -104,7 +104,7 @@ $ cms register google google.json
 
 
 ```
-cms google config add ~/.cloudmesh/google.json --service=google 
+$ cms google config add ~/.cloudmesh/google.json --service=google 
 ```
 
 
@@ -116,14 +116,14 @@ Mor details of the configuration can v=be looked up in the [Cloudmesh  Configura
 THE COMMANDS HAVE TO BE REVISITED
 
 ```
-cms google list # what does thsi do?
+$ cms google list # what does thsi do?
 ```
 
 THIS NEEDS TO BE RENAMED TO 
 
 ```
-cms google config list  # logical
-cms google yaml list storage # somewhat logical
+$ cms google config list  # logical
+$ cms google yaml list storage # somewhat logical
 
 ```
 
@@ -136,7 +136,7 @@ If google storage bucket is alredy created, you can list google storage bucket
 using following command:
 
 ```
-cms google list 
+$ cms google list 
 ```
 
 From the displayed list please pick bucket of your choice and add bucket name
