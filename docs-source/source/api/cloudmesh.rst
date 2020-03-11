@@ -6,7 +6,6 @@ Subpackages
 
 .. toctree::
 
-   cloudmesh.abstractclass
    cloudmesh.admin
    cloudmesh.check
    cloudmesh.cloud

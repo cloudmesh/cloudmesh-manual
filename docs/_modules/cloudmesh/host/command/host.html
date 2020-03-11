@@ -220,7 +220,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.host.host</span> <span class="kn">import</span> <span class="n">Host</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 
 <div class="viewcode-block" id="HostCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.host.command.html#cloudmesh.host.command.host.HostCommand">[docs]</a><span class="k">class</span> <span class="nc">HostCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -237,7 +237,9 @@
 <span class="sd">              host key list NAMES [--dryrun]</span>
 <span class="sd">              host key fix FILE [--dryrun]</span>
 <span class="sd">              host key scp NAMES FILE [--dryrun]</span>
-
+<span class="sd">              host key gather NAMES [FILE]</span>
+<span class="sd">              host key scatter NAMES [FILE]</span>
+<span class="sd">              host key generate NAMES</span>
 
 <span class="sd">          This command does some useful things.</span>
 
@@ -337,8 +339,23 @@
             <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                <span class="n">destinations</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">:~/.ssh/authorized_keys&quot;</span><span class="p">]</span>
+                <span class="n">destinations</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">:~/.ssh/authorized_keys&quot;</span><span class="p">]</span>
                 <span class="n">results</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">scp</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">FILE</span><span class="p">,</span> <span class="n">destinations</span><span class="p">,</span> <span class="n">dryrun</span><span class="o">=</span><span class="n">dryrun</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">key</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">gather</span><span class="p">:</span>
+
+            <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">)</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FILE&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/keys/authorized_keys&quot;</span><span class="p">)</span>
+
+            <span class="n">Host</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">names</span><span class="p">,</span>
+                        <span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">,</span>
+                        <span class="n">file</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">key</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">gather</span><span class="p">:</span>
+
+            <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">)</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FILE&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/keys/authorized_keys&quot;</span><span class="p">)</span>
+            <span class="n">Host</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="s2">&quot;~/.ssh/authorized_keys&quot;</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">()</span>
 

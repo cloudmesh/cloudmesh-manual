@@ -21,22 +21,6 @@ cloudmesh.storage.Provider module
    :undoc-members:
    :show-inheritance:
 
-cloudmesh.storage.StorageABC module
------------------------------------
-
-.. automodule:: cloudmesh.storage.StorageABC
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cloudmesh.storage.StorageNewABC module
---------------------------------------
-
-.. automodule:: cloudmesh.storage.StorageNewABC
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 
 Module contents
 ---------------

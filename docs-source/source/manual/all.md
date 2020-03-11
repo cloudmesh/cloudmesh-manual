@@ -1,13 +1,13 @@
 # Commands
 
 ```
-EOF        data     host       open       register  start      version       
-admin      debug    image      openstack  sec       stop       vm            
-banner     default  info       pause      service   stopwatch  workflow_draft
-check      echo     init       plugin     set       sys      
-clear      flavor   inventory  provider   shell     test     
-commands   group    ip         py         sleep     var      
-config     gui      key        q          source    vbox     
-container  help     man        quit       ssh       vcluster 
+EOF        data     help       man        quit      ssh        vbox          
+admin      debug    host       open       register  start      vcluster      
+banner     default  image      openstack  sec       stop       vdir          
+check      echo     info       pause      service   stopwatch  version       
+clear      flavor   init       plugin     set       storage    vm            
+commands   google   inventory  provider   shell     sys        volume        
+config     group    ip         py         sleep     test       workflow_draft
+container  gui      key        q          source    var      
 
 ```

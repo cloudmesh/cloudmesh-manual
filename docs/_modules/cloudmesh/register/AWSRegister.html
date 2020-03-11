@@ -230,7 +230,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
 
 <div class="viewcode-block" id="AWSRegister.set_credentials"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.set_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">set_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">creds</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_ACCESS_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Access key ID&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -315,7 +315,7 @@
             <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
                 <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">credentials_file_name</span><span class="si">}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
 
             <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
                 <span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span>
@@ -353,7 +353,7 @@
                 <span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
 
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">credentials_file_name</span><span class="si">}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
 
             <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
                 <span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span>

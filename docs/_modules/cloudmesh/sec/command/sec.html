@@ -408,7 +408,7 @@
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">:</span>
                 <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                     <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
                     <span class="n">r</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">remove_secgroup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">GROUP</span><span class="p">)</span>
 
@@ -426,7 +426,7 @@
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
 
             <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
                 <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">()</span>
 
@@ -478,7 +478,7 @@
             <span class="c1">#  name=None, protocol=None, ports=None, ip_range=None</span>
             <span class="n">rules</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">RULE</span><span class="p">,</span>
-                <span class="n">ports</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.FROMPORT}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{arguments.TOPORT}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">ports</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arguments</span><span class="o">.</span><span class="n">FROMPORT</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arguments</span><span class="o">.</span><span class="n">TOPORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="n">protocol</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">PROTOCOL</span><span class="p">,</span>
                 <span class="n">ip_range</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">CIDR</span>
             <span class="p">)</span>

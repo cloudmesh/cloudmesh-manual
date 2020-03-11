@@ -261,28 +261,28 @@
             <span class="n">shell</span> <span class="o">=</span> <span class="n">which_shell</span><span class="p">()</span>
 
             <span class="k">if</span> <span class="n">shell</span> <span class="o">==</span> <span class="s1">&#39;bash&#39;</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We will be adding to the ~.bash_profile </span><span class="si">{path}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We will be adding to the ~.bash_profile </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                echo </span><span class="se">\&quot;</span><span class="s2">export PATH=</span><span class="si">{path}</span><span class="s2">:$PATH</span><span class="se">\&quot;</span><span class="s2"> &gt;&gt; ~/.bash_profile</span>
+<span class="s2">                echo </span><span class="se">\&quot;</span><span class="s2">export PATH=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">:$PATH</span><span class="se">\&quot;</span><span class="s2"> &gt;&gt; ~/.bash_profile</span>
 <span class="s2">                source ~/.bash_profile</span>
 <span class="s2">                &quot;&quot;&quot;</span>
             <span class="k">elif</span> <span class="n">shell</span> <span class="o">==</span> <span class="s2">&quot;zsh&quot;</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We will be adding to the ~/.zprofile </span><span class="si">{path}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We will be adding to the ~/.zprofile </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                echo </span><span class="se">\&quot;</span><span class="s2">export PATH=</span><span class="si">{path}</span><span class="s2">:$PATH</span><span class="se">\&quot;</span><span class="s2"> &gt;&gt; ~/.zprofile</span>
+<span class="s2">                echo </span><span class="se">\&quot;</span><span class="s2">export PATH=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">:$PATH</span><span class="se">\&quot;</span><span class="s2"> &gt;&gt; ~/.zprofile</span>
 <span class="s2">                source ~/.zprofile</span>
 <span class="s2">                &quot;&quot;&quot;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                echo </span><span class="se">\&quot;</span><span class="s2">Shell </span><span class="si">{shell}</span><span class="s2"> not supported</span>
+<span class="s2">                echo </span><span class="se">\&quot;</span><span class="s2">Shell </span><span class="si">{</span><span class="n">shell</span><span class="si">}</span><span class="s2"> not supported</span>
 <span class="s2">                &quot;&quot;&quot;</span>
         <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">is_in_path</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
                 <span class="k">return</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We will be adding to the ~.bash_profile </span><span class="si">{path}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We will be adding to the ~.bash_profile </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">script</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">            echo </span><span class="se">\&quot;</span><span class="s2">export PATH=</span><span class="si">{path}</span><span class="s2">:$PATH</span><span class="se">\&quot;</span><span class="s2"> &gt;&gt; ~/.bashrc</span>
+<span class="s2">            echo </span><span class="se">\&quot;</span><span class="s2">export PATH=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">:$PATH</span><span class="se">\&quot;</span><span class="s2"> &gt;&gt; ~/.bashrc</span>
 <span class="s2">            source ~/.bashrc</span>
 <span class="s2">            &quot;&quot;&quot;</span>
         <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;windows&quot;</span><span class="p">:</span>

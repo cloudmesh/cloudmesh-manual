@@ -292,9 +292,9 @@
 
 <div class="viewcode-block" id="Arguments.get_attribute"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_attribute">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_attribute</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="ow">or</span> <span class="n">arguments</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;--</span><span class="si">{attribute}</span><span class="s2">&quot;</span><span class="p">]</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="ow">or</span> <span class="n">arguments</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;--</span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;you need to specify an `</span><span class="si">{attribute}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;you need to specify an `</span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">value</span></div>

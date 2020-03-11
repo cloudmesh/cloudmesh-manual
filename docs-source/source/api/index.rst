@@ -46,7 +46,6 @@ Cloudmesh API
    :maxdepth: 1
 
    cloudmesh
-   cloudmesh.abstractclass
    cloudmesh.admin
    cloudmesh.check
    cloudmesh.cloud

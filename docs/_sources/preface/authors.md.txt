@@ -10,5 +10,6 @@
     Danushka Withana*, *Saurabh Swaroop*, *Scott McClary*, *Shivani Katukota*,
     *Shreyans Jain*, *Sriman*, *Subramaniyam Raizada*, *Swaroop, Saurabh*, *Tarun
     Rawat*, *Tharak Vangalapat*, *Vafa Andalibi*, *Xiao Yue*, *Yu Luo*, *Yue,
-    Xiao*, *Zhengyi Li*, *bkegerreis*, *gvonlasz*, *prateekazam@gmail.com*
+    Xiao*, *Zhengyi Li*, *andrewgoldfarb*, *baker203*, *bkegerreis*, *gvonlasz*,
+    *iumsds*, *prateekazam@gmail.com*
 

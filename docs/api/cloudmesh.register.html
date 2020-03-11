@@ -126,7 +126,6 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#cloudmesh-api">Cloudmesh API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
@@ -436,23 +435,30 @@ cloudmesh:</p>
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.register.Register.</code><code class="sig-name descname">Register</code><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
-<dt id="cloudmesh.register.Register.Register.aws">
-<code class="sig-name descname">aws</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.aws"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.aws" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.register.Register.Register.get_provider">
+<em class="property">static </em><code class="sig-name descname">get_provider</code><span class="sig-paren">(</span><em class="sig-param">kind=None</em>, <em class="sig-param">service=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.get_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.get_provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to import the provider based on the service and kind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – Type of the service e.g. compute or storage, volume</p></li>
+<li><p><strong>kind</strong> – Name of the cloud e.g. google, azure, aws etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Provider class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.register.Register.Register.get_sample">
+<em class="property">static </em><code class="sig-name descname">get_sample</code><span class="sig-paren">(</span><em class="sig-param">provider</em>, <em class="sig-param">kind</em>, <em class="sig-param">service</em>, <em class="sig-param">name</em>, <em class="sig-param">attributes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.get_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.get_sample" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.register.Register.Register.azure">
-<code class="sig-name descname">azure</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.azure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.azure" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.register.Register.Register.chameleon">
-<code class="sig-name descname">chameleon</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.chameleon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.chameleon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.register.Register.Register.google">
-<code class="sig-name descname">google</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.google"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.google" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.register.Register.Register.get_sample_variables">
+<em class="property">static </em><code class="sig-name descname">get_sample_variables</code><span class="sig-paren">(</span><em class="sig-param">sample</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/register/Register.html#Register.get_sample_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.register.Register.Register.get_sample_variables" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -280,7 +280,7 @@
 <span class="sd">        connect to the database</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;mongodb://</span><span class="si">{self.username}</span><span class="s2">:</span><span class="si">{self.password}</span><span class="s2">@</span><span class="si">{self.host}</span><span class="s2">:</span><span class="si">{self.port}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="sa">f</span><span class="s2">&quot;mongodb://</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="p">]</span></div>
 
     <span class="c1"># ok</span>
@@ -386,7 +386,7 @@
         <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;.*-</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;.*-</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -416,7 +416,7 @@
         <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;.*-</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;.*-</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -500,7 +500,7 @@
         <span class="k">if</span> <span class="n">kinds</span> <span class="ow">and</span> <span class="n">clouds</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">_kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">_cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                    <span class="n">_collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{_cloud}</span><span class="s2">-</span><span class="si">{_kind}</span><span class="s2">&quot;</span>
+                    <span class="n">_collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_cloud</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">_kind</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">collections</span><span class="p">:</span>
@@ -580,7 +580,7 @@
         <span class="k">if</span> <span class="n">kinds</span> <span class="ow">and</span> <span class="n">clouds</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">_kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">_cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                    <span class="n">_collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{_cloud}</span><span class="s2">-</span><span class="si">{_kind}</span><span class="s2">&quot;</span>
+                    <span class="n">_collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_cloud</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">_kind</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">collections</span><span class="p">:</span>
@@ -799,7 +799,7 @@
 <div class="viewcode-block" id="CmDatabase.importAsFile"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.importAsFile">[docs]</a>    <span class="k">def</span> <span class="nf">importAsFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">collection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">collection</span><span class="p">)</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collection </span><span class="si">{collection}</span><span class="s2"> dropped to be rewritten&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collection </span><span class="si">{</span><span class="n">collection</span><span class="si">}</span><span class="s2"> dropped to be rewritten&quot;</span><span class="p">)</span>
         <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">importAsFile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span></div></div>
         <span class="c1"># MongoDBController().start_if_not_running()</span>
         <span class="c1"># tmp_folder = path_expand(&#39;~/.cloudmesh/tmp&#39;)</span>

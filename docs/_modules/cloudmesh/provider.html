@@ -236,13 +236,13 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cloudmesh.compute.</span><span class="si">{key}</span><span class="s2">.Provider&quot;</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cloudmesh.compute.</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">.Provider&quot;</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
             <span class="c1"># self.data[key] = provider</span>
             <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;debug&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;False&#39;</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Loading Provider: &#39;</span><span class="si">{key}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Loading Provider: &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
 </pre></div>
 

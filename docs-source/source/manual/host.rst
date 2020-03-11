@@ -10,7 +10,9 @@ host
       host key list NAMES [--dryrun]
       host key fix FILE [--dryrun]
       host key scp NAMES FILE [--dryrun]
-
+      host key gather NAMES [FILE]
+      host key scatter NAMES [FILE]
+      host key generate NAMES
 
   This command does some useful things.
 

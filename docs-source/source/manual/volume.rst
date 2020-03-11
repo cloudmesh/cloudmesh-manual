@@ -46,6 +46,8 @@ volume
                       [--property=PROPERTY]
                       [--image-property=IMAGE-PROPERTY]
                       [--dryrun]
+        volume mount PATH NAME
+                      [--cloud=CLOUD]
 
   A simple abstraction layer to manage Cloud Volumes for AWS, Azure, Google, Openstack and Multipass
 
@@ -53,8 +55,10 @@ volume
       NAME  volume name
       NAMEA first volume name to sync
       NAMEB second volume name to sync
+      PATH mount path name
 
   Options:
+      --cloud=CLOUD                     specify cloud name
       --size=SIZE                       specify size of volume
       --type=VOLUME-TYPE                specify type of volume
       --image=IMAGE                     specify source
@@ -74,8 +78,9 @@ volume
       --service=SERVICE                 specify the service where the volume is moving within
       --state=STATE                     specify the state of the volume
       --retype-policy=RETYPE-POLICY     specify the retype-policy
-      --property=PROPERTY               specify key for volume
-      --image-property=IMAGE-PROPERTY   specify image-key for volume
+      --property=PROPERTY               specify property for the volume
+      --image-property=IMAGE-PROPERTY   specify property of the image
+                                            for the volume
 
 
   Commands:
@@ -100,3 +105,5 @@ volume
     Unset volume
       cms volume unset NAME
       Optionally you can provide property, image-property
+    mount path name
+      cms volume mount path name

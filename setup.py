@@ -20,7 +20,7 @@ Cloudmesh CMD5 setup.
 import io
 
 from setuptools import find_packages, setup
-
+import os
 
 def readfile(filename):
     """
@@ -31,20 +31,28 @@ def readfile(filename):
     with io.open(filename, encoding="utf-8") as stream:
         return stream.read()
 
-
 requiers = """
 Pygments
 sphinx_rtd_theme
-recommonmark 
+recommonmark
+""".splitlines()
+
+requiers_cloudmesh = """
 cloudmesh-common
 cloudmesh-cmd5
+cloudmesh-configuration
 cloudmesh-sys
+cloudmesh-inventory
+cloudmesh-abstract
+cloudmesh-cloud
 cloudmesh-storage
 cloudmesh-google
 cloudmesh-oracle
-""".split("\n")
+""".splitlines()
 
-# dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
+if  "PRODUCTION" not in os.environ:
+    requiers = requiers + requiers_cloudmesh
+
 
 version = readfile("VERSION").strip()
 

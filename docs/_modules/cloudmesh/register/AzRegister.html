@@ -225,6 +225,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
+
 <span class="c1"># cloudmesh.cloud.azure.credentials.AZURE_TENANT_ID</span>
 <span class="c1"># cloudmesh.cloud.azure.credentials.AZURE_SUBSCRIPTION_ID</span>
 <span class="c1"># cloudmesh.cloud.azure.credentials.AZURE_APPLICATION_ID</span>
@@ -238,7 +239,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;azure&#39;</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
 
 <div class="viewcode-block" id="AzRegister.set_credentials"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AzRegister.AzRegister.set_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">set_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">creds</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;AZURE_TENANT_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Access key ID&#39;</span><span class="p">]</span>
@@ -269,7 +270,8 @@
         <span class="n">AZURE_TENANT_ID</span> <span class="o">=</span> <span class="n">azoutput</span><span class="p">[</span><span class="s1">&#39;tenantId&#39;</span><span class="p">]</span>
 
         <span class="c1"># WARNING: FOLLOWING CODE WILL RENDER OLD SECRET KEY INVALID</span>
-        <span class="n">azAppKeyStr</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s1">&#39;az ad sp create-for-rbac --name http://cloudmesh&#39;</span><span class="p">)</span>
+        <span class="n">azAppKeyStr</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span>
+            <span class="s1">&#39;az ad sp create-for-rbac --name http://cloudmesh&#39;</span><span class="p">)</span>
         <span class="n">azAppKeyDict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">azString2Dict</span><span class="p">(</span><span class="n">azAppKeyStr</span><span class="p">)</span>
 
         <span class="n">AZURE_APPLICATION_ID</span> <span class="o">=</span> <span class="n">azAppKeyDict</span><span class="p">[</span><span class="s1">&#39;appId&#39;</span><span class="p">]</span>

@@ -211,16 +211,18 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.register.command.register</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
-<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.register.Entry</span> <span class="kn">import</span> <span class="n">Entry</span>
-<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.register.Register</span> <span class="kn">import</span> <span class="n">Register</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 
 
 <div class="viewcode-block" id="RegisterCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.register.command.html#cloudmesh.register.command.register.RegisterCommand">[docs]</a><span class="k">class</span> <span class="nc">RegisterCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
@@ -231,250 +233,161 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        ::</span>
 
-<span class="sd">          Usage:</span>
-<span class="sd">              register aws yaml</span>
-<span class="sd">              register aws [FILENAME] [--keep]</span>
-<span class="sd">              register azure [FILENAME] [--keep]</span>
-<span class="sd">              register google [FILENAME] [--keep]</span>
-<span class="sd">              register chameleon [FILENAME] [--keep]</span>
-<span class="sd">              register new [-v] KIND SERVICE NAME [ATTRIBUTES...]</span>
-<span class="sd">              register list KIND SERVICE NAME [ATTRIBUTES...]</span>
+<span class="sd">            Usage:</span>
+<span class="sd">                register list kind --service=SERVICE</span>
+<span class="sd">                register list sample --cloud=CLOUD [--service=SERVICE]</span>
+<span class="sd">                register delete --cloud=CLOUD [--service=SERVICE]</span>
+<span class="sd">                register update --cloud=CLOUD [--service=SERVICE] [--name=NAME] [--filename=FILENAME] [--keep] [ATTRIBUTES...] [--dryrun]</span>
 
 
-<span class="sd">          This command adds the registration information the th cloudmesh</span>
-<span class="sd">          yaml file. The permissions of theFILENAME will also be changed.</span>
-<span class="sd">          A y/n question will be asked if the files with the filename should</span>
-<span class="sd">          be deleted after integration</span>
+<span class="sd">                This command adds the registration information in the cloudmesh</span>
+<span class="sd">                yaml file. A FILENAME can be passed along that contains</span>
+<span class="sd">                credential information downloaded from the cloud. The</span>
+<span class="sd">                permissions of the FILENAME will also be changed. A y/n question</span>
+<span class="sd">                will be asked if the file with the FILENAME should be deleted</span>
+<span class="sd">                after integration. THis helps that all credential information</span>
+<span class="sd">                could be managed with the cloudmesh.yaml file.</span>
 
-<span class="sd">          Arguments:</span>
-<span class="sd">              FILENAME   a filename in which the cloud credentials are stored</span>
+<span class="sd">            Arguments:</span>
+<span class="sd">                FILENAME    a filename in which the cloud credentials are stored</span>
+<span class="sd">                ATTRIBUTES  Attribute list to replace if json file is not provided.</span>
+<span class="sd">                            Note: Attributes will override the values from file</span>
+<span class="sd">                            if both are used.</span>
 
-<span class="sd">          Options:</span>
-<span class="sd">              --keep    keeps the file with the filename.</span>
+<span class="sd">            Options:</span>
+<span class="sd">                --keep               keeps the file with the filename.</span>
+<span class="sd">                --dryrun             option to just display the formatted sample without</span>
+<span class="sd">                                     updating the cloudmesh.yaml file.</span>
+<span class="sd">                --filename=FILENAME  json filename containing the details to be replaced</span>
+<span class="sd">                --cloud=CLOUD        cloud provider e.g. aws, google, openstack, oracle etc.</span>
+<span class="sd">                --service=SERVICE    service type e.g. storage, compute, volume</span>
+<span class="sd">                --name=NAME          name for the new registration</span>
 
-<span class="sd">          Description:</span>
+<span class="sd">            Examples:</span>
 
-<span class="sd">            AWS</span>
+<span class="sd">                cms register google compute --name=west_region \</span>
+<span class="sd">                    filename=~/.cloudmesh/google.json project_id=west1 \</span>
+<span class="sd">                    client_email=example@gmail.com</span>
 
-<span class="sd">                AWS dependent on how you downloaded the credentials will either</span>
-<span class="sd">                use the filename `credentials.csv` or `accessKey.csv`</span>
-
-<span class="sd">                Our command is smart provides some convenience functionality.</span>
-
-
-<span class="sd">                1. If either file is found in `~/Downloads`, it is moved to</span>
-<span class="sd">                   `~/.cloudmesh` and the permissions are changed</span>
-<span class="sd">                2. If such a file already exists there it will ask if it should</span>
-<span class="sd">                   be overwritten in case the content is not the same</span>
-<span class="sd">                3. The content of the file will be read to determine if it is</span>
-<span class="sd">                   likely to be an AWS credential</span>
-<span class="sd">                4. The credential will be added to the cloudmesh yaml file</span>
-
-<span class="sd">            Azure (TODO: THIS HAS TO BE IMPLEMENTED)</span>
-
-<span class="sd">                To use this command you must have an Azure account and Azure CLI</span>
-<span class="sd">                installed. Mote deatils to this can be found at:</span>
-
-<span class="sd">                   TBD: include link</span>
-
-<span class="sd">                This command leverages the Azure CLI to extract specific account</span>
-<span class="sd">                parameters and update the `cloudmesh.yaml` configuration file.</span>
-
-<span class="sd">                1. When this command is run, the `az login` Azure CLI command is</span>
-<span class="sd">                   executed, prompting you to login to your azure account via</span>
-<span class="sd">                   your default browser, which should then redirect you back to</span>
-<span class="sd">                   your CLI.</span>
-
-<span class="sd">                2. The azure cli command for `az account show` is then</span>
-<span class="sd">                   referenced to pull the account&#39;s subscription id and tenant</span>
-<span class="sd">                   id.</span>
-
-<span class="sd">                3. Run the command</span>
-
-<span class="sd">                        `az ad sp create-for-rbac --name http://cloudmesh`</span>
-
-<span class="sd">                   to reference the application id and secret key.</span>
-
-<span class="sd">                   NOTE: If there is already a secret key reference in the</span>
-<span class="sd">                   `cloudmesh.yaml` file, it will be rendered useless once the new</span>
-<span class="sd">                   secret key is obtained; requiring you to ensure the key has</span>
-<span class="sd">                   been successfully applied in the next step to the</span>
-<span class="sd">                   configuration file and cms init is called.</span>
-
-<span class="sd">                4. The credentials will be added to the</span>
-<span class="sd">                   `~/.cloudmesh.yaml` configuration file.</span>
-
-<span class="sd">            Google</span>
-
-<span class="sd">                Is not yet implemented</span>
-
-<span class="sd">            Chameleon Cloud</span>
-
-<span class="sd">                is not yet implemented</span>
-
-<span class="sd">          Register from template:</span>
-
-<span class="sd">            register list KIND SERVICE NAME [ATTRIBUTES...]</span>
-
-<span class="sd">                This command lists the template for a provider and fills it out</span>
-<span class="sd">                with the attributes. It can be used to check what information</span>
-<span class="sd">                would be added with the new command. The template is included in</span>
-<span class="sd">                the Provider itself. Leaving the attributes off, just prints the</span>
-<span class="sd">                template</span>
-
-<span class="sd">                Examples:</span>
-
-<span class="sd">                    cms register list compute openstack ABC</span>
-<span class="sd">                    cms register list compute openstack ABC uri=TBD tenant=TBD region=TBD</span>
-
-<span class="sd">                    In the last example the values for uri, tennant, and region</span>
-<span class="sd">                    will be cahnged to TBD</span>
-
-<span class="sd">            register new KIND SERVICE NAME ATTRIBUTES...</span>
-
-<span class="sd">                A new cloud can be added to the existing cloudmesh.yaml file</span>
-<span class="sd">                with thsi command. AN example is</span>
-
-<span class="sd">                cms register -v  compute aws ABC \</span>
-<span class="sd">                    region=one \</span>
-<span class="sd">                    EC2_ACCESS_ID=TBD</span>
-<span class="sd">                    EC2_SECRET_KEY=TBD</span>
-<span class="sd">                    EC2_SECRET_KEY=TBD</span>
-
-<span class="sd">                This command can also be used to overwrite an existing entry</span>
+<span class="sd">                  In the last example the values for filename, project_id, and</span>
+<span class="sd">                  client_email will be changed to respective values from google</span>
+<span class="sd">                  compute sample. We assume you have downloaded the credentials</span>
+<span class="sd">                  form google and stored it in the file ~/.cloudmesh/google.json</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
+        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
+                       <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;service&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;keep&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;filename&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;name&#39;</span><span class="p">)</span>
 
-            <span class="n">AWSReg</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
-                <span class="s2">&quot;cloudmesh.register.AWSRegister&quot;</span><span class="p">)</span>
-            <span class="n">AWSregisterer</span> <span class="o">=</span> <span class="n">AWSReg</span><span class="o">.</span><span class="n">AWSRegister</span><span class="p">()</span>
-            <span class="n">AWSregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">azure</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span><span class="p">:</span>
-                <span class="n">Registry</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span>
-                    <span class="s2">&quot;cloudmesh.register.AzRegister&quot;</span><span class="p">)</span>
-                <span class="n">AZregisterer</span> <span class="o">=</span> <span class="n">Registry</span><span class="o">.</span><span class="n">AzRegister</span><span class="p">()</span>
-                <span class="n">AZregisterer</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
+        <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">service</span> <span class="ow">or</span> <span class="s2">&quot;cloud&quot;</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span>
+        <span class="n">entry_name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        TODO: This is a special register allowing to use the web interface </span>
+<span class="sd">        to get the aws json file.</span>
+<span class="sd">        </span>
+<span class="sd">        if arguments.aws and arguments.yaml:</span>
+
+<span class="sd">            AWSReg = importlib.import_module(</span>
+<span class="sd">                &quot;cloudmesh.register.AWSRegister&quot;)</span>
+<span class="sd">            AWSregisterer = AWSReg.AWSRegister()</span>
+<span class="sd">            AWSregisterer.register()</span>
+
+<span class="sd">        elif arguments.azure:</span>
+<span class="sd">            if arguments.yaml:</span>
+<span class="sd">                Registry = importlib.import_module(</span>
+<span class="sd">                    &quot;cloudmesh.register.AzRegister&quot;)</span>
+<span class="sd">                AZregisterer = Registry.AzRegister()</span>
+<span class="sd">                AZregisterer.register()</span>
+
+<span class="sd">            return &quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">provider</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]:</span>
+
+            <span class="n">sample</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">sample</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample for service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> kind=</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The following attributes are not defined&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">()</span>
+                <span class="n">keys</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample_variables</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">keys</span><span class="p">)))</span>
+                <span class="nb">print</span><span class="p">()</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">google</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;kind&quot;</span><span class="p">]:</span>
 
-            <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+            <span class="n">kinds</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_kind</span><span class="p">()</span>
 
-            <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Read the  specification from json and write to yaml file&quot;</span><span class="p">)</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span>
-                <span class="n">arguments</span><span class="o">.</span><span class="n">FILE_JSON</span> <span class="ow">or</span> <span class="s2">&quot;~/.cloudmesh/google.json&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kind for service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">kinds</span><span class="p">)))</span>
+            <span class="nb">print</span><span class="p">()</span>
 
-            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
-            <span class="n">Provider</span><span class="o">.</span><span class="n">json_to_yaml</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
-
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;deleting </span><span class="si">{path}</span><span class="s2"> not implemented&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">chameleon</span><span class="p">:</span>
-
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;not yet implemented&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
 
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
 
-            <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KIND</span>
-            <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">SERVICE</span>
-            <span class="n">attributes</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
 
-            <span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-                            <span class="s1">&#39;service&#39;</span><span class="p">:</span> <span class="n">service</span><span class="p">}</span>
-            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
-                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
-                <span class="n">replacements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
+            <span class="c1"># Load JSON File.</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;openstack&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.openstack.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+            <span class="c1"># Add the filename to attributes</span>
+            <span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span>
 
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.azure.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span><span class="p">:</span>
 
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.aws.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+            <span class="n">atts</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">atts</span><span class="p">:</span>
+                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">attributes</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
 
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;storage&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span>
+                                     <span class="n">kind</span><span class="p">,</span>
+                                     <span class="n">service</span><span class="p">,</span>
+                                     <span class="n">entry_name</span><span class="p">,</span>
+                                     <span class="n">attributes</span><span class="p">)</span>
 
-            <span class="n">sample</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">sample</span>
+        <span class="k">if</span> <span class="n">sample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The sample is not fully filled out.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-            <span class="k">try</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">sample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">replacements</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for </span><span class="si">{e}</span><span class="s2"> is not specified&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+            <span class="c1"># Just print the value</span>
+            <span class="n">pprint</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Add the entry into cloudmesh.yaml file.</span>
+            <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
+                      <span class="n">base</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.</span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                      <span class="n">path</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">new</span><span class="p">:</span>
-
-            <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">KIND</span>
-            <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">SERVICE</span>
-            <span class="n">attributes</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
-
-            <span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-                            <span class="s1">&#39;service&#39;</span><span class="p">:</span> <span class="n">service</span><span class="p">}</span>
-            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
-                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
-                <span class="n">replacements</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;openstack&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.openstack.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
-
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.azure.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
-
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.aws.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
-
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
-
-            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;storage&quot;</span> <span class="ow">and</span> <span class="n">service</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
-                <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
-
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The provider </span><span class="si">{google}</span><span class="s2"> for </span><span class="si">{kind}</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot; does not have a sample configuration&quot;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-            <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;compute&quot;</span><span class="p">,</span> <span class="s2">&quot;cloud&quot;</span><span class="p">]:</span>
-                <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;cloud&quot;</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;storage&quot;</span><span class="p">]:</span>
-                <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;storage&quot;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;the kind </span><span class="si">{kind}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-            <span class="n">sample</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">sample</span>
-
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">sample</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">replacements</span><span class="p">)</span>
-
-                <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-v&quot;</span><span class="p">]:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-
-                <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
-                          <span class="n">base</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="p">,</span>
-                          <span class="n">path</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
-
-            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for </span><span class="si">{e}</span><span class="s2"> is not specified&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
-
+        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Registered </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> service for </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; provider with name </span><span class="si">{</span><span class="n">entry_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
 </pre></div>
 

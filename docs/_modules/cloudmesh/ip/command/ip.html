@@ -291,7 +291,7 @@
 
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cloud&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
             <span class="n">ips</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_public_ips</span><span class="p">()</span>
 
@@ -303,7 +303,7 @@
 
             <span class="n">n</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">N</span> <span class="ow">or</span> <span class="mi">1</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
@@ -317,7 +317,7 @@
 
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cloud&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
             <span class="n">ip</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">IP</span>
@@ -336,7 +336,7 @@
             <span class="n">vm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;cloud&quot;</span><span class="p">]</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
             <span class="n">ip</span> <span class="o">=</span> <span class="n">get_ip</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">IP</span><span class="p">)</span>
@@ -353,7 +353,7 @@
             <span class="n">vm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;cloud&quot;</span><span class="p">]</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
             <span class="n">ip</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_public_ip</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 

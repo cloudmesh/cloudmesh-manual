@@ -293,7 +293,7 @@
         <span class="k">if</span> <span class="n">directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">writefile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{directory}</span><span class="s2">/</span><span class="si">{name}</span><span class="s2">.</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+            <span class="n">writefile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 
     <span class="c1"># noinspection PyUnusedLocal</span>
     <span class="nd">@command</span>
@@ -374,7 +374,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">arguments</span><span class="o">.</span><span class="n">directory</span><span class="p">)</span>
 
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cloud not firn man page for </span><span class="si">{entry}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cloud not firn man page for </span><span class="si">{</span><span class="n">entry</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 

@@ -126,7 +126,6 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html#cloudmesh-api">Cloudmesh API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">cloudmesh.abstractclass package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">cloudmesh.admin package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.html">cloudmesh.check package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">cloudmesh.cloud package</a></li>
@@ -182,8 +181,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.box.html">cloudmesh.storage.provider.box package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.storage.provider.gdrive package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-provider-gdrive-provider-module">cloudmesh.storage.provider.gdrive.Provider module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.gdrive.Provider">cloudmesh.storage.provider.gdrive.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.gdrive">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a></li>
@@ -303,11 +302,192 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-storage-provider-gdrive-provider-module">
-<h2>cloudmesh.storage.provider.gdrive.Provider module<a class="headerlink" href="#cloudmesh-storage-provider-gdrive-provider-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.storage.provider.gdrive.Provider">
+<span id="cloudmesh-storage-provider-gdrive-provider-module"></span><h2>cloudmesh.storage.provider.gdrive.Provider module<a class="headerlink" href="#module-cloudmesh.storage.provider.gdrive.Provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.provider.gdrive.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">config='~/.cloudmesh/cloudmesh.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageABC.StorageABC</span></code></p>
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.cloud_path">
+<code class="sig-name descname">cloud_path</code><span class="sig-paren">(</span><em class="sig-param">srv_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.cloud_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.cloud_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.create_dir">
+<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>directory</strong> – the name of the directory</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.download_file">
+<code class="sig-name descname">download_file</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">file_id</em>, <em class="sig-param">file_name</em>, <em class="sig-param">mime_type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.download_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.download_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.generate_flags_json">
+<code class="sig-name descname">generate_flags_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.generate_flags_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.generate_flags_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.generate_key_json">
+<code class="sig-name descname">generate_key_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.generate_key_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.generate_key_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>destination</strong> – the destination which either can be a directory or
+file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.get_credentials">
+<code class="sig-name descname">get_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.get_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.get_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>We have stored the credentials in “.credentials”
+folder and there is a file named ‘google-drive-credentials.json’
+that has all the credentials required for our authentication
+If there is nothing stored in it this program creates credentials
+json file for future authentication
+Here the authentication type is OAuth2</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'gdrive'</em><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the information as dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>dir_only</strong> – Only the directory names</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.output">
+<code class="sig-name descname">output</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.put">
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>puts the source on the service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>destination</strong> – the destination which either can be a directory or
+file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.sample">
+<code class="sig-name descname">sample</code><em class="property"> = 'TODO: missing'</em><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.sample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">service=None</em>, <em class="sig-param">directory=None</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.update_dict">
+<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">elements</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.gdrive.Provider.Provider.upload_file">
+<code class="sig-name descname">upload_file</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">filename</em>, <em class="sig-param">parent_it</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/gdrive/Provider.html#Provider.upload_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.gdrive.Provider.Provider.upload_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.storage.provider.gdrive">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.provider.gdrive" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
