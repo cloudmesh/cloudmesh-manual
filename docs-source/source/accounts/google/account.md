@@ -46,9 +46,9 @@ use the name `cloudmesh`. You can create such a project at
   
 The three screenshots show the workflow on how to create a project:
    
-![Create first account_01](images/MyFirstAccount_01.png)
-![Create first account_02](images/MyFirstAccount_02.png)
-![Create first account_03](images/MyFirstAccount_03.png)
+![Create first account_01](images/MyAccount_01.png)
+![Create first account_02](images/MyAccount_02.png)
+![Create first account_03](images/MyAccount_03.png)
    
 #### Create a Service Account
 
@@ -68,7 +68,7 @@ To create it you need to select the newly created project and go to
   
     [Create Service Account Key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
     
-    ![Create service key](images/CreateServiceKey_01.png)
+    ![Create service key](images/CreateKey_01.png)
 
       Sample files:
        `client_secret.json` 
@@ -86,7 +86,7 @@ todo:: in future we want a link to a security section here
 
 This file will be used to update the YAML  entry in the file
 
-`~/.cloudmesh/cloudmesh.yaml`
+`$ ~/.cloudmesh/cloudmesh.yaml`
 
 We recommend that you rename the downloaded file to `google.json` when you save
 it.
@@ -104,7 +104,7 @@ $ cms register google google.json
 
 
 ```
-cms google config add ~/.cloudmesh/google.json --service=google 
+$ cms google config add ~/.cloudmesh/google.json --service=google 
 ```
 
 
@@ -116,14 +116,14 @@ Mor details of the configuration can v=be looked up in the [Cloudmesh  Configura
 THE COMMANDS HAVE TO BE REVISITED
 
 ```
-cms google list # what does thsi do?
+$ cms google list # what does thsi do?
 ```
 
 THIS NEEDS TO BE RENAMED TO 
 
 ```
-cms google config list  # logical
-cms google yaml list storage # somewhat logical
+$ cms google config list  # logical
+$ cms google yaml list storage # somewhat logical
 
 ```
 
@@ -136,7 +136,7 @@ If google storage bucket is alredy created, you can list google storage bucket
 using following command:
 
 ```
-cms google list 
+$ cms google list 
 ```
 
 From the displayed list please pick bucket of your choice and add bucket name
