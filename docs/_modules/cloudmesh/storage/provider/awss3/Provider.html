@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.storage.provider.awss3.Provider &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmsd.html">Cloudmesh cmsd</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.storage.provider.awss3.Provider</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.storage.provider.awss3.Provider</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">stat</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">botocore</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageDeprecatedABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+
+<span class="kn">import</span> <span class="nn">platform</span>
+
+
+<div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">StorageABC</span><span class="p">):</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;awss3&quot;</span>
+
+    <span class="n">sample</span> <span class="o">=</span> <span class="s2">&quot;TODO: missing&quot;</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># &quot;TODO: missing&quot;</span>
+
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        TBD</span>
+
+<span class="sd">        :param service: TBD</span>
+<span class="sd">        :param config: TBD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pprint(service)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;bucket&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span>
+            <span class="s1">&#39;s3&#39;</span><span class="p">,</span>
+            <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;access_key_id&#39;</span><span class="p">],</span>
+            <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;secret_access_key&#39;</span><span class="p">],</span>
+            <span class="n">region_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span>
+            <span class="s1">&#39;s3&#39;</span><span class="p">,</span>
+            <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;access_key_id&#39;</span><span class="p">],</span>
+            <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;secret_access_key&#39;</span><span class="p">],</span>
+            <span class="n">region_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span> <span class="o">=</span> <span class="s1">&#39;marker.txt&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># this is an internal function for building dict object</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+            <span class="c1"># entry = element.__dict__</span>
+            <span class="c1"># entry = element[&#39;objlist&#39;]</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="n">element</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;storage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloud&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;fileName&#39;</span><span class="p">]</span>
+            <span class="p">}</span>
+
+            <span class="c1"># element.properties = element.properties.__dict__</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span></div>
+
+    <span class="c1"># function to massage file path and do some transformations</span>
+    <span class="c1"># for different scenarios of file inputs</span>
+<div class="viewcode-block" id="Provider.massage_path"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.massage_path">[docs]</a>    <span class="k">def</span> <span class="nf">massage_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name_path</span><span class="p">):</span>
+        <span class="n">massaged_path</span> <span class="o">=</span> <span class="n">file_name_path</span>
+        <span class="c1"># pprint(massaged_path)</span>
+
+        <span class="c1"># convert possible windows style path to unix path</span>
+        <span class="n">massaged_path</span> <span class="o">=</span> <span class="n">massaged_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+
+        <span class="c1"># remove leading slash symbol in path</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">massaged_path</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">massaged_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">massaged_path</span> <span class="o">=</span> <span class="n">massaged_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+        <span class="c1"># expand home directory in path</span>
+        <span class="n">massaged_path</span> <span class="o">=</span> <span class="n">massaged_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
+        <span class="c1"># pprint(massaged_path)</span>
+
+        <span class="c1"># expand possible current directory reference in path</span>
+        <span class="k">if</span> <span class="n">massaged_path</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;.</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="ow">or</span> <span class="n">massaged_path</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;./&#39;</span><span class="p">:</span>
+            <span class="n">massaged_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">massaged_path</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">massaged_path</span></div>
+
+    <span class="c1"># Function to join file name dir to get full file path</span>
+<div class="viewcode-block" id="Provider.join_file_name_dir"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.join_file_name_dir">[docs]</a>    <span class="k">def</span> <span class="nf">join_file_name_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">dirname</span><span class="p">):</span>
+        <span class="n">full_file_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirname</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># fullFilePath = self.massage_path(dirName) + &#39;/&#39; + self.massage_path(fileName)</span>
+            <span class="n">full_file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                <span class="n">dirname</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                <span class="n">filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">full_file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">full_file_path</span></div>
+
+    <span class="c1"># Function to extract obj dict from metadata</span>
+<div class="viewcode-block" id="Provider.extract_file_dict"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.extract_file_dict">[docs]</a>    <span class="k">def</span> <span class="nf">extract_file_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">metadata</span><span class="p">):</span>
+        <span class="c1"># print(metadata)</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;fileName&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span>
+            <span class="c1"># &quot;creationDate&quot; : metadata[&#39;ResponseMetadata&#39;][&#39;HTTPHeaders&#39;][&#39;date&#39;],</span>
+            <span class="s2">&quot;lastModificationDate&quot;</span><span class="p">:</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">][</span><span class="s1">&#39;HTTPHeaders&#39;</span><span class="p">][</span><span class="s1">&#39;last-modified&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;contentLength&quot;</span><span class="p">:</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">][</span><span class="s1">&#39;HTTPHeaders&#39;</span><span class="p">][</span><span class="s1">&#39;content-length&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">info</span></div>
+
+<div class="viewcode-block" id="Provider.bucket_create"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_create">[docs]</a>    <span class="k">def</span> <span class="nf">bucket_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the source name from the put function</span>
+
+<span class="sd">        :param name: the bucket name which needs to be created</span>
+
+<span class="sd">        :return: dict,Boolean</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">create_bucket</span><span class="p">(</span>
+                <span class="n">ACL</span><span class="o">=</span><span class="s1">&#39;private&#39;</span><span class="p">,</span>
+                <span class="n">Bucket</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bucket Created:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="n">file_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bucket_create&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;bucket&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">dir_files_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span> \
+                       <span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Prefix</span><span class="o">=</span><span class="n">file_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">marker_object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Body</span><span class="o">=</span><span class="n">file_content</span><span class="p">)</span>
+
+                <span class="c1"># make head call to extract meta data</span>
+                <span class="c1"># and derive obj dict</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                    <span class="n">Key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span>
+                <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                    <span class="n">metadata</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bucket created&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dir_files_list</span>
+            <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+            <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+            <span class="c1"># return self.storage_dict</span>
+            <span class="k">return</span> <span class="n">dict_obj</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">except</span> <span class="n">botocore</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;One or more errors occurred while creating the bucket: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">e</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="Provider.bucket_exists"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.bucket_exists">[docs]</a>    <span class="k">def</span> <span class="nf">bucket_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the source from the put function</span>
+
+<span class="sd">        :param name: the bucket name which needs to be checked for exists</span>
+
+<span class="sd">        :return: Boolean</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_bucket</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">except</span> <span class="n">botocore</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># If a client error is thrown, then check that it was a 404 error.</span>
+            <span class="c1"># If it was a 404 error, then the bucket does not exist.</span>
+            <span class="n">error_code</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;Error&#39;</span><span class="p">][</span><span class="s1">&#39;Code&#39;</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="n">error_code</span> <span class="o">==</span> <span class="mi">403</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bucket </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is private. Access forbidden!&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="n">error_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bucket </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not exist&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span></div>
+
+    <span class="c1"># function to create a directory the function will first check if the bucket exists or not,if the bucket doesn&#39;t exist it will create the bucket and it will create the directory specified.</span>
+    <span class="c1"># the name of the bucket will come from YAML specifications and the directory name comes from the arguments.</span>
+
+<div class="viewcode-block" id="Provider.create_dir"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.create_dir">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        creates a directory</span>
+
+<span class="sd">        :param directory: the name of the directory</span>
+
+<span class="sd">        :return: dict</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">file_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="c1"># filePath = self.joinFileNameDir(self.directory_marker_file_name, directory)</span>
+        <span class="c1"># filePath = self.massage_path(directory) + &#39;/&#39; + self.directory_marker_file_name</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;create_dir&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">directory</span>
+        <span class="n">dir_files_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket_exists</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bucket_create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">)</span>
+
+        <span class="c1"># obj = list(self.s3_resource.Bucket(self.container_name).objects.filter(Prefix=filePath))</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span> \
+                   <span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Prefix</span><span class="o">=</span><span class="n">file_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># markerObject = self.s3_resource.Object(self.container_name, filePath).put(Body=fileContent)</span>
+            <span class="n">marker_object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                    <span class="n">directory</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Body</span><span class="o">=</span><span class="n">file_content</span><span class="p">)</span>
+
+            <span class="c1"># make head call to extract meta data</span>
+            <span class="c1"># and derive obj dict</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                    <span class="n">directory</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span>
+            <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+                <span class="n">metadata</span><span class="p">)</span>
+            <span class="p">)</span>
+
+            <span class="c1"># print(&#39;Directory created&#39;)</span>
+            <span class="c1"># print(markerObject)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Directory created&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># print(&#39;Directory already present&#39;)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Directory/Bucket already present&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dir_files_list</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+        <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+        <span class="c1"># return self.storage_dict</span>
+        <span class="k">return</span> <span class="n">dict_obj</span></div>
+
+        <span class="c1"># function to list file  or directory</span>
+
+<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        lists the information as dict</span>
+
+<span class="sd">        :param source: the source which either can be a directory or file</span>
+<span class="sd">        :param dir_only: Only the directory names</span>
+<span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
+<span class="sd">                          subdirectories in the specified source</span>
+
+<span class="sd">        :return: dict</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># if dir_only:</span>
+        <span class="c1">#    raise NotImplementedError</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;list&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="n">objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">objs</span><span class="p">)</span>
+
+        <span class="n">dir_files_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">trimmed_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="c1"># trimmed_source = source</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">recursive</span><span class="p">:</span>
+            <span class="c1"># call will not be recursive and need to look only in the specified directory</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)):</span>
+                    <span class="n">pprint</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                    <span class="n">file_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span>
+                    <span class="c1"># obj.key.replace(self.directory_marker_file_name,</span>
+                    <span class="c1">#                            &#39;&#39;)</span>
+                    <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+
+                        <span class="c1"># Its a directory</span>
+                        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">                        if (fileName.replace(trimmedSource,&#39;&#39;).count(&#39;/&#39;) == 1):</span>
+<span class="sd">                            </span>
+<span class="sd">                            dirFilesList.append(fileName)</span>
+<span class="sd">                        &#39;&#39;&#39;</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Its a file</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="c1"># dir_files_list.append(file_name)</span>
+
+                            <span class="c1"># make head call to extract meta data</span>
+                            <span class="c1"># and derive obj dict</span>
+                            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                                <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+                            <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                        <span class="k">elif</span> <span class="p">(</span><span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)[</span>
+                                  <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span> <span class="ow">and</span> <span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                            <span class="n">trimmed_source</span><span class="p">,</span>
+                            <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+                            <span class="c1"># dir_files_list.append(file_name)</span>
+
+                            <span class="c1"># make head call to extract meta data</span>
+                            <span class="c1"># and derive obj dict</span>
+                            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                                <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+                            <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                        <span class="k">elif</span> <span class="p">(</span><span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)[</span>
+                                  <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;/&#39;</span> <span class="ow">and</span> <span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                            <span class="n">trimmed_source</span><span class="p">,</span>
+                            <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                            <span class="c1"># dir_files_list.append(file_name)</span>
+
+                            <span class="c1"># make head call to extract meta data</span>
+                            <span class="c1"># and derive obj dict</span>
+                            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                                <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+                            <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                    <span class="c1"># print(fileName)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># call will be recursive and need to look recursively in the specified directory as well</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)):</span>
+                    <span class="c1"># print(obj.key)</span>
+                    <span class="n">file_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span>
+                    <span class="c1"># file_name = obj.key.replace(self.directory_marker_file_name,</span>
+                    <span class="c1">#                            &#39;&#39;)</span>
+                    <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+                        <span class="c1"># Its a directory</span>
+                        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">                        if (fileName.replace(trimmedSource,&#39;&#39;).count(&#39;/&#39;) == 1):</span>
+<span class="sd">                            dirFilesList.append(fileName)</span>
+<span class="sd">                        &#39;&#39;&#39;</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># its a file</span>
+                        <span class="c1"># dir_files_list.append(file_name)</span>
+
+                        <span class="c1"># make head call to extract meta data</span>
+                        <span class="c1"># and derive obj dict</span>
+                        <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                            <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+                        <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+                    <span class="c1"># print(fileName)</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        if len(dirFilesList) == 0:</span>
+<span class="sd">            #print(&quot;No files found in directory&quot;)</span>
+<span class="sd">            self.storage_dict[&#39;message&#39;] = &#39;&#39;</span>
+<span class="sd">        else:</span>
+<span class="sd">            self.storage_dict[&#39;message&#39;] = dirFilesList</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dir_files_list</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+        <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+        <span class="c1"># return self.storage_dict</span>
+        <span class="k">return</span> <span class="n">dict_obj</span></div>
+
+    <span class="c1"># function to delete file or directory</span>
+<div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        deletes the source</span>
+
+<span class="sd">        :param source: the source which either can be a directory or file</span>
+<span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
+<span class="sd">                          subdirectories in the specified source</span>
+
+<span class="sd">        :return: dict</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;delete&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="n">trimmed_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+
+        <span class="n">dir_files_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">file_obj</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="c1"># setting recursive as True for all delete cases</span>
+        <span class="c1"># recursive = True</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">file_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                                 <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_source</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">botocore</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># object not found</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="c1"># Its a file and can be deleted</span>
+
+            <span class="c1"># make head call to extract meta data</span>
+            <span class="c1"># and derive obj dict</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_source</span><span class="p">)</span>
+            <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+            <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                <span class="n">trimmed_source</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+            <span class="c1"># print(&#39;File deleted&#39;)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source Deleted&#39;</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Search for a directory</span>
+            <span class="n">all_objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                    <span class="n">Prefix</span><span class="o">=</span><span class="n">trimmed_source</span><span class="p">))</span>
+
+            <span class="n">total_all_objs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_objs</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">total_all_objs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source Not Found&#39;</span>
+
+            <span class="k">elif</span> <span class="n">total_all_objs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">all_objs</span><span class="p">:</span>
+                    <span class="c1"># if obj.key.startswith(self.massage_path(trimmedSource)):</span>
+
+                    <span class="c1"># make head call to extract meta data</span>
+                    <span class="c1"># and derive obj dict</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">:</span>
+                        <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                            <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                        <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                            <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                        <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span>
+                            <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                            <span class="n">metadata</span><span class="p">))</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                            <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                    <span class="c1"># dir_files_list.append(obj.key)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source Deleted&#39;</span>
+
+            <span class="k">elif</span> <span class="n">total_all_objs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="c1"># check if marker file exists in this directory</span>
+                <span class="n">marker_obj_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                        <span class="n">Prefix</span><span class="o">=</span><span class="n">trimmed_source</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">marker_exits</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">marker_obj_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">marker_exits</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="k">if</span> <span class="n">marker_exits</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">total_all_objs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+                    <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                        <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                        <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_source</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span>
+                    <span class="n">dir_files_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">trimmed_source</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+                                               <span class="n">metadata</span><span class="p">))</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                        <span class="n">trimmed_source</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source Deleted&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                        <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source has child objects. Please delete &#39;</span> \
+                                     <span class="s1">&#39;child objects first or use recursive option&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dir_files_list</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+        <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+        <span class="c1"># return self.storage_dict</span>
+        <span class="k">return</span> <span class="n">dict_obj</span></div>
+
+    <span class="c1"># function to upload file or directory</span>
+<div class="viewcode-block" id="Provider.put"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       puts the source on the service</span>
+
+<span class="sd">        :param source: the source which either can be a directory or file</span>
+<span class="sd">        :param destination: the destination which either can be a directory or file</span>
+<span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
+<span class="sd">                          subdirectories in the specified source</span>
+<span class="sd">        :return: dict</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># src_service, src = source.split(&quot;:&quot;, 1)</span>
+        <span class="c1"># dest_service, dest = destination.split(&quot;:&quot;, 1)</span>
+
+        <span class="c1"># check if the source an destination roots exist</span>
+
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;put&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>  <span class="c1"># src</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;destination&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">destination</span>  <span class="c1"># dest</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+
+        <span class="n">trimmed_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">trimmed_destination</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+        <span class="n">is_source_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)</span>
+        <span class="n">is_source_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)</span>
+
+        <span class="n">files_uploaded</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket_exists</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bucket_create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">bucket</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">is_source_file</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># print(&#39;file flow&#39;)</span>
+            <span class="c1"># Its a file and need to be uploaded to the destination</span>
+
+            <span class="c1"># check if trimmed_destination is file or a directory</span>
+            <span class="n">is_trimmed_destination_file</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">dot_operator</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+            <span class="c1"># print(&#39;destination base : &#39;+ os.path.basename(trimmed_destination))</span>
+            <span class="k">if</span> <span class="n">dot_operator</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">trimmed_destination</span><span class="p">):</span>
+                <span class="n">is_trimmed_destination_file</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="c1"># print(&#39;dot_operator found&#39;)</span>
+
+            <span class="c1"># print(&#39;is_trimmed_destination_file  :&#39;)</span>
+            <span class="c1"># print(is_trimmed_destination_file)</span>
+
+            <span class="k">if</span> <span class="n">is_trimmed_destination_file</span><span class="p">:</span>
+                <span class="n">blob_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                                      <span class="n">trimmed_destination</span><span class="p">)</span>
+
+                <span class="c1"># make head call since file upload does not return</span>
+                <span class="c1"># obj dict to extract meta data</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_destination</span><span class="p">)</span>
+                <span class="n">files_uploaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">trimmed_destination</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">destination_key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">trimmed_destination</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">destination_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">destination_key</span> <span class="o">=</span> <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                        <span class="n">trimmed_source</span><span class="p">)</span>
+
+                <span class="n">blob_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                                      <span class="n">destination_key</span><span class="p">)</span>
+
+                <span class="c1"># make head call since file upload does not return</span>
+                <span class="c1"># obj dict to extract meta data</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">destination_key</span><span class="p">)</span>
+                <span class="n">files_uploaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">destination_key</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source uploaded&#39;</span>
+        <span class="k">elif</span> <span class="n">is_source_dir</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Look if its a directory</span>
+            <span class="c1"># print(&#39;dir flow&#39;)</span>
+            <span class="c1"># files_uploaded = []</span>
+            <span class="k">if</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="c1"># get files in the directory and upload to destination dir</span>
+                <span class="n">files_to_upload</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+
+                        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+                            <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span>
+                            <span class="c1"># print(&#39;FILE :&#39;, os.path.join(dirpath, f))</span>
+                            <span class="c1"># directory ,tgtfile = os.path.split(f)</span>
+                            <span class="c1"># files_to_upload.append(tgtfile)</span>
+
+                <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files_to_upload</span><span class="p">:</span>
+                    <span class="n">directory</span><span class="p">,</span> <span class="n">tgtfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                               <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="n">tgtfile</span><span class="p">)</span>
+                    <span class="c1"># files_uploaded.append(trimmed_destination + &#39;/&#39; + file)</span>
+
+                    <span class="c1"># make head call since file upload does not return</span>
+                    <span class="c1"># obj dict to extract meta data</span>
+                    <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                        <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                        <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_destination</span> <span class="o">+</span> <span class="n">tgtfile</span><span class="p">)</span>
+                    <span class="n">files_uploaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">trimmed_destination</span> <span class="o">+</span> <span class="n">tgtfile</span><span class="p">,</span>
+                                               <span class="n">metadata</span><span class="p">))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># get the directories with in the folder as well and upload</span>
+                <span class="n">files_to_upload</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">fileName</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+                        <span class="c1">#   print(&#39;/&#39;+self.massage_path(dirpath)+&#39;/&#39;+fileName)</span>
+
+                        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+                            <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">files_to_upload</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                                    <span class="n">dirpath</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files_to_upload</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                               <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                                                   <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span>
+                                                                <span class="s1">&#39;&#39;</span><span class="p">)))</span>
+
+                    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">                    files_uploaded.append(</span>
+<span class="sd">                    trimmed_destination + &#39;/&#39; + self.massage_path(</span>
+<span class="sd">                        file.replace(trimmed_source, &#39;&#39;)))</span>
+<span class="sd">                    &#39;&#39;&#39;</span>
+
+                    <span class="c1"># make head call since file upload does not return</span>
+                    <span class="c1"># obj dict to extract meta data</span>
+                    <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                        <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                        <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_destination</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                            <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">files_uploaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span>
+                        <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                            <span class="n">file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+            <span class="c1"># self.storage_dict[&#39;filesUploaded&#39;] = files_uploaded</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source uploaded&#39;</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source not found&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">files_uploaded</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+        <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+        <span class="c1"># return self.storage_dict</span>
+        <span class="k">return</span> <span class="n">dict_obj</span></div>
+
+    <span class="c1"># function to download file or directory</span>
+<div class="viewcode-block" id="Provider.get"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       gets the source from the service</span>
+
+<span class="sd">        :param source: the source which either can be a directory or file</span>
+<span class="sd">        :param destination: the destination which either can be a directory or file</span>
+<span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
+<span class="sd">                          subdirectories in the specified source</span>
+<span class="sd">        :return: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;get&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;destination&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">destination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="n">trimmed_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">trimmed_destination</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+
+        <span class="n">file_obj</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">file_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span>
+                                                 <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_source</span><span class="p">)</span>
+            <span class="c1"># print(file_obj)</span>
+        <span class="k">except</span> <span class="n">botocore</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># object not found</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">files_downloaded</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">is_target_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">trimmed_destination</span><span class="p">)</span>
+        <span class="n">is_target_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">trimmed_destination</span><span class="p">)</span>
+
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        print(&#39;is_target_file&#39;)</span>
+<span class="sd">        print(is_target_file)</span>
+<span class="sd">        print(&#39;is_target_dir&#39;)</span>
+<span class="sd">        print(is_target_dir)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">file_obj</span><span class="p">:</span>
+            <span class="c1"># Its a file and can be downloaded</span>
+            <span class="c1"># print(&#39;downloading file..&#39;)</span>
+            <span class="c1"># print(os.path.basename(trimmedSource))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">is_target_dir</span><span class="p">:</span>
+                    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">                    print(&#39;target is directory...&#39;)</span>
+<span class="sd">                    print(&#39;trimmed_destination : &#39;+ trimmed_destination)</span>
+<span class="sd">                    print(trimmed_source)</span>
+<span class="sd">                    &#39;&#39;&#39;</span>
+                    <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
+                        <span class="n">trimmed_source</span><span class="p">,</span>
+                        <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                            <span class="n">trimmed_source</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
+                        <span class="n">trimmed_source</span><span class="p">,</span> <span class="n">trimmed_destination</span><span class="p">)</span>
+                <span class="c1"># trimmedSource, trimmedDestination + &#39;/&#39; + os.path.basename(trimmedSource))</span>
+                <span class="c1"># print(&#39;File downloaded&#39;)</span>
+
+                <span class="c1"># make head call since file download does not return</span>
+                <span class="c1"># obj dict to extract meta data</span>
+                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">trimmed_source</span><span class="p">)</span>
+                <span class="n">files_downloaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source downloaded&#39;</span>
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Destination not found&#39;</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Search for a directory</span>
+            <span class="n">all_objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                    <span class="n">Prefix</span><span class="o">=</span><span class="n">trimmed_source</span><span class="p">))</span>
+
+            <span class="n">total_all_objs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_objs</span><span class="p">)</span>
+
+            <span class="c1"># print(&#39;total_allObjs : &#39;+str(total_allObjs))</span>
+
+            <span class="k">if</span> <span class="n">total_all_objs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source Not Found&#39;</span>
+
+            <span class="k">elif</span> <span class="n">total_all_objs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="c1"># print(&#39;directory found and recursive is false&#39;)</span>
+                <span class="c1"># files_downloaded = []</span>
+                <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">all_objs</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">!=</span> \
+                        <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                            <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">(</span>
+                            <span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
+                                    <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                    <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                                        <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">))</span>
+                                <span class="c1"># trimmedSource, trimmedDestination + &#39;/&#39; + os.path.basename(trimmedSource))</span>
+                                <span class="c1"># print(&#39;File downloaded&#39;)</span>
+
+                                <span class="c1"># make head call since file download does not return</span>
+                                <span class="c1"># obj dict to extract meta data</span>
+                                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                                <span class="n">files_downloaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                                    <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source downloaded&#39;</span>
+                                <span class="c1"># files_downloaded.append(obj.key)</span>
+                            <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                                    <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Destination not found&#39;</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;filesDownloaded&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">files_downloaded</span>
+
+            <span class="k">elif</span> <span class="n">total_all_objs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="c1"># print(&#39;directory found and recursive is True&#39;)</span>
+                <span class="n">files_downloaded</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">all_objs</span><span class="p">:</span>
+                    <span class="c1"># print(obj.key)</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                        <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory_marker_file_name</span> <span class="ow">and</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">[</span>
+                        <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                            <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">(</span>
+                            <span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
+                                    <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                    <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                                        <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">))</span>
+                                <span class="c1"># trimmedSource, trimmedDestination + &#39;/&#39; + os.path.basename(trimmedSource))</span>
+                                <span class="c1"># print(&#39;File downloaded&#39;)</span>
+
+                                <span class="c1"># make head call since file download does not return</span>
+                                <span class="c1"># obj dict to extract meta data</span>
+                                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                                <span class="n">files_downloaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                                    <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source downloaded&#39;</span>
+                                <span class="c1"># files_downloaded.append(obj.key)</span>
+                            <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                                    <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Destination not found&#39;</span>
+                        <span class="k">else</span><span class="p">:</span>
+
+                            <span class="n">folder_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span>
+                                <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">trimmed_source</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+                                    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                            <span class="p">)</span>
+                            <span class="c1"># print(&#39;folderPath  : &#39;+folderPath)</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span>
+                                    <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">folder_path</span><span class="p">,</span>
+                                    <span class="mo">0o777</span><span class="p">)</span>
+                                <span class="c1"># os.chmod(trimmedDestination+&#39;/&#39;+folderPath, stat.S_IRWXO)</span>
+                                <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+                            <span class="k">except</span> <span class="ne">FileExistsError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                <span class="c1"># print(&#39;Error :&#39;)</span>
+                                <span class="c1"># print(e)</span>
+                                <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span>
+                                    <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">folder_path</span><span class="p">,</span>
+                                    <span class="n">stat</span><span class="o">.</span><span class="n">S_IRWXO</span><span class="p">)</span>
+                                <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span>
+                                    <span class="c1"># obj.key, trimmedDestination + &#39;/&#39; + os.path.basename(obj.key))</span>
+                                    <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                    <span class="n">trimmed_destination</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">folder_path</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span>
+                                        <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">))</span>
+                                <span class="c1"># print(&#39;File downloaded&#39;)</span>
+
+                                <span class="c1"># make head call since file download does not return</span>
+                                <span class="c1"># obj dict to extract meta data</span>
+                                <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                                    <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                                <span class="n">files_downloaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">extract_file_dict</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
+
+                                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                                    <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Source downloaded&#39;</span>
+                                <span class="c1"># files_downloaded.append(obj.key)</span>
+                            <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span>
+                                    <span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Destination not found&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">files_downloaded</span>
+
+        <span class="c1"># print(self.storage_dict[&#39;message&#39;])</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+        <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+        <span class="c1"># return self.storage_dict</span>
+        <span class="k">return</span> <span class="n">dict_obj</span></div>
+
+    <span class="c1"># function to search a file or directory and list its attributes</span>
+<div class="viewcode-block" id="Provider.search"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.awss3.html#cloudmesh.storage.provider.awss3.Provider.Provider.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the destination and copies it in source</span>
+
+<span class="sd">        :param directory: the directory which either can be a directory or file</span>
+<span class="sd">        :param filename: filename</span>
+<span class="sd">        :param recursive: in case of directory the recursive refers to all</span>
+<span class="sd">                          subdirectories in the specified source</span>
+<span class="sd">        :return: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># self.storage_dict[&#39;service&#39;] = service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;search&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;search&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;directory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">directory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;recursive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recursive</span>
+
+        <span class="c1"># filePath = self.joinFileNameDir(filename, directory)</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">len_dir</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">len_dir</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">filename</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">filename</span>
+
+        <span class="c1"># print(&#39;file_path : &#39; +file_path )</span>
+
+        <span class="n">info_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">objs</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">len_dir</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                    <span class="n">Prefix</span><span class="o">=</span><span class="n">file_path</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">len_dir</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                    <span class="n">Prefix</span><span class="o">=</span><span class="n">file_path</span><span class="p">))</span>
+            <span class="c1"># objs = list(self.s3_resource.Bucket(self.container_name).objects.all())</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">len_dir</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                    <span class="n">Prefix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">massage_path</span><span class="p">(</span><span class="n">directory</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">len_dir</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">recursive</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">objs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">objs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objs</span><span class="p">:</span>
+                <span class="c1"># if self.splitToList(obj.key)[-1] == filename:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="n">filename</span><span class="p">:</span>
+                    <span class="c1"># print(obj.key)</span>
+                    <span class="n">metadata</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">head_object</span><span class="p">(</span>
+                        <span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">container_name</span><span class="p">,</span> <span class="n">Key</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+                    <span class="c1"># print(metadata)</span>
+                    <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;fileName&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                        <span class="c1"># &quot;creationDate&quot; : metadata[&#39;ResponseMetadata&#39;][&#39;HTTPHeaders&#39;][&#39;date&#39;],</span>
+                        <span class="s2">&quot;lastModificationDate&quot;</span><span class="p">:</span>
+                            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">][</span><span class="s1">&#39;HTTPHeaders&#39;</span><span class="p">][</span>
+                                <span class="s1">&#39;last-modified&#39;</span><span class="p">],</span>
+                        <span class="s2">&quot;contentLength&quot;</span><span class="p">:</span>
+                            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">][</span><span class="s1">&#39;HTTPHeaders&#39;</span><span class="p">][</span>
+                                <span class="s1">&#39;content-length&#39;</span><span class="p">]</span>
+                    <span class="p">}</span>
+                    <span class="c1"># pprint(info)</span>
+                    <span class="n">info_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info_list</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">info_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;File not found&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;File found&#39;</span>
+
+        <span class="n">pprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">)</span>
+        <span class="n">dict_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span><span class="p">[</span><span class="s1">&#39;objlist&#39;</span><span class="p">])</span>
+        <span class="c1"># return self.storage_dict</span>
+        <span class="k">return</span> <span class="n">dict_obj</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
