@@ -23,6 +23,7 @@ class BookCommand(PluginCommand):
             book lecture
             book cloud
             book pi
+            book python
             book list [--dir=DIR]
             book make BOOK TARGET
             book view BOOK [-o]
@@ -82,6 +83,9 @@ class BookCommand(PluginCommand):
 
         elif arguments.pi:
             make("pi")
+
+        elif arguments.python:
+            make("python")
 
         elif arguments.cloud:
             make("cloud")
