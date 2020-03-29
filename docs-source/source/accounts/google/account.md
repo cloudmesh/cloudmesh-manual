@@ -46,9 +46,9 @@ use the name `cloudmesh`. You can create such a project at
   
 The three screenshots show the workflow on how to create a project:
    
-![Create first account_01](images/MyAccount_01.png)
-![Create first account_02](images/MyAccount_02.png)
-![Create first account_03](images/MyAccount_03.png)
+![Create first account_01](images/MyFirstAccount_1.png)
+![Create first account_02](images/MyFirstAccount_2.png)
+![Create first account_03](images/MyFirstAccount_3.png)
    
 #### Create a Service Account
 
