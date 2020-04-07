@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Code Conventions &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Documentation Management" href="manual.html" />
-    <link rel="prev" title="Cloudmesh Workflow" href="../projects/project-workflow.html" /> 
+    <link rel="prev" title="&lt;no title&gt;" href="../projects/project-workflow.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -112,7 +111,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -127,24 +125,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -195,7 +182,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Code Conventions</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -214,39 +201,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="code-conventions">
-<h1>Code Conventions<a class="headerlink" href="#code-conventions" title="Permalink to this headline">¶</a></h1>
+  <p># Code Conventions</p>
 <ul>
 <li><p>Python lint: All code must be formatted with the pyCHarm inspect method which
 will suggest a reformat with pyCharm and allows good error and python issue
 detection. Please fix as many as you can.</p></li>
 <li><p>Printing errors:</p>
 <p>In case you need to print errors please do not use print, but use</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
-
-<span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;this is an example&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+from cloudmesh.common.console import Console</p>
+<p>Console.error(“this is an example”)
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
 </li>
 <li><p>Printing debug messages in verbose mode</p>
 <p>In case you like to do debug messages use</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.DEBUG</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
-
-<span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot;this is an example&quot;</span><span class="p">)</span>  
-</pre></div>
-</div>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python
+from cloudmesh.DEBUG import VERBOSE</p>
+<p>VERBOSE(“this is an example”)
+<a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
 </li>
 <li><p>Managing debug and verbose mode</p>
 <p>Verbosity and debugging can be controlled with</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="nb">set</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span>
-<span class="n">cms</span> <span class="nb">set</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span>
-<span class="n">cms</span> <span class="nb">set</span> <span class="n">trace</span><span class="o">=</span><span class="kc">True</span>
-</pre></div>
-</div>
-<p>anything that is smaller than 10 will be printed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">verbose=10</span>
+<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">debug=True</span>
+<span class="pre">cms</span> <span class="pre">set</span> <span class="pre">trace=True</span>
+<span class="pre">`</span></code>
+anything that is smaller than 10 will be printed.</p>
 </li>
 </ul>
-</div>
 
 
            </div>
@@ -259,7 +242,7 @@ detection. Please fix as many as you can.</p></li>
         <a href="manual.html" class="btn btn-neutral float-right" title="Documentation Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../projects/project-workflow.html" class="btn btn-neutral float-left" title="Cloudmesh Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../projects/project-workflow.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -211,12 +198,12 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.storage.Provider</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
 
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">StorageABC</span><span class="p">):</span>
@@ -229,6 +216,8 @@
                 <span class="s2">&quot;azureblob&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;awss3&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;parallelawss3&quot;</span><span class="p">,</span>
+                <span class="s1">&#39;parallelgdrive&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;parallelazureblob&#39;</span><span class="p">,</span>
                 <span class="s2">&quot;google&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;oracle&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">kind</span></div>
@@ -243,6 +232,8 @@
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.box.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;gdrive&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.gdrive.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;parallelgdrive&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.parallelgdrive.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;azureblob&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.azureblob.Provider</span> <span class="kn">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
@@ -250,6 +241,10 @@
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.awss3.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;parallelawss3&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.awss3.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;parallelazureblob&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.parallelazureblob.Provider</span> <span class="kn">import</span> \
+                <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+
         <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">]:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;oracle&#39;</span><span class="p">]:</span>

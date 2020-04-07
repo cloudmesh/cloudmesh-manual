@@ -96,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -112,7 +111,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -124,8 +122,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloudmesh Command API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.command.html">cloudmesh.admin.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.command.html">cloudmesh.check.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.container.command.html">cloudmesh.container.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.command.html">cloudmesh.data.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.command.html">cloudmesh.debug.command package</a></li>
@@ -145,10 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.command.html">cloudmesh.sec.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.service.command.html">cloudmesh.service.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.set.command.html">cloudmesh.set.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.source.command.html">cloudmesh.source.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.ssh.command.html">cloudmesh.ssh.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.start.command.html">cloudmesh.start.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.stop.command.html">cloudmesh.stop.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.command.html">cloudmesh.storage.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.command.html">cloudmesh.sys.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.terminal.command.html">cloudmesh.terminal.command package</a></li>
@@ -170,22 +163,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -264,13 +246,13 @@
 </div>
 <div class="section" id="module-cloudmesh.vm.command.vm">
 <span id="cloudmesh-vm-command-vm-module"></span><h2>cloudmesh.vm.command.vm module<a class="headerlink" href="#module-cloudmesh.vm.command.vm" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="cloudmesh.vm.command.vm.VmCommand">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.vm.command.vm.</code><code class="sig-name descname">VmCommand</code><a class="reference internal" href="../_modules/cloudmesh/vm/command/vm.html#VmCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vm.command.vm.VmCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.vm.command.vm.VmCommand.do_vm">
-<code class="sig-name descname">do_vm</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.vm.command.vm.VmCommand.do_vm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_vm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.vm.command.vm.VmCommand.do_vm" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
     <span class="n">vm</span> <span class="n">ping</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">count</span><span class="o">=</span><span class="n">N</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">check</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
@@ -286,16 +268,19 @@
             <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">short</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">boot</span> <span class="p">[</span><span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="n">COUNT</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAMES</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">label</span><span class="o">=</span><span class="n">LABEL</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="n">FLAVOR</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">network</span><span class="o">=</span><span class="n">NETWORK</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">public</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">secgroup</span><span class="o">=</span><span class="n">SECGROUPs</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPs</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">secgroup</span><span class="o">=</span><span class="n">SECGROUP</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUP</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
             <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
@@ -326,8 +311,7 @@
     <span class="n">vm</span> <span class="n">get</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">rename</span> <span class="p">[</span><span class="n">OLDNAMES</span><span class="p">]</span> <span class="p">[</span><span class="n">NEWNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">wait</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">interval</span><span class="o">=</span><span class="n">INTERVAL</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="n">TIMEOUT</span><span class="p">]</span>
-    <span class="n">vm</span> <span class="n">info</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">info</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">username</span> <span class="n">USERNAME</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">resize</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">]</span>
 

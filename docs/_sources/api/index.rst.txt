@@ -4,8 +4,6 @@ Cloudmesh Command API
 .. toctree::
    :maxdepth: 1
 
-   cloudmesh.admin.command
-   cloudmesh.check.command
    cloudmesh.container.command
    cloudmesh.data.command
    cloudmesh.debug.command
@@ -25,10 +23,7 @@ Cloudmesh Command API
    cloudmesh.sec.command
    cloudmesh.service.command
    cloudmesh.set.command
-   cloudmesh.source.command
    cloudmesh.ssh.command
-   cloudmesh.start.command
-   cloudmesh.stop.command
    cloudmesh.storage.command
    cloudmesh.sys.command
    cloudmesh.terminal.command
@@ -46,8 +41,6 @@ Cloudmesh API
    :maxdepth: 1
 
    cloudmesh
-   cloudmesh.admin
-   cloudmesh.check
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common
@@ -79,9 +72,6 @@ Cloudmesh API
    cloudmesh.ip
    cloudmesh.key
    cloudmesh.man
-   cloudmesh.management
-   cloudmesh.management.configuration
-   cloudmesh.mongo
    cloudmesh.open
    cloudmesh.provider
    cloudmesh.register
@@ -90,10 +80,7 @@ Cloudmesh API
    cloudmesh.service
    cloudmesh.set
    cloudmesh.shell
-   cloudmesh.source
    cloudmesh.ssh
-   cloudmesh.start
-   cloudmesh.stop
    cloudmesh.storage
    cloudmesh.storage.provider
    cloudmesh.storage.provider.awss3
@@ -102,6 +89,8 @@ Cloudmesh API
    cloudmesh.storage.provider.gdrive
    cloudmesh.storage.provider.local
    cloudmesh.storage.provider.parallelawss3
+   cloudmesh.storage.provider.parallelgdrive
+   cloudmesh.storage.provider.parellelazureblob
    cloudmesh.storage.queue
    cloudmesh.sys
    cloudmesh.terminal

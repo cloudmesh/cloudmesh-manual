@@ -5,6 +5,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cloudmesh.vdir.api
    cloudmesh.vdir.command

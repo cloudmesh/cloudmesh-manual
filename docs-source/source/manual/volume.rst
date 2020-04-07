@@ -4,106 +4,84 @@ volume
 .. parsed-literal::
 
   Usage:
-        volume create NAME
-                      [--size=SIZE]
-                      [--type=VOLUME-TYPE]
-                      [--image=IMAGE | --snapshot=SNAPSHOT | --source =VOLUME]
-                      [--description=DESCRIPTION]
-                      [--dryrun]
-        volume delete NAME [--dryrun]
-        volume list
-                      [--vm=VM NAME]
-                      [--region=REGION]
-                      [--cloud=CLOUD]
-                      [--refresh]
-                      [--dryrun]
-        volume migrate NAME
-                      [--fregion=FROM REGION]
-                      [--tregion=TO REGION]
-                      [--fservice=FROM SERVICE]
-                      [--tservice=TO SERVICE]
-                      [--fcloud=FROM CLOUD]
-                      [--tcloud=TO CLOUD]
-                      [--cloud=CLOUD]
-                      [--region=REGION]
-                      [--service=SERVICE]
-                      [--dryrun]
-        volume set NAME
-                      [--size=SIZE]
-                      [--description=DESCRIPTION]
-                      [--state=STATE]
-                      [--type=VOLUME-TYPE]
-                      [--retype-policy=RETYPE-POLICY]
-                      [--bootable | --non-bootable]
-                      [--read-only | --read-write]
-                      [--dryrun]
-        volume show NAME [--dryrun]
-        volume sync NAMEA NAMEB
-                      [--region=REGION]
-                      [--cloud=CLOUD]
-                      [--dryrun]
-        volume unset NAME
-                      [--property=PROPERTY]
-                      [--image-property=IMAGE-PROPERTY]
-                      [--dryrun]
-        volume mount PATH NAME
-                      [--cloud=CLOUD]
+    volume register which
+    volume register [NAME] [--cloud=CLOUD] [ARGUMENTS...]
+    volume list [NAMES]
+                [--vm=VM]
+                [--region=REGION]
+                [--cloud=CLOUD]
+                [--refresh]
+                [--dryrun]
+                [--output=FORMAT]
+    volume create [NAME]
+              [--size=SIZE]
+              [--volume_type=TYPE]
+              [--description=DESCRIPTION]
+              [--dryrun]
+              [ARGUMENTS...]
+    volume status [NAMES]
+              [--cloud=CLOUD]
+    volume attach [NAMES] [--vm=VM]
+    volume detach [NAMES]
+    volume delete NAMES
+    volume migrate NAME FROM_VM TO_VM
+    volume sync FROM_VOLUME TO_VOLUME
 
-  A simple abstraction layer to manage Cloud Volumes for AWS, Azure, Google, Openstack and Multipass
+  This command manages volumes accross different clouds
 
   Arguments:
-      NAME  volume name
-      NAMEA first volume name to sync
-      NAMEB second volume name to sync
-      PATH mount path name
+      NAME   the name of the volume
+      vm     the name of the vm
 
   Options:
-      --cloud=CLOUD                     specify cloud name
-      --size=SIZE                       specify size of volume
-      --type=VOLUME-TYPE                specify type of volume
-      --image=IMAGE                     specify source
-      --description=DESCRIPTION         specify description
-      --vm=VM NAME                      specify the name of vm
-      --region=REGION                   specify the region
-      --cloud=CLOUD                     specify the provider
-      --refresh                         refresh
-      --fregion=FROM REGION             specify the region where the volume is moving from
-      --tregion=TO REGION               specify the region where the volume is moving to
-      --fservice=FROM SERVICE           specify the service where the volume is moving from
-      --tservice=TO SERVICE             specify the service where the volume is moving to
-      --fcloud=FROM CLOUD               specify the provider where the volume is moving from
-      --tcloud=TO CLOUD                 specify the provider where the volume is moving to
-      --cloud=CLOUD                     specify the provider where the volume is moving within
-      --region=REGION                   specify the region where the volume is moving within
-      --service=SERVICE                 specify the service where the volume is moving within
-      --state=STATE                     specify the state of the volume
-      --retype-policy=RETYPE-POLICY     specify the retype-policy
-      --property=PROPERTY               specify property for the volume
-      --image-property=IMAGE-PROPERTY   specify property of the image
-                                            for the volume
+      --vm=VMNAME        The name of the virtual machine
+      --region=REGION    The name of the region
+      --cloud=CLOUD      The name of the cloud
+      --refresh          If refresh the information is taken from the cloud
+      --volume_type=TYPE  The type of the volume
+      --output=FORMAT    Output format [default: table]
 
+  Description:
 
-  Commands:
-    Create volume
-      cms volume create NAME
-      Optionally you can provide size, volume type, image or description
-    Delete volume NAME
-    List volume
-      cms volume list
-      Optionally you can provide vm name, region, provider, refresh
-    Migrate volume
-      cms volume migrate NAME
-      Optionally you can provide fregion, tregion, fservice, tservice, fcloud, tcloud, cloud, region, service
-    Set volume
-      cms volume set NAME
-      Optionally you can provide size, description, state, type, retype policy
-    Show volume
-      cms volume show NAME
-    Volume sync
-      cms volume sync NAMEA NAMEB
-      Optionally you can provide region, cloud
-    Unset volume
-      cms volume unset NAME
-      Optionally you can provide property, image-property
-    mount path name
-      cms volume mount path name
+    volume register which
+        TODO: describe
+
+    volume register [NAME] [--cloud=CLOUD] [ARGUMENTS...]
+        TODO: describe
+
+    volume list [NAMES]
+                [--vm=VM]
+                [--region=REGION]
+                [--cloud=CLOUD]
+                [--refresh]
+                [--dryrun]
+                [--output=FORMAT]
+        List all the volumes for certain vm, region, or cloud.
+
+    volume create [NAME]
+              [--size=SIZE]
+              [--volume_type=TYPE]
+              [--description=DESCRIPTION]
+              [--dryrun]
+              [ARGUMENTS...]
+        Creates a volume
+
+    volume status [NAMES]
+              [--cloud=CLOUD]
+    volume attach [NAMES] [--vm=VM]
+        Attatch volume to a vm
+
+    volume detach [NAMES]
+        Dettatch volume from a vm
+
+    volume delete NAMES
+        Delete the named volumes
+
+    volume migrate NAME FROM_VM TO_VM
+         TODO: not yet implemented
+         Migrate volume from one vm to another vm between different
+         regions, services or providers. `
+
+    volume sync FROM_VOLUME TO_VOLUME
+        TODO: not yet implemented
+        Volume sync alows for data to shared bewteen two volumes.

@@ -5,6 +5,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cloudmesh.common.notebook
    cloudmesh.common.run
@@ -81,6 +82,14 @@ cloudmesh.common.TableParser module
 -----------------------------------
 
 .. automodule:: cloudmesh.common.TableParser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cloudmesh.common.Tabulate module
+--------------------------------
+
+.. automodule:: cloudmesh.common.Tabulate
    :members:
    :undoc-members:
    :show-inheritance:

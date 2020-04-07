@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -211,18 +198,18 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.common.util</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span></span><span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
-<span class="c1"># import pip</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
-<span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">psutil</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">collectionsAbc</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span>
@@ -300,13 +287,34 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 <div class="viewcode-block" id="is_gitbash"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.is_gitbash">[docs]</a><span class="k">def</span> <span class="nf">is_gitbash</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    returns True if you run in a Windows gitbash</span>
+
+<span class="sd">    :return: True if gitbash</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">exepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;EXEPATH&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="s2">&quot;Git&quot;</span> <span class="ow">in</span> <span class="n">exepath</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span></div>
 
+<div class="viewcode-block" id="is_powershell"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.is_powershell">[docs]</a><span class="k">def</span> <span class="nf">is_powershell</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    True if you run in powershell</span>
+
+<span class="sd">    :return: True if you run in powershell</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># psutil.Process(parent_pid).name() returns -</span>
+    <span class="c1"># cmd.exe for CMD</span>
+    <span class="c1"># powershell.exe for powershell</span>
+    <span class="c1"># bash.exe for git bash</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">())</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;powershell.exe&quot;</span><span class="p">)</span></div>
 <div class="viewcode-block" id="is_cmd_exe"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.is_cmd_exe">[docs]</a><span class="k">def</span> <span class="nf">is_cmd_exe</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    return True if you run in a Windows CMD</span>
+
+<span class="sd">    :return: True if you run in CMD</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">is_gitbash</span><span class="p">():</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>

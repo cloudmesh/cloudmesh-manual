@@ -5,6 +5,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cloudmesh.inventory.command
    cloudmesh.inventory.etc

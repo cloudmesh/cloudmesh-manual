@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Commands &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -96,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -109,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -129,22 +127,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -195,7 +182,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Commands</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -214,19 +201,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="commands">
-<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EOF</span>        <span class="n">data</span>     <span class="n">help</span>       <span class="n">man</span>        <span class="n">quit</span>      <span class="n">ssh</span>        <span class="n">vbox</span>          
-<span class="n">admin</span>      <span class="n">debug</span>    <span class="n">host</span>       <span class="nb">open</span>       <span class="n">register</span>  <span class="n">start</span>      <span class="n">vcluster</span>      
-<span class="n">banner</span>     <span class="n">default</span>  <span class="n">image</span>      <span class="n">openstack</span>  <span class="n">sec</span>       <span class="n">stop</span>       <span class="n">vdir</span>          
-<span class="n">check</span>      <span class="n">echo</span>     <span class="n">info</span>       <span class="n">pause</span>      <span class="n">service</span>   <span class="n">stopwatch</span>  <span class="n">version</span>       
-<span class="n">clear</span>      <span class="n">flavor</span>   <span class="n">init</span>       <span class="n">plugin</span>     <span class="nb">set</span>       <span class="n">storage</span>    <span class="n">vm</span>            
-<span class="n">commands</span>   <span class="n">google</span>   <span class="n">inventory</span>  <span class="n">provider</span>   <span class="n">shell</span>     <span class="n">sys</span>        <span class="n">volume</span>        
-<span class="n">config</span>     <span class="n">group</span>    <span class="n">ip</span>         <span class="n">py</span>         <span class="n">sleep</span>     <span class="n">test</span>       <span class="n">workflow_draft</span>
-<span class="n">container</span>  <span class="n">gui</span>      <span class="n">key</span>        <span class="n">q</span>          <span class="n">source</span>    <span class="n">var</span>      
-</pre></div>
-</div>
-</div>
+  <p># Commands</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+EOF        data     host       open       register  stop       version
+admin      debug    image      openstack  sec       stopwatch  vm
+banner     default  info       oracle     service   storage    volume
+book       echo     init       pause      set       sys        workflow_draft
+check      flavor   inventory  plugin     shell     test
+clear      google   ip         provider   sleep     var
+commands   group    key        py         source    vbox
+config     gui      man        q          ssh       vcluster
+container  help     multipass  quit       start     vdir</p>
+<p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
 
 
            </div>

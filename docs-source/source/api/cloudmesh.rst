@@ -5,9 +5,8 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
-   cloudmesh.admin
-   cloudmesh.check
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common
@@ -27,8 +26,6 @@ Subpackages
    cloudmesh.ip
    cloudmesh.key
    cloudmesh.man
-   cloudmesh.management
-   cloudmesh.mongo
    cloudmesh.open
    cloudmesh.provider
    cloudmesh.register
@@ -37,10 +34,7 @@ Subpackages
    cloudmesh.service
    cloudmesh.set
    cloudmesh.shell
-   cloudmesh.source
    cloudmesh.ssh
-   cloudmesh.start
-   cloudmesh.stop
    cloudmesh.storage
    cloudmesh.sys
    cloudmesh.terminal

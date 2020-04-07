@@ -5,6 +5,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cloudmesh.data.api.db
    cloudmesh.data.api.storage

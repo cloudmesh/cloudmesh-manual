@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Google Drive API &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -193,7 +180,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>Python Google Drive API</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,66 +199,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python-google-drive-api">
-<h1>Python Google Drive API<a class="headerlink" href="#python-google-drive-api" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-by-step-process">
-<h2>Step-by-step process<a class="headerlink" href="#step-by-step-process" title="Permalink to this headline">¶</a></h2>
+  <p>## Python Google Drive API</p>
+<p>### Step-by-step process</p>
 <p>Before writing the Python interface for Google Drive, we need to setup
 an email account, with that email account we will get a set of google
 services and one of them is Google Drive with 15 GB overall storage.</p>
 <p>After that we need to go through the Google Drive Quick start guide:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/drive/api/v3/quickstart/python">https://developers.google.com/drive/api/v3/quickstart/python</a></p></li>
+<li><p>&lt;<a class="reference external" href="https://developers.google.com/drive/api/v3/quickstart/python">https://developers.google.com/drive/api/v3/quickstart/python</a>&gt;</p></li>
 </ul>
 <p>There we can see Enable API option as shown in the next picture:</p>
-<p><img alt="Enable API" src="../../../_images/image110.png" /></p>
+<p>![Enable API](images/image1.png)</p>
 <p>Once we enable that we will get credentials.json file where all of our
 credentials are stored that can be used to communicate with our Google
 Drive through Python Interface. After that, we will be redirected to a
 page where we need to create our own project as shown in the next
 picture:</p>
-<p><img alt="Create a project" src="../../../_images/image28.png" /></p>
+<p>![Create a project](images/image2.png)</p>
 <p>As we see next we need to select Google Drive API from here</p>
-<p><img alt="Add credentials" src="../../../_images/image161.png" /></p>
+<p>![Add credentials](images/image16.png)</p>
 <p>After that, we need to obtain the client_secret file as shown next:
-(The file that is downloaded as <code class="docutils literal notranslate"><span class="pre">client_id.json</span></code> needs to be renamed as
-<code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code>)</p>
-<p><img alt="Rename the file" src="../../../_images/image181.png" /></p>
-<p>After this we need to click <code class="docutils literal notranslate"><span class="pre">Done</span></code> otherwise it would not set the Google
+(The file that is downloaded as <cite>client_id.json</cite> needs to be renamed as
+<cite>client_secret.json</cite>)</p>
+<p>![Rename the file](images/image18.png)</p>
+<p>After this we need to click <cite>Done</cite> otherwise it would not set the Google
 Drive API.</p>
 <p>After this if we run Authentication.py we will be redirected to our
 default browser to put our our login id and password and after that it
 asks to authenticate our credentials. If we allow that as shown next:</p>
-<p><img alt="Grant permissions" src="../../../_images/image211.png" /></p>
+<p>![Grant permissions](images/image21.png)</p>
 <p>We will get the screen something like given next (as the authentication
 pipeline has bees completed).</p>
-<p><img alt="Authentication success" src="../../../_images/image231.png" /></p>
-<p>.. todo:: Google account. This documentation is a bit unstructured and
+<p>![Authentication success](images/image23.png)</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Google account. This documentation is a bit unstructured and
 repetitive.  Yet errors such as references to Authentication.py are
 conducted which does not exist.</p>
+</div>
 <p>If the authentication flow is completed then the Authentication.py will
-create a <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code> file in <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> folder.
+create a <cite>google-drive-credentials.json</cite> file in <cite>.credentials</cite> folder.
 This file can be used for future purposes. If we delete this file then
-the <code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> will again ask for login id and password and
+the <cite>Authentication.py</cite> will again ask for login id and password and
 again create that file automatically.</p>
 <p>So, now with the</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code>,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p></li>
+<li><p><cite>client_secret.json</cite>,</p></li>
+<li><p><cite>google-drive-credentials.json</cite></p></li>
 </ul>
 <p>we can now use</p>
 <ul class="simple">
 <li><p>[ ] TODO: Google account. This documentation is a bit unstructured and repetitive.
 Yet errors such as references to Authentication.py are conducted which
 does not exist.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> and <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code></p></li>
+<li><p><cite>Authentication.py</cite> and <cite>Provider.py</cite></p></li>
 <li><p>[ ] TODO: Google account. location of the file is missing</p></li>
 </ul>
 <p>Once all these steps are done correctly, then we can use the Python
 program interface to transfer the files between our Python program and
 Google Drive.</p>
-</div>
-</div>
 
 
            </div>

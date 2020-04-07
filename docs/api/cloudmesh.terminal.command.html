@@ -96,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -112,7 +111,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -124,8 +122,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloudmesh Command API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.command.html">cloudmesh.admin.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.check.command.html">cloudmesh.check.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.container.command.html">cloudmesh.container.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.command.html">cloudmesh.data.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.command.html">cloudmesh.debug.command package</a></li>
@@ -145,10 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.command.html">cloudmesh.sec.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.service.command.html">cloudmesh.service.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.set.command.html">cloudmesh.set.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.source.command.html">cloudmesh.source.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.ssh.command.html">cloudmesh.ssh.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.start.command.html">cloudmesh.start.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.stop.command.html">cloudmesh.stop.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.command.html">cloudmesh.storage.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.command.html">cloudmesh.sys.command package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.terminal.command package</a><ul>
@@ -170,22 +163,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -264,13 +246,13 @@
 </div>
 <div class="section" id="module-cloudmesh.terminal.command.terminal">
 <span id="cloudmesh-terminal-command-terminal-module"></span><h2>cloudmesh.terminal.command.terminal module<a class="headerlink" href="#module-cloudmesh.terminal.command.terminal" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.terminal.command.terminal.</code><code class="sig-name descname">TerminalCommand</code><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_banner">
-<code class="sig-name descname">do_banner</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_banner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_banner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_banner" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">banner</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">CHAR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">WIDTH</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="n">INDENT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span><span class="p">]</span> <span class="n">TEXT</span><span class="o">...</span>
 
@@ -292,9 +274,9 @@
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_clear">
-<code class="sig-name descname">do_clear</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_clear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_clear" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">clear</span>
 
@@ -305,9 +287,9 @@
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_echo">
-<code class="sig-name descname">do_echo</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_echo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_echo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_echo" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">echo</span>  <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span><span class="p">]</span> <span class="n">TEXT</span>
 
@@ -323,9 +305,9 @@
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_pause">
-<code class="sig-name descname">do_pause</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_pause" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_pause</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_pause" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">pause</span> <span class="p">[</span><span class="n">MESSAGE</span><span class="p">]</span>
 
@@ -338,9 +320,9 @@
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep">
-<code class="sig-name descname">do_sleep</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_sleep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">sleep</span> <span class="n">SECONDS</span>
 
@@ -349,9 +331,9 @@
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch">
-<code class="sig-name descname">do_stopwatch</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_stopwatch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">stopwatch</span> <span class="n">start</span> <span class="n">TIMER</span>
   <span class="n">stopwatch</span> <span class="n">stop</span> <span class="n">TIMER</span>
@@ -368,14 +350,14 @@
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.set_banner">
-<code class="sig-name descname">set_banner</code><span class="sig-paren">(</span><em class="sig-param">banner</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand.set_banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_banner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_banner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">banner</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand.set_banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_banner" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose">
-<code class="sig-name descname">set_verbose</code><span class="sig-paren">(</span><em class="sig-param">on</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand.set_verbose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_verbose</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">on</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand.set_verbose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

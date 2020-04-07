@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -213,48 +200,173 @@
   <h1>Source code for cloudmesh.common.Host</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
 
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">readfile</span>
+
 
 <div class="viewcode-block" id="Host"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host">[docs]</a><span class="k">class</span> <span class="nc">Host</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
+<div class="viewcode-block" id="Host.config"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.config">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">ips</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">key</span><span class="o">=</span><span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">_hosts</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ips</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ips</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">_ips</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">ips</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_ips</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">_hosts</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of hosts and ips mismatch&quot;</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">_hosts</span><span class="p">)):</span>
+
+            <span class="n">host</span> <span class="o">=</span> <span class="n">_hosts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;user </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">if</span> <span class="n">ips</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">hostanme</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ip</span> <span class="o">=</span> <span class="n">_ips</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">hostname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hostname </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">&quot;</span>
+
+            <span class="n">data</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            Host </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                StrictHostKeyChecking no</span>
+<span class="s2">                LogLevel ERROR</span>
+<span class="s2">                UserKnownHostsFile /dev/null</span>
+<span class="s2">                IdentityFile </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                </span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">            &quot;&quot;&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">username</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">+=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_ssh</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        check a vm</span>
 
-<span class="sd">        :param args: dict of {key, username, host, command}</span>
-<span class="sd">        :return: a dict representing the result, if returncode=0 ping is</span>
-<span class="sd">                 successfully</span>
+<span class="sd">        An internal command that executes as part of a process map a given</span>
+<span class="sd">        command. args is a dict and must include</span>
+
+<span class="sd">        * command</span>
+<span class="sd">        * shell</span>
+
+<span class="sd">        It returns a dict of the form</span>
+
+<span class="sd">        * command</span>
+<span class="sd">        * stdout</span>
+<span class="sd">        &amp; stderr</span>
+<span class="sd">        * returncode</span>
+<span class="sd">        * success</span>
+
+<span class="sd">        :param args: command dict</span>
+<span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
-        <span class="n">host</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;command&#39;</span><span class="p">]</span>
-        <span class="n">shell</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;shell&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">False</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;host&quot;</span><span class="p">)</span>
 
-        <span class="n">location</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ssh&#39;</span><span class="p">,</span>
-                   <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="s2">&quot;StrictHostKeyChecking=no&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="s2">&quot;UserKnownHostsFile=/dev/null&quot;</span><span class="p">,</span>
-                   <span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">command</span><span class="p">]</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="n">shell</span><span class="p">)</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span>
-        <span class="k">return</span> <span class="n">result</span>
+        <span class="n">shell</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">host</span> <span class="o">==</span> <span class="n">hostname</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;execute&quot;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+            <span class="n">stderr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">returncode</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">stdout</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">)</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+                <span class="n">command</span><span class="p">,</span>
+                <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">shell</span><span class="o">=</span><span class="n">shell</span><span class="p">)</span>
+
+            <span class="n">result</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="n">stderr</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span>
+            <span class="n">returncode</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span>
+            <span class="n">stdout</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;host&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;execute&#39;</span><span class="p">:</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;execute&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;stdout&#39;</span><span class="p">:</span> <span class="n">stdout</span><span class="p">,</span>
+            <span class="s1">&#39;stderr&#39;</span><span class="p">:</span> <span class="n">stderr</span><span class="p">,</span>
+            <span class="s1">&#39;returncode&#39;</span><span class="p">:</span> <span class="n">returncode</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+<div class="viewcode-block" id="Host.run"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.run">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">execute</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Executes the command on all hosts. The key values</span>
+<span class="sd">        specified in **kwargs will be replaced prior to the</span>
+<span class="sd">        execution. Furthermore, {host} will be replaced with the</span>
+<span class="sd">        specific hostname.</span>
+
+<span class="sd">        :param hosts: The hosts given in parameter notation</span>
+<span class="sd">                      Example: red[01-10]</span>
+<span class="sd">        :param command: The command to be executed for each host</span>
+<span class="sd">                        Example: ssh {host} uname</span>
+<span class="sd">        :param username: Specify the username on the host</span>
+<span class="sd">        :param processors: The number of parallel processes used</span>
+<span class="sd">        :param shell: Set to Tue if the current context of the shell is</span>
+<span class="sd">                      to be used. It is by default True</span>
+<span class="sd">        :param kwargs: The key value pairs to be replaced in the command</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">hosts</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">command</span><span class="p">],</span>
+                 <span class="s1">&#39;shell&#39;</span><span class="p">:</span> <span class="n">shell</span><span class="p">,</span>
+                 <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="n">host</span><span class="p">,</span>
+                 <span class="s1">&#39;execute&#39;</span><span class="p">:</span> <span class="n">execute</span><span class="p">,</span>
+                 <span class="p">}</span> <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s2">&quot;executor&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+            <span class="n">executor</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">_run</span>
+
+        <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processors</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="Host.ssh"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.ssh">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">key</span><span class="o">=</span><span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">,</span>
-            <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">dryrun</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># notused</span>
+            <span class="n">executor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>  <span class="c1"># not used</span>
         <span class="c1">#</span>
         <span class="c1"># BUG: this code has a bug and does not deal with different</span>
         <span class="c1">#  usernames on the host to be checked.</span>
@@ -272,21 +384,61 @@
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
             <span class="n">hosts</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">username</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="n">ssh_command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ssh&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;StrictHostKeyChecking=no&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;UserKnownHostsFile=/dev/null&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;</span><span class="si">{host}</span><span class="s1">&#39;</span><span class="p">,</span>
+                       <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="n">hosts</span><span class="p">,</span>
+                          <span class="n">command</span><span class="o">=</span><span class="n">ssh_command</span><span class="p">,</span>
+                          <span class="n">execute</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
+                          <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                          <span class="n">executor</span><span class="o">=</span><span class="n">executor</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Host.put"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.put">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">key</span><span class="o">=</span><span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">,</span>
+            <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">dryrun</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param command: the command to be executed</span>
+<span class="sd">        :param hosts: a list of hosts to be checked</span>
+<span class="sd">        :param username: the usernames for the hosts</span>
+<span class="sd">        :param key: the key for logging in</span>
+<span class="sd">        :param processors: the number of parallel checks</span>
+<span class="sd">        :return: list of dicts representing the ping result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">hosts</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-        <span class="c1"># wrap ip and count into one list to be sent to Pool map</span>
-        <span class="n">args</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="n">command</span><span class="p">,</span>
-                 <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
-                 <span class="s1">&#39;shell&#39;</span><span class="p">:</span> <span class="n">shell</span><span class="p">,</span>
-                 <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-                 <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="n">host</span><span class="p">}</span> <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts</span><span class="p">]</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;scp&#39;</span><span class="p">,</span>
+                   <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="s2">&quot;StrictHostKeyChecking=no&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="s2">&quot;UserKnownHostsFile=/dev/null&quot;</span><span class="p">,</span>
+                   <span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
+                   <span class="n">source</span><span class="p">,</span>
+                   <span class="s2">&quot;</span><span class="si">{host}</span><span class="s2">:</span><span class="si">{destination}</span><span class="s2">&quot;</span><span class="p">]</span>
 
-        <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processors</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Host</span><span class="o">.</span><span class="n">_ssh</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span></div>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="n">hosts</span><span class="p">,</span>
+                          <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
+                          <span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
+                          <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="Host.check"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.check">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -332,7 +484,7 @@
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">timers</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span> \
-                <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> \
+                <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span> \
                 <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;round-trip min/avg/max/stddev =&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> \
                 <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> \
                 <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
@@ -374,18 +526,21 @@
 
         <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processors</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
             <span class="n">res</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Host</span><span class="o">.</span><span class="n">_ping</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="Host.generate_key"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.generate_key">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">generate_key</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                     <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;~/.ssh/id_rsa&quot;</span><span class="p">,</span>
-                     <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                     <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                     <span class="n">dryrun</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                     <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Host.ssh_keygen"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.ssh_keygen">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">ssh_keygen</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;~/.ssh/id_rsa&quot;</span><span class="p">,</span>
+                   <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                   <span class="n">dryrun</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        generates the keys on the specified hosts</span>
+<span class="sd">        generates the keys on the specified hosts.</span>
+<span class="sd">        this fonction does not work well as it still will aski if we overwrite.</span>
 
 <span class="sd">        :param hosts:</span>
 <span class="sd">        :param filename:</span>
@@ -395,25 +550,22 @@
 <span class="sd">        :param verbose:</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">hosts</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
 
-        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39; cat /dev/zero | ssh-keygen -t rsa -b 4096 -q -N &quot;&quot; -P &quot;&quot; -f </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1"> -q&#39;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;ssh-keygen -q -N &quot;&quot; -f </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1"> &lt;&lt;&lt; y&#39;</span>
+        <span class="n">result_keys</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="n">hosts</span><span class="p">,</span>
+                               <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
+                               <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                               <span class="n">dryrun</span><span class="o">=</span><span class="n">dryrun</span><span class="p">,</span>
+                               <span class="n">processors</span><span class="o">=</span><span class="n">processors</span><span class="p">,</span>
+                               <span class="n">executor</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">)</span>
+        <span class="n">result_keys</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="n">hosts</span><span class="p">,</span>
+                               <span class="n">processors</span><span class="o">=</span><span class="n">processors</span><span class="p">,</span>
+                               <span class="n">command</span><span class="o">=</span><span class="s1">&#39;cat .ssh/id_rsa.pub&#39;</span><span class="p">,</span>
+                               <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-
-        <span class="n">results</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span>
-            <span class="n">hosts</span><span class="o">=</span><span class="n">hosts</span><span class="p">,</span>
-            <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
-            <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
-            <span class="n">key</span><span class="o">=</span><span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">,</span>
-            <span class="n">processors</span><span class="o">=</span><span class="n">processors</span><span class="p">)</span>
-
-        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">keys</span></div>
+        <span class="k">return</span> <span class="n">result_keys</span></div>
 
 <div class="viewcode-block" id="Host.gather_keys"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Host.Host.gather_keys">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">gather_keys</span><span class="p">(</span>
@@ -434,23 +586,38 @@
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cat </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span>
-            <span class="n">hosts</span><span class="o">=</span><span class="n">hosts</span><span class="p">,</span>
-            <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
-            <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
-            <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
-            <span class="n">processors</span><span class="o">=</span><span class="n">processors</span><span class="p">)</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">hosts</span><span class="p">)</span>
 
-        <span class="n">pprint</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+        <span class="n">results_key</span> <span class="o">=</span> <span class="n">Host</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">hosts</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
+                               <span class="n">command</span><span class="o">=</span><span class="s1">&#39;cat .ssh/id_rsa.pub&#39;</span><span class="p">,</span>
+                               <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                               <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1">#results_authorized = Host.ssh(hosts=names,</span>
+        <span class="c1">#                              command=&#39;cat .ssh/id_rsa.pub&#39;,</span>
+        <span class="c1">#                              username=username,</span>
+        <span class="c1">#                              verbose=False)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">localkey</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;command&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;execute&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;stdout&#39;</span><span class="p">:</span> <span class="n">readfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+            <span class="s1">&#39;stderr&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;returncode&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">results_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># and results_authorized is None:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="c1"># geting the output and also removing duplicates</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">localkey</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]]</span> <span class="o">+</span> \
+                 <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">element</span><span class="p">[</span><span class="s2">&quot;stdout&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">results_key</span><span class="p">]))</span>
 
-        <span class="k">return</span> <span class="n">keys</span></div></div>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="k">return</span> <span class="n">output</span></div></div>
 </pre></div>
 
            </div>

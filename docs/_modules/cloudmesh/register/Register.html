@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -212,12 +199,68 @@
             
   <h1>Source code for cloudmesh.register.Register</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.register.Entry</span> <span class="kn">import</span> <span class="n">Entry</span>
 
 
 <div class="viewcode-block" id="Register"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register">[docs]</a><span class="k">class</span> <span class="nc">Register</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;init </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Register.list_all"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register.list_all">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">list_all</span><span class="p">():</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+        <span class="n">config_service</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">]</span>
+
+        <span class="n">service_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">config_service</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="s2">&quot;cloud storage volume data cluster&quot;</span><span class="p">:</span>
+                <span class="n">list_item</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">kinds</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">sub_item</span> <span class="ow">in</span> <span class="n">config_service</span><span class="p">[</span><span class="n">item</span><span class="p">]:</span>
+                    <span class="n">kinds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_item</span><span class="p">)</span>
+
+                <span class="n">list_item</span><span class="p">[</span><span class="s2">&quot;service&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+                <span class="n">list_item</span><span class="p">[</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kinds</span>
+
+                <span class="n">service_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_item</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">service_list</span></div>
+
+
+<div class="viewcode-block" id="Register.get_provider_sample"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register.get_provider_sample">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_provider_sample</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kind</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">service</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Both kind and service required to print sample.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">provider</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No suitable provider found.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">sample</span>
+
+        <span class="k">return</span> <span class="n">sample</span></div>
+
+<div class="viewcode-block" id="Register.get_kinds"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register.get_kinds">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_kinds</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">service</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Service required to print kind.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">provider</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No suitable provider found.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">kinds</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_kind</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">kinds</span></div>
 
 <div class="viewcode-block" id="Register.get_provider"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register.get_provider">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_provider</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -231,15 +274,22 @@
         <span class="n">Provider</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">try</span><span class="p">:</span>
+
             <span class="k">if</span> <span class="n">service</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;compute&#39;</span><span class="p">,</span> <span class="s1">&#39;cloud&#39;</span><span class="p">]:</span>
 
-                <span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
-                <span class="n">Provider</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+                    <span class="n">Provider</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
 
             <span class="k">elif</span> <span class="n">service</span> <span class="o">==</span> <span class="s1">&#39;storage&#39;</span><span class="p">:</span>
 
                 <span class="kn">from</span> <span class="nn">cloudmesh.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
-                <span class="n">Provider</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="kn">from</span> <span class="nn">cloudmesh.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">Provider</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
 
             <span class="k">elif</span> <span class="n">service</span> <span class="o">==</span> <span class="s1">&#39;volume&#39;</span><span class="p">:</span>
 
@@ -257,7 +307,7 @@
                 <span class="sa">f</span><span class="s2">&quot;Registration no Provider found for kind=</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2"> and service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">None</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Provider:&quot;</span><span class="p">,</span> <span class="n">Provider</span><span class="p">)</span>
+        <span class="c1"># print(&quot;Provider:&quot;, Provider)</span>
 
         <span class="n">p</span> <span class="o">=</span> <span class="n">Provider</span>
 
@@ -288,7 +338,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Extract the sample from Provider.</span>
             <span class="n">sample</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">sample</span>
-        <span class="k">except</span><span class="p">:</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can not find the sample in the Provider&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
@@ -303,7 +353,60 @@
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> is not specified&quot;</span><span class="p">)</span>
             <span class="n">sample</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="k">return</span> <span class="n">sample</span></div></div>
+        <span class="k">return</span> <span class="n">sample</span></div>
+
+<div class="viewcode-block" id="Register.remove"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register.remove">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">removed_item</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Update the google cloud section of cloudmesh.yaml config file.</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">config_service</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="n">service</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">config_service</span><span class="p">:</span>
+                <span class="n">removed_item</span> <span class="o">=</span> <span class="n">config_service</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Removed </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> service.&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not registered for cloudmesh.</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">se</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error removing </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> :: </span><span class="si">{</span><span class="n">se</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">removed_item</span></div>
+
+<div class="viewcode-block" id="Register.update"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.Register.Register.update">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attributes</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sample</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span>
+                                         <span class="n">kind</span><span class="p">,</span>
+                                         <span class="n">service</span><span class="p">,</span>
+                                         <span class="n">name</span><span class="p">,</span>
+                                         <span class="n">attributes</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">sample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The sample is not fully filled out.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+            <span class="c1"># Add the entry into cloudmesh.yaml file.</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">config_path</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">config</span><span class="p">()</span>
+
+            <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
+                      <span class="n">base</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                      <span class="n">path</span><span class="o">=</span><span class="n">config_path</span><span class="p">)</span>
+
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Registered </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> service for </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; provider with name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">se</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error updating </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> :: </span><span class="si">{</span><span class="n">se</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div></div>
 </pre></div>
 
            </div>

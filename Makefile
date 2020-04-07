@@ -21,6 +21,10 @@ endef
 all:
 	make -f Makefile manual
 
+install:
+	pip install cloudmesh-installer -U
+	cd ..; cloudmesh-installer get manual
+
 # $(call banner, "use: make manual")
 
 dest/gitinspector/gitinspector.py:

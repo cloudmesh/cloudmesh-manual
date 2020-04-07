@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -211,11 +198,10 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.init.command.init</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os.path</span>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
 <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
@@ -224,6 +210,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">yn_choice</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.MongoDBController</span> <span class="kn">import</span> <span class="n">MongoDBController</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
@@ -260,9 +247,35 @@
 <span class="sd">                    first installation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">CLOUD</span> <span class="o">==</span> <span class="s2">&quot;yaml&quot;</span><span class="p">:</span>
+        <span class="n">ssh_key</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.ssh/id_rsa.pub&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ssh_key</span><span class="p">):</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The ssh key </span><span class="si">{</span><span class="n">ssh_key</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
 
-            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;cms init is a convenient program to set up cloudmesh&quot;</span>
+                <span class="s2">&quot; with defaukt values. Please make sure you use ssh-keygen&quot;</span>
+                <span class="s2">&quot; to set up the keys.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;      Additionally we recommend that you use. </span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;        cms test</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;      to identify other issues</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TBD&quot;</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;cms init is a convenient program to set up cloudmesh&quot;</span>
+                <span class="s2">&quot; with defaukt values. Please make sure you use in your&quot;</span>
+                <span class="s2">&quot; ~/.cloudmesh/yaml file a valid value for</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;        cloudmesh.profile.user</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;      This name is aslo used as keyname in the cloud providers</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;      Additionally we recommend that you use. </span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;        cms test</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;      to identify other issues</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">CLOUD</span> <span class="o">==</span> <span class="s2">&quot;yaml&quot;</span><span class="p">:</span>
 
             <span class="n">location</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
             <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
@@ -281,7 +294,6 @@
 
         <span class="k">else</span><span class="p">:</span>
             <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
-            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
 
             <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.data.mongo.MODE&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;running&#39;</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
@@ -308,6 +320,10 @@
                 <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cms admin mongo start&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB is on </span><span class="se">\&quot;</span><span class="s2">running</span><span class="se">\&quot;</span><span class="s2"> mode!&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dropping cloudmesh database...&quot;</span><span class="p">)</span>
+                <span class="n">cm_db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+                <span class="n">cm_db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+                <span class="n">cm_db</span><span class="o">.</span><span class="n">drop_database</span><span class="p">()</span>
 
             <span class="n">user</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.profile.user&quot;</span><span class="p">]</span>
 

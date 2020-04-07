@@ -96,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -112,7 +111,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -142,22 +140,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -233,8 +220,7 @@
 <h1>provider<a class="headerlink" href="#provider" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">provider</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">provider</span> <span class="n">delete</span> <span class="n">NAME</span>
-  <span class="n">provider</span> <span class="n">add</span> <span class="n">NAME</span>
+  <span class="n">provider</span> <span class="n">info</span> <span class="n">SERVICE</span> <span class="n">NAME</span> <span class="n">WHAT</span>
 
 <span class="n">Arguments</span><span class="p">:</span>
   <span class="n">NAME</span>           <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">key</span><span class="o">.</span>
@@ -245,9 +231,15 @@
 
 <span class="n">Description</span><span class="p">:</span>
 
-     <span class="n">THIS</span> <span class="n">IS</span> <span class="n">NOT</span> <span class="n">YET</span> <span class="n">IMPLEMENTED</span>
+     <span class="n">What</span><span class="p">:</span> <span class="n">output</span><span class="p">,</span> <span class="n">sample</span>
 
-     <span class="n">Managing</span> <span class="n">the</span> <span class="n">providers</span>
+<span class="n">Examples</span><span class="p">:</span>
+  <span class="n">Getting</span> <span class="n">the</span> <span class="n">sample</span> <span class="ow">and</span> <span class="n">output</span> <span class="kn">from</span> <span class="nn">provides</span> <span class="n">via</span> <span class="n">a</span> <span class="n">command</span>
+
+    <span class="n">cms</span> <span class="n">provider</span> <span class="n">info</span> <span class="n">compute</span> <span class="n">openstack</span> <span class="n">sample</span>
+    <span class="n">cms</span> <span class="n">provider</span> <span class="n">info</span> <span class="n">compute</span> <span class="n">openstack</span> <span class="n">output</span>
+    <span class="n">cms</span> <span class="n">provider</span> <span class="nb">list</span> <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">json</span>
+    <span class="n">cms</span> <span class="n">provider</span> <span class="nb">list</span>
 </pre></div>
 </div>
 </div>

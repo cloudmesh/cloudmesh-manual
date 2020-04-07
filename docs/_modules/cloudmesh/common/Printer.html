@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -217,15 +204,15 @@
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="kn">import</span> <span class="n">flatten</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="kn">import</span> <span class="n">dotdict</span>
 <span class="c1"># from prettytable import PrettyTable</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">convert_from_unicode</span>
-<span class="kn">from</span> <span class="nn">humanize</span> <span class="kn">import</span> <span class="n">naturaltime</span>
 <span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
 
 
 <div class="viewcode-block" id="Printer"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer">[docs]</a><span class="k">class</span> <span class="nc">Printer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -385,7 +372,8 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">output</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="s2">&quot;filter&quot;</span><span class="p">]:</span>
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="p">{}:</span>
                 <span class="k">return</span> <span class="kc">None</span>
             <span class="k">else</span><span class="p">:</span>
@@ -395,6 +383,16 @@
                                       <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
                                       <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
                                       <span class="n">max_width</span><span class="o">=</span><span class="n">max_width</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;html&quot;</span><span class="p">:</span>  <span class="c1"># does not work</span>
+            <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="p">[]:</span>
+                <span class="k">return</span> <span class="s2">&quot;Empty data&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">dict_html</span><span class="p">(</span><span class="n">d</span><span class="p">,</span>
+                                     <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                                     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                                     <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
+                                     <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
+                                     <span class="n">max_width</span><span class="o">=</span><span class="n">max_width</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;csv&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">d</span><span class="p">,</span>
                            <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
@@ -474,6 +472,24 @@
             <span class="n">table</span> <span class="o">=</span> <span class="n">table</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">content</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">table</span></div>
 
+<div class="viewcode-block" id="Printer.dict_html"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.dict_html">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">dict_html</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>
+                  <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                  <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">max_width</span><span class="o">=</span><span class="mi">48</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">Printer</span><span class="o">.</span><span class="n">dict_table</span><span class="p">(</span><span class="n">d</span><span class="p">,</span>
+                               <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                               <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                               <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
+                               <span class="n">show_none</span><span class="o">=</span><span class="n">show_none</span><span class="p">,</span>
+                               <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
+                               <span class="n">max_width</span><span class="o">=</span><span class="n">max_width</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">get_html_string</span><span class="p">()</span></div>
+
 <div class="viewcode-block" id="Printer.dict_table"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.dict_table">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">dict_table</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>
                    <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -517,7 +533,7 @@
                 <span class="k">elif</span> <span class="n">humanize</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">humanize</span><span class="p">:</span>
                     <span class="n">tmp</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
                     <span class="n">tmp</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">humanize</span><span class="p">(</span><span class="n">start</span> <span class="o">-</span> <span class="n">tmp</span><span class="p">)</span>
-                    <span class="c1">#tmp = naturaltime(start - tmp)</span>
+                    <span class="c1"># tmp = naturaltime(start - tmp)</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="n">tmp</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
             <span class="k">return</span> <span class="n">tmp</span>
@@ -546,7 +562,6 @@
                 <span class="n">sorted_list</span> <span class="o">=</span> <span class="n">d</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">sorted_list</span> <span class="o">=</span> <span class="n">d</span>
-
 
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sorted_list</span><span class="p">:</span>
             <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>

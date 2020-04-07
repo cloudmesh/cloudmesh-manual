@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -215,16 +202,15 @@
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
 
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.register.Entry</span> <span class="kn">import</span> <span class="n">Entry</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.register.Register</span> <span class="kn">import</span> <span class="n">Register</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.register.Register</span> <span class="kn">import</span> <span class="n">Register</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 
 
+<span class="c1"># noinspection</span>
 <div class="viewcode-block" id="RegisterCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.register.command.html#cloudmesh.register.command.register.RegisterCommand">[docs]</a><span class="k">class</span> <span class="nc">RegisterCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
     <span class="c1"># noinspection PyUnusedLocal</span>
@@ -234,61 +220,87 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            Usage:</span>
-<span class="sd">                register list kind --service=SERVICE</span>
-<span class="sd">                register list sample --cloud=CLOUD [--service=SERVICE]</span>
-<span class="sd">                register delete --cloud=CLOUD [--service=SERVICE]</span>
-<span class="sd">                register update --cloud=CLOUD [--service=SERVICE] [--name=NAME] [--filename=FILENAME] [--keep] [ATTRIBUTES...] [--dryrun]</span>
-
+<span class="sd">                register list [--service=SERVICE] [--kind=KIND]</span>
+<span class="sd">                register list sample --kind=KIND [--service=SERVICE]</span>
+<span class="sd">                register remove --kind=KIND [--service=SERVICE] [--name=NAME]</span>
+<span class="sd">                register update --kind=KIND [--service=SERVICE]</span>
+<span class="sd">                                            [--name=NAME]</span>
+<span class="sd">                                            [--filename=FILENAME]</span>
+<span class="sd">                                            [--keep]</span>
+<span class="sd">                                            [ATTRIBUTES...]</span>
+<span class="sd">                                            [--dryrun]</span>
 
 <span class="sd">                This command adds the registration information in the cloudmesh</span>
 <span class="sd">                yaml file. A FILENAME can be passed along that contains</span>
 <span class="sd">                credential information downloaded from the cloud. The</span>
 <span class="sd">                permissions of the FILENAME will also be changed. A y/n question</span>
 <span class="sd">                will be asked if the file with the FILENAME should be deleted</span>
-<span class="sd">                after integration. THis helps that all credential information</span>
+<span class="sd">                after integration. This helps that all credential information</span>
 <span class="sd">                could be managed with the cloudmesh.yaml file.</span>
 
 <span class="sd">            Arguments:</span>
 <span class="sd">                FILENAME    a filename in which the cloud credentials are stored</span>
-<span class="sd">                ATTRIBUTES  Attribute list to replace if json file is not provided.</span>
-<span class="sd">                            Note: Attributes will override the values from file</span>
-<span class="sd">                            if both are used.</span>
+<span class="sd">                ATTRIBUTES  Attribute list to replace if json file is not</span>
+<span class="sd">                            provided. Attributes will override the values from</span>
+<span class="sd">                            file if both are used.</span>
+<span class="sd">                SERVICE     service type e.g: compute, storage, volume etc.</span>
+<span class="sd">                KIND        kind that needs to be registered. E.g: aws, google,</span>
+<span class="sd">                            azure etc.</span>
+<span class="sd">                            Multiple kind might be supported by same cloud</span>
+<span class="sd">                            service provider.</span>
 
 <span class="sd">            Options:</span>
 <span class="sd">                --keep               keeps the file with the filename.</span>
-<span class="sd">                --dryrun             option to just display the formatted sample without</span>
-<span class="sd">                                     updating the cloudmesh.yaml file.</span>
-<span class="sd">                --filename=FILENAME  json filename containing the details to be replaced</span>
-<span class="sd">                --cloud=CLOUD        cloud provider e.g. aws, google, openstack, oracle etc.</span>
-<span class="sd">                --service=SERVICE    service type e.g. storage, compute, volume</span>
-<span class="sd">                --name=NAME          name for the new registration</span>
+<span class="sd">                --dryrun             option to just display the formatted sample</span>
+<span class="sd">                                     without updating the cloudmesh.yaml file.</span>
+<span class="sd">                --filename=FILENAME  json filename containing the details to be</span>
+<span class="sd">                                     replaced.</span>
+<span class="sd">                --service=SERVICE    service type e.g. storage,cloud,volume etc.</span>
+<span class="sd">                --name=NAME          name for the registration to use to add,</span>
+<span class="sd">                                     update or remove.</span>
+<span class="sd">                --kind=KIND          kind that you want to register e.g: google,</span>
+<span class="sd">                                     aws, azure.</span>
 
 <span class="sd">            Examples:</span>
 
-<span class="sd">                cms register google compute --name=west_region \</span>
-<span class="sd">                    filename=~/.cloudmesh/google.json project_id=west1 \</span>
-<span class="sd">                    client_email=example@gmail.com</span>
+<span class="sd">                cms register list</span>
+<span class="sd">                    List all services and related kinds that can be registered.</span>
 
-<span class="sd">                  In the last example the values for filename, project_id, and</span>
-<span class="sd">                  client_email will be changed to respective values from google</span>
-<span class="sd">                  compute sample. We assume you have downloaded the credentials</span>
-<span class="sd">                  form google and stored it in the file ~/.cloudmesh/google.json</span>
+<span class="sd">                cms register list --service=cloud</span>
+<span class="sd">                    List the supported kinds for given cloud service type.</span>
+
+<span class="sd">                cms register list sample --kind=google --service=cloud</span>
+<span class="sd">                    Display the sample entry google cloud. It also lists all</span>
+<span class="sd">                    attributes that are needed to successfully register for</span>
+<span class="sd">                    the given kind and service.</span>
+
+<span class="sd">                cms remove --kind=google --service=cloud --name=mygoogle</span>
+<span class="sd">                    Remove the cloudmesh.yaml for google cloud registered with</span>
+<span class="sd">                    name mygoogle. If name attribute is not provided, the name</span>
+<span class="sd">                    is defaulted to kind i.e. google in this example.</span>
+
+<span class="sd">                cms register update --kind=google --service=compute --filename=</span>
+<span class="sd">                    ~/.cloudmesh/security/google-service-account.json</span>
+<span class="sd">                    Add or update the cloudmesh.yaml entry for google</span>
+<span class="sd">                    cloud/compute type with replaceable attributes provided in</span>
+<span class="sd">                    the json file.</span>
+<span class="sd">                    In this example the values for credential filename,</span>
+<span class="sd">                    project_id, and client_email will be changed to respective</span>
+<span class="sd">                    values from google compute sample. We assume you have</span>
+<span class="sd">                    downloaded the service account credentials form google cloud.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
                        <span class="s1">&#39;cloud&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;kind&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;service&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;keep&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;filename&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;name&#39;</span><span class="p">)</span>
 
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
-
-        <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">service</span> <span class="ow">or</span> <span class="s2">&quot;cloud&quot;</span>
-        <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span>
-        <span class="n">entry_name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span>
+        <span class="c1"># VERBOSE(arguments)</span>
 
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        TODO: This is a special register allowing to use the web interface </span>
@@ -311,83 +323,117 @@
 <span class="sd">            return &quot;&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">provider</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+        <span class="c1"># Extract and validate arguments.</span>
+        <span class="n">service</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">service</span> <span class="ow">or</span> <span class="s2">&quot;cloud&quot;</span>
+        <span class="k">if</span> <span class="n">service</span> <span class="o">==</span> <span class="s1">&#39;compute&#39;</span><span class="p">:</span>
+            <span class="n">service</span> <span class="o">=</span> <span class="s1">&#39;cloud&#39;</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;sample&quot;</span><span class="p">]:</span>
+        <span class="n">entry_name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span>
 
-            <span class="n">sample</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">sample</span>
+        <span class="c1"># Validate entity name.</span>
+        <span class="k">if</span> <span class="n">entry_name</span> <span class="ow">and</span> <span class="s2">&quot;_&quot;</span> <span class="ow">in</span> <span class="n">entry_name</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Name cannot have have &#39;_&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample for service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> kind=</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Analyze command.</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">sample</span><span class="p">:</span>
+                <span class="n">sample</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_provider_sample</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
 
-                <span class="nb">print</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">sample</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Sample for service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> kind=</span><span class="si">{</span><span class="n">arguments</span><span class="o">.</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The following attributes are not defined&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The following attributes are not defined&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">()</span>
+                    <span class="n">keys</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample_variables</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">keys</span><span class="p">)))</span>
+                    <span class="nb">print</span><span class="p">()</span>
+
+                <span class="k">return</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">service</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span><span class="p">:</span>
+                <span class="n">kinds</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_kinds</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">kinds</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kind for service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">()</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">kinds</span><span class="p">)))</span>
+                    <span class="nb">print</span><span class="p">()</span>
+                <span class="k">return</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">service</span><span class="p">:</span>
+                <span class="nb">list</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">list_all</span><span class="p">()</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Services for kind=</span><span class="si">{</span><span class="n">arguments</span><span class="o">.</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">()</span>
-                <span class="n">keys</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample_variables</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">keys</span><span class="p">)))</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;kind&#39;</span><span class="p">]:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;        &quot;</span> <span class="o">+</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;service&#39;</span><span class="p">])</span>
                 <span class="nb">print</span><span class="p">()</span>
+                <span class="k">return</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># List all supported kinds and services.</span>
+                <span class="nb">list</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">list_all</span><span class="p">()</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Services to be registered&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span>
+                                        <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;service&quot;</span><span class="p">],</span>
+                                        <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">],</span>
+                                        <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Service&quot;</span><span class="p">,</span> <span class="s2">&quot;Supported Kind&quot;</span><span class="p">],</span>
+                                        <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+                                        <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+                      <span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">remove</span><span class="p">:</span>
+            <span class="n">removed_item</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">entry_name</span><span class="p">)</span>
+
+            <span class="c1"># VERBOSE(removed_item)</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;kind&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">update</span><span class="p">:</span>
+            <span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
 
-            <span class="n">kinds</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_kind</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
+                <span class="c1"># Load JSON File.</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                    <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kind for service=</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">kinds</span><span class="p">)))</span>
-            <span class="nb">print</span><span class="p">()</span>
+                <span class="c1"># Add the filename to attributes</span>
+                <span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span>
 
-            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+            <span class="c1"># Attributes will override values from file.</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span><span class="p">:</span>
 
+                <span class="n">atts</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
+                <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">atts</span><span class="p">:</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="n">attributes</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-        <span class="k">if</span> <span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span>
+            <span class="c1"># VERBOSE(attributes)</span>
 
-        <span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">kind</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">kind</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
-            <span class="c1"># Load JSON File.</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-                <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
+                <span class="c1"># Just print the value, no update.</span>
+                <span class="n">sample</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span>
+                                             <span class="n">kind</span><span class="p">,</span>
+                                             <span class="n">service</span><span class="p">,</span>
+                                             <span class="n">entry_name</span><span class="p">,</span>
+                                             <span class="n">attributes</span><span class="p">)</span>
+                <span class="n">pprint</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sample</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span>
+                                         <span class="n">kind</span><span class="p">,</span>
+                                         <span class="n">service</span><span class="p">,</span>
+                                         <span class="n">entry_name</span><span class="p">,</span>
+                                         <span class="n">attributes</span><span class="p">)</span>
 
-            <span class="c1"># Add the filename to attributes</span>
-            <span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">filename</span>
-
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span><span class="p">:</span>
-
-            <span class="n">atts</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ATTRIBUTES</span>
-            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">atts</span><span class="p">:</span>
-                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="n">attributes</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
-
-        <span class="n">sample</span> <span class="o">=</span> <span class="n">Register</span><span class="o">.</span><span class="n">get_sample</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span>
-                                     <span class="n">kind</span><span class="p">,</span>
-                                     <span class="n">service</span><span class="p">,</span>
-                                     <span class="n">entry_name</span><span class="p">,</span>
-                                     <span class="n">attributes</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">sample</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The sample is not fully filled out.&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">dryrun</span><span class="p">:</span>
-            <span class="c1"># Just print the value</span>
-            <span class="n">pprint</span><span class="p">(</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Add the entry into cloudmesh.yaml file.</span>
-            <span class="n">Entry</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span>
-                      <span class="n">base</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.</span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-                      <span class="n">path</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">)</span>
-
-        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Registered </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> service for </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot; provider with name </span><span class="si">{</span><span class="n">entry_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
 </pre></div>
 

@@ -28,6 +28,8 @@ multipass
         multipass transfer SOURCE DESTINATION [--dryrun]
         multipass set key=VALUE [--dryrun]
         multipass get [key] [--dryrun]
+        multipass deploy [--dryrun]
+        multipass rename NAMES [--dryrun]
         multipass version
 
   Interface to multipass

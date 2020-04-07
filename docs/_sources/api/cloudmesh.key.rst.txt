@@ -5,6 +5,7 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
    cloudmesh.key.command
 
@@ -15,14 +16,6 @@ cloudmesh.key.Key module
 ------------------------
 
 .. automodule:: cloudmesh.key.Key
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cloudmesh.key.KeyGroup module
------------------------------
-
-.. automodule:: cloudmesh.key.KeyGroup
    :members:
    :undoc-members:
    :show-inheritance:

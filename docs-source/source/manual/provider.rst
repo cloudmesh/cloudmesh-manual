@@ -5,8 +5,7 @@ provider
 
    Usage:
      provider list [--output=OUTPUT]
-     provider delete NAME
-     provider add NAME
+     provider info SERVICE NAME WHAT
 
    Arguments:
      NAME           The name of the key.
@@ -17,6 +16,12 @@ provider
 
    Description:
 
-        THIS IS NOT YET IMPLEMENTED
+        What: output, sample
 
-        Managing the providers
+   Examples:
+     Getting the sample and output from provides via a command
+
+       cms provider info compute openstack sample
+       cms provider info compute openstack output
+       cms provider list --output=json
+       cms provider list

@@ -94,7 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -110,7 +109,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -127,22 +125,11 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -214,110 +201,88 @@
             
   <div class="section" id="volume">
 <h1>volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-      <span class="n">volume</span> <span class="n">create</span> <span class="n">NAME</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">VOLUME</span><span class="o">-</span><span class="n">TYPE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span> <span class="o">|</span> <span class="o">--</span><span class="n">snapshot</span><span class="o">=</span><span class="n">SNAPSHOT</span> <span class="o">|</span> <span class="o">--</span><span class="n">source</span> <span class="o">=</span><span class="n">VOLUME</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">description</span><span class="o">=</span><span class="n">DESCRIPTION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="n">delete</span> <span class="n">NAME</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="nb">list</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">vm</span><span class="o">=</span><span class="n">VM</span> <span class="n">NAME</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">region</span><span class="o">=</span><span class="n">REGION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="n">migrate</span> <span class="n">NAME</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">fregion</span><span class="o">=</span><span class="n">FROM</span> <span class="n">REGION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">tregion</span><span class="o">=</span><span class="n">TO</span> <span class="n">REGION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">fservice</span><span class="o">=</span><span class="n">FROM</span> <span class="n">SERVICE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">tservice</span><span class="o">=</span><span class="n">TO</span> <span class="n">SERVICE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">fcloud</span><span class="o">=</span><span class="n">FROM</span> <span class="n">CLOUD</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">tcloud</span><span class="o">=</span><span class="n">TO</span> <span class="n">CLOUD</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">region</span><span class="o">=</span><span class="n">REGION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">SERVICE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="nb">set</span> <span class="n">NAME</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">description</span><span class="o">=</span><span class="n">DESCRIPTION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">state</span><span class="o">=</span><span class="n">STATE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">VOLUME</span><span class="o">-</span><span class="n">TYPE</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">retype</span><span class="o">-</span><span class="n">policy</span><span class="o">=</span><span class="n">RETYPE</span><span class="o">-</span><span class="n">POLICY</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">bootable</span> <span class="o">|</span> <span class="o">--</span><span class="n">non</span><span class="o">-</span><span class="n">bootable</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="n">only</span> <span class="o">|</span> <span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="n">write</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="n">show</span> <span class="n">NAME</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="n">sync</span> <span class="n">NAMEA</span> <span class="n">NAMEB</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">region</span><span class="o">=</span><span class="n">REGION</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="n">unset</span> <span class="n">NAME</span>
-                    <span class="p">[</span><span class="o">--</span><span class="nb">property</span><span class="o">=</span><span class="n">PROPERTY</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">image</span><span class="o">-</span><span class="nb">property</span><span class="o">=</span><span class="n">IMAGE</span><span class="o">-</span><span class="n">PROPERTY</span><span class="p">]</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-      <span class="n">volume</span> <span class="n">mount</span> <span class="n">PATH</span> <span class="n">NAME</span>
-                    <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
+  volume register which
+  volume register [NAME] [--cloud=CLOUD] [ARGUMENTS...]
+  volume list [NAMES]
+              [--vm=VM]
+              [--region=REGION]
+              [--cloud=CLOUD]
+              [--refresh]
+              [--dryrun]
+              [--output=FORMAT]
+  volume create [NAME]
+            [--size=SIZE]
+            [--volume_type=TYPE]
+            [--description=DESCRIPTION]
+            [--dryrun]
+            [ARGUMENTS...]
+  volume status [NAMES]
+            [--cloud=CLOUD]
+  volume attach [NAMES] [--vm=VM]
+  volume detach [NAMES]
+  volume delete NAMES
+  volume migrate NAME FROM_VM TO_VM
+  volume sync FROM_VOLUME TO_VOLUME
 
-<span class="n">A</span> <span class="n">simple</span> <span class="n">abstraction</span> <span class="n">layer</span> <span class="n">to</span> <span class="n">manage</span> <span class="n">Cloud</span> <span class="n">Volumes</span> <span class="k">for</span> <span class="n">AWS</span><span class="p">,</span> <span class="n">Azure</span><span class="p">,</span> <span class="n">Google</span><span class="p">,</span> <span class="n">Openstack</span> <span class="ow">and</span> <span class="n">Multipass</span>
+This command manages volumes accross different clouds
 
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">NAME</span>  <span class="n">volume</span> <span class="n">name</span>
-    <span class="n">NAMEA</span> <span class="n">first</span> <span class="n">volume</span> <span class="n">name</span> <span class="n">to</span> <span class="n">sync</span>
-    <span class="n">NAMEB</span> <span class="n">second</span> <span class="n">volume</span> <span class="n">name</span> <span class="n">to</span> <span class="n">sync</span>
-    <span class="n">PATH</span> <span class="n">mount</span> <span class="n">path</span> <span class="n">name</span>
+Arguments:
+    NAME   the name of the volume
+    vm     the name of the vm
 
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span>                     <span class="n">specify</span> <span class="n">cloud</span> <span class="n">name</span>
-    <span class="o">--</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span>                       <span class="n">specify</span> <span class="n">size</span> <span class="n">of</span> <span class="n">volume</span>
-    <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">VOLUME</span><span class="o">-</span><span class="n">TYPE</span>                <span class="n">specify</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">volume</span>
-    <span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span>                     <span class="n">specify</span> <span class="n">source</span>
-    <span class="o">--</span><span class="n">description</span><span class="o">=</span><span class="n">DESCRIPTION</span>         <span class="n">specify</span> <span class="n">description</span>
-    <span class="o">--</span><span class="n">vm</span><span class="o">=</span><span class="n">VM</span> <span class="n">NAME</span>                      <span class="n">specify</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">vm</span>
-    <span class="o">--</span><span class="n">region</span><span class="o">=</span><span class="n">REGION</span>                   <span class="n">specify</span> <span class="n">the</span> <span class="n">region</span>
-    <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span>                     <span class="n">specify</span> <span class="n">the</span> <span class="n">provider</span>
-    <span class="o">--</span><span class="n">refresh</span>                         <span class="n">refresh</span>
-    <span class="o">--</span><span class="n">fregion</span><span class="o">=</span><span class="n">FROM</span> <span class="n">REGION</span>             <span class="n">specify</span> <span class="n">the</span> <span class="n">region</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="kn">from</span>
-    <span class="o">--</span><span class="n">tregion</span><span class="o">=</span><span class="n">TO</span> <span class="n">REGION</span>               <span class="n">specify</span> <span class="n">the</span> <span class="n">region</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="n">to</span>
-    <span class="o">--</span><span class="n">fservice</span><span class="o">=</span><span class="n">FROM</span> <span class="n">SERVICE</span>           <span class="n">specify</span> <span class="n">the</span> <span class="n">service</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="kn">from</span>
-    <span class="o">--</span><span class="n">tservice</span><span class="o">=</span><span class="n">TO</span> <span class="n">SERVICE</span>             <span class="n">specify</span> <span class="n">the</span> <span class="n">service</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="n">to</span>
-    <span class="o">--</span><span class="n">fcloud</span><span class="o">=</span><span class="n">FROM</span> <span class="n">CLOUD</span>               <span class="n">specify</span> <span class="n">the</span> <span class="n">provider</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="kn">from</span>
-    <span class="o">--</span><span class="n">tcloud</span><span class="o">=</span><span class="n">TO</span> <span class="n">CLOUD</span>                 <span class="n">specify</span> <span class="n">the</span> <span class="n">provider</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="n">to</span>
-    <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span>                     <span class="n">specify</span> <span class="n">the</span> <span class="n">provider</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="n">within</span>
-    <span class="o">--</span><span class="n">region</span><span class="o">=</span><span class="n">REGION</span>                   <span class="n">specify</span> <span class="n">the</span> <span class="n">region</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="n">within</span>
-    <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">SERVICE</span>                 <span class="n">specify</span> <span class="n">the</span> <span class="n">service</span> <span class="n">where</span> <span class="n">the</span> <span class="n">volume</span> <span class="ow">is</span> <span class="n">moving</span> <span class="n">within</span>
-    <span class="o">--</span><span class="n">state</span><span class="o">=</span><span class="n">STATE</span>                     <span class="n">specify</span> <span class="n">the</span> <span class="n">state</span> <span class="n">of</span> <span class="n">the</span> <span class="n">volume</span>
-    <span class="o">--</span><span class="n">retype</span><span class="o">-</span><span class="n">policy</span><span class="o">=</span><span class="n">RETYPE</span><span class="o">-</span><span class="n">POLICY</span>     <span class="n">specify</span> <span class="n">the</span> <span class="n">retype</span><span class="o">-</span><span class="n">policy</span>
-    <span class="o">--</span><span class="nb">property</span><span class="o">=</span><span class="n">PROPERTY</span>               <span class="n">specify</span> <span class="nb">property</span> <span class="k">for</span> <span class="n">the</span> <span class="n">volume</span>
-    <span class="o">--</span><span class="n">image</span><span class="o">-</span><span class="nb">property</span><span class="o">=</span><span class="n">IMAGE</span><span class="o">-</span><span class="n">PROPERTY</span>   <span class="n">specify</span> <span class="nb">property</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span>
-                                          <span class="k">for</span> <span class="n">the</span> <span class="n">volume</span>
+Options:
+    --vm=VMNAME        The name of the virtual machine
+    --region=REGION    The name of the region
+    --cloud=CLOUD      The name of the cloud
+    --refresh          If refresh the information is taken from the cloud
+    --volume_type=TYPE  The type of the volume
+    --output=FORMAT    Output format [default: table]
 
+Description:
 
-<span class="n">Commands</span><span class="p">:</span>
-  <span class="n">Create</span> <span class="n">volume</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="n">create</span> <span class="n">NAME</span>
-    <span class="n">Optionally</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">size</span><span class="p">,</span> <span class="n">volume</span> <span class="nb">type</span><span class="p">,</span> <span class="n">image</span> <span class="ow">or</span> <span class="n">description</span>
-  <span class="n">Delete</span> <span class="n">volume</span> <span class="n">NAME</span>
-  <span class="n">List</span> <span class="n">volume</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="nb">list</span>
-    <span class="n">Optionally</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">vm</span> <span class="n">name</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">provider</span><span class="p">,</span> <span class="n">refresh</span>
-  <span class="n">Migrate</span> <span class="n">volume</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="n">migrate</span> <span class="n">NAME</span>
-    <span class="n">Optionally</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">fregion</span><span class="p">,</span> <span class="n">tregion</span><span class="p">,</span> <span class="n">fservice</span><span class="p">,</span> <span class="n">tservice</span><span class="p">,</span> <span class="n">fcloud</span><span class="p">,</span> <span class="n">tcloud</span><span class="p">,</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">service</span>
-  <span class="n">Set</span> <span class="n">volume</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="nb">set</span> <span class="n">NAME</span>
-    <span class="n">Optionally</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">size</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">retype</span> <span class="n">policy</span>
-  <span class="n">Show</span> <span class="n">volume</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="n">show</span> <span class="n">NAME</span>
-  <span class="n">Volume</span> <span class="n">sync</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="n">sync</span> <span class="n">NAMEA</span> <span class="n">NAMEB</span>
-    <span class="n">Optionally</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">region</span><span class="p">,</span> <span class="n">cloud</span>
-  <span class="n">Unset</span> <span class="n">volume</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="n">unset</span> <span class="n">NAME</span>
-    <span class="n">Optionally</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="nb">property</span><span class="p">,</span> <span class="n">image</span><span class="o">-</span><span class="nb">property</span>
-  <span class="n">mount</span> <span class="n">path</span> <span class="n">name</span>
-    <span class="n">cms</span> <span class="n">volume</span> <span class="n">mount</span> <span class="n">path</span> <span class="n">name</span>
+  volume register which
+      TODO: describe
+
+  volume register [NAME] [--cloud=CLOUD] [ARGUMENTS...]
+      TODO: describe
+
+  volume list [NAMES]
+              [--vm=VM]
+              [--region=REGION]
+              [--cloud=CLOUD]
+              [--refresh]
+              [--dryrun]
+              [--output=FORMAT]
+      List all the volumes for certain vm, region, or cloud.
+
+  volume create [NAME]
+            [--size=SIZE]
+            [--volume_type=TYPE]
+            [--description=DESCRIPTION]
+            [--dryrun]
+            [ARGUMENTS...]
+      Creates a volume
+
+  volume status [NAMES]
+            [--cloud=CLOUD]
+  volume attach [NAMES] [--vm=VM]
+      Attatch volume to a vm
+
+  volume detach [NAMES]
+      Dettatch volume from a vm
+
+  volume delete NAMES
+      Delete the named volumes
+
+  volume migrate NAME FROM_VM TO_VM
+       TODO: not yet implemented
+       Migrate volume from one vm to another vm between different
+       regions, services or providers. `
+
+  volume sync FROM_VOLUME TO_VOLUME
+      TODO: not yet implemented
+      Volume sync alows for data to shared bewteen two volumes.
 </pre></div>
 </div>
 </div>
