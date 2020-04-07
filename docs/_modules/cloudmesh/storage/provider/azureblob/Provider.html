@@ -200,16 +200,15 @@
   <h1>Source code for cloudmesh.storage.provider.azureblob.Provider</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="kn">from</span> <span class="nn">azure.storage.blob</span> <span class="kn">import</span> <span class="n">BlockBlobService</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">HEADING</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">StorageABC</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;azureblob&quot;</span>
@@ -286,7 +285,7 @@
                 <span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">source_path</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">src_path</span></div>
 
-<div class="viewcode-block" id="Provider.get"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.get"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Downloads file from Destination(Service) to Source(local)</span>
 
@@ -441,7 +440,7 @@
         <span class="c1"># pprint(dict_obj)</span>
         <span class="k">return</span> <span class="n">dict_obj</span></div>
 
-<div class="viewcode-block" id="Provider.put"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.put"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Uploads file from Source(local) to Destination(Service)</span>
 
@@ -532,7 +531,7 @@
         <span class="n">pprint</span><span class="p">(</span><span class="n">dict_obj</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dict_obj</span></div>
 
-<div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deletes the source from cloud service</span>
 
@@ -588,7 +587,7 @@
         <span class="n">pprint</span><span class="p">(</span><span class="n">dict_obj</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dict_obj</span></div>
 
-<div class="viewcode-block" id="Provider.create_dir"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.create_dir">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.create_dir"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.create_dir">[docs]</a>    <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a directory in the cloud service</span>
 
@@ -642,7 +641,7 @@
         <span class="n">pprint</span><span class="p">(</span><span class="n">dict_obj</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">dict_obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Provider.search"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.search"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        searches the filename in the directory</span>
@@ -696,7 +695,7 @@
         <span class="k">return</span> <span class="n">dict_obj</span></div>
 
     <span class="c1"># TODO code change:</span>
-    <span class="c1"># def list(self, source=None, recursive=False):</span>
+    <span class="c1"># def list(self, service=None, source=None, recursive=False):</span>
 <div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../../api/cloudmesh.storage.provider.azureblob.html#cloudmesh.storage.provider.azureblob.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        lists all files specified in the source</span>

@@ -9,6 +9,7 @@ Manual Cmd5
    manual/clear
    manual/commands
    manual/default
+   manual/debug
    manual/echo
    manual/EOF
    manual/help

@@ -5,6 +5,6 @@ Storage Manual Pages
    :caption: Storage
 
    manual/storage
+   manual/volume
    manual/vdir
-   manual/google
 

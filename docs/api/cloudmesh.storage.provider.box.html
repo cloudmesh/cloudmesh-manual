@@ -156,7 +156,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.key.html">cloudmesh.key package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.man.html">cloudmesh.man package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.open.html">cloudmesh.open package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.provider.html">cloudmesh.provider package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.register.html">cloudmesh.register package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.html">cloudmesh.sec package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.secgroup.html">cloudmesh.secgroup package</a></li>
@@ -291,11 +290,14 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageDeprecatedABC.StorageABC</span></code></p>
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.create_dir">
-<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
 <dd><p>creates a new directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>directory</strong> – path for new directory</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>directory</strong> – path for new directory</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>dict of new directory</p>
@@ -305,11 +307,12 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>deletes file or directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>source</strong> – file or directory to be deleted</p></li>
 <li><p><strong>recursive</strong> – copy the directory recurseively</p></li>
 </ul>
@@ -322,11 +325,12 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>downloads file from Box, if recursive is true and source is directory downloads all files in directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>source</strong> – cloud file or directory to download</p></li>
 <li><p><strong>destination</strong> – local directory to be downloaded into</p></li>
 <li><p><strong>recursive</strong> – if true download all files in source directory, source must be directory</p></li>
@@ -345,11 +349,12 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
 <dd><p>lists all contents of directory, if recursive lists contents of subdirectories as well</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>source</strong> – cloud directory to list all contents of</p></li>
 <li><p><strong>recursive</strong> – if true list contents of all child directories</p></li>
 </ul>
@@ -367,12 +372,13 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>uploads file to Box, if source is directory and recursive is true
 uploads all files in source directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>source</strong> – local file or directory to be uploaded</p></li>
 <li><p><strong>destination</strong> – cloud directory to upload to</p></li>
 <li><p><strong>recursive</strong> – if true upload all files in source directory,
@@ -392,11 +398,12 @@ source must be directory not file</p></li>
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.box.Provider.Provider.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/box/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.box.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>searches directory for file, if recursive searches all subdirectories</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
 <li><p><strong>directory</strong> – cloud directory to search in</p></li>
 <li><p><strong>filename</strong> – name of file to search for</p></li>
 <li><p><strong>recursive</strong> – if true search all child directories of original directory</p></li>

@@ -156,7 +156,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.key.html">cloudmesh.key package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.man.html">cloudmesh.man package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.open.html">cloudmesh.open package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.provider.html">cloudmesh.provider package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.register.html">cloudmesh.register package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.html">cloudmesh.sec package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.secgroup.html">cloudmesh.secgroup package</a></li>
@@ -297,7 +296,7 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.parellelazureblob.Provider.Provider.create_dir">
-<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a directory in the cloud service</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -311,7 +310,7 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.parellelazureblob.Provider.Provider.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the source from cloud service</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -325,7 +324,7 @@
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.parellelazureblob.Provider.Provider.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads file from Destination(Service) to Source(local)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -344,7 +343,7 @@ subdirectories in the specified source</p></li>
 
 <dl class="py attribute">
 <dt id="cloudmesh.storage.provider.parellelazureblob.Provider.Provider.kind">
-<code class="sig-name descname">kind</code><em class="property"> = 'azureblob'</em><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">kind</code><em class="property"> = 'azure'</em><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -378,7 +377,7 @@ subdirectories in the specified source</p></li>
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.parellelazureblob.Provider.Provider.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uploads file from Source(local) to Destination(Service)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -402,7 +401,7 @@ subdirectories in the specified source</p></li>
 
 <dl class="py method">
 <dt id="cloudmesh.storage.provider.parellelazureblob.Provider.Provider.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parellelazureblob/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parellelazureblob.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>searches the filename in the directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -156,7 +156,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.key.html">cloudmesh.key package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.man.html">cloudmesh.man package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.open.html">cloudmesh.open package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.provider.html">cloudmesh.provider package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.register.html">cloudmesh.register package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.html">cloudmesh.sec package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.secgroup.html">cloudmesh.secgroup package</a></li>
@@ -313,15 +312,7 @@ run command.</p>
 
 <dl class="py method">
 <dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel">
-<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel" title="Permalink to this definition">¶</a></dt>
-<dd><p>cancels a job with a specific id
-:param id:
-:return:</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_file">
-<code class="sig-name descname">copy_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.copy_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -331,24 +322,17 @@ run command.</p>
 
 <dl class="py method">
 <dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span></em>, <em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>adds a deleta action to the queue</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – service must be either source or destination</p></li>
-<li><p><strong>path</strong> – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions">
 <code class="sig-name descname">get_actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.get_actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -359,18 +343,6 @@ run command.</p>
 :param service: service must be either source or destination
 :param path:
 :return:</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.queue.StorageQueue.StorageQueue.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#StorageQueue.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.StorageQueue.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>runs the copy process for all jobs in the queue and completes when all
-actions are completed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -401,6 +373,18 @@ actions are completed</p>
 :return:</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.storage.queue.StorageQueue.run">
+<code class="sig-prename descclassname">cloudmesh.storage.queue.StorageQueue.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/queue/StorageQueue.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.queue.StorageQueue.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>runs the copy process for all jobs in the queue and completes when all
+actions are completed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

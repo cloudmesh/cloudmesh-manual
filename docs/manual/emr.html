@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>emr &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>emr</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/manual/emr.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="emr">
+<h1>emr<a class="headerlink" href="#emr" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>emr list clusters [–status=STATUS…] [–format=FORMAT]
+emr list instances CLUSTERID [–status=STATUS…] [–type=TYPE…] [–format=FORMAT]
+emr list steps CLUSTERID [–state=STATE…] [–format=FORMAT]
+emr describe CLUSTERID [–format=FORMAT]
+emr start NAME [–master=MASTER] [–node=NODE] [–count=COUNT]
+emr stop CLUSTERID
+emr upload FILE BUCKET BUCKETNAME
+emr copy CLUSTERID BUCKET BUCKETNAME
+emr run CLUSTERID BUCKET BUCKETNAME</p>
+</dd>
+</dl>
+<p>This command is used to interface with Amazon Web Services
+Elastic Map Reduce (EMR) service to run Apache Spark jobs.
+It can start, list, and stop clusters and submit jobs to them.</p>
+<dl>
+<dt>Arguments:</dt><dd><p>CLUSTERID               The AWS Cluster ID.
+NAME                    The name of the cluster.
+FILE                    The local file to upload.
+BUCKET                  The name of the S3 bucket to use.
+BUCKETNAME              The name to file in the Bucket to use.</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--status=<var>STATUS</var></span></kbd></dt>
+<dd><p>The status to search for.  [default: all]</p>
+</dd>
+<dt><kbd><span class="option">--type=<var>TYPE</var></span></kbd></dt>
+<dd><p>The type of instance to search for.  [default: all]</p>
+</dd>
+<dt><kbd><span class="option">--format=<var>FORMAT</var></span></kbd></dt>
+<dd><p>How to format the output.  [default: table]</p>
+</dd>
+<dt><kbd><span class="option">--master=<var>MASTER</var></span></kbd></dt>
+<dd><p>The type of server to use for the master node. [default: m3.xlarge]</p>
+</dd>
+<dt><kbd><span class="option">--node=<var>NODE</var></span></kbd></dt>
+<dd><p>The type of server to use for the worker nodes. [default: m3.xlarge]</p>
+</dd>
+<dt><kbd><span class="option">--count=<var>COUNT</var></span></kbd></dt>
+<dd><p>The number of servers to use [default: 3]</p>
+</dd>
+<dt><kbd><span class="option">--state=<var>STATE</var></span></kbd></dt>
+<dd><p>The state of the job step to filter for.</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><p>emr list clusters [–status=STATUS] [–format=FORMAT]</p>
+<blockquote>
+<div><p>Lists all clusters viewable to the credentials with a
+given status [default: all]. Valid statuses are: start,
+boot, run, wait, terminating, shutdown, and error.</p>
+</div></blockquote>
+<p>emr list instances [–status=STATUS…] [–format=FORMAT]</p>
+<blockquote>
+<div><p>Lists all instances viewable to the credentials with a given
+status [default: all]. Valid statuses are: start, provision,
+boot, run, down. Valid types are: master, core, and task.</p>
+</div></blockquote>
+<p>emr list steps CLUSTERID [–state=STATE…]</p>
+<blockquote>
+<div><p>Lists all steps being performed by a cluster. Valid states are
+pending, canceling, running, completed cancelled, failed, and
+interrupted</p>
+</div></blockquote>
+<p>emr describe CLUSTERID</p>
+<blockquote>
+<div><p>Describes a cluster. Lists its status, region, type, etc.</p>
+</div></blockquote>
+<p>emr stop CLUSTERID</p>
+<blockquote>
+<div><p>Stops a cluster. Once a shutdown is initiated, it cannot be
+undone.</p>
+</div></blockquote>
+<p>emr start NAME [–master=MASTER] [–node=NODE] [–count=COUNT]</p>
+<blockquote>
+<div><p>Starts a cluster with a given name, number of servers, and
+server type. Bootstraps with Hadoop and Spark.</p>
+</div></blockquote>
+<p>emr copy BUCKET BUCKETNAME</p>
+<blockquote>
+<div><p>Copy a file from S3 to the cluster’s master node.</p>
+</div></blockquote>
+<p>emr run CLUSTERID BUCKET BUCKETNAME</p>
+<blockquote>
+<div><p>Submit a spark application stored in an S3 bucket to the spark
+cluster.</p>
+</div></blockquote>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

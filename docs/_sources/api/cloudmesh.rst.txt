@@ -27,7 +27,6 @@ Subpackages
    cloudmesh.key
    cloudmesh.man
    cloudmesh.open
-   cloudmesh.provider
    cloudmesh.register
    cloudmesh.sec
    cloudmesh.secgroup

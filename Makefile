@@ -18,12 +18,12 @@ define banner
 endef
 
 
-all:
+all: install
 	make -f Makefile manual
 
 install:
 	pip install cloudmesh-installer -U
-	cd ..; cloudmesh-installer get manual
+	cd ..; cloudmesh-installer new manual
 
 # $(call banner, "use: make manual")
 

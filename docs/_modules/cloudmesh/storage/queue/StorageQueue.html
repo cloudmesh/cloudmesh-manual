@@ -264,6 +264,13 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">status</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;completed&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;waiting&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;inprogress&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;canceled&#39;</span>
+    <span class="p">]</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">source</span><span class="p">,</span>
                  <span class="n">destination</span><span class="p">,</span>
@@ -297,9 +304,6 @@
         <span class="c1"># TODO: create collection in mongodb</span>
         <span class="c1">#</span>
         <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collection: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-
-
 
     <span class="k">def</span> <span class="nf">_copy_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -338,23 +342,6 @@
         <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">entries</span>
-
-    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">copy_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        adds a copy action to the queue</span>
-
-<span class="sd">        copies the file from the source service to the destination service using</span>
-<span class="sd">        the file located in the path and storing it into the remote. If remote</span>
-<span class="sd">        is not specified path is used for it.</span>
-
-<span class="sd">        The copy will not be performed if the files are the same.</span>
-
-<span class="sd">        :param sourcefile:</span>
-<span class="sd">        :param destinationfile:</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_copy_file</span><span class="p">(</span><span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">)</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">copy_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcetree</span><span class="p">,</span> <span class="n">destinationtree</span><span class="p">):</span>
@@ -435,7 +422,8 @@
 
         <span class="k">return</span> <span class="n">entries</span></div>
 
-<div class="viewcode-block" id="StorageQueue.delete"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        adds a deleta action to the queue</span>
 
@@ -462,7 +450,37 @@
 <span class="s2">                &quot;&quot;&quot;</span><span class="p">)</span>
         <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">entries</span></div>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a delete action to the queue</span>
+
+<span class="sd">        :param path:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                cm:</span>
+<span class="s2">                   number: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                   name: &quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">                   kind: storage</span>
+<span class="s2">                   id: </span><span class="si">{</span><span class="n">uuid_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                   cloud: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                   collection: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                   created: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                action: delete</span>
+<span class="s2">                source: </span>
+<span class="s2">                  service: </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                  path: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
 
 <div class="viewcode-block" id="StorageQueue.status"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -480,19 +498,67 @@
         <span class="c1"># find all teh values from within the MongoDB</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="StorageQueue.cancel"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.cancel">[docs]</a>    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        cancels a job with a specific id</span>
 <span class="sd">        :param id:</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># if None all are canceled</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                        cm:</span>
+<span class="s2">                           number: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                           name: &quot;</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">                           kind: storage</span>
+<span class="s2">                           id: </span><span class="si">{</span><span class="n">uuid_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                           cloud: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                           collection: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                           created: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                        action: cancel</span>
+<span class="s2">                        status: waiting</span>
+<span class="s2">                        &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
 
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a list action to the queue</span>
+
+<span class="sd">        list the directory in the storage service</span>
+<span class="sd">        :param service: service must be either source or destination</span>
+<span class="sd">        :param path:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">              cm:</span>
+<span class="s2">                number: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                kind: storage</span>
+<span class="s2">                id: </span><span class="si">{</span><span class="n">uuid_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                cloud: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                name: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                collection: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                created: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">              action: list</span>
+<span class="s2">              path: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">              dir_only:</span><span class="si">{</span><span class="n">dir_only</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">              recursive:</span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">              status: waiting</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">entries</span>
 
 <div class="viewcode-block" id="StorageQueue.action"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">specification</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-
 <span class="sd">        executes the action identified by the specification. This is used by the</span>
 <span class="sd">        run command.</span>
 
@@ -501,49 +567,93 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">action</span> <span class="o">=</span> <span class="n">specification</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;copy&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;COPY&quot;</span><span class="p">,</span> <span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># print(&quot;COPY&quot;, specification)</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
             <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
         <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;delete&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># print(&quot;DELETE&quot;, specification)</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
             <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
         <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;mkdir&quot;</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MKDIR&quot;</span><span class="p">,</span> <span class="n">specification</span><span class="p">)</span></div>
+            <span class="c1"># print(&quot;MKDIR&quot;, specification)</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mkdir</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
             <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span>
+            <span class="c1"># print(&quot;LIST&quot;, specification)</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;cancel&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cancel</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span></div>
+
 
 <div class="viewcode-block" id="StorageQueue.get_actions"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.get_actions">[docs]</a>    <span class="k">def</span> <span class="nf">get_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
-        <span class="n">entries</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">,</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                           <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;storage&#39;</span><span class="p">)</span>
         <span class="n">mkdir</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">copy</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">delete</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cancel</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-            <span class="n">pprint</span> <span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mkdir&#39;</span><span class="p">:</span>
+            <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mkdir&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
                 <span class="n">mkdir</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;copy&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;copy&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
                 <span class="n">copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span></div>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;list&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;delete&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">delete</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;cancel&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">cancel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 
-<div class="viewcode-block" id="StorageQueue.run"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">delete</span><span class="p">,</span> <span class="n">cancel</span></div></div>
+
+
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        runs the copy process for all jobs in the queue and completes when all</span>
 <span class="sd">        actions are completed</span>
 
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_actions</span><span class="p">()</span>
+        <span class="n">mkdir_action</span><span class="p">,</span> <span class="n">copy_action</span><span class="p">,</span> <span class="n">list_action</span><span class="p">,</span> <span class="n">delete_action</span><span class="p">,</span> <span class="n">cancel_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_actions</span><span class="p">()</span>
+
+        <span class="c1"># cancel the actions</span>
+        <span class="c1">#</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">cancel_action</span><span class="p">)</span>
+
+        <span class="c1"># delete files/directories</span>
+        <span class="c1">#</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">delete_action</span><span class="p">)</span>
 
         <span class="c1"># create directories</span>
         <span class="c1">#</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
         <span class="c1">#</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">mkdir</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">mkdir_action</span><span class="p">)</span>
 
         <span class="c1"># COPY FILES</span>
         <span class="c1">#</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
         <span class="c1">#</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span></div></div>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">copy_action</span><span class="p">)</span>
+
+        <span class="c1"># LIST FILES</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">list_action</span><span class="p">)</span></div>
+
+        <span class="c1"># function to list file  or directory</span>
 </pre></div>
 
            </div>

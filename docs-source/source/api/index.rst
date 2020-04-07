@@ -18,7 +18,6 @@ Cloudmesh Command API
    cloudmesh.key.command
    cloudmesh.man.command
    cloudmesh.open.command
-   cloudmesh.provider.command
    cloudmesh.register.command
    cloudmesh.sec.command
    cloudmesh.service.command
@@ -73,7 +72,6 @@ Cloudmesh API
    cloudmesh.key
    cloudmesh.man
    cloudmesh.open
-   cloudmesh.provider
    cloudmesh.register
    cloudmesh.sec
    cloudmesh.secgroup
