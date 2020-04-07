@@ -7,10 +7,15 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   cloudmesh.abstract
+   cloudmesh.aws
+   cloudmesh.azure
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common
    cloudmesh.compute
+   cloudmesh.config
+   cloudmesh.configuration
    cloudmesh.container
    cloudmesh.data
    cloudmesh.db
@@ -18,7 +23,9 @@ Subpackages
    cloudmesh.default
    cloudmesh.etc
    cloudmesh.flavor
+   cloudmesh.google
    cloudmesh.group
+   cloudmesh.gui
    cloudmesh.host
    cloudmesh.image
    cloudmesh.init
@@ -26,7 +33,10 @@ Subpackages
    cloudmesh.ip
    cloudmesh.key
    cloudmesh.man
+   cloudmesh.multipass
    cloudmesh.open
+   cloudmesh.openapi
+   cloudmesh.oracle
    cloudmesh.register
    cloudmesh.sec
    cloudmesh.secgroup
@@ -37,11 +47,13 @@ Subpackages
    cloudmesh.storage
    cloudmesh.sys
    cloudmesh.terminal
+   cloudmesh.test
    cloudmesh.var
    cloudmesh.vbox
    cloudmesh.vcluster
    cloudmesh.vdir
    cloudmesh.vm
+   cloudmesh.volume
    cloudmesh.workflow_draft
 
 Module contents

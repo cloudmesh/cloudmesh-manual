@@ -4,12 +4,15 @@ Cloudmesh Command API
 .. toctree::
    :maxdepth: 1
 
+   cloudmesh.config.command
    cloudmesh.container.command
    cloudmesh.data.command
    cloudmesh.debug.command
    cloudmesh.default.command
    cloudmesh.flavor.command
+   cloudmesh.google.command
    cloudmesh.group.command
+   cloudmesh.gui.command
    cloudmesh.host.command
    cloudmesh.image.command
    cloudmesh.init.command
@@ -17,7 +20,10 @@ Cloudmesh Command API
    cloudmesh.ip.command
    cloudmesh.key.command
    cloudmesh.man.command
+   cloudmesh.multipass.command
    cloudmesh.open.command
+   cloudmesh.openapi.command
+   cloudmesh.oracle.command
    cloudmesh.register.command
    cloudmesh.sec.command
    cloudmesh.service.command
@@ -26,11 +32,13 @@ Cloudmesh Command API
    cloudmesh.storage.command
    cloudmesh.sys.command
    cloudmesh.terminal.command
+   cloudmesh.test.command
    cloudmesh.var.command
    cloudmesh.vbox.command
    cloudmesh.vcluster.command
    cloudmesh.vdir.command
    cloudmesh.vm.command
+   cloudmesh.volume.command
    cloudmesh.workflow_draft.command
 
 Cloudmesh API
@@ -40,6 +48,11 @@ Cloudmesh API
    :maxdepth: 1
 
    cloudmesh
+   cloudmesh.abstract
+   cloudmesh.aws
+   cloudmesh.aws.compute
+   cloudmesh.azure
+   cloudmesh.azure.compute
    cloudmesh.cloud
    cloudmesh.cmd5
    cloudmesh.common
@@ -51,6 +64,10 @@ Cloudmesh API
    cloudmesh.compute.libcloud
    cloudmesh.compute.virtualbox
    cloudmesh.compute.vm
+   cloudmesh.config
+   cloudmesh.configuration
+   cloudmesh.configuration.etc
+   cloudmesh.configuration.security
    cloudmesh.container
    cloudmesh.data
    cloudmesh.data.api
@@ -61,7 +78,10 @@ Cloudmesh API
    cloudmesh.default
    cloudmesh.etc
    cloudmesh.flavor
+   cloudmesh.google
+   cloudmesh.google.storage
    cloudmesh.group
+   cloudmesh.gui
    cloudmesh.host
    cloudmesh.image
    cloudmesh.init
@@ -71,7 +91,14 @@ Cloudmesh API
    cloudmesh.ip
    cloudmesh.key
    cloudmesh.man
+   cloudmesh.multipass
    cloudmesh.open
+   cloudmesh.openapi
+   cloudmesh.openapi.function
+   cloudmesh.openapi.registry
+   cloudmesh.oracle
+   cloudmesh.oracle.compute
+   cloudmesh.oracle.storage
    cloudmesh.register
    cloudmesh.sec
    cloudmesh.secgroup
@@ -92,6 +119,7 @@ Cloudmesh API
    cloudmesh.storage.queue
    cloudmesh.sys
    cloudmesh.terminal
+   cloudmesh.test
    cloudmesh.var
    cloudmesh.vbox
    cloudmesh.vcluster
@@ -99,4 +127,6 @@ Cloudmesh API
    cloudmesh.vdir
    cloudmesh.vdir.api
    cloudmesh.vm
+   cloudmesh.volume
+   cloudmesh.volume.azure
    cloudmesh.workflow_draft

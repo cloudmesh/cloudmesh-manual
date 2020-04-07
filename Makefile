@@ -18,8 +18,12 @@ define banner
 endef
 
 
-all: install
+all:
+	cms timer off
+	cms debug off
 	make -f Makefile manual
+	cms timer on
+	cms debug on
 
 install:
 	pip install cloudmesh-installer -U
@@ -40,7 +44,28 @@ inspect-book:
 		--format=htmlembedded > $(SOURCE)/inspector/book.html
 	cp -r $(SOURCE)/inspector docs/inspector
 
-MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud cloudmesh-inventory cloudmesh-storage cloudmesh-cmsd
+MODULES= \
+cloudmesh-inventory \
+cloudmesh-cmd5 \
+cloudmesh-sys \
+cloudmesh-common \
+cloudmesh-cloud \
+cloudmesh-storage \
+cloudmesh-volume \
+cloudmesh-abstract \
+cloudmesh-configuration \
+cloudmesh-google \
+cloudmesh-aws \
+cloudmesh-azure \
+cloudmesh-oracle \
+cloudmesh-multipass \
+cloudmesh-gui \
+cloudmesh-cmsd \
+cloudmesh-installer \
+cloudmesh-openapi \
+cloudmesh-sys \
+cloudmesh-test \
+
 
 api:
 	rm -rf docs-source/source/api
@@ -52,6 +77,18 @@ api:
 	cp -r ../cloudmesh-common/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-cloud/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-storage/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-volume/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-abstract/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-configuration/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-google/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-aws/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-azure/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-oracle/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-multipass/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-gui/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-openapi/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-sys/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-test/cloudmesh/* tmp/cloudmesh
 	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
 	make -f Makefile api-index
 
@@ -144,7 +181,7 @@ COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
                  flavor ssh workflow yaml service config container group \
                  register
 
-STORAGE_COMMAND= storage vdir
+STORAGE_COMMAND= storage volume vdir
 
 GROUP_COMMAND= group
 
@@ -174,7 +211,6 @@ manual:
 	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
 	cms man --dir=$(SOURCE)/manual --format=rst
 	cms version --number > $(SOURCE)/manual/versions.txt
-
 	make -f Makefile doc
 
 authors:

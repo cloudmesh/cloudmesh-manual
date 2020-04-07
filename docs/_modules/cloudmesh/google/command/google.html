@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.google.command.google &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.google.command.google</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.google.command.google</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">map_parameters</span>
+
+
+<div class="viewcode-block" id="GoogleCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.google.command.html#cloudmesh.google.command.google.GoogleCommand">[docs]</a><span class="k">class</span> <span class="nc">GoogleCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    STUDENT - goes to google</span>
+<span class="sd">    student download json google.json</span>
+<span class="sd">    student does</span>
+
+<span class="sd">        cms google yaml add google.json [--name=NAME]</span>
+
+<span class="sd">            cloudmesh.storage.NAME</span>
+
+<span class="sd">    content gets written into yaml file</span>
+<span class="sd">    would you like to delete the file google.json (y)</span>
+
+<span class="sd">    student say</span>
+
+<span class="sd">    cms transfer xys</span>
+
+<span class="sd">    system checks if ~/.google.json exists, if not, creates its</span>
+
+<span class="sd">    now this json file is used for authentication ....async</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># noinspection PyUnusedLocal</span>
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_google</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          Usage:</span>
+<span class="sd">                google config add [FILE_JSON] [--storage=SERVICE]</span>
+<span class="sd">                google config write [FILE_JSON] [--storage=SERVICE]</span>
+<span class="sd">                google config list storage</span>
+<span class="sd">                google config list credentials</span>
+<span class="sd">                google list</span>
+<span class="sd">                google create [--name=NAME] [--storage=SERVICE]</span>
+
+
+<span class="sd">          This command does some useful things.</span>
+
+<span class="sd">          Arguments:</span>
+<span class="sd">              FILE   a file name</span>
+
+<span class="sd">          Options:</span>
+<span class="sd">              -f      specify the file</span>
+
+<span class="sd">          Description:</span>
+<span class="sd">          </span>
+<span class="sd">            google config add [FILE_JSON] [--storage=SERVICE]</span>
+<span class="sd">            </span>
+<span class="sd">                TODO </span>
+<span class="sd">                </span>
+<span class="sd">            google config write [FILE_JSON] [--storage=SERVICE]</span>
+<span class="sd">            </span>
+<span class="sd">                TODO </span>
+<span class="sd">                </span>
+<span class="sd">            google config list storage</span>
+<span class="sd">            </span>
+<span class="sd">                TODO </span>
+<span class="sd">                </span>
+<span class="sd">            google config list credentials</span>
+<span class="sd">            </span>
+<span class="sd">                TODO </span>
+<span class="sd">                </span>
+<span class="sd">            google list</span>
+<span class="sd">            </span>
+<span class="sd">                TODO </span>
+<span class="sd">                </span>
+<span class="sd">            google create [--name=NAME] [--storage=SERVICE]</span>
+<span class="sd">            </span>
+<span class="sd">                TODO </span>
+<span class="sd">                </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># variables = Variables()</span>
+        <span class="c1"># arguments.output = Parameter.find(&quot;storage&quot;,</span>
+        <span class="c1">#                                   arguments,</span>
+        <span class="c1">#                                   variables,</span>
+        <span class="c1">#                                   &quot;google&quot;)</span>
+
+
+
+        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span>
+                       <span class="s1">&#39;storage&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;name&#39;</span><span class="p">)</span>
+
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
+
+
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">config</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
+            <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Read the  specification from json and write to yaml file&quot;</span><span class="p">)</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">FILE_JSON</span> <span class="ow">or</span> <span class="s2">&quot;~/.cloudmesh/google.json&quot;</span><span class="p">)</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
+            <span class="n">Provider</span><span class="o">.</span><span class="n">json_to_yaml</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">config</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">write</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">FILE_JSON</span> <span class="ow">or</span> <span class="s2">&quot;~/.cloudmesh/google.json&quot;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
+
+            <span class="n">banner</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Write the  credential  from </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">  to the json file </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1">#    google yaml write FILE_JSON [--name=NAME]</span>
+            <span class="n">Provider</span><span class="o">.</span><span class="n">yaml_to_json</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">config</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List all google storage providers&quot;</span><span class="p">)</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+            <span class="n">storage</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.storage&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">storage</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">storage</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
+                    <span class="n">d</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.storage.</span><span class="si">{</span><span class="n">element</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+                    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;cloudmesh.storage.&quot;</span> <span class="o">+</span> <span class="n">element</span><span class="p">)</span>
+                    <span class="n">e</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                    <span class="n">e</span><span class="p">[</span><span class="s2">&quot;credentials&quot;</span><span class="p">][</span><span class="s2">&quot;private_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;*****&quot;</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Config</span><span class="o">.</span><span class="n">cat_dict</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">config</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">credentials</span><span class="p">:</span>
+             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Content of current yaml file&quot;</span><span class="p">)</span>
+             <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
+             <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+             <span class="n">credentials</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.storage.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.credentials&quot;</span><span class="p">]</span>
+
+             <span class="nb">print</span><span class="p">(</span><span class="n">Config</span><span class="o">.</span><span class="n">cat_dict</span><span class="p">(</span><span class="n">credentials</span><span class="p">))</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">]:</span>
+            <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Google storage Bucket List&quot;</span><span class="p">)</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">provider</span><span class="o">.</span><span class="n">list_bucket</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">create</span><span class="p">:</span>
+            <span class="n">bucket</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">storage</span> <span class="ow">or</span> <span class="s2">&quot;google&quot;</span>
+            <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Google storage create Bucket &quot;</span><span class="p">)</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">provider</span><span class="o">.</span><span class="n">create_bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -8,6 +8,7 @@ book
     book lecture
     book cloud
     book pi
+    book python
     book list [--dir=DIR]
     book make BOOK TARGET
     book view BOOK [-o]
