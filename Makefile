@@ -151,21 +151,15 @@ names-dir:
 	@cd ../cloudmesh-storage; git log | fgrep Author
 	@cd ../cloudmesh-manual; git log | fgrep Author
 	@cd ../cloudmesh-cmsd; git log | fgrep Author
+	@cd ../cloudmesh-volume; git log | fgrep Author
+	@cd ../cloudmesh-abstract; git log | fgrep Author
+	@cd ../cloudmesh-configuration; git log | fgrep Author
 
 source:
 	cd ../cloudmesh.common; make source
 	$(call banner, "Install cloudmesh-cmd5")
 	pip install -e . -U
 	cms help
-
-install:
-	cd ..; cloudmesh-installer git pull storage
-	cd ..; cloudmesh-installer git pull cmsd
-	cd ..; cloudmesh-installer install storage
-	cd ..; cloudmesh-installer install cmsd
-	cd ../cloudmesh-batch ; git pull; pip install -e .
-	cd ../cloudmesh-emr ; git pull; pip install -e .
-
 
 manual-new:
 	mkdir -p $(SOURCE)/manual/flow
@@ -229,7 +223,6 @@ doc: authors
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 	cp -r $(SOURCE)/inspector docs/inspector
 
-
 pdf: authors
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
 	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/configuration/etc/cloudmesh.yaml
@@ -239,7 +232,6 @@ pdf: authors
 	cd docs-source/build/latex; make
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 
-
 view:
 	open docs/index.html
 
@@ -248,7 +240,6 @@ nist-install: nist-download nist-copy
 nist-download:
 	rm -rf ../nist
 	git clone https://github.com/davidmdem/nist ../nist
-
 
 nist-copy:
 	cd cm4/api; rm -rf specs; mkdir specs;
@@ -282,15 +273,6 @@ clean:
 #	rm -f ./docs/todo.html
 #	rm -rf ./docs-source/source/api
 
-######################################################################
-# .cloudmesh
-######################################################################
-
-user:
-	echo "look at the makefile"
-#  - mkdir -p ~/.cloudmesh
-#  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-common/master/cloudmesh/etc/cloudmesh.yaml
-#  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-inventory/master/cloudmesh/inventory/etc/inventory.yaml
 
 ######################################################################
 # PYPI
