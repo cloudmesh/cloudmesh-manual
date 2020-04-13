@@ -149,9 +149,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.html">cloudmesh.dryrun package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
@@ -191,8 +191,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.storage.provider.parallelawss3 package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.parallelawss3.Provider">cloudmesh.storage.provider.parallelawss3.Provider module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.parallelawss3">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-provider-parallelawss3-provider-module">cloudmesh.storage.provider.parallelawss3.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parallelgdrive.html">cloudmesh.storage.provider.parallelgdrive package</a></li>
@@ -304,184 +304,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.provider.parallelawss3.Provider">
-<span id="cloudmesh-storage-provider-parallelawss3-provider-module"></span><h2>cloudmesh.storage.provider.parallelawss3.Provider module<a class="headerlink" href="#module-cloudmesh.storage.provider.parallelawss3.Provider" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.provider.parallelawss3.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">'~/.cloudmesh/cloudmesh.yaml'</span></em>, <em class="sig-param"><span class="n">parallelism</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cloudmesh.abstract.html#cloudmesh.abstract.StorageABC.StorageABC" title="cloudmesh.abstract.StorageABC.StorageABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageABC.StorageABC</span></code></a></p>
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.action">
-<code class="sig-name descname">action</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">specification</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.action" title="Permalink to this definition">¶</a></dt>
-<dd><p>executes the action identified by the specification. This is used by the
-run command.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>specification</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.bucket_create">
-<code class="sig-name descname">bucket_create</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.bucket_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.bucket_create" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the source name from the put function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – the bucket name which needs to be created</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict,Boolean</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.bucket_exists">
-<code class="sig-name descname">bucket_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.bucket_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.bucket_exists" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the source from the put function</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – the bucket name which needs to be checked for exists</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Boolean</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.cancel">
-<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.cancel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.copy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.extract_file_dict">
-<code class="sig-name descname">extract_file_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">metadata</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.extract_file_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.extract_file_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the source from the service</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param source</dt>
-<dd class="field-odd"><p>the source which either can be a directory or file</p>
-</dd>
-<dt class="field-even">param destination</dt>
-<dd class="field-even"><p>the destination which either can be a directory or file</p>
-</dd>
-<dt class="field-odd">param recursive</dt>
-<dd class="field-odd"><p>in case of directory the recursive refers to all
-subdirectories in the specified source</p>
-</dd>
-<dt class="field-even">return</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.get_actions">
-<code class="sig-name descname">get_actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.get_actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.get_actions" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.join_file_name_dir">
-<code class="sig-name descname">join_file_name_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">dirname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.join_file_name_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.join_file_name_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.kind">
-<code class="sig-name descname">kind</code><em class="property"> = 'parallelawss3'</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.massage_path">
-<code class="sig-name descname">massage_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name_path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.massage_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.massage_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.mkdir">
-<code class="sig-name descname">mkdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.mkdir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>runs the copy process for all jobs in the queue and completes when all
-actions are completed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.sample">
-<code class="sig-name descname">sample</code><em class="property"> = '\ncloudmesh:\n  storage:\n    {name}:\n      cm:\n        active: true\n        heading: homedir\n        host: aws.com\n        label: home-dir\n        kind: parallelawss3\n        version: TBD\n        service: storage\n      default:\n        directory: TBD\n      credentials:\n        name: {username}\n        bucket: {container_name}\n        container: TBD\n        access_key_id: {aws_access_key_id}\n        secret_access_key: {aws_secret_access_key}\n        region: {region_name}\n'</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.sample" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelawss3/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the destination and copies it in source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
-<li><p><strong>filename</strong> – filename</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.status">
-<code class="sig-name descname">status</code><em class="property"> = ['completed', 'waiting', 'inprogress', 'canceled']</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelawss3.Provider.Provider.update_dict">
-<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.provider.parallelawss3.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cloudmesh-storage-provider-parallelawss3-provider-module">
+<h2>cloudmesh.storage.provider.parallelawss3.Provider module<a class="headerlink" href="#cloudmesh-storage-provider-parallelawss3-provider-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.provider.parallelawss3">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.provider.parallelawss3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

@@ -18,9 +18,9 @@ Subpackages
    cloudmesh.configuration
    cloudmesh.container
    cloudmesh.data
-   cloudmesh.db
    cloudmesh.debug
    cloudmesh.default
+   cloudmesh.dryrun
    cloudmesh.etc
    cloudmesh.flavor
    cloudmesh.google

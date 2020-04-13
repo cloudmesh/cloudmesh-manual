@@ -149,9 +149,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.html">cloudmesh.dryrun package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
@@ -192,8 +192,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parallelawss3.html">cloudmesh.storage.provider.parallelawss3 package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.storage.provider.parallelgdrive package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.parallelgdrive.Provider">cloudmesh.storage.provider.parallelgdrive.Provider module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.provider.parallelgdrive">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-provider-parallelgdrive-provider-module">cloudmesh.storage.provider.parallelgdrive.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parellelazureblob.html">cloudmesh.storage.provider.parellelazureblob package</a></li>
@@ -304,192 +304,11 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.provider.parallelgdrive.Provider">
-<span id="cloudmesh-storage-provider-parallelgdrive-provider-module"></span><h2>cloudmesh.storage.provider.parallelgdrive.Provider module<a class="headerlink" href="#module-cloudmesh.storage.provider.parallelgdrive.Provider" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.provider.parallelgdrive.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">'~/.cloudmesh/cloudmesh.yaml'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cloudmesh.abstract.html#cloudmesh.abstract.StorageABC.StorageABC" title="cloudmesh.abstract.StorageABC.StorageABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageABC.StorageABC</span></code></a></p>
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.cloud_path">
-<code class="sig-name descname">cloud_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">srv_path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.cloud_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.cloud_path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.create_dir">
-<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>creates a directory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>directory</strong> – the name of the directory</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>deletes the source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.download_file">
-<code class="sig-name descname">download_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">file_id</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">mime_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.download_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.download_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.generate_flags_json">
-<code class="sig-name descname">generate_flags_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.generate_flags_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.generate_flags_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.generate_key_json">
-<code class="sig-name descname">generate_key_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.generate_key_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.generate_key_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the destination and copies it in source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>destination</strong> – the destination which either can be a directory or
-file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.get_credentials">
-<code class="sig-name descname">get_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.get_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.get_credentials" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>We have stored the credentials in “.credentials”
-folder and there is a file named ‘google-drive-credentials.json’
-that has all the credentials required for our authentication
-If there is nothing stored in it this program creates credentials
-json file for future authentication
-Here the authentication type is OAuth2</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.kind">
-<code class="sig-name descname">kind</code><em class="property"> = 'parallelgdrive'</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>lists the information as dict</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>dir_only</strong> – Only the directory names</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>puts the source on the service</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>destination</strong> – the destination which either can be a directory or
-file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.sample">
-<code class="sig-name descname">sample</code><em class="property"> = 'TODO: missing'</em><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.sample" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the destination and copies it in source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.update_dict">
-<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elements</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.storage.provider.parallelgdrive.Provider.Provider.upload_file">
-<code class="sig-name descname">upload_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">parent_it</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/parallelgdrive/Provider.html#Provider.upload_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.parallelgdrive.Provider.Provider.upload_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="cloudmesh-storage-provider-parallelgdrive-provider-module">
+<h2>cloudmesh.storage.provider.parallelgdrive.Provider module<a class="headerlink" href="#cloudmesh-storage-provider-parallelgdrive-provider-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.storage.provider.parallelgdrive">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.provider.parallelgdrive" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

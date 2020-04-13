@@ -198,21 +198,19 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.configuration.Config</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">munch</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">import</span> <span class="nn">tempfile</span>
-
-<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">mkdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">realpath</span><span class="p">,</span> <span class="n">exists</span><span class="p">,</span> <span class="n">dirname</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span><span class="p">,</span> <span class="n">copy2</span>
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span>
 
+<span class="kn">import</span> <span class="nn">munch</span>
+<span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="kn">import</span> <span class="n">FlatDict</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="kn">import</span> <span class="n">flatten</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
@@ -220,61 +218,17 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">backup_name</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">readfile</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">writefile</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">writefd</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="kn">import</span> <span class="n">FlatDict</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">cloudmesh_yaml_version</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-
-<span class="c1">#</span>
-<span class="c1"># we sould freeze the cloudmesh.yaml name and just make dir changable</span>
-<span class="c1">#</span>
-
-<div class="viewcode-block" id="Location"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Location">[docs]</a><span class="k">class</span> <span class="nc">Location</span><span class="p">:</span>
-    <span class="n">_shared_state</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh&quot;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">Location</span><span class="o">.</span><span class="n">_shared_state</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;CLOUDMESH_CONFIG_DIR&quot;</span>
-
-            <span class="n">Location</span><span class="o">.</span><span class="n">_shared_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span>
-            <span class="n">directory</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="ow">or</span> <span class="n">directory</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">Location</span><span class="o">.</span><span class="n">_shared_state</span>
-
-<div class="viewcode-block" id="Location.get"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Location.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span></div>
-
-<div class="viewcode-block" id="Location.set"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Location.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Location.config"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Location.config">[docs]</a>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;cloudmesh.yaml&quot;</span>
-        <span class="k">return</span> <span class="n">p</span></div>
-
-<div class="viewcode-block" id="Location.environment"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Location.environment">[docs]</a>    <span class="k">def</span> <span class="nf">environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config location: could not find </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">None</span></div>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span>
-
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">==</span> <span class="n">other</span></div>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.location</span> <span class="kn">import</span> <span class="n">Location</span>
 
 <span class="c1"># see also https://github.com/cloudmesh/client/blob/master/cloudmesh_client/cloud/register.py</span>
 
 <div class="viewcode-block" id="Active"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Active">[docs]</a><span class="k">class</span> <span class="nc">Active</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_path</span><span class="o">=</span><span class="s1">&#39;~/.cloudmesh/cloudmesh.yaml&#39;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Active.clouds"><a class="viewcode-back" href="../../../api/cloudmesh.configuration.html#cloudmesh.configuration.Config.Active.clouds">[docs]</a>    <span class="k">def</span> <span class="nf">clouds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
@@ -429,7 +383,7 @@
         <span class="c1"># populate default variables</span>
         <span class="c1">#</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">variable_database</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/var-data&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variable_database</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/variable.dat&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">set_debug_defaults</span><span class="p">()</span>
 

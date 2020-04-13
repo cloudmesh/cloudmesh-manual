@@ -160,9 +160,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.html">cloudmesh.dryrun package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
@@ -328,7 +328,7 @@
 <span id="cloudmesh-configuration-config-module"></span><h2>cloudmesh.configuration.Config module<a class="headerlink" href="#module-cloudmesh.configuration.Config" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="cloudmesh.configuration.Config.Active">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.configuration.Config.</code><code class="sig-name descname">Active</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_path</span><span class="o">=</span><span class="default_value">'~/.cloudmesh/cloudmesh.yaml'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Active" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.configuration.Config.</code><code class="sig-name descname">Active</code><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Active" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="cloudmesh.configuration.Config.Active.clouds">
@@ -592,32 +592,6 @@ a chain of <cite>set()</cite> calls.</p>
 <dl class="py method">
 <dt id="cloudmesh.configuration.Config.Config.version">
 <em class="property">static </em><code class="sig-name descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Config.version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Config.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="cloudmesh.configuration.Config.Location">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.configuration.Config.</code><code class="sig-name descname">Location</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">'~/.cloudmesh'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt id="cloudmesh.configuration.Config.Location.config">
-<code class="sig-name descname">config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Location.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Location.config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.configuration.Config.Location.environment">
-<code class="sig-name descname">environment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Location.environment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Location.environment" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.configuration.Config.Location.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Location.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Location.get" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.configuration.Config.Location.set">
-<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/configuration/Config.html#Location.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.configuration.Config.Location.set" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

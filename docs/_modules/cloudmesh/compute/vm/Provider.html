@@ -199,6 +199,7 @@
             
   <h1>Source code for cloudmesh.compute.vm.Provider</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">pydoc</span> <span class="kn">import</span> <span class="n">locate</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.abstract.ComputeNodeABC</span> <span class="kn">import</span> <span class="n">ComputeNodeABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="kn">import</span> <span class="n">StopWatch</span>
@@ -213,7 +214,6 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.name</span> <span class="kn">import</span> <span class="n">Name</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">ProviderList</span>
 
 
 <span class="c1"># from prettytable import PrettyTable</span>
@@ -226,7 +226,9 @@
                 <span class="s2">&quot;google&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;oracle&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;azure&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;aws&quot;</span><span class="p">]</span>
+                <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;awslibcloud&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;googlelibcloud&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">kind</span></div>
 
 <div class="viewcode-block" id="Provider.get_provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.get_provider">[docs]</a>    <span class="nd">@staticmethod</span>
@@ -235,29 +237,13 @@
         <span class="k">if</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;awslibcloud&quot;</span><span class="p">,</span> <span class="s2">&quot;googlelibcloud&quot;</span><span class="p">]:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.compute.libcloud.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
 
-        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;openstack&#39;</span><span class="p">]:</span>
-            <span class="kn">from</span> <span class="nn">cloudmesh.openstack.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;openstack&#39;</span><span class="p">,</span> <span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="s1">&#39;aws&#39;</span><span class="p">,</span> <span class="s1">&#39;azure&#39;</span><span class="p">,</span> <span class="s1">&#39;oracle&#39;</span><span class="p">]:</span>
+            <span class="c1"># Locate the Provider from the respective Provider module.</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">locate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cloudmesh.</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">.compute.Provider.Provider&#39;</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">]:</span>
-            <span class="kn">from</span> <span class="nn">cloudmesh.google.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
-
-        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;oracle&#39;</span><span class="p">]:</span>
-            <span class="kn">from</span> <span class="nn">cloudmesh.oracle.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
-
-        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;azure&#39;</span><span class="p">]:</span>
-            <span class="kn">from</span> <span class="nn">cloudmesh.azure.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
-
-        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;aws&#39;</span><span class="p">]:</span>
-            <span class="kn">from</span> <span class="nn">cloudmesh.aws.compute.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
-
-        <span class="c1"># elif kind in [&quot;vagrant&quot;, &quot;virtualbox&quot;]:</span>
-        <span class="c1">#    from cloudmesh.compute.virtualbox.Provider import \</span>
-        <span class="c1">#        Provider as VirtualboxCloudProvider</span>
-        <span class="c1">#    provider = VirtualboxCloudProvider</span>
-        <span class="c1"># elif kind in [&quot;azureaz&quot;]:</span>
-        <span class="c1">#    from cloudmesh.compute.azure.AzProvider import \</span>
-        <span class="c1">#        Provider as AzAzureProvider</span>
-        <span class="c1">#    provider = AzAzureProvider</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;docker&#39;</span><span class="p">,</span> <span class="s1">&#39;virtualbox&#39;</span><span class="p">]:</span>
+            <span class="c1"># Locate the Provider from the respective Provider module.</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">locate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cloudmesh.compute.</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">.Provider&#39;</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compute provider </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2"> not supported&quot;</span><span class="p">)</span>
@@ -266,55 +252,26 @@
 
         <span class="k">return</span> <span class="n">P</span></div>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">configuration</span><span class="p">)[</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.cloud.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.cm.kind&quot;</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">configuration</span><span class="p">)[</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="sa">f</span><span class="s2">&quot;cloudmesh.cloud.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.cm.kind&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span>
                 <span class="sa">f</span><span class="s2">&quot;cloudmesh.cloud.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.credentials&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">configuration</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">configuration</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="n">provider</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="n">providers</span> <span class="o">=</span> <span class="n">ProviderList</span><span class="p">()</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span>
-            <span class="c1">#            &#39;openstack&#39;,</span>
-            <span class="s1">&#39;docker&#39;</span><span class="p">,</span>
-            <span class="s2">&quot;virtualbox&quot;</span><span class="p">]:</span>
-
-            <span class="n">provider</span> <span class="o">=</span> <span class="n">providers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">]</span>
-
-
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;awslibcloud&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;googlelibcloud&quot;</span><span class="p">,</span>
-                           <span class="s1">&#39;openstack&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;google&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;oracle&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;azure&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;aws&#39;</span><span class="p">]:</span>
-            <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
-
-        <span class="c1"># elif self.kind in [&quot;vagrant&quot;, &quot;virtualbox&quot;]:</span>
-        <span class="c1">#    from cloudmesh.compute.virtualbox.Provider import \</span>
-        <span class="c1">#        Provider as VirtualboxCloudProvider</span>
-        <span class="c1">#    provider = VirtualboxCloudProvider</span>
-        <span class="c1"># elif self.kind in [&quot;azureaz&quot;]:</span>
-        <span class="c1">#    from cloudmesh.compute.azure.AzProvider import \</span>
-        <span class="c1">#        Provider as AzAzureProvider</span>
-        <span class="c1">#    provider = AzAzureProvider</span>
+        <span class="c1"># Get the Provider for given kind.</span>
+        <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not supported&quot;</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not supported&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="n">configuration</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Provider.cloudname"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.cloudname">[docs]</a>    <span class="k">def</span> <span class="nf">cloudname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
@@ -659,7 +616,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
     <span class="c1"># noinspection PyPep8Naming</span>
-<div class="viewcode-block" id="Provider.Print"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.Prints"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.Prints">[docs]</a>    <span class="k">def</span> <span class="nf">Prints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">kind</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span>
@@ -680,15 +637,21 @@
                                         <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
                                         <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
                                         <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">output</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;flat&quot;</span><span class="p">]:</span>
-                <span class="n">_print</span> <span class="o">=</span> <span class="n">pprint</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">_print</span> <span class="o">=</span> <span class="nb">print</span>
 
-            <span class="n">_print</span><span class="p">(</span><span class="n">_output</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
+            <span class="n">_output</span> <span class="o">=</span> <span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div>
+        <span class="k">return</span> <span class="n">_output</span></div>
+
+    <span class="c1"># noinspection PyPep8Naming</span>
+<div class="viewcode-block" id="Provider.Print"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Prints</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">output</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;flat&quot;</span><span class="p">]:</span>
+            <span class="n">_print</span> <span class="o">=</span> <span class="n">pprint</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_print</span> <span class="o">=</span> <span class="nb">print</span>
+
+        <span class="n">_print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.list_secgroups"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_secgroups">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroups</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">()</span></div>

@@ -201,16 +201,59 @@
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
-
 <span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">input</span>
+
 <span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="kn">import</span> <span class="n">StopWatch</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
-
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
 
 <div class="viewcode-block" id="TerminalCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand">[docs]</a><span class="k">class</span> <span class="nc">TerminalCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
+    <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+    <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
+
+    <span class="c1"># noinspection PyUnusedLocal,PyIncorrectDocstring</span>
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_banner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          Usage:</span>
+<span class="sd">            banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT...</span>
+
+<span class="sd">          Arguments:</span>
+<span class="sd">            TEXT...   The text message from which to create the banner</span>
+<span class="sd">            CHAR      The character for the frame.</span>
+<span class="sd">            WIDTH     Width of the banner</span>
+<span class="sd">            INDENT    indentation of the banner</span>
+<span class="sd">            COLOR     the color</span>
+
+<span class="sd">            Options:</span>
+<span class="sd">                -c CHAR   The character for the frame. [default: #]</span>
+<span class="sd">                -n WIDTH  The width of the banner. [default: 70]</span>
+<span class="sd">                -i INDENT  The width of the banner. [default: 0]</span>
+<span class="sd">                -r COLOR  The color of the banner. [default: NORMAL]</span>
+
+<span class="sd">            Prints a banner form a one line text message.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;banner&quot;</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-n&#39;</span><span class="p">])</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-c&#39;</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-i&#39;</span><span class="p">])</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+        <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;TEXT&#39;</span><span class="p">])</span>
+
+        <span class="n">Console</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="n">hline</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">hline</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">hline</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
     <span class="c1"># noinspection PyUnusedLocal</span>
     <span class="nd">@command</span>
     <span class="k">def</span> <span class="nf">do_stopwatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
@@ -301,46 +344,6 @@
 
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
-    <span class="c1"># noinspection PyUnusedLocal,PyIncorrectDocstring</span>
-    <span class="nd">@command</span>
-    <span class="k">def</span> <span class="nf">do_banner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        ::</span>
-
-<span class="sd">          Usage:</span>
-<span class="sd">            banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT...</span>
-
-<span class="sd">          Arguments:</span>
-<span class="sd">            TEXT...   The text message from which to create the banner</span>
-<span class="sd">            CHAR      The character for the frame.</span>
-<span class="sd">            WIDTH     Width of the banner</span>
-<span class="sd">            INDENT    indentation of the banner</span>
-<span class="sd">            COLOR     the color</span>
-
-<span class="sd">            Options:</span>
-<span class="sd">                -c CHAR   The character for the frame. [default: #]</span>
-<span class="sd">                -n WIDTH  The width of the banner. [default: 70]</span>
-<span class="sd">                -i INDENT  The width of the banner. [default: 0]</span>
-<span class="sd">                -r COLOR  The color of the banner. [default: NORMAL]</span>
-
-<span class="sd">            Prints a banner form a one line text message.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;banner&quot;</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-n&#39;</span><span class="p">])</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-c&#39;</span><span class="p">]</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-i&#39;</span><span class="p">])</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;-r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-
-        <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;TEXT&#39;</span><span class="p">])</span>
-
-        <span class="n">Console</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-        <span class="n">hline</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">hline</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">i</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
-        <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">hline</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
-
     <span class="nd">@command</span>
     <span class="k">def</span> <span class="nf">do_pause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -416,8 +419,7 @@
     <span class="c1">#         return &quot;&quot;</span>
     <span class="c1">#     Console.ok (&quot;Log level: {0} is set&quot;.format(self.loglevel))</span>
     <span class="c1">#</span>
-    <span class="c1">#     filename = path_expand(&quot;~/.cloudmesh/cloudmesh.yaml&quot;)</span>
-    <span class="c1">#     config = Config(filename)</span>
+    <span class="c1">#     config = Config()</span>
     <span class="c1">#     config[&quot;cloudmesh.logging.level&quot;] = self.loglevel</span>
     <span class="c1">#     config.write(&quot;aaa.yaml&quot;)</span>
     <span class="c1">#     #config.write(filename=filename,</span>

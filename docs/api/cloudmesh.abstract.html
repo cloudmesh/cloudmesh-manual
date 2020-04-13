@@ -130,7 +130,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstract.ProcessManagerABC">cloudmesh.abstract.ProcessManagerABC module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstract.State">cloudmesh.abstract.State module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstract.StorageABC">cloudmesh.abstract.StorageABC module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstract.StorageDeprecatedABC">cloudmesh.abstract.StorageDeprecatedABC module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.abstract">Module contents</a></li>
 </ul>
 </li>
@@ -158,9 +157,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.html">cloudmesh.dryrun package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
@@ -308,7 +307,7 @@
 <span id="cloudmesh-abstract-computenodeabc-module"></span><h2>cloudmesh.abstract.ComputeNodeABC module<a class="headerlink" href="#module-cloudmesh.abstract.ComputeNodeABC" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstract.ComputeNodeABC.</code><code class="sig-name descname">ComputeNodeABC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cloud</span></em>, <em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/ComputeNodeABC.html#ComputeNodeABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstract.ComputeNodeABC.</code><code class="sig-name descname">ComputeNodeABC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/ComputeNodeABC.html#ComputeNodeABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC.add_rules_to_secgroup">
@@ -754,6 +753,12 @@ returned.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt id="cloudmesh.abstract.ComputeNodeABC.ComputeProviderPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstract.ComputeNodeABC.</code><code class="sig-name descname">ComputeProviderPlugin</code><a class="reference internal" href="../_modules/cloudmesh/abstract/ComputeNodeABC.html#ComputeProviderPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.ComputeNodeABC.ComputeProviderPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.abstract.ProcessManagerABC">
 <span id="cloudmesh-abstract-processmanagerabc-module"></span><h2>cloudmesh.abstract.ProcessManagerABC module<a class="headerlink" href="#module-cloudmesh.abstract.ProcessManagerABC" title="Permalink to this headline">¶</a></h2>
@@ -795,7 +800,7 @@ returned.</p>
 <span id="cloudmesh-abstract-storageabc-module"></span><h2>cloudmesh.abstract.StorageABC module<a class="headerlink" href="#module-cloudmesh.abstract.StorageABC" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="cloudmesh.abstract.StorageABC.StorageABC">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstract.StorageABC.</code><code class="sig-name descname">StorageABC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">'~/.cloudmesh/cloudmesh.yaml'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageABC.html#StorageABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageABC.StorageABC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstract.StorageABC.</code><code class="sig-name descname">StorageABC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageABC.html#StorageABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageABC.StorageABC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="cloudmesh.abstract.StorageABC.StorageABC.create_dir">
@@ -914,129 +919,6 @@ subdirectories in the specified source</p></li>
 :type directory:
 :return:
 :rtype:</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-cloudmesh.abstract.StorageDeprecatedABC">
-<span id="cloudmesh-abstract-storagedeprecatedabc-module"></span><h2>cloudmesh.abstract.StorageDeprecatedABC module<a class="headerlink" href="#module-cloudmesh.abstract.StorageDeprecatedABC" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstract.StorageDeprecatedABC.</code><code class="sig-name descname">StorageABC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cloud</span></em>, <em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC.create_dir">
-<code class="sig-name descname">create_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC.create_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>creates a directory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>directory</strong> – the name of the directory</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>deletes the source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC.get">
-<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the destination and copies it in source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>destination</strong> – the destination which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>lists the information as dict</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC.put">
-<code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destination</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC.put" title="Permalink to this definition">¶</a></dt>
-<dd><p>puts the source on the service</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
-<li><p><strong>destination</strong> – the destination which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cloudmesh.abstract.StorageDeprecatedABC.StorageABC.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstract/StorageDeprecatedABC.html#StorageABC.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstract.StorageDeprecatedABC.StorageABC.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the destination and copies it in source</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
-<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
-<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
-subdirectories in the specified source</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>

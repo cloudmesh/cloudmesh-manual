@@ -149,9 +149,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.html">cloudmesh.dryrun package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
@@ -546,31 +546,6 @@ and  –cloud=CLOUD is mapped to arguments[“cloud”]</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cloudmesh.shell.shell.CMShell.do_plugin">
-<code class="sig-name descname">do_plugin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_plugin" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
-  plugin install PLUGIN [-s]
-  plugin uninstall PLUGIN
-  plugin list
-  plugin ? [--format=FORMAT]
-
-Arguments:
-  PLUGIN   the name of the plugin
-
-Description:
-  plugin available
-      lists the available plugins
-  plugin list
-      lists the plugin
-  plugin install
-      installs the given plugin
-  plugin uninstall
-      uninstalls the given plugin
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
 <dt id="cloudmesh.shell.shell.CMShell.do_py">
 <code class="sig-name descname">do_py</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_py" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
@@ -714,6 +689,11 @@ interpreted, but after the input prompt is generated and issued.</p>
 <code class="sig-name descname">replace_vars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#CMShell.replace_vars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.replace_vars" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.set_debug">
+<code class="sig-name descname">set_debug</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">on</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#CMShell.set_debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.set_debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -732,8 +712,12 @@ interpreted, but after the input prompt is generated and issued.</p>
 <dl class="py method">
 <dt id="cloudmesh.shell.shell.Plugin.classes">
 <em class="property">classmethod </em><code class="sig-name descname">classes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#Plugin.classes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.classes" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of the commands in the cloudmesh namespace under cloudmesh.command
-:return: list of the commands</p>
+<dd><p>list of the commands in the cloudmesh namespace under cloudmesh.command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of the commands</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

@@ -54,6 +54,14 @@ cloudmesh.common.Host module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.common.Inspector module
+---------------------------------
+
+.. automodule:: cloudmesh.common.Inspector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.common.Printer module
 -------------------------------
 
@@ -142,10 +150,10 @@ cloudmesh.common.error module
    :undoc-members:
    :show-inheritance:
 
-cloudmesh.common.locations module
----------------------------------
+cloudmesh.common.location module
+--------------------------------
 
-.. automodule:: cloudmesh.common.locations
+.. automodule:: cloudmesh.common.location
    :members:
    :undoc-members:
    :show-inheritance:
@@ -170,6 +178,14 @@ cloudmesh.common.prettytable module
 -----------------------------------
 
 .. automodule:: cloudmesh.common.prettytable
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cloudmesh.common.strdb module
+-----------------------------
+
+.. automodule:: cloudmesh.common.strdb
    :members:
    :undoc-members:
    :show-inheritance:

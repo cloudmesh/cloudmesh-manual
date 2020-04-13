@@ -127,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.command.html">cloudmesh.data.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.command.html">cloudmesh.debug.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.command.html">cloudmesh.default.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.command.html">cloudmesh.dryrun.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.command.html">cloudmesh.flavor.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.command.html">cloudmesh.google.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html">cloudmesh.group.command package</a></li>
@@ -257,6 +258,69 @@
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.terminal.command.terminal.</code><code class="sig-name descname">TerminalCommand</code><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py class">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.PluginCommand">
+<em class="property">class </em><code class="sig-name descname">PluginCommand</code><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.PluginCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.Variables">
+<em class="property">class </em><code class="sig-name descname">Variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.Variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.Variables.boolean">
+<code class="sig-name descname">boolean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.Variables.boolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.Variables.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.Variables.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.Variables.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.Variables.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.Variables.dict">
+<code class="sig-name descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.Variables.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.Variables.parameter">
+<code class="sig-name descname">parameter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">attribute</span></em>, <em class="sig-param"><span class="n">position</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.Variables.parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.command">
+<code class="sig-name descname">command</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator to create a function with docopt arguments.
+It also generates a help function</p>
+<p>&#64;command
+def do_myfunc(self, args):</p>
+<blockquote>
+<div><p>“”” docopts text “””
+pass</p>
+</div></blockquote>
+<p>will create</p>
+<dl class="simple">
+<dt>def do_myfunc(self, args, arguments):</dt><dd><p>“”” docopts text “””
+…</p>
+</dd>
+<dt>def help_myfunc(self, args, arguments):</dt><dd><p>… prints the docopt text …</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> – the function for the decorator</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_banner">
 <code class="sig-name descname">do_banner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_banner" title="Permalink to this definition">¶</a></dt>

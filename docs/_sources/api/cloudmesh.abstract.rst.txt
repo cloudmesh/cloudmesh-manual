@@ -36,14 +36,6 @@ cloudmesh.abstract.StorageABC module
    :undoc-members:
    :show-inheritance:
 
-cloudmesh.abstract.StorageDeprecatedABC module
-----------------------------------------------
-
-.. automodule:: cloudmesh.abstract.StorageDeprecatedABC
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 
 Module contents
 ---------------

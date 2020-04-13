@@ -144,6 +144,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.DictList">cloudmesh.common.DictList module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.FlatDict">cloudmesh.common.FlatDict module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.Host">cloudmesh.common.Host module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-common-inspector-module">cloudmesh.common.Inspector module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.Printer">cloudmesh.common.Printer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.Shell">cloudmesh.common.Shell module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.StopWatch">cloudmesh.common.StopWatch module</a></li>
@@ -155,10 +156,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.deprecated">cloudmesh.common.deprecated module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.dotdict">cloudmesh.common.dotdict module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.error">cloudmesh.common.error module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.locations">cloudmesh.common.locations module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.logger">cloudmesh.common.logger module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.location">cloudmesh.common.location module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-common-logger-module">cloudmesh.common.logger module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.parameter">cloudmesh.common.parameter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.prettytable">cloudmesh.common.prettytable module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.strdb">cloudmesh.common.strdb module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.systeminfo">cloudmesh.common.systeminfo module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.todo">cloudmesh.common.todo module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.util">cloudmesh.common.util module</a></li>
@@ -183,9 +185,9 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">cloudmesh.data.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">cloudmesh.data.api.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">cloudmesh.data.api.storage package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">cloudmesh.db package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.debug.html">cloudmesh.debug package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.html">cloudmesh.dryrun package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
@@ -885,6 +887,9 @@ this fonction does not work well as it still will aski if we overwrite.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="cloudmesh-common-inspector-module">
+<h2>cloudmesh.common.Inspector module<a class="headerlink" href="#cloudmesh-common-inspector-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.common.Printer">
 <span id="cloudmesh-common-printer-module"></span><h2>cloudmesh.common.Printer module<a class="headerlink" href="#module-cloudmesh.common.Printer" title="Permalink to this headline">¶</a></h2>
@@ -2404,68 +2409,80 @@ when the function is used.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-cloudmesh.common.locations">
-<span id="cloudmesh-common-locations-module"></span><h2>cloudmesh.common.locations module<a class="headerlink" href="#module-cloudmesh.common.locations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.common.location">
+<span id="cloudmesh-common-location-module"></span><h2>cloudmesh.common.location module<a class="headerlink" href="#module-cloudmesh.common.location" title="Permalink to this headline">¶</a></h2>
 <p>class that specifies where we read the cloudmesh.yaml file from</p>
-<dl class="py function">
-<dt id="cloudmesh.common.locations.config_dir_setup">
-<code class="sig-prename descclassname">cloudmesh.common.locations.</code><code class="sig-name descname">config_dir_setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/locations.html#config_dir_setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.locations.config_dir_setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>sets the config file and makes sure the directory exists if it has not yet been created.
-:param filename: 
-:return:</p>
+<dl class="py class">
+<dt id="cloudmesh.common.location.Location">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.location.</code><code class="sig-name descname">Location</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">'~/.cloudmesh'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.config">
+<code class="sig-name descname">config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.environment">
+<code class="sig-name descname">environment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.environment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.environment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.file">
+<code class="sig-name descname">file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.file" title="Permalink to this definition">¶</a></dt>
+<dd><p>The location of the config file in the cloudmesh configuration directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – the filenam</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py function">
-<dt id="cloudmesh.common.locations.config_file">
-<code class="sig-prename descclassname">cloudmesh.common.locations.</code><code class="sig-name descname">config_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/locations.html#config_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.locations.config_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>The location of the config file: ~/.cloudmesh/filename. ~ will be expanded
-:param filename: the filename</p>
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a file from the configuration directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – The filename</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The content</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py function">
-<dt id="cloudmesh.common.locations.config_file_prefix">
-<code class="sig-prename descclassname">cloudmesh.common.locations.</code><code class="sig-name descname">config_file_prefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/locations.html#config_file_prefix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.locations.config_file_prefix" title="Permalink to this definition">¶</a></dt>
-<dd><p>The prefix of the configuration file location</p>
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.set">
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.location.Location.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">content</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/location.html#Location.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.location.Location.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a file to the configuration directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – The filename</p></li>
+<li><p><strong>content</strong> – The content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py function">
-<dt id="cloudmesh.common.locations.config_file_raw">
-<code class="sig-prename descclassname">cloudmesh.common.locations.</code><code class="sig-name descname">config_file_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/locations.html#config_file_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.locations.config_file_raw" title="Permalink to this definition">¶</a></dt>
-<dd><p>The location of the config file: ~/.cloudmesh/filename. ~ will NOT be expanded
-:param filename: the filename</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-cloudmesh.common.logger">
-<span id="cloudmesh-common-logger-module"></span><h2>cloudmesh.common.logger module<a class="headerlink" href="#module-cloudmesh.common.logger" title="Permalink to this headline">¶</a></h2>
-<p>simple logging convenience framework</p>
-<dl class="py function">
-<dt id="cloudmesh.common.logger.LOGGER">
-<code class="sig-prename descclassname">cloudmesh.common.logger.</code><code class="sig-name descname">LOGGER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/logger.html#LOGGER"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.logger.LOGGER" title="Permalink to this definition">¶</a></dt>
-<dd><p>creates a logger with the given name.</p>
-<p>You can use it as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="o">=</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">LOGGER</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
-<span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;this is an error&quot;</span><span class="p">)</span>
-<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;this is an info&quot;</span><span class="p">)</span>
-<span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;this is a warning&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="cloudmesh.common.logger.LOGGING_OFF">
-<code class="sig-prename descclassname">cloudmesh.common.logger.</code><code class="sig-name descname">LOGGING_OFF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/logger.html#LOGGING_OFF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.logger.LOGGING_OFF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Switches logging off
-:param log: the logger for which we switch logging off</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="cloudmesh.common.logger.LOGGING_ON">
-<code class="sig-prename descclassname">cloudmesh.common.logger.</code><code class="sig-name descname">LOGGING_ON</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/logger.html#LOGGING_ON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.logger.LOGGING_ON" title="Permalink to this definition">¶</a></dt>
-<dd><p>Switches logging on
-:param log: the logger for which we switch logging on</p>
-</dd></dl>
-
+<div class="section" id="cloudmesh-common-logger-module">
+<h2>cloudmesh.common.logger module<a class="headerlink" href="#cloudmesh-common-logger-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.common.parameter">
 <span id="cloudmesh-common-parameter-module"></span><h2>cloudmesh.common.parameter module<a class="headerlink" href="#module-cloudmesh.common.parameter" title="Permalink to this headline">¶</a></h2>
@@ -2923,6 +2940,48 @@ single &lt;table&gt;</p>
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-cloudmesh.common.strdb">
+<span id="cloudmesh-common-strdb-module"></span><h2>cloudmesh.common.strdb module<a class="headerlink" href="#module-cloudmesh.common.strdb" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="cloudmesh.common.strdb.YamlDB">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.strdb.</code><code class="sig-name descname">YamlDB</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#YamlDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.YamlDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A YAML-backed Key-Value database to store strings</p>
+<dl class="py method">
+<dt id="cloudmesh.common.strdb.YamlDB.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#YamlDB.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.YamlDB.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Truncate the database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.strdb.YamlDB.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#YamlDB.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.YamlDB.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a NoOP for backwards compatibility</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.strdb.YamlDB.dict">
+<code class="sig-name descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#YamlDB.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.YamlDB.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.strdb.YamlDB.flush">
+<code class="sig-name descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#YamlDB.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.YamlDB.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.strdb.YamlDB.set">
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#YamlDB.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.YamlDB.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.common.strdb.yaml_construct_unicode">
+<code class="sig-prename descclassname">cloudmesh.common.strdb.</code><code class="sig-name descname">yaml_construct_unicode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/strdb.html#yaml_construct_unicode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.strdb.yaml_construct_unicode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-cloudmesh.common.systeminfo">
 <span id="cloudmesh-common-systeminfo-module"></span><h2>cloudmesh.common.systeminfo module<a class="headerlink" href="#module-cloudmesh.common.systeminfo" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -3031,6 +3090,20 @@ with ~ and environment variables.</p>
 <li><p><strong>txt</strong> (<em>string</em>) – a text message to be printed</p></li>
 <li><p><strong>c</strong> (<em>character</em>) – the character used instead of c</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.common.util.check_root">
+<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">check_root</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">terminate</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#check_root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.check_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if the root user is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>terminate</strong> – if true exist the program</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3231,6 +3304,11 @@ String matching only, does not do REs as currently implemented.</p>
 <dt id="cloudmesh.common.variables.Variables">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.variables.</code><code class="sig-name descname">Variables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh.common.variables.Variables.boolean">
+<code class="sig-name descname">boolean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.boolean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.boolean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="cloudmesh.common.variables.Variables.clear">
 <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.clear" title="Permalink to this definition">¶</a></dt>

@@ -226,6 +226,7 @@
 <span class="sd">                open FILENAME</span>
 <span class="sd">                open doc local</span>
 <span class="sd">                open doc</span>
+<span class="sd">                open git REPO</span>
 <span class="sd">                open account aws [NAME]</span>
 
 
@@ -260,7 +261,19 @@
         <span class="c1"># pprint(arguments)</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">FILENAME</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">account</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">git</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">REPO</span><span class="p">:</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">cloudmesh_installer.install.installer</span> <span class="kn">import</span> <span class="n">Git</span>
+                <span class="n">filename</span> <span class="o">=</span> <span class="n">Git</span><span class="o">.</span><span class="n">url</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">REPO</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;To run this command you need to install &quot;</span>
+                              <span class="s2">&quot;cloudmesh-installer.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                              <span class="s2">&quot;       Install it with</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                              <span class="s2">&quot;       pip install cloudmesh-installer -U</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">account</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">or</span> <span class="s2">&quot;users&quot;</span>
 
             <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;users&quot;</span><span class="p">:</span>
@@ -269,17 +282,16 @@
                 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://console.aws.amazon.com/iam/home#/users&quot;</span> \
                            <span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">?section=security_credentials&quot;</span>
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">baremetal</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">tacc</span><span class="p">:</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;https://chi.tacc.chameleoncloud.org&quot;</span><span class="p">)</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://chi.tacc.chameleoncloud.org&quot;</span>
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">baremetal</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">uc</span><span class="p">:</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;https://chi.uc.chameleoncloud.org&quot;</span><span class="p">)</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://chi.uc.chameleoncloud.org&quot;</span>
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">chameleon</span> <span class="ow">and</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">vm</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">openstack</span><span class="p">):</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;https://openstack.tacc.chameleoncloud.org&quot;</span><span class="p">)</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://openstack.tacc.chameleoncloud.org&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">doc</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">local</span><span class="p">:</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;./docs/index.html&quot;</span>
 
         <span class="k">elif</span> <span class="n">filename</span> <span class="o">==</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span>
-            <span class="c1"># filename = &quot;https://cloudmesh-community.github.io/&quot;</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://cloudmesh.github.io/cloudmesh-manual/&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;file:&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)):</span>

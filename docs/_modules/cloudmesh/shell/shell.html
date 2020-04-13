@@ -203,31 +203,26 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pkgutil</span>
 <span class="kn">import</span> <span class="nn">pydoc</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">shlex</span>
-
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">cmd</span> <span class="kn">import</span> <span class="n">Cmd</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.cmd5.CloudmeshPlugin</span> <span class="kn">import</span> <span class="n">CloudmeshPlugin</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="kn">import</span> <span class="n">StopWatch</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="kn">import</span> <span class="n">dotdict</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.default</span> <span class="kn">import</span> <span class="n">Default</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.error</span> <span class="kn">import</span> <span class="n">Error</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">readfile</span>
 
 <span class="kn">import</span> <span class="nn">cloudmesh</span>
 <span class="kn">import</span> <span class="nn">cloudmesh.common</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="kn">import</span> <span class="n">Shell</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="kn">import</span> <span class="n">StopWatch</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.default</span> <span class="kn">import</span> <span class="n">Default</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="kn">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.error</span> <span class="kn">import</span> <span class="n">Error</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">readfile</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">basecommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.plugin</span> <span class="kn">import</span> <span class="n">PluginManager</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
 
 
 <span class="c1"># import cloudmesh.plugin</span>
@@ -279,6 +274,7 @@
 <span class="sd">        list of cloudmesh modules in the cloudmesh namespace</span>
 <span class="sd">        :return: list of modules</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">module_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">package</span> <span class="o">=</span> <span class="n">cloudmesh</span>
         <span class="k">for</span> <span class="n">importer</span><span class="p">,</span> <span class="n">modname</span><span class="p">,</span> <span class="n">ispkg</span> <span class="ow">in</span> <span class="n">pkgutil</span><span class="o">.</span><span class="n">walk_packages</span><span class="p">(</span>
@@ -292,6 +288,7 @@
     <span class="k">def</span> <span class="nf">classes</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        list of the commands in the cloudmesh namespace under cloudmesh.command</span>
+
 <span class="sd">        :return: list of the commands</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">module_list</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">modules</span><span class="p">()</span>
@@ -301,9 +298,6 @@
             <span class="k">if</span> <span class="n">module_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
                 <span class="s1">&#39;cloudmesh.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;.command.&#39;</span> <span class="ow">in</span> <span class="n">module_name</span><span class="p">:</span>
                 <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
-            <span class="c1"># elif module_name.startswith(&#39;cloudmesh.plugin.&#39;):</span>
-            <span class="c1">#    commands.append(module_name)</span>
-        <span class="c1"># VERBOSE(commands)</span>
 
         <span class="k">return</span> <span class="n">commands</span></div>
 
@@ -328,13 +322,11 @@
 <span class="sd">        :param command:  the name of the command</span>
 <span class="sd">        :return: cloudmesh.ext.command.&lt;command&gt;+command.&lt;Command&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="s2">&quot;cloudmesh.&quot;</span> <span class="o">+</span> <span class="n">command</span> <span class="o">+</span> <span class="s2">&quot;.command.&quot;</span> <span class="o">+</span> <span class="n">command</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> \
-               <span class="o">+</span> <span class="n">command</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;Command&quot;</span></div>
+        <span class="k">return</span> <span class="s2">&quot;cloudmesh.&quot;</span> <span class="o">+</span> <span class="n">command</span> <span class="o">+</span> <span class="s2">&quot;.command.&quot;</span> <span class="o">+</span> <span class="n">command</span></div>
 
 <div class="viewcode-block" id="Plugin.load"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.Plugin.load">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-
 <span class="sd">        :param commands: If None the commands will be found from import cloudmesh</span>
 <span class="sd">                         Otherwise the commands can be explicitly specified with</span>
 
@@ -346,21 +338,43 @@
 
 <span class="sd">        :return: the classes of the command</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">commands</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">classes</span><span class="p">()]</span>
+            <span class="n">classes</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">classes</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">classes</span> <span class="o">=</span> <span class="n">commands</span>
 
+        <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="n">pydoc</span><span class="o">.</span><span class="n">locate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">]</span>
 
-        <span class="n">class_commands</span> <span class="o">=</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">class_name</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">]</span>
-        <span class="c1"># Console.bullets(class_commands)</span>
-
-        <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod</span><span class="p">),</span> <span class="bp">cls</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span> <span class="ow">in</span>
-                    <span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">commands</span> <span class="ow">in</span> <span class="n">class_commands</span><span class="p">)]</span>
         <span class="k">return</span> <span class="n">commands</span></div></div>
 
 
+<span class="n">selective_loading</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">selective_loading</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="nb">print</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="p">]:</span>
+            <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;banner&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;stopwatch&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;sleep&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;echo&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;pause&#39;</span><span class="p">]:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">Plugin</span><span class="o">.</span><span class="n">class_name</span><span class="p">(</span><span class="s2">&quot;terminal&quot;</span><span class="p">)</span>
+            <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">([</span><span class="n">name</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">Plugin</span><span class="o">.</span><span class="n">class_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">([</span><span class="n">name</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">StopWatch</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">)</span>
 
 <span class="n">PluginCommandClasses</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span>
     <span class="s1">&#39;CommandProxyClass&#39;</span><span class="p">,</span>
@@ -369,10 +383,6 @@
 
 <span class="n">Console</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
-<span class="c1"># SysPluginManager.find_PluginCommands_in_sys()</span>
-<span class="c1"># c = cloudmesh.shell.command.PluginCommand</span>
-<span class="c1"># a = SysPluginManager.inheritors(c)</span>
-<span class="c1"># pprint (a)</span>
 
 <div class="viewcode-block" id="CMShell"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell">[docs]</a><span class="k">class</span> <span class="nc">CMShell</span><span class="p">(</span><span class="n">Cmd</span><span class="p">,</span> <span class="n">PluginCommandClasses</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -391,6 +401,35 @@
 <span class="s2">    +-------------------------------------------------------+</span>
 <span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
 
+
+<div class="viewcode-block" id="CMShell.set_debug"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell.set_debug">[docs]</a>    <span class="k">def</span> <span class="nf">set_debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">_boolean</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;on&quot;</span><span class="p">]:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;off&quot;</span><span class="p">]:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Value is not boolean&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_boolean</span><span class="p">(</span><span class="n">on</span><span class="p">):</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;trace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;10&#39;</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;trace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+            <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span> <span class="s2">&quot;trace&quot;</span><span class="p">,</span> <span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="s2">&quot;timer&quot;</span><span class="p">]:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">variables</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
     <span class="nd">@command</span>
     <span class="k">def</span> <span class="nf">do_commands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -402,32 +441,21 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">arguments</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">Plugin</span><span class="o">.</span><span class="n">list</span><span class="p">():</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plugin.list()&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">Plugin</span><span class="o">.</span><span class="n">list</span><span class="p">())</span>
 
         <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_names</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
 
-        <span class="c1"># sys.exit(1)</span>
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">name</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;do_&#39;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;get_names()&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 
-        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cloudmesh</span><span class="p">):</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">e</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;etc&quot;</span><span class="p">,</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">]:</span>
-                <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">PluginManager</span><span class="o">.</span><span class="n">inheritors</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">))</span>
-        <span class="n">modules</span> <span class="o">=</span> <span class="n">Plugin</span><span class="o">.</span><span class="n">modules</span><span class="p">()</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">modules</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;cloudmesh.&quot;</span><span class="p">):</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dir&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">cloudmesh</span><span class="p">))</span>
 
 <div class="viewcode-block" id="CMShell.precmd"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell.precmd">[docs]</a>    <span class="k">def</span> <span class="nf">precmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">line</span></div>
 
@@ -439,8 +467,12 @@
             <span class="k">if</span> <span class="s2">&quot;timer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variable</span><span class="p">:</span>
                 <span class="n">variable</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;False&quot;</span>
             <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">variable</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">]:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer: </span><span class="si">{:.4f}</span><span class="s2">s (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">),</span>
-                                                   <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+                <span class="n">command_time</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">)</span>
+                <span class="n">load_time</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">)</span>
+                <span class="n">line_strip</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timer: </span><span class="si">{</span><span class="n">command_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;Load: </span><span class="si">{</span><span class="n">load_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;(line_strip)&quot;</span><span class="p">)</span>
             <span class="n">variable</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">Error</span><span class="o">.</span><span class="n">traceback</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
@@ -555,6 +587,34 @@
         <span class="c1">#    return &quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">cmd</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;dryrun&#39;</span><span class="p">]:</span>
+                <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">):</span>
+                    <span class="n">arg</span> <span class="o">=</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">arg</span>
+                    <span class="n">variables</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="s2">&quot;dryrun&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;value for dryrun is missing&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">elif</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;debug&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">):</span>
+                    <span class="n">arg</span> <span class="o">=</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">arg</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">set_debug</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;value for dryrun is missing&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;do_&#39;</span> <span class="o">+</span> <span class="n">cmd</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
@@ -562,8 +622,8 @@
             <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
                 <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
-                <span class="n">trace</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;trace&#39;</span><span class="p">]</span>
-                <span class="n">debug</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;debug&#39;</span><span class="p">]</span>
+                <span class="n">trace</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;trace&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">True</span>
+                <span class="n">debug</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;debug&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="kc">True</span>
 
                 <span class="n">command_missing</span> <span class="o">=</span> <span class="s2">&quot;&#39;CMShell&#39; object has no attribute &#39;do_</span><span class="si">{cmd}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">cmd</span><span class="o">=</span><span class="n">cmd</span><span class="p">)</span>
@@ -668,9 +728,11 @@
 
 <span class="sd">                    cms info</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Plugin</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
         <span class="k">if</span> <span class="n">arg</span> <span class="ow">and</span> <span class="s2">&quot;cloudmesh.&quot;</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="nb">eval</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;help(&#39;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">)</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;help(&#39;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
         <span class="k">elif</span> <span class="n">arg</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -782,7 +844,6 @@
 
             <span class="n">keyword</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;KEYWORD&quot;</span><span class="p">]</span>
 
-
             <span class="n">all_modules</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
             <span class="n">modules</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">all_modules</span><span class="p">:</span>
@@ -790,8 +851,7 @@
                     <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">module</span><span class="p">:</span>
                         <span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                   <span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
-
+                    <span class="n">modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--plugins&quot;</span><span class="p">]:</span>
                 <span class="n">plugins</span> <span class="o">=</span> <span class="p">[]</span>
@@ -834,15 +894,17 @@
                     <span class="p">})</span>
                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;got str&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;__version__&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">module</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;got str&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">e</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;__version__&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">module</span><span class="p">:</span>
                             <span class="k">if</span> <span class="s2">&quot;module&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
                                 <span class="nb">print</span><span class="p">()</span>
                                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Problem for </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
-                                          <span class="n">traceflag</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--trace&quot;</span><span class="p">])</span>
+                                              <span class="n">traceflag</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--trace&quot;</span><span class="p">])</span>
                                 <span class="nb">print</span><span class="p">()</span>
                             <span class="k">else</span><span class="p">:</span>
-                                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="n">traceflag</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--trace&quot;</span><span class="p">])</span>
+                                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+                                              <span class="n">traceflag</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--trace&quot;</span><span class="p">])</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">files</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
@@ -906,60 +968,6 @@
 
 <div class="viewcode-block" id="CMShell.emptyline"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.shell.CMShell.emptyline">[docs]</a>    <span class="k">def</span> <span class="nf">emptyline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span></div>
-
-    <span class="c1"># noinspection PyUnusedLocal</span>
-    <span class="nd">@command</span>
-    <span class="k">def</span> <span class="nf">do_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        ::</span>
-
-<span class="sd">          Usage:</span>
-<span class="sd">            plugin install PLUGIN [-s]</span>
-<span class="sd">            plugin uninstall PLUGIN</span>
-<span class="sd">            plugin list</span>
-<span class="sd">            plugin ? [--format=FORMAT]</span>
-
-<span class="sd">          Arguments:</span>
-<span class="sd">            PLUGIN   the name of the plugin</span>
-
-<span class="sd">          Description:</span>
-<span class="sd">            plugin available</span>
-<span class="sd">                lists the available plugins</span>
-<span class="sd">            plugin list</span>
-<span class="sd">                lists the plugin</span>
-<span class="sd">            plugin install</span>
-<span class="sd">                installs the given plugin</span>
-<span class="sd">            plugin uninstall</span>
-<span class="sd">                uninstalls the given plugin</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--format&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span>
-
-        <span class="c1"># print (arguments)</span>
-
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">install</span><span class="p">:</span>
-            <span class="n">plugins</span> <span class="o">=</span> <span class="n">PluginManager</span><span class="p">()</span>
-            <span class="n">plugins</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-s&quot;</span><span class="p">]:</span>
-                <span class="n">plugins</span><span class="o">.</span><span class="n">source_install</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">PLUGIN</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">plugins</span><span class="o">.</span><span class="n">pip_install</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">PLUGIN</span><span class="p">)</span>
-
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">uninstall</span><span class="p">:</span>
-            <span class="n">plugins</span> <span class="o">=</span> <span class="n">PluginManager</span><span class="p">()</span>
-            <span class="n">plugins</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-            <span class="n">plugins</span><span class="o">.</span><span class="n">uninstall</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">PLUGIN</span><span class="p">)</span>
-
-        <span class="k">elif</span> <span class="s1">&#39;?&#39;</span> <span class="ow">in</span> <span class="n">arguments</span><span class="p">:</span>
-
-            <span class="n">plugins</span> <span class="o">=</span> <span class="n">PluginManager</span><span class="p">()</span>
-            <span class="n">plugins</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">plugins</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;plugins&#39;</span><span class="p">],</span>
-                                <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">],</span>
-                                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">],</span>
-                                <span class="n">sort_keys</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
 
     <span class="c1"># noinspection PyUnusedLocal,PyPep8</span>
     <span class="nd">@basecommand</span>
@@ -1075,7 +1083,8 @@
                             <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span>
                             <span class="s2">&quot;VERSION&quot;</span><span class="p">:</span> <span class="n">v</span>
                         <span class="p">}</span>
-                <span class="k">elif</span> <span class="s2">&quot;git&quot;</span> <span class="ow">in</span> <span class="n">pkgline</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;installer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;pi_burn&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">):</span>
+                <span class="k">elif</span> <span class="s2">&quot;git&quot;</span> <span class="ow">in</span> <span class="n">pkgline</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;installer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+                    <span class="s2">&quot;pi_burn&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pkgline</span><span class="p">):</span>
 
                     <span class="n">pkgline</span> <span class="o">=</span> <span class="n">pkgline</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
                         <span class="s2">&quot;-e git+git@github.com:cloudmesh-community/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -1158,7 +1167,7 @@
         <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--number&quot;</span><span class="p">]:</span>
 
             <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">entry</span> <span class="ow">in</span> <span class="n">versions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">versions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
                         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;package&#39;</span><span class="p">],</span>
@@ -1169,10 +1178,10 @@
                     <span class="k">pass</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
-                            <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">],</span>
+                                <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">],</span>
                                 <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">],</span>
                                 <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Package&quot;</span><span class="p">,</span> <span class="s2">&quot;Version&quot;</span><span class="p">],</span>
-                            <span class="n">sort_keys</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
+                                <span class="n">sort_keys</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">versions</span><span class="p">,</span>

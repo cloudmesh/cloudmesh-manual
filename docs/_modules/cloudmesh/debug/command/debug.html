@@ -198,12 +198,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.debug.command.debug</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-
+<span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="kn">import</span> <span class="n">Variables</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
 
 
 <div class="viewcode-block" id="DebugCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.debug.command.html#cloudmesh.debug.command.debug.DebugCommand">[docs]</a><span class="k">class</span> <span class="nc">DebugCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
@@ -241,20 +238,8 @@
 
 
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">database</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/var-data&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">on</span><span class="p">:</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;trace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;10&#39;</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">off</span><span class="p">:</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;trace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
-            <span class="n">database</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_debug</span><span class="p">(</span><span class="n">args</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

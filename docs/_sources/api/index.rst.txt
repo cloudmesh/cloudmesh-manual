@@ -9,6 +9,7 @@ Cloudmesh Command API
    cloudmesh.data.command
    cloudmesh.debug.command
    cloudmesh.default.command
+   cloudmesh.dryrun.command
    cloudmesh.flavor.command
    cloudmesh.google.command
    cloudmesh.group.command
@@ -73,9 +74,9 @@ Cloudmesh API
    cloudmesh.data.api
    cloudmesh.data.api.db
    cloudmesh.data.api.storage
-   cloudmesh.db
    cloudmesh.debug
    cloudmesh.default
+   cloudmesh.dryrun
    cloudmesh.etc
    cloudmesh.flavor
    cloudmesh.google
