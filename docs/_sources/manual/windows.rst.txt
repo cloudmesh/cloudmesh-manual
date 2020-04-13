@@ -17,7 +17,7 @@ windows
 
   Checks we do
 
-     1. are you running python 3.8.1
+     1. are you running python 3.8.2
      2. are you having the newest version of pip
      3. is cl installed
      4. is nmake installed

@@ -44,7 +44,7 @@ where ssh
 where ssh-keygen
 ```
 
-You must use Python 3.8.1, 64 bit
+You must use Python 3.8.2, 64 bit
 
 ```
 python --version

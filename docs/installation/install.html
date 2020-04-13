@@ -93,6 +93,7 @@
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-cloudmesh-with-docker">Installation of cloudmesh with Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-macos">Prerequisites for macOS</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#installation-of-xcode">Installation of XCode</a></li>
@@ -130,7 +131,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites-for-ssh-key">Prerequisites for ssh key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-cloudmesh-with-docker">Installation of cloudmesh with Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
@@ -248,19 +248,38 @@ install from</p>
 <ul class="simple">
 <li><p>pip if you are a Cloudmesh user</p></li>
 <li><p>source install if you are a developer</p></li>
+<li><p>an instalation in containers</p></li>
 </ul>
 <p>Please read the installation section in this manual completely, and understand
 the items explained before you install. Do not just paste and copy text in
-your terminal and execute it as it could have unexpected consequences.</p>
+your terminal and execute it as it could have unexpected consequences.
+This also helps to decide which instalation method is best suited for you.</p>
+<div class="section" id="installation-of-cloudmesh-with-docker">
+<h2>Installation of cloudmesh with Docker<a class="headerlink" href="#installation-of-cloudmesh-with-docker" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to install cloudmesh is to use docker containers. This
+instalation can be conducted on all OSes on which docker and python 3.8.2 is
+installed. Cloudmesh can also be installed with a specialized <cite>cloudmesh-cmsd</cite>
+command that is distributed as source and on PyPi.</p>
+<p>See  <a class="reference internal" href="../cmsd.html"><span class="doc">&lt;no title&gt;</span></a> for more information.</p>
+<p>In the next sections we discuss the native install of cludmesh on</p>
+<ul class="simple">
+<li><p>Linux</p></li>
+<li><p>Windows</p></li>
+<li><p>maxOS</p></li>
+</ul>
+<p>We start with some elementary requirements that are typically already fulfilled
+if you are a developer on that platform.</p>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Before you install make sure that you have an up to date version of
-python installed. We recommend you use 3.8.1 or newer. Python can be
+python installed. We recommend you use 3.8.2 or newer. Python can be
 downloaded and installed from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. On
-Windows you will also need to install the C++ commandline build tools
-as some cryptographic libraries need to be recompiled in 3.8.1.</p>
+Windows you may also need to install the C++ commandline build tools
+as some cryptographic libraries need to be recompiled in 3.8.2. This
+only applies if you like to use cloudmesh-encrypt.</p>
 <p>Likely the code will work with earlier versions starting from 3.7.4.
 We know that Python 3.6 has bugs and should not be used. Although
 cloudmesh previously was supported in Python 2.7 and newer, we have
@@ -283,9 +302,12 @@ default, but are available via Xcode. First you need to install xcode from</p>
 <li><p><a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835">https://apps.apple.com/us/app/xcode/id497799835</a></p></li>
 </ul>
 <p>Next you need to install macOS xcode command line tools:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="p">::</span> <span class="n">bash</span>
 </pre></div>
 </div>
+<blockquote>
+<div><p>xcode-select –install</p>
+</div></blockquote>
 <p>Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.</p>
 </div>
@@ -303,7 +325,7 @@ command line.</p>
 </div>
 <div class="section" id="prerequisites-for-ubuntu-19-10">
 <h3>Prerequisites for Ubuntu 19.10<a class="headerlink" href="#prerequisites-for-ubuntu-19-10" title="Permalink to this headline">¶</a></h3>
-<p>Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
+<p>Python 3.8.2 is not yet installed in Ubuntu 19.10. The instalation is simple
 and can be conducted with the following steps.</p>
 <p>Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
 Please download Python from:</p>
@@ -317,14 +339,14 @@ sudo apt -y install openssl curl
 <span class="c1"># sudo apt -y libssl-dev</span>
 <span class="c1"># sudo apt -y libsqlite3-dev tk-dev</span>
 <span class="c1"># sudo apt -y libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev</span>
-tar -xvf Python-3.8.1.tgz
-<span class="nb">cd</span> Python-3.8.1
+tar -xvf Python-3.8.2.tgz
+<span class="nb">cd</span> Python-3.8.2
 ./configure
 make
 sudo make altinstall
 python3.8 --version
 python3 --version
-<span class="c1"># Should be 3.8.1</span>
+<span class="c1"># Should be 3.8.2</span>
 python3 -m venv ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
 </pre></div>
@@ -363,11 +385,19 @@ We explain the various methods.</p>
 <div class="section" id="windows-native-installation-approach">
 <h4>Windows native Installation Approach<a class="headerlink" href="#windows-native-installation-approach" title="Permalink to this headline">¶</a></h4>
 <ul>
-<li><p>Ensure that python 3.8 (or higher) has been installed. Python 3.8 can be
-installed on Windows 10 using: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
-<li><p>Create a venv. See section on prerequisites for venv provides more details.</p></li>
+<li><p>Ensure that Python 3.8.2 (or higher) has been installed. Python 3.8 can be
+installed on Windows 10 using:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
+</ul>
+<p>Make sure
+you download the 64 bit version. Unfortunately, the default version is teh 32
+bit version.</p>
+</li>
+<li><p>Create a <cite>venv</cite>. See section on prerequisites for venv provides more details.</p></li>
 <li><p>Some Python librarier may need to be compiled. In order for you to complete
-your Python instalation you will need to install th <em>VC C++ command line Build Tools</em>.
+your Python instalation you want to install th <em>VC C++ command line Build Tools</em>.
+This is mostly needed for cryptography libraries.
 You can find them at:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019">https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019</a></p></li>
@@ -571,18 +601,17 @@ in which you can find the configuration file:</p>
 </div>
 <div class="section" id="anaconda-and-conda">
 <h3>Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h3>
-<p>Cloudmesh can be installed in anaconda with pip. Please volow our pip
-instructions, but make sure you create your own virtualenv with conda and asure
-you use python 3.8.1 or newer.</p>
+<p>Cloudmesh can be installed in anaconda with pip. Please follow our pip
+instructions, but make sure you create your own virtualenv with conda and assure
+you use python 3.8.2 or newer.</p>
 </div>
 </div>
 <div class="section" id="installation-of-cloudmesh-source-install-for-developers">
 <h2>Installation of Cloudmesh (Source Install for Developers)<a class="headerlink" href="#installation-of-cloudmesh-source-install-for-developers" title="Permalink to this headline">¶</a></h2>
-<p>If you are a developer, you must use or simple source installation
-steps. For this reason we wrote the <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> script
-that conveniently downloads the needed repositories, installs them,
-and can also be used to updates them. More documentation about the
-installer can be found at</p>
+<p>If you are a developer, we have develloped a simple <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>
+It conveniently downloads the needed repositories, installs them, and
+can also be used to updates them. More documentation about the installer can be
+found at</p>
 <ul class="simple">
 <li><p>&lt;<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a>&gt;</p></li>
 </ul>
@@ -595,26 +624,24 @@ directory labeled <code class="docutils literal notranslate"><span class="pre">c
 <span class="nb">cd</span> cm
 </pre></div>
 </div>
-<p>Before beginning the installation, be sure to confirm <cite>pip</cite> is up to date</p>
+<p>Before beginning the installation, be sure to confirm <cite>pip</cite> is up to date
+and install the <cite>cloudmesh-installer</cite>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pip -U
+pip install cloudmesh-installer
 </pre></div>
 </div>
-<p>and then run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
-</pre></div>
-</div>
-<p>After <cite>cloudmesh-installer</cite> has been installed  (while still under the <cite>cm</cite> directory),
-run the following command to list the available cloudmesh <cite>bundles</cite>:</p>
+<p>After <cite>cloudmesh-installer</cite> has been installed  (while still under the <cite>cm</cite>
+directory), run the following command to list the available cloudmesh
+<cite>bundles</cite>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer list
 </pre></div>
 </div>
 <p>Once you have decided which bundle to install you can proceed. If you only want
-to use compute resources the bundle name <code class="docutils literal notranslate"><span class="pre">cloud</span></code> will be what you want.
+to use compute resources the bundle name <code class="docutils literal notranslate"><span class="pre">openstack</span></code> will be what you want.
 If in addition you also like to work on storage, the bundle name <code class="docutils literal notranslate"><span class="pre">storage</span></code>
 needs to be used.</p>
-<p>Let, us assume you chose <cite>cloud</cite>, than you can install cloudmesh with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone cloud
-cloudmesh-installer install cloud
+<p>Let, us assume you chose <cite>opensatck</cite>, than you can install cloudmesh with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer get openstack
 </pre></div>
 </div>
 <p>It will take a while for the install to complete. On newer machines it
@@ -664,7 +691,7 @@ cloudmesh-installer clean --ENV<span class="o">=</span>~/ENV3 --force
 python3 -m venv ~/ENV3
 pip install pip -U
 pip install cloudmesh-installer
-cloudmesh-installer install cloud
+cloudmesh-installer get openstack
 cms <span class="nb">help</span>
 </pre></div>
 </div>
@@ -683,6 +710,8 @@ drive or storage media only you have access to.</p>
 </div>
 <div class="section" id="installation-of-mongodb">
 <h2>Installation of MongoDB<a class="headerlink" href="#installation-of-mongodb" title="Permalink to this headline">¶</a></h2>
+<p>Once you have installed cloudmesh it is easy to install MongoDB with
+the build in MongoDB installer.</p>
 <div class="section" id="mongodb-installation-steps">
 <h3>MongoDB Installation Steps<a class="headerlink" href="#mongodb-installation-steps" title="Permalink to this headline">¶</a></h3>
 <p>The following steps document the MongoDB server configuration and
@@ -732,11 +761,10 @@ cms config <span class="nb">set</span> cloudmesh.data.mongo.MONGO_PASSWORD<span 
 In a Linux/MacOS environment, the default installation path will be under
 <code class="docutils literal notranslate"><span class="pre">~/local/mongo/bin</span></code>. In a Windows environment, the default path is under
 <code class="docutils literal notranslate"><span class="pre">C:\Users\USERNAME\.cloudmesh\mongo</span></code>. If you would like to change these
-paths, be sure to update these in the cloudmesh.yaml file.</p>
-<p>Once configuration of the cloudmesh.yaml file has been completed,  run the
-following command to install mongo <strong>in an administrative shell</strong> (assuming you
-have the user in the c drive), where USERNAME is the username you installe
-dcloudmesh in:</p>
+paths, be sure to update these in the <cite>cloudmesh.yaml</cite> file.</p>
+<p>Once configuration of the <cite>cloudmesh.yaml</cite> file has been completed,  run the
+following command (assuming you have the user in the c drive), where USERNAME
+is the username you installe d cloudmesh in:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:/Users/USERNAME<span class="se">\E</span>NV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 cms admin mongo install
 </pre></div>
@@ -753,8 +781,6 @@ failed to start, simply select <code class="docutils literal notranslate"><span 
 <a class="reference internal image-reference" href="../_images/MongoInstall_Windows_Ignore.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_Ignore.png" style="width: 200px; height: 100px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Figure: Mongo Windows install. Make sure to press ignore</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
-<p>After the instalation of Mongo completes, you can leave the administrative
-shell.</p>
 <p>After the installation completes, in a Linux/MacOS environment, confirm the
 MongoDB installation path was added to the <code class="docutils literal notranslate"><span class="pre">.bash_*</span></code> file. This should have
 already been done automatically if the <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> command
@@ -765,18 +791,14 @@ to the Path variable, so you will need to add this manually:</p>
 <a class="reference internal image-reference" href="../_images/MongoInstall_Windows_Path.png"><img alt="alternate text" src="../_images/MongoInstall_Windows_Path.png" style="width: 200px; height: 100px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Figure: Mongo Windows path configuration</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
-<p>Now that MongoDB has been installed, we can simultaneously password protect
-mongo (as per the password you’ve entered in the yaml file), and test the
-installation by running the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create
+<p>Now that MongoDB has been installed, we initialize it with the following
+command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms init
 </pre></div>
 </div>
-<p>Then, confirm you can start mongo for cloudmesh with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo start
-</pre></div>
-</div>
-<p>In case you need to stop it, you can use the command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo stop
+<p>In case you like to stop or start is you can say:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms stop
+cms start
 </pre></div>
 </div>
 <p>Please remember that for cloudmesh to work properly you need to start
@@ -785,7 +807,7 @@ file.</p>
 </div>
 <div class="section" id="uninstall-of-mongodb-on-windows-10">
 <h3>Uninstall of MongoDB on Windows 10<a class="headerlink" href="#uninstall-of-mongodb-on-windows-10" title="Permalink to this headline">¶</a></h3>
-<p>This section documents the necessary steps required to uninstall MongoDB.</p>
+<p>This section documents  steps required to uninstall MongoDB from a prior instalation</p>
 <p>Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
 (i.e. <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code>), Mongo is not installed with a service by
@@ -845,14 +867,8 @@ with:</p>
 cms <span class="nb">set</span> key <span class="nv">user</span><span class="o">=</span>YOURUSERNAME
 </pre></div>
 </div>
-<p>The <cite>cms init</cite> includes this automatically.</p>
-</div>
-<div class="section" id="installation-of-cloudmesh-with-docker">
-<h2>Installation of cloudmesh with Docker<a class="headerlink" href="#installation-of-cloudmesh-with-docker" title="Permalink to this headline">¶</a></h2>
-<p>This instalation can be conducted on all OSes on which docker and python 3.8.1
-is installed. Cloudmesh can also be installed with a specialized
-<cite>cloudmesh-cmsd</cite> command that is distributed as source and on PyPi.</p>
-<p>See  <a class="reference internal" href="../cmsd.html"><span class="doc">&lt;no title&gt;</span></a> for more information.</p>
+<p>The <cite>cms init</cite> includes this automatically.
+If ssh is not activated on windows please follwo the Microsoft instructions.</p>
 </div>
 </div>
 
