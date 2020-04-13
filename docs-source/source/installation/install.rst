@@ -18,10 +18,10 @@ Prerequisites
 .. note::
 
           Before you install make sure that you have an up to date version of
-          python installed. We recommend you use 3.8.1 or newer. Python can be
+          python installed. We recommend you use 3.8.2 or newer. Python can be
           downloaded and installed from https://www.python.org/downloads/. On
           Windows you will also need to install the C++ commandline build tools
-          as some cryptographic libraries need to be recompiled in 3.8.1.
+          as some cryptographic libraries need to be recompiled in 3.8.2.
 
           Likely the code will work with earlier versions starting from 3.7.4.
           We know that Python 3.6 has bugs and should not be used. Although
@@ -70,7 +70,7 @@ command line.
 Prerequisites for Ubuntu 19.10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Python 3.8.1 is not yet installed in Ubuntu 19.10. The instalation is simple
+Python 3.8.2 is not yet installed in Ubuntu 19.10. The instalation is simple
 and can be conducted with the following steps.
 
 Additionally, Cloudmesh requires OpenSSL and Curl installed in the system.
@@ -89,14 +89,14 @@ place the code in a directory and change to that directory. Than say
    # sudo apt -y libssl-dev
    # sudo apt -y libsqlite3-dev tk-dev
    # sudo apt -y libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-   tar -xvf Python-3.8.1.tgz
-   cd Python-3.8.1
+   tar -xvf Python-3.8.2.tgz
+   cd Python-3.8.2
    ./configure
    make
    sudo make altinstall
    python3.8 --version
    python3 --version
-   # Should be 3.8.1
+   # Should be 3.8.2
    python3 -m venv ~/ENV3
    source ~/ENV3/bin/activate
 
@@ -414,7 +414,7 @@ Anaconda and Conda
 
 Cloudmesh can be installed in anaconda with pip. Please volow our pip
 instructions, but make sure you create your own virtualenv with conda and asure
-you use python 3.8.1 or newer.
+you use python 3.8.2 or newer.
 
 
 Installation of Cloudmesh (Source Install for Developers)
@@ -780,7 +780,7 @@ The `cms init` includes this automatically.
 Installation of cloudmesh with Docker
 -------------------------------------
 
-This instalation can be conducted on all OSes on which docker and python 3.8.1
+This instalation can be conducted on all OSes on which docker and python 3.8.2
 is installed. Cloudmesh can also be installed with a specialized
 `cloudmesh-cmsd` command that is distributed as source and on PyPi.
 
