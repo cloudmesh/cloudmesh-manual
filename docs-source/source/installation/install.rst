@@ -1,16 +1,38 @@
 Installation
 ============
 
+
 Cloudmesh is easy to install. Dependent on your preferences you can choose an
 install from
 
 * pip if you are a Cloudmesh user
 * source install if you are a developer
+* an instalation in containers
 
 Please read the installation section in this manual completely, and understand
 the items explained before you install. Do not just paste and copy text in
 your terminal and execute it as it could have unexpected consequences.
+This also helps to decide which instalation method is best suited for you.
 
+
+Installation of cloudmesh with Docker
+-------------------------------------
+
+The easiest way to install cloudmesh is to use docker containers. This
+instalation can be conducted on all OSes on which docker and python 3.8.2 is
+installed. Cloudmesh can also be installed with a specialized `cloudmesh-cmsd`
+command that is distributed as source and on PyPi.
+
+See  :doc:`../cmsd` for more information.
+
+In the next sections we discuss the native install of cludmesh on
+
+* Linux
+* Windows
+* maxOS
+
+We start with some elementary requirements that are typically already fulfilled
+if you are a developer on that platform.
 
 Prerequisites
 -------------
@@ -20,8 +42,9 @@ Prerequisites
           Before you install make sure that you have an up to date version of
           python installed. We recommend you use 3.8.2 or newer. Python can be
           downloaded and installed from https://www.python.org/downloads/. On
-          Windows you will also need to install the C++ commandline build tools
-          as some cryptographic libraries need to be recompiled in 3.8.2.
+          Windows you may also need to install the C++ commandline build tools
+          as some cryptographic libraries need to be recompiled in 3.8.2. This
+          only applies if you like to use cloudmesh-encrypt.
 
           Likely the code will work with earlier versions starting from 3.7.4.
           We know that Python 3.6 has bugs and should not be used. Although
@@ -34,6 +57,8 @@ Prerequisites
           form the user python. For simplicity we assime and document on how to
           set up a virtual environment in the home directory under the
           directory `ENV3`.
+
+
 
 Prerequisites for macOS
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,7 +73,9 @@ default, but are available via Xcode. First you need to install xcode from
 
 Next you need to install macOS xcode command line tools::
 
-    xcode-select --install
+.. code:: bash
+
+   xcode-select --install
 
 Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.
@@ -140,13 +167,18 @@ We explain the various methods.
 Windows native Installation Approach
 """"""""""""""""""""""""""""""""""""
 
-* Ensure that python 3.8 (or higher) has been installed. Python 3.8 can be
-  installed on Windows 10 using: https://www.python.org/downloads/
+* Ensure that Python 3.8.2 (or higher) has been installed. Python 3.8 can be
+  installed on Windows 10 using:
 
-* Create a venv. See section on prerequisites for venv provides more details.
+  * https://www.python.org/downloads/
 
+  Make sure
+  you download the 64 bit version. Unfortunately, the default version is teh 32
+  bit version.
+* Create a `venv`. See section on prerequisites for venv provides more details.
 * Some Python librarier may need to be compiled. In order for you to complete
-  your Python instalation you will need to install th *VC C++ command line Build Tools*.
+  your Python instalation you want to install th *VC C++ command line Build Tools*.
+  This is mostly needed for cryptography libraries.
   You can find them at:
 
   * https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
@@ -412,19 +444,17 @@ in which you can find the configuration file::
 Anaconda and Conda
 ^^^^^^^^^^^^^^^^^^
 
-Cloudmesh can be installed in anaconda with pip. Please volow our pip
-instructions, but make sure you create your own virtualenv with conda and asure
+Cloudmesh can be installed in anaconda with pip. Please follow our pip
+instructions, but make sure you create your own virtualenv with conda and assure
 you use python 3.8.2 or newer.
-
 
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------
 
-If you are a developer, you must use or simple source installation
-steps. For this reason we wrote the ``cloudmesh-installer`` script
-that conveniently downloads the needed repositories, installs them,
-and can also be used to updates them. More documentation about the
-installer can be found at
+If you are a developer, we have develloped a simple ``cloudmesh-installer``
+It conveniently downloads the needed repositories, installs them, and
+can also be used to updates them. More documentation about the installer can be
+found at
 
 *  <https://github.com/cloudmesh/cloudmesh-installer>
 
@@ -441,35 +471,31 @@ directory labeled ``cm``, and change into the `cm` directory.
    cd cm
 
 Before beginning the installation, be sure to confirm `pip` is up to date
+and install the `cloudmesh-installer`.
 
 .. code:: bash
 
    pip install pip -U
-
-and then run the following:
-
-.. code:: bash
-
    pip install cloudmesh-installer
 
-After `cloudmesh-installer` has been installed  (while still under the `cm` directory),
-run the following command to list the available cloudmesh `bundles`:
+After `cloudmesh-installer` has been installed  (while still under the `cm`
+directory), run the following command to list the available cloudmesh
+`bundles`:
 
 .. code:: bash
 
    cloudmesh-installer list
 
 Once you have decided which bundle to install you can proceed. If you only want
-to use compute resources the bundle name ``cloud`` will be what you want.
+to use compute resources the bundle name ``openstack`` will be what you want.
 If in addition you also like to work on storage, the bundle name ``storage``
 needs to be used.
 
-Let, us assume you chose `cloud`, than you can install cloudmesh with
+Let, us assume you chose `opensatck`, than you can install cloudmesh with
 
 .. code:: bash
 
-   cloudmesh-installer git clone cloud
-   cloudmesh-installer install cloud
+   cloudmesh-installer get openstack
 
 It will take a while for the install to complete. On newer machines it
 takes 1 minute, on older machines, it may take significantly
@@ -535,7 +561,7 @@ and the `cloudmesh-installer` in the directory cm as documented previously):
     python3 -m venv ~/ENV3
     pip install pip -U
     pip install cloudmesh-installer
-    cloudmesh-installer install cloud
+    cloudmesh-installer get openstack
     cms help
 
 
@@ -555,6 +581,10 @@ drive or storage media only you have access to.
 
 Installation of MongoDB
 -----------------------
+
+Once you have installed cloudmesh it is easy to install MongoDB with
+the build in MongoDB installer.
+
 
 MongoDB Installation Steps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -615,12 +645,11 @@ Another item to note is the default location of the MongoDB installation.
 In a Linux/MacOS environment, the default installation path will be under
 ``~/local/mongo/bin``. In a Windows environment, the default path is under
 ``C:\Users\USERNAME\.cloudmesh\mongo``. If you would like to change these
-paths, be sure to update these in the cloudmesh.yaml file.
+paths, be sure to update these in the `cloudmesh.yaml` file.
 
-Once configuration of the cloudmesh.yaml file has been completed,  run the
-following command to install mongo **in an administrative shell** (assuming you
-have the user in the c drive), where USERNAME is the username you installe
-dcloudmesh in:
+Once configuration of the `cloudmesh.yaml` file has been completed,  run the
+following command (assuming you have the user in the c drive), where USERNAME
+is the username you installe d cloudmesh in:
 
 .. code:: bash
 
@@ -642,9 +671,6 @@ dcloudmesh in:
 
      Figure: Mongo Windows install. Make sure to press ignore
 
-After the instalation of Mongo completes, you can leave the administrative
-shell.
-
 After the installation completes, in a Linux/MacOS environment, confirm the
 MongoDB installation path was added to the ``.bash_*`` file. This should have
 already been done automatically if the ``cms admin mongo install`` command
@@ -662,25 +688,19 @@ to the Path variable, so you will need to add this manually:
 
      Figure: Mongo Windows path configuration
 
-Now that MongoDB has been installed, we can simultaneously password protect
-mongo (as per the password you've entered in the yaml file), and test the
-installation by running the following command:
+Now that MongoDB has been installed, we initialize it with the following
+command:
 
 .. code:: bash
 
-    cms admin mongo create
+    cms init
 
-Then, confirm you can start mongo for cloudmesh with:
-
-.. code:: bash
-
-   cms admin mongo start
-
-In case you need to stop it, you can use the command:
+In case you like to stop or start is you can say:
 
 .. code:: bash
 
-   cms admin mongo stop
+   cms stop
+   cms start
 
 Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
@@ -689,7 +709,7 @@ file.
 Uninstall of MongoDB on Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section documents the necessary steps required to uninstall MongoDB.
+This section documents  steps required to uninstall MongoDB from a prior instalation
 
 Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
@@ -776,12 +796,5 @@ with:
     cms set key user=YOURUSERNAME
 
 The `cms init` includes this automatically.
+If ssh is not activated on windows please follwo the Microsoft instructions.
 
-Installation of cloudmesh with Docker
--------------------------------------
-
-This instalation can be conducted on all OSes on which docker and python 3.8.2
-is installed. Cloudmesh can also be installed with a specialized
-`cloudmesh-cmsd` command that is distributed as source and on PyPi.
-
-See  :doc:`../cmsd` for more information.
