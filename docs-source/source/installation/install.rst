@@ -71,9 +71,9 @@ default, but are available via Xcode. First you need to install xcode from
 
 * https://apps.apple.com/us/app/xcode/id497799835
 
-Next you need to install macOS xcode command line tools::
+Next you need to install macOS xcode command line tools
 
-.. code:: bash
+.. code-block:: bash
 
    xcode-select --install
 
@@ -88,7 +88,7 @@ https://www.python.org/downloads. Please, visit the page and follow the
 instructions. After this install you have `python3` available from the
 command line.
 
-.. code:: bash
+.. code-block:: bash
 
    python3 -m venv ~/ENV3
    source ~/ENV3/bin/activate
@@ -108,7 +108,7 @@ Please download Python from:
 place the code in a directory and change to that directory. Than say
 
 
-.. code:: bash
+.. code-block:: bash
 
    sudo apt -y update
    sudo apt -y install openssl curl
@@ -135,7 +135,7 @@ We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the new version with
 
-.. code:: bash
+.. code-block:: bash
 
    sudo apt-get -y update
    sudo apt-get -y install openssl curl
@@ -228,7 +228,9 @@ Windows Container Approach
 """"""""""""""""""""""""""
 
 The user container for cloudmesh shell is called cmsd (cloudmesh shell docker).
-It can be installed with pip as follows::
+It can be installed with pip as follows
+
+.. code-block:: bash
 
     pip install cloudmesh-cmsd
 
@@ -290,7 +292,7 @@ venv Setup on Linux and macOS
 
 For the `venv` setup on Linux or macOs, run the following:
 
-.. code:: bash
+.. code-block:: bash
 
    python3 -m venv  ~/ENV3
    source ~/ENV3/bin/activate
@@ -298,7 +300,7 @@ For the `venv` setup on Linux or macOs, run the following:
 You can add at the end of your `.bashrc` (ubuntu) or `.bash_profile`
 (macOS) file the line so the environment is always loaded.
 
-.. code:: bash
+.. code-block:: bash
 
    source ~/ENV3/bin/activate
 
@@ -308,7 +310,7 @@ venv Setup on Windows
 On Windows, you run the following command from your home directory at
 `C:\Users\USERNAME`:
 
-.. code:: cmd
+.. code-block:: cmd
 
   python -m venv ENV3
   source ENV3\Scripts\activate
@@ -343,7 +345,7 @@ Lastly, to simplify the `venv` activation call, create a new `ENV3.bat`
 file under the default directory, and add the following content to the
 file.
 
-.. code:: cmd
+.. code-block:: cmd
 
   C:\Users\USERNAME\ENV3\Scripts\activate.bat
 
@@ -358,7 +360,7 @@ simply reference the system variable %ENV3%.
 
 Example using bat file activation:
 
-.. code:: bash
+.. code-block:: bash
 
    C:\Users\USERNAME> ENV3
 
@@ -369,7 +371,7 @@ Example using bat file activation:
 
 Example using Windows environment variable:
 
-.. code:: bash
+.. code-block:: bash
 
    C:\Users\USERNAME> %ENV3%
 
@@ -381,7 +383,7 @@ In both cases you will see the command prompt starting with `(ENV3)`.
 
 Check if you have the right version of python and pip installed with
 
-.. code:: bash
+.. code-block:: bash
 
    python --version
    pip --version
@@ -404,13 +406,13 @@ Prior to beginning, be sure to activate your venv, e.g.``ENV3``. Then,
 depending on your needs, you can install the cloudmesh `cloud` or
 `storage` bundle with:
 
-.. code:: bash
+.. code-block:: bash
 
    pip install cloudmesh-cloud
 
 or
 
-.. code:: bash
+.. code-block:: bash
 
    pip install cloudmesh-storage # not yet supported
 
@@ -418,7 +420,7 @@ Please note that the storage bundle also includes
 `cloudmesh-cloud`. Additional packages include but are not yet
 released:
 
-.. code:: bash
+.. code-block:: bash
 
    pip install cloudmesh-flow    # not yet supported
    pip install cloudmesh-emr     # not yet supported
@@ -431,7 +433,7 @@ a configuration file. This is done by invoking the ``cms`` command the first
 time. Thus, just type the command
 
 
-.. code:: bash
+.. code-block:: bash
 
    cms help
 
@@ -465,7 +467,7 @@ venv (`ENV3`).
 Navigate to for example the home directory, Then create an empty
 directory labeled ``cm``, and change into the `cm` directory.
 
-.. code:: bash
+.. code-block:: bash
 
    mkdir cm
    cd cm
@@ -473,7 +475,7 @@ directory labeled ``cm``, and change into the `cm` directory.
 Before beginning the installation, be sure to confirm `pip` is up to date
 and install the `cloudmesh-installer`.
 
-.. code:: bash
+.. code-block:: bash
 
    pip install pip -U
    pip install cloudmesh-installer
@@ -482,7 +484,7 @@ After `cloudmesh-installer` has been installed  (while still under the `cm`
 directory), run the following command to list the available cloudmesh
 `bundles`:
 
-.. code:: bash
+.. code-block:: bash
 
    cloudmesh-installer list
 
@@ -493,7 +495,7 @@ needs to be used.
 
 Let, us assume you chose `opensatck`, than you can install cloudmesh with
 
-.. code:: bash
+.. code-block:: bash
 
    cloudmesh-installer get openstack
 
@@ -504,7 +506,7 @@ takes a long time. Make sure to terminate other resource hungry
 programs.  After the installation is complete, you can then test if
 you have successfully installed it by issuing the following command:
 
-.. code:: bash
+.. code-block:: bash
 
     cms help
 
@@ -520,7 +522,7 @@ To update the source from GitHub, simply use the `cloudmesh-installer` command
 while making sure to specify the desired bundle name, let us assume you use
 ``cloud``
 
-.. code:: bash
+.. code-block:: bash
 
     cloudmesh-installer git pull cloud
 
@@ -530,7 +532,7 @@ Please note that in an update it could also be possible that the format of the
 `cloudmesh.yaml` file may have changed. Thus we always recommend that you also
 update the yaml file to the newest format. You can check the yaml file with
 
-.. code:: bash
+.. code-block:: bash
 
     cms config check
 
@@ -540,7 +542,7 @@ As developer sometimes it may be best to make a backup of the `cm` and
 directory. Then copy your changes into the newest code. Make sure to
 remove all python artifacts in the backup directory the command
 
-.. code:: bash
+.. code-block:: bash
 
     cd cm
     cloudmesh-installer clean --dir=. --force
@@ -553,7 +555,7 @@ In case you need to reinstall cloudmesh and you have used previously the
 `cloudmesh-installer`, you can do it as follows (We assume you have used venv
 and the `cloudmesh-installer` in the directory cm as documented previously):
 
-.. code:: bash
+.. code-block:: bash
 
     cd cm # the directory where your source locates
     cloudmesh-installer clean --dir=. --force
@@ -611,7 +613,7 @@ Prior to starting the MongoDB installation, you will need to install and
 configure the ``cloudmesh.yaml`` file if you have not already done so.
 To install it, run the following command:
 
-.. code:: bash
+.. code-block:: bash
 
    cms help
 
@@ -619,7 +621,7 @@ Then, be sure to edit the cloudmesh.yaml configuration file (which is created
 under ``~/.cloudmesh`` directory) and update the parameters values used in the
 mongo install. You can use a text editor, such as:
 
-.. code:: bash
+.. code-block:: bash
 
    emacs ~/.cloudmesh/cloudmesh.yaml
 
@@ -636,7 +638,7 @@ In case you do not have mongod installed, you can do so for macOS and Ubuntu
 Alternatively you can set these cloudmesh.yaml parameter values from the
 command line  without using an editor by running the following:
 
-.. code:: bash
+.. code-block:: bash
 
    cms config set cloudmesh.data.mongo.MONGO_AUTOINSTALL=True
    cms config set cloudmesh.data.mongo.MONGO_PASSWORD=YOURPASSWORD
@@ -651,7 +653,7 @@ Once configuration of the `cloudmesh.yaml` file has been completed,  run the
 following command (assuming you have the user in the c drive), where USERNAME
 is the username you installe d cloudmesh in:
 
-.. code:: bash
+.. code-block:: bash
 
   C:/Users/USERNAME\ENV3\Scripts\activate
   cms admin mongo install
@@ -691,13 +693,13 @@ to the Path variable, so you will need to add this manually:
 Now that MongoDB has been installed, we initialize it with the following
 command:
 
-.. code:: bash
+.. code-block:: bash
 
     cms init
 
 In case you like to stop or start is you can say:
 
-.. code:: bash
+.. code-block:: bash
 
    cms stop
    cms start
@@ -730,7 +732,7 @@ and confirm the status = `Stopped`. If it is not stoppe, please do
 so. To delete it, run the following as an administrator from the
 command line:
 
-.. code:: bash
+.. code-block:: bash
 
    sc.exe delete MongoDB
 
@@ -779,7 +781,7 @@ Prerequisites for ssh key
 In order for you to use cloudmesh you will need an ssh key. This can be
 created from the command line with
 
-.. code:: bash
+.. code-block:: bash
 
     ssh-keygen
 
@@ -790,7 +792,7 @@ Next you want to add a keyname that you use in your clouds to the cloudmesh
 yaml file. You can do this by completing the profile or form the command line
 with:
 
-.. code:: bash
+.. code-block:: bash
 
     cms config set cloudmesh.profile.user=YOURUSERNAME
     cms set key user=YOURUSERNAME
