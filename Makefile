@@ -20,7 +20,7 @@ endef
 
 all:
 	pip install sphinx_rtd_theme
-	cms timer off
+	cms debug off
 	cms debug off
 	make -f Makefile manual
 	cms timer on
