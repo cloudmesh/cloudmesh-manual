@@ -58,7 +58,7 @@ register
             attributes that are needed to successfully register for
             the given kind and service.
 
-        cms remove --kind=google --service=cloud --name=mygoogle
+        cms register remove --kind=google --service=cloud --name=mygoogle
             Remove the cloudmesh.yaml for google cloud registered with
             name mygoogle. If name attribute is not provided, the name
             is defaulted to kind i.e. google in this example.
