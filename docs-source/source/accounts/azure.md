@@ -243,9 +243,11 @@ that we just collected to the "azure" section of cloudmesh.yaml
 - [ ] TODO: Azure. Storage and Compute Resource Group. To be
     completed by students.
 
-## Covid19 Azure Impacts
+## Resource Unavailable Error
 
-As a result of Covid19, many machine sizes are currently unavailable to new accounts, for certain subscription types, and certain regions. Attempting to use this cloud wil throw a Resource Unavailable Error. You can check what machine types are available to you with the following command, after you have installed the Azure CLI as described above. 
+One method Azure can use to handle times of extreme load (such as the 2020 outbreak of Covid-19) is to make certain image types unavailable to new accounts, for certain subscription types, and in certain regions. This can include the Basic images used as the default for many commands. 
+
+If you are affected by these restrictions, attempting to use this cloud wil throw a ResourceUnavailable Error. You will need to change the machine size to one that is available to your account. You can check what machine types are available to you with the following command, after you have installed the Azure CLI as described above. 
 
 ```bash 
 $ az vm list-skus --location southcentralus --size Standard_F --output table 
