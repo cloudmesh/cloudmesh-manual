@@ -243,6 +243,14 @@ that we just collected to the "azure" section of cloudmesh.yaml
 - [ ] TODO: Azure. Storage and Compute Resource Group. To be
     completed by students.
 
+## Covid19 Azure Impacts
+
+As a result of Covid19, many machine sizes are currently unavailable to new accounts, for certain subscription types, and certain regions. Attempting to use this cloud wil throw a Resource Unavailable Error. You can check what machine types are available to you with the following command, after you have installed the Azure CLI as described above. 
+
+```bash 
+$ az vm list-skus --location southcentralus --size Standard_F --output table 
+```
+
 ## FAQ
 
 Can the resource group be created with the az command? How is it done
