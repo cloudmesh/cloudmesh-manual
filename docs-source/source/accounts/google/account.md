@@ -26,7 +26,7 @@ Creating the Google account
 
 A new google account can be created using following information:
 
-`Create your Google Account <https://accounts.google.com/signup/v2/webcreateaccount>`__
+[Create your Google Account](https://accounts.google.com/signup/v2/webcreateaccount)
  
 
 Activation Google Storage Service
@@ -35,8 +35,8 @@ Activation Google Storage Service
 Google allows you to apply for an account offering you $300 in credits to use
 google storage cloud. To apply for it you can use either of the follwoing links:
 
--  `Get Started for Free]<https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE>`__
--  `Google Cloud Platform | Google for Education <https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none>`__
+-  [Get Started for Free](https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE)
+-  [Google Cloud Platform | Google for Education](https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none)
 
 Please choose the one that is most appropriate for you. For the eductaional
 account you may need a verification from your school or an email that is
@@ -48,7 +48,7 @@ Create a Project
 Next, you will need to create a Google project. We recommend that you simply
 use the name `cloudmesh`. You can create such a project at
   
-`Google Storage - Online Data Storage | Cloud Storage | Google Cloud<https://console.cloud.google.com/>`__
+[Google Storage - Online Data Storage | Cloud Storage | Google Cloud](https://console.cloud.google.com/)
   
 The three screenshots show the workflow on how to create a project:
    
@@ -61,7 +61,7 @@ Create a Service Account
 
 Now you need to create a service account by clicking the follwoing link and choosing the appropriate project
   
-`Service Account Page <https://console.cloud.google.com/iam-admin/serviceaccounts>`__
+[Service Account Page](https://console.cloud.google.com/iam-admin/serviceaccounts)
   
     [Create service account_01](images/CreateServiceAccount_01.png)
 
