@@ -12,17 +12,16 @@ Subpackages
    cloudmesh.storage.provider.box
    cloudmesh.storage.provider.gdrive
    cloudmesh.storage.provider.local
-   cloudmesh.storage.provider.parallelawss3
+   cloudmesh.storage.provider.parallelazureblob
    cloudmesh.storage.provider.parallelgdrive
-   cloudmesh.storage.provider.parellelazureblob
 
 Submodules
 ----------
 
-cloudmesh.storage.provider.deprecated\-storage module
------------------------------------------------------
+cloudmesh.storage.provider.StorageQueue module
+----------------------------------------------
 
-.. automodule:: cloudmesh.storage.provider.deprecated-storage
+.. automodule:: cloudmesh.storage.provider.StorageQueue
    :members:
    :undoc-members:
    :show-inheritance:

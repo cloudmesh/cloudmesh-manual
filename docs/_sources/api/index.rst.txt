@@ -12,6 +12,7 @@ Cloudmesh Command API
    cloudmesh.dryrun.command
    cloudmesh.flavor.command
    cloudmesh.google.command
+   cloudmesh.google.googlebigquery.command
    cloudmesh.group.command
    cloudmesh.gui.command
    cloudmesh.host.command
@@ -80,6 +81,8 @@ Cloudmesh API
    cloudmesh.etc
    cloudmesh.flavor
    cloudmesh.google
+   cloudmesh.google.googlebigquery
+   cloudmesh.google.googlebigquery.api
    cloudmesh.google.storage
    cloudmesh.group
    cloudmesh.gui
@@ -108,15 +111,15 @@ Cloudmesh API
    cloudmesh.shell
    cloudmesh.ssh
    cloudmesh.storage
+   cloudmesh.storage.copy
    cloudmesh.storage.provider
    cloudmesh.storage.provider.awss3
    cloudmesh.storage.provider.azureblob
    cloudmesh.storage.provider.box
    cloudmesh.storage.provider.gdrive
    cloudmesh.storage.provider.local
-   cloudmesh.storage.provider.parallelawss3
+   cloudmesh.storage.provider.parallelazureblob
    cloudmesh.storage.provider.parallelgdrive
-   cloudmesh.storage.provider.parellelazureblob
    cloudmesh.storage.queue
    cloudmesh.sys
    cloudmesh.terminal

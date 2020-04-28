@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -199,12 +209,12 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.storage.Provider</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
 
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">StorageABC</span><span class="p">):</span>
@@ -214,10 +224,10 @@
         <span class="n">kind</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;box&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;gdrive&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;parallelgdrive&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;azureblob&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;awss3&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;parallelawss3&quot;</span><span class="p">,</span>
+                <span class="s1">&#39;parallelgdrive&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;parallelazureblob&#39;</span><span class="p">,</span>
                 <span class="s2">&quot;google&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;oracle&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">kind</span></div>
@@ -240,7 +250,12 @@
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;awss3&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.awss3.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;parallelawss3&quot;</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.awss3.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.parallelawss3.Provider</span> <span class="kn">import</span> \
+                <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;parallelazureblob&quot;</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.parallelazureblob.Provider</span> <span class="kn">import</span> \
+                <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
+
         <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">]:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">P</span>
         <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;oracle&#39;</span><span class="p">]:</span>
@@ -250,15 +265,29 @@
                 <span class="sa">f</span><span class="s2">&quot;Storage provider &#39;</span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2">&#39; not supported&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">P</span></div>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parallelism</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 
-        <span class="nb">super</span><span class="p">(</span><span class="n">Provider</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Provider</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
         <span class="n">P</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">parallelism</span><span class="o">=</span><span class="n">parallelism</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Storage provider &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;&#39; not yet supported&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Provider.monitor"><a class="viewcode-back" href="../../../api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.monitor">[docs]</a>    <span class="k">def</span> <span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get the status of all the actions in status</span>
+<span class="sd">        :param status:</span>
+<span class="sd">        :return</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">monitor</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.run"><a class="viewcode-back" href="../../../api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute the actions in the database/queue</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></div>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -284,7 +313,6 @@
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
-        <span class="n">service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span>
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
                               <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">d</span>
@@ -292,34 +320,34 @@
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-        <span class="n">service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span>
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">create_dir</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">d</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        deletes the source</span>
 
-<span class="sd">        :param source: The source</span>
+<span class="sd">        :param name: The source</span>
 <span class="sd">        :return: The dict representing the source</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
         <span class="c1"># raise ValueError(&quot;must return a value&quot;)</span>
         <span class="k">return</span> <span class="n">d</span>
 
-<div class="viewcode-block" id="Provider.search"><a class="viewcode-back" href="../../../api/cloudmesh.storage.html#cloudmesh.storage.Provider.Provider.search">[docs]</a>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
         <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
                                  <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">d</span></div>
+        <span class="k">return</span> <span class="n">d</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
-        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="n">dir_only</span><span class="p">,</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="n">dir_only</span><span class="p">,</span>
                                <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">d</span>
 
@@ -346,22 +374,19 @@
         <span class="k">if</span> <span class="n">source_kind</span> <span class="o">==</span> <span class="s2">&quot;azureblob&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.azureblob.Provider</span> <span class="kn">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">AzureblobProvider</span>
-            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">AzureblobProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
-                                                <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">AzureblobProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">source_kind</span> <span class="o">==</span> <span class="s2">&quot;awss3&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.awss3.Provider</span> <span class="kn">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">AwsProvider</span>
-            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">AwsProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">AwsProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">source_kind</span> <span class="o">==</span> <span class="s2">&quot;oracle&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.oracle.storage.Provider</span> <span class="kn">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">OracleStorageProvider</span>
-            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">OracleStorageProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
-                                                    <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">OracleStorageProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">source_kind</span> <span class="o">==</span> <span class="s2">&quot;google&quot;</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">cloudmesh.google.storage.Provider</span> <span class="kn">import</span> \
                 <span class="n">Provider</span> <span class="k">as</span> <span class="n">GoogleStorageProvider</span>
-            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">GoogleStorageProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
-                                                    <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">source_provider</span> <span class="o">=</span> <span class="n">GoogleStorageProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Provider for </span><span class="si">{</span><span class="n">source_kind</span><span class="si">}</span><span class="s2"> is not &quot;</span>
                                  <span class="sa">f</span><span class="s2">&quot;yet implemented.&quot;</span><span class="p">)</span>
@@ -427,13 +452,13 @@
             <span class="n">config</span> <span class="o">=</span> <span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span>
 
             <span class="k">if</span> <span class="n">source</span><span class="p">:</span>
-                <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+                <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
                 <span class="n">source_kind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
                 <span class="n">source_provider</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_source_provider</span><span class="p">(</span><span class="n">source_kind</span><span class="p">,</span>
                                                            <span class="n">source</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
 
             <span class="c1"># get local storage directory</span>
-            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">)</span>
             <span class="n">local_storage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span>
                 <span class="s2">&quot;cloudmesh.storage.local.default.directory&quot;</span><span class="p">]</span>
 
@@ -471,8 +496,7 @@
                     <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Removing local intermediate file.&quot;</span><span class="p">)</span>
                     <span class="kn">from</span> <span class="nn">cloudmesh.storage.provider.local.Provider</span> <span class="kn">import</span> \
                         <span class="n">Provider</span> <span class="k">as</span> <span class="n">LocalProvider</span>
-                    <span class="n">local_provider</span> <span class="o">=</span> <span class="n">LocalProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
-                                                   <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+                    <span class="n">local_provider</span> <span class="o">=</span> <span class="n">LocalProvider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">)</span>
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">local_provider</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">source_obj</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">)</span>
                     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>

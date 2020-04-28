@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -201,16 +211,15 @@
 <li><a href="cloudmesh/abstract/ProcessManagerABC.html">cloudmesh.abstract.ProcessManagerABC</a></li>
 <li><a href="cloudmesh/abstract/State.html">cloudmesh.abstract.State</a></li>
 <li><a href="cloudmesh/abstract/StorageABC.html">cloudmesh.abstract.StorageABC</a></li>
-<li><a href="cloudmesh/abstract/StorageDeprecatedABC.html">cloudmesh.abstract.StorageDeprecatedABC</a></li>
-<li><a href="cloudmesh/aws/compute/AwsFlavors.html">cloudmesh.aws.compute.AwsFlavors</a></li>
-<li><a href="cloudmesh/aws/compute/Provider.html">cloudmesh.aws.compute.Provider</a></li>
-<li><a href="cloudmesh/azure/compute/Provider.html">cloudmesh.azure.compute.Provider</a></li>
 <li><a href="cloudmesh/cmd5/CloudmeshPlugin.html">cloudmesh.cmd5.CloudmeshPlugin</a></li>
 <li><a href="cloudmesh/common/Benchmark.html">cloudmesh.common.Benchmark</a></li>
 <li><a href="cloudmesh/common/DateTime.html">cloudmesh.common.DateTime</a></li>
 <li><a href="cloudmesh/common/DictList.html">cloudmesh.common.DictList</a></li>
 <li><a href="cloudmesh/common/FlatDict.html">cloudmesh.common.FlatDict</a></li>
 <li><a href="cloudmesh/common/Host.html">cloudmesh.common.Host</a></li>
+<li><a href="cloudmesh/common/JobMultiHostScript.html">cloudmesh.common.JobMultiHostScript</a></li>
+<li><a href="cloudmesh/common/JobScript.html">cloudmesh.common.JobScript</a></li>
+<li><a href="cloudmesh/common/JobSet.html">cloudmesh.common.JobSet</a></li>
 <li><a href="cloudmesh/common/Printer.html">cloudmesh.common.Printer</a></li>
 <li><a href="cloudmesh/common/Shell.html">cloudmesh.common.Shell</a></li>
 <li><a href="cloudmesh/common/StopWatch.html">cloudmesh.common.StopWatch</a></li>
@@ -223,7 +232,6 @@
 <li><a href="cloudmesh/common/dotdict.html">cloudmesh.common.dotdict</a></li>
 <li><a href="cloudmesh/common/error.html">cloudmesh.common.error</a></li>
 <li><a href="cloudmesh/common/location.html">cloudmesh.common.location</a></li>
-<li><a href="cloudmesh/common/locations.html">cloudmesh.common.locations</a></li>
 <li><a href="cloudmesh/common/logger.html">cloudmesh.common.logger</a></li>
 <li><a href="cloudmesh/common/parameter.html">cloudmesh.common.parameter</a></li>
 <li><a href="cloudmesh/common/prettytable.html">cloudmesh.common.prettytable</a></li>
@@ -254,13 +262,10 @@
 <li><a href="cloudmesh/data/api/db/DBProviderABC.html">cloudmesh.data.api.db.DBProviderABC</a></li>
 <li><a href="cloudmesh/data/api/storage/StorageProviderABC.html">cloudmesh.data.api.storage.StorageProviderABC</a></li>
 <li><a href="cloudmesh/data/command/data.html">cloudmesh.data.command.data</a></li>
-<li><a href="cloudmesh/db/strdb.html">cloudmesh.db.strdb</a></li>
 <li><a href="cloudmesh/debug/command/debug.html">cloudmesh.debug.command.debug</a></li>
 <li><a href="cloudmesh/default/command/default.html">cloudmesh.default.command.default</a></li>
 <li><a href="cloudmesh/dryrun/command/dryrun.html">cloudmesh.dryrun.command.dryrun</a></li>
 <li><a href="cloudmesh/flavor/command/flavor.html">cloudmesh.flavor.command.flavor</a></li>
-<li><a href="cloudmesh/google/command/google.html">cloudmesh.google.command.google</a></li>
-<li><a href="cloudmesh/google/storage/Provider.html">cloudmesh.google.storage.Provider</a></li>
 <li><a href="cloudmesh/group/Group.html">cloudmesh.group.Group</a></li>
 <li><a href="cloudmesh/group/command/group.html">cloudmesh.group.command.group</a></li>
 <li><a href="cloudmesh/gui/Gui.html">cloudmesh.gui.Gui</a></li>
@@ -276,15 +281,10 @@
 <li><a href="cloudmesh/key/command/key.html">cloudmesh.key.command.key</a></li>
 <li><a href="cloudmesh/man/command/man.html">cloudmesh.man.command.man</a></li>
 <li><a href="cloudmesh/mongo/DataBaseDecorator.html">cloudmesh.mongo.DataBaseDecorator</a></li>
-<li><a href="cloudmesh/multipass/Deploy.html">cloudmesh.multipass.Deploy</a></li>
-<li><a href="cloudmesh/multipass/Provider.html">cloudmesh.multipass.Provider</a></li>
-<li><a href="cloudmesh/multipass/command/multipass.html">cloudmesh.multipass.command.multipass</a></li>
 <li><a href="cloudmesh/open/command/open.html">cloudmesh.open.command.open</a></li>
 <li><a href="cloudmesh/oracle/command/oracle.html">cloudmesh.oracle.command.oracle</a></li>
 <li><a href="cloudmesh/oracle/compute/Provider.html">cloudmesh.oracle.compute.Provider</a></li>
-<li><a href="cloudmesh/provider.html">cloudmesh.provider</a></li>
-<ul><li><a href="cloudmesh/provider/command/provider.html">cloudmesh.provider.command.provider</a></li>
-</ul><li><a href="cloudmesh/register/AWSRegister.html">cloudmesh.register.AWSRegister</a></li>
+<li><a href="cloudmesh/register/AWSRegister.html">cloudmesh.register.AWSRegister</a></li>
 <li><a href="cloudmesh/register/AzRegister.html">cloudmesh.register.AzRegister</a></li>
 <li><a href="cloudmesh/register/Entry.html">cloudmesh.register.Entry</a></li>
 <li><a href="cloudmesh/register/Register.html">cloudmesh.register.Register</a></li>
@@ -299,14 +299,16 @@
 <li><a href="cloudmesh/ssh/command/ssh.html">cloudmesh.ssh.command.ssh</a></li>
 <li><a href="cloudmesh/storage/Provider.html">cloudmesh.storage.Provider</a></li>
 <li><a href="cloudmesh/storage/command/storage.html">cloudmesh.storage.command.storage</a></li>
+<li><a href="cloudmesh/storage/copy/Provider.html">cloudmesh.storage.copy.Provider</a></li>
+<li><a href="cloudmesh/storage/provider/StorageQueue.html">cloudmesh.storage.provider.StorageQueue</a></li>
 <li><a href="cloudmesh/storage/provider/awss3/Provider.html">cloudmesh.storage.provider.awss3.Provider</a></li>
-<li><a href="cloudmesh/storage/provider/azureblob/Provider.html">cloudmesh.storage.provider.azureblob.Provider</a></li>
+<li><a href="cloudmesh/storage/provider/awss3/path_manager.html">cloudmesh.storage.provider.awss3.path_manager</a></li>
 <li><a href="cloudmesh/storage/provider/box/Provider.html">cloudmesh.storage.provider.box.Provider</a></li>
+<li><a href="cloudmesh/storage/provider/gdrive/Provider.html">cloudmesh.storage.provider.gdrive.Provider</a></li>
 <li><a href="cloudmesh/storage/provider/local/Provider.html">cloudmesh.storage.provider.local.Provider</a></li>
-<li><a href="cloudmesh/storage/provider/parallelawss3/Provider.html">cloudmesh.storage.provider.parallelawss3.Provider</a></li>
-<li><a href="cloudmesh/storage/provider/parallelgdrive/Provider.html">cloudmesh.storage.provider.parallelgdrive.Provider</a></li>
-<li><a href="cloudmesh/storage/provider/parellelazureblob/Provider.html">cloudmesh.storage.provider.parellelazureblob.Provider</a></li>
+<li><a href="cloudmesh/storage/provider/parallelgdrive/Provider_old.html">cloudmesh.storage.provider.parallelgdrive.Provider_old</a></li>
 <li><a href="cloudmesh/storage/queue/StorageQueue.html">cloudmesh.storage.queue.StorageQueue</a></li>
+<li><a href="cloudmesh/storage/queue/StorageQueueABC.html">cloudmesh.storage.queue.StorageQueueABC</a></li>
 <li><a href="cloudmesh/sys/command/sys.html">cloudmesh.sys.command.sys</a></li>
 <li><a href="cloudmesh/sys/manage.html">cloudmesh.sys.manage</a></li>
 <li><a href="cloudmesh/terminal/command/terminal.html">cloudmesh.terminal.command.terminal</a></li>
@@ -320,6 +322,10 @@
 <li><a href="cloudmesh/vdir/api/manager.html">cloudmesh.vdir.api.manager</a></li>
 <li><a href="cloudmesh/vdir/command/vdir.html">cloudmesh.vdir.command.vdir</a></li>
 <li><a href="cloudmesh/vm/command/vm.html">cloudmesh.vm.command.vm</a></li>
+<li><a href="cloudmesh/volume/Provider.html">cloudmesh.volume.Provider</a></li>
+<li><a href="cloudmesh/volume/VolumeABC.html">cloudmesh.volume.VolumeABC</a></li>
+<li><a href="cloudmesh/volume/azure/Provider.html">cloudmesh.volume.azure.Provider</a></li>
+<li><a href="cloudmesh/volume/command/volume.html">cloudmesh.volume.command.volume</a></li>
 <li><a href="cloudmesh/workflow_draft/command/workflow_draft.html">cloudmesh.workflow_draft.command.workflow_draft</a></li>
 </ul>
 

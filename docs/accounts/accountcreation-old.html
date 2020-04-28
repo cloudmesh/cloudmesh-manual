@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>VM Providers (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="OTHER" href="../tbd.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="box.html" /> 
+    <link rel="prev" title="Box Account" href="box.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -111,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -132,6 +134,36 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="box.html">Box Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VM Providers (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-cloud-providers-access">General Cloud Providers Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-interface">General Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-use-with-options">Explicit Use with Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vagrant">Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws">AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-and-configuration">Setup and Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#azure">Azure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-and-configuration-1">Setup and Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#openstack">OpenStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jetstream">Jetstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chameleon-cloud">Chameleon Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cybera">Cybera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#devstack">DevStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -182,13 +214,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>VM Providers (outdated)</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/accounts/accountcreation-old.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/accounts/accountcreation-old.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,25 +233,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># VM Providers (outdated)</p>
-<p>Cloudmesh works straight forward with a number of cloud providers under the
-assumption you have accounts on these clouds. We demonstrate here how to start a
-single vm on each of these providers and to test if they have been creatdd we
-will also list the vm on each of the clouds. Defaults form the a configuration
-file that is located in <cite>~/.cloudmesh/cloudmesh.yaml</cite> are used to select images
-and flavors. These defaults can naturally be changed.</p>
-<p>In order for you to follow this example you will have to edit the yaml file and
-make appropriat emodifications.</p>
-<p>## General Cloud Providers Access</p>
-<p>We are using the python library
-[Apache Libcloud](<a class="reference external" href="https://libcloud.apache.org">https://libcloud.apache.org</a>) to interact with
-cloud service providers. Currently, in <cite>cms</cite>, we could access:</p>
+  <div class="section" id="vm-providers-outdated">
+<h1>VM Providers (outdated)<a class="headerlink" href="#vm-providers-outdated" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh works straight forward with a number of cloud providers under
+the assumption you have accounts on these clouds. We demonstrate here
+how to start a single vm on each of these providers and to test if they
+have been creatdd we will also list the vm on each of the clouds.
+Defaults form the a configuration file that is located in
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code> are used to select images and flavors.
+These defaults can naturally be changed.</p>
+<p>In order for you to follow this example you will have to edit the yaml
+file and make appropriat emodifications.</p>
+<div class="section" id="general-cloud-providers-access">
+<h2>General Cloud Providers Access<a class="headerlink" href="#general-cloud-providers-access" title="Permalink to this headline">¶</a></h2>
+<p>We are using the python library <a class="reference external" href="https://libcloud.apache.org">Apache
+Libcloud</a> to interact with cloud service
+providers. Currently, in <code class="docutils literal notranslate"><span class="pre">cms</span></code>, we could access:</p>
 <ul class="simple">
-<li><p>[AWS](<a class="reference external" href="https://aws.amazon.com">https://aws.amazon.com</a>)</p></li>
-<li><p>[AZURE](<a class="reference external" href="https://azure.microsoft.com/en-us/">https://azure.microsoft.com/en-us/</a>)</p></li>
-<li><p>any cloud service providers using <em>OpenStack</em>.
-For example, [Chameleon](<a class="reference external" href="https://www.chameleoncloud.org">https://www.chameleoncloud.org</a>) and
-[Jetstream](<a class="reference external" href="https://jetstream-cloud.org">https://jetstream-cloud.org</a>)</p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com">AWS</a></p></li>
+<li><p><a class="reference external" href="https://azure.microsoft.com/en-us/">AZURE</a></p></li>
+<li><p>any cloud service providers using <em>OpenStack</em>. For example,
+<a class="reference external" href="https://www.chameleoncloud.org">Chameleon</a> and
+<a class="reference external" href="https://jetstream-cloud.org">Jetstream</a></p></li>
 </ul>
 <p>By using the <em>Apache Libcloud</em> API, we could do these operations for
 nodes in above cloud service providers:</p>
@@ -232,148 +267,179 @@ nodes in above cloud service providers:</p>
 <li><p>Create the node</p></li>
 </ul>
 <p><strong>Improvement</strong>: Sometimes adjustments to nodes are necessary (switch
-between different images/OS and service sizes).  Cm4 also allow users
-to customize their instances across multiple providers by using
-refactor functions to support their management tasks.</p>
+between different images/OS and service sizes). Cm4 also allow users to
+customize their instances across multiple providers by using refactor
+functions to support their management tasks.</p>
 <ul class="simple">
 <li><p>Resize the node</p></li>
 <li><p>Rebuild(with different image) the node</p></li>
 <li><p>Rename the node</p></li>
 <li><p>Revert previous operations to the node</p></li>
 </ul>
-<p>## General Interface</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>bash
-$ cms set cloud=&lt;cloudname as defined in the ~/.cloudmesh/cloudmesh.yaml&gt;
+</div>
+<div class="section" id="general-interface">
+<h2>General Interface<a class="headerlink" href="#general-interface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>&lt;cloudname as defined in the ~/.cloudmesh/cloudmesh.yaml&gt;
 $ cms vm start
-$ cms vm list</p>
-<p>$ cms flavor=”medium”
-$ cms image=”ubuntu19.04”</p>
-<p>$ cms vm start
-<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
-<p>## Explicit Use with Options</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span> <span class="pre">--cloud=chameleon</span> <span class="pre">--image=ubuntu19.04</span> <span class="pre">--flavor=medium</span> <span class="pre">--key=~/.ssh/id_rsa.bub</span>
-<span class="pre">`</span></code></p>
-<p>## Vagrant</p>
+$ cms vm list
+
+$ cms <span class="nv">flavor</span><span class="o">=</span><span class="s2">&quot;medium&quot;</span>
+$ cms <span class="nv">image</span><span class="o">=</span><span class="s2">&quot;ubuntu19.04&quot;</span>
+
+$ cms vm start
+</pre></div>
+</div>
+</div>
+<div class="section" id="explicit-use-with-options">
+<h2>Explicit Use with Options<a class="headerlink" href="#explicit-use-with-options" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms vm start --cloud<span class="o">=</span>chameleon --image<span class="o">=</span>ubuntu19.04 --flavor<span class="o">=</span>medium --key<span class="o">=</span>~/.ssh/id_rsa.bub
+</pre></div>
+</div>
+</div>
+<div class="section" id="vagrant">
+<h2>Vagrant<a class="headerlink" href="#vagrant" title="Permalink to this headline">¶</a></h2>
 <p>TODO</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=vagrant</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>## AWS</p>
-<p>### Setup and Configuration</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>vagrant
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="aws">
+<h2>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-and-configuration">
+<h3>Setup and Configuration<a class="headerlink" href="#setup-and-configuration" title="Permalink to this headline">¶</a></h3>
 <p>Amazon Web Service (<strong>AWS</strong>) provided by Amazon is a secure cloud
-service platform, users could start any instances with selected
-images.</p>
-<p>Before users use the <strong>cms</strong> platform to access <strong>EC2</strong>, they have to finish these preparations:</p>
+service platform, users could start any instances with selected images.</p>
+<p>Before users use the <strong>cms</strong> platform to access <strong>EC2</strong>, they have to
+finish these preparations:</p>
 <ol class="arabic">
 <li><p>EC2 account, more information is
-[here](<a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/</a>)</p></li>
+<a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">here</a></p></li>
 <li><p>Log in the EC2 account, update your <strong>Access Key</strong>.</p>
-<p><strong>Access Keys</strong> has two parts: <strong>Access Key ID</strong> and <strong>Secret
-Access Key</strong>. These <strong>Access Keys</strong> are the only way you could
-authentically access the AWS though AWS API requests.  (create new
-Access Key: Account (right upper corner) &gt; My Security Credentials
-&gt; Access Keys &gt; Create New Access Key)</p>
+<p><strong>Access Keys</strong> has two parts: <strong>Access Key ID</strong> and <strong>Secret Access
+Key</strong>. These <strong>Access Keys</strong> are the only way you could authentically
+access the AWS though AWS API requests. (create new Access Key:
+Account (right upper corner) &gt; My Security Credentials &gt; Access Keys
+&gt; Create New Access Key)</p>
 </li>
 <li><p><strong>Private Key file</strong> is a key pairs to encrypt and decrypt login
 information. While using <strong>Private Key file</strong>, there is no need to
-use username or password to login the instance of AWS. For sshing
-the instance, the ssh client would use the <strong>private key file</strong>
-instead of credential information. (create new key pairs: Network &amp;
-Security (left column bar) &gt; Key Pairs &gt; Create Key Pair)</p></li>
-<li><p><strong>Security Group</strong> acts as a virtual firewall for the instance.
-When you launch a instance, we have to attach the <strong>Security
-Group</strong> to it for controlling the traffic in and out. So before you
-are using any nodes in AWS, you have to pre-define the <strong>Security
-Group</strong> that you will use.  (create new Security Group: Network $
-Security (left column bar) &gt; Security Group &gt; Create Security
-Group)</p></li>
-<li><p><strong>Region</strong> is the service location where you start the instance.
-AWS hosts services in different regions, you should select the
-region where you want to start you instance.</p></li>
+use username or password to login the instance of AWS. For sshing the
+instance, the ssh client would use the <strong>private key file</strong> instead
+of credential information. (create new key pairs: Network &amp; Security
+(left column bar) &gt; Key Pairs &gt; Create Key Pair)</p></li>
+<li><p><strong>Security Group</strong> acts as a virtual firewall for the instance. When
+you launch a instance, we have to attach the <strong>Security Group</strong> to it
+for controlling the traffic in and out. So before you are using any
+nodes in AWS, you have to pre-define the <strong>Security Group</strong> that you
+will use. (create new Security Group: Network $ Security (left column
+bar) &gt; Security Group &gt; Create Security Group)</p></li>
+<li><p><strong>Region</strong> is the service location where you start the instance. AWS
+hosts services in different regions, you should select the region
+where you want to start you instance.</p></li>
 </ol>
-<p>When you finish all above things, you should update information into
-the block ‘aws’ of <strong>cloudmesh.yaml</strong> file in <strong>ETC</strong> folder</p>
+<p>When you finish all above things, you should update information into the
+block ‘aws’ of <strong>cloudmesh.yaml</strong> file in <strong>ETC</strong> folder</p>
 <p><strong>EC2</strong> provides On-Demand Pricing cloud services based on different
 CPU, Memory and Storage selections. Please visit this
-[page](<a class="reference external" href="https://aws.amazon.com/ec2/pricing/on-demand/">https://aws.amazon.com/ec2/pricing/on-demand/</a>) for more
+<a class="reference external" href="https://aws.amazon.com/ec2/pricing/on-demand/">page</a> for more
 information. In default setting, we use the latest <strong>Ubuntu</strong> image
 filled in default.image field. If you want to use other images, please
 update the Image ID into it.</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=aws</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>## Azure</p>
-<p>Uses [LibCloud’s Azure ARM Compute Driver](<a class="reference external" href="https://libcloud.readthedocs.io/en/latest/compute/drivers/azure_arm.html">https://libcloud.readthedocs.io/en/latest/compute/drivers/azure_arm.html</a>)</p>
-<p>### Setup and Configuration</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="azure">
+<h2>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h2>
+<p>Uses <a class="reference external" href="https://libcloud.readthedocs.io/en/latest/compute/drivers/azure_arm.html">LibCloud’s Azure ARM Compute
+Driver</a></p>
+<div class="section" id="setup-and-configuration-1">
+<span id="id1"></span><h3>Setup and Configuration<a class="headerlink" href="#setup-and-configuration-1" title="Permalink to this headline">¶</a></h3>
 <p><strong>Install Azure CLI</strong></p>
-<p>[Download and install according to your platform.](<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</a>)</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Download and install according to your
+platform.</a></p>
 <p><strong>Make sure subscription is registered for compute services</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">az</span> <span class="pre">provider</span> <span class="pre">register</span> <span class="pre">--namespace</span> <span class="pre">Microsoft.Compute</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">provider</span> <span class="n">register</span> <span class="o">--</span><span class="n">namespace</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">Compute</span>
+</pre></div>
+</div>
 <p><strong>Service principal</strong></p>
-<p>[Full documentation on creating service principals.](<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest</a>)
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">Full documentation on creating service
+principals.</a>
 The Azure ARM Driver does not appear to support certificate based
 principals at this time.</p>
 <p>Create Principal</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">az</span> <span class="pre">ad</span> <span class="pre">sp</span> <span class="pre">create-for-rbac</span> <span class="pre">--name</span> <span class="pre">cm-admin-pw</span> <span class="pre">--password</span> <span class="pre">&lt;SECRET&gt;</span>
-<span class="pre">`</span></code></p>
-<p>Add <cite>Owner</cite> role.</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">az</span> <span class="pre">role</span> <span class="pre">assignment</span> <span class="pre">create</span> <span class="pre">--assignee</span> <span class="pre">&lt;APP_ID&gt;</span> <span class="pre">--role</span> <span class="pre">Owner</span>
-<span class="pre">`</span></code></p>
-<p><em>Note:</em> <cite>&lt;APP_ID&gt;</cite> is provided in the output when the principal is created</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=azure</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>## OpenStack</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">ad</span> <span class="n">sp</span> <span class="n">create</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">rbac</span> <span class="o">--</span><span class="n">name</span> <span class="n">cm</span><span class="o">-</span><span class="n">admin</span><span class="o">-</span><span class="n">pw</span> <span class="o">--</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">SECRET</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Add <code class="docutils literal notranslate"><span class="pre">Owner</span></code> role.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">role</span> <span class="n">assignment</span> <span class="n">create</span> <span class="o">--</span><span class="n">assignee</span> <span class="o">&lt;</span><span class="n">APP_ID</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">role</span> <span class="n">Owner</span>
+</pre></div>
+</div>
+<p><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">&lt;APP_ID&gt;</span></code> is provided in the output when the principal is
+created</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>azure
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="openstack">
+<h2>OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h2>
 <p>OpenStack is an Infrastructure service that allows users to utilize
 computing resource in cloud service platform through virtual
 environments.</p>
-<p>[Chameleon Cloud](<a class="reference external" href="https://www.chameleoncloud.org/">https://www.chameleoncloud.org/</a>) provides an
+<p><a class="reference external" href="https://www.chameleoncloud.org/">Chameleon Cloud</a> provides an
 OpenStack installation of version 2015.1 (Kilo) using the KVM
-virtualization technology at the <a class="reference external" href="mailto:KVM&#37;&#52;&#48;TACC">KVM<span>&#64;</span>TACC</a> site. It is important to
-make sure you are visiting the
-[<a class="reference external" href="mailto:KVM&#37;&#52;&#48;TACC">KVM<span>&#64;</span>TACC</a>](<a class="reference external" href="https://openstack.tacc.chameleoncloud.org/">https://openstack.tacc.chameleoncloud.org/</a>) site so as to
+virtualization technology at the <a class="reference external" href="mailto:KVM&#37;&#52;&#48;TACC">KVM<span>&#64;</span>TACC</a> site. It is important to make
+sure you are visiting the
+<a class="reference external" href="https://openstack.tacc.chameleoncloud.org/">KVM&#64;TACC</a> site so as to
 get proper installation. Learn more
-[here](<a class="reference external" href="https://chameleoncloud.readthedocs.io/en/latest/technical/kvm.html">https://chameleoncloud.readthedocs.io/en/latest/technical/kvm.html</a>)
+<a class="reference external" href="https://chameleoncloud.readthedocs.io/en/latest/technical/kvm.html">here</a>
 to properly set up yout account before proceed to your journey with
 <strong>cms</strong>.</p>
-<p>### Jetstream</p>
+<div class="section" id="jetstream">
+<h3>Jetstream<a class="headerlink" href="#jetstream" title="Permalink to this headline">¶</a></h3>
 <p>TODO</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=jetstream</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>### Chameleon Cloud</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=chameleon</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>### Cybera</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>jetstream
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="chameleon-cloud">
+<h3>Chameleon Cloud<a class="headerlink" href="#chameleon-cloud" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="cybera">
+<h3>Cybera<a class="headerlink" href="#cybera" title="Permalink to this headline">¶</a></h3>
 <p>TODO</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=cybera</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
-<p>### DevStack</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>cybera
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="devstack">
+<h3>DevStack<a class="headerlink" href="#devstack" title="Permalink to this headline">¶</a></h3>
 <p>TODO</p>
-<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">set</span> <span class="pre">cloud=devstack</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">start</span>
-<span class="pre">$</span> <span class="pre">cms</span> <span class="pre">vm</span> <span class="pre">list</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>devstack
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -386,7 +452,7 @@ to properly set up yout account before proceed to your journey with
         <a href="../tbd.html" class="btn btn-neutral float-right" title="OTHER" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="box.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="box.html" class="btn btn-neutral float-left" title="Box Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

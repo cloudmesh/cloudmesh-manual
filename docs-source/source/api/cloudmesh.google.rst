@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    cloudmesh.google.command
+   cloudmesh.google.googlebigquery
    cloudmesh.google.storage
 
 Module contents

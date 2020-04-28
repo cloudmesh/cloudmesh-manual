@@ -8,7 +8,7 @@ Remember this is not a book.
 
 we want to mak at least sure that the
 
-google storage section works and shpows a "short" intro
+google storage section works and shpows a “short” intro
 
 Please coordinate and write if other sectionsa re useful, but should not
 be displayed

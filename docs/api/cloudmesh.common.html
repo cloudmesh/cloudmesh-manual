@@ -112,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -146,6 +147,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.FlatDict">cloudmesh.common.FlatDict module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.Host">cloudmesh.common.Host module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-common-inspector-module">cloudmesh.common.Inspector module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.JobMultiHostScript">cloudmesh.common.JobMultiHostScript module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.JobScript">cloudmesh.common.JobScript module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.JobSet">cloudmesh.common.JobSet module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.Printer">cloudmesh.common.Printer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.Shell">cloudmesh.common.Shell module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.StopWatch">cloudmesh.common.StopWatch module</a></li>
@@ -158,7 +162,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.dotdict">cloudmesh.common.dotdict module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.error">cloudmesh.common.error module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.location">cloudmesh.common.location module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-common-logger-module">cloudmesh.common.logger module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.logger">cloudmesh.common.logger module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.parameter">cloudmesh.common.parameter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.prettytable">cloudmesh.common.prettytable module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common.strdb">cloudmesh.common.strdb module</a></li>
@@ -192,6 +196,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">cloudmesh.etc package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">cloudmesh.flavor package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.html">cloudmesh.google package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.googlebigquery.html">cloudmesh.google.googlebigquery package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.googlebigquery.api.html">cloudmesh.google.googlebigquery.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.storage.html">cloudmesh.google.storage package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html">cloudmesh.group package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.gui.html">cloudmesh.gui package</a></li>
@@ -220,15 +226,15 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.shell.html">cloudmesh.shell package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.ssh.html">cloudmesh.ssh package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.html">cloudmesh.storage package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.copy.html">cloudmesh.storage.copy package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.html">cloudmesh.storage.provider package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.awss3.html">cloudmesh.storage.provider.awss3 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.azureblob.html">cloudmesh.storage.provider.azureblob package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.box.html">cloudmesh.storage.provider.box package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.gdrive.html">cloudmesh.storage.provider.gdrive package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.local.html">cloudmesh.storage.provider.local package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parallelawss3.html">cloudmesh.storage.provider.parallelawss3 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parallelazureblob.html">cloudmesh.storage.provider.parallelazureblob package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parallelgdrive.html">cloudmesh.storage.provider.parallelgdrive package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.provider.parellelazureblob.html">cloudmesh.storage.provider.parellelazureblob package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.storage.queue.html">cloudmesh.storage.queue package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.html">cloudmesh.sys package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.terminal.html">cloudmesh.terminal package</a></li>
@@ -254,6 +260,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -892,6 +907,239 @@ this fonction does not work well as it still will aski if we overwrite.</p>
 <div class="section" id="cloudmesh-common-inspector-module">
 <h2>cloudmesh.common.Inspector module<a class="headerlink" href="#cloudmesh-common-inspector-module" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-cloudmesh.common.JobMultiHostScript">
+<span id="cloudmesh-common-jobmultihostscript-module"></span><h2>cloudmesh.common.JobMultiHostScript module<a class="headerlink" href="#module-cloudmesh.common.JobMultiHostScript" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="cloudmesh.common.JobMultiHostScript.JobMultiHostScript">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.JobMultiHostScript.</code><code class="sig-name descname">JobMultiHostScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">script</span></em>, <em class="sig-param"><span class="n">hosts</span></em>, <em class="sig-param"><span class="n">executor</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobMultiHostScript.html#JobMultiHostScript"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobMultiHostScript.JobMultiHostScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The JobMultiHostScript is a simple mechanism to run a number of commands formylated
+in a script in parallel over the hosts provided. The script is interpreted line
+by line and does not support multi line commands at this time. (Not difficult
+to implement when looking at at the end of a line.)</p>
+<dl>
+<dt>Static method::</dt><dd><dl class="simple">
+<dt>script = “””</dt><dd><p># This is a comment
+pwd     # tag: pwd
+uname -a</p>
+</dd>
+</dl>
+<p>“””;</p>
+<p>hosts = Parameter.expand(“purple[01-02]”)
+result = JobMultiHostScript.execute(script, “script_name”, hosts)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="cloudmesh.common.JobMultiHostScript.JobMultiHostScript.cms">
+<code class="sig-name descname">cms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arguments</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobMultiHostScript.html#JobMultiHostScript.cms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobMultiHostScript.JobMultiHostScript.cms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobMultiHostScript.JobMultiHostScript.execute">
+<em class="property">static </em><code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">script</em>, <em class="sig-param">name='script'</em>, <em class="sig-param">hosts=None</em>, <em class="sig-param">executor=&lt;function JobSet.ssh&gt;</em>, <em class="sig-param">beginLine=None</em>, <em class="sig-param">endLine=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobMultiHostScript.html#JobMultiHostScript.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobMultiHostScript.JobMultiHostScript.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobMultiHostScript.JobMultiHostScript.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">beginLine</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">endLine</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobMultiHostScript.html#JobMultiHostScript.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobMultiHostScript.JobMultiHostScript.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.common.JobScript">
+<span id="cloudmesh-common-jobscript-module"></span><h2>cloudmesh.common.JobScript module<a class="headerlink" href="#module-cloudmesh.common.JobScript" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="cloudmesh.common.JobScript.JobScript">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.JobScript.</code><code class="sig-name descname">JobScript</code><a class="reference internal" href="../_modules/cloudmesh/common/JobScript.html#JobScript"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobScript.JobScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The jobscript is a simple mechanism to run a number of commands formylated
+in a script. The script is interpreted line by line and does not support
+multi line commands at this time. (Not difficult to implement when
+looking at at the end of a line.)</p>
+<p>It can be either used a static call or as variable invocation. Often the
+static call will be sufficient.</p>
+<p>Static method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.Tabulate</span> <span class="kn">import</span> <span class="n">Printer</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">JobScript</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    # This is a comment</span>
+
+<span class="s2">    pwd                             # tag: pwd</span>
+<span class="s2">    uname -a</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;command&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;stdout&quot;</span><span class="p">,</span> <span class="s2">&quot;returncode&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Variable invocation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>from cloudmesh.common.Tabulate import Printer
+
+job = JobScript()
+job.run(name=&quot;variable script&quot;,
+        script=&quot;&quot;&quot;
+            # This is a comment
+
+            pwd                    # tag: pwd
+            uname -a
+        &quot;&quot;&quot;)
+print(Printer.write(
+    job.array(),
+    order=[&quot;name&quot;, &quot;command&quot;, &quot;status&quot;, &quot;stdout&quot;, &quot;returncode&quot;]))
+
+Each line is augmented with a name, so you can easily retrive the result
+content by that name. By default the name is the line number, however it
+can be overwritten with `# tag:` at the end of the line. The line number
+starts at 1.
+</pre></div>
+</div>
+<p>Partial example output:</p>
+<blockquote>
+<div><p># +——+———–+——–+————————+————–+
+# | name | command   | status |                        |   returncode |
+# <a href="#id3"><span class="problematic" id="id4">|------+-----------+--------+------------------------+--------------|</span></a>
+# | pwd  | pwd       | done   | /Users/…/cloudmesh   |            0 |
+# | 4    | uname -a  | done   | Darwin gray 19.4.0 … |            0 |
+# +——+———–+——–+————————+————–+</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="cloudmesh.common.JobScript.JobScript.array">
+<code class="sig-name descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobScript.html#JobScript.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobScript.JobScript.array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobScript.JobScript.execute">
+<em class="property">static </em><code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">script</em>, <em class="sig-param">name='script'</em>, <em class="sig-param">host=None</em>, <em class="sig-param">executor=&lt;function JobSet.ssh&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobScript.html#JobScript.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobScript.JobScript.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobScript.JobScript.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">script=None</em>, <em class="sig-param">name='script'</em>, <em class="sig-param">host=None</em>, <em class="sig-param">executor=&lt;function JobSet.ssh&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobScript.html#JobScript.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobScript.JobScript.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.common.JobSet">
+<span id="cloudmesh-common-jobset-module"></span><h2>cloudmesh.common.JobSet module<a class="headerlink" href="#module-cloudmesh.common.JobSet" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="cloudmesh.common.JobSet.JobSet">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.JobSet.</code><code class="sig-name descname">JobSet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">executor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>JobSet is a general execution framework for running a set of jobs on which
+we specify a self defined job executor function. Through this framework it
+is possible to very flexibly integrate different JobSets on which are
+executed based on the executor. The jobset is executed in parallel and a run
+method can be augmented with the number of parallel jobs being executed at
+the same time. A simple executor that runs commands in the shell is provided</p>
+<p>Basic Example Usage:</p>
+<blockquote>
+<div><p>t = JobSet(“terminal-commands”, executor=JobSet.execute)
+t.add({“name”: “pwd”, “command”: “pwd”})
+t.add({“name”: “info”, “command”: “uname -a”})
+t.add({“name”: “uname”, “command”: “uname”})
+t.add({“name”: “hostname”, “command”: “hostname”})
+t.add({“name”: “provccesses”, “command”: “ps”})
+t.run(parallel=3)
+t.Print()</p>
+</div></blockquote>
+<p>Advanced Example Usage:</p>
+<blockquote>
+<div><p>from cloudmesh.common.parameter import Parameter</p>
+<dl>
+<dt>def ssh(spec):</dt><dd><blockquote>
+<div><p>result = subprocess.check_output(“ssh ” + spec[“command”], shell=True)
+success = “Error” noyt in result
+if success:</p>
+<blockquote>
+<div><p>returncode = 0
+status = ‘done’</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>else:</dt><dd><p>returncode = 1
+status = ‘failed’</p>
+</dd>
+<dt>return dict({</dt><dd><p>“name”: spec[“name”],
+“stdout”: result,
+“stderr”: “”
+“returncode”: returncode
+“status”: status</p>
+</dd>
+</dl>
+<p>})</p>
+</dd>
+</dl>
+<p>t = JobSet(“terminal-commands”, executor=JobSet.execute)
+for host in Parameter.expand(“red[01-03]”):</p>
+<blockquote>
+<div><p>t.add({“name”: “host”, “command”: “uname -a”})</p>
+</div></blockquote>
+<p>t.run(parallel=3)
+t.Print()</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.Print">
+<code class="sig-name descname">Print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.Print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.Print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spec</span></em>, <em class="sig-param"><span class="n">executor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.array">
+<code class="sig-name descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.execute">
+<em class="property">static </em><code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spec</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.identity">
+<em class="property">static </em><code class="sig-name descname">identity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entry_with_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.identity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.identity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">executor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parallel</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.JobSet.JobSet.ssh">
+<em class="property">static </em><code class="sig-name descname">ssh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">spec</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/JobSet.html#JobSet.ssh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.JobSet.JobSet.ssh" title="Permalink to this definition">¶</a></dt>
+<dd><p>name: name of the job
+host: host on which we execute
+os:   if true use os.system, this uses a temporary file, so be careful</p>
+<blockquote>
+<div><p>if false use subprocess.check_output</p>
+</div></blockquote>
+<p>stderr: result of stderror
+stdout: result of stdout
+returncode: 0 is success
+success: Ture if successfull e.g. returncode == 0
+status: a status: defined, running, done, failed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>spec</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cloudmesh.common.Printer">
 <span id="cloudmesh-common-printer-module"></span><h2>cloudmesh.common.Printer module<a class="headerlink" href="#module-cloudmesh.common.Printer" title="Permalink to this headline">¶</a></h2>
 <p>Convenient methods and classes to print tables.</p>
@@ -1263,6 +1511,33 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 <em class="property">classmethod </em><code class="sig-name descname">fgrep</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.fgrep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.fgrep" title="Permalink to this definition">¶</a></dt>
 <dd><p>executes fgrep with the given arguments
 :param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.Shell.Shell.find_lines_between">
+<em class="property">classmethod </em><code class="sig-name descname">find_lines_between</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lines</span></em>, <em class="sig-param"><span class="n">what_from</span></em>, <em class="sig-param"><span class="n">what_to</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.find_lines_between"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.find_lines_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that come between the markers
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.Shell.Shell.find_lines_from">
+<em class="property">classmethod </em><code class="sig-name descname">find_lines_from</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lines</span></em>, <em class="sig-param"><span class="n">what</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.find_lines_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.find_lines_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that come after a particular line
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.common.Shell.Shell.find_lines_to">
+<em class="property">classmethod </em><code class="sig-name descname">find_lines_to</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lines</span></em>, <em class="sig-param"><span class="n">what</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.find_lines_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.find_lines_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that come before a particular line
+:param lines:
+:param what:
 :return:</p>
 </dd></dl>
 
@@ -1827,7 +2102,7 @@ THis command should not be directly called. Instead use SHell</p>
 cms flavor list
 +———–+———+——-+——–+
 | Name      |   VCPUS |   RAM |   Disk |
-<a href="#id3"><span class="problematic" id="id4">|-----------+---------+-------+--------|</span></a>
+<a href="#id5"><span class="problematic" id="id6">|-----------+---------+-------+--------|</span></a>
 | m1.tiny   |       1 |   512 |      1 |
 | m1.small  |       1 |  2048 |     20 |
 | m1.medium |       2 |  4096 |     40 |
@@ -2482,8 +2757,36 @@ when the function is used.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="cloudmesh-common-logger-module">
-<h2>cloudmesh.common.logger module<a class="headerlink" href="#cloudmesh-common-logger-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.common.logger">
+<span id="cloudmesh-common-logger-module"></span><h2>cloudmesh.common.logger module<a class="headerlink" href="#module-cloudmesh.common.logger" title="Permalink to this headline">¶</a></h2>
+<p>simple logging convenience framework</p>
+<dl class="py function">
+<dt id="cloudmesh.common.logger.LOGGER">
+<code class="sig-prename descclassname">cloudmesh.common.logger.</code><code class="sig-name descname">LOGGER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/logger.html#LOGGER"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.logger.LOGGER" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a logger with the given name.</p>
+<p>You can use it as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log</span> <span class="o">=</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">LOGGER</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;this is an error&quot;</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;this is an info&quot;</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;this is a warning&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.common.logger.LOGGING_OFF">
+<code class="sig-prename descclassname">cloudmesh.common.logger.</code><code class="sig-name descname">LOGGING_OFF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/logger.html#LOGGING_OFF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.logger.LOGGING_OFF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switches logging off
+:param log: the logger for which we switch logging off</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.common.logger.LOGGING_ON">
+<code class="sig-prename descclassname">cloudmesh.common.logger.</code><code class="sig-name descname">LOGGING_ON</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/logger.html#LOGGING_ON"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.logger.LOGGING_ON" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switches logging on
+:param log: the logger for which we switch logging on</p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.common.parameter">
 <span id="cloudmesh-common-parameter-module"></span><h2>cloudmesh.common.parameter module<a class="headerlink" href="#module-cloudmesh.common.parameter" title="Permalink to this headline">¶</a></h2>
@@ -3127,6 +3430,22 @@ with ~ and environment variables.</p>
 <li><p><strong>files_glob</strong> – <cite>*.yaml</cite></p></li>
 <li><p><strong>source_dir</strong> – source directory</p></li>
 <li><p><strong>dest_dir</strong> – destination directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.common.util.download">
+<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">destination</span></em>, <em class="sig-param"><span class="n">force</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the file from source to destination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – The http source</p></li>
+<li><p><strong>destination</strong> – The destination in the file system</p></li>
+<li><p><strong>force</strong> – If True the file will be downloaded even if
+it already exists</p></li>
 </ul>
 </dd>
 </dl>

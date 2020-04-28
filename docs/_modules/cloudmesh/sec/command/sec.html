@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -411,31 +421,51 @@
             <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cloud </span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
-                <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">()</span>
 
-                <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;table&#39;</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-                    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">cloud_groups</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">cloud</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
-                            <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;IpPermissions&#39;</span><span class="p">]:</span>
-                                <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;GroupName&#39;</span><span class="p">]</span>
-                                <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Inbound&quot;</span>
-                                <span class="k">if</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">]:</span>
-                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;groupId&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                                        <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;GroupId&#39;</span><span class="p">]</span>
-                                <span class="k">if</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">]:</span>
-                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;ipRange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
-                                        <span class="s1">&#39;CidrIp&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">cloud</span> <span class="o">==</span> <span class="s1">&#39;google&#39;</span><span class="p">:</span>
+                    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Google does not support sec groups. So the firewall </span>
+<span class="sd">                        rules use name cm-{sec-group-name}-{rule-name} format.</span>
+<span class="sd">                    &quot;&quot;&quot;</span>
+                    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rule</span><span class="p">:</span>
+                        <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_secgroup_rules</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">()</span>
 
-                                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;security_group_rules&#39;</span><span class="p">]:</span>
-                                <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-                                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
-                        <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">result</span>
-                <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">cloud_groups</span><span class="p">,</span>
-                                 <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
-                                 <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="p">)</span>
+                    <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;table&#39;</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+                        <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">cloud_groups</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">cloud</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
+                                <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;IpPermissions&#39;</span><span class="p">]:</span>
+                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;GroupName&#39;</span><span class="p">]</span>
+                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Inbound&quot;</span>
+                                    <span class="k">if</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">]:</span>
+                                        <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;groupId&#39;</span><span class="p">]</span> <span class="o">=</span> \
+                                            <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;UserIdGroupPairs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;GroupId&#39;</span><span class="p">]</span>
+                                    <span class="k">if</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">]:</span>
+                                        <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;ipRange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;IpRanges&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
+                                            <span class="s1">&#39;CidrIp&#39;</span><span class="p">]</span>
+
+                                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;security_group_rules&#39;</span><span class="p">]:</span>
+                                    <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+                            <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">result</span>
+
+                <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rule</span><span class="p">:</span>
+                    <span class="n">secrule_output</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;secrule&quot;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">secrule_output</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s2">&quot;secgroup&quot;</span><span class="p">]</span>
+
+                <span class="c1">#Print here.</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">cloud_groups</span><span class="p">,</span>
+                                  <span class="n">sort_keys</span><span class="o">=</span><span class="n">secrule_output</span><span class="p">[</span><span class="s2">&quot;sort_keys&quot;</span><span class="p">],</span>
+                                  <span class="n">order</span><span class="o">=</span><span class="n">secrule_output</span><span class="p">[</span><span class="s2">&quot;order&quot;</span><span class="p">],</span>
+                                  <span class="n">header</span><span class="o">=</span><span class="n">secrule_output</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">],</span>
+                                  <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">))</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 

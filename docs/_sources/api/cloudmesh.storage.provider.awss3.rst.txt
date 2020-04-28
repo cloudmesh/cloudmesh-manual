@@ -12,6 +12,14 @@ cloudmesh.storage.provider.awss3.Provider module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.storage.provider.awss3.path\_manager module
+-----------------------------------------------------
+
+.. automodule:: cloudmesh.storage.provider.awss3.path_manager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

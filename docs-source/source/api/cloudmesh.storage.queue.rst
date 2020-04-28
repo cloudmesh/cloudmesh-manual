@@ -12,6 +12,14 @@ cloudmesh.storage.queue.StorageQueue module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.storage.queue.StorageQueueABC module
+----------------------------------------------
+
+.. automodule:: cloudmesh.storage.queue.StorageQueueABC
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.storage.queue.test module
 -----------------------------------
 

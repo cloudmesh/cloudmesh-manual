@@ -112,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.dryrun.command.html">cloudmesh.dryrun.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.command.html">cloudmesh.flavor.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.command.html">cloudmesh.google.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.google.googlebigquery.command.html">cloudmesh.google.googlebigquery.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html">cloudmesh.group.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.gui.command.html">cloudmesh.gui.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.host.command.html">cloudmesh.host.command package</a></li>
@@ -151,8 +153,8 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.ssh.command.html">cloudmesh.ssh.command package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.storage.command package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-storage-command-storage-module">cloudmesh.storage.command.storage module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.command.storage">cloudmesh.storage.command.storage module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.storage.command">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.command.html">cloudmesh.sys.command package</a></li>
@@ -177,6 +179,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -253,11 +264,143 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="cloudmesh-storage-command-storage-module">
-<h2>cloudmesh.storage.command.storage module<a class="headerlink" href="#cloudmesh-storage-command-storage-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.storage.command.storage">
+<span id="cloudmesh-storage-command-storage-module"></span><h2>cloudmesh.storage.command.storage module<a class="headerlink" href="#module-cloudmesh.storage.command.storage" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="cloudmesh.storage.command.storage.StorageCommand">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.storage.command.storage.</code><code class="sig-name descname">StorageCommand</code><a class="reference internal" href="../_modules/cloudmesh/storage/command/storage.html#StorageCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.command.storage.StorageCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh.storage.command.storage.StorageCommand.do_storage">
+<code class="sig-name descname">do_storage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.storage.command.storage.StorageCommand.do_storage" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
+  storage run
+  storage monitor [--storage=SERVICES] [--status=all | --status=STATUS] [--output=output] [--clear]
+  storage create dir DIRECTORY [--storage=SERVICE] [--parallel=N]
+  storage get SOURCE DESTINATION [--recursive] [--storage=SERVICE] [--parallel=N]
+  storage put SOURCE DESTINATION [--recursive] [--storage=SERVICE] [--parallel=N]
+  storage list [SOURCE] [--recursive] [--parallel=N] [--output=OUTPUT] [--dryrun]
+  storage delete SOURCE [--parallel=N] [--dryrun]
+  storage search  DIRECTORY FILENAME [--recursive] [--storage=SERVICE] [--parallel=N] [--output=OUTPUT]
+  storage sync SOURCE DESTINATION [--name=NAME] [--async] [--storage=SERVICE]
+  storage sync status [--name=NAME] [--storage=SERVICE]
+  storage config list [--output=OUTPUT]
+  storage [--parallel=N] copy SOURCE DESTINATION [--recursive]
+  storage copy --source=SOURCE:SOURCE_FILE_DIR --target=TARGET:TARGET_FILE_DIR
+
+This command does some useful things.
+
+Arguments:
+  SOURCE        SOURCE can be a directory or file
+  DESTINATION   DESTINATION can be a directory or file
+  DIRECTORY     DIRECTORY refers to a folder on the cloud service
+  SOURCE:SOURCE_FILE_DIR source provider name: file or directory name
+  TARGET:SOURCE_FILE_DIR destination provider name
+
+Options:
+  --storage=SERVICE  specify the cloud service name like aws or
+                     azure or box or google
+
+Description:
+  commands used to upload, download, list files on different
+  cloud storage services.
+
+ &gt;storage put SOURCE DESTINATION [--recursive] [--storage=SERVICE]
+ &gt;                               [--parallel=N]
+    Uploads the file specified in the filename to specified
+    cloud from the SOURCEDIR.
+
+ &gt;storage get SOURCE DESTINATION [--recursive] [--storage=SERVICE]
+ &gt;                               [--parallel=N]
+    Downloads the file specified in the filename from the
+    specified cloud to the DESTDIR.
+
+  storage delete SOURCE [--parallel=N] [--dryrun]
+     Deletes the file specified in the filename from the
+     specified cloud.
+
+  &gt;storage list [SOURCE] [--recursive] [--parallel=N]
+  &gt;             [--output=OUTPUT] [--dryrun]
+    lists all the files from the container name specified on
+    the specified cloud.
+
+  storage create dir DIRECTORY [--storage=SERVICE] [--parallel=N]
+    creates a folder with the directory name specified on the
+    specified cloud.
+
+  &gt;storage search DIRECTORY FILENAME [--recursive]
+  &gt;                                  [--storage=SERVICE]
+  &gt;                                  [--parallel=N]
+  &gt;                                  [--output=OUTPUT]
+    searches for the source in all the folders on the specified
+    cloud.
+
+  sync SOURCE DESTINATION
+    puts the content of source to the destination.
+     If --recursive is specified this is done recursively from
+        the source
+     If --async is specified, this is done asynchronously
+     If a name is specified, the process can also be monitored
+        with the status command by name.
+     If the name is not specified all date is monitored.
+
+  sync status
+    The status for the asynchronous sync can be seen with this
+    command
+
+  config list
+    Lists the configures storage services in the yaml file
+
+  storage copy SOURCE DESTINATION
+    Copies files from source storage to destination storage.
+    The syntax of SOURCE and DESTINATION is:
+    SOURCE - awss3:source.txt
+    DESTINATION - azure:target.txt
+
+Description of the copy command:
+
+     Command enables to Copy files between different cloud service
+     providers, list and delete them. This command accepts `aws` ,
+     `google` and `local` as the SOURCE and TARGET provider.
+
+     cms storage copy --source=SERVICE:SOURCE --target=DEST:TARGET
+
+         Command copies files or directories from Source provider to
+         Target Provider.
+
+     cms storage slist --source=SERVICE:SOURCE
+         Command lists all the files present in SOURCE provider&#39;s in
+         the given SOURCE_FILE_DIR location This command accepts
+         `aws` or `google` as the SOURCE provider
+
+     cms storage sdelete --source=SERVICE:SOURCE
+         Command deletes the file or directory from the SOURCE
+         provider&#39;s SOURCE_FILE_DIR location
+
+Examples:
+&gt;     cms storage_service copy --source=local:test1.txt
+&gt;                              --target=aws:uploadtest1.txt
+     cms storage_service list --source=google:test
+     cms storage_service delete --source=aws:uploadtest1.txt
+
+
+Example:
+   set storage=azureblob
+   storage put SOURCE DESTINATION --recursive
+
+   is the same as
+   storage --storage=azureblob put SOURCE DESTINATION --recursive
+
+   storage copy azure:source.txt oracle:target.txt
+</pre></div>
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.storage.command">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cloudmesh.storage.command" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

@@ -1,15 +1,14 @@
 # Commands
 
 ```
-Documented commands (type help <topic>):
 ========================================
-EOF        data     help       man        register  start      version       
-admin      debug    host       open       sec       stop       viewer        
-banner     default  image      openstack  service   stopwatch  vm            
-check      dryrun   info       pause      set       sys        workflow_draft
-clear      echo     init       provider   shell     test     
-commands   flavor   inventory  py         sleep     var      
-config     group    ip         q          source    vbox     
-container  gui      key        quit       ssh       vcluster 
+EOF        data     help       man        quit      ssh        vbox          
+admin      debug    host       open       register  start      vcluster      
+banner     default  image      openstack  sec       stop       vdir          
+check      dryrun   info       oracle     service   stopwatch  version       
+clear      echo     init       pause      set       storage    viewer        
+commands   flavor   inventory  provider   shell     sys        vm            
+config     group    ip         py         sleep     test       volume        
+container  gui      key        q          source    var        workflow_draft
 
 ```

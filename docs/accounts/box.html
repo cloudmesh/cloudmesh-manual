@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Box Account &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="accountcreation-old.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="oracle/account.html" /> 
+    <link rel="next" title="VM Providers (outdated)" href="accountcreation-old.html" />
+    <link rel="prev" title="Oracle Cloud Account" href="oracle/account.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -111,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -132,6 +134,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Box Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sign-up">Sign up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-an-app">Creating an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-with-jwt">Authentication with JWT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -182,13 +199,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Box Account</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/accounts/box.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/accounts/box.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,59 +218,86 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Box Account</p>
-<p>Box provides a cloud file sharing service for businesses. Clients
-exists for Windows, MacOS, and Linux. To obtain an account you have to
-first visit the box home page as</p>
+  <div class="section" id="box-account">
+<h1>Box Account<a class="headerlink" href="#box-account" title="Permalink to this headline">¶</a></h1>
+<p>Box provides a cloud file sharing service for businesses. Clients exists
+for Windows, MacOS, and Linux. To obtain an account you have to first
+visit the box home page as</p>
 <ul class="simple">
-<li><p>&lt;<a class="reference external" href="https://www.box.com/home">https://www.box.com/home</a>&gt;</p></li>
+<li><p><a class="reference external" href="https://www.box.com/home">https://www.box.com/home</a></p></li>
 </ul>
-<p>## Sign up</p>
+<div class="section" id="sign-up">
+<h2>Sign up<a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h2>
 <p>To sign up for the account, click on the top right hand corner of the
-box [homepage](<a class="reference external" href="https://www.box.com/home">https://www.box.com/home</a>) on the <cite>Get Started</cite> button.</p>
-<p>![Get started](images/box/get_started.png)</p>
-<p>From the plans page, select the <cite>Individual</cite> tab and then click on the
+box <a class="reference external" href="https://www.box.com/home">homepage</a> on the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Started</span></code>
+button.</p>
+<div class="figure align-default" id="id1">
+<img alt="Get started" src="../_images/get_started.png" />
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Get started</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>From the plans page, select the <code class="docutils literal notranslate"><span class="pre">Individual</span></code> tab and then click on the
 free option.</p>
-<p>![Individual plan](images/box/individual_plan.png)</p>
-<p>Fill out the required information and click <cite>Submit</cite>. You will receive a
-confirmation email with a link to verify your account.</p>
-<p>![Ask for Information](images/box/information.png)</p>
+<div class="figure align-default" id="id2">
+<img alt="Individual plan" src="../_images/individual_plan.png" />
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Individual plan</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Fill out the required information and click <code class="docutils literal notranslate"><span class="pre">Submit</span></code>. You will receive
+a confirmation email with a link to verify your account.</p>
+<div class="figure align-default" id="id3">
+<img alt="Ask for Information" src="../_images/information.png" />
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Ask for Information</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <p>Once you have verified your account and signed in, you will be taken to
 a page that asks you about how you are using Box. You may fill this out
-or click <cite>Skip this and go straight to Box</cite> below the <cite>Next</cite> button.</p>
-<p>![Next](images/box/skip.png)</p>
-<p>## Creating an app</p>
-<p>Navigate to the [developer console](<a class="reference external" href="https://app.box.com/developers/console">https://app.box.com/developers/console</a>)</p>
+or click <code class="docutils literal notranslate"><span class="pre">Skip</span> <span class="pre">this</span> <span class="pre">and</span> <span class="pre">go</span> <span class="pre">straight</span> <span class="pre">to</span> <span class="pre">Box</span></code> below the <code class="docutils literal notranslate"><span class="pre">Next</span></code> button.</p>
+<div class="figure align-default" id="id4">
+<img alt="Next" src="../_images/skip.png" />
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Next</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="creating-an-app">
+<h2>Creating an app<a class="headerlink" href="#creating-an-app" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to the <a class="reference external" href="https://app.box.com/developers/console">developer
+console</a></p>
 <ul class="simple">
-<li><p>&lt;<a class="reference external" href="https://app.box.com/developers/console">https://app.box.com/developers/console</a>&gt;</p></li>
+<li><p><a class="reference external" href="https://app.box.com/developers/console">https://app.box.com/developers/console</a></p></li>
 </ul>
-<p>and select <cite>Create New App</cite>. You will need to select what type of
+<p>and select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">App</span></code>. You will need to select what type of
 application you are building and an authentication method for your app
 and then enter an app name (you can change this later). Once your app
 has been created, click View App. You will then need to click the
 profile button in the top right corner of the page, and go to
-<cite>Account Settings</cite>. Scroll down to the Authentication section and click
-<cite>Require 2-step verification for unrecognized logins</cite>, then follow the
-prompts.</p>
-<p>## Authentication with JWT</p>
+<code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Settings</span></code>. Scroll down to the Authentication section and
+click <code class="docutils literal notranslate"><span class="pre">Require</span> <span class="pre">2-step</span> <span class="pre">verification</span> <span class="pre">for</span> <span class="pre">unrecognized</span> <span class="pre">logins</span></code>, then
+follow the prompts.</p>
+</div>
+<div class="section" id="authentication-with-jwt">
+<h2>Authentication with JWT<a class="headerlink" href="#authentication-with-jwt" title="Permalink to this headline">¶</a></h2>
 <p>In the Configuration panel of the Developer Console, scroll down to the
-section titled <cite>Add and Manage Public Keys</cite> and click
-<cite>Generate a Public/Private Keypair</cite>:</p>
-<p>![Box Add Key](images/box/box_add_key.png)</p>
-<p>Once you have generated a keypair, a <cite>config.json</cite> file will
+section titled <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Manage</span> <span class="pre">Public</span> <span class="pre">Keys</span></code> and click
+<code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">a</span> <span class="pre">Public/Private</span> <span class="pre">Keypair</span></code>:</p>
+<div class="figure align-default" id="id5">
+<img alt="Box Add Key" src="../_images/box_add_key.png" />
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Box Add Key</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Once you have generated a keypair, a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file will
 automatically download. Save this file in a secure location as you will
 need it for authentication purposes. We recommend storing it at
-<cite>~/.cloudmesh/box/config.json</cite>. This will avoid that you conflict with
-another file called <cite>config.json</cite></p>
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/box/config.json</span></code>. This will avoid that you conflict with
+another file called <code class="docutils literal notranslate"><span class="pre">config.json</span></code></p>
 <ul class="simple">
-<li><p>[ ] todo: Box. A program is missing that adds the json key to the yaml file. This
-is the same as in Azure.</p></li>
+<li><p>[ ] todo: Box. A program is missing that adds the json key to the
+yaml file. This is the same as in Azure.</p></li>
 </ul>
-<p>## References</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>More information about box can be found at:</p>
 <ul class="simple">
-<li><p>&lt;<a class="reference external" href="https://developer.box.com/reference">https://developer.box.com/reference</a>&gt;</p></li>
+<li><p><a class="reference external" href="https://developer.box.com/reference">https://developer.box.com/reference</a></p></li>
 </ul>
+</div>
+</div>
 
 
            </div>
@@ -263,10 +307,10 @@ is the same as in Azure.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="accountcreation-old.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="accountcreation-old.html" class="btn btn-neutral float-right" title="VM Providers (outdated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="oracle/account.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="oracle/account.html" class="btn btn-neutral float-left" title="Oracle Cloud Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -136,6 +136,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -151,6 +152,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -260,7 +262,7 @@ This also helps to decide which instalation method is best suited for you.</p>
 instalation can be conducted on all OSes on which docker and python 3.8.2 is
 installed. Cloudmesh can also be installed with a specialized <cite>cloudmesh-cmsd</cite>
 command that is distributed as source and on PyPi.</p>
-<p>See  <a class="reference internal" href="../cmsd.html"><span class="doc">&lt;no title&gt;</span></a> for more information.</p>
+<p>See  <a class="reference internal" href="../cmsd.html"><span class="doc">Cloudmesh cmsd</span></a> for more information.</p>
 <p>In the next sections we discuss the native install of cludmesh on</p>
 <ul class="simple">
 <li><p>Linux</p></li>
@@ -301,13 +303,10 @@ default, but are available via Xcode. First you need to install xcode from</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835">https://apps.apple.com/us/app/xcode/id497799835</a></p></li>
 </ul>
-<p>Next you need to install macOS xcode command line tools:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="p">::</span> <span class="n">bash</span>
+<p>Next you need to install macOS xcode command line tools</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcode-select --install
 </pre></div>
 </div>
-<blockquote>
-<div><p>xcode-select –install</p>
-</div></blockquote>
 <p>Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.</p>
 </div>
@@ -430,8 +429,8 @@ different username.</p>
 <div class="section" id="windows-container-approach">
 <h4>Windows Container Approach<a class="headerlink" href="#windows-container-approach" title="Permalink to this headline">¶</a></h4>
 <p>The user container for cloudmesh shell is called cmsd (cloudmesh shell docker).
-It can be installed with pip as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cloudmesh</span><span class="o">-</span><span class="n">cmsd</span>
+It can be installed with pip as follows</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cmsd
 </pre></div>
 </div>
 <p>Please note that in order for you do develop cloudmesh you need to do this
@@ -439,7 +438,7 @@ within the container However we do recommend that Windows developer use the
 Windows native cloudmesh approach. However regular user will have a very
 transparent acces to cloudmesh as most commands ar just passed along to the
 container.</p>
-<p>The manual page for cmsd is located at <a class="reference internal" href="../cmsd.html"><span class="doc">&lt;no title&gt;</span></a></p>
+<p>The manual page for cmsd is located at <a class="reference internal" href="../cmsd.html"><span class="doc">Cloudmesh cmsd</span></a></p>
 </div>
 <div class="section" id="linux-subsystem-installation-approach">
 <h4>Linux Subsystem Installation Approach<a class="headerlink" href="#linux-subsystem-installation-approach" title="Permalink to this headline">¶</a></h4>

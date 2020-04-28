@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    cloudmesh.storage.command
+   cloudmesh.storage.copy
    cloudmesh.storage.provider
    cloudmesh.storage.queue
 

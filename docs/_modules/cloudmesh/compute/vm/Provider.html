@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -262,8 +272,8 @@
                 <span class="sa">f</span><span class="s2">&quot;cloudmesh.cloud.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.credentials&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">configuration</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">configuration</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in the cloudmesh.yaml file&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;provider </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in cloudmesh.yaml file&quot;</span><span class="p">)</span>
 
         <span class="c1"># Get the Provider for given kind.</span>
         <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
@@ -445,15 +455,16 @@
 
         <span class="n">label</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span>
 
+        <span class="n">cloud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudname</span><span class="p">()</span>
+
         <span class="n">cm</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;kind&#39;</span><span class="p">:</span> <span class="s2">&quot;vm&quot;</span><span class="p">,</span>
             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
             <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">group</span><span class="p">,</span>
-            <span class="s1">&#39;cloud&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudname</span><span class="p">(),</span>
+            <span class="s1">&#39;cloud&#39;</span><span class="p">:</span> <span class="n">cloud</span><span class="p">,</span>
             <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;booting&#39;</span>
         <span class="p">}</span>
-
 
         <span class="n">entry</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -468,11 +479,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">arguments</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">360</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">arguments</span><span class="p">)</span>
+
         <span class="c1"># print(&#39;entry&#39;)</span>
         <span class="c1"># pprint(entry)</span>
         <span class="c1"># print(&#39;data&#39;)</span>
         <span class="c1"># pprint(data)</span>
         <span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">cm</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;available&#39;</span>
 
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;create vm </span><span class="si">{</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">t</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;create vm </span><span class="si">{</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span> <span class="s1">&#39;.2f&#39;</span><span class="p">)</span>
@@ -481,26 +495,25 @@
         <span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="n">cm</span><span class="p">})</span>
 
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
-            <span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">metadata</span><span class="p">})</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">metadata</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">({</span><span class="s2">&quot;cm&quot;</span><span class="p">:</span> <span class="n">cm</span><span class="p">,</span>
-                                           <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
-                                           <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">size</span><span class="p">})})</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cm&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">cm</span><span class="p">),</span>
+                        <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+                        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">arguments</span><span class="o">.</span><span class="n">size</span><span class="p">}</span>
 
-        <span class="n">cm</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;available&#39;</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">metadata</span><span class="p">)})</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="c1">#</span>
             <span class="c1"># due to metadata limitation in openstack do not add the creation time</span>
             <span class="c1">#</span>
-
-            <span class="k">if</span> <span class="s1">&#39;created&#39;</span> <span class="ow">in</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;chameleon&#39;</span> <span class="o">==</span> <span class="n">cloud</span> <span class="ow">and</span> <span class="s1">&#39;created&#39;</span> <span class="ow">in</span> <span class="n">cm</span><span class="p">:</span>
                 <span class="k">del</span> <span class="n">cm</span><span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">]</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span>
-            <span class="c1">#self.set_server_metadata(arguments.name, cm)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Openstack reported the following error&quot;</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cloud</span><span class="si">}</span><span class="s2"> reported the following error&quot;</span><span class="p">)</span>
 
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -657,7 +670,7 @@
 <div class="viewcode-block" id="Provider.list_secgroups"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_secgroups">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroups</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Provider.list_secgroups_rules"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_secgroups_rules">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroups_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.list_secgroup_rules"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.list_secgroup_rules">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroup_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">list_secgroup_rules</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Provider.remove_secgroup"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.vm.html#cloudmesh.compute.vm.Provider.Provider.remove_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>

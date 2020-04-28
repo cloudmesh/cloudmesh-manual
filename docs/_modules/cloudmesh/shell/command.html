@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -211,27 +221,27 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">banner</span>
 
 
-<div class="viewcode-block" id="PluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.PluginCommand">[docs]</a><span class="k">class</span> <span class="nc">PluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.PluginCommand">[docs]</a><span class="k">class</span> <span class="nc">PluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CloudPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.CloudPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CloudPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CloudPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.CloudPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CloudPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="ShellPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.ShellPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">ShellPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ShellPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.ShellPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">ShellPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="HPCPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.HPCPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">HPCPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="HPCPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.HPCPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">HPCPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CometPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.CometPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CometPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CometPluginCommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.CometPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CometPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="map_parameters"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.map_parameters">[docs]</a><span class="k">def</span> <span class="nf">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="map_parameters"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.map_parameters">[docs]</a><span class="k">def</span> <span class="nf">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This command is useful to map parameters with -- to regular argument dicts</span>
 <span class="sd">    for easier processing.</span>
@@ -255,15 +265,27 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-        <span class="n">flag</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span> <span class="o">+</span> <span class="n">arg</span>
-        <span class="k">if</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">arguments</span><span class="p">:</span>
-            <span class="n">arguments</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">arg</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;clear&#39;</span><span class="p">,</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="s1">&#39;fromkeys&#39;</span><span class="p">,</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;popitem&#39;</span><span class="p">,</span> <span class="s1">&#39;setdefault&#39;</span><span class="p">,</span> <span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;type&#39;</span><span class="p">]:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;`</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s1">` is predefined method.&#39;</span>
+                          <span class="sa">f</span><span class="s1">&#39; Use `arguments[&quot;--</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s1">&quot;]` in your code&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> already used in arguments&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">arguments</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;`</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s1">` is already used in arguments.&#39;</span>
+                          <span class="sa">f</span><span class="s1">&#39; Use `arguments[&quot;--</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s1">&quot;]` in your code&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2"> already used in arguments&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">arguments</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+            <span class="n">flag</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span> <span class="o">+</span> <span class="n">arg</span>
+            <span class="k">if</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">arguments</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">arguments</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
 
 
 <span class="c1"># noinspection PySingleQuotedDocstring,PyUnusedLocal</span>
-<div class="viewcode-block" id="command"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.command">[docs]</a><span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="command"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.command">[docs]</a><span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    A decorator to create a function with docopt arguments.</span>
 <span class="sd">    It also generates a help function</span>
@@ -334,7 +356,7 @@
 
 
 <span class="c1"># noinspection PySingleQuotedDocstring,PyUnusedLocal</span>
-<div class="viewcode-block" id="basecommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.container.command.container.basecommand">[docs]</a><span class="k">def</span> <span class="nf">basecommand</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="basecommand"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.config.command.config.basecommand">[docs]</a><span class="k">def</span> <span class="nf">basecommand</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    A decorator to create a function with docopt arguments.</span>
 <span class="sd">    It also generates a help function</span>

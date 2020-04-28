@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -205,7 +215,7 @@
 <span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="kn">import</span> <span class="n">flatten</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">convert_from_unicode</span>
-<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span> <span class="k">as</span> <span class="n">tabulate_printer</span>
 
 
 <div class="viewcode-block" id="Printer"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Tabulate.Printer">[docs]</a><span class="k">class</span> <span class="nc">Printer</span><span class="p">:</span>
@@ -362,9 +372,9 @@
             <span class="k">return</span> <span class="p">(</span><span class="n">_results</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">_results</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tabulate_printer</span><span class="p">(</span><span class="n">_results</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">_results</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></div>
+            <span class="k">return</span> <span class="n">tabulate_printer</span><span class="p">(</span><span class="n">_results</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></div>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_to_tabulate</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -477,7 +487,7 @@
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;table&#39;</span><span class="p">:</span>
             <span class="n">output</span> <span class="o">=</span> <span class="n">Printer</span><span class="o">.</span><span class="n">default</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">tabulate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">tabulate_printer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Printer.csv"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Tabulate.Printer.csv">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>

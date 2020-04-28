@@ -12,6 +12,14 @@ cloudmesh.openapi.registry.Registry module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.openapi.registry.cache module
+---------------------------------------
+
+.. automodule:: cloudmesh.openapi.registry.cache
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

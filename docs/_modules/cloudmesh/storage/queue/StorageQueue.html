@@ -110,6 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">```</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
@@ -131,6 +132,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -272,6 +282,25 @@
         <span class="s1">&#39;canceled&#39;</span>
     <span class="p">]</span>
 
+    <span class="c1">#def register(self):</span>
+    <span class="c1">#    # find the inheritor of StorageQueue and register the methd from</span>
+    <span class="c1">#    # self._put = parent._put</span>
+
+<div class="viewcode-block" id="StorageQueue.redgister_actions"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.redgister_actions">[docs]</a>    <span class="k">def</span> <span class="nf">redgister_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                          <span class="n">put</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">get</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">delete</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">mkdir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="nb">list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">cancel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_put</span> <span class="o">=</span> <span class="n">put</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get</span> <span class="o">=</span> <span class="n">get</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span> <span class="o">=</span> <span class="n">delete</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mkdir</span> <span class="o">=</span> <span class="n">mkdir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_list</span> <span class="o">=</span> <span class="nb">list</span> <span class="c1"># attention list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cancel</span> <span class="o">=</span> <span class="n">cancel</span></div>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">source</span><span class="p">,</span>
                  <span class="n">destination</span><span class="p">,</span>
@@ -343,6 +372,23 @@
         <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">copy_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a copy action to the queue</span>
+
+<span class="sd">        copies the file from the source service to the destination service using</span>
+<span class="sd">        the file located in the path and storing it into the remote. If remote</span>
+<span class="sd">        is not specified path is used for it.</span>
+
+<span class="sd">        The copy will not be performed if the files are the same.</span>
+
+<span class="sd">        :param sourcefile:</span>
+<span class="sd">        :param destinationfile:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_copy_file</span><span class="p">(</span><span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">)</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">copy_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcetree</span><span class="p">,</span> <span class="n">destinationtree</span><span class="p">):</span>
@@ -614,10 +660,10 @@
             <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;cancel&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
                 <span class="n">cancel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">delete</span><span class="p">,</span> <span class="n">cancel</span></div></div>
+        <span class="k">return</span> <span class="n">mkdir</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">delete</span><span class="p">,</span> <span class="n">cancel</span></div>
 
 
-<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="StorageQueue.run"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.queue.html#cloudmesh.storage.queue.StorageQueue.StorageQueue.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        runs the copy process for all jobs in the queue and completes when all</span>
 <span class="sd">        actions are completed</span>
@@ -652,7 +698,7 @@
 
         <span class="c1"># LIST FILES</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">list_action</span><span class="p">)</span></div>
+        <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">list_action</span><span class="p">)</span></div></div>
 
         <span class="c1"># function to list file  or directory</span>
 </pre></div>

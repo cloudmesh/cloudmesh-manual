@@ -62,6 +62,30 @@ cloudmesh.common.Inspector module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.common.JobMultiHostScript module
+------------------------------------------
+
+.. automodule:: cloudmesh.common.JobMultiHostScript
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cloudmesh.common.JobScript module
+---------------------------------
+
+.. automodule:: cloudmesh.common.JobScript
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+cloudmesh.common.JobSet module
+------------------------------
+
+.. automodule:: cloudmesh.common.JobSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.common.Printer module
 -------------------------------
 
