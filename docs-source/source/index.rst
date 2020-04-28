@@ -75,6 +75,22 @@ Cloudmesh Version 4
    accounts/box
    accounts/accountcreation-old
 
+
+.. toctree::
+   :caption: GOOGLE ACCOUNT (FIXME)
+   :maxdepth: 2
+
+   accounts/google/FIXME
+   accounts/google/gdrive/gdrive
+   accounts/google/gdrive/google-drive
+   accounts/google/account
+   accounts/google/google-docs
+   accounts/google/google-drive-account
+   accounts/google/google-drive-ufo
+   accounts/google/google-gcp
+   accounts/google/google-storage-1
+   accounts/google/refernces
+
 .. toctree::
    :caption: FAQ AND TIPS
    :maxdepth: 2
