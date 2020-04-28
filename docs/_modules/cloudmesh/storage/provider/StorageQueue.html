@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.storage.provider.StorageQueue &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmsd.html">Cloudmesh cmsd</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/commandshell.html">Extensible Command Shell</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google/refernces.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/ai.html">Multicloud AI Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/chameleon.html">FAQ chameleon cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/windows.html">FAQ for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/windows.html">Windows 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/analytics.html">analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/book.html">book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/bookmanagerservice.html">bookmanagerservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/emr.html">emr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/git.html">git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/queue.html">queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/test.html">test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/windows.html">windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/workflow_draft.html">workflow_draft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../windows/windows-broken-make.html">Windows Cloudmesh Ubuntu Subsystem Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../windows/windows-linux.html">Using windows instead of Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../windows/windows-ubuntu.html">Windows Cloudmesh Development Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.storage.provider.StorageQueue</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.storage.provider.StorageQueue</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.DateTime</span> <span class="kn">import</span> <span class="n">DateTime</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="kn">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="kn">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="kn">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="kn">import</span> <span class="n">DatabaseUpdate</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstract.StorageABC</span> <span class="kn">import</span> <span class="n">StorageABC</span>
+
+
+<div class="viewcode-block" id="StorageQueue"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue">[docs]</a><span class="k">class</span> <span class="nc">StorageQueue</span><span class="p">(</span><span class="n">StorageABC</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parallelism</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span> <span class="o">=</span> <span class="n">parallelism</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;storage-queue-</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="StorageQueue.pretty_print"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue.pretty_print">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">data_type</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">data_type</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+            <span class="n">sort_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">data_type</span><span class="p">][</span><span class="s1">&#39;sort_keys&#39;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                    <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
+                                    <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                                    <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                                    <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+                                    <span class="p">)</span>
+                  <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        this is an internal function for building dict object</span>
+<span class="sd">        :param elements:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="n">element</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># keep those with the raised as we can inherit form this class an than</span>
+    <span class="c1"># overwrite the _ functions</span>
+    <span class="c1">#</span>
+    <span class="k">def</span> <span class="nf">_notimplemented</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">specification</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param specification:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># not sure if the next thing works, if not duplicate</span>
+    <span class="c1">#</span>
+    <span class="n">put_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">get_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">mkdir_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">cancel_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">delete_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">copy_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">list_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+    <span class="n">search_run</span> <span class="o">=</span> <span class="n">_notimplemented</span>
+
+<div class="viewcode-block" id="StorageQueue.add_cm"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue.add_cm">[docs]</a>    <span class="k">def</span> <span class="nf">add_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cm_name</span><span class="p">):</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">uuid_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">())</span>
+
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            cm:</span>
+<span class="s2">               number: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               name: &quot;</span><span class="si">{</span><span class="n">cm_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="s2">               kind: storage</span>
+<span class="s2">               id: </span><span class="si">{</span><span class="n">uuid_str</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               cloud: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               collection: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               created: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">            &quot;&quot;&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="k">return</span> <span class="n">spec</span></div>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sourcefile</span><span class="p">,</span> <span class="n">destinationfile</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a copy action to the queue</span>
+<span class="sd">        copies the file from the source service to the destination service using</span>
+<span class="sd">        the file located in the path and storing it into the remote. If remote</span>
+<span class="sd">        is not specified path is used for it.</span>
+<span class="sd">        The copy will not be performed if the files are the same.</span>
+<span class="sd">        :param sourcefile: The source file to copy</span>
+<span class="sd">        :param destinationfile: The destination file path</span>
+<span class="sd">        :param recursive: whether or not copy the file/dir recursively</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            action: copy</span>
+<span class="s2">            source: </span><span class="si">{</span><span class="n">sourcefile</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">            destination: </span><span class="si">{</span><span class="n">destinationfile</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">            recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">            status: waiting</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sourcefile</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">destinationfile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a delete action to the queue</span>
+
+<span class="sd">        :param source:</span>
+<span class="sd">        :param recursive:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">               action: delete</span>
+<span class="s2">               path: </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               status: waiting</span>
+<span class="s2">               &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                action: search</span>
+<span class="s2">                path: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                filename: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># BUG: THis should ideally be name and not id. THis has impact on all</span>
+    <span class="c1"># providers as there may be a bug in the cancel methods including the ABC</span>
+    <span class="c1"># class.</span>
+    <span class="c1">#</span>
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        cancels a job with a specific id</span>
+<span class="sd">        :param name:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># if None all are canceled</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                action: cancel</span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                action: get</span>
+<span class="s2">                source: </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                destination: </span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                action: put</span>
+<span class="s2">                source: </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                destination: </span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">destination</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">create_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a mkdir action to the queue</span>
+<span class="sd">        create the directory in the storage service</span>
+<span class="sd">        :param directory:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                action: mkdir</span>
+<span class="s2">                path: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dir_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a list action to the queue</span>
+<span class="sd">        list the directory in the storage service</span>
+<span class="sd">        :param source:</span>
+<span class="sd">        :param dir_only:</span>
+<span class="sd">        :param recursive:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                action: list</span>
+<span class="s2">                path: </span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                dir_only: </span><span class="si">{</span><span class="n">dir_only</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                recursive: </span><span class="si">{</span><span class="n">recursive</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">                status: waiting</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+        <span class="p">)</span>
+        <span class="n">common_cm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_cm</span><span class="p">(</span><span class="n">cm_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">specification</span> <span class="o">=</span> <span class="n">common_cm</span> <span class="o">+</span> <span class="n">specification</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specification</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">SafeLoader</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">entries</span>
+
+<div class="viewcode-block" id="StorageQueue.action"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">specification</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        executes the action identified by the specification. This is used by the</span>
+<span class="sd">        run command.</span>
+<span class="sd">        :param specification:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">specification</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;copy&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">put_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;delete&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delete_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;mkdir&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mkdir_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="c1"># update status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;cancel&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cancel_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;get&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;put&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">put_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;search&quot;</span><span class="p">:</span>
+            <span class="n">specification</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_run</span><span class="p">(</span><span class="n">specification</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">elements</span><span class="o">=</span><span class="p">[</span><span class="n">specification</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="StorageQueue.get_actions"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue.get_actions">[docs]</a>    <span class="k">def</span> <span class="nf">get_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get all the actions from database</span>
+<span class="sd">        param:</span>
+<span class="sd">        :return lists of actions from database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                          <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;storage&#39;</span><span class="p">)</span>
+        <span class="n">get_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">put_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">mkdir_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">copy_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">list_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">delete_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cancel_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">search_actions</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;get&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">get_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;put&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">put_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mkdir&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">mkdir_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;copy&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">copy_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;list&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">list_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;delete&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">delete_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;cancel&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">cancel_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;search&#39;</span> <span class="ow">and</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;waiting&#39;</span><span class="p">:</span>
+                <span class="n">search_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">get_actions</span><span class="p">,</span> <span class="n">put_actions</span><span class="p">,</span> <span class="n">mkdir_actions</span><span class="p">,</span> <span class="n">copy_actions</span><span class="p">,</span> \
+               <span class="n">list_actions</span><span class="p">,</span> <span class="n">delete_actions</span><span class="p">,</span> <span class="n">cancel_actions</span><span class="p">,</span> <span class="n">search_actions</span></div>
+
+<div class="viewcode-block" id="StorageQueue.run"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        runs the copy process for all jobs in the queue and completes when all</span>
+<span class="sd">        actions are completed</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">get_action</span><span class="p">,</span> <span class="n">put_action</span><span class="p">,</span> <span class="n">mkdir_action</span><span class="p">,</span> <span class="n">copy_action</span><span class="p">,</span> <span class="n">list_action</span><span class="p">,</span> \
+        <span class="n">delete_action</span><span class="p">,</span> <span class="n">cancel_action</span><span class="p">,</span> <span class="n">search_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_actions</span><span class="p">()</span>
+
+        <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parallelism</span><span class="p">)</span>
+        <span class="c1"># cancel the actions</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">cancel_action</span><span class="p">)</span>
+
+        <span class="c1"># delete files/directories</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">delete_action</span><span class="p">)</span>
+
+        <span class="c1"># create directories</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">mkdir_action</span><span class="p">)</span>
+
+        <span class="c1"># COPY FILES</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">copy_action</span><span class="p">)</span>
+
+        <span class="c1"># PUT FILES</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">put_action</span><span class="p">)</span>
+
+        <span class="c1"># GET FILES</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">get_action</span><span class="p">)</span>
+
+        <span class="c1"># LIST FILES</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">list_action</span><span class="p">)</span>
+
+        <span class="c1"># SEARCH FILES</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">,</span> <span class="n">search_action</span><span class="p">)</span>
+
+        <span class="c1"># Worker processes within a Pool typically live for the complete \</span>
+        <span class="c1"># duration of the Pool’s work queue.</span>
+
+        <span class="c1"># Prevents any more tasks from being submitted to the pool.Once all</span>
+        <span class="c1"># the tasks have been completed the worker processes will exit.</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="c1"># Wait for the worker processes to exit.One must call close() or \</span>
+        <span class="c1"># terminate() before using join().</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="StorageQueue.monitor"><a class="viewcode-back" href="../../../../api/cloudmesh.storage.provider.html#cloudmesh.storage.provider.StorageQueue.StorageQueue.monitor">[docs]</a>    <span class="k">def</span> <span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">):</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;storage&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;all&quot;</span><span class="p">:</span>
+                    <span class="n">entries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">entry</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span>
+                                                        <span class="n">status</span><span class="p">,</span> <span class="n">entries</span><span class="p">))</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;clear&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">entries</span><span class="p">,</span> <span class="n">data_type</span><span class="o">=</span><span class="s2">&quot;monitor&quot;</span><span class="p">,</span>
+                                  <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------Press Ctrl+C to quit.--------------&quot;</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="k">pass</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

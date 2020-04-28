@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Google Cloud Platform &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Cloudmesh Config File Encryption" href="../../configuration/encryption.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="google-docs.html" /> 
+    <link rel="next" title="Google Cloud Storage" href="google-storage-1.html" />
+    <link rel="prev" title="Google Account Creation Tutorial" href="google-drive-ufo.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,7 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">```</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Manual Group</a></li>
@@ -129,15 +129,68 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/todo.html">ToDo</a></li>
 </ul>
-<p class="caption"><span class="caption-text">OTHER</span></p>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Google Cloud Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#google-compute-engine">Google Compute Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refernces.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../tbd.html">OTHER</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="google-docs.html">Google Docs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Google Cloud Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-compute-engine">Google Compute Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/encryption.html">Cloudmesh Config File Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../group.html">Group command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vm/vm.html">Virtual Machine Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vm/image.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vm/flavor.html">Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflow.html">Infrastructure Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hpc/batch.html">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hpc/refcard.html">HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openapi/README-storage-openapi.html">Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openapi/ufo.html">REST Service (outdated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/benchmark.html">Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
@@ -184,15 +237,13 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../tbd.html">OTHER</a> &raquo;</li>
-        
-      <li>&lt;no title&gt;</li>
+      <li>Google Cloud Platform</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/accounts/google/google-gcp.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/accounts/google/google-gcp.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -205,27 +256,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Google Cloud Platform</p>
-<p>[Google Cloud Platform (GCP)](<a class="reference external" href="https://cloud.google.com/">https://cloud.google.com/</a>), offered by Google, is
-a suite of cloud computing services that runs on the same infrastructure that
-Google uses internally for its end-user products, such as Google Search and
-YouTube. Alongside a set of management tools, it provides a series of modular
-cloud services including computing, data storage, data analytics and machine
-learning. Within cloudmesh, we develop services through taht support some of
-these these products.</p>
-<p>## [Google Compute Engine](<a class="reference external" href="https://cloud.google.com/products/compute/">https://cloud.google.com/products/compute/</a>)</p>
-<p>Google Compute Engine delivers virtual machines running in
-Google’s innovative data centers and worldwide fiber network. Compute
-Engine’s tooling and workflow support enable scaling from single
-instances to global, load-balanced cloud computing. Compute Engine’s
-VMs boot quickly, come with high-performance persistent and local disk
-options, and deliver consistent performance. Our virtual servers are
-available in many configurations, including predefined sizes, and
-options to create Custom Machine Types optimized for your specific
-needs. Flexible pricing and automatic sustained use discounts make
-Compute Engine the leader in price/performance.</p>
-<p>Next we provide a a step-by-step guide on how to create an Google account
-and a service account through the Google webpage.</p>
+  <div class="section" id="google-cloud-platform">
+<h1>Google Cloud Platform<a class="headerlink" href="#google-cloud-platform" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://cloud.google.com/">Google Cloud Platform (GCP)</a>, offered by
+Google, is a suite of cloud computing services that runs on the same
+infrastructure that Google uses internally for its end-user products,
+such as Google Search and YouTube. Alongside a set of management tools,
+it provides a series of modular cloud services including computing, data
+storage, data analytics and machine learning. Within cloudmesh, we
+develop services through taht support some of these these products.</p>
+<div class="section" id="google-compute-engine">
+<h2><a class="reference external" href="https://cloud.google.com/products/compute/">Google Compute Engine</a><a class="headerlink" href="#google-compute-engine" title="Permalink to this headline">¶</a></h2>
+<p>Google Compute Engine delivers virtual machines running in Google’s
+innovative data centers and worldwide fiber network. Compute Engine’s
+tooling and workflow support enable scaling from single instances to
+global, load-balanced cloud computing. Compute Engine’s VMs boot
+quickly, come with high-performance persistent and local disk options,
+and deliver consistent performance. Our virtual servers are available in
+many configurations, including predefined sizes, and options to create
+Custom Machine Types optimized for your specific needs. Flexible pricing
+and automatic sustained use discounts make Compute Engine the leader in
+price/performance.</p>
+<p>Next we provide a a step-by-step guide on how to create an Google
+account and a service account through the Google webpage.</p>
+</div>
+</div>
 
 
            </div>
@@ -235,10 +290,10 @@ and a service account through the Google webpage.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../configuration/encryption.html" class="btn btn-neutral float-right" title="Cloudmesh Config File Encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="google-storage-1.html" class="btn btn-neutral float-right" title="Google Cloud Storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="google-docs.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="google-drive-ufo.html" class="btn btn-neutral float-left" title="Google Account Creation Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

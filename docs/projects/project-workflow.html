@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Workflow &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../dev/conventions.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="project-twister2.html" /> 
+    <link rel="next" title="Code Conventions" href="../dev/conventions.html" />
+    <link rel="prev" title="Cloudmesh Twister2 Interface" href="project-twister2.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,7 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -127,13 +127,55 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Cloudmesh Development Projects</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloudmesh Development Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="project-ai.html">Cloudmesh Cloud AI Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-compute.html">Cloudmesh Compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-frugal.html">Cloudmesh Frugal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-gui.html">Cloudmesh Graphical User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-hpc.html">Cloudmesh HPC Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-mini-ocal.html">Cloudmesh Local Compute and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-pi-burn.html">Cloudmesh Raspberry Cloud Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-storage.html">Cloudmesh Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-twister2.html">Cloudmesh Twister2 Interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#goals">Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difficulty">Difficulty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deliverables">Deliverables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -186,13 +228,13 @@
         
           <li><a href="index.html">Cloudmesh Development Projects</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Cloudmesh Workflow</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/project-workflow.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/project-workflow.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -205,45 +247,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Cloudmesh Workflow</p>
+  <div class="section" id="cloudmesh-workflow">
+<h1>Cloudmesh Workflow<a class="headerlink" href="#cloudmesh-workflow" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>This project can also be taken as independent study or as part of the Cloud
-Engineering class</p></li>
+<li><p>This project can also be taken as independent study or as part of the
+Cloud Engineering class</p></li>
 </ul>
-<p>## Goals</p>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
 <p>In this project you will be developing a workflow framework allowing
 cloudmesh shell tasks to be executed in a workflow engine. The workflow
 engine will be integrated with the cloudmesh backend database.</p>
 <p>Workflows will bes specified with the help of python functions. These
-functions will than be added to a quue. Futures are used to identify runable
-functions which will be executed as soon as their parameters are defined.</p>
-<p>A graphical user interface based on javascript Electron needs to be developed
-as part of this project. A preliminary code is available in github at</p>
+functions will than be added to a quue. Futures are used to identify
+runable functions which will be executed as soon as their parameters are
+defined.</p>
+<p>A graphical user interface based on javascript Electron needs to be
+developed as part of this project. A preliminary code is available in
+github at</p>
 <ul class="simple">
-<li><p>&lt;<a class="reference external" href="https://github.com/cloudmesh/workflow">https://github.com/cloudmesh/workflow</a>&gt;</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh/workflow">https://github.com/cloudmesh/workflow</a></p></li>
 </ul>
 <p>The current implementation does not have parameter management included.</p>
-<p>## Requirements</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Strong knowledge of python of the student working on the backend.</p></li>
-<li><p>Knowledge of javascript of teh student working on the graphical interface</p></li>
+<li><p>Knowledge of javascript of teh student working on the graphical
+interface</p></li>
 </ul>
-<p>## Difficulty</p>
+</div>
+<div class="section" id="difficulty">
+<h2>Difficulty<a class="headerlink" href="#difficulty" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><em>moderate</em>: The complexity of this project is moderate and allows you to look
-at advanced python language concepts as well as basic javascript features
-for rendering the workflow in real time. You will need to understand
-multiprocessing in python. An example is provided in the Host.ping class in
-cloudmesh-cloud</p></li>
+<li><p><em>moderate</em>: The complexity of this project is moderate and allows you
+to look at advanced python language concepts as well as basic
+javascript features for rendering the workflow in real time. You will
+need to understand multiprocessing in python. An example is provided
+in the Host.ping class in cloudmesh-cloud</p></li>
 </ul>
-<p>## Deliverables</p>
+</div>
+<div class="section" id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Working benchmarks in form of reproducable workflows embedded in pytests</p></li>
-<li><p>checkins into github by all team members. If only one team member checks in
-all other team members will not get credit.</p></li>
+<li><p>Working benchmarks in form of reproducable workflows embedded in
+pytests</p></li>
+<li><p>checkins into github by all team members. If only one team member
+checks in all other team members will not get credit.</p></li>
 <li><p>benchmark of the tasks while reporting the results into the database</p></li>
 <li><p>Definition of the objects stored in the database.</p></li>
 </ul>
+</div>
+</div>
 
 
            </div>
@@ -253,10 +309,10 @@ all other team members will not get credit.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dev/conventions.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../dev/conventions.html" class="btn btn-neutral float-right" title="Code Conventions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="project-twister2.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="project-twister2.html" class="btn btn-neutral float-left" title="Cloudmesh Twister2 Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

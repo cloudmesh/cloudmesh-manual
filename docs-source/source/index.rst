@@ -97,6 +97,30 @@ Cloudmesh Version 4
 
    faq/automated-install
 
+.. toctree::
+   :caption: UNLISTED TODO
+   :maxdepth: 2
+
+   api/modules
+   concepts/ai
+   contributions
+   faq/chameleon
+   faq/install
+   faq/windows
+   installation/linux-subsystem
+   installation/windows
+   manual/analytics
+   manual/book
+   manual/bookmanagerservice
+   manual/emr
+   manual/git
+   manual/queue
+   manual/test
+   manual/windows
+   manual/workflow_draft
+   windows/windows-broken-make
+   windows/windows-linux
+   windows/windows-ubuntu
 
 Indices and tables
 ==================

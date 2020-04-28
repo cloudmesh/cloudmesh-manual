@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Google Drive authentication additional steps and procedure &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Google Account Creation Tutorial" href="google-drive-ufo.html" />
+    <link rel="prev" title="Google Docs" href="google-docs.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,7 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">```</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Manual Group</a></li>
@@ -127,11 +129,43 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-docs.html">Google Docs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Google Drive authentication additional steps and procedure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-google-json-files">Getting the google json files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#note">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#links">Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ufo">UFO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -182,13 +216,13 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Google Drive authentication additional steps and procedure</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/accounts/google/google-drive-account.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/accounts/google/google-drive-account.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,69 +235,89 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Google Drive authentication additional steps and procedure</p>
-<p>If we run the Google Drive <cite>Provider.py</cite> for the <strong>First time</strong> then
-the required keys, tokens are taken from the <cite>cloudmesh4.yaml</cite> file
-and creates a <cite>client_secret.json</cite> file in the follwing path
-<cite>~/.cloudmesh/gdrive/</cite></p>
-<p>The <cite>Authentication.py</cite> creates a <cite>.credentials</cite> folder under the
-following path <cite>~/.cloudmesh/gdrive/</cite> if it doesn’t exist and creates
-a <cite>google-drive-credentials.json</cite> file under the following folder
-<cite>~/.cloudmesh/gdrive/.credentials/</cite></p>
+  <div class="section" id="google-drive-authentication-additional-steps-and-procedure">
+<h1>Google Drive authentication additional steps and procedure<a class="headerlink" href="#google-drive-authentication-additional-steps-and-procedure" title="Permalink to this headline">¶</a></h1>
+<p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then
+the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
+and creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the follwing path
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> creates a <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> folder under the
+following path <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code> if it doesn’t exist and creates
+a <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code> file under the following folder
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/.credentials/</span></code></p>
 <p>So, for the <strong>First time</strong> browser will be opened up automatically and
 asks for the Google Drive(gmail) credentials i.e., login email and
 password. If you provide these 2 then the Authentication step is
-completed and then it will create the <cite>google-drive-credentials.json</cite>
-and place it in <cite>~/.cloudmesh/gdrive/.credentials/</cite> folder.</p>
+completed and then it will create the <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code>
+and place it in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/.credentials/</span></code> folder.</p>
 <p>These steps are to be followed for the first time or initial run. Once
 it is done then our program is set. After these steps then the program
 will run automatically by using these credentials stored in the
 respective files.</p>
-<p>### Getting the google json files</p>
+<div class="section" id="getting-the-google-json-files">
+<h2>Getting the google json files<a class="headerlink" href="#getting-the-google-json-files" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>[ ] TODO: Google account. the documentation on how to get the json
 files is missing</p></li>
-<li><p>[ ] TODO: Google account. A program that takes the json files and integrates them
-into [cloudmesh.yaml]{.title-ref}</p></li>
+<li><p>[ ] TODO: Google account. A program that takes the json files and
+integrates them into cloudmesh.yaml</p></li>
 <li><p>[ ] TODO: Google account. The documentation for getting access to
 google cloud is incomplete, see related entries.</p></li>
-<li><p><cite>client_secret.json</cite></p></li>
-<li><p><cite>google-drive-credentials.json</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p></li>
 </ul>
-<p>If we run the Google Drive <cite>Provider.py</cite> for the <strong>First time</strong> then the
-required keys, tokens are taken from the <cite>cloudmesh.yaml</cite> file and
-creates a <cite>client_secret.json</cite> file in the following path
-<cite>~/.cloudmesh/gdrive/</cite></p>
+<p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then
+the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file and
+creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the following path
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code></p>
 <ul class="simple">
-<li><p>[ ] TODO: The Authentication.py program was removed, so this can not work.</p></li>
+<li><p>[ ] TODO: The Authentication.py program was removed, so this can not
+work.</p></li>
 </ul>
-<p>The <cite>Authentication.py</cite> creates a <cite>.credentials</cite> folder under the
-following path <cite>~/.cloudmesh/gdrive/</cite> if it does not exist and creates a
-<cite>google-drive-credentials.json</cite> file under the following folder
-<cite>~/.cloudmesh/gdrive/.credentials/</cite></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> creates a <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> folder under the
+following path <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code> if it does not exist and creates
+a <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code> file under the following folder
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/.credentials/</span></code></p>
 <p>So, for the <strong>first time</strong> browser will be opened up automatically and
 asks for the Google Drive(gmail) credentials i.e., login email and
 password. If you provide these 2 then the Authentication step is
-completed and then it will create the <cite>google-drive-credentials.json</cite>
-and place it in <cite>~/.cloudmesh/gdrive/.credentials/</cite> folder.</p>
-<p>## Note</p>
+completed and then it will create the <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code>
+and place it in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/.credentials/</span></code> folder.</p>
+<div class="section" id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
 <p>The Google Drive API accepts these 2 files in the form of <strong>.json file
 format</strong> and not in the form of a dictionary.</p>
-<p>## Links</p>
+</div>
+<div class="section" id="links">
+<h3>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
 <p>Link for additional information:</p>
 <ul class="simple">
-<li><p>&lt;<a class="reference external" href="https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md">https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md</a>&gt;</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md">https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md</a></p></li>
 </ul>
-<p>## UFO</p>
+</div>
+<div class="section" id="ufo">
+<h3>UFO<a class="headerlink" href="#ufo" title="Permalink to this headline">¶</a></h3>
 <p>THIS HAS BEEN COPIED FORM ELSEWHERE INTEGRATE</p>
-<p>Also for gdrive storage option JSON file is referenced in the cloudmesh.yaml in
-parameter “path_to_json_file”</p>
+<p>Also for gdrive storage option JSON file is referenced in the
+cloudmesh.yaml in parameter “path_to_json_file”</p>
+</div>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="google-drive-ufo.html" class="btn btn-neutral float-right" title="Google Account Creation Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="google-docs.html" class="btn btn-neutral float-left" title="Google Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

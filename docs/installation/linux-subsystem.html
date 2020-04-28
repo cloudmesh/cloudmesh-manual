@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Linux Subsystem on Windows 10 &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -110,7 +110,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -127,11 +127,35 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -182,13 +206,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Linux Subsystem on Windows 10</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/installation/linux-subsystem.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/installation/linux-subsystem.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,74 +225,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Linux Subsystem on Windows 10</p>
+  <div class="section" id="linux-subsystem-on-windows-10">
+<h1>Linux Subsystem on Windows 10<a class="headerlink" href="#linux-subsystem-on-windows-10" title="Permalink to this headline">¶</a></h1>
 <p>To check if we run in linux subsystem</p>
-<p>Follow this to set a password
-* &lt;<a class="reference external" href="https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows">https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows</a>&gt;</p>
+<p>Follow this to set a password *
+<a class="reference external" href="https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows">https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows</a></p>
 <ul class="simple">
-<li><p>do not install cloudmesh-gui on Linux subsystem as GUIs are not sported</p></li>
+<li><p>do not install cloudmesh-gui on Linux subsystem as GUIs are not
+sported</p></li>
 </ul>
 <p>psutil needs to be installed like this</p>
 <ul class="simple">
 <li><p>sudo apt-get install gcc python3.7-dev</p></li>
 <li><p>pip install psutil</p></li>
 </ul>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></p>
-<p>sudo apt-get update
-sudo apt install wget&gt;&gt;&gt; platform.uname()</p>
-<p>This will be useful for test for installing mongod</p>
-<p>platform.uname()
-uname_result(system=’Linux’, node=’DESKTOP’, release=’4.4.0-18362-Microsoft’, version=’#1-Microsoft Mon Mar 18 12:02:00 PST 2019’, machine=’x86_64’, processor=’x86_64’)
-&gt;&gt;&gt; platform.system()
-‘Linux’
-&gt;&gt;&gt; platform.version()
-‘#1-Microsoft Mon Mar 18 12:02:00 PST 2019’</p>
-<p>sudo apt install emacs
-sudo apt-get -y install libcurl4 openssl</p>
-<p># Set up Git</p>
-<p>sudo apt install git
-git config –global user.name “Gregor von Laszewski”
-git config –global user.email <a class="reference external" href="mailto:laszewski&#37;&#52;&#48;gmail&#46;com">laszewski<span>&#64;</span>gmail<span>&#46;</span>com</a>
-git config –global core.editor emacs
-git config –list</p>
-<p># Setup Python</p>
-<p>sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.7
-sudo apt install python3.7-dev
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python3.7 get-pip.py
-sudo apt install python3.7-venv
-python3.7 -m venv ~/ENV3
-rm get-pip.py
-pip install pip -U</p>
-<p># Install cloudmesh</p>
-<p>pip install cloudmesh-installer
-cloudmesh-installer git clone cloud
-cloudmesh-installer install cloud -e</p>
-<p>cms help
-# There is a bug in the mongo install script that installs openssl, its better to
-# take it out and do the install outside</p>
-<p>cms admin mongo install –nosudo
-cd <a href="#id5"><span class="problematic" id="id6">*</span></a>cloud</p>
-<p># The script has a bug as the path does not mask spaces ( and )</p>
-<p>emacs ~/.bashrc
-source ~/.bashrc</p>
-<p># Test things</p>
-<p>which mongod</p>
-<p>ssh-keygen
-cms init
-cms key list
-<a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">wget</span><span class="o">&gt;&gt;&gt;</span> <span class="n">platform</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span>
+
+<span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">useful</span> <span class="k">for</span> <span class="n">test</span> <span class="k">for</span> <span class="n">installing</span> <span class="n">mongod</span>
+
+<span class="n">platform</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span>
+<span class="n">uname_result</span><span class="p">(</span><span class="n">system</span><span class="o">=</span><span class="s1">&#39;Linux&#39;</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="s1">&#39;DESKTOP&#39;</span><span class="p">,</span> <span class="n">release</span><span class="o">=</span><span class="s1">&#39;4.4.0-18362-Microsoft&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;#1-Microsoft Mon Mar 18 12:02:00 PST 2019&#39;</span><span class="p">,</span> <span class="n">machine</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
+<span class="s1">&#39;Linux&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">platform</span><span class="o">.</span><span class="n">version</span><span class="p">()</span>
+<span class="s1">&#39;#1-Microsoft Mon Mar 18 12:02:00 PST 2019&#39;</span>
+
+
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">emacs</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">libcurl4</span> <span class="n">openssl</span>
+
+<span class="c1"># Set up Git</span>
+
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;Gregor von Laszewski&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="n">laszewski</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">core</span><span class="o">.</span><span class="n">editor</span> <span class="n">emacs</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="nb">list</span>
+
+<span class="c1"># Setup Python</span>
+
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">software</span><span class="o">-</span><span class="n">properties</span><span class="o">-</span><span class="n">common</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">deadsnakes</span><span class="o">/</span><span class="n">ppa</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">.</span><span class="mi">7</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">pypa</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">o</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+<span class="n">sudo</span> <span class="n">python3</span><span class="o">.</span><span class="mi">7</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">-</span><span class="n">venv</span>
+<span class="n">python3</span><span class="o">.</span><span class="mi">7</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">~/</span><span class="n">ENV3</span>
+<span class="n">rm</span> <span class="n">get</span><span class="o">-</span><span class="n">pip</span><span class="o">.</span><span class="n">py</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pip</span> <span class="o">-</span><span class="n">U</span>
+
+
+<span class="c1"># Install cloudmesh</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">cloudmesh</span><span class="o">-</span><span class="n">installer</span>
+<span class="n">cloudmesh</span><span class="o">-</span><span class="n">installer</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">cloud</span>
+<span class="n">cloudmesh</span><span class="o">-</span><span class="n">installer</span> <span class="n">install</span> <span class="n">cloud</span> <span class="o">-</span><span class="n">e</span>
+
+<span class="n">cms</span> <span class="n">help</span>
+<span class="c1"># There is a bug in the mongo install script that installs openssl, its better to</span>
+<span class="c1"># take it out and do the install outside</span>
+
+<span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">install</span> <span class="o">--</span><span class="n">nosudo</span>
+<span class="n">cd</span> <span class="o">*</span><span class="n">cloud</span>
+
+<span class="c1"># The script has a bug as the path does not mask spaces ( and )</span>
+
+<span class="n">emacs</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+
+<span class="c1"># Test things</span>
+
+<span class="n">which</span> <span class="n">mongod</span>
+
+<span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span>
+<span class="n">cms</span> <span class="n">init</span>
+<span class="n">cms</span> <span class="n">key</span> <span class="nb">list</span>
+</pre></div>
+</div>
 <p>this needs to be added to the previous atthe right location</p>
-<p>mkdir cm
-add the lines</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">source</span> <span class="pre">~/ENV3/bin/activate</span>
-<span class="pre">cd</span> <span class="pre">cm</span>
-<span class="pre">`</span></code></p>
+<p>mkdir cm add the lines</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">ENV3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">cd</span> <span class="n">cm</span>
+</pre></div>
+</div>
 <p>to your bashrc file</p>
-<p>now when you start a new ubuntu shell, you are all set and can work on the install</p>
+<p>now when you start a new ubuntu shell, you are all set and can work on
+the install</p>
+</div>
 
 
            </div>

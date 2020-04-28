@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Google Cloud Storage &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="References" href="refernces.html" />
+    <link rel="prev" title="Google Cloud Platform" href="google-gcp.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,7 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">```</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Manual Group</a></li>
@@ -127,11 +129,35 @@
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -182,13 +208,13 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Google Cloud Storage</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/accounts/google/google-storage-1.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/accounts/google/google-storage-1.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,31 +227,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># [Google Cloud Storage](&lt;<a class="reference external" href="https://cloud.google.com/products/storage/">https://cloud.google.com/products/storage/</a>&gt;)</p>
-<p>Google cloud platform provides varity of storage products which are simple,
-reliable, and secure solutions for your media, analytics, and application data.</p>
+  <div class="section" id="google-cloud-storage">
+<h1><a class="reference external" href="https://cloud.google.com/products/storage/">Google Cloud Storage</a><a class="headerlink" href="#google-cloud-storage" title="Permalink to this headline">¶</a></h1>
+<p>Google cloud platform provides varity of storage products which are
+simple, reliable, and secure solutions for your media, analytics, and
+application data.</p>
 <p>The following are avalaible as google cloud storage products:</p>
 <ol class="arabic simple">
-<li><p>OBJECT OR BLOB STORAGE [Storage Type: Cloud Storage](<a class="reference external" href="https://cloud.google.com/storage/">https://cloud.google.com/storage/</a>)</p></li>
-<li><p>BLOCK STORAGE [Storage Type: Persistent Disk](<a class="reference external" href="https://cloud.google.com/persistent-disk/">https://cloud.google.com/persistent-disk/</a>)</p></li>
-<li><p>ARCHIVAL STORAGE [Storage Type: Cloud Storage](<a class="reference external" href="https://cloud.google.com/storage/">https://cloud.google.com/storage/</a>)</p></li>
-<li><p>FILE STORAGE [Storage Type: Cloud Filestore](<a class="reference external" href="https://cloud.google.com/filestore/">https://cloud.google.com/filestore/</a>)</p></li>
-<li><p>MOBILE APPLICATION [Storage Type: Cloud Storage for Firebase](<a class="reference external" href="https://firebase.google.com/products/storage/">https://firebase.google.com/products/storage/</a>)</p></li>
-<li><p>DATA TRANSFER [Storage Type: Data Transfer Services](<a class="reference external" href="https://cloud.google.com/products/data-transfer/">https://cloud.google.com/products/data-transfer/</a>)</p></li>
-<li><p>COLLABORATION [Storage Type: Drive enterprise](<a class="reference external" href="https://cloud.google.com/drive-enterprise/">https://cloud.google.com/drive-enterprise/</a>)</p></li>
+<li><p>OBJECT OR BLOB STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud
+Storage</a></p></li>
+<li><p>BLOCK STORAGE <a class="reference external" href="https://cloud.google.com/persistent-disk/">Storage Type: Persistent
+Disk</a></p></li>
+<li><p>ARCHIVAL STORAGE <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud
+Storage</a></p></li>
+<li><p>FILE STORAGE <a class="reference external" href="https://cloud.google.com/filestore/">Storage Type: Cloud
+Filestore</a></p></li>
+<li><p>MOBILE APPLICATION <a class="reference external" href="https://firebase.google.com/products/storage/">Storage Type: Cloud Storage for
+Firebase</a></p></li>
+<li><p>DATA TRANSFER <a class="reference external" href="https://cloud.google.com/products/data-transfer/">Storage Type: Data Transfer
+Services</a></p></li>
+<li><p>COLLABORATION <a class="reference external" href="https://cloud.google.com/drive-enterprise/">Storage Type: Drive
+enterprise</a></p></li>
 </ol>
-<p>You can refer [google storage
-documentation](<a class="reference external" href="https://cloud.google.com/storage/docs/">https://cloud.google.com/storage/docs/</a>) for more details on
-google cloud storage documentation. Cloudmesh currently supports [object/blob
-storage](<a class="reference external" href="https://cloud.google.com/storage/docs/how-to">https://cloud.google.com/storage/docs/how-to</a>) in beta version. Users
-can follow instruction to configure google could platform described as part of
-this document.</p>
+<p>You can refer <a class="reference external" href="https://cloud.google.com/storage/docs/">google storage
+documentation</a> for more
+details on google cloud storage documentation. Cloudmesh currently
+supports <a class="reference external" href="https://cloud.google.com/storage/docs/how-to">object/blob
+storage</a> in beta
+version. Users can follow instruction to configure google could platform
+described as part of this document.</p>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="refernces.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="google-gcp.html" class="btn btn-neutral float-left" title="Google Cloud Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Graphical User Interface &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="project-hpc.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="project-frugal.html" /> 
+    <link rel="next" title="Cloudmesh HPC Batch" href="project-hpc.html" />
+    <link rel="prev" title="Cloudmesh Frugal" href="project-frugal.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,7 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">```</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
@@ -127,13 +127,56 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Cloudmesh Development Projects</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloudmesh Development Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="project-ai.html">Cloudmesh Cloud AI Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-compute.html">Cloudmesh Compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-frugal.html">Cloudmesh Frugal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Graphical User Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#goals">Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difficulty">Difficulty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deliverables">Deliverables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="project-hpc.html">Cloudmesh HPC Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-mini-ocal.html">Cloudmesh Local Compute and Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-pi-burn.html">Cloudmesh Raspberry Cloud Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-storage.html">Cloudmesh Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-twister2.html">Cloudmesh Twister2 Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-workflow.html">Cloudmesh Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Python Google Drive API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -186,13 +229,13 @@
         
           <li><a href="index.html">Cloudmesh Development Projects</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Cloudmesh Graphical User Interface</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/project-gui.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/project-gui.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -205,16 +248,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Cloudmesh Graphical User Interface</p>
+  <div class="section" id="cloudmesh-graphical-user-interface">
+<h1>Cloudmesh Graphical User Interface<a class="headerlink" href="#cloudmesh-graphical-user-interface" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>This project can also be taken as independent study or as part of the Cloud
-Engineering class</p></li>
+<li><p>This project can also be taken as independent study or as part of the
+Cloud Engineering class</p></li>
 </ul>
-<p>## Goals</p>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
 <p>In this project you will be developing a graphical user interface for
-cloudmesh based on Electron. You will be focusing on first displaying the
-information available in the cloudmesh database. This includes, information
-from clouds about</p>
+cloudmesh based on Electron. You will be focusing on first displaying
+the information available in the cloudmesh database. This includes,
+information from clouds about</p>
 <ul class="simple">
 <li><p>images</p></li>
 <li><p>flavors</p></li>
@@ -230,24 +275,31 @@ on the cloudmesh configuration file. For</p>
 <li><p>keys</p></li>
 <li><p>security groups</p></li>
 </ul>
-<p>uploading new information including starting new vms is required. The clouds
-we consider are</p>
+<p>uploading new information including starting new vms is required. The
+clouds we consider are</p>
 <ul class="simple">
 <li><p>openstack</p></li>
 <li><p>AWS</p></li>
 <li><p>Azure</p></li>
 <li><p>Google</p></li>
 </ul>
-<p>## Requirements</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>This project is easy for those with javascript experience. We will not
 consider other GUI frameworks. If you however find a better one, please
 discuss with us first.</p>
-<p>## Difficulty</p>
-<p><em>easy - moderate:</em> This is an easy project as in theory you will only need
-minimal access to the cloud while making sure you obtain information for
-each of the data types,  which can either be obtained from cloudmesh or can
-be found in the code base where examples are posted.</p>
-<p>## Deliverables</p>
+</div>
+<div class="section" id="difficulty">
+<h2>Difficulty<a class="headerlink" href="#difficulty" title="Permalink to this headline">¶</a></h2>
+<p><em>easy - moderate:</em> This is an easy project as in theory you will only
+need minimal access to the cloud while making sure you obtain
+information for each of the data types, which can either be obtained
+from cloudmesh or can be found in the code base where examples are
+posted.</p>
+</div>
+<div class="section" id="deliverables">
+<h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Working code</p></li>
 <li><p>Video documenting the use of the GUI</p>
@@ -256,21 +308,30 @@ be found in the code base where examples are posted.</p>
 <li><p>showcasing registration for clouds</p></li>
 </ul>
 </li>
-<li><p>checkins into github by all team members. If only one team member checks in
-all other team members will not get credit.</p></li>
+<li><p>checkins into github by all team members. If only one team member
+checks in all other team members will not get credit.</p></li>
 </ul>
-<p>## References</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>[Github Issue](<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/issues/201">https://github.com/cloudmesh/cloudmesh-cloud/issues/201</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/issues/201">Github
+Issue</a></p></li>
 </ul>
 <p>A previous code is available in</p>
 <ul class="simple">
-<li><p>[Github](<a class="reference external" href="https://github.com/cloudmesh-community/graphql">https://github.com/cloudmesh-community/graphql</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh-community/graphql">Github</a></p></li>
 </ul>
 <p>However this code uses Graphql, we like to convert it to use MongoDB and
 improve. A sample image of the dashboard is shown next</p>
-<p>![Dashboard](images/dashboard1.png)</p>
-<p>More images can be found in the [README](<a class="reference external" href="https://github.com/cloudmesh-community/graphql/blob/master/README.md">https://github.com/cloudmesh-community/graphql/blob/master/README.md</a>)</p>
+<div class="figure align-default" id="id1">
+<img alt="Dashboard" src="../_images/dashboard1.png" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Dashboard</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>More images can be found in the
+<a class="reference external" href="https://github.com/cloudmesh-community/graphql/blob/master/README.md">README</a></p>
+</div>
+</div>
 
 
            </div>
@@ -280,10 +341,10 @@ improve. A sample image of the dashboard is shown next</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="project-hpc.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="project-hpc.html" class="btn btn-neutral float-right" title="Cloudmesh HPC Batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="project-frugal.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="project-frugal.html" class="btn btn-neutral float-left" title="Cloudmesh Frugal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
