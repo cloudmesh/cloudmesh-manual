@@ -169,6 +169,7 @@
 </ul>
 <p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="google/index.html">Google Acooounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google/FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google/gdrive/gdrive.html">Python Google Drive API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google/gdrive/google-drive.html">Google Drive</a></li>
@@ -179,6 +180,29 @@
 <li class="toctree-l1"><a class="reference internal" href="google/google-gcp.html">Google Cloud Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google/google-storage-1.html">Google Cloud Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google/refernces.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/windows.html">FAQ for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/windows.html">Windows 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/emr.html">emr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/git.html">git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/queue.html">queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/test.html">test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/windows.html">windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/workflow_draft.html">workflow_draft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows/windows-broken-make.html">Windows Cloudmesh Ubuntu Subsystem Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows/windows-linux.html">Using windows instead of Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows/windows-ubuntu.html">Windows Cloudmesh Development Environment</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
@@ -350,16 +374,16 @@ in the browser.</p>
 <p>The following steps document an Azure CLI installation for Windows 10.</p>
 <p>Start with opening up Windows PowerShell in Administrative Mode, then
 run the following:</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span>cd ~
-~\ENV3\Scripts\Activate.ps1
-Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList &#39;/I AzureCLI.msi /quiet&#39;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+~<span class="se">\E</span>NV3<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .<span class="se">\A</span>zureCLI.msi<span class="p">;</span> Start-Process msiexec.exe -Wait -ArgumentList <span class="s1">&#39;/I AzureCLI.msi /quiet&#39;</span>
 </pre></div>
 </div>
 <p>Once installed, the next step is to test using the new <code class="docutils literal notranslate"><span class="pre">az</span></code> command.
 Let’s start by running <code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">login</span></code>, which will then prompt you to login
 via your default browser. Note: you can now utilize Windows Command
 Prompt or PowerShell for interacting with the Azure CLI:</p>
-<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>az login
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az login
 </pre></div>
 </div>
 <p>Sign in via the default browser using your Azure credentials. <img alt="Sign in" src="../_images/azure-confirm-signin.png" />

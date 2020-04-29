@@ -190,53 +190,48 @@ information about your machine on which you run the benchmarks. You can get this
 Accessing Python
 ~~~~~~~~~~~~~~~~
 
-You can access python in a commandline while using the prefix py
+You can access python in a commandline while using the prefix py::
 
-```
-cms py 1 + 1
-2
-  ```
-Or redirectiong the python output to a cloudmesh variable as part of the set command
+   cms py 1 + 1
+   2
 
+Or redirectiong the python output to a cloudmesh variable as part of the set command::
 
-```
-cms set a=\"py 1 + 1\"
-a='2'
-```
+  cms set a=\"py 1 + 1\"
+  a='2'
+
 
 
 Accessing Shell Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can access shell commands while starting a line with !
+You can access shell commands while starting a line with !::
 
-```
-cms \!pwd
-```
 
-or you can use it as part of a variable assignment
+  cms \!pwd
 
-```
-cms set a=\!pwd
-```
+
+or you can use it as part of a variable assignment::
+
+
+  cms set a=\!pwd
+
 
 Accessing the yaml file
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-You can read values from a yaml configuration file in `~/.cloudmesh/cloudmesh.yaml`
+You can read values from a yaml configuration file in `~/.cloudmesh/cloudmesh.yaml`::
 
 
-```
-cms set a=cloudmesh.profile.user
-```
+  cms set a=cloudmesh.profile.user
 
-where it is defined as
 
-```
-cloudmesh:
-profile:
-  user: gregor
-```
+where it is defined as::
+
+  cloudmesh:
+  profile:
+    user: gregor
+
 
 Plugins
 -------
@@ -275,8 +270,9 @@ The command will be added to the cms command>
 
 An example for the bar command is presented at:
 
--  `cloudmesh/bar/command/bar.py <https://github.com/cloudmesh/cloudmesh.bar/blob/master/cloudmesh/bar/command/bar.py>`__
-
+-  `cloudmesh/bar/command/bar.py
+   <https://github.com/cloudmesh/cloudmesh.bar/blob/master/cloudmesh/bar/command/bar.py>`
+   
 It shows how simple the command definition is (bar.py):
 
 .. code:: python
@@ -341,7 +337,7 @@ Docker
 
 Developers can easily create a docker container.
 
-.. toto:: docker cmd5 - make sure this is working
+.. todo:: docker cmd5 - make sure this is working
 
 Cloudmesh can be run easily in a container with the help of docker. A
 Dockerfile is provided as an example that you may adapt for your needs

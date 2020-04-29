@@ -46,7 +46,7 @@ Features
    * - `Installer <https://github.com/cloudmesh/cloudmesh-installer>`_
      - convenient source code installer and manager for developers
      - stable
-   * - `Database <https://github.com/cloudmesh/cloudmesh-gui>`_
+   * - `GUI <https://github.com/cloudmesh/cloudmesh-gui>`_
      - A GUI program to configure ~/.cloudmesh/cloudmesh.yaml
      - stable
    * - `Database <https://github.com/cloudmesh/cloudmesh-cloud>`_

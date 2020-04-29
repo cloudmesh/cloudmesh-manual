@@ -43,6 +43,7 @@ After this you can open the documentation located at
 do not develop new commands with manual page changes, you can in subsecuetnt
 calls say ``make doc``. Please note that `rst` and `md` files are allowed as
  documentation format.
+ 
 
 Version Management
 ------------------

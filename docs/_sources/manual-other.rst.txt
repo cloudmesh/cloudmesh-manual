@@ -1,5 +1,5 @@
 Manual Other
------------
+------------
 
 .. toctree::
    :caption: Other
