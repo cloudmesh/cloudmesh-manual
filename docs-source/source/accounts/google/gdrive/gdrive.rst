@@ -22,30 +22,32 @@ After that we need to go through the Google Drive Quick start guide:
 
 -  https://developers.google.com/drive/api/v3/quickstart/python
 
+Enable API
+
 There we can see Enable API option as shown in the next picture:
 
 .. figure:: images/image1.png
    :alt: Enable API
 
-   Enable API
-
 Once we enable that we will get credentials.json file where all of our
 credentials are stored that can be used to communicate with our Google
-Drive through Python Interface. After that, we will be redirected to a
+Drive through Python Interface. 
+
+Create a project
+
+We will be redirected to a
 page where we need to create our own project as shown in the next
 picture:
 
 .. figure:: images/image2.png
    :alt: Create a project
 
-   Create a project
+Add credentials
 
 As we see next we need to select Google Drive API from here
 
 .. figure:: images/image16.png
    :alt: Add credentials
-
-   Add credentials
 
 After that, we need to obtain the file that stores client_id and client_secret as shown next: (The
 file that is downloaded as ``client_id.json`` needs to be renamed as
@@ -54,7 +56,7 @@ file that is downloaded as ``client_id.json`` needs to be renamed as
 .. figure:: images/image18.png
    :alt: Rename the file
 
-After this we need to click ``Done`` otherwise it would not set the
+After this we need to click ``Done`` otherwise it would not complete the enabling of the
 Google Drive API.
 
 In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed
