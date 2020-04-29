@@ -58,7 +58,7 @@ After this we need to click ``Done`` otherwise it would not set the
 Google Drive API.
 
 In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed
-for authentication, including path for "credentials.json" and path for "token.pickle" (which we will create next.  
+for authentication, including path for "credentials.json" and path for "token.pickle", which we will create next.  
 Depending on our project, and cloud we are using, e.g. if project is cloudmesh-storage, cloud 
 is parallelgdrive, assuming we put "credentials.json" and "token.pickle" in C:/Users/sara/cm, these are the keys and 
 values to put in the "credentials" section::
