@@ -3,22 +3,10 @@ OTHER
 =====
 
 .. toctree::
-   :caption: GOOGLE ACCOUNT MANUALS
+   :caption: OTHER
    :maxdepth: 2
 
-   accounts/google/google-account
-   accounts/google/google-docs
-   accounts/google/google-ufo
-   accounts/google/google-gcp
-   accounts/google/google-storage1
-
-.. toctree::
-   :caption: CODE
-
    configuration/encryption
-   code/storage
-   code/batch
-   code/emr
 
 .. toctree::
    :caption: CLOUD SERVICES
@@ -27,9 +15,8 @@ OTHER
    vm/vm
    vm/image
    vm/flavor
-   storage/storage
    workflow
-   jupyter
+   jupyter/index
    hpc/batch
    hpc/refcard
 
@@ -38,11 +25,6 @@ OTHER
 
    openapi/README-storage-openapi
    openapi/ufo
-
-.. toctree::
-   :caption: DATABASE
-
-   storage/database
 
 .. toctree::
    :glob:

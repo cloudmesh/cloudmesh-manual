@@ -96,7 +96,9 @@ Cloudmesh Version 4
    :caption: FAQ AND TIPS
    :maxdepth: 2
 
-   faq/automated-install
+   faq/install
+   faq/chameleon
+   faq/windows
 
 .. toctree::
    :caption: UNLISTED TODO

@@ -267,7 +267,9 @@ manual:
 	make -f Makefile doc
 
 authors:
-	bin/authors.py > $(SOURCE)/preface/authors.md
+	@bin/authors.py > $(SOURCE)/preface/authors.md
+	@pandoc $(SOURCE)/preface/authors.md -o $(SOURCE)/preface/authors.rst
+	@rm $(SOURCE)/preface/authors.md
 
 doc: authors
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp

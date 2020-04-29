@@ -35,14 +35,13 @@ make the documentation:
 
     cd cloudmesh-manual
     pip install -r requirements.txt
+    make clean  # cleans up the documentation
     make manual # creates the manual pages
-    make doc #views the documentation
+    make view   # views the documentation
 
-After this you can open the documentation located at
-``cloudmesh-manual/docs/index.html`` in the browser of your choice. In case you
-do not develop new commands with manual page changes, you can in subsecuetnt
-calls say ``make doc``. Please note that `rst` and `md` files are allowed as
- documentation format.
+In case you do not develop new commands with manual page changes, you
+can in subsecuetnt calls say ``make doc``. Please note that `rst` and
+`md` files are allowed as documentation format.
  
 
 Version Management

@@ -9,7 +9,8 @@ This section has to be fixed
 
    FIXME
    account
-   gdrive
+   gdrive/gdrive
+   gdrive/google-gdrive
    google-docs
    google-drive-account
    google-drive-ufo

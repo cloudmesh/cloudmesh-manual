@@ -1,9 +1,6 @@
 Python Google Drive API
 -----------------------
 
-Step-by-step process
-~~~~~~~~~~~~~~~~~~~~
-
 Before writing the Python interface for Google Drive, we need to setup
 an email account, with that email account we will get a set of google
 services and one of them is Google Drive with 15 GB overall storage.
@@ -83,13 +80,13 @@ So, now with the
 
 we can now use
 
--  [ ] TODO: Google account. This documentation is a bit unstructured
-   and repetitive. Yet errors such as references to Authentication.py
-   are conducted which does not exist.
+.. todo:: Google account. This documentation is a bit unstructured and
+	  repetitive. Yet errors such as references to
+	  Authentication.py are conducted which does not exist.
 
--  ``Authentication.py`` and ``Provider.py``
+	  -  ``Authentication.py`` and ``Provider.py``
 
--  [ ] TODO: Google account. location of the file is missing
+.. todo:: Google account. location of the file is missing
 
 Once all these steps are done correctly, then we can use the Python
 program interface to transfer the files between our Python program and
