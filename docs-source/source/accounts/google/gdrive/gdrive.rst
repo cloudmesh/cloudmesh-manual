@@ -63,6 +63,20 @@ Depending on our project, and cloud we are using, e.g. if project is cloudmesh-s
 is parallelgdrive, assuming we put "credentials.json" and "token.pickle" in C:/Users/sara/cm, these are the keys and 
 values to put in the "credentials" section::
 
+    parallelgdrive:
+      cm:
+        active: false
+        heading: GDrive
+        host: dgrive.google.com
+        label: parallelgdrive
+        kind: parallelgdrive
+        version: TBD
+        service: storage
+      default:
+        directory: TBD
+      credentials:
+        credentials_json_path: C:/Users/sara/cm
+        token_path: C:/Users/sara/cm
 
 Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
 in the Provider.py file. Here is the link: 
