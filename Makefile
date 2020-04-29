@@ -72,26 +72,68 @@ api:
 	rm -rf docs-source/source/api
 	rm -rf tmp
 	mkdir -p tmp/cloudmesh
-	cp -r ../cloudmesh-inventory/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-cmd5/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-sys/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-common/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-cloud/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-storage/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-volume/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-abstract/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-configuration/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-google/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-aws/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-azure/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-oracle/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-multipass/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-gui/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-openapi/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-sys/cloudmesh/* tmp/cloudmesh
-	cp -r ../cloudmesh-test/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-abstract; git log | fgrep Author
+	cp -r ../cloudmesh-admin; git log | fgrep Author
+	cp -r ../cloudmesh-aws; git log | fgrep Author
+	cp -r ../cloudmesh-azure; git log | fgrep Author
+	cp -r ../cloudmesh-cloud; git log | fgrep Author
+	cp -r ../cloudmesh-common; git log | fgrep Author
+	cp -r ../cloudmesh-cmd5; git log | fgrep Author
+	cp -r ../cloudmesh-cmdsd; git log | fgrep Author
+	cp -r ../cloudmesh-configuration; git log | fgrep Author
+	cp -r ../cloudmesh-configuration; git log | fgrep Author
+	cp -r ../cloudmesh-google; git log | fgrep Author
+	cp -r ../cloudmesh-gui; git log | fgrep Author
+	cp -r ../cloudmesh-installer; git log | fgrep Author
+	cp -r ../cloudmesh-inventory; git log | fgrep Author
+	cp -r ../cloudmesh-javascript; git log | fgrep Author
+	cp -r ../cloudmesh-multipass; git log | fgrep Author
+	cp -r ../cloudmesh-openapi; git log | fgrep Author
+	cp -r ../cloudmesh-oracle; git log | fgrep Author
+	cp -r ../cloudmesh-openstack; git log | fgrep Author
+	cp -r ../cloudmesh-storage; git log | fgrep Author
+	cp -r ../cloudmesh-sys; git log | fgrep Author
+	cp -r ../cloudmesh-volume; git log | fgrep Author
+	cp -r ../cloudmesh-test; git log | fgrep Author
 	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
 	make -f Makefile api-index
+
+# NOT INCLUDED
+
+#../cloudmesh-analytics:
+#../cloudmesh-audio:
+#../cloudmesh-batch:
+#../cloudmesh-box:
+#../cloudmesh-cluster:
+#../cloudmesh-comet:
+#../cloudmesh-docker:
+#../cloudmesh-emr:
+#../cloudmesh-encrypt:
+#../cloudmesh-flow:
+#../cloudmesh-flow2:
+#../cloudmesh-frugal:
+#../cloudmesh-git:
+#../cloudmesh-hadoop:
+#../cloudmesh-iu:
+#../cloudmesh-kubernetes:
+#../cloudmesh-launcher:
+#./cloudmesh-libcloud:
+#../cloudmesh-manual:
+#../cloudmesh-nist:
+#../cloudmesh-nn:
+#../cloudmesh-notebooks:
+#../cloudmesh-pi-burn:
+#../cloudmesh-pi-cluster:
+#../cloudmesh-pi-cluster-Host:
+#../cloudmesh-redshift:
+#../cloudmesh-secchi:
+#../cloudmesh-spark:
+#../cloudmesh-storagelifecycle:
+#../cloudmesh-sys:
+#../cloudmesh-test:
+#../cloudmesh-twitter:
+#../cloudmesh-workflow:
+
 
 api-index:
 	echo "Cloudmesh Command API" > $(API)/index.rst
@@ -143,18 +185,31 @@ names:
 	cat names.txt
 
 names-dir:
-	@cd ../cloudmesh-cmd5; git log | fgrep Author
-	@cd ../cloudmesh-common; git log | fgrep Author
-	@cd ../cloudmesh-sys; git log | fgrep Author
-	@cd ../cloudmesh-openapi; git log | fgrep Author
-	@cd ../cloudmesh-emr; git log | fgrep Author
-	@cd ../cloudmesh-cloud; git log | fgrep Author
-	@cd ../cloudmesh-storage; git log | fgrep Author
-	@cd ../cloudmesh-manual; git log | fgrep Author
-	@cd ../cloudmesh-cmsd; git log | fgrep Author
-	@cd ../cloudmesh-volume; git log | fgrep Author
 	@cd ../cloudmesh-abstract; git log | fgrep Author
+	@cd ../cloudmesh-admin; git log | fgrep Author
+	@cd ../cloudmesh-aws; git log | fgrep Author
+	@cd ../cloudmesh-azure; git log | fgrep Author
+	@cd ../cloudmesh-cloud; git log | fgrep Author
+	@cd ../cloudmesh-common; git log | fgrep Author
+	@cd ../cloudmesh-cmd5; git log | fgrep Author
+	@cd ../cloudmesh-cmdsd; git log | fgrep Author
 	@cd ../cloudmesh-configuration; git log | fgrep Author
+	@cd ../cloudmesh-configuration; git log | fgrep Author
+	@cd ../cloudmesh-google; git log | fgrep Author
+	@cd ../cloudmesh-gui; git log | fgrep Author
+	@cd ../cloudmesh-installer; git log | fgrep Author
+	@cd ../cloudmesh-inventory; git log | fgrep Author
+	@cd ../cloudmesh-javascript; git log | fgrep Author
+	@cd ../cloudmesh-multipass; git log | fgrep Author
+	@cd ../cloudmesh-openapi; git log | fgrep Author
+	@cd ../cloudmesh-oracle; git log | fgrep Author
+	@cd ../cloudmesh-openstack; git log | fgrep Author
+	@cd ../cloudmesh-storage; git log | fgrep Author
+	@cd ../cloudmesh-sys; git log | fgrep Author
+	@cd ../cloudmesh-volume; git log | fgrep Author
+	@cd ../cloudmesh-test; git log | fgrep Author
+	@cd ../cloudmesh-test; git log | fgrep Author
+	@git log | fgrep Author
 
 source:
 	cd ../cloudmesh.common; make source
@@ -170,11 +225,12 @@ manual-new:
 
 
 CMD5_COMMAND= admin banner clear echo default info pause plugin \
-              q quit shell sleep stopwatch sys var version
+              q quit shell sleep stopwatch sys var version py
+
+MANAGEMENT_COMMAND= gui viewer info provider test register config yaml
 
 COMPUTE_COMMAND= open vbox vcluster batch vm ip key sec secgroup image \
-                 flavor ssh workflow yaml service config container group \
-                 register test gui viewer info provider py
+                 flavor ssh workflow service container group
 
 STORAGE_COMMAND= storage volume vdir
 
@@ -204,6 +260,8 @@ manual:
 	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
 	-tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/all.md
 	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
+	pandoc $(SOURCE)/manual/all.md -o $(SOURCE)/manual/all.rst
+	rm $(SOURCE)/manual/all.md
 	cms man --dir=$(SOURCE)/manual --format=rst
 	cms version --number > $(SOURCE)/manual/versions.txt
 	make -f Makefile doc
