@@ -72,29 +72,29 @@ api:
 	rm -rf docs-source/source/api
 	rm -rf tmp
 	mkdir -p tmp/cloudmesh
-	cp -r ../cloudmesh-abstract; git log | fgrep Author
-	cp -r ../cloudmesh-admin; git log | fgrep Author
-	cp -r ../cloudmesh-aws; git log | fgrep Author
-	cp -r ../cloudmesh-azure; git log | fgrep Author
-	cp -r ../cloudmesh-cloud; git log | fgrep Author
-	cp -r ../cloudmesh-common; git log | fgrep Author
-	cp -r ../cloudmesh-cmd5; git log | fgrep Author
-	cp -r ../cloudmesh-cmdsd; git log | fgrep Author
-	cp -r ../cloudmesh-configuration; git log | fgrep Author
-	cp -r ../cloudmesh-configuration; git log | fgrep Author
-	cp -r ../cloudmesh-google; git log | fgrep Author
-	cp -r ../cloudmesh-gui; git log | fgrep Author
-	cp -r ../cloudmesh-installer; git log | fgrep Author
-	cp -r ../cloudmesh-inventory; git log | fgrep Author
-	cp -r ../cloudmesh-javascript; git log | fgrep Author
-	cp -r ../cloudmesh-multipass; git log | fgrep Author
-	cp -r ../cloudmesh-openapi; git log | fgrep Author
-	cp -r ../cloudmesh-oracle; git log | fgrep Author
-	cp -r ../cloudmesh-openstack; git log | fgrep Author
-	cp -r ../cloudmesh-storage; git log | fgrep Author
-	cp -r ../cloudmesh-sys; git log | fgrep Author
-	cp -r ../cloudmesh-volume; git log | fgrep Author
-	cp -r ../cloudmesh-test; git log | fgrep Author
+	@cd  ../cloudmesh-abstract; git log | fgrep Author
+	@cd  ../cloudmesh-admin; git log | fgrep Author
+	@cd  ../cloudmesh-aws; git log | fgrep Author
+	@cd  ../cloudmesh-azure; git log | fgrep Author
+	@cd  ../cloudmesh-cloud; git log | fgrep Author
+	@cd  ../cloudmesh-common; git log | fgrep Author
+	@cd  ../cloudmesh-cmd5; git log | fgrep Author
+	@cd  ../cloudmesh-cmdsd; git log | fgrep Author
+	@cd  ../cloudmesh-configuration; git log | fgrep Author
+	@cd  ../cloudmesh-configuration; git log | fgrep Author
+	@cd  ../cloudmesh-google; git log | fgrep Author
+	@cd  ../cloudmesh-gui; git log | fgrep Author
+	@cd  ../cloudmesh-installer; git log | fgrep Author
+	@cd  ../cloudmesh-inventory; git log | fgrep Author
+	@cd  ../cloudmesh-javascript; git log | fgrep Author
+	@cd  ../cloudmesh-multipass; git log | fgrep Author
+	@cd  ../cloudmesh-openapi; git log | fgrep Author
+	@cd  ../cloudmesh-oracle; git log | fgrep Author
+	@cd  ../cloudmesh-openstack; git log | fgrep Author
+	@cd  ../cloudmesh-storage; git log | fgrep Author
+	@cd  ../cloudmesh-sys; git log | fgrep Author
+	@cd  ../cloudmesh-volume; git log | fgrep Author
+	@cd ../cloudmesh-test; git log | fgrep Author
 	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
 	make -f Makefile api-index
 
@@ -176,7 +176,7 @@ inspect: dest/gitinspector/gitinspector.py
 
 contrib:
 	git config --global mailmap.file .mailmap
-	bin/authors.py
+	@bin/authors.py
 
 names:
 	git config --global mailmap.file .mailmap
@@ -276,7 +276,7 @@ doc: authors
 	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-config/master/cloudmesh/configuration/etc/cloudmesh.yaml
 	rm -rf docs
 	mkdir -p dest
-	make -f Makefile api
+	@make -f Makefile api
 	cd docs-source; make html
 	cp -r $(SOURCE)/_ext docs-source/build/html
 	cp -r $(SOURCE)/_templates docs-source/build/html
