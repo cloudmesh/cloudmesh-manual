@@ -172,9 +172,9 @@ manual-new:
 CMD5_COMMAND= admin banner clear echo default info pause plugin \
               q quit shell sleep stopwatch sys var version
 
-COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
+COMPUTE_COMMAND= open vbox vcluster batch vm ip key sec secgroup image \
                  flavor ssh workflow yaml service config container group \
-                 register
+                 register test gui viewer info provider py
 
 STORAGE_COMMAND= storage volume vdir
 
