@@ -2,16 +2,104 @@ Configuration
 =============
 
 The Configuration of Cloudmesh is controlled with a YAML file that is
-placed in `~/.cloudmesh/cloudmesh4.yaml`. It is created automatically
+placed in `~/.cloudmesh/cloudmesh.yaml`. It is created automatically
 from the template located at
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
 
-You can customize the file while editing it.
+upon first calling `cms help`. You can customize the file while editing it or add new
+providers.
+
+you can use the command `cms register` to find out what you need to specify.
+
+.. todo:: As the register command is new not each cloud is yet having a sample
+
+An example would be::
+
+    register list sample --service=compute --kind=openstack
+
+
+
+.. list-table:: Configuration Samples for Compute
+   :widths: 15 30
+   :header-rows: 1
+
+   * - Service
+     - Provider
+     - Account
+   * - Compute
+     - :doc:`AWS <../register/compute-aws>`
+     - :doc:`Account creation <../accounts/aws>`
+   * - Compute
+     - :doc:`Azure <../register/compute-azure>`
+     - :doc:`Account creation <../accounts/azure>`.
+   * - Compute
+     - :doc:`Google <../register/compute-google>`
+     - :doc:`Account creation <../accounts/google/index>`
+   * - Compute
+     - :doc:`Oracle <../register/compute-oracle>`
+     -
+   * - Compute
+     - :doc:`OpenSTack <../register/compute-openstack>`
+     -
+   * - Compute
+     - :doc:`Multipass <../register/compute-multipass>`
+
+
+.. list-table:: Configuration Samples for Volume
+   :widths: 15 30
+   :header-rows: 1
+
+   * - Service
+     - Provider
+   * - Volume
+     - :doc:`AWS <../register/volume-aws>`
+   * - Volume
+     - :doc:`Azure <../register/volume-azure>`
+   * - Volume
+     - :doc:`Google <../register/volume-google>`
+   * - Volume
+     - :doc:`Oracle <../register/volume-oracle>`
+   * - Volume
+     - :doc:`OpenSTack <../register/volume-openstack>`
+   * - Volume
+     - :doc:`Multipass <../register/volume-multipass>`
+
+
+.. list-table:: Configuration Samples for Storage
+   :widths: 15 30
+   :header-rows: 1
+
+   * - Service
+     - Provider
+   * - Storage
+     - :doc:`AWS <../register/storage-awss3>`
+   * - Storage
+     - :doc:`Azure <../register/storage-azureblob>`
+   * - Storage
+     - :doc:`Box <../register/storage-box>`
+   * - Storage
+     - :doc:`Local <../register/storage-local>`
+   * - Storage
+     - :doc:`OpenSTack <../register/storage-openstack>`
+   * - Storage
+     - :doc:`Parallel <../register/storage-parallel>`
+   * - Storage
+     - :doc:`Multipass <../register/storage-multipass>`
+   * - Storage
+     - :doc:`Oracle <../register/storage-oracle>`
+   * - Storage
+     - :doc:`Multipass <../register/storage-parallelazureblob>`
+   * - Storage
+     - :doc:`Multipass <../register/storage-parallelgdrive>`
+
 
 
 Cloudmesh Yaml File Object definitions
 --------------------------------------
+
+In addition to the register command, the YAML file can easily be controlled
+form the command line with the `config` command.
 
 Getting Values
 --------------
@@ -50,14 +138,12 @@ to specify the dict in which such values occur.
 For example, let us assume the value in cloudmesh.profile.firstname
 is TBD then, the command::
 
-
     cms config edit cloudmesh.profile
 
 can be used to change it.
 
 Advanced Yaml Variables
 -----------------------
-
 
 One of the features of the Cloudmesh YAML file is that it allows you to
 use previously defined attributes in the YAML file itself. Thus if an
@@ -198,42 +284,11 @@ service
 Adding Templates
 ----------------
 
-Cloudmesh has the feature of being able to create new services into the YAML
-file-based on temples provided by the Cloudmesh providers.
+New templates can be added with the register command.
 
-This includes
+The manual page to the rgister command is avalable here.
 
-* compute:
-
-  * aws
-  * azure
-  * google
-  * openstack
-  * oracle
-
-* storage
-
-  * google
-  * oracle
-
-This is easy to do with the following command
-
-CURRENT COMMAND::
-
-
-  cms register new -v  storage google google bucket=gregor
-
-
-FUTURE COMMAND::
-
-
-  cms register new -v  --kind=storage
-                       --servie=google
-                       --name=google
-                       --bucket=gregor
-
-
-.. todo:: describe the parameters, add a see also to the manual page
+.. todo:: put the link here
 
 Compute Cloud Providers
 -----------------------
@@ -291,36 +346,6 @@ the information must be properly protected.
           file, but it is not fully integrated yet.  Future versions
           of cloudmesh will encrypt the information by default.
 
-AWS
-~~~
-
-To obtain an account on AWS you can follow our instructions at
-:doc:`../accounts/aws`. The configuration file contains the
-following::
-
-   cloudmesh:
-     ...
-     cloud:
-       ...
-       aws:
-         cm:
-           active: False
-           heading: AWS
-           host: aws.amazon.com
-           label: aws
-           kind: aws
-           version: TBD
-           service: compute
-         default:
-           image: 'ami-0f65671a86f061fcd'
-           size: 't2.micro'
-         credentials:
-           region: 'us-west-2'
-           EC2_SECURITY_GROUP: 'group1'
-           EC2_ACCESS_ID: TBD
-           EC2_SECRET_KEY: TBD
-           EC2_PRIVATE_KEY_FILE_PATH: '~/.cloudmesh/aws_cert.pem'
-           EC2_PRIVATE_KEY_FILE_NAME: 'aws_cert'
 
 Azure
 ~~~~~
@@ -465,21 +490,6 @@ the following description::
            local: True
            hostname: localhost
 
-SSH
-~~~
-
-.. todo:: SSH,  STUDENT CONTRIBUTE HERE
-
-Local
-~~~~~
-
-.. todo:: Local,  STUDENT CONTRIBUTE HERE
-
-Docker
-~~~~~~
-
-.. todo:: Docker,  STUDENT CONTRIBUTE HERE
-
 Storage Providers
 -----------------
 
@@ -526,61 +536,38 @@ Client or resource for that geographic area. Here is a sample::
 .. todo:: Make credentials more uniform between compute and data
 
 
-.. _azure-1:
+.. todo:: in azure we had these explanations, maybe we need more info
+	  in the sample
+   
 
-Azure
-~~~~~
+	  Configuration settings for credentials in the yaml file can be
+	  obtained from Azure portal.
 
-It is beyond the scope of this manual to discuss how to get an account
-on Microsoft Azure. However, we do provide a convenient documentation at
-:doc:`../accounts/azure`.
+	  TODO: More information via a pointer to a documentation you create needs
+	  to be added here
 
-The ``cloudmesh.yaml`` file needs to be set up as follows for the
-‘azureblob’ section under ‘storage’::
+	  In the YAML file the following values have to be changed
 
-   cloudmesh:
-     ...
-     storage:
-       azureblob:
-         cm:
-           heading: Azure
-           host: azure.com
-           label: Azure
-           kind: azureblob
-           version: TBD
-           service: storage
-         default:
-           directory: /
-         credentials:
-           account_name: '*****************'
-           account_key: '*******************'
-           container: 'azuretest'
+	  -  ``account_name`` - This is the name of the Azure blob storage
+	     account.
+	  -  ``account_key`` - This can be found under ‘Access Keys’ after
+	     navigating to the storage account on the Azure portal.
+	  -  ``container`` - This can be set to a default container created under
+	     the Azure blob storage account.
+	     
 
-Configuration settings for credentials in the yaml file can be
-obtained from Azure portal.
-
-TODO: More information via a pointer to a documentation you create needs
-to be added here
-
-In the YAML file the following values have to be changed
-
--  ``account_name`` - This is the name of the Azure blob storage
-   account.
--  ``account_key`` - This can be found under ‘Access Keys’ after
-   navigating to the storage account on the Azure portal.
--  ``container`` - This can be set to a default container created under
-   the Azure blob storage account.
-
-Google drive
+Google drive 
 ~~~~~~~~~~~~
 
+.. todo:: to be deleted once integrated in table
+   
 Due to bugs in the requirements of the google driver code, we have not
 yet included it in the Provider code. This needs to be fixed before we
 can do this.
 
 It is beyond the scope of this manual to discuss how to get an account
 on Google. However, we do provide a convenient documentation at
-:doc:`../accounts/google/index`.
+.
 
 The ``cloudmesh.yaml`` file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’::
@@ -690,17 +677,6 @@ file you created as described in the Box chapter::
        credentials:
          config_path: ******************************
 
-
-Batch
------
-
-.. todo:: TBD
-
-
-REST
-----
-
-.. todo:: TBD
 
 Log File
 --------

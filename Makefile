@@ -9,6 +9,7 @@ HERCULES=docker run --rm srcd/hercules hercules
 LABOURS=docker run --rm -i -v $(pwd):/io srcd/hercules labours
 SOURCE=docs-source/source
 API=docs-source/source/api
+REGISTER=docs-source/source/register
 
 define banner
 	@echo
@@ -178,22 +179,31 @@ contrib:
 	git config --global mailmap.file .mailmap
 	@bin/authors.py
 
-samples:
-	register list sample --service=compute --kind=openstack
-	register list sample --service=compute --kind=aws
-	register list sample --service=compute --kind=azure
-	register list sample --service=compute --kind=google
-	register list sample --service=compute --kind=oracle
-	register list sample --service=volume --kind=openstack
-	register list sample --service=volume --kind=aws
-	register list sample --service=volume --kind=azure
-	register list sample --service=volume --kind=google
-	register list sample --service=volume --kind=oracle
-	register list sample --service=storage --kind=openstack
-	register list sample --service=storage --kind=aws
-	register list sample --service=storage --kind=azure
-	register list sample --service=storage --kind=google
-	register list sample --service=storage --kind=oracle
+register:
+	mkdir -p $(REGISTER)
+	cms register list sample --service=compute --kind=openstack > $(REGISTER)/compute-openstack.rst
+	cms register list sample --service=compute --kind=aws > $(REGISTER)/compute-aws.rst
+	cms register list sample --service=compute --kind=azure > $(REGISTER)/compute-azure.rst
+	cms register list sample --service=compute --kind=google > $(REGISTER)/compute-google.rst
+	cms register list sample --service=compute --kind=oracle > $(REGISTER)/compute-oracle.rst
+	cms register list sample --service=compute --kind=multipass > $(REGISTER)/compute-multipass.rst
+	#
+	cms register list sample --service=volume --kind=openstack > $(REGISTER)/volume-openstack.rst
+	cms register list sample --service=volume --kind=aws > $(REGISTER)/volume-aws.rst
+	cms register list sample --service=volume --kind=azure > $(REGISTER)/volume-azure.rst
+	cms register list sample --service=volume --kind=google > $(REGISTER)/volume-google.rst
+	cms register list sample --service=volume --kind=oracle > $(REGISTER)/volume-oracle.rst
+	cms register list sample --service=volume --kind=multipass > $(REGISTER)/volume-multipass.rst
+	#
+	cms register list sample --service=storage --kind=openstack > $(REGISTER)/storage-openstack.rst
+	cms register list sample --service=storage --kind=awss3 > $(REGISTER)/storage-awss3.rst
+	cms register list sample --service=storage --kind=azureblob > $(REGISTER)/storage-azureblob.rst
+	cms register list sample --service=storage --kind=box > $(REGISTER)/storage-box.rst
+	cms register list sample --service=storage --kind=local > $(REGISTER)/storage-local.rst
+	cms register list sample --service=storage --kind=parallel > $(REGISTER)/storage-parallel.rst
+	cms register list sample --service=storage --kind=parallelazureblob > $(REGISTER)/storage-parallelazureblob.rst
+	cms register list sample --service=storage --kind=parallelgdrive > $(REGISTER)/storage-parallelgdrive.rst
+	cms register list sample --service=storage --kind=oracle > $(REGISTER)/storage-oracle.rst
 
 names:
 	git config --global mailmap.file .mailmap
