@@ -218,20 +218,20 @@ This includes
 
 This is easy to do with the following command
 
-CURRENT COMMAND:
+CURRENT COMMAND::
 
-```
-cms register new -v  storage google google bucket=gregor
-```
 
-FUTURE COMMAND:
+  cms register new -v  storage google google bucket=gregor
 
-```
-cms register new -v  --kind=storage
-                     --servie=google
-                     --name=google
-                     --bucket=gregor
-```
+
+FUTURE COMMAND::
+
+
+  cms register new -v  --kind=storage
+                       --servie=google
+                       --name=google
+                       --bucket=gregor
+
 
 .. todo:: describe the parameters, add a see also to the manual page
 
