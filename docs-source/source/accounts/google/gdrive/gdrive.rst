@@ -11,9 +11,6 @@ The user does not need to install any kind of software in order to view these fi
 Python Google Drive API
 -----------------------
 
-Step-by-step process
-~~~~~~~~~~~~~~~~~~~~
-
 Before writing the Python interface for Google Drive, we need to setup
 an email account, with that email account we will get a set of google
 services and one of them is Google Drive with 15 GB overall storage.
@@ -62,7 +59,14 @@ Google Drive API.
 In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed
 for authentication, including path for "credentials.json" and path for "token.pickle", which we will create next.  
 Depending on our project, and cloud we are using, e.g. if project is cloudmesh-storage, cloud 
-is parallelgdrive, assuming we put "credentials.json" and "token.pickle" in C:/Users/sara/cm, these are the keys and 
+is parallelgdrive, assuming we put "credentials.json" and "token.pickle" in 
+
+.. todo:: no hardcoded path
+
+C:/Users/sara/cm
+
+
+, these are the keys and 
 values to put in the "credentials" section::
 
     parallelgdrive:
@@ -103,10 +107,17 @@ pipeline has bees completed).
 
 If the authentication flow is completed then it will
 create a ``token.pickle`` file in our working directory on our computer. We need to place this file in the token_path
-specified in the cloudmesh.yaml file, in this example it is C:/Users/sara/cm directory.
+specified in the cloudmesh.yaml file, in this example it is 
+
+.. todo:: no hardcoded path, no one has access to your file
+
+          C:/Users/sara/cm 
+
+directory.
 This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason, 
 e.g. changing the permission scope, then the authorization process will again ask for login id and
 password and again create ``token.pickle`` automatically.
+
 
 Once all these steps are done correctly, we can use the Python
 program interface to transfer the files between our Python program and

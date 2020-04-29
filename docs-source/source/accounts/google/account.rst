@@ -174,8 +174,6 @@ You are all set with account setup.
 JUNK
 ^^^^
 
---------------
-
 For google cloud storage cloudmesh services ``cms`` provides command
 line interface which is part of part of cloudmesh-google storage
 application.
@@ -192,7 +190,6 @@ to create a new service account. Select
 
 -  ``Furnish a new private key``
 
---------------
 
 Links
 -----

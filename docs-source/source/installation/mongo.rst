@@ -49,6 +49,7 @@ The database will be started based-on the information as specified in
 ``~/.cloudmesh/cloudmesh.yaml``. An example is
 
 ::
+   
     mongo:
       MONGO_AUTOINSTALL: False
       MONGO_BREWINSTALL: False
@@ -228,7 +229,7 @@ Find out how many entries exist with the name CC-CentOS7::
     pprint(r)
 
 Creating Unique Names
---------------------
+---------------------
 
 Often it is important to create unique names. To support the easy creation
 without hassle, we designed a ``Name`` class, that takes its values from the

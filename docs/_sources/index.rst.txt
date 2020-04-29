@@ -79,7 +79,8 @@ Cloudmesh Version 4
 .. toctree::
    :caption: GOOGLE ACCOUNT (FIXME)
    :maxdepth: 2
-
+	      
+   accounts/google/index
    accounts/google/FIXME
    accounts/google/gdrive/gdrive
    accounts/google/gdrive/google-drive
@@ -95,7 +96,9 @@ Cloudmesh Version 4
    :caption: FAQ AND TIPS
    :maxdepth: 2
 
-   faq/automated-install
+   faq/install
+   faq/chameleon
+   faq/windows
 
 .. toctree::
    :caption: UNLISTED TODO

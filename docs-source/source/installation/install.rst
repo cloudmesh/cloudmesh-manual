@@ -310,7 +310,7 @@ venv Setup on Windows
 On Windows, you run the following command from your home directory at
 `C:\Users\USERNAME`:
 
-.. code-block:: cmd
+.. code-block:: bash
 
   python -m venv ENV3
   source ENV3\Scripts\activate
@@ -345,7 +345,7 @@ Lastly, to simplify the `venv` activation call, create a new `ENV3.bat`
 file under the default directory, and add the following content to the
 file.
 
-.. code-block:: cmd
+.. code-block:: bash
 
   C:\Users\USERNAME\ENV3\Scripts\activate.bat
 

@@ -1,7 +1,8 @@
 Windows 10
 ==========
 
-C::raw-latex:`\Users`:raw-latex:`\USER`>
+Make sure to close all windows and programs and editors that relate to
+cloudmesh or the ENV3 directory.
 
 ::
 
@@ -15,7 +16,6 @@ C::raw-latex:`\Users`:raw-latex:`\USER`>
    cd cm
    pip install pip -U
    pip install-cloudmesh-installer
-   cloudmesh-installer git clone cloud
-   cloudmesh-installer install -e
+   cloudmesh-installer get openstack
 
 

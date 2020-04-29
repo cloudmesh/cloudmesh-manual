@@ -130,7 +130,7 @@ The values can be set with the default command.
 
 
 General Service Attributes
--------------------
+--------------------------
 
 Each Cloudmesh service must have an attribute ``cm`` with the
 following fields. If an attribute contains the value `TBD`
@@ -218,20 +218,20 @@ This includes
 
 This is easy to do with the following command
 
-CURRENT COMMAND:
+CURRENT COMMAND::
 
-```
-cms register new -v  storage google google bucket=gregor
-```
 
-FUTURE COMMAND:
+  cms register new -v  storage google google bucket=gregor
 
-```
-cms register new -v  --kind=storage
-                     --servie=google
-                     --name=google
-                     --bucket=gregor
-```
+
+FUTURE COMMAND::
+
+
+  cms register new -v  --kind=storage
+                       --servie=google
+                       --name=google
+                       --bucket=gregor
+
 
 .. todo:: describe the parameters, add a see also to the manual page
 
@@ -364,9 +364,8 @@ To obtain an account on Azure you can follow our instructions at
 Google
 ~~~~~~
 
-
 To obtain an account on Google you can follow our instructions at
-:doc:`../accounts/gooogle`. THe configuration file contains the
+:doc:`../accounts/google/index`. THe configuration file contains the
 following::
 
    cloudmesh:
@@ -554,7 +553,7 @@ The ``cloudmesh.yaml`` file needs to be set up as follows for the
            directory: /
          credentials:
            account_name: '*****************'
-           account_key: '********************************************************************'
+           account_key: '*******************'
            container: 'azuretest'
 
 Configuration settings for credentials in the yaml file can be
@@ -581,7 +580,7 @@ can do this.
 
 It is beyond the scope of this manual to discuss how to get an account
 on Google. However, we do provide a convenient documentation at
-:doc:`../accounts/google`.
+:doc:`../accounts/google/index`.
 
 The ``cloudmesh.yaml`` file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’::

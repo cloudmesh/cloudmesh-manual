@@ -67,8 +67,8 @@ pipeline has bees completed).
    Authentication success
 
 .. todo:: Google account. This documentation is a bit unstructured and
-repetitive. Yet errors such as references to Authentication.py are
-conducted which does not exist.
+	  repetitive. Yet errors such as references to
+	  Authentication.py are conducted which does not exist.
 
 If the authentication flow is completed then the Authentication.py will
 create a ``google-drive-credentials.json`` file in ``.credentials``

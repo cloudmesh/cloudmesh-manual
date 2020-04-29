@@ -123,7 +123,7 @@ The following steps document an Azure CLI installation for Windows 10.
 Start with opening up Windows PowerShell in Administrative Mode, then
 run the following:
 
-.. code:: powershell
+.. code:: bash
 
    cd ~
    ~\ENV3\Scripts\Activate.ps1
@@ -134,7 +134,7 @@ Let’s start by running ``az login``, which will then prompt you to login
 via your default browser. Note: you can now utilize Windows Command
 Prompt or PowerShell for interacting with the Azure CLI:
 
-.. code:: cmd
+.. code:: bash
 
    az login
 
