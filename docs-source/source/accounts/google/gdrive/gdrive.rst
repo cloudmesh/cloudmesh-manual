@@ -39,7 +39,7 @@ As we see next we need to select Google Drive API from here
 
 After that, we need to obtain the client_secret file as shown next: (The
 file that is downloaded as ``client_id.json`` needs to be renamed as
-``client_secret.json``)
+``credentials.json``)
 
 .. figure:: images/image18.png
    :alt: Rename the file
@@ -49,8 +49,32 @@ file that is downloaded as ``client_id.json`` needs to be renamed as
 After this we need to click ``Done`` otherwise it would not set the
 Google Drive API.
 
-After this if we run Authentication.py we will be redirected to our
-default browser to put our our login id and password and after that it
+In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed
+for authentication, including path for "credentials.json" and path for "token.pickle" (which we will create next.  
+Depending on our project, and cloud we are using, e.g. if project is cloudmesh-storage, cloud 
+is parallelgdrive, assuming we put "credentials.json" and "token.pickle" in C:/Users/sara/cm, these are the keys and 
+values to put in the "credentials" section:
+    parallelgdrive:
+      cm:
+        active: false
+        heading: GDrive
+        host: dgrive.google.com
+        label: parallelgdrive
+        kind: parallelgdrive
+        version: TBD
+        service: storage
+      default:
+        directory: TBD
+      credentials:
+        credentials_json_path: C:/Users/sara/cm
+        token_path: C:/Users/sara/cm
+
+Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
+in the Provider.py file. Here is the link: 
+<https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py>
+
+When we run the Provider.py for the first time, we will be redirected to the
+default browser to put our login id and password and after that it
 asks to authenticate our credentials. If we allow that as shown next:
 
 .. figure:: images/image21.png
@@ -66,31 +90,12 @@ pipeline has bees completed).
 
    Authentication success
 
-.. todo:: Google account. This documentation is a bit unstructured and
-repetitive. Yet errors such as references to Authentication.py are
-conducted which does not exist.
+If the authentication flow is completed then it will
+create a ``token.pickle`` file in our working directory on our computer. 
+This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason, 
+e.g. changing the permission scope, then the authorization process will again ask for login id and
+password and again create ``token.pickle`` automatically.
 
-If the authentication flow is completed then the Authentication.py will
-create a ``google-drive-credentials.json`` file in ``.credentials``
-folder. This file can be used for future purposes. If we delete this
-file then the ``Authentication.py`` will again ask for login id and
-password and again create that file automatically.
-
-So, now with the
-
--  ``client_secret.json``,
--  ``google-drive-credentials.json``
-
-we can now use
-
--  [ ] TODO: Google account. This documentation is a bit unstructured
-   and repetitive. Yet errors such as references to Authentication.py
-   are conducted which does not exist.
-
--  ``Authentication.py`` and ``Provider.py``
-
--  [ ] TODO: Google account. location of the file is missing
-
-Once all these steps are done correctly, then we can use the Python
+Once all these steps are done correctly, we can use the Python
 program interface to transfer the files between our Python program and
 Google Drive.
