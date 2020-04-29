@@ -178,6 +178,23 @@ contrib:
 	git config --global mailmap.file .mailmap
 	@bin/authors.py
 
+samples:
+	register list sample --service=compute --kind=openstack
+	register list sample --service=compute --kind=aws
+	register list sample --service=compute --kind=azure
+	register list sample --service=compute --kind=google
+	register list sample --service=compute --kind=oracle
+	register list sample --service=volume --kind=openstack
+	register list sample --service=volume --kind=aws
+	register list sample --service=volume --kind=azure
+	register list sample --service=volume --kind=google
+	register list sample --service=volume --kind=oracle
+	register list sample --service=storage --kind=openstack
+	register list sample --service=storage --kind=aws
+	register list sample --service=storage --kind=azure
+	register list sample --service=storage --kind=google
+	register list sample --service=storage --kind=oracle
+
 names:
 	git config --global mailmap.file .mailmap
 	make -f Makefile names-dir > .names.txt
