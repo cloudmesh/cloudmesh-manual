@@ -37,13 +37,23 @@ for d in [".",
         for line in lines[:-1]:
             if debug:
                 print (d, line)
-            names.append("*" + line.strip().split("\t")[1] + "*")
+            if "dependabot" in line:
+                continue
+            if  "gvonlasz" in line:
+                continue
+            else:
+                names.append("*" + line.strip().split("\t")[1] + "*")
+
     except:
         pass
 
 names = list(set(names))
 
 names.sort()
+
+if debug:
+    print (names)
+    print (len(names))
 
 # names = " ".join(names)
 # names = names.replace("ElectricErudite", "Andrew Holland")
