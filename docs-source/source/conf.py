@@ -56,7 +56,8 @@ extensions = [
     'sphinx.ext.githubpages',
     'edit_on_github',
     'IPython.sphinxext.ipython_console_highlighting',
-    'IPython.sphinxext.ipython_directive'
+    'IPython.sphinxext.ipython_directive',
+    'sphinxcontrib.mermaid'
 ]
 
 #    'sphinxcontrib.fulltoc'

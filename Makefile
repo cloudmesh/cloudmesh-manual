@@ -2,6 +2,8 @@ package=manual
 UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
 
+.PHONY: watch
+
 GIT=https://github.com/cloudmesh
 COMMUNITY=$(GIT)-community
 
@@ -32,6 +34,9 @@ all:
 	make -f Makefile manual
 	cms timer on
 	cms debug on
+
+watch:
+	cd docs-source; make watch
 
 install:
 	pip install cloudmesh-installer -U
@@ -255,8 +260,7 @@ clean:
 	rm -rf *.eggs
 	rm -rf docs-source/build
 	rm -rf build
-	find . -type d -name __pycache__ -delete
-	find . -name '*.pyc' -delete
+	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 	rm -rf .tox
 	rm -f *.whl
 	rm -rf docs

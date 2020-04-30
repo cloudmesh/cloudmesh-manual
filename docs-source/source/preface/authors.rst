@@ -16,5 +16,5 @@
     *Shreyans Jain*, *Sriman*, *Subramaniyam Raizada*, *Swaroop, Saurabh*, *Tarun
     Rawat*, *Tharak Vangalapat*, *Vafa Andalibi*, *Xiao Yue*, *Xin Gu*, *XinGu*,
     *Yasir Al Ilbadi*, *Yu Luo*, *Yue, Xiao*, *Zhengyi Li*, *akshaygpt*, *iumsds*,
-    *rahul*, *xin-gu*
+    *rahul*, *shihui123*, *xin-gu*
 
