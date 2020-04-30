@@ -14,7 +14,9 @@ Prerequisites for macOS
       install --> I(pip install cloudmesh-openstack)
       I --> cms(cms help)
 
-     click Xcode "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html#xcode"
+     click xcode "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html#Xcode"
+     click python "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html#Python"
+     click Key "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html#Key"
 
 
 Xcode

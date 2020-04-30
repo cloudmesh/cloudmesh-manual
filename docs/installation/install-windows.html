@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh Instalation &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Windows native Installation Approach &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -28,6 +28,7 @@
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -240,13 +241,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Cloudmesh Instalation</li>
+      <li>Windows native Installation Approach</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/installation/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/installation/install-windows.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -259,68 +260,140 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cloudmesh-instalation">
-<h1>Cloudmesh Instalation<a class="headerlink" href="#cloudmesh-instalation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Install</span></p>
+  <div class="section" id="windows-native-installation-approach">
+<h1>Windows native Installation Approach<a class="headerlink" href="#windows-native-installation-approach" title="Permalink to this headline">¶</a></h1>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuration-with-the-gui">Configuration with the GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#manual">Manual</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#generating-the-key-and-certificate">Generating the Key and Certificate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#validate-and-verify-the-key">Validate and verify the key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#initialization">Initialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#initialize-keys-and-security-groups">Initialize keys and Security Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#command-line">Command line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#interactive-shell">Interactive shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#command-scripts">Command scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#cache">Cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#using-quotes">Using quotes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuring-chameleon-cloud">Configuring chameleon cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#timer">Timer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#debugging">Debugging</a></li>
+<li><p>Ensure that Python 3.8.2 (or higher) has been installed. Python 3.8 can be
+installed on Windows 10 using:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
 </ul>
+<p>Make sure
+you download the 64 bit version. Unfortunately, the default version is teh 32
+bit version.</p>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-cloudmesh-with-docker">Installation of cloudmesh with Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#prerequisites-for-other-installs">Prerequisites for other Installs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#ssh-key">SSH key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-cloudmesh-end-user">Installation of Cloudmesh (End User)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#cloudmesh-directory">.cloudmesh directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-mongodb">Installation of MongoDB</a></li>
+<li><p>Create a <cite>venv</cite>. See section on prerequisites for venv provides more details.</p></li>
+<li><p>Some Python librarier may need to be compiled. In order for you to complete
+your Python instalation you want to install th <em>VC C++ command line Build Tools</em>.
+This is mostly needed for cryptography libraries.
+You can find them at:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019">https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019</a></p></li>
 </ul>
+<p>Once you run the installer
+you need to check on the choices as shown in the next image.</p>
+<div class="align-center figure" id="id1">
+<a class="reference internal image-reference" href="installation/images/VSprintscreen.PNG"><img alt="alternate text" src="installation/images/VSprintscreen.PNG" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-text">Figure: select the commandline (CLI) build tools</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install-docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-macos.html">Prerequisites for macOS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install-macos.html#xcode">Xcode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-macos.html#python">Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-macos.html#key">Key</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="install-ubuntu-20-04.html">Prerequisites for Ubuntu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-ubuntu-18-04.html">Prerequisites for Ubuntu 18.04</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install-dev.html#cloudmesh-updates">Cloudmesh Updates</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mongo.html#database-decorator">Database Decorator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mongo.html#database-access">Database Access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mongo.html#creating-unique-names">Creating Unique Names</a></li>
-</ul>
+<li><p>You will also have to add the following path to the PATH variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)</span>\<span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">Studio</span>\<span class="mi">2019</span>\<span class="n">Community</span>\<span class="n">VC</span>\<span class="n">Tools</span>\<span class="n">MSVC</span>\<span class="mf">14.24</span><span class="o">.</span><span class="mi">28314</span>\<span class="nb">bin</span>\<span class="n">Hostx64</span>\<span class="n">x64</span>\
+</pre></div>
+</div>
+<p>If you have a newer version, please update the Path accordingly. The next two
+images show screenshots on what you need to change. You will naturally have a
+different username.</p>
+<div class="align-center figure" id="id2">
+<a class="reference internal image-reference" href="../_images/EnvironmentVariables.png"><img alt="alternate text" src="../_images/EnvironmentVariables.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-text">Figure: add the build tool path to the PATH variable</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id3">
+<a class="reference internal image-reference" href="../_images/windowsbuildtoolspath.png"><img alt="alternate text" src="../_images/windowsbuildtoolspath.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-text">Figure: add the build tool path to the PATH variable</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Windows</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html">Windows native Installation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html#windows-container-approach">Windows Container Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html#linux-subsystem-installation-approach">Linux Subsystem Installation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html#venv-setup-on-windows-cmd-exe">venv Setup on Windows CMD.EXE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows 10</a></li>
-</ul>
+<div class="section" id="windows-container-approach">
+<h1>Windows Container Approach<a class="headerlink" href="#windows-container-approach" title="Permalink to this headline">¶</a></h1>
+<p>The user container for cloudmesh shell is called cmsd (cloudmesh shell docker).
+It can be installed with pip as follows</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cmsd
+</pre></div>
 </div>
+<p>Please note that in order for you do develop cloudmesh you need to do this
+within the container However we do recommend that Windows developer use the
+Windows native cloudmesh approach. However regular user will have a very
+transparent acces to cloudmesh as most commands ar just passed along to the
+container.</p>
+<p>The manual page for cmsd is located at <a class="reference internal" href="../cmsd.html"><span class="doc">Cloudmesh cmsd</span></a></p>
+</div>
+<div class="section" id="linux-subsystem-installation-approach">
+<h1>Linux Subsystem Installation Approach<a class="headerlink" href="#linux-subsystem-installation-approach" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>MongoDB reports that mongo is not yet working on Linux
+Subsystem. As cloudmesh uses mongo, please do not yet use
+the Linux Subsystem install.</p>
+</div>
+<p>To activate the Linux Subsystem, please follow the instructions at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p></li>
+</ul>
+<p>A suitable distribution would be</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab">https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab</a></p></li>
+</ul>
+<p>However, as it uses an older version of python, you will be required to update it.</p>
+</div>
+<div class="section" id="venv-setup-on-windows-cmd-exe">
+<h1>venv Setup on Windows CMD.EXE<a class="headerlink" href="#venv-setup-on-windows-cmd-exe" title="Permalink to this headline">¶</a></h1>
+<p>On Windows, you run the following command from your home directory at
+<cite>C:UsersUSERNAME</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m venv ENV3
+<span class="nb">source</span> ENV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+python -m pip install --upgrade pip
+</pre></div>
+</div>
+<p>Next, create a Windows system variable named <cite>ENV3</cite> and update the
+variable value to <cite>C:UsersUSERNAMEENV3Scriptsactivate</cite>.</p>
+<div class="align-center figure" id="id4">
+<a class="reference internal image-reference" href="../_images/ENV3variable.png"><img alt="alternate text" src="../_images/ENV3variable.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-text">Figure: Setting the ENV3 variable</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>Then add the <cite>ENV3</cite> variable name to the Path variable.</p>
+<div class="align-center figure" id="id5">
+<a class="reference internal image-reference" href="../_images/ENV3addedtoPath.png"><img alt="alternate text" src="../_images/ENV3addedtoPath.png" style="width: 200px; height: 100px;" /></a>
+<p class="caption"><span class="caption-text">Figure: Add the variable to the path</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Lastly, to simplify the <cite>venv</cite> activation call, create a new <cite>ENV3.bat</cite>
+file under the default directory, and add the following content to the
+file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME<span class="se">\E</span>NV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The same can be done in Windows Powershell by creating a <cite>ENV3.ps1</cite> to
+reference the activation command.</p>
+</div>
+<p><strong>Test the venv activation</strong></p>
+<p>We recommend  that you test the venv activation. In a command prompt, type
+<cite>ENV3</cite> while under the home directory; or if the bat file was not created,
+simply reference the system variable %ENV3%.</p>
+<p>Example using bat file activation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt; ENV3
+
+...
+
+<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
+</pre></div>
+</div>
+<p>Example using Windows environment variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt; %ENV3%
+
+<span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
+</pre></div>
+</div>
+<p>In both cases you will see the command prompt starting with <cite>(ENV3)</cite>.</p>
+<p><strong>Validate Python and Pip Version in venv</strong></p>
+<p>Check if you have the right version of python and pip installed with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python --version
+pip --version
+</pre></div>
+</div>
+<p>Now you are ready to install cloudmesh.</p>
 </div>
 
 

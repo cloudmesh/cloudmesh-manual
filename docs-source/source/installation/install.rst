@@ -68,20 +68,6 @@ This also helps to decide which instalation method is best suited for you.
      click Linux "https://cloudmesh.github.io/cloudmesh-manual/installation/install-linux.html"
      click macOS "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html"
 
-.. mermaid::
-
-   graph TD
-      A(Prerequits) --> python(Python 3.7 or 3.8)
-      python --> pip(pip >20.0)
-      pip --> venv(venv)
-      venv --> install
-      key --> install
-      A --> xcode(X code)
-      xcode --> keygen(ssh keygen)
-      keygen -->key[fa:fa-key Key]
-      install --> I(pip install openstack)
-
-
 
 Installation of cloudmesh with Docker
 -------------------------------------
