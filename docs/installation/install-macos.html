@@ -95,6 +95,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
@@ -261,17 +262,6 @@
             
   <div class="section" id="prerequisites-for-macos">
 <h1>Prerequisites for macOS<a class="headerlink" href="#prerequisites-for-macos" title="Permalink to this headline">¶</a></h1>
-<p>You want a number of useful tools on your macOS. They are not installed by
-default, but are available via Xcode. First you need to install xcode from</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835">https://apps.apple.com/us/app/xcode/id497799835</a></p></li>
-</ul>
-<p>You need to install macOS xcode command line tools</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcode-select --install
-</pre></div>
-</div>
-<p>Next you want to install a python version. You can either chose the installation
-from python.org or from homebrew.</p>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph TD
    A(Prerequits) --&gt; python(Python 3.7 or 3.8)
@@ -284,7 +274,23 @@ from python.org or from homebrew.</p>
    keygen --&gt;key[fa:fa-key Key]
    install --&gt; I(pip install cloudmesh-openstack)
    I --&gt; cms(cms help)
-        </div></div>
+
+  click Xcode &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html&quot;
+        </div><div class="section" id="xcode">
+<h2>Xcode<a class="headerlink" href="#xcode" title="Permalink to this headline">¶</a></h2>
+<p>You want a number of useful tools on your macOS. They are not installed by
+default, but are available via Xcode. First you need to install xcode from</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835">https://apps.apple.com/us/app/xcode/id497799835</a></p></li>
+</ul>
+<p>You need to install macOS xcode command line tools</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcode-select --install
+</pre></div>
+</div>
+<p>Next you want to install a python version. You can either chose the installation
+from python.org or from homebrew.</p>
+</div>
+</div>
 
 
            </div>
