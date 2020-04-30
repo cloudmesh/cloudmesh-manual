@@ -11,6 +11,12 @@ SOURCE=docs-source/source
 API=docs-source/source/api
 REGISTER=docs-source/source/register
 
+ifeq ($(UNAME),Linux)
+    OPEN=gopen
+else
+    OPEN=open
+endif
+
 define banner
 	@echo
 	@echo "###################################"
@@ -67,35 +73,13 @@ cloudmesh-installer \
 cloudmesh-openapi \
 cloudmesh-sys \
 cloudmesh-test \
+cloudmesh-javascript
 
 
 api:
 	rm -rf docs-source/source/api
 	rm -rf tmp
 	mkdir -p tmp/cloudmesh
-	@cd  ../cloudmesh-abstract; git log | fgrep Author
-	@cd  ../cloudmesh-admin; git log | fgrep Author
-	@cd  ../cloudmesh-aws; git log | fgrep Author
-	@cd  ../cloudmesh-azure; git log | fgrep Author
-	@cd  ../cloudmesh-cloud; git log | fgrep Author
-	@cd  ../cloudmesh-common; git log | fgrep Author
-	@cd  ../cloudmesh-cmd5; git log | fgrep Author
-	@cd  ../cloudmesh-cmdsd; git log | fgrep Author
-	@cd  ../cloudmesh-configuration; git log | fgrep Author
-	@cd  ../cloudmesh-configuration; git log | fgrep Author
-	@cd  ../cloudmesh-google; git log | fgrep Author
-	@cd  ../cloudmesh-gui; git log | fgrep Author
-	@cd  ../cloudmesh-installer; git log | fgrep Author
-	@cd  ../cloudmesh-inventory; git log | fgrep Author
-	@cd  ../cloudmesh-javascript; git log | fgrep Author
-	@cd  ../cloudmesh-multipass; git log | fgrep Author
-	@cd  ../cloudmesh-openapi; git log | fgrep Author
-	@cd  ../cloudmesh-oracle; git log | fgrep Author
-	@cd  ../cloudmesh-openstack; git log | fgrep Author
-	@cd  ../cloudmesh-storage; git log | fgrep Author
-	@cd  ../cloudmesh-sys; git log | fgrep Author
-	@cd  ../cloudmesh-volume; git log | fgrep Author
-	@cd ../cloudmesh-test; git log | fgrep Author
 	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
 	make -f Makefile api-index
 
@@ -205,38 +189,6 @@ register:
 	cms register list sample --service=storage --kind=parallelgdrive > $(REGISTER)/storage-parallelgdrive.rst
 	cms register list sample --service=storage --kind=oracle > $(REGISTER)/storage-oracle.rst
 
-names:
-	git config --global mailmap.file .mailmap
-	make -f Makefile names-dir > .names.txt
-	sort -u .names.txt > names.txt
-	cat names.txt
-
-names-dir:
-	@cd ../cloudmesh-abstract; git log | fgrep Author
-	@cd ../cloudmesh-admin; git log | fgrep Author
-	@cd ../cloudmesh-aws; git log | fgrep Author
-	@cd ../cloudmesh-azure; git log | fgrep Author
-	@cd ../cloudmesh-cloud; git log | fgrep Author
-	@cd ../cloudmesh-common; git log | fgrep Author
-	@cd ../cloudmesh-cmd5; git log | fgrep Author
-	@cd ../cloudmesh-cmdsd; git log | fgrep Author
-	@cd ../cloudmesh-configuration; git log | fgrep Author
-	@cd ../cloudmesh-configuration; git log | fgrep Author
-	@cd ../cloudmesh-google; git log | fgrep Author
-	@cd ../cloudmesh-gui; git log | fgrep Author
-	@cd ../cloudmesh-installer; git log | fgrep Author
-	@cd ../cloudmesh-inventory; git log | fgrep Author
-	@cd ../cloudmesh-javascript; git log | fgrep Author
-	@cd ../cloudmesh-multipass; git log | fgrep Author
-	@cd ../cloudmesh-openapi; git log | fgrep Author
-	@cd ../cloudmesh-oracle; git log | fgrep Author
-	@cd ../cloudmesh-openstack; git log | fgrep Author
-	@cd ../cloudmesh-storage; git log | fgrep Author
-	@cd ../cloudmesh-sys; git log | fgrep Author
-	@cd ../cloudmesh-volume; git log | fgrep Author
-	@cd ../cloudmesh-test; git log | fgrep Author
-	@cd ../cloudmesh-test; git log | fgrep Author
-	@git log | fgrep Author
 
 source:
 	cd ../cloudmesh.common; make source
@@ -250,53 +202,24 @@ manual-new:
 	mkdir -p $(SOURCE)/manual/openapi
 	cms man --kind=rst openapi > $(SOURCE)/manual/openapi/openapi.rst
 
-
-CMD5_COMMAND= admin banner clear echo default info pause plugin \
-              q quit shell sleep stopwatch sys var version py
-
-MANAGEMENT_COMMAND= gui viewer info provider test register config yaml
-
-COMPUTE_COMMAND= open vbox vcluster batch vm ip key sec secgroup image \
-                 flavor ssh workflow service container group
-
-STORAGE_COMMAND= storage volume vdir
-
-GROUP_COMMAND= group
-
-CMSD_COMMAND= cmsd
-
-
-#MANUAL=$(CMD5_COMMAND) $(COMPUTE_COMMAND) $(STORAGE_COMMAND)
-
-#$(MANUAL): $(SOURCE)/manual/%.rst:
-# 	cms man $@ --format=rst  > $(SOURCE)/manual/cmd5/$@.rst;
-
-#pman: $(MANUAL)
-
-#man:
-#	make -j Makefile pman
-
-
-
 manual:
 	cms set timer=False
 	mkdir -p $(SOURCE)/manual
 	cms help > /tmp/commands.rst
-	-echo "# Commands" > $(SOURCE)/manual/all.md
-	-echo  >> $(SOURCE)/manual/all.md
-	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
-	-tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/all.md
-	-echo  "\`\`\`" >> $(SOURCE)/manual/all.md
-	pandoc $(SOURCE)/manual/all.md -o $(SOURCE)/manual/all.rst
-	rm $(SOURCE)/manual/all.md
+	-echo "Commands" > $(SOURCE)/manual/all.rst
+	-echo "--------" >> $(SOURCE)/manual/all.rst
+	-echo  >> $(SOURCE)/manual/all.rst
+	-echo  "::" >> $(SOURCE)/manual/all.rst
+	-echo  >> $(SOURCE)/manual/all.rst
+	-tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/all.rst
+	-echo  >> $(SOURCE)/manual/all.rst
 	cms man --dir=$(SOURCE)/manual --format=rst
 	cms version --number > $(SOURCE)/manual/versions.txt
 	make -f Makefile doc
 
 authors:
-	@bin/authors.py > $(SOURCE)/preface/authors.md
-	@pandoc $(SOURCE)/preface/authors.md -o $(SOURCE)/preface/authors.rst
-	@rm $(SOURCE)/preface/authors.md
+	git config --global mailmap.file .mailmap
+	@bin/authors.py > $(SOURCE)/preface/authors.rst
 
 doc: authors
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
@@ -321,26 +244,8 @@ pdf: authors
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 
 view:
-	open docs/index.html
+	$(OPEN) docs/index.html
 
-nist-install: nist-download nist-copy
-
-nist-download:
-	rm -rf ../nist
-	git clone https://github.com/davidmdem/nist ../nist
-
-nist-copy:
-	cd cm4/api; rm -rf specs; mkdir specs;
-	rsync -a --prune-empty-dirs --include '*/' --include '*.yaml' --exclude '*' ../nist/services/ ./cm4/api/specs/
-
-
-#
-# TODO: BUG: This is broken
-#
-#pylint:
-#	mkdir -p docs/qc/pylint/cm
-#	pylint --output-format=html cloudmesh > docs/qc/pylint/cm/cloudmesh.html
-#	pylint --output-format=html cloud > docs/qc/pylint/cm/cloud.html
 
 clean:
 	$(call banner, "CLEAN")
@@ -356,10 +261,6 @@ clean:
 	rm -f *.whl
 	rm -rf docs
 	rm -rf tmp
-
-#	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
-#	rm -f ./docs/todo.html
-#	rm -rf ./docs-source/source/api
 
 
 ######################################################################

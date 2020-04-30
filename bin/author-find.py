@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from cloudmesh.common.Shell import Shell
 from pprint import pprint
 
@@ -33,7 +34,6 @@ repos = [
     "cloudmesh-openstack",
     "cloudmesh-oracle",
     "cloudmesh-redshift",
-    "cloudmesh-stopwatch",
     "cloudmesh-storage",
     "cloudmesh-storagelifecycle",
     "cloudmesh-sys",

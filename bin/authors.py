@@ -7,11 +7,18 @@ debug = False
 names = []
 
 for d in [".",
+          "../cloudmesh-abstract",
+          "../cloudmesh-admin",
           "../cloudmesh-installer",
           "../cloudmesh-inventory",
           "../cloudmesh-gui",
           "../cloudmesh-configuration",
           "../cloudmesh-cmd5",
+          "../cloudmesh-cmdsd",
+          "../cloudmesh-javascript",
+          "../cloudmesh-multipass",
+          "../cloudmesh-javascript",
+          "../cloudmesh-volume",
           "../cloudmesh-aws",
           "../cloudmesh-azure",
           "../cloudmesh-openstack",
@@ -21,6 +28,8 @@ for d in [".",
           "../cloudmesh-sys",
           "../cloudmesh-openapi",
           "../cloudmesh-emr",
+          "../cloudmesh-manual",
+          "../cloudmesh-pi-cluster",
           "../cloudmesh-cloud",
           "../cloudmesh-storage"]:
     try:
@@ -31,8 +40,6 @@ for d in [".",
             names.append("*" + line.strip().split("\t")[1] + "*")
     except:
         pass
-
-
 
 names = list(set(names))
 
@@ -46,7 +53,9 @@ name_string = '\n    '.join(textwrap.wrap(', '.join(names), 79, initial_indent="
 
 '''
 
-print("# Contributors")
+print("Contributors")
+print("------------")
+
 print()
 
 msg = """Contributors are sorted by the first letter of their combined
