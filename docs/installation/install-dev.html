@@ -95,6 +95,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
@@ -330,6 +331,22 @@ directory. Then copy your changes into the newest code. Make sure to
 remove all python artifacts in the backup directory the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm
 cloudmesh-installer clean --dir<span class="o">=</span>. --force
+</pre></div>
+</div>
+</div>
+<div class="section" id="reinstallation">
+<h2>Reinstallation<a class="headerlink" href="#reinstallation" title="Permalink to this headline">¶</a></h2>
+<p>In case you need to reinstall cloudmesh and you have used previously the
+<cite>cloudmesh-installer</cite>, you can do it as follows (We assume you have used venv
+and the <cite>cloudmesh-installer</cite> in the directory cm as documented previously):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory where your source locates</span>
+cloudmesh-installer clean --dir<span class="o">=</span>. --force
+cloudmesh-installer clean --ENV<span class="o">=</span>~/ENV3 --force
+python3 -m venv ~/ENV3
+pip install pip -U
+pip install cloudmesh-installer
+cloudmesh-installer get openstack
+cms <span class="nb">help</span>
 </pre></div>
 </div>
 </div>

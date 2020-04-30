@@ -95,3 +95,21 @@ remove all python artifacts in the backup directory the command
 
     cd cm
     cloudmesh-installer clean --dir=. --force
+
+Reinstallation
+^^^^^^^^^^^^^^
+
+In case you need to reinstall cloudmesh and you have used previously the
+`cloudmesh-installer`, you can do it as follows (We assume you have used venv
+and the `cloudmesh-installer` in the directory cm as documented previously):
+
+.. code-block:: bash
+
+    cd cm # the directory where your source locates
+    cloudmesh-installer clean --dir=. --force
+    cloudmesh-installer clean --ENV=~/ENV3 --force
+    python3 -m venv ~/ENV3
+    pip install pip -U
+    pip install cloudmesh-installer
+    cloudmesh-installer get openstack
+    cms help

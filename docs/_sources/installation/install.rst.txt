@@ -12,8 +12,13 @@ install from
 Please read the installation section in this manual completely, and understand
 the items explained before you install. Do not just paste and copy text in
 your terminal and execute it as it could have unexpected consequences.
-This also helps to decide which instalation method is best suited for you.
+This also helps to decide which installation method is best suited for you.
 
+We are providong a **clickable** map to help you in your decision process which
+version to install.
+
+.. todo:: this effort was just started so teh instalation documentation is
+          currently in a development stage.
 
 .. mermaid::
 
@@ -109,10 +114,9 @@ Prerequisites for other Installs
 .. note::
 
           We recommend that you use  Python `venv` to isolate the system Python
-          form the user python. For simplicity we assime and document on how to
+          form the user python. For simplicity we assume and document on how to
           set up a virtual environment in the home directory under the
-          directory `ENV3`.
-
+          directory name `~/ENV3`.
 
 
 If you have an older version of Ubuntu please follow the instructions for
@@ -128,7 +132,7 @@ On Windows 10 you can install cloudmesh by either using
 
 * a Windows native installation,
 * a Linux Subsystem installation,
-* a Docker instalation,
+* a Docker installation,
 
 approach. We recommend that you use the Professional or the
 Educational version of Windows, as the Home edition is very limited.
@@ -267,23 +271,6 @@ instructions, but make sure you create your own virtualenv with conda and assure
 you use python at least 3.7
 
 
-Reinstallation
-^^^^^^^^^^^^^^
-
-In case you need to reinstall cloudmesh and you have used previously the
-`cloudmesh-installer`, you can do it as follows (We assume you have used venv
-and the `cloudmesh-installer` in the directory cm as documented previously):
-
-.. code-block:: bash
-
-    cd cm # the directory where your source locates
-    cloudmesh-installer clean --dir=. --force
-    cloudmesh-installer clean --ENV=~/ENV3 --force
-    python3 -m venv ~/ENV3
-    pip install pip -U
-    pip install cloudmesh-installer
-    cloudmesh-installer get openstack
-    cms help
 
 
 .cloudmesh directory
@@ -304,7 +291,11 @@ Installation of MongoDB
 -----------------------
 
 Once you have installed cloudmesh it is easy to install MongoDB with
-the build in MongoDB installer.
+the build in MongoDB installer::
+
+    cms admin mongo install
+
+
 
 
 

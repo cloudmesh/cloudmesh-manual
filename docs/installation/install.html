@@ -113,7 +113,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#ssh-key">SSH key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-of-cloudmesh-end-user">Installation of Cloudmesh (End User)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#anaconda-and-conda">Anaconda and Conda</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reinstallation">Reinstallation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#cloudmesh-directory">.cloudmesh directory</a></li>
@@ -296,7 +295,14 @@ install from</p>
 <p>Please read the installation section in this manual completely, and understand
 the items explained before you install. Do not just paste and copy text in
 your terminal and execute it as it could have unexpected consequences.
-This also helps to decide which instalation method is best suited for you.</p>
+This also helps to decide which installation method is best suited for you.</p>
+<p>We are providong a <strong>clickable</strong> map to help you in your decision process which
+version to install.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>this effort was just started so teh instalation documentation is
+currently in a development stage.</p>
+</div>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph LR
   os{OS}
@@ -382,9 +388,9 @@ removed Python 2 as supported platform.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We recommend that you use  Python <cite>venv</cite> to isolate the system Python
-form the user python. For simplicity we assime and document on how to
+form the user python. For simplicity we assume and document on how to
 set up a virtual environment in the home directory under the
-directory <cite>ENV3</cite>.</p>
+directory name <cite>~/ENV3</cite>.</p>
 </div>
 <p>If you have an older version of Ubuntu please follow the instructions for</p>
 <ul class="simple">
@@ -397,7 +403,7 @@ directory <cite>ENV3</cite>.</p>
 <ul class="simple">
 <li><p>a Windows native installation,</p></li>
 <li><p>a Linux Subsystem installation,</p></li>
-<li><p>a Docker instalation,</p></li>
+<li><p>a Docker installation,</p></li>
 </ul>
 <p>approach. We recommend that you use the Professional or the
 Educational version of Windows, as the Home edition is very limited.
@@ -513,22 +519,6 @@ in which you can find the configuration file:</p>
 instructions, but make sure you create your own virtualenv with conda and assure
 you use python at least 3.7</p>
 </div>
-<div class="section" id="reinstallation">
-<h3>Reinstallation<a class="headerlink" href="#reinstallation" title="Permalink to this headline">¶</a></h3>
-<p>In case you need to reinstall cloudmesh and you have used previously the
-<cite>cloudmesh-installer</cite>, you can do it as follows (We assume you have used venv
-and the <cite>cloudmesh-installer</cite> in the directory cm as documented previously):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory where your source locates</span>
-cloudmesh-installer clean --dir<span class="o">=</span>. --force
-cloudmesh-installer clean --ENV<span class="o">=</span>~/ENV3 --force
-python3 -m venv ~/ENV3
-pip install pip -U
-pip install cloudmesh-installer
-cloudmesh-installer get openstack
-cms <span class="nb">help</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="cloudmesh-directory">
 <h2>.cloudmesh directory<a class="headerlink" href="#cloudmesh-directory" title="Permalink to this headline">¶</a></h2>
@@ -544,7 +534,10 @@ drive or storage media only you have access to.</p>
 <div class="section" id="installation-of-mongodb">
 <h2>Installation of MongoDB<a class="headerlink" href="#installation-of-mongodb" title="Permalink to this headline">¶</a></h2>
 <p>Once you have installed cloudmesh it is easy to install MongoDB with
-the build in MongoDB installer.</p>
+the build in MongoDB installer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">install</span>
+</pre></div>
+</div>
 </div>
 </div>
 
