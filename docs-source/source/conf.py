@@ -57,12 +57,8 @@ extensions = [
     'edit_on_github',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
-<<<<<<< HEAD
-    'sphinxcontrib.mermaid'
-=======
     'sphinxcontrib.mermaid',
-    'sphinxcontrib.images',
->>>>>>> b6424cd9195ffb76c9b0cfa86709b3151cfa172f
+    'sphinxcontrib.images'
 ]
 
 #    'sphinxcontrib.fulltoc'

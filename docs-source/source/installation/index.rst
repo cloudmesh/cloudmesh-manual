@@ -5,6 +5,7 @@ Cloudmesh Instalation
    :caption: Install
    :maxdepth: 2
 
+   quickstart
    install
    install-docker
    install-macos
@@ -13,6 +14,7 @@ Cloudmesh Instalation
    install-ubuntu-18-04
    install-dev
    preface/contributors
+   mongo
 
 .. toctree::
    :caption: Windows
