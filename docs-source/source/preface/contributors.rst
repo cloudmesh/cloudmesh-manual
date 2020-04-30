@@ -32,7 +32,7 @@ will add you.
 The contributors sorted by the firstname that we are aware of include:
  
 
-.. include:: ./authors.md
+.. include:: ./authors.rst
 
 
 The following links provide more information about the contributions each

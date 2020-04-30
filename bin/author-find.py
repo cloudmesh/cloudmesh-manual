@@ -42,14 +42,17 @@ repos = [
 
 lines = ""
 for repo in repos:
+    print()
+    print (repo)
     result = Shell.run(f"cd ../{repo}; git shortlog --summary --numbered --email")
     lines = lines + result
+    print (result)
 
 lines = lines.replace("\t", " ")
 names = []
 for line in lines.split("\n"):
     line = line.strip()
-    if line == "":
+    if line == "" or "dependabot" in line:
         continue
     try:
         number, name = line.split(" ", 1)
