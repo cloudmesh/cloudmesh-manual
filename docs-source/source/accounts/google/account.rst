@@ -170,9 +170,9 @@ Links
 -  `Authentication Overview \| Authentication \| Google
    Cloud <https://cloud.google.com/docs/authentication/>`__
 
-.. |google-account-1| image:: images/MyAccount_01.png
-.. |google-account-2| image:: images/MyAccount_02.png
-.. |google-account-3| image:: images/CreateKey_01.png
+.. |google-account-1| thumbnail:: images/MyAccount_01.png
+.. |google-account-2| thumbnail:: images/MyAccount_02.png
+.. |google-account-3| thumbnail:: images/CreateKey_01.png
 
 .. todo:: it is unclear which images are korret and whic are not.
           We nee dto remove the old images so there is no confusion

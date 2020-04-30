@@ -25,6 +25,9 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,9 +37,10 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="../installation/install.html" />
+    <link rel="next" title="Quickstart" href="../installation/quickstart.html" />
     <link rel="prev" title="About" href="about.html" /> 
 </head>
 
@@ -92,7 +96,6 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
@@ -290,20 +293,22 @@ will add you.</p>
 <em>Anthon van der Neut</em>, <em>Anthony Duer</em>, <em>Aravind Mannarswamy</em>, <em>Arshad Moeen</em>,
 <em>Ashley Thornton</em>, <em>AshleyThornton</em>, <em>Ashok Reddy Singam</em>, <em>Ashok Singam</em>,
 <em>Ashok</em>, <em>Badi Abdul-Wahid</em>, <em>Bo Feng</em>, <em>Brian Funk</em>, <em>Brian Kegerreis</em>,
-<em>Chenxu</em>, <em>Dave DeMeulenaere</em>, <em>David Drummond</em>, <em>Deepak Deopura</em>, <em>Eric
-Collins</em>, <em>FalconiNicasio</em>, <em>Fugang Wang</em>, <em>Gerald Manipon</em>, <em>Gregor von
-Laszewski</em>, <em>Harsha Upadhyay</em>, <em>Himanshu Gupta</em>, <em>Ishan Mishra</em>, <em>Jagadeesh
-Kandimalla</em>, <em>Jeevan Reddy Rachepalli</em>, <em>Jing Huang</em>, <em>Joaquin Avila Eggleton</em>,
-<em>Jonathan Beckford</em>, <em>Josh Baker</em>, <em>Josh Goodman</em>, <em>Karthick</em>, <em>Keli Fine</em>,
-<em>Ketan Pimparkar</em>, <em>KetanP</em>, <em>Kimball Wu</em>, <em>Lars Olson</em>, <em>Mallik Challa</em>,
-<em>Manjunath Sivan</em>, <em>Nayeemullah Baig Shaik</em>, <em>Niranda Perera</em>, <em>Peter
-McCandless</em>, <em>Prateek Shaw</em>, <em>Pratibha Pagadala</em>, <em>Rahul</em>, <em>Ritesh Tandon</em>,
-<em>Rob Ludwig</em>, <em>Rui Li</em>, <em>Sachith Danushka Withana</em>, <em>Sara Lam</em>, <em>Saurabh
-Swaroop</em>, <em>Scott McClary</em>, <em>Seema Achath</em>, <em>Shihui Jiang</em>, <em>Shivani Katukota</em>,
-<em>Shreyans Jain</em>, <em>Sriman</em>, <em>Subramaniyam Raizada</em>, <em>Swaroop, Saurabh</em>, <em>Tarun
-Rawat</em>, <em>Tharak Vangalapat</em>, <em>Vafa Andalibi</em>, <em>Xiao Yue</em>, <em>Xin Gu</em>, <em>XinGu</em>,
-<em>Yasir Al Ilbadi</em>, <em>Yu Luo</em>, <em>Yue, Xiao</em>, <em>Zhengyi Li</em>, <em>akshaygpt</em>, <em>iumsds</em>,
-<em>rahul</em>, <em>xin-gu</em></p>
+<em>Chenxu</em>, <em>Dave DeMeulenaere</em>, <em>David Drummond</em>, <em>Eric Collins</em>, <em>Falconi
+Nicasio</em>, <em>FalconiNicasio</em>, <em>Fugang Wang</em>, <em>Gerald Manipon</em>, <em>Gregor von
+Laszewski</em>, <em>Harsha Upadhyay</em>, <em>Himanshu Gupta</em>, <em>Jagadeesh Kandimalla</em>,
+<em>Jeevan Reddy Rachepalli</em>, <em>Jing Huang</em>, <em>Joaquin Avila Eggleton</em>, <em>Jonathan
+Beckford</em>, <em>Josh Goodman</em>, <em>Karthick</em>, <em>Keli Fine</em>, <em>Ketan Pimparkar</em>,
+<em>KetanP</em>, <em>Kimball Wu</em>, <em>Lamcloud</em>, <em>Lars Olson</em>, <em>Mallik Challa</em>, <em>Manjunath
+Sivan</em>, <em>Nayeemullah Baig Shaik</em>, <em>Niranda Perera</em>, <em>Peter McCandless</em>,
+<em>Prateek Shaw</em>, <em>Rahul</em>, <em>RhondaFischer</em>, <em>Rick</em>, <em>Ritesh Tandon</em>, <em>Rob
+Ludwig</em>, <em>Rui Li</em>, <em>Sachith Danushka Withana</em>, <em>Sara Lam</em>, <em>Saurabh Swaroop</em>,
+<em>Scott McClary</em>, <em>Seema Achath</em>, <em>Shivani Katukota</em>, <em>Shreyans Jain</em>, <em>Sriman</em>,
+<em>Subramaniyam Raizada</em>, <em>Swaroop, Saurabh</em>, <em>Tarun Rawat</em>, <em>Tharak Vangalapat</em>,
+<em>Vafa Andalibi</em>, <em>Xiao Yue</em>, <em>Xin Gu</em>, <em>XinGu</em>, <em>Yasir Al Ilbadi</em>, <em>Yu Luo</em>,
+<em>Yue, Xiao</em>, <em>Zhengyi Li</em>, <em>akshaygpt</em>, <em>andrewgoldfarb</em>, <em>baker203</em>,
+<em>bkegerreis</em>, <em>deepakdeopura</em>, <em>devrick</em>, <em>gitdimishra</em>, <em>imishra1</em>, <em>iumsds</em>,
+<em>jebeckford</em>, <em>prateekazam</em>, <em>prateekazam&#64;gmail.com</em>, <em>prati-mp</em>, <em>rahul</em>,
+<em>rickotten</em>, <em>shihui123</em>, <em>shihuijiang</em>, <em>xin-gu</em>, <em>yasirjasim</em></p>
 </div></blockquote>
 <p>The following links provide more information about the contributions each
 package:</p>
@@ -328,7 +333,7 @@ package:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../installation/install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../installation/quickstart.html" class="btn btn-neutral float-right" title="Quickstart" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="about.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

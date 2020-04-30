@@ -25,6 +25,9 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,6 +37,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Azure Account" href="azure.html" />
@@ -92,7 +96,6 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
@@ -302,13 +305,13 @@ FAQ</a>.</p>
 <p>and click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">AWS</span> <span class="pre">Account</span></code>.</p>
 <div class="figure align-default" id="id1">
 <img alt="Create Account" src="../_images/image1.png" />
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Create Account</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Create Account</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>This will direct you to the account creation page. Now we fill out your
 information and click <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</p>
 <div class="figure align-default" id="id2">
 <img alt="Continue" src="../_images/image2.png" />
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Continue</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Continue</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Next, you will need to fill out your contact information. You can choose
 <code class="docutils literal notranslate"><span class="pre">Professional</span></code> or <code class="docutils literal notranslate"><span class="pre">Personal</span></code> as your account type. Here in this
@@ -317,7 +320,7 @@ and check the box if agreed. Click on <code class="docutils literal notranslate"
 continue.</p>
 <div class="figure align-default" id="id3">
 <img alt="Contact Information" src="../_images/image3.png" />
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Contact Information</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Contact Information</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Fill out your payment information and proceed. Dependent on your level
 of security, you may want to explore using a prepaid credit card if you
@@ -331,7 +334,7 @@ Limits. - Amazon AWS</p>
 <p>Please review the terms of the free tier carefully.</p>
 <div class="figure align-default" id="id4">
 <img alt="Payment" src="../_images/image4.png" />
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Payment</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Payment</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>Next your need to confirm your identity. You can choose either
 <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">message</span> <span class="pre">(SMS)</span></code> or <code class="docutils literal notranslate"><span class="pre">Voice</span> <span class="pre">call</span></code> to receive your verification
@@ -339,53 +342,53 @@ code. Here we choose <code class="docutils literal notranslate"><span class="pre
 the security check code and click <code class="docutils literal notranslate"><span class="pre">Send</span> <span class="pre">SMS</span></code>.</p>
 <div class="figure align-default" id="id5">
 <img alt="Identity confirmation" src="../_images/image5.png" />
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Identity confirmation</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Identity confirmation</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>Enter the 4-digit verification code you received from your phone, and
 click on <code class="docutils literal notranslate"><span class="pre">Verify</span> <span class="pre">Code</span></code>.</p>
 <div class="figure align-default" id="id6">
 <img alt="Verification" src="../_images/image6.png" />
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Verification</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Verification</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>If you entered the correct verification code, you will see this page.
 Click on <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</p>
 <div class="figure align-default" id="id7">
 <img alt="Continue" src="../_images/image7.png" />
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Continue</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Continue</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>You will need to choose your support plan. We chose Amazon’s free tier
 <code class="docutils literal notranslate"><span class="pre">Basic</span> <span class="pre">Plan</span></code>.</p>
 <div class="figure align-default" id="id8">
 <img alt="Select a Plan" src="../_images/image8.png" />
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Select a Plan</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Select a Plan</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <p>Congratulations! You have successfully created an AWS account. Now you
 can click on <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">Console</span></code> to sign in.</p>
 <div class="figure align-default" id="id9">
 <img alt="Personalize" src="../_images/image9.png" />
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Personalize</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Personalize</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <p>Enter the email address you used for registration, and click on
 <code class="docutils literal notranslate"><span class="pre">Next</span></code>.</p>
 <div class="figure align-default" id="id10">
 <img alt="email" src="../_images/image10.png" />
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">email</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">email</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <p>Enter the password you used for registration, and click on <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span></code>.</p>
 <div class="figure align-default" id="id11">
 <img alt="Password" src="../_images/image11.png" />
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Password</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Password</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 <p>Now you’ve successfully signed in to the AWS Management Console.</p>
 <div class="figure align-default" id="id12">
 <img alt="AWS Services" src="../_images/image12.png" />
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">AWS Services</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">AWS Services</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can click on <code class="docutils literal notranslate"><span class="pre">Services</span></code> to explore AWS services through their Web
 page.</p>
 <div class="figure align-default" id="id13">
 <img alt="Explore services" src="../_images/image13.png" />
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Explore services</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Explore services</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can also start managing your account and instances through our
 cloudmesh services. This is especially of interest if you use cloudmesh
@@ -413,14 +416,14 @@ page with</p>
 console:</p>
 <div class="figure align-default" id="id14">
 <img alt="IAM Management Console: Users" src="../_images/image14.png" />
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">IAM Management Console: Users</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">IAM Management Console: Users</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 <p>Click on <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">user</span></code> and begin the process for creating a new user.
 Type the name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> in the <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">name</span></code> and make sure you check
 the <code class="docutils literal notranslate"><span class="pre">programmatic</span>&#160; <span class="pre">access</span></code>:</p>
 <div class="figure align-default" id="id15">
 <img alt="IAM Management Console: Add User" src="../_images/image15.png" />
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">IAM Management Console: Add User</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">IAM Management Console: Add User</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 <p>After clicking on the <code class="docutils literal notranslate"><span class="pre">Next:</span> <span class="pre">Permissions</span></code>, you then have to add the
 user to a group. If you do not have any group created, click on
@@ -429,62 +432,62 @@ page. You can call the group <code class="docutils literal notranslate"><span cl
 <code class="docutils literal notranslate"><span class="pre">AmazonEC2FullAccess</span></code> for the permission:</p>
 <div class="figure align-default" id="id16">
 <img alt="IAM Management Console: Create Group" src="../_images/image17.png" />
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">IAM Management Console: Create Group</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">IAM Management Console: Create Group</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 <p>After creating the group, select it so that the new user will be
 assigned to that group:</p>
 <div class="figure align-default" id="id17">
 <img alt="IAM Management Console: Select Group" src="../_images/image18.png" />
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">IAM Management Console: Select Group</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">IAM Management Console: Select Group</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the next page you can create the tags for the new user. You can just
 create a <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> key for the user as a tag:</p>
 <div class="figure align-default" id="id18">
 <img alt="IAM Management Console: Add Tag" src="../_images/image19.png" />
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">IAM Management Console: Add Tag</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">IAM Management Console: Add Tag</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 <p>The next page is the review page where you can review the information
 you entered:</p>
 <div class="figure align-default" id="id19">
 <img alt="IAM Management Console: Review" src="../_images/image20.png" />
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">IAM Management Console: Review</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">IAM Management Console: Review</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 <p>After clicking on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">user</span></code> the user will be finally created and
 you will be redirected to the following success page:</p>
 <div class="figure align-default" id="id20">
 <img alt="IAM Management Console: Success" src="../_images/image21.png" />
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">IAM Management Console: Success</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">IAM Management Console: Success</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can view the secret access key by clicking on the <code class="docutils literal notranslate"><span class="pre">show</span></code> button:</p>
 <div class="figure align-default" id="id21">
 <img alt="IAM Management Console: Access Key" src="../_images/image22.png" />
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">IAM Management Console: Access Key</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">IAM Management Console: Access Key</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </div>
 <p>Next, download the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file by clicking on the <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">.csv</span></code>
 button and save it as <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/credentials.csv</span></code>:</p>
 <div class="figure align-default" id="id22">
 <img alt="IAM Management Console: Download CSV" src="../_images/image23.png" />
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">IAM Management Console: Download CSV</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">IAM Management Console: Download CSV</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
 </div>
 <p>Then you can click on the <code class="docutils literal notranslate"><span class="pre">close</span></code> button and go back to the IAM
 Management Console which now provide you a summary of the newly created
 user called <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> and looks like this:</p>
 <div class="figure align-default" id="id23">
 <img alt="IAM Management Console: Summary" src="../_images/image25.png" />
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">IAM Management Console: Summary</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">IAM Management Console: Summary</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
 </div>
 <p>By clicking on the <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">access</span> <span class="pre">key</span></code>, you can create another access
 key:</p>
 <div class="figure align-default" id="id24">
 <img alt="IAM Management Console: Create Access Key" src="../_images/image26.png" />
-<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">IAM Management Console: Create Access Key</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">IAM Management Console: Create Access Key</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </div>
 <p>As is mentioned in the screen shot, this is the only time you can view
 or download the secret access key. So go ahead and click on the
 <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">.csv</span> <span class="pre">file</span></code> and save it as <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/accessKey.csv</span></code>:</p>
 <div class="figure align-default" id="id25">
 <img alt="IAM Management Console: Download CSV File" src="../_images/image27.png" />
-<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">IAM Management Console: Download CSV File</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">IAM Management Console: Download CSV File</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="using-the-access-key">
@@ -520,7 +523,7 @@ satisfied, please reference the installation section.</p>
 under <code class="docutils literal notranslate"><span class="pre">Services</span> <span class="pre">&gt;</span> <span class="pre">Compute</span> <span class="pre">&gt;</span> <span class="pre">EC2</span></code>:</p>
 <div class="figure align-default" id="id26">
 <img alt="EC2 Management Console: EC2 Console" src="../_images/aws_compute_ec2.png" />
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">EC2 Management Console: EC2 Console</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">EC2 Management Console: EC2 Console</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
 </div>
 <p>Next, on the left-hand panel, navigate to
 <code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">&amp;</span> <span class="pre">Security</span> <span class="pre">&gt;</span> <span class="pre">Key</span> <span class="pre">Pairs</span></code> and select <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">key</span> <span class="pre">pair</span></code>. Once
@@ -529,11 +532,11 @@ the <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</spa
 configured you have configured in the cloudmesh.yaml file.</p>
 <div class="figure align-default" id="id27">
 <img alt="EC2 Management Console: Import Settings" src="../_images/aws_ec2_import_settings.png" />
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">EC2 Management Console: Import Settings</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">EC2 Management Console: Import Settings</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id28">
 <img alt="EC2 Management Console: Pub SSH Key" src="../_images/aws_ec2_import_pub_key.png" />
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">EC2 Management Console: Pub SSH Key</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">EC2 Management Console: Pub SSH Key</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="cloudmesh-yaml-configuration-for-aws">
@@ -588,7 +591,7 @@ configurations and boot up a new vm in AWS based. <img alt="AWS Configuration: C
 </div>
 <div class="figure align-default" id="id29">
 <img alt="AWS Configuration: vm list" src="../_images/aws_vmlist.png" />
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">AWS Configuration: vm list</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">AWS Configuration: vm list</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
 </div>
 <p>Now test stopping the vm. Note that you may need to give it a minute or
 two before you refresh the vm list to validate Status=stopped.</p>
@@ -597,7 +600,7 @@ two before you refresh the vm list to validate Status=stopped.</p>
 </div>
 <div class="figure align-default" id="id30">
 <img alt="AWS Configuration: vm stop" src="../_images/aws_vmstop.png" />
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">AWS Configuration: vm stop</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">AWS Configuration: vm stop</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
 </div>
 <p>Now test terminating the vm. (Note the example provided if you are
 attempting run commands against multiple vm’s.)</p>
@@ -606,7 +609,7 @@ attempting run commands against multiple vm’s.)</p>
 </div>
 <div class="figure align-default" id="id31">
 <img alt="AWS Configuration: vm delete" src="../_images/aws_vmdelete.png" />
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">AWS Configuration: vm delete</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">AWS Configuration: vm delete</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>[x] TODO: Aws EC2 account. Describe here if there is anything to be

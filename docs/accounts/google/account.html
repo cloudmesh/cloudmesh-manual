@@ -25,6 +25,9 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -34,6 +37,7 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Oracle Cloud Account" href="../oracle/account.html" />
@@ -92,7 +96,6 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/mongo.html">Cloudmesh Database</a></li>
@@ -148,10 +151,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#create-a-project">Create a Project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-service-account">Create a Service Account</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#update-cloudmesh-with-the-google-storage-account-information">Update Cloudmesh with the Google Storage Account Information</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#using-the-google-storage">Using the Google Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-google-storage-service">Using the Google Storage Service</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#junk">JUNK</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
@@ -174,10 +176,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#create-a-project">Create a Project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-service-account">Create a Service Account</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#update-cloudmesh-with-the-google-storage-account-information">Update Cloudmesh with the Google Storage Account Information</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#using-the-google-storage">Using the Google Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-google-storage-service">Using the Google Storage Service</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#junk">JUNK</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
@@ -301,14 +302,14 @@ done with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
 $ <span class="nb">cd</span> cm
 $ pip install cloudmesh-installer
-$ cloudmesh-installer git clone google
-$ cloudmesh-installer git install google
+$ cloudmesh-installer get google
 </pre></div>
 </div>
 </div>
 <div class="section" id="creating-the-google-account">
 <h2>Creating the Google account<a class="headerlink" href="#creating-the-google-account" title="Permalink to this headline">¶</a></h2>
-<p>A new google account can be created using following information:</p>
+<p>A new google account can be created by following the information provided by
+Google:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount">Create your Google
 Account</a></p></li>
@@ -316,9 +317,12 @@ Account</a></p></li>
 </div>
 <div class="section" id="activation-google-storage-service">
 <h2>Activation Google Storage Service<a class="headerlink" href="#activation-google-storage-service" title="Permalink to this headline">¶</a></h2>
-<p>Google allows you to apply for an account offering you $300 in credits
-to use google storage cloud. To apply for it you can use either of the
-follwoing links:</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>it is not clear for which cloudmesh service this is used if at all.</p>
+</div>
+<p>Google offers  you $300 in credits to use the google storage cloud service.
+To apply for it you can use either of the follwoing links:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&amp;_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE">Get Started for
 Free</a></p></li>
@@ -331,67 +335,111 @@ email that is registered as an educational insititution.</p>
 <div class="section" id="create-a-project">
 <h3>Create a Project<a class="headerlink" href="#create-a-project" title="Permalink to this headline">¶</a></h3>
 <p>Next, you will need to create a Google project. We recommend that you
-simply use the name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>. You can create such a project at</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://console.cloud.google.com/">Google Storage - Online Data Storage | Cloud Storage | Google
-Cloud</a></p></li>
-</ul>
+simply use the name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>. You can create such a project at
+json
+-  <a href="#id2"><span class="problematic" id="id3">`</span></a>Google Storage - Online Data Storage | Cloud Storage | Google</p>
+<blockquote>
+<div><p>Cloud &lt;<a class="reference external" href="https://console.cloud.google.com/">https://console.cloud.google.com/</a>&gt;`__</p>
+</div></blockquote>
 <p>The three screenshots show the workflow on how to create a project:</p>
-<p><img alt="Create first account_01" src="../../_images/MyAccount_01.png" /> <img alt="Create first account_02" src="../../_images/MyAccount_02.png" /> <img alt="Create first account_03" src="../../_images/MyAccount_03.png" /></p>
 </div>
 <div class="section" id="create-a-service-account">
 <h3>Create a Service Account<a class="headerlink" href="#create-a-service-account" title="Permalink to this headline">¶</a></h3>
-<p>Now you need to also create a service account by clicking the follwoing
-link:</p>
-<p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey?project=cloudmesh-class&amp;folder&amp;organizationId">Create a Service
-Account</a></p>
-<p>To create it you need to select the newly created project and go to</p>
-<ul>
-<li><p><a class="reference external" href="https://cloud.google.com/docs/authentication/production">Create service account
-page</a></p>
-<div class="figure align-default" id="id1">
-<img alt="Create service account_01" src="../../_images/CreateServiceAccount_01.png" />
-<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Create service account_01</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<ul class="simple">
-<li><p>Go to section :Creating a service account</p></li>
-</ul>
-<p>Following is the direct link to generate credentials from google :</p>
-<p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">Create Service Account
-Key</a></p>
-<div class="figure align-default" id="id2">
-<img alt="Create service key" src="../../_images/CreateKey_01.png" />
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Create service key</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sample files:
- `client_secret.json`
- `google-drive-credentials.json`
-</pre></div>
-</div>
-</li>
-</ul>
-<p>To create and download new private key you will use to authenticate.
-Select the JSON format and download the file and save it to</p>
-<p><code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code></p>
-<p>Make sure you keep that directory secure.</p>
-<p>todo:: in future we want a link to a security section here</p>
-<p>This file will be used to update the YAML entry in the file</p>
+<table class="colwidths-given docutils align-default" id="id9">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Google account creation steps</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Screenshot</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey?project=cloudmesh-class&amp;folder&amp;organizationId">Create a Service Account</a></p></td>
+<td><p><a class=""
+               data-lightbox="group-58c15fc3-2ecd-440b-84e1-2c56202d7b1d"
+               href="../../_images/MyAccount_011.png"
+               title=""
+               data-title=""
+               ><img src="../../_images/MyAccount_011.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="google-account-1"/>
+                </a></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><a class="reference external" href="https://cloud.google.com/docs/authentication/production">Select a project</a></p></td>
+<td><p><a class=""
+               data-lightbox="group-554c5fd0-62a8-40c0-b4a9-e2065f2b9d69"
+               href="../../_images/MyAccount_021.png"
+               title=""
+               data-title=""
+               ><img src="../../_images/MyAccount_021.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="google-account-2"/>
+                </a></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><a class="reference external" href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">Create Service Account Key</a></p></td>
+<td><p><a class=""
+               data-lightbox="group-f82137ab-100e-475b-ac0b-8646194f0577"
+               href="../../_images/CreateKey_011.png"
+               title=""
+               data-title=""
+               ><img src="../../_images/CreateKey_011.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="google-account-3"/>
+                </a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Next, download the key file <cite>client_secret.json</cite> and
+<cite>google-drive-credentials.json</cite> To create and download new private key you will use to authenticate.
+Select the JSON format and download the file and save it to <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code></p>
+<p>Make sure you keep the .cloudmesh directory  secure. This file will be used to
+update the YAML entry in the file</p>
 <p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
-<p>We recommend that you rename the downloaded file to <code class="docutils literal notranslate"><span class="pre">google.json</span></code> when
-you save it.</p>
-<p>IMPLEMNET:</p>
+<p>As you may use also other clouds we recommend you rename the file to
+<code class="docutils literal notranslate"><span class="pre">google.json</span></code> when you save it, so it is clear to which cloud the json
+file belongs.</p>
+<p>If your yaml file doe snot yet have a configuartion for the Google service</p>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>which one exactly is unclear</p>
+</div>
+<p>pleas use the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms register google google.json
 </pre></div>
+</div>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>has this been implemented?</p>
 </div>
 </div>
 <div class="section" id="update-cloudmesh-with-the-google-storage-account-information">
 <h3>Update Cloudmesh with the Google Storage Account Information<a class="headerlink" href="#update-cloudmesh-with-the-google-storage-account-information" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>Now we have two commands. is the config command also working?</p>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms google config add ~/.cloudmesh/google.json --service=google
 </pre></div>
 </div>
 <p>MOVE THE CONTENT FROM HERE INTO CONFIGURATION SECTION …</p>
-<p>Mor details of the configuration can v=be looked up in the <a class="reference external" href="MISSING">Cloudmesh
+<p>More details of the configuration can v=be looked up in the <a class="reference external" href="MISSING">Cloudmesh
 Configuration Section</a></p>
+<div class="admonition-todo admonition" id="id7">
+<p class="admonition-title">Todo</p>
 <p>THE COMMANDS HAVE TO BE REVISITED</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms google list # what does thsi do?
 </pre></div>
@@ -401,9 +449,10 @@ Configuration Section</a></p>
 $ cms google yaml list storage # somewhat logical
 </pre></div>
 </div>
-<div class="section" id="using-the-google-storage">
-<h4>Using the Google Storage<a class="headerlink" href="#using-the-google-storage" title="Permalink to this headline">¶</a></h4>
-<p>If google storage bucket is alredy created, you can list google storage
+</div>
+<div class="section" id="using-the-google-storage-service">
+<h4>Using the Google Storage Service<a class="headerlink" href="#using-the-google-storage-service" title="Permalink to this headline">¶</a></h4>
+<p>If a Google storage bucket is already created, you can list google storage
 bucket using following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms google list
 </pre></div>
@@ -421,23 +470,6 @@ name. <code class="docutils literal notranslate"><span class="pre">e.g.</span> <
 <p>You are all set with account setup.</p>
 </div>
 </div>
-<div class="section" id="junk">
-<h3>JUNK<a class="headerlink" href="#junk" title="Permalink to this headline">¶</a></h3>
-<p>For google cloud storage cloudmesh services <code class="docutils literal notranslate"><span class="pre">cms</span></code> provides command
-line interface which is part of part of cloudmesh-google storage
-application.</p>
-<p>Various available operations using cms are file operations for put to
-upload, get to download, list, delete <code class="docutils literal notranslate"><span class="pre">object/blob</span></code>, create directory.
-First, we need to create an account as follows:</p>
-<p>You can certainly do it by hand :::::</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-  ``IAM &amp; Admin -&gt; Service Accounts -&gt; Create service account``
-</pre></div>
-</div>
-<p>to create a new service account. Select</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Furnish</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">private</span> <span class="pre">key</span></code></p></li>
-</ul>
-</div>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
@@ -449,6 +481,11 @@ Help</a></p></li>
 <li><p><a class="reference external" href="https://cloud.google.com/docs/authentication/">Authentication Overview | Authentication | Google
 Cloud</a></p></li>
 </ul>
+<div class="admonition-todo admonition" id="id8">
+<p class="admonition-title">Todo</p>
+<p>it is unclear which images are korret and whic are not.
+We nee dto remove the old images so there is no confusion</p>
+</div>
 </div>
 </div>
 

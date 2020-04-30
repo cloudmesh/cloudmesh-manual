@@ -21,77 +21,54 @@ An example would be::
 
 
 .. list-table:: Configuration Samples for Compute
-   :widths: 15 30
+   :widths: 20 20 20 20 20
    :header-rows: 1
 
-   * - Service
-     - Provider
+   * - Provider
      - Account
-   * - Compute
+     - Compute
+     - Volume
+     - Storage
+   * - AWS
+     - :doc:`Integrate <../accounts/aws>`
      - :doc:`AWS <../register/compute-aws>`
-     - :doc:`Account creation <../accounts/aws>`
-   * - Compute
-     - :doc:`Azure <../register/compute-azure>`
-     - :doc:`Account creation <../accounts/azure>`.
-   * - Compute
-     - :doc:`Google <../register/compute-google>`
-     - :doc:`Account creation <../accounts/google/index>`
-   * - Compute
-     - :doc:`Oracle <../register/compute-oracle>`
-     -
-   * - Compute
-     - :doc:`OpenSTack <../register/compute-openstack>`
-     -
-   * - Compute
-     - :doc:`Multipass <../register/compute-multipass>`
-
-
-.. list-table:: Configuration Samples for Volume
-   :widths: 15 30
-   :header-rows: 1
-
-   * - Service
-     - Provider
-   * - Volume
      - :doc:`AWS <../register/volume-aws>`
-   * - Volume
-     - :doc:`Azure <../register/volume-azure>`
-   * - Volume
-     - :doc:`Google <../register/volume-google>`
-   * - Volume
-     - :doc:`Oracle <../register/volume-oracle>`
-   * - Volume
-     - :doc:`OpenSTack <../register/volume-openstack>`
-   * - Volume
-     - :doc:`Multipass <../register/volume-multipass>`
-
-
-.. list-table:: Configuration Samples for Storage
-   :widths: 15 30
-   :header-rows: 1
-
-   * - Service
-     - Provider
-   * - Storage
      - :doc:`AWS <../register/storage-awss3>`
-   * - Storage
-     - :doc:`Azure <../register/storage-azureblob>`
-   * - Storage
-     - :doc:`Box <../register/storage-box>`
-   * - Storage
-     - :doc:`Local <../register/storage-local>`
-   * - Storage
-     - :doc:`OpenSTack <../register/storage-openstack>`
-   * - Storage
-     - :doc:`Parallel <../register/storage-parallel>`
-   * - Storage
-     - :doc:`Multipass <../register/storage-multipass>`
-   * - Storage
+   * - Azure
+     - :doc:`Integrate <../accounts/azure>`
+     - :doc:`Azure <../register/compute-azure>`
+     - :doc:`Azure <../register/volume-azure>`
+     - :doc:`Azure <../register/storage-azureblob>`, :doc:`Multipass <../register/storage-parallelazureblob>`
+   * - Google
+     - :doc:`Integrate <../accounts/google/index>`
+     - :doc:`Google <../register/compute-google>`
+     - :doc:`Google <../register/volume-google>`
+     - :doc:`G-Drive <../register/storage-parallelgdrive>`
+   * - Oracle
+     -
+     - :doc:`Oracle <../register/compute-oracle>`
+     - :doc:`Oracle <../register/volume-oracle>`
      - :doc:`Oracle <../register/storage-oracle>`
-   * - Storage
-     - :doc:`Multipass <../register/storage-parallelazureblob>`
-   * - Storage
-     - :doc:`Multipass <../register/storage-parallelgdrive>`
+   * - OpenStack
+     -
+     - :doc:`OpenStack <../register/compute-openstack>`
+     - :doc:`OpenStack <../register/volume-openstack>`
+     - :doc:`OpenStack <../register/storage-openstack>`
+   * - Multipass
+     -
+     - :doc:`Multipass <../register/compute-multipass>`
+     - :doc:`Multipass <../register/volume-multipass>`
+     - :doc:`Multipass <../register/storage-multipass>`
+   * - Box
+     -
+     -
+     -
+     - :doc:`Box <../register/storage-box>`
+   * - Local
+     -
+     -
+     -
+     - :doc:`Local <../register/storage-local>`
 
 
 

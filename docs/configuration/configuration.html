@@ -25,6 +25,9 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -34,6 +37,7 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Cloudmesh Database" href="../installation/mongo.html" />
@@ -92,7 +96,6 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cloudmesh-yaml-file-object-definitions">Cloudmesh Yaml File Object definitions</a></li>
@@ -313,78 +316,70 @@ providers.</p>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id9">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Configuration Samples for Volume</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Configuration Samples for Compute</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Service</p></th>
-<th class="head"><p>Provider</p></th>
+<tr class="row-odd"><th class="head"><p>Provider</p></th>
+<th class="head"><p>Account</p></th>
+<th class="head"><p>Compute</p></th>
+<th class="head"><p>Volume</p></th>
+<th class="head"><p>Storage</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Volume</p></td>
+<tr class="row-even"><td><p>AWS</p></td>
+<td><p><a class="reference internal" href="../accounts/aws.html"><span class="doc">Integrate</span></a></p></td>
+<td><p><a class="reference internal" href="../register/compute-aws.html"><span class="doc">AWS</span></a></p></td>
 <td><p><a class="reference internal" href="../register/volume-aws.html"><span class="doc">AWS</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Volume</p></td>
-<td><p><a class="reference internal" href="../register/volume-azure.html"><span class="doc">Azure</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>Volume</p></td>
-<td><p><a class="reference internal" href="../register/volume-google.html"><span class="doc">Google</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Volume</p></td>
-<td><p><a class="reference internal" href="../register/volume-oracle.html"><span class="doc">Oracle</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>Volume</p></td>
-<td><p><a class="reference internal" href="../register/volume-openstack.html"><span class="doc">OpenSTack</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Volume</p></td>
-<td><p><a class="reference internal" href="../register/volume-multipass.html"><span class="doc">Multipass</span></a></p></td>
-</tr>
-</tbody>
-</table>
-<table class="colwidths-given docutils align-default" id="id10">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Configuration Samples for Storage</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Service</p></th>
-<th class="head"><p>Provider</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Storage</p></td>
 <td><p><a class="reference internal" href="../register/storage-awss3.html"><span class="doc">AWS</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-azureblob.html"><span class="doc">Azure</span></a></p></td>
+<tr class="row-odd"><td><p>Azure</p></td>
+<td><p><a class="reference internal" href="../accounts/azure.html"><span class="doc">Integrate</span></a></p></td>
+<td><p><a class="reference internal" href="../register/compute-azure.html"><span class="doc">Azure</span></a></p></td>
+<td><p><a class="reference internal" href="../register/volume-azure.html"><span class="doc">Azure</span></a></p></td>
+<td><p><a class="reference internal" href="../register/storage-azureblob.html"><span class="doc">Azure</span></a>, <a class="reference internal" href="../register/storage-parallelazureblob.html"><span class="doc">Multipass</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-box.html"><span class="doc">Box</span></a></p></td>
+<tr class="row-even"><td><p>Google</p></td>
+<td><p><a class="reference internal" href="../accounts/google/index.html"><span class="doc">Integrate</span></a></p></td>
+<td><p><a class="reference internal" href="../register/compute-google.html"><span class="doc">Google</span></a></p></td>
+<td><p><a class="reference internal" href="../register/volume-google.html"><span class="doc">Google</span></a></p></td>
+<td><p><a class="reference internal" href="../register/storage-parallelgdrive.html"><span class="doc">G-Drive</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-local.html"><span class="doc">Local</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-openstack.html"><span class="doc">OpenSTack</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-parallel.html"><span class="doc">Parallel</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>Storage</p></td>
-<td><p><span class="xref std std-doc">Multipass</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Storage</p></td>
+<tr class="row-odd"><td><p>Oracle</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../register/compute-oracle.html"><span class="doc">Oracle</span></a></p></td>
+<td><p><a class="reference internal" href="../register/volume-oracle.html"><span class="doc">Oracle</span></a></p></td>
 <td><p><a class="reference internal" href="../register/storage-oracle.html"><span class="doc">Oracle</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-parallelazureblob.html"><span class="doc">Multipass</span></a></p></td>
+<tr class="row-even"><td><p>OpenStack</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../register/compute-openstack.html"><span class="doc">OpenStack</span></a></p></td>
+<td><p><a class="reference internal" href="../register/volume-openstack.html"><span class="doc">OpenStack</span></a></p></td>
+<td><p><a class="reference internal" href="../register/storage-openstack.html"><span class="doc">OpenStack</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>Storage</p></td>
-<td><p><a class="reference internal" href="../register/storage-parallelgdrive.html"><span class="doc">Multipass</span></a></p></td>
+<tr class="row-odd"><td><p>Multipass</p></td>
+<td></td>
+<td><p><a class="reference internal" href="../register/compute-multipass.html"><span class="doc">Multipass</span></a></p></td>
+<td><p><a class="reference internal" href="../register/volume-multipass.html"><span class="doc">Multipass</span></a></p></td>
+<td><p><span class="xref std std-doc">Multipass</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Box</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../register/storage-box.html"><span class="doc">Box</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Local</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><a class="reference internal" href="../register/storage-local.html"><span class="doc">Local</span></a></p></td>
 </tr>
 </tbody>
 </table>

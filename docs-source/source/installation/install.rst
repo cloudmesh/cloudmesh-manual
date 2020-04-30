@@ -14,29 +14,70 @@ the items explained before you install. Do not just paste and copy text in
 your terminal and execute it as it could have unexpected consequences.
 This also helps to decide which instalation method is best suited for you.
 
-.. mermaid::
 
+.. mermaid::
 
    graph LR
-     A[Hard edge] -->|Link text| B(Round edge)
-     B --> C{Decision}
-     C -->|One| D[Result one]
-     C -->|Two| E[Result two]
+     os{OS}
+
+    subgraph .
+    Native
+    end
+
+    subgraph .
+    Native
+    end
+
+
+     Linux-->Native
+     Linux-->Docker
+     Linux-->cmsd
+
+     macOS-->Native
+     macOS-->Docker
+     macOS-->cmsd
+
+     Windows-->Native
+     Windows-->Docker
+     Windows-->cmsd
+     Raspbian-->Native
+
+
+     os-->Raspbian
+     os-->macOS
+     os-->Windows
+     os-->Linux
+
+     subgraph IoT
+     Raspbian
+     end
+
+     subgraph  OS
+     Linux
+     macOS
+     Windows
+     end
+
+     subgraph Container
+     Docker
+     cmsd
+     end
+
+     click Linux "http://www.github.com" "This is a tooltip for a link"
 
 .. mermaid::
 
+   graph TD
+      A(Prerequits) --> python(Python 3.7 or 3.8)
+      python --> pip(pip >20.0)
+      pip --> venv(venv)
+      venv --> install
+      key --> install
+      A --> xcode(X code)
+      xcode --> keygen(ssh keygen)
+      keygen -->key[fa:fa-key Key]
+      install --> I(pip install openstack)
 
-   sequenceDiagram
-      participant Alice
-      participant Bob
-      Alice->John: Hello John, how are you?
-      loop Healthcheck
-          John->John: Fight against hypochondria
-      end
-      Note right of John: Rational thoughts <br/>prevail...
-      John-->Alice: Great!
-      John->Bob: How about you?
-      Bob-->John: Jolly good!
 
 
 Installation of cloudmesh with Docker
