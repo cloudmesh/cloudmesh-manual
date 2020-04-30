@@ -5,9 +5,8 @@ Prerequisites for macOS
 
    graph TD
       A(Prerequits) --> python(Python 3.7 or 3.8)
-      python --> pip(pip >20.0)
-      pip --> venv(venv)
-      venv --> install
+      python --> venv(venv)
+      venv --> pip(pip >20.0)
       key --> install
       A --> xcode(X code)
       xcode --> keygen(ssh keygen)
@@ -15,7 +14,7 @@ Prerequisites for macOS
       install --> I(pip install cloudmesh-openstack)
       I --> cms(cms help)
 
-     click Xcode "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html"
+     click Xcode "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html#xcode"
 
 
 Xcode
@@ -34,5 +33,16 @@ You need to install macOS xcode command line tools
 
 Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.
+
+
+Python
+------
+
+.. todo:: tbd, already described elsewhere
+
+Key
+---
+
+.. todo:: tbd, already described elsewhere
 
 
