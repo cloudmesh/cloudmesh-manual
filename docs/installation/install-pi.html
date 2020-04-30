@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Prerequisites for Linux &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Prerequisites for Raspbian &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -95,6 +95,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
@@ -240,7 +241,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Prerequisites for Linux</li>
+      <li>Prerequisites for Raspbian</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -259,27 +260,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="prerequisites-for-linux">
-<h1>Prerequisites for Linux<a class="headerlink" href="#prerequisites-for-linux" title="Permalink to this headline">¶</a></h1>
-<p>You want a number of useful tools on your macOS. They are not installed by
-default, but are available via Xcode. First you need to install xcode from</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835">https://apps.apple.com/us/app/xcode/id497799835</a></p></li>
-</ul>
-<p>Next you want to install a python version. You can either chose the installation
-from python.org or from homebrew.</p>
+  <div class="section" id="prerequisites-for-raspbian">
+<h1>Prerequisites for Raspbian<a class="headerlink" href="#prerequisites-for-raspbian" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup-with-curl">
+<h2>Setup with curl<a class="headerlink" href="#setup-with-curl" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>integrate the curl command</p>
+</div>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph TD
-   A(Prerequits) --&gt; python(Python 3.7 or 3.8)
-   python --&gt; pip(pip &gt;20.0)
-   pip --&gt; venv(venv)
-   venv --&gt; install
-   key --&gt; install
-   xcode --&gt; keygen(ssh keygen)
-   keygen --&gt;key[fa:fa-key Key]
-   install --&gt; I(pip install cloudmesh-openstack)
+   Prerequits --&gt; keygen(ssh-keygen fa:fa-key)
+   keygen --&gt; curl(curl -Ls http://cloudmesh.github.io/get/pi | sh)
+   curl --&gt; I(pip install cloudmesh-openstack)
    I --&gt; cms(cms help)
         </div></div>
+</div>
 
 
            </div>
