@@ -269,11 +269,15 @@
 <p>integrate the curl command</p>
 </div>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
-            graph TD
-   Prerequits --&gt; keygen(ssh-keygen fa:fa-key)
-   keygen --&gt; curl(curl -Ls http://cloudmesh.github.io/get/pi | sh)
-   curl --&gt; I(pip install cloudmesh-openstack)
-   I --&gt; cms(cms help)
+            graph LR
+   keygen(ssh-keygen fa:fa-key)
+   curl(&quot;curl -Ls http://cloudmesh.github.io/get/pi | sh&quot;)
+   pip(pip install cloudmesh-openstack)
+   cms(cms help)
+   start(Start) --&gt; keygen --&gt; curl --&gt; pip --&gt; cms
+
+   style start stroke:#333,stroke-width:4px
+   style cms stroke:#333,stroke-width:4px
         </div></div>
 </div>
 

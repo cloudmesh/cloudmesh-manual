@@ -10,8 +10,14 @@ Setup with curl
 
 .. mermaid::
 
-   graph TD
-      Prerequits --> keygen(ssh-keygen fa:fa-key)
-      keygen --> curl(curl -Ls http://cloudmesh.github.io/get/pi | sh)
-      curl --> I(pip install cloudmesh-openstack)
-      I --> cms(cms help)
+
+
+   graph LR
+      keygen(ssh-keygen fa:fa-key)
+      curl("curl -Ls http://cloudmesh.github.io/get/pi | sh")
+      pip(pip install cloudmesh-openstack)
+      cms(cms help)
+      start(Start) --> keygen --> curl --> pip --> cms
+
+      style start stroke:#333,stroke-width:4px
+      style cms stroke:#333,stroke-width:4px
