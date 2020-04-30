@@ -13,6 +13,7 @@ Cloudmesh Version 4
    :maxdepth: 2
 
    installation/install/index
+   installation/install
    installation/quickstart
    configuration/configuration
    installation/mongo

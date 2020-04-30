@@ -63,8 +63,10 @@ This also helps to decide which instalation method is best suited for you.
      cmsd
      end
 
-     click Linux "http://www.github.com" "This is a tooltip for a link"
-
+     click Raspbian "https://cloudmesh.github.io/cloudmesh-manual/installation/install-pi.html"
+     click Windows "https://cloudmesh.github.io/cloudmesh-manual/installation/install-windows.html"
+     click Linux "https://cloudmesh.github.io/cloudmesh-manual/installation/install-linux.html"
+     click macOS "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html"
 .. mermaid::
 
    graph TD
