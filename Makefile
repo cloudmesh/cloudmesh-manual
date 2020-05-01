@@ -238,6 +238,7 @@ doc: authors
 	cp -r docs-source/build/html/ docs
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 	cp -r $(SOURCE)/inspector docs/inspector
+	touch docs/.nojekyll
 
 pdf: authors
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
