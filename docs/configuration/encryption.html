@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh Config File Encryption &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Config File Encryption &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -36,7 +36,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -55,9 +54,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+            <a href="../index.html" class="icon icon-home"> Cloudmesh
           
 
+          
+            
+            <img src="../_static/logo3.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -96,10 +98,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Cloudmesh Installation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -152,7 +151,6 @@
 <p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/google-drive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
@@ -177,8 +175,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/windows.html">FAQ for Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/windows.html">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -247,7 +243,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cloudmesh v4</a>
+          <a href="../index.html">Cloudmesh</a>
         
       </nav>
 
@@ -304,14 +300,6 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>THIS SECTION IS UNDER DEVELOPMENT</p>
-</div>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Ensure compatible with Windows</p>
-</div>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>Implement capabilities to query for value of encrypted attribute</p>
 </div>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
@@ -435,9 +423,9 @@ after being prompted or run the following.</p>
 </div>
 </div>
 <div class="section" id="additional-configuration-options">
-<span id="id3"></span><h2>Additional Configuration Options<a class="headerlink" href="#additional-configuration-options" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Additional Configuration Options<a class="headerlink" href="#additional-configuration-options" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="changing-the-secinit-directory">
-<span id="id4"></span><h3>Changing the secinit Directory<a class="headerlink" href="#changing-the-secinit-directory" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Changing the secinit Directory<a class="headerlink" href="#changing-the-secinit-directory" title="Permalink to this headline">¶</a></h3>
 <p>The secinit directory controls where encryption related data is stored.
 The default location is ~/.cloudmesh/security. If you wish to change
 this location you must edit the <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.secpath</span></code>
@@ -464,7 +452,7 @@ in the .ssh directory execute the following.</p>
 </div>
 </div>
 <div class="section" id="setting-keys-for-encryption-without-key-gen-command">
-<span id="id5"></span><h4>Setting Keys for Encryption Without Key Gen Command<a class="headerlink" href="#setting-keys-for-encryption-without-key-gen-command" title="Permalink to this headline">¶</a></h4>
+<span id="id3"></span><h4>Setting Keys for Encryption Without Key Gen Command<a class="headerlink" href="#setting-keys-for-encryption-without-key-gen-command" title="Permalink to this headline">¶</a></h4>
 <p>The path to the encryption and decryption keys are located in
 <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.pubickey</span></code> and <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.privatekey</span></code>
 respectively. When keys are generated with the <code class="docutils literal notranslate"><span class="pre">--set_path</span></code> argument
@@ -491,7 +479,7 @@ run</p>
 </div>
 </div>
 <div class="section" id="selecting-attributes-to-encrypt">
-<span id="id6"></span><h3>Selecting Attributes to Encrypt<a class="headerlink" href="#selecting-attributes-to-encrypt" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Selecting Attributes to Encrypt<a class="headerlink" href="#selecting-attributes-to-encrypt" title="Permalink to this headline">¶</a></h3>
 <p>Internally, Cloudmesh represents all values as the yaml dot path to the
 attribute. The <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.secrets</span></code> attribute takes a list
 of python regular expressions that will be matched on the dot paths to
@@ -523,7 +511,7 @@ For instance, to remove the previously added attribute run the following.</p>
 </div>
 </div>
 <div class="section" id="selecting-attributes-to-exclude-from-encryption">
-<span id="id7"></span><h3>Selecting Attributes to Exclude from Encryption<a class="headerlink" href="#selecting-attributes-to-exclude-from-encryption" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Selecting Attributes to Exclude from Encryption<a class="headerlink" href="#selecting-attributes-to-exclude-from-encryption" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.exception</span></code> section is intended to list attributes
 that must <strong>not</strong> be encrypted. This section also explicitly uses python regular
 expressions to capture the attribute dot paths. Cloudmesh has some attributes
@@ -579,7 +567,7 @@ exceptions regular expressions the attribute will <strong>not</strong> be encryp
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Cloudmesh Community
+        &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>

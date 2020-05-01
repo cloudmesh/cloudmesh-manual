@@ -3,7 +3,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: PREFACE
-   :maxdepth: 2
+   :maxdepth: 10
 
    preface/about
    preface/contributors
@@ -12,16 +12,11 @@ Cloudmesh Version 4
    :caption: INSTALLATION
    :maxdepth: 2
 
-   installation/install/index
-   installation/install
-   installation/quickstart
-   configuration/configuration
-   installation/mongo
-   cmsd
+   installation/index
 
 .. toctree::
    :caption: CONCEPTS
-   :maxdepth: 2
+   :maxdepth: 10
 
    concepts/compute
    concepts/storage
@@ -33,7 +28,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: MANUAL PAGES
-   :maxdepth: 2
+   :maxdepth: 10
 
    cmd5
    reference-card
@@ -47,14 +42,14 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: API
-   :maxdepth: 2
+   :maxdepth: 10
 
    jupyter/index
    api/index
 
 .. toctree::
    :caption: CONTRIBUTION
-   :maxdepth: 2
+   :maxdepth: 10
 
    projects/index
    dev/conventions
@@ -66,7 +61,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: CLOUD ACCOUNTS
-   :maxdepth: 2
+   :maxdepth: 10
 
    accounts/openstack
    accounts/aws
@@ -79,7 +74,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: GOOGLE ACCOUNT (FIXME)
-   :maxdepth: 2
+   :maxdepth: 10
 	      
    accounts/google/index
    accounts/google/FIXME
@@ -95,7 +90,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: FAQ AND TIPS
-   :maxdepth: 2
+   :maxdepth: 10
 
    faq/install
    faq/chameleon
@@ -103,7 +98,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: UNLISTED TODO
-   :maxdepth: 2
+   :maxdepth: 10
 
    api/modules
    concepts/ai
@@ -138,7 +133,7 @@ Other
 
 .. toctree::
    :caption: OTHER
-   :maxdepth: 2
+   :maxdepth: 10
 
    tbd
 

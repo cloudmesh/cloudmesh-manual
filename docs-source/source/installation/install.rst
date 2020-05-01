@@ -1,6 +1,7 @@
 Installation
 ============
 
+.. contents:: :local:
 
 Cloudmesh is easy to install. Dependent on your preferences you can choose an
 install from

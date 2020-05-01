@@ -260,11 +260,14 @@ clean:
 	rm -rf *.eggs
 	rm -rf docs-source/build
 	rm -rf build
-	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 	rm -rf .tox
 	rm -f *.whl
 	rm -rf docs
 	rm -rf tmp
+	find . -name '*.pyc' -delete
+	find . -name '__pycache__' -type d | xargs rm -fr
+	rm -fr docs/_build/
+
 
 
 ######################################################################

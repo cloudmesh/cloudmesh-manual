@@ -39,5 +39,4 @@ OUTDATED
 .. toctree::
    :caption: Outdated:
 
-   CM4README
    vcluster

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CM4 Details (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>CM4 Details (outdated) &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -36,12 +36,9 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Virtual Cluster (in progress)" href="vcluster.html" />
-    <link rel="prev" title="AWS EC2 Compute Database" href="benchmarks/test_compute_database.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,9 +52,12 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Cloudmesh v4
+            <a href="index.html" class="icon icon-home"> Cloudmesh
           
 
+          
+            
+            <img src="_static/logo3.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -96,10 +96,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cmsd.html">Cloudmesh cmsd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Cloudmesh Installation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -152,7 +149,6 @@
 <p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/gdrive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/google-drive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a></li>
@@ -177,8 +173,6 @@
 <li class="toctree-l1"><a class="reference internal" href="faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/install.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/windows.html">FAQ for Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/windows.html">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -193,23 +187,9 @@
 <li class="toctree-l1"><a class="reference internal" href="windows/windows-ubuntu.html">Windows Cloudmesh Development Environment</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="tbd.html">OTHER</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="tbd.html#outdated">OUTDATED</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">CM4 Details (outdated)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#getting-the-config-object">Getting the config object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getting-values">Getting values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-counter-file">Using the Counter file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-counter">Using the counter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-scheme-in-mongodb">Data Scheme in MongoDB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-virtual-machine-provider">The Virtual Machine Provider</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aws-vm-operations-yu">AWS VM Operations (Yu)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vm-refactoring">VM Refactoring</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="vcluster.html">Virtual Cluster (in progress)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
@@ -224,7 +204,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Cloudmesh v4</a>
+          <a href="index.html">Cloudmesh</a>
         
       </nav>
 
@@ -255,8 +235,6 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="tbd.html">OTHER</a> &raquo;</li>
-        
       <li>CM4 Details (outdated)</li>
     
     
@@ -281,14 +259,15 @@
 <p>In cloudmesh, we are using the <strong>Python</strong> tool to implement a program
 that could remotely control cloud nodes provided by different
 organizations and run experiments in parallel.</p>
-<p>The goal of <em>``cloudmesh``</em> is to provide a platform that users could
+<p>The goal of <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> is to provide a platform that users could
 directly control the nodes they have, like AWS, Azure, and OPENSTACK
 instances. Users could decide to start, stop, destroy, create, resume,
 and suspend different nodes without accessing the <strong>Console</strong> interfaces
 of providers. Then users could install experiment environment, software,
 and other required tools in these running nodes. Finally, an experiment
 could be executed in running nodes by sending the commands from
-<em>``cloudmesh``</em> platform. Meanwhile, we embed the NoSQL database
+<code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> platform. Meanwhile, we embed the NoSQL database
+<code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> platform. Meanwhile, we embed the NoSQL database
 <strong>MongoDB</strong> into cloudmesh for managing the nodes and experiments.</p>
 <div class="section" id="getting-the-config-object">
 <h2>Getting the config object<a class="headerlink" href="#getting-the-config-object" title="Permalink to this headline">¶</a></h2>
@@ -455,21 +434,12 @@ have many different tasks on the run=.</p>
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="vcluster.html" class="btn btn-neutral float-right" title="Virtual Cluster (in progress)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="benchmarks/test_compute_database.html" class="btn btn-neutral float-left" title="AWS EC2 Compute Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Cloudmesh Community
+        &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>

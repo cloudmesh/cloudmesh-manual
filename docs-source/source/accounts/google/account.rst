@@ -1,9 +1,6 @@
 Google Account
 ==============
 
-
-
-
 Prerequisits
 ------------
 

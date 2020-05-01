@@ -5,14 +5,15 @@ In cloudmesh, we are using the **Python** tool to implement a program
 that could remotely control cloud nodes provided by different
 organizations and run experiments in parallel.
 
-The goal of *``cloudmesh``* is to provide a platform that users could
+The goal of ``cloudmesh`` is to provide a platform that users could
 directly control the nodes they have, like AWS, Azure, and OPENSTACK
 instances. Users could decide to start, stop, destroy, create, resume,
 and suspend different nodes without accessing the **Console** interfaces
 of providers. Then users could install experiment environment, software,
 and other required tools in these running nodes. Finally, an experiment
 could be executed in running nodes by sending the commands from
-*``cloudmesh``* platform. Meanwhile, we embed the NoSQL database
+``cloudmesh`` platform. Meanwhile, we embed the NoSQL database
+``cloudmesh`` platform. Meanwhile, we embed the NoSQL database
 **MongoDB** into cloudmesh for managing the nodes and experiments.
 
 Getting the config object

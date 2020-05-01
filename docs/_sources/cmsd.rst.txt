@@ -39,7 +39,7 @@ Linux, osx:
 
    $ python3.8 -m venv ~/ENV3
    $ source ~/ENV3/bin/activate
-   $ pip install pip -U 
+   $ pip install pip -U
 
 In Windows, you can do this with
 
@@ -53,43 +53,29 @@ Now you can install cloudmesh ``cmsd`` with
 
 .. code:: bash
 
-   $ pip install cloudmesh-cmsd
+   $ pip install cloudmesh-openstack
 
 Developer Source installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Developers install ``cmsd`` from source with our ``cloudmesh-installer``
-
-Linux, osx:
+after they created a venv just as any other user does.
 
 .. code:: bash
 
-   $ python3.8 -m venv ~/ENV3
-   $ source ~/ENV3/bin/activate
-   $ pip install pip -U
-   $ mkdir cm   
+   # make sure you use a venv
+   $ mkdir cm
    $ cd cm  
    $ pip install cloudmesh-installer -U 
    $ cloudmesh-installer get cmsd
 
-Windows:
-
-.. code:: bash
-
-   $ python -m venv ENV3
-   $ ENV3\Scripts\activate
-   $ pip install pip -U
-   $ mkdir cm   
-   $ cd cm  
-   $ pip install cloudmesh-installer -U 
-   $ cloudmesh-installer get cmsd
 
 You will see in the ``cm`` directory a number of cloudmesh related
 repositories. One of them is ``cloudmesh-cmsd`` in which the cmsd
 command related code is stored. The other repositories contain code that
 may be used by ``cloudmesh-cmsd``.
 
-Defult setup
+Default setup
 ~~~~~~~~~~~~
 
 To run ``cmsd``, you need a configuration directory that is mounted into
@@ -106,7 +92,7 @@ configuration YAML file in
 -  Windows ``%USERPROFILE%\.cloudmesh\cloudmesh.yaml``
 
 You are asked to enter some details that are required for the setup,
-such as profile details, Mongo DB credentials.
+such as profile details.
 
 Custom cmsd setup
 ~~~~~~~~~~~~~~~~~
@@ -115,18 +101,17 @@ In case you need to place the configuration files elsewhere you can
 specify the location with the environment variable
 ``CLOUDMESH_CONFIG_DIR``.
 
-For macOS and Linux you set it with::
+For macOS and Linux you set it with
 
 .. code:: bash
 
    $ export CLOUDMESH_CONFIG_DIR=<path to CLOUDMESH_HOME_DIR>
 
-For Windows you set it with::
+For Windows you set it with
 
 .. code:: bash
 
    > set CLOUDMESH_CONFIG_DIR=<path to CLOUDMESH_HOME_DIR>
-
 
 .. note:: avoid spaces:
 
@@ -136,13 +121,13 @@ For Windows you set it with::
    ``C:\Users\gregor von Laszewski\.cloudmesh``, as it includes a space
    in th eusername.
 
-   **Note:** grant access:
+.. note:: grant access:
 
    Make sure that the drive of the ``CLOUDMESH_CONFIG_DIR`` is granted
    file access in Docker settings
 
-Next, you run the setup just like in the default case. If you are
-running setup on an empty ``CLOUDMESH_CONFIG_DIR``, you will be asked to
+Next, you run the setup. If you are running setup on an empty
+``CLOUDMESH_CONFIG_DIR``, you will be asked to
 enter some details that are required for the setup, such as profile
 details, Mongo DB credentials.
 
@@ -150,10 +135,8 @@ details, Mongo DB credentials.
 
    $ cmsd --setup 
 
-Containers
-~~~~~~~~~~
-
-It the setup installs cloudmesh into two containerscontainers. The
+This setup will do most everything automatically and create and start two containers
+for running cloudmesh. The
 containers are called
 
 -  ``cloudmesh-cms`` for the cms command

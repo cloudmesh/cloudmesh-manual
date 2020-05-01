@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh Instalation &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Installation &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -36,10 +36,11 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="install.html" />
+    <link rel="prev" title="Contributors" href="../preface/contributors.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,9 +54,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+            <a href="../index.html" class="icon icon-home"> Cloudmesh
           
 
+          
+            
+            <img src="../_static/logo3.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -93,12 +97,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cmsd.html">Cloudmesh cmsd</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/index.html">Linux Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows/index.html">Windows Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-macos.html">Prerequisites for macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-pi.html">Prerequisites for Raspbian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-mongo.html">MongoDB Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-mongo.html#uninstall-of-mongodb-on-windows-10">Uninstall of MongoDB on Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -151,7 +164,6 @@
 <p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/google-drive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
@@ -176,8 +188,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/windows.html">FAQ for Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -209,7 +219,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Cloudmesh v4</a>
+          <a href="../index.html">Cloudmesh</a>
         
       </nav>
 
@@ -240,7 +250,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Cloudmesh Instalation</li>
+      <li>Cloudmesh Installation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -259,11 +269,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cloudmesh-instalation">
-<h1>Cloudmesh Instalation<a class="headerlink" href="#cloudmesh-instalation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cloudmesh-installation">
+<h1>Cloudmesh Installation<a class="headerlink" href="#cloudmesh-installation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Install</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-cloudmesh-with-docker">Installation of cloudmesh with Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-cloudmesn-in-python">Installation of Cloudmesn in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#anaconda-and-conda">Anaconda and Conda</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install.html#python-installation-from-python-org">Python Installation from python.org</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#ssh-key">SSH key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#first-configuration">First configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#the-directory-cloudmesh">The Directory .cloudmesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-mongodb">Installation of MongoDB</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#configuration-with-the-gui">Configuration with the GUI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#manual">Manual</a></li>
@@ -281,24 +305,41 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html#debugging">Debugging</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-cloudmesh-with-docker">Installation of cloudmesh with Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#prerequisites-for-other-installs">Prerequisites for other Installs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#ssh-key">SSH key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-cloudmesh-end-user">Installation of Cloudmesh (End User)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#cloudmesh-directory">.cloudmesh directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-mongodb">Installation of MongoDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux/index.html">Linux Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-linux.html">Prerequisites for Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-ubuntu-18-04.html">Prerequisites for Ubuntu 18.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-ubuntu-19-04.html">Prerequisites for Ubuntu 19.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux/install-ubuntu-20-04.html">Prerequisites for Ubuntu</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install-docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows/index.html">Windows Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="windows/install-windows.html">Prerequisites for Windows 10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="windows/install-windows.html#prerequisites-for-other-installs">Prerequisites for other Installs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="windows/install-windows.html#windows-native-installation-approach">Windows native Installation Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="windows/install-windows.html#windows-container-approach">Windows Container Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="windows/install-windows.html#linux-subsystem-installation-approach">Linux Subsystem Installation Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="windows/install-windows.html#venv-setup-on-windows-cmd-exe">venv Setup on Windows CMD.EXE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="windows/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows/windows.html">Windows 10</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="install-macos.html">Prerequisites for macOS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install-macos.html#xcode">Xcode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-macos.html#python">Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-macos.html#key">Key</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install-ubuntu-20-04.html">Prerequisites for Ubuntu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-ubuntu-18-04.html">Prerequisites for Ubuntu 18.04</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-pi.html">Prerequisites for Raspbian</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install-pi.html#setup-with-curl">Setup with curl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install-mongo.html">MongoDB Installation Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-mongo.html#uninstall-of-mongodb-on-windows-10">Uninstall of MongoDB on Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install-dev.html#cloudmesh-updates">Cloudmesh Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-dev.html#reinstallation">Reinstallation</a></li>
@@ -312,16 +353,6 @@
 </li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Windows</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html">Windows native Installation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html#windows-container-approach">Windows Container Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html#linux-subsystem-installation-approach">Linux Subsystem Installation Approach</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-windows.html#venv-setup-on-windows-cmd-exe">venv Setup on Windows CMD.EXE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows 10</a></li>
-</ul>
-</div>
 </div>
 
 
@@ -330,12 +361,21 @@
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../preface/contributors.html" class="btn btn-neutral float-left" title="Contributors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Cloudmesh Community
+        &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>

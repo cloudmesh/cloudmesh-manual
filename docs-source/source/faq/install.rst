@@ -8,11 +8,6 @@ A Manual is available at
 
 -  https://cloudmesh.github.io/cloudmesh-manual
 
-Videos
-------
-
--  TBD
-
 Having control over your computers
 ----------------------------------
 
@@ -39,9 +34,7 @@ skip this one
 Install MongoDB
 ~~~~~~~~~~~~~~~
 
-osx and Linux:
-
-::
+osx and Linux:::
 
    cms admin mongo install
 
@@ -56,12 +49,7 @@ Do an update of the source
 ::
 
    pip install cloudmesh-installer -U
-   cloudmes-installer git clone cloud
-   cloudmesh-installer git clone openstack
-   cloudmes-installer git pull cloud
-   cloudmesh-installer git pull openstack
-   cloudmes-installer install cloud
-   cloudmesh-installer install openstack
+   cloudmes-installer get clone cloud
    cms help
    cms gui quick
    cms test 
@@ -145,9 +133,7 @@ Save in file install-cms.sh and change values
    pip install cloudmesh-installer -U
    mkdir cm
    cd cm
-   cloudmesh-installer git clone openstack 
-   cloudmesh-installer git pull openstack
-   cloudmesh-installer install openstack
+   cloudmesh-installer get openstack
    cms set cloud=chameleon
    cms help 
    cms debug off
@@ -189,34 +175,12 @@ Save in file install-cms.sh and change values
 
    cms vm list --refresh
 
-make the scripts executable
-
-::
+To use it do the following::
 
    chmod a+x install-cms.sh install-python.sh
-
-Now lest use it
-
-::
-
    ./install-python.sh
-
-Start your ENV with
-
-::
-
    source ~/ENV3/bin/activate
-
-Install cms
-
-::
-
    ./install-cms.sh
-
-Start a vm
-
-::
-
    cms vm boot
 
 Switching between cms and cmsd
@@ -226,9 +190,7 @@ It is best to delete the .cloudmesh directory and start new.
 
 However you can also try to set the MONGO mode accordingly.
 
-For cms you use
-
-::
+For cms you use::
 
    cms config set cloudmesh.data.mongo.MODE=native
 
@@ -239,20 +201,8 @@ For cmsd you use
    cmsd config set cloudmesh.data.mongo.MODE=running
 
 Remeber that cmsd will automatically upon –setup change the mode to
-running. SO if you like to swithc back do so.
+running. So if you like to switch back do so.
 
 Please be aware there coudl be issues with Mongo runing natively or in a
 container. Try it out. IF it does not work, remove the .cloudmesh
 directory
-
-What is KeyError: ‘auth’
-------------------------
-
-If you see this:
-
-::
-
-   KeyError: 'auth',
-
-You have an outdated version of the .cloudmesh/cloudmesh.yaml file. stop
-mongo and reinstall cloudmesh and the ENV3

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh cmsd &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh cmsd &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -36,12 +36,9 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Multicloud Compute Interfaces" href="concepts/compute.html" />
-    <link rel="prev" title="Cloudmesh Database" href="installation/mongo.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,9 +52,12 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Cloudmesh v4
+            <a href="index.html" class="icon icon-home"> Cloudmesh
           
 
+          
+            
+            <img src="_static/logo3.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -95,34 +95,8 @@
 <li class="toctree-l1"><a class="reference internal" href="preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh cmsd</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequesites">Prerequesites</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-use-cmsd">How to use <code class="docutils literal notranslate"><span class="pre">cmsd</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#user-installation">User installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#developer-source-installation">Developer Source installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#defult-setup">Defult setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#custom-cmsd-setup">Custom cmsd setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#containers">Containers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-usecase-creating-a-vm-in-chameleon-cloud">Example Usecase - Creating a vm in Chameleon Cloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-usecase-creating-a-vm-in-aws">Example Usecase - Creating a vm in AWS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mongodb-and-mongo-client-connections">MongoDB and Mongo client connections</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#manual-page">Manual Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#quickstart">Quickstart</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#macos-with-python-3-8-2-from-python-org">macOS with python 3.8.2 from python.org</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#demonstration-of-the-different-uses-of-cmsd">Demonstration of the different uses of cmsd</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Cloudmesh Installation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -175,7 +149,6 @@
 <p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/gdrive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/google-drive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a></li>
@@ -200,8 +173,6 @@
 <li class="toctree-l1"><a class="reference internal" href="faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/install.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/windows.html">FAQ for Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/windows.html">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -233,7 +204,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Cloudmesh v4</a>
+          <a href="index.html">Cloudmesh</a>
         
       </nav>
 
@@ -325,27 +296,15 @@ $ pip install pip -U
 </pre></div>
 </div>
 <p>Now you can install cloudmesh <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-cmsd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-openstack
 </pre></div>
 </div>
 </div>
 <div class="section" id="developer-source-installation">
 <h2>Developer Source installation<a class="headerlink" href="#developer-source-installation" title="Permalink to this headline">¶</a></h2>
-<p>Developers install <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> from source with our <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code></p>
-<p>Linux, osx:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3.8 -m venv ~/ENV3
-$ <span class="nb">source</span> ~/ENV3/bin/activate
-$ pip install pip -U
-$ mkdir cm
-$ <span class="nb">cd</span> cm
-$ pip install cloudmesh-installer -U
-$ cloudmesh-installer get cmsd
-</pre></div>
-</div>
-<p>Windows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m venv ENV3
-$ ENV3<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
-$ pip install pip -U
+<p>Developers install <code class="docutils literal notranslate"><span class="pre">cmsd</span></code> from source with our <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>
+after they created a venv just as any other user does.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># make sure you use a venv</span>
 $ mkdir cm
 $ <span class="nb">cd</span> cm
 $ pip install cloudmesh-installer -U
@@ -357,8 +316,8 @@ repositories. One of them is <code class="docutils literal notranslate"><span cl
 command related code is stored. The other repositories contain code that
 may be used by <code class="docutils literal notranslate"><span class="pre">cloudmesh-cmsd</span></code>.</p>
 </div>
-<div class="section" id="defult-setup">
-<h2>Defult setup<a class="headerlink" href="#defult-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-setup">
+<h2>Default setup<a class="headerlink" href="#default-setup" title="Permalink to this headline">¶</a></h2>
 <p>To run <code class="docutils literal notranslate"><span class="pre">cmsd</span></code>, you need a configuration directory that is mounted into
 the container. The default setup is done with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd --setup
@@ -371,27 +330,21 @@ configuration YAML file in</p>
 <li><p>Windows <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\.cloudmesh\cloudmesh.yaml</span></code></p></li>
 </ul>
 <p>You are asked to enter some details that are required for the setup,
-such as profile details, Mongo DB credentials.</p>
+such as profile details.</p>
 </div>
 <div class="section" id="custom-cmsd-setup">
 <h2>Custom cmsd setup<a class="headerlink" href="#custom-cmsd-setup" title="Permalink to this headline">¶</a></h2>
 <p>In case you need to place the configuration files elsewhere you can
 specify the location with the environment variable
 <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>.</p>
-<p>For macOS and Linux you set it with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="p">::</span> <span class="n">bash</span>
+<p>For macOS and Linux you set it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">CLOUDMESH_CONFIG_DIR</span><span class="o">=</span>&lt;path to CLOUDMESH_HOME_DIR&gt;
 </pre></div>
 </div>
-<blockquote>
-<div><p>$ export CLOUDMESH_CONFIG_DIR=&lt;path to CLOUDMESH_HOME_DIR&gt;</p>
-</div></blockquote>
-<p>For Windows you set it with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="p">::</span> <span class="n">bash</span>
+<p>For Windows you set it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">set</span> <span class="nv">CLOUDMESH_CONFIG_DIR</span><span class="o">=</span>&lt;path to CLOUDMESH_HOME_DIR&gt;
 </pre></div>
 </div>
-<blockquote>
-<div><p>&gt; set CLOUDMESH_CONFIG_DIR=&lt;path to CLOUDMESH_HOME_DIR&gt;</p>
-</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>avoid spaces:</p>
@@ -400,21 +353,22 @@ example <code class="docutils literal notranslate"><span class="pre">C:\.cloudme
 <code class="docutils literal notranslate"><span class="pre">C:\Users\gregor\.cloudmesh</span></code>, but not
 <code class="docutils literal notranslate"><span class="pre">C:\Users\gregor</span> <span class="pre">von</span> <span class="pre">Laszewski\.cloudmesh</span></code>, as it includes a space
 in th eusername.</p>
-<p><strong>Note:</strong> grant access:</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>grant access:</p>
 <p>Make sure that the drive of the <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code> is granted
 file access in Docker settings</p>
 </div>
-<p>Next, you run the setup just like in the default case. If you are
-running setup on an empty <code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>, you will be asked to
+<p>Next, you run the setup. If you are running setup on an empty
+<code class="docutils literal notranslate"><span class="pre">CLOUDMESH_CONFIG_DIR</span></code>, you will be asked to
 enter some details that are required for the setup, such as profile
 details, Mongo DB credentials.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cmsd --setup
 </pre></div>
 </div>
-</div>
-<div class="section" id="containers">
-<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
-<p>It the setup installs cloudmesh into two containerscontainers. The
+<p>This setup will do most everything automatically and create and start two containers
+for running cloudmesh. The
 containers are called</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cloudmesh-cms</span></code> for the cms command</p></li>
@@ -755,21 +709,12 @@ root@docker-desktop:/cm#
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="concepts/compute.html" class="btn btn-neutral float-right" title="Multicloud Compute Interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="installation/mongo.html" class="btn btn-neutral float-left" title="Cloudmesh Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Cloudmesh Community
+        &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>

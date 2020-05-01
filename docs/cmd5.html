@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cmd5 &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cmd5 &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -36,7 +36,6 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -55,9 +54,12 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Cloudmesh v4
+            <a href="index.html" class="icon icon-home"> Cloudmesh
           
 
+          
+            
+            <img src="_static/logo3.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -96,10 +98,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cmsd.html">Cloudmesh cmsd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Cloudmesh Installation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -167,7 +166,6 @@
 <p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/FIXME.html">Google Fix me</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/gdrive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/google-drive.html">Google Drive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a></li>
@@ -192,8 +190,6 @@
 <li class="toctree-l1"><a class="reference internal" href="faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/install.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/windows.html">FAQ for Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/linux-subsystem.html">Linux Subsystem on Windows 10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation/windows.html">Windows 10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -225,7 +221,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Cloudmesh v4</a>
+          <a href="index.html">Cloudmesh</a>
         
       </nav>
 
@@ -400,12 +396,6 @@ use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">default</span> <span class="nb">list</span>
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>cmd5 default - add the ability to define the defaults also with a . notation.</p>
-<p>cms default chameleon.image=”ubuntu”</p>
-<p>here the key is image, the context is aws and the value is ubuntu19.04</p>
-</div>
 <p>To use the defaults in a command proceed it with the the keyword
 <code class="docutils literal notranslate"><span class="pre">default.</span></code> and append the context and the name of the default
 variable. If the context is missing, the <code class="docutils literal notranslate"><span class="pre">general</span></code> context will be
@@ -569,10 +559,6 @@ as would normally be needed in CMD.</p>
 <div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
 <p>Developers can easily create a docker container.</p>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>docker cmd5 - make sure this is working</p>
-</div>
 <p>Cloudmesh can be run easily in a container with the help of docker. A
 Dockerfile is provided as an example that you may adapt for your needs</p>
 <p>To use the docker file we have included a number or convenient targets
@@ -628,7 +614,7 @@ and we add it here.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, Cloudmesh Community
+        &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>
