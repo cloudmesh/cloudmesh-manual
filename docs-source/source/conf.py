@@ -86,4 +86,5 @@ if html_theme == "sphinx_rtd_theme":
         'titles_only': False
     }
 
-html_logo = "logo3.png"
+html_logo = "icons/logo3.png"
+html_favicon = 'icons/favicon.ico'
