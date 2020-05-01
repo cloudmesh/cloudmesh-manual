@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Box Account &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="VM Providers (outdated)" href="accountcreation-old.html" />
+    <link rel="prev" title="Oracle Cloud Account" href="oracle/account.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Cloudmesh Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONCEPTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">Azure Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Box Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sign-up">Sign up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="google/index.html">Google Acooounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/gdrive/gdrive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/gdrive/google-drive.html">Google Drive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/google-docs.html">Google Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/google-drive-account.html">Google Drive authentication additional steps and procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/google-drive-ufo.html">Google Account Creation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/google-gcp.html">Google Cloud Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/google-storage-1.html">Google Cloud Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google/refernces.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/windows.html">FAQ for Windows</a></li>
+</ul>
+<p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/windows.html">FAQ for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/emr.html">emr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/git.html">git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/queue.html">queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/test.html">test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/windows.html">windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/workflow_draft.html">workflow_draft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows/windows-broken-make.html">Windows Cloudmesh Ubuntu Subsystem Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows/windows-linux.html">Using windows instead of Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../windows/windows-ubuntu.html">Windows Cloudmesh Development Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Box Account</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/accounts/box.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="box-account">
+<h1>Box Account<a class="headerlink" href="#box-account" title="Permalink to this headline">¶</a></h1>
+<p>Box provides a cloud file sharing service for businesses. Clients exists
+for Windows, MacOS, and Linux. To obtain an account you have to first
+visit the box home page as</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.box.com/home">https://www.box.com/home</a></p></li>
+</ul>
+<div class="section" id="sign-up">
+<h2>Sign up<a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h2>
+<p>To sign up for the account, click on the top right hand corner of the
+box <a class="reference external" href="https://www.box.com/home">homepage</a> on the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Started</span></code>
+button.</p>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Set up a box account</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Screenshot</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>You will see the Home page</p></td>
+<td><p><a class=""
+               data-lightbox="group-22fa02ef-beda-4451-97d5-a8e92b8e7356"
+               href="../_images/get_started1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/get_started1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="box-start-1"/>
+                </a></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><div class="line-block">
+<div class="line">select the <code class="docutils literal notranslate"><span class="pre">Individual</span></code> tab and then</div>
+<div class="line">click on the free option.</div>
+</div>
+</td>
+<td><p><a class=""
+               data-lightbox="group-c439b60a-9cf8-4530-9c37-f74872ed3965"
+               href="../_images/individual_plan1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/individual_plan1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="box-start-2"/>
+                </a></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><div class="line-block">
+<div class="line">Chose an Individual plan, fill out the</div>
+<div class="line">required information and click <code class="docutils literal notranslate"><span class="pre">Submit</span></code>.</div>
+<div class="line">You will receive a confirmation email with</div>
+<div class="line">a link to verify your account.</div>
+</div>
+</td>
+<td><p><a class=""
+               data-lightbox="group-6609c394-45f8-4b3f-a8af-749538c58fca"
+               href="../_images/information1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/information1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="box-start-3"/>
+                </a></p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><div class="line-block">
+<div class="line">Once you have verified your account and</div>
+<div class="line">signed in, you will be taken to a page</div>
+<div class="line">that asks you about how you are using Box.</div>
+<div class="line">You may fill this out or click</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Skip</span> <span class="pre">this</span> <span class="pre">and</span> <span class="pre">go</span> <span class="pre">straight</span> <span class="pre">to</span> <span class="pre">Box</span></code> below</div>
+<div class="line">the <code class="docutils literal notranslate"><span class="pre">Next</span></code> button.</div>
+</div>
+</td>
+<td><p><a class=""
+               data-lightbox="group-6609c394-45f8-4b3f-a8af-749538c58fca"
+               href="../_images/information1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/information1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="box-start-3"/>
+                </a></p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><div class="line-block">
+<div class="line">Create an App</div>
+<div class="line"><br /></div>
+<div class="line">You will see the Home page Navigate to the</div>
+<div class="line"><a class="reference external" href="https://app.box.com/developers/console">developer console</a></div>
+<div class="line">and select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">App</span></code>. You will need</div>
+<div class="line">to select what type of application you are</div>
+<div class="line">building and an authentication method for</div>
+<div class="line">your app and then enter an app name (you</div>
+<div class="line">can change this later). Once your app has</div>
+<div class="line">been created, click View App. You will then</div>
+<div class="line">need to click the profile button in the top</div>
+<div class="line">right corner of the page, and go to</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Settings</span></code>. Scroll down to the</div>
+<div class="line">Authentication section and click</div>
+<div class="line"><a href="#id1"><span class="problematic" id="id2">``</span></a>Require 2-step verification for</div>
+<div class="line">unrecognized logins``, then follow the prompts.</div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><div class="line-block">
+<div class="line">Authenticate with JWT</div>
+<div class="line"><br /></div>
+<div class="line">In the Configuration panel of the Developer</div>
+<div class="line">Console, scroll down to the section titled</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Manage</span> <span class="pre">Public</span> <span class="pre">Keys</span></code> and click</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">a</span> <span class="pre">Public/Private</span> <span class="pre">Keypair</span></code>.</div>
+<div class="line">Once you have generated a keypair, a</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">config.json</span></code> file will automatically</div>
+<div class="line">downloaded. Save this file in a secure</div>
+<div class="line">location as you will need it for</div>
+<div class="line">authentication purposes. We recommend storing</div>
+<div class="line">it at <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/box/config.json</span></code>.</div>
+<div class="line">This will avoid that you conflict with</div>
+<div class="line">another file called <code class="docutils literal notranslate"><span class="pre">config.json</span></code></div>
+</div>
+</td>
+<td><p><a class=""
+               data-lightbox="group-1818deba-ddc3-4a06-91b4-ed0352816f9b"
+               href="../_images/box_add_key1.png"
+               title=""
+               data-title=""
+               ><img src="../_images/box_add_key1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt="box-key"/>
+                </a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.box.com/reference">https://developer.box.com/reference</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accountcreation-old.html" class="btn btn-neutral float-right" title="VM Providers (outdated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="oracle/account.html" class="btn btn-neutral float-left" title="Oracle Cloud Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2020, Gregor von Laszewski
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
