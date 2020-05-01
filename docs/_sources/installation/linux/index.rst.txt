@@ -1,6 +1,15 @@
 Instalation for for Linux
 =========================
 
+We describe here the various choces for the instalation of cloudmesh on linux. We focussed
+on Ubuntu but useres were able to adopt them easily for other versions of Linux
+including CentOS, RedHat, and Linux Mint.
+
+If you have rerequisits for thes OSes, please send them to us and we include them here.
+
+Please read the document first, before you copy and paste, as there are
+differences between the installs fior regular users, container users and developers.
+
 Prerequisites for Ubuntu 20.4
 ------------------------------
 
@@ -134,7 +143,3 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
       setupd-->cmsd
 
 
-If you have an older version of Ubuntu please follow the instructions for
-
-* :doc:`Ubuntu 19.10 <../installation/linux/install-ubuntu-19.10>`
-* :doc:`Ubuntu 18.04 <../installation/linux/install-ubuntu-18-04>`
