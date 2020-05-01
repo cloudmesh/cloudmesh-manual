@@ -352,9 +352,9 @@ cms init
             graph TD
    A(Prerequisite) --&gt; xcode(xcode-select --install)
    xcode --&gt; python(Python 3.7 or 3.8)
-   python --&gt; pip(pip &gt;20.0)
-   pip --&gt; venv(venv)
-   venv --&gt; install(Prerequisite completed)
+   python --&gt; venv
+   venv --&gt; pip(pip install pip -U)
+   pip --&gt; install(Prerequisite completed)
    key --&gt; install
    xcode --&gt; keygen(ssh-keygen)
    keygen --&gt;key[fa:fa-key Key]
@@ -366,8 +366,9 @@ cms init
 
    duser--&gt;dev(pip install cloudmesh-installer&lt;br/&gt;cloudmesh-installer get openstack)
    nuser--&gt;user(pip install cloudmesh-openstack)
-   cuser--&gt;container(Install docker&lt;br/&gt;pip install cloudmesh-cmsd)
 
+   cuser--&gt; idocker(Install Docker)
+   idocker--&gt; container(pip install cloudmesh-cmsd)
    setup(cms help&lt;br/&gt;cms admin mongo install&lt;br/&gt;cms --gui quick&lt;br/&gt;cms init)
    dev--&gt;setup
    user--&gt;setup
@@ -385,6 +386,7 @@ cms init
    style setupd fill:gainsboro,stroke:#333,stroke-width:2px
    style cms fill:gainsboro,stroke:#333,stroke-width:2px
    style cmsd fill:gainsboro,stroke:#333,stroke-width:2px
+   style pip fill:gainsboro,stroke:#333,stroke-width:2px
         </div></div>
 </div>
 

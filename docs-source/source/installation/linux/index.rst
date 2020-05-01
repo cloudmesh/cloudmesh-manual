@@ -117,10 +117,12 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
 .. mermaid::
 
    graph TD
+
+
       A(Prerequisite) --> python(Python 3.7 or 3.8)
-      python --> pip(pip >20.0)
-      pip --> venv(venv)
-      venv --> install(Prerequisite completed)
+      python --> venv
+      venv --> pip(pip install pip -U)
+      pip --> install(Prerequisite completed)
       key --> install
       A --> keygen(ssh keygen)
       keygen -->key[fa:fa-key Key]
@@ -132,7 +134,8 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
 
       duser-->dev(pip install cloudmesh-installer<br/>cloudmesh-installer get openstack)
       nuser-->user(pip install cloudmesh-openstack)
-      cuser-->container(Install docker<br/>pip install cloudmesh-cmsd)
+      cuser--> idocker(Install Docker)
+      idocker--> container(pip install cloudmesh-cmsd)
 
       setup(cms help<br/>cms admin mongo install<br/>cms --gui quick<br/>cms init)
       dev-->setup
@@ -147,5 +150,6 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
       style user fill:gainsboro,stroke:#333,stroke-width:2px
       style container fill:gainsboro,stroke:#333,stroke-width:2px
       style setup fill:gainsboro,stroke:#333,stroke-width:2px
+      style pip fill:gainsboro,stroke:#333,stroke-width:2px
 
 

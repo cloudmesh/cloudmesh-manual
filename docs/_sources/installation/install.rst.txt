@@ -59,7 +59,8 @@ version to install.
             Windows(Windows fa:fa-link)
         end
 
-        subgraph "Container"
+        subgraph Container
+
             c
             Docker(Docker fa:fa-link)
             cmsd(cmsd fa:fa-link)
@@ -74,6 +75,10 @@ version to install.
         click cmsd "https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html"
         click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
         click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"
+
+        style Container fill:#8fc,stroke:#333,stroke-width:2px
+        style OS fill:#eef,stroke:#333,stroke-width:2px
+        style Python fill:#2df,stroke:#333,stroke-width:2px
 
 
 Installation of cloudmesh with Docker

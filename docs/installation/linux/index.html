@@ -382,10 +382,12 @@ cms init
 <p>We provide an easy to follow instalation diagram to showcase how simple the instalation for cloudesh is</p>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph TD
+
+
    A(Prerequisite) --&gt; python(Python 3.7 or 3.8)
-   python --&gt; pip(pip &gt;20.0)
-   pip --&gt; venv(venv)
-   venv --&gt; install(Prerequisite completed)
+   python --&gt; venv
+   venv --&gt; pip(pip install pip -U)
+   pip --&gt; install(Prerequisite completed)
    key --&gt; install
    A --&gt; keygen(ssh keygen)
    keygen --&gt;key[fa:fa-key Key]
@@ -397,7 +399,8 @@ cms init
 
    duser--&gt;dev(pip install cloudmesh-installer&lt;br/&gt;cloudmesh-installer get openstack)
    nuser--&gt;user(pip install cloudmesh-openstack)
-   cuser--&gt;container(Install docker&lt;br/&gt;pip install cloudmesh-cmsd)
+   cuser--&gt; idocker(Install Docker)
+   idocker--&gt; container(pip install cloudmesh-cmsd)
 
    setup(cms help&lt;br/&gt;cms admin mongo install&lt;br/&gt;cms --gui quick&lt;br/&gt;cms init)
    dev--&gt;setup
@@ -412,6 +415,7 @@ cms init
    style user fill:gainsboro,stroke:#333,stroke-width:2px
    style container fill:gainsboro,stroke:#333,stroke-width:2px
    style setup fill:gainsboro,stroke:#333,stroke-width:2px
+   style pip fill:gainsboro,stroke:#333,stroke-width:2px
         </div></div>
 </div>
 
