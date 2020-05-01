@@ -1,5 +1,5 @@
-Installation
-============
+Overview
+========
 
 .. contents:: :local:
 

@@ -1,5 +1,5 @@
-Cloudmesh Installation
-======================
+Instalation
+===========
 
 .. toctree::
 
@@ -7,9 +7,16 @@ Cloudmesh Installation
    quickstart
    install-docker
    linux/index
-   windows/index
    install-macos
    install-pi
-   install-mongo
    install-dev
+
+
+Windows
+========
+
+.. toctree::
+
+   windows/index
    mongo
+   install-mongo
