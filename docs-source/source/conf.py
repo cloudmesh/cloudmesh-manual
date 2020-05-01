@@ -26,7 +26,7 @@ author = 'Gregor von Laszewski and the Cloudmeh Community'
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 # The short X.Y version
-version = '4.0.28'
+version = '4.3.0'
 # The full version, including alpha/beta/rc tags
 
 
