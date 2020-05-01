@@ -109,9 +109,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-20-4">Prerequisites for Ubuntu 20.4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-19-10">Prerequisites for Ubuntu 19.10</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-18-04">Prerequisites for Ubuntu 18.04</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-for-container-users">Installation for Container Users</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-for-users">Installation for Users</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-for-developers">Installation for Developers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation-diagram">Installation Diagram</a></li>
 </ul>
 </li>
@@ -344,36 +341,6 @@ python3.8 -m venv --without-pip ~/ENV3
 curl <span class="s2">&quot;https://bootstrap.pypa.io/get-pip.py&quot;</span> -o <span class="s2">&quot;get-pip.py&quot;</span>
 python get-pip.py
 rm get-pip.py
-</pre></div>
-</div>
-</div>
-<div class="section" id="installation-for-container-users">
-<h2>Installation for Container Users<a class="headerlink" href="#installation-for-container-users" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cmsd
-cmsd --setup
-</pre></div>
-</div>
-</div>
-<div class="section" id="installation-for-users">
-<h2>Installation for Users<a class="headerlink" href="#installation-for-users" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-openstack
-cms <span class="nb">help</span>
-cms gui quick
-cms admin mongo install
-cms init
-</pre></div>
-</div>
-</div>
-<div class="section" id="installation-for-developers">
-<h2>Installation for Developers<a class="headerlink" href="#installation-for-developers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/cm
-<span class="nb">cd</span> ~/cm
-pip install cloudmesh-installer
-cloudmesh-installer get openstack
-cms <span class="nb">help</span>
-cms gui quick
-cms admin mongo install
-cms init
 </pre></div>
 </div>
 </div>
