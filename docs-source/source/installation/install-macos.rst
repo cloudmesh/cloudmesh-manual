@@ -56,7 +56,7 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
       pip --> venv(venv)
       venv --> install(Prerequisite completed)
       key --> install
-      xcode --> keygen(ssh keygen)
+      xcode --> keygen(ssh-keygen)
       keygen -->key[fa:fa-key Key]
       install --> chose
 
@@ -76,19 +76,15 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
       setup-->cms
       setupd-->cmsd
 
+      style xcode fill:gainsboro,stroke:#333,stroke-width:2px
+      style keygen fill:gainsboro,stroke:#333,stroke-width:2px
+      style dev fill:gainsboro,stroke:#333,stroke-width:2px
+      style user fill:gainsboro,stroke:#333,stroke-width:2px
+      style container fill:gainsboro,stroke:#333,stroke-width:2px
+      style setup fill:gainsboro,stroke:#333,stroke-width:2px
+      style setupd fill:gainsboro,stroke:#333,stroke-width:2px
+      style cms fill:gainsboro,stroke:#333,stroke-width:2px
+      style cmsd fill:gainsboro,stroke:#333,stroke-width:2px
 
-
-
-
-
-Python
-------
-
-.. todo:: tbd, already described elsewhere
-
-Key
----
-
-.. todo:: tbd, already described elsewhere
 
 
