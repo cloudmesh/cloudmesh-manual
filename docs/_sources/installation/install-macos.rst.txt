@@ -56,7 +56,7 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
       pip --> venv(venv)
       venv --> install(Prerequisite completed)
       key --> install
-      A --> keygen(ssh keygen)
+      xcode --> keygen(ssh keygen)
       keygen -->key[fa:fa-key Key]
       install --> chose
 
