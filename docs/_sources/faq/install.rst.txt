@@ -22,26 +22,16 @@ Any of these cases are up to you to find out and solve. We have tested
 CMS on an operationg system that was downloaded stright from Microsoft
 and verofied it works.
 
-Deployment Tip Collection
--------------------------
 
-The biggest issue is to install cms and configure it. If you have issues
-with this, use cmsd.
-
-SSH: as you already created a key for the Horizon assignment you can
-skip this one
 
 Install MongoDB
 ~~~~~~~~~~~~~~~
 
-osx and Linux:::
+Uninstall older versions of mongo, as they may be incompatible
+
+then install mongo with
 
    cms admin mongo install
-
-Windows:
-
-install the msi, BUT DO NOT check on server install, compass. You must
-uninstall all previous versions of MongoDB
 
 Do an update of the source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,10 +45,6 @@ Do an update of the source
    cms test 
    cms init
 
-::
-
-   cms key list 
-
 Interact with Chameleon CLoud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -66,14 +52,9 @@ Interact with Chameleon CLoud
 
    cms test
    cms gui quick
-
-::
-
    cms key list --cloud=chameleon
 
-remove all keys you see with
-
-::
+remove all keys you see with::
 
    cms key delete NAMEOFTHEKEY --cloud=chameleon
 
@@ -123,9 +104,7 @@ Save in file install-python.sh
    echo "Please activate your Virtual Environment"
    echo "    source ~/ENV3/bin/activate"
 
-Save in file install-cms.sh and change values
-
-::
+Save in file install-cms.sh and change values::
 
    #! /bin/sh -x
    pip install pip -U

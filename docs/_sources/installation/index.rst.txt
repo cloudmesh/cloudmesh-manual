@@ -6,17 +6,14 @@ Instalation
    install
    quickstart
    install-docker
-   linux/index
+   install-linux
    install-macos
    install-pi
+   windows/index
    install-dev
 
+Cloudmesh Database
+===================
 
-Windows
-========
-
-.. toctree::
-
-   windows/index
    mongo
    install-mongo

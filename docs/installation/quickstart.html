@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Docker" href="install-docker.html" />
-    <link rel="prev" title="Installation" href="install.html" /> 
+    <link rel="prev" title="MongoDB Installation Steps" href="install-mongo.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,8 +101,11 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloudmesh Installation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Instalation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-mongo.html">MongoDB Installation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-mongo.html#uninstall-of-mongodb-on-windows-10">Uninstall of MongoDB on Windows 10</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Quickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-with-the-gui">Configuration with the GUI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#manual">Manual</a></li>
@@ -121,14 +124,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="install-docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux/index.html">Instalation for for Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows/index.html">Windows Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-linux.html">Instalation for for Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-macos.html">Installation for macOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-pi.html">Prerequisites for Raspbian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-mongo.html">MongoDB Installation Steps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-mongo.html#uninstall-of-mongodb-on-windows-10">Uninstall of MongoDB on Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows/index.html">Windows Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mongo.html">Cloudmesh Database</a></li>
 </ul>
 </li>
 </ul>
@@ -269,7 +269,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Cloudmesh Installation</a> &raquo;</li>
+          <li><a href="index.html">Instalation</a> &raquo;</li>
         
       <li>Quickstart</li>
     
@@ -324,13 +324,14 @@ Windows.</p>
 <p>You will have the command <cite>cms gui</cite> available. You will need to configure the
 profile, activate clouds, and add credentials for a cloud. For this you can
 use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">gui</span> <span class="n">profile</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">gui</span> <span class="n">quick</span>
+<span class="n">cms</span> <span class="n">gui</span> <span class="n">profile</span>
 <span class="n">cms</span> <span class="n">gui</span> <span class="n">activate</span>
 <span class="n">cms</span> <span class="n">gui</span> <span class="n">cloud</span> <span class="n">chameleon</span>
 <span class="n">cms</span> <span class="n">gui</span> <span class="n">mongo</span> <span class="n">user</span>
 </pre></div>
 </div>
-<p>We assome here you like to configure the credentials for the chameleon cloud.</p>
+<p>We assume here you like to configure the credentials for the chameleon cloud.</p>
 <div class="align-center figure" id="id1">
 <a class="reference internal image-reference" href="../_images/profile.png"><img alt="alternate text" src="../_images/profile.png" style="width: 200px; height: 100px;" /></a>
 <p class="caption"><span class="caption-text">Figure: Setting the profile <cite>cms gui profile</cite></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -608,7 +609,7 @@ cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</
         <a href="install-docker.html" class="btn btn-neutral float-right" title="Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install-mongo.html" class="btn btn-neutral float-left" title="MongoDB Installation Steps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
