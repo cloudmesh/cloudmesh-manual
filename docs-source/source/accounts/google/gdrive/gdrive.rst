@@ -28,8 +28,8 @@ To create a project, go to Dashboard in Google APIs console. In the **Select a P
 
 .. TODO:: upload new images
 
-.. figure:: images/image1.png
-   :alt: Enable API
+.. figure:: images/1console.png
+   :alt: Google APIs Console
 
 Enter a project name we want to use.  Click **CREATE**.
 
