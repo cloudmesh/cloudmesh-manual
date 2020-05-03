@@ -143,43 +143,43 @@ in the Provider.py file. Here is the link:
 
 .. todo:: read up on how to do links in rst (Sara updated)
 
- `Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_ 
+`Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_  
 
-When we run the Provider.py for the first time, we will be redirected to the
-default browser to put our login id and password and after that it
-asks to authenticate our credentials. If we allow that as shown next:
+When we run the Provider.py for the first time, do so in the Terminal.
 
-.. figure:: images/image21.png
-   :alt: Grant permissions
+.. TODO:: upload new images
 
-   Grant permissions
+We will be redirected to the Sign in page.  Choose the Google account to continue to the project.
 
-We will get the screen something like given next (as the authentication
-pipeline has bees completed).
+.. TODO:: upload new images
 
-.. figure:: images/image23.png
-   :alt: Authentication success
+Click **Advanced**.
 
-   Authentication success
+.. TODO:: upload new images
 
-If the authentication flow is completed then it will create a
-``token.pickle`` file in our working directory on our computer. We
-need to place this file in the token_path specified in the
-`cloudmesh.yaml` file, in this example it is
+Click **Go to [your project name]**.
+
+.. TODO:: upload new images
+
+In the Grant permission page, click **Allow**.
+
+.. TODO:: upload new images
+
+Click **Allow** again to confirm.
+
+.. TODO:: upload new images
+
+Message will display that the authentication flow has been completed.
+
+.. TODO:: upload new images
+
+When the authentication flow complete, it will create a ``token.pickle`` file in our working directory on our computer. 
+We need to place this file in the token_path specified in the `cloudmesh.yaml` file.
 
 .. todo:: no hardcoded path, no one has access to your file. This
           location is absolutely wrong it must be in
-          `~/.cloudmesh.yaml`
+          `~/.cloudmesh.yaml` (Sara updated)
 
-          C:/Users/sara/cm 
-
-directory.  This file can be used for future purposes so we do not
-need to login everytime. If we delete this file for any reason,
-e.g. changing the permission scope, then the authorization process
-will again ask for login id and password and again create
+This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
+e.g. changing the permission scope, then the authorization process will again ask for login id and password, and again create
 ``token.pickle`` automatically.
-
-
-Once all these steps are done correctly, we can use the Python program
-interface to transfer the files between our Python program and Google
-Drive.
