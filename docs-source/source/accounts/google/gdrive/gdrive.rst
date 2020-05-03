@@ -1,5 +1,6 @@
+************
 Google Drive
-============
+************
 
 Google Drive is a file storing platform where an user can store all
 his/her files in the google drive.  Here files can be of any form
@@ -16,75 +17,116 @@ have access to his file as all his files are stored in the cloud.  The
 user does not need to install any kind of software in order to view
 these files.
 
-Python Google Drive API
------------------------
+Set up Credentials
+##################
 
-Before writing the Python interface for Google Drive, we need to setup
-an email account, with that email account we will get a set of google
-services and one of them is Google Drive with 15 GB overall storage.
-
-After that we need to go through the Google Drive Quick start guide:
-
--  https://developers.google.com/drive/api/v3/quickstart/python
-
-Enable API
-
-There we can see Enable API option as shown in the next picture:
-
-.. figure:: images/image1.png
-   :alt: Enable API
-
-Once we enable that we will get credentials.json file where all of our
-credentials are stored that can be used to communicate with our Google
-Drive through Python Interface. 
+Go to `Google APIs <https://console.developers.google.com/>`_ website.  
 
 Create a project
+****************
+To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
 
-We will be redirected to a
-page where we need to create our own project as shown in the next
-picture:
+.. TODO:: upload new images
 
-.. figure:: images/image2.png
-   :alt: Create a project
-
-Add credentials
-
-As we see next we need to select Google Drive API from here
-
-.. figure:: images/image16.png
-   :alt: Add credentials
-
-.. todo:: It seems wrong that a user has to rename this. Is this an
-          implementation bug or a programming error?
-	 
-After that, we need to obtain the file that stores `client_id` and
-`client_secret` as shown next: (The file that is downloaded as
-``client_id.json`` needs to be renamed as ``credentials.json``)
-
-
-.. figure:: images/image18.png
-   :alt: Rename the file
-
-After this we need to click ``Done`` otherwise it would not complete the enabling of the
-Google Drive API.
-
-In order to create the authorization flow, we also need to modify
-cloudmesh.yaml to store the paths of the files needed for
-authentication, including path for `credentials.json` and path for
-`token.pickle`, which we will create next.  Depending on our project,
-and cloud we are using, e.g. if project is cloudmesh-storage, cloud is
-parallelgdrive, assuming we put `credentials.json` and `token.pickle`
-in
-
-.. todo:: this is absolutely wrong. a) no hardcoded path. it must go
-          in ~/.cloudmesh, is there a programming bug related to this?
-
-::
+.. figure:: images/1console.PNG
+   :alt: Google APIs Console
    
-   C:/Users/sara/cm
+.. figure:: images/2new_project.PNG
+   :alt: New Project
 
+Enter a project name we want to use.  Click **CREATE**.
 
-these are the keys and values to put in the `credentials` section::
+.. figure:: images/3my_project.PNG
+   :alt: Project name
+
+Enable APIs and Services
+************************
+In the APIs & Services Dashboard for the project we created, click **ENABLE APIS AND SERVICES**.
+
+.. figure:: images/4enable_apis.PNG
+   :alt: Enable APIs and Services
+
+This leads to the **Welcome to the API Library** page.  
+
+.. figure:: images/5api_library.PNG
+   :alt: API Library
+
+Search for "google drive api".
+
+.. figure:: images/6google_drive_api.PNG
+   :alt: Google Drive API
+
+Click **ENABLE**.
+
+.. figure:: images/7enable.PNG
+   :alt: Enable Google Drive API
+
+Create Credentials
+******************
+At the Google Drive API Overview page, click **CREATE CREDENTIALS**.
+
+.. figure:: images/8create_credential.PNG
+   :alt: Create Credentials
+
+Select the credentials you need.  Click **What credentials do I need?**.
+
+.. figure:: images/9add_credentials.PNG
+   :alt: What credential do I need?
+
+At the **Set up OAuth consent screen**, click **SET UP CONSENT SCREEN**.
+
+.. figure:: images/10set_up_oauth.PNG
+   :alt: Set up Consent Screen
+
+Select **External** user type.  Click **CREATE**.
+
+.. figure:: images/11oauth_consent.PNG
+   :alt: Oauth consent screen
+
+Enter application name.  Enter the gmail account we use for the project.
+
+.. figure:: images/12oauth2.PNG
+   :alt: Oauth consent screen - continued
+
+Select scopes to **See, edit, create, and delete all of your Google Drive files**, and **See and download all your Google Drive files**.
+Click **ADD**.
+
+.. figure:: images/13add_scope.PNG
+   :alt: Add scope
+
+Click **Save**.
+
+.. figure:: images/14save.PNG
+   :alt: Save
+
+At the APIs & Services Credentials page, click **CREATE CREDENTIALS**, select **OAUTH client ID**.
+
+.. figure:: images/15create_credentials.PNG
+   :alt: Create credentials
+   
+Select **Other** for application type.  A default name "Other client 1" will be generated which we can keep.
+
+.. figure:: images/16create_oauth.PNG
+   :alt: Create OAuthclient ID
+
+This leads to **OAuth client created** screen.  Click **OK**.
+
+.. figure:: images/17oauth_client2.PNG
+   :alt: OAuth cliented created
+
+Click the download button to download the credential file.
+
+.. figure:: images/18download.PNG
+   :alt: Download client secret file
+
+The default name of the file is something like "client_secret_xxxxxxxxxxxxxxxxxxxxxxxxxxpg2.apps.googleusercontent.com.json".
+Rename it to "credentials.json", and place it in the directory specified in cloudmesh.yaml for key "credentials_json_path".
+
+Authorization Flow
+******************
+
+In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed for
+authentication, including path for `credentials.json` and path for `token.pickle`, which we will create next.  ::
 
     parallelgdrive:
       cm:
@@ -98,51 +140,52 @@ these are the keys and values to put in the `credentials` section::
       default:
         directory: TBD
       credentials:
-        credentials_json_path: C:/Users/sara/cm
-        token_path: C:/Users/sara/cm
+        credentials_json_path: [put the path of credentials.json here]
+        token_path: [put the path of token.pickle here]
 
 Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
 in the Provider.py file. Here is the link:
 
-.. todo:: read up on how to do links in rst
+`Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_  
 
-<https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py>
+When we run the Provider.py for the first time, do so in the Terminal.
 
-When we run the Provider.py for the first time, we will be redirected to the
-default browser to put our login id and password and after that it
-asks to authenticate our credentials. If we allow that as shown next:
+.. figure:: images/19run_provider2.PNG
+   :alt: Run Provider.py
 
-.. figure:: images/image21.png
-   :alt: Grant permissions
+We will be redirected to the Sign in page.  Choose the Google account to continue to the project.
 
-   Grant permissions
+.. figure:: images/20sign_in.PNG
+   :alt: Sign in
+   
+Click **Advanced**.
 
-We will get the screen something like given next (as the authentication
-pipeline has bees completed).
+.. figure:: images/21advanced.PNG
+   :alt: Advanced
 
-.. figure:: images/image23.png
-   :alt: Authentication success
+Click **Go to [your project name]**.
 
-   Authentication success
+.. figure:: images/22go_to.PNG
+   :alt: Go to project
 
-If the authentication flow is completed then it will create a
-``token.pickle`` file in our working directory on our computer. We
-need to place this file in the token_path specified in the
-`cloudmesh.yaml` file, in this example it is
+In the Grant permission page, click **Allow**.
 
-.. todo:: no hardcoded path, no one has access to your file. This
-          location is absolutely wrong it must be in
-          `~/.cloudmesh.yaml`
+.. figure:: images/23allow.PNG
+   :alt: Allow
 
-          C:/Users/sara/cm 
+Click **Allow** again to confirm.
 
-directory.  This file can be used for future purposes so we do not
-need to login everytime. If we delete this file for any reason,
-e.g. changing the permission scope, then the authorization process
-will again ask for login id and password and again create
+.. figure:: images/24confirm_allow.PNG
+   :alt: Confirm allow
+
+Message will display that the authentication flow has been completed.
+
+.. figure:: images/25authentication.PNG
+   :alt: Authentication flow completed
+
+When the authentication flow completes, it will create a ``token.pickle`` file in our working directory on our computer. 
+We need to place this file in the token_path specified in the `cloudmesh.yaml` file.
+
+This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
+e.g. changing the permission scope, then the authorization process will again ask for login id and password, and again create
 ``token.pickle`` automatically.
-
-
-Once all these steps are done correctly, we can use the Python program
-interface to transfer the files between our Python program and Google
-Drive.
