@@ -28,78 +28,96 @@ To create a project, go to Dashboard in Google APIs console. In the **Select a P
 
 .. TODO:: upload new images
 
-.. figure:: images/1console.png
+.. figure:: images/1console.PNG
    :alt: Google APIs Console
+   
+.. figure:: images/2new_project.PNG
+   :alt: New Project
 
 Enter a project name we want to use.  Click **CREATE**.
 
-.. TODO:: upload new images
+.. figure:: images/3my_project.PNG
+   :alt: Project name
 
 Enable APIs and Services
 ************************
 In the APIs & Services Dashboard for the project we created, click **ENABLE APIS AND SERVICES**.
 
-.. TODO:: upload new images
+.. figure:: images/4enable_apis.PNG
+   :alt: Enable APIs and Services
 
 This leads to the **Welcome to the API Library** page.  
 
-.. TODO:: upload new images
+.. figure:: images/5api_library.PNG
+   :alt: API Library
 
 Search for "google drive api".
 
-.. TODO:: upload new images
+.. figure:: images/6google_drive_api.PNG
+   :alt: Google Drive API
 
 Click **ENABLE**.
 
-.. TODO:: upload new images
-
+.. figure:: images/7enable.PNG
+   :alt: Enable Google Drive API
 
 Create Credentials
 ******************
 At the Google Drive API Overview page, click **CREATE CREDENTIALS**.
 
-.. TODO:: upload new images
+.. figure:: images/8create_credential.PNG
+   :alt: Create Credentials
 
 Select the credentials you need.  Click **What credentials do I need?**.
 
-.. TODO:: upload new images
+.. figure:: images/9add_credentials.PNG
+   :alt: What credential do I need?
 
 At the **Set up OAuth consent screen**, click **SET UP CONSENT SCREEN**.
 
-.. TODO:: upload new images
+.. figure:: images/10set_up_oauth.PNG
+   :alt: Set up Consent Screen
 
 Select **External** user type.  Click **CREATE**.
 
-.. TODO:: upload new images
+.. figure:: images/11oauth_consent.PNG
+   :alt: Oauth consent screen
 
 Enter application name.  Enter the gmail account we use for the project.
 
-.. TODO:: upload new images
+.. figure:: images/12oauth2.PNG
+   :alt: Oauth consent screen - continued
 
 Select scopes to **See, edit, create, and delete all of your Google Drive files**, and **See and download all your Google Drive files**.
 Click **ADD**.
 
-.. TODO:: upload new images
+.. figure:: images/13add_scope.PNG
+   :alt: Add scope
 
 Click **Save**.
 
-.. TODO:: upload new images
+.. figure:: images/14save.PNG
+   :alt: Save
 
 At the APIs & Services Credentials page, click **CREATE CREDENTIALS**, select **OAUTH client ID**.
 
-.. TODO:: upload new images
-
+.. figure:: images/15create_credentials.PNG
+   :alt: Create credentials
+   
 Select **Other** for application type.  A default name "Other client 1" will be generated which we can keep.
 
-.. TODO:: upload new images
+.. figure:: images/16create_oauth.PNG
+   :alt: Create OAuthclient ID
 
 This leads to **OAuth client created** screen.  Click **OK**.
 
-.. TODO:: upload new images
+.. figure:: images/17oauth_client2.PNG
+   :alt: OAuth cliented created
 
 Click the download button to download the credential file.
 
-.. TODO:: upload new images
+.. figure:: images/18download.PNG
+   :alt: Download client secret file
 
 The default name of the file is something like "client_secret_xxxxxxxxxxxxxxxxxxxxxxxxxxpg2.apps.googleusercontent.com.json".
 Rename it to "credentials.json", and place it in the directory specified in cloudmesh.yaml for key "credentials_json_path".
@@ -109,19 +127,6 @@ Authorization Flow
 
 In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed for
 authentication, including path for `credentials.json` and path for `token.pickle`, which we will create next.  
-Depending on our project, and cloud we are using, e.g. if project is cloudmesh-storage, cloud is
-parallelgdrive, assuming we put `credentials.json` and `token.pickle`
-in
-
-.. todo:: this is absolutely wrong. a) no hardcoded path. it must go
-          in ~/.cloudmesh, is there a programming bug related to this?
-
-::
-   
-   C:/Users/sara/cm
-
-
-these are the keys and values to put in the `credentials` section::
 
     parallelgdrive:
       cm:
@@ -141,44 +146,45 @@ these are the keys and values to put in the `credentials` section::
 Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
 in the Provider.py file. Here is the link:
 
-.. todo:: read up on how to do links in rst (Sara updated)
-
 `Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_  
 
 When we run the Provider.py for the first time, do so in the Terminal.
 
-.. TODO:: upload new images
+.. figure:: images/19run_provider2.PNG
+   :alt: Run Provider.py
 
 We will be redirected to the Sign in page.  Choose the Google account to continue to the project.
 
-.. TODO:: upload new images
-
+.. figure:: images/20sign_in.PNG
+   :alt: Sign in
+   
 Click **Advanced**.
 
-.. TODO:: upload new images
+.. figure:: images/21advanced.PNG
+   :alt: Advanced
 
 Click **Go to [your project name]**.
 
-.. TODO:: upload new images
+.. figure:: images/22go_to.PNG
+   :alt: Go to project
 
 In the Grant permission page, click **Allow**.
 
-.. TODO:: upload new images
+.. figure:: images/23allow.PNG
+   :alt: Allow
 
 Click **Allow** again to confirm.
 
-.. TODO:: upload new images
+.. figure:: images/24confirm_allow.PNG
+   :alt: Confirm allow
 
 Message will display that the authentication flow has been completed.
 
-.. TODO:: upload new images
+.. figure:: images/25authentication.PNG
+   :alt: Authentication flow completed
 
 When the authentication flow complete, it will create a ``token.pickle`` file in our working directory on our computer. 
 We need to place this file in the token_path specified in the `cloudmesh.yaml` file.
-
-.. todo:: no hardcoded path, no one has access to your file. This
-          location is absolutely wrong it must be in
-          `~/.cloudmesh.yaml` (Sara updated)
 
 This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
 e.g. changing the permission scope, then the authorization process will again ask for login id and password, and again create
