@@ -1,5 +1,6 @@
+************
 Google Drive
-============
+************
 
 Google Drive is a file storing platform where an user can store all
 his/her files in the google drive.  Here files can be of any form
@@ -16,63 +17,99 @@ have access to his file as all his files are stored in the cloud.  The
 user does not need to install any kind of software in order to view
 these files.
 
-Python Google Drive API
------------------------
+Set up Credentials
+##################
 
-Before writing the Python interface for Google Drive, we need to setup
-an email account, with that email account we will get a set of google
-services and one of them is Google Drive with 15 GB overall storage.
+Go to `Google APIs <https://console.developers.google.com/>`_ website.  
 
-After that we need to go through the Google Drive Quick start guide:
+Create a project
+****************
+To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
 
--  https://developers.google.com/drive/api/v3/quickstart/python
-
-Enable API
-
-There we can see Enable API option as shown in the next picture:
+.. TODO:: upload new images
 
 .. figure:: images/image1.png
    :alt: Enable API
 
-Once we enable that we will get credentials.json file where all of our
-credentials are stored that can be used to communicate with our Google
-Drive through Python Interface. 
+Enter a project name we want to use.  Click **CREATE**.
 
-Create a project
+.. TODO:: upload new images
 
-We will be redirected to a
-page where we need to create our own project as shown in the next
-picture:
+Enable APIs and Services
+************************
+In the APIs & Services Dashboard for the project we created, click **ENABLE APIS AND SERVICES**.
 
-.. figure:: images/image2.png
-   :alt: Create a project
+.. TODO:: upload new images
 
-Add credentials
+This leads to the **Welcome to the API Library** page.  
 
-As we see next we need to select Google Drive API from here
+.. TODO:: upload new images
 
-.. figure:: images/image16.png
-   :alt: Add credentials
+Search for "google drive api".
 
-.. todo:: It seems wrong that a user has to rename this. Is this an
-          implementation bug or a programming error?
-	 
-After that, we need to obtain the file that stores `client_id` and
-`client_secret` as shown next: (The file that is downloaded as
-``client_id.json`` needs to be renamed as ``credentials.json``)
+.. TODO:: upload new images
+
+Click **ENABLE**.
+
+.. TODO:: upload new images
 
 
-.. figure:: images/image18.png
-   :alt: Rename the file
+Create Credentials
+******************
+At the Google Drive API Overview page, click **CREATE CREDENTIALS**.
 
-After this we need to click ``Done`` otherwise it would not complete the enabling of the
-Google Drive API.
+.. TODO:: upload new images
 
-In order to create the authorization flow, we also need to modify
-cloudmesh.yaml to store the paths of the files needed for
-authentication, including path for `credentials.json` and path for
-`token.pickle`, which we will create next.  Depending on our project,
-and cloud we are using, e.g. if project is cloudmesh-storage, cloud is
+Select the credentials you need.  Click **What credentials do I need?**.
+
+.. TODO:: upload new images
+
+At the **Set up OAuth consent screen**, click **SET UP CONSENT SCREEN**.
+
+.. TODO:: upload new images
+
+Select **External** user type.  Click **CREATE**.
+
+.. TODO:: upload new images
+
+Enter application name.  Enter the gmail account we use for the project.
+
+.. TODO:: upload new images
+
+Select scopes to **See, edit, create, and delete all of your Google Drive files**, and **See and download all your Google Drive files**.
+Click **ADD**.
+
+.. TODO:: upload new images
+
+Click **Save**.
+
+.. TODO:: upload new images
+
+At the APIs & Services Credentials page, click **CREATE CREDENTIALS**, select **OAUTH client ID**.
+
+.. TODO:: upload new images
+
+Select **Other** for application type.  A default name "Other client 1" will be generated which we can keep.
+
+.. TODO:: upload new images
+
+This leads to **OAuth client created** screen.  Click **OK**.
+
+.. TODO:: upload new images
+
+Click the download button to download the credential file.
+
+.. TODO:: upload new images
+
+The default name of the file is something like "client_secret_xxxxxxxxxxxxxxxxxxxxxxxxxxpg2.apps.googleusercontent.com.json".
+Rename it to "credentials.json", and place it in the directory specified in cloudmesh.yaml for key "credentials_json_path".
+
+Authorization Flow
+******************
+
+In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed for
+authentication, including path for `credentials.json` and path for `token.pickle`, which we will create next.  
+Depending on our project, and cloud we are using, e.g. if project is cloudmesh-storage, cloud is
 parallelgdrive, assuming we put `credentials.json` and `token.pickle`
 in
 
@@ -98,15 +135,15 @@ these are the keys and values to put in the `credentials` section::
       default:
         directory: TBD
       credentials:
-        credentials_json_path: C:/Users/sara/cm
-        token_path: C:/Users/sara/cm
+        credentials_json_path: [put the path of credential.json here]
+        token_path: [put the path of token.pickle here]
 
 Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
 in the Provider.py file. Here is the link:
 
-.. todo:: read up on how to do links in rst
+.. todo:: read up on how to do links in rst (Sara updated)
 
-<https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py>
+ `Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_ 
 
 When we run the Provider.py for the first time, we will be redirected to the
 default browser to put our login id and password and after that it
