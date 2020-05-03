@@ -126,7 +126,7 @@ Authorization Flow
 ******************
 
 In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed for
-authentication, including path for `credentials.json` and path for `token.pickle`, which we will create next.  
+authentication, including path for `credentials.json` and path for `token.pickle`, which we will create next.  ::
 
     parallelgdrive:
       cm:
@@ -140,7 +140,7 @@ authentication, including path for `credentials.json` and path for `token.pickle
       default:
         directory: TBD
       credentials:
-        credentials_json_path: [put the path of credential.json here]
+        credentials_json_path: [put the path of credentials.json here]
         token_path: [put the path of token.pickle here]
 
 Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
@@ -183,7 +183,7 @@ Message will display that the authentication flow has been completed.
 .. figure:: images/25authentication.PNG
    :alt: Authentication flow completed
 
-When the authentication flow complete, it will create a ``token.pickle`` file in our working directory on our computer. 
+When the authentication flow completes, it will create a ``token.pickle`` file in our working directory on our computer. 
 We need to place this file in the token_path specified in the `cloudmesh.yaml` file.
 
 This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
