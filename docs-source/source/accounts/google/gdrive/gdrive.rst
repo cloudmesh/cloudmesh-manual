@@ -26,8 +26,6 @@ Create a project
 ****************
 To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
 
-.. TODO:: upload new images
-
 .. figure:: images/1console.PNG
    :alt: Google APIs Console
    
@@ -85,7 +83,7 @@ Select **External** user type.  Click **CREATE**.
 
 Enter application name.  Enter the gmail account we use for the project.
 
-.. figure:: images/12oauth2.PNG
+.. figure:: images/12oauth2.png
    :alt: Oauth consent screen - continued
 
 Select scopes to **See, edit, create, and delete all of your Google Drive files**, and **See and download all your Google Drive files**.
@@ -178,7 +176,7 @@ Click **Allow** again to confirm.
 .. figure:: images/24confirm_allow.PNG
    :alt: Confirm allow
 
-Message will display that the authentication flow has been completed.
+Message will be displayed that the authentication flow has been completed.
 
 .. figure:: images/25authentication.PNG
    :alt: Authentication flow completed
