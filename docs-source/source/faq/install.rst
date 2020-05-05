@@ -8,11 +8,6 @@ A Manual is available at
 
 -  https://cloudmesh.github.io/cloudmesh-manual
 
-Videos
-------
-
--  TBD
-
 Having control over your computers
 ----------------------------------
 
@@ -27,28 +22,16 @@ Any of these cases are up to you to find out and solve. We have tested
 CMS on an operationg system that was downloaded stright from Microsoft
 and verofied it works.
 
-Deployment Tip Collection
--------------------------
 
-The biggest issue is to install cms and configure it. If you have issues
-with this, use cmsd.
-
-SSH: as you already created a key for the Horizon assignment you can
-skip this one
 
 Install MongoDB
 ~~~~~~~~~~~~~~~
 
-osx and Linux:
+Uninstall older versions of mongo, as they may be incompatible
 
-::
+then install mongo with
 
    cms admin mongo install
-
-Windows:
-
-install the msi, BUT DO NOT check on server install, compass. You must
-uninstall all previous versions of MongoDB
 
 Do an update of the source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,20 +39,11 @@ Do an update of the source
 ::
 
    pip install cloudmesh-installer -U
-   cloudmes-installer git clone cloud
-   cloudmesh-installer git clone openstack
-   cloudmes-installer git pull cloud
-   cloudmesh-installer git pull openstack
-   cloudmes-installer install cloud
-   cloudmesh-installer install openstack
+   cloudmes-installer get clone cloud
    cms help
    cms gui quick
    cms test 
    cms init
-
-::
-
-   cms key list 
 
 Interact with Chameleon CLoud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,14 +52,9 @@ Interact with Chameleon CLoud
 
    cms test
    cms gui quick
-
-::
-
    cms key list --cloud=chameleon
 
-remove all keys you see with
-
-::
+remove all keys you see with::
 
    cms key delete NAMEOFTHEKEY --cloud=chameleon
 
@@ -135,9 +104,7 @@ Save in file install-python.sh
    echo "Please activate your Virtual Environment"
    echo "    source ~/ENV3/bin/activate"
 
-Save in file install-cms.sh and change values
-
-::
+Save in file install-cms.sh and change values::
 
    #! /bin/sh -x
    pip install pip -U
@@ -145,9 +112,7 @@ Save in file install-cms.sh and change values
    pip install cloudmesh-installer -U
    mkdir cm
    cd cm
-   cloudmesh-installer git clone openstack 
-   cloudmesh-installer git pull openstack
-   cloudmesh-installer install openstack
+   cloudmesh-installer get openstack
    cms set cloud=chameleon
    cms help 
    cms debug off
@@ -189,34 +154,12 @@ Save in file install-cms.sh and change values
 
    cms vm list --refresh
 
-make the scripts executable
-
-::
+To use it do the following::
 
    chmod a+x install-cms.sh install-python.sh
-
-Now lest use it
-
-::
-
    ./install-python.sh
-
-Start your ENV with
-
-::
-
    source ~/ENV3/bin/activate
-
-Install cms
-
-::
-
    ./install-cms.sh
-
-Start a vm
-
-::
-
    cms vm boot
 
 Switching between cms and cmsd
@@ -226,9 +169,7 @@ It is best to delete the .cloudmesh directory and start new.
 
 However you can also try to set the MONGO mode accordingly.
 
-For cms you use
-
-::
+For cms you use::
 
    cms config set cloudmesh.data.mongo.MODE=native
 
@@ -239,20 +180,8 @@ For cmsd you use
    cmsd config set cloudmesh.data.mongo.MODE=running
 
 Remeber that cmsd will automatically upon –setup change the mode to
-running. SO if you like to swithc back do so.
+running. So if you like to switch back do so.
 
 Please be aware there coudl be issues with Mongo runing natively or in a
 container. Try it out. IF it does not work, remove the .cloudmesh
 directory
-
-What is KeyError: ‘auth’
-------------------------
-
-If you see this:
-
-::
-
-   KeyError: 'auth',
-
-You have an outdated version of the .cloudmesh/cloudmesh.yaml file. stop
-mongo and reinstall cloudmesh and the ENV3

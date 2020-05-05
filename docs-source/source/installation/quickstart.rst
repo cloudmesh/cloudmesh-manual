@@ -40,12 +40,13 @@ You will have the command `cms gui` available. You will need to configure the
 profile, activate clouds, and add credentials for a cloud. For this you can
 use::
 
+    cms gui quick
     cms gui profile
     cms gui activate
     cms gui cloud chameleon
     cms gui mongo user
 
-We assome here you like to configure the credentials for the chameleon cloud.
+We assume here you like to configure the credentials for the chameleon cloud.
 
 .. figure:: images/profile.png
    :width: 200px

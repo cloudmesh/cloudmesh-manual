@@ -2,6 +2,8 @@ package=manual
 UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
 
+.PHONY: watch
+
 GIT=https://github.com/cloudmesh
 COMMUNITY=$(GIT)-community
 
@@ -32,6 +34,9 @@ all:
 	make -f Makefile manual
 	cms timer on
 	cms debug on
+
+watch:
+	cd docs-source; make watch
 
 install:
 	pip install cloudmesh-installer -U
@@ -233,6 +238,7 @@ doc: authors
 	cp -r docs-source/build/html/ docs
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 	cp -r $(SOURCE)/inspector docs/inspector
+	touch docs/.nojekyll
 
 pdf: authors
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
@@ -255,12 +261,14 @@ clean:
 	rm -rf *.eggs
 	rm -rf docs-source/build
 	rm -rf build
-	find . -type d -name __pycache__ -delete
-	find . -name '*.pyc' -delete
 	rm -rf .tox
 	rm -f *.whl
 	rm -rf docs
 	rm -rf tmp
+	find . -name '*.pyc' -delete
+	find . -name '__pycache__' -type d | xargs rm -fr
+	rm -fr docs/_build/
+
 
 
 ######################################################################

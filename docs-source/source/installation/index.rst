@@ -1,23 +1,19 @@
-Cloudmesh Instalation
-=====================
+Instalation
+===========
 
 .. toctree::
-   :caption: Install
-   :maxdepth: 2
 
    install
+   quickstart
    install-docker
+   install-linux
    install-macos
-   install-ubuntu-19-10
-   install-ubuntu-20-04
-   install-ubuntu-18-04
+   install-pi
+   windows/index
    install-dev
-   preface/contributors
 
-.. toctree::
-   :caption: Windows
-   :maxdepth: 2
+Cloudmesh Database
+===================
 
-   install-windows
-   install-subsystem
-   windows
+   mongo
+   install-mongo
