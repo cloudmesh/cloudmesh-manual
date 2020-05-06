@@ -118,7 +118,7 @@ Cloudmesh Config File
 ---------------------
 
 Cloudmesh config file (cloudmesh.yaml) will have the following entries
-for compute and storage respectively. Add them to the config file if not
+for compute, storage, and volume respectively. Add them to the config file if not
 already there.
 
 Compute Entry
@@ -139,7 +139,7 @@ Compute Entry
            version: TBD
            service: compute
          default:
-           image: Oracle-Linux-7.7-2019.11.12-0
+           image: Oracle-Linux-7.7-2020.03.23-0
            size: VM.Standard.E2.1
          credentials:
            user : TBD
@@ -177,7 +177,34 @@ Storage Entry
            pass_phrase : TBD
            tenancy : TBD
            compartment_id : TBD
-           region : us-ashburn-1
+           region : us-ashburn-1 
+
+Volume Entry
+~~~~~~~~~~~~~
+
+::
+
+   cloudmesh:
+     ...
+     volume:
+       oracle:
+         cm:
+           active: true
+           heading: ORACLE
+           host: cloud.oracle.com
+           label: oracle
+           kind: oracle
+           version: TBD
+           service: volume
+         credentials:
+           user : TBD
+           fingerprint : TBD
+           key_file : ~/.oci/oci_api_key.pem
+           pass_phrase : TBD
+           tenancy : TBD
+           compartment_id : TBD
+           region : TBD
+           availability_domain: TBD
 
 Required Keys and OCIDs
 -----------------------
