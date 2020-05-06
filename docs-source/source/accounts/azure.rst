@@ -304,6 +304,33 @@ just collected to the “azure” section of cloudmesh.yaml
 
    cloudmesh.yaml
 
+Volume cloudmesh.yaml entry
+~~~~~~~~~~~~~
+::
+
+   cloudmesh:
+     ...
+     cloud:
+       azure:
+         cm:
+           active: true
+           heading: Azure
+           host: azure.microsoft.com
+           label: Azure
+           kind: azure
+           version: latest
+           service: volume
+         default:
+           size: Basic_A0
+           group: default
+           volume_type: _DEFAULT_
+         credentials:
+           AZURE_TENANT_ID: TBD
+           AZURE_SUBSCRIPTION_ID: TBD
+           AZURE_APPLICATION_ID: TBD
+           AZURE_SECRET_KEY: TBD
+           AZURE_REGION: TBD 
+
 Azure Resource Group (for Compute)
 ----------------------------------
 
