@@ -430,6 +430,43 @@ attempting run commands against multiple vm’s.)
 -  [x] TODO: Aws EC2 account. Describe here if there is anything to be
    done for accessing EC2
 
+
+Volume yaml Configuration
+~~~~~~~~~~~~~
+
+::
+
+   cloudmesh:
+     ...
+     volume:
+       aws:
+         cm:
+           active: true
+           heading: AWS
+           host: TBD
+           label: VAWAS1
+           kind: aws
+           version: TBD
+           service: volume
+         default:
+           volume_type: gp2
+           size: 2
+           iops: 1000
+           encrypted: False
+           region_name: TBD
+           region: TBD
+           multi_attach_enabled: True
+           snapshot: "None"
+         credentials:
+           EC2_SECURITY_GROUP: default
+           EC2_ACCESS_ID: TBD
+           EC2_SECRET_KEY: TBD
+           EC2_PRIVATE_KEY_FILE_PATH: ~/.ssh/id_rsa
+           EC2_PRIVATE_KEY_FILE_NAME: aws_cert
+
+Note: 'region_name' is the aws region e.g. 'us-east-2' while 'region'  
+is the aws availability zone e.g. 'us-east-2a' 
+
 Storage Service
 ---------------
 
