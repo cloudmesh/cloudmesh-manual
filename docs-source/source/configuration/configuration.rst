@@ -236,6 +236,9 @@ kind
 
     For storage services the following kinds are valid: ``aws``,
     ``azure``, ``google``, ``openstack``, ``box``
+    
+    For volume services the following kinds are valid: ``aws``,
+    ``azure``, ``google``, ``multipass``, ``oracle``, ``openstack``
 
 host
 
@@ -244,7 +247,8 @@ host
 
 service
 
-    The type of service. valid values are ``compute``, ``storage``.
+    The type of service. valid values are ``compute``, ``storage``,
+    ``volume``.
 
 ::
 
@@ -654,6 +658,196 @@ file you created as described in the Box chapter::
        credentials:
          config_path: ******************************
 
+Volume Cloud Providers
+-----------------------
+
+Cloud providers that offer compute services usually have functions for managing
+block volumes which can be attached to virtual machine instances.
+Documentation on using cloudmesh to manage block volumes can be found in the
+`cloudmesh-volume
+<https://github.com/cloudmesh/cloudmesh-volume/blob/master/README.md>`_
+package.  The credentials needed in the volume configurations are typically 
+the same as those needed for the compute configuration.  The default,
+which varies by provider, allows the user to create volumes from a set 
+default values such as volume type and size.
+
+AWS
+~~~~~~
+
+In the AWS volume configuration, the ``region_name`` refers to the AWS region
+e.g. ``us-east-2``, while the ``region`` refers to the AWS availability zone
+e.g. ``us-east-2a``.  Other defaults that can be changed by the user for
+creating a volume include the volume type, size, input/output operations per
+second ``iops``, whether the volume is encrypted, or a snapshot to create the
+volume from. ::
+
+   cloudmesh:
+     ...
+     volume:
+       aws:
+         cm:
+           heading: aws
+           host: amazon.aws.com
+           label: aws
+           kind: awsS3
+           version: TBD
+           service: volume
+         default:
+           volume_type: gp2
+           size: 2
+           iops: 1000
+           encrypted: False
+           region_name: TBD
+           region: TBD
+           multi_attach_enabled: True
+           snapshot: "None"
+         credentials:
+           EC2_SECURITY_GROUP: default
+           EC2_ACCESS_ID: TBD
+           EC2_SECRET_KEY: TBD
+           EC2_PRIVATE_KEY_FILE_PATH: ~/.ssh/id_rsa
+           EC2_PRIVATE_KEY_FILE_NAME: aws_cert
+
+Azure
+~~~~~~
+
+::
+
+   cloudmesh:
+     ...
+     volume:
+       aws:
+         cm:
+           active: true
+           heading: Azure
+           host: azure.microsoft.com
+           label: Azure
+           kind: azure
+           version: latest
+           service: volume
+         default:
+           volume_type: _DEFAULT_
+           size: Basic_A0
+           group: default
+         credentials:
+           AZURE_TENANT_ID: TBD
+           AZURE_SUBSCRIPTION_ID: TBD
+           AZURE_APPLICATION_ID: TBD
+           AZURE_SECRET_KEY: TBD
+           AZURE_REGION: TBD
+
+Google
+~~~~~~
+
+The default volume ``type`` in the Google configuration takes a url as a value.
+The url should look like this:
+``projects/project_id/zones/zone/diskTypes/pd-standard``, where ``project_id``
+is the project ID for your project and ``zone`` is the zone in which the volume
+is located.
+
+::
+
+   cloudmesh:
+     ...
+     volume:
+       google:
+         cm:
+           active: true
+           heading: Google
+           host: cloud.google.com
+           label: Google
+           kind: google
+           version: v1
+           service: volume
+         default:
+           zone: TBD
+           type: TBD
+           sizeGb: 10
+         credentials:
+           project_id: TBD
+           path_to_service_account_json: TBD
+
+Multipass
+~~~~~~~~~~
+
+The default ``path`` designates the location on the user's computer where the
+multipass volumes will be created.  For Windows users, the path should use
+``/`` instead of ``\``. ::
+
+   cloudmesh:
+     ...
+     volume:
+       multipass:
+         cm:
+           active: '1'
+           heading: multipass
+           host: TBD
+           kind: multipass
+           version: TBD
+           service: volume
+         default:
+           path: TBD
+
+Oracle
+~~~~~~~~~~
+
+::
+
+   cloudmesh:
+     ...
+     volume:
+       oracle:
+         cm:
+            active: true
+            heading: {name}
+            host: TBD
+            label: {name}
+            kind: oracle
+            version: TBD
+            service: volume
+         credentials:
+            version: TBD
+            user: TBD
+            fingerprint: TBD
+            key_file: ~/.oci/oci_api_key.pem
+            pass_phrase: TBD
+            tenancy: TBD
+            compartment_id: TBD
+            region: TBD
+            availability_domain: TBD
+
+Openstack
+~~~~~~~~~~
+
+::
+
+   cloudmesh:
+     ...
+     volume:
+       openstack:
+         cm:
+            active: true
+            heading: Chameleon
+            host: chameleoncloud.org
+            label: chameleon
+            kind: openstack
+            version: train
+            service: volume
+         credentials:
+            auth:
+              username: TBD
+              password: TBD
+              auth_url: https://kvm.tacc.chameleoncloud.org:5000/v3
+              project_id: TBD
+              project_name: cloudmesh
+              user_domain_name: Default
+            region_name: KVM@TACC
+            interface: public
+            identity_api_version: '3'
+            key_path:  ~/.ssh/id_rsa
+         default:
+            size: 1
+            volume_type: __DEFAULT__
 
 Log File
 --------
