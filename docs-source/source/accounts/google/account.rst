@@ -142,7 +142,7 @@ Register Google Volume
 
 ::
 
-   $ cms register update --service=volume --kind=google --filename=~/.cloudmesh/security/google-service-account.json zone=us-west-a sizeGb=100 label=google
+   $ cms register update --service=volume --kind=google --filename=~/.cloudmesh/security/google.json zone=us-west-a sizeGb=100 label=google
 
 Verify Setup
 ^^^^^^^^^^^^
