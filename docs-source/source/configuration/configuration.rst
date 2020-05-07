@@ -38,7 +38,7 @@ An example would be::
      - :doc:`Integrate <../accounts/azure>`
      - :doc:`Azure <../register/compute-azure>`
      - :doc:`Azure <../register/volume-azure>`
-     - :doc:`Azure <../register/storage-azureblob>`, :doc:`Multipass <../register/storage-parallelazureblob>`
+     - :doc:`Azure <../register/storage-azureblob>`, :doc:`ParallelAzure <../register/storage-parallelazureblob>`
    * - Google
      - :doc:`Integrate <../accounts/google/index>`
      - :doc:`Google <../register/compute-google>`
@@ -173,7 +173,7 @@ Default
 
 The variable default is used to identify information about your
 experiments and groups that are used throughout your
-interaction with Cloudmesh.
+interaction with Cloudmesh::
 
   default:
     group: cloudmesh
@@ -310,7 +310,7 @@ size
 
 The size of the default image
 
-credentials
+Credentials
 ~~~~~~~~~~~
 
 The credentials are dependent on the kind of the cloud and include all
@@ -324,73 +324,12 @@ the information must be properly protected.
           of cloudmesh will encrypt the information by default.
 
 
-Azure
-~~~~~
-
-.. todo:: az arm provider this has to be verified. We will likely
-          deprecate this for a more elaborate provider
-
-To obtain an account on Azure you can follow our instructions at
-
-:doc:`../accounts/azure`. The configuration file containes the following::
-
-
-   cloudmesh:
-     ...
-     cloud:
-       ...
-       azure:
-         cm:
-           active: False
-           heading: Azure
-           host: azure.microsoft.com
-           label: Azure
-           kind: azure
-           version: TBD
-           service: compute
-         default:
-           image: 'Canonical:UbuntuServer:16.04-LTS:latest'
-           size: 'Basic_A0'
-           resource_group: 'cloudmesh'
-           storage_account: 'cmdrive'
-           network: 'cmnetwork'
-           subnet: 'cmsubnet'
-           blob_container: 'vhds'
-         credentials:
-           AZURE_TENANT_ID: 'xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-           AZURE_SUBSCRIPTION_ID: 'xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-           AZURE_APPLICATION_ID: 'xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-           AZURE_SECRET_KEY: TBD
-           AZURE_REGION: 'northcentralus'
-
 Google
 ~~~~~~
 
 To obtain an account on Google you can follow our instructions at
 :doc:`../accounts/google/index`. THe configuration file contains the
 following::
-
-   cloudmesh:
-     ...
-     cloud:
-       ...
-       google:
-         cm:
-           active: True
-           heading: google
-           host: google.cloud.com
-           label: google
-           kind: google
-           version: TBD
-           service: compute
-         default:
-           image: 'Image Name'
-           size: 'n1-standard-4'
-         credentials:
-           datacenter: 'us-central1-a'
-           client_email: '<service account>.iam.gserviceaccount.com'
-           project: '<Project Name>'
-           path_to_json_file: '~/.cloudmesh/<file with credentials>'
 
 OpenStack
 ~~~~~~~~~
@@ -408,35 +347,6 @@ Please remember you can have multiple clouds in the
 integrate all of them.  You will need access to a project and add your
 project number to. the credentials.  Example for chameleon cloud::
 
-   cloudmesh:
-     ...
-     cloud:
-       ...
-       chameleon:
-         cm:
-           active: True
-           heading: Chameleon
-           host: chameleoncloud.org
-           label: chameleon
-           kind: openstack
-           version: liberty
-           service: compute
-         credentials:
-           OS_AUTH_URL: https://openstack.tacc.chameleoncloud.org:5000/v2.0
-           OS_USERNAME: TBD
-           OS_PASSWORD: TBD
-           OS_TENANT_NAME: CH-819337
-           OS_TENANT_ID: CH-819337
-           OS_PROJECT_NAME: CH-819337
-           OS_PROJECT_DOMAIN_ID: default
-           OS_USER_DOMAIN_ID: default
-           OS_VERSION: liberty
-           OS_REGION_NAME: RegionOne
-           OS_KEY_PATH: ~/.ssh/id_rsa.pub
-         default:
-           flavor: m1.small
-           image: CC-Ubuntu16.04
-           username: cc
 
 Virtual Box
 ~~~~~~~~~~~
@@ -446,26 +356,6 @@ and the deletion of the virtual box is possible.
 
 You can also integrate virtualbox as part of cloudmesh while providing
 the following description::
-
-   cloudmesh:
-     ...
-     cloud:
-       ...
-       vbox:
-         cm:
-           active: False
-           heading: Vagrant
-           host: localhost
-           label: vbox
-           kind: vagrant
-           version: TBD
-           service: compute
-         default:
-           path: ~/.cloudmesh/vagrant
-           image: "generic/ubuntu1810"
-         credentials:
-           local: True
-           hostname: localhost
 
 Storage Providers
 -----------------
@@ -489,26 +379,7 @@ IAM ``service`` -> ``Users`` -> ``Security Credentials``. Container is
 the default Bucket which is used to store the files in AWS
 S3. The region is the geographic area like ``us-east-1`` which contains
 the bucket.  The region is required to get a connection handle on the S3
-Client or resource for that geographic area. Here is a sample::
-
-   cloudmesh:
-     ...
-     storage:
-       aws:
-         cm:
-           heading: aws
-           host: amazon.aws.com
-           label: aws
-           kind: awsS3
-           version: TBD
-           service: storage
-         default:
-           directory: /
-         credentials:
-           access_key_id: *********
-           secret_access_key: *******
-           container: name of bucket that you want user to be contained in.
-           region: us-east-1
+Client or resource for that geographic area.
 
 .. todo:: Make credentials more uniform between compute and data
 
@@ -546,85 +417,8 @@ It is beyond the scope of this manual to discuss how to get an account
 on Google. However, we do provide a convenient documentation at
 .
 
-The ``cloudmesh.yaml`` file needs to be set up as follows for the
-‘gdrive’ section under ‘storage’::
-
-   cloudmesh:
-     ...
-     storge:
-       gdrive:
-         cm:
-           heading: GDrive
-           host: gdrive.google.com
-           kind: gdrive
-           label: GDrive
-           version: TBD
-           service: storage
-         credentials:
-           auth_host_name: localhost
-           auth_host_port:
-             - ****
-             - ****
-           auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
-           auth_uri: "https://accounts.google.com/o/oauth2/auth"
-           client_id: *******************
-           client_secret: ************
-           project_id: ************
-           redirect_uris:
-             - "urn:ietf:wg:oauth:2.0:oob"
-             - "http://localhost"
-           token_uri: "https://oauth2.googleapis.com/token"
-         default:
-           directory: TBD
-
 Google Cloud Storage
 ~~~~~~~~~~~~~~~~~~~~
-
-::
-
-    cloudmesh:
-      ...
-
-      storage:
-        ...
-        google:
-          cm:
-            name: google
-            active: 'true'
-            heading: GCP
-            host: https://console.cloud.google.com/storage
-            kind: google
-            version: TBD
-            service: storage
-          default:
-            directory: cloudmesh_gcp
-            Location_type: Region
-            Location: us - east1
-            Default_storage_class: Standard
-            Access_control: Uniform
-            Encryption: Google-managed
-            Link_URL: https://console.cloud.google.com/storage/browser/cloudmesh_gcp
-            Link_for_gsutil: gs://cloudmesh_gcp
-          credentials:
-            type: service_account
-            project_id: imposing-coast-123456
-            private_key_id: a1b2c3d4*********
-            private_key: '-----BEGIN PRIVATE KEY-----
-
-              ***********************************************************
-              ***********************************************************
-              ...
-              ***********************************************************
-
-              -----END PRIVATE KEY-----
-
-              '
-            client_email: user@imposing-coast-123456.iam.gserviceaccount.com
-            client_id: '1234567******23456'
-            auth_uri: https://accounts.google.com/o/oauth2/auth
-            token_uri: https://oauth2.googleapis.com/token
-            auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
-            client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/user%40imposing-coast-12345.iam.gserviceaccount.com
 
 
 Box
@@ -638,21 +432,6 @@ on Google. However, we do provide a convenient documentation at
 In the ``cloudmesh.yaml`` file, find the ‘box’ section under ‘storage’.
 Under credentials, set ``config_path`` to the path of the configuration
 file you created as described in the Box chapter::
-
-   cloudmesh:
-     ...
-     box:
-       cm:
-         heading: Box
-         host: box.com
-         label: Box
-         kind: box
-         version: TBD
-         service: storage
-       default:
-         directory: /
-       credentials:
-         config_path: ******************************
 
 
 Log File

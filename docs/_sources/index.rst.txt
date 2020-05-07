@@ -13,6 +13,7 @@ Cloudmesh Version 4
    :maxdepth: 2
 
    installation/index
+   configuration/configuration
 
 .. toctree::
    :caption: CONCEPTS
