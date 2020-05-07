@@ -38,7 +38,7 @@ An example would be::
      - :doc:`Integrate <../accounts/azure>`
      - :doc:`Azure <../register/compute-azure>`
      - :doc:`Azure <../register/volume-azure>`
-     - :doc:`Azure <../register/storage-azureblob>`, :doc:`Multipass <../register/storage-parallelazureblob>`
+     - :doc:`Azure <../register/storage-azureblob>`, :doc:`ParallelAzure <../register/storage-parallelazureblob>`
    * - Google
      - :doc:`Integrate <../accounts/google/index>`
      - :doc:`Google <../register/compute-google>`
