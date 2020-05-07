@@ -38,4 +38,4 @@ To register this service the following parameter ned to be defined::
     user
 
 
-Timer: 2.0000s Load: 0.0000s (line_strip)
+Timer: 0.0000s Load: 0.0000s (line_strip)

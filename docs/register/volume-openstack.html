@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Configuration for Cloud=openstack Service=volume &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -30,7 +30,6 @@
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
-        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -235,7 +234,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Configuration for Cloud=openstack Service=volume</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -254,11 +253,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>register list sample –service=volume –kind=openstack
-ERROR: Registration failed kind=openstack and service=volume
-No module named ‘cloudmesh.volume.Volume’
-ERROR: No suitable provider found.
-Timer: 0.0000s Load: 0.0000s (line_strip)</p>
+  <p>register list sample –service=volume –kind=openstack</p>
+<div class="section" id="configuration-for-cloud-openstack-service-volume">
+<h1>Configuration for Cloud=openstack Service=volume<a class="headerlink" href="#configuration-for-cloud-openstack-service-volume" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="n">volume</span><span class="p">:</span>
+    <span class="n">openstack</span><span class="p">:</span>
+      <span class="n">cm</span><span class="p">:</span>
+        <span class="n">active</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">heading</span><span class="p">:</span> <span class="n">Chameleon</span>
+        <span class="n">host</span><span class="p">:</span> <span class="n">chameleoncloud</span><span class="o">.</span><span class="n">org</span>
+        <span class="n">label</span><span class="p">:</span> <span class="n">chameleon</span>
+        <span class="n">kind</span><span class="p">:</span> <span class="n">openstack</span>
+        <span class="n">version</span><span class="p">:</span> <span class="n">train</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">volume</span>
+      <span class="n">credentials</span><span class="p">:</span>
+        <span class="n">auth</span><span class="p">:</span>
+          <span class="n">username</span><span class="p">:</span> <span class="n">TBD</span>
+          <span class="n">password</span><span class="p">:</span> <span class="n">TBD</span>
+          <span class="n">auth_url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">kvm</span><span class="o">.</span><span class="n">tacc</span><span class="o">.</span><span class="n">chameleoncloud</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">v3</span>
+          <span class="n">project_id</span><span class="p">:</span> <span class="n">TBD</span>
+          <span class="n">project_name</span><span class="p">:</span> <span class="n">cloudmesh</span>
+          <span class="n">user_domain_name</span><span class="p">:</span> <span class="n">Default</span>
+        <span class="n">region_name</span><span class="p">:</span> <span class="n">KVM</span><span class="nd">@TACC</span>
+        <span class="n">interface</span><span class="p">:</span> <span class="n">public</span>
+        <span class="n">identity_api_version</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span>
+        <span class="n">key_path</span><span class="p">:</span> <span class="n">TBD</span><span class="o">/</span><span class="n">id_rsa</span><span class="o">.</span><span class="n">pub</span>
+      <span class="n">default</span><span class="p">:</span>
+        <span class="n">size</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="n">volume_type</span><span class="p">:</span> <span class="n">__DEFAULT__</span>
+</pre></div>
+</div>
+<p>To register this service the following parameter ned to be defined:</p>
+<p>Timer: 0.0000s Load: 0.0000s (line_strip)</p>
+</div>
 
 
            </div>
