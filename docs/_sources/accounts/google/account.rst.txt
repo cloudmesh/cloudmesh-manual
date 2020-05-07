@@ -1,8 +1,15 @@
 Google Account
 ==============
 
-Prerequisits
-------------
+Purpose
+-------
+
+Google Cloud account is required to configure and use compute, storage
+and volume services from cloudmesh-google provider. This page will detail
+steps to create a Google Cloud account and register it with cloudmesh.
+
+Prerequisites
+-------------
 
 We assume you have the cloudmesh google provider installed. This can be
 done with
@@ -24,152 +31,147 @@ For developers the best way to install it is to use
 Creating the Google account
 ---------------------------
 
-A new google account can be created by following the information provided by
-Google:
+If you do not have a google cloud account a
+new google account can be created using following link:
 
 -  `Create your Google
-   Account <https://accounts.google.com/signup/v2/webcreateaccount>`__
+   Account <https://accounts.google.com/signup/v2/webcreateaccount?flowEntry=SignUp&flowName=GlifWebSignIn>`__
 
-Activation Google Storage Service
+Activation Google Cloud Service
 ---------------------------------
 
-.. todo:: it is not clear for which cloudmesh service this is used if at all.
-
-Google offers  you $300 in credits to use the google storage cloud service.
-To apply for it you can use either of the follwoing links:
+Google allows you to apply for an free account and offers you $300 in credits
+to use google cloud. After creating a new account apply for free trail and $300
+credit at:
 
 -  `Get Started for
    Free <https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE>`__
--  `Google Cloud Platform \| Google for
+
+For students or education account, apply at:
+
+-  `Google for
    Education <https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none>`__
 
-Please chose the one that is most appropriate for you. For the
-eductaional account you may need a verifiaction from your school or an
-email that is registered as an educational insititution.
+Please choose the one that is most appropriate for you. For the
+educational account you may need a verification from your school or an
+email that is registered as an educational institution.
 
-Create a Project
-^^^^^^^^^^^^^^^^
+Setting up Google Cloud Account
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Next, you will need to create a Google project. We recommend that you
-simply use the name ``cloudmesh``. You can create such a project at
-json
--  `Google Storage - Online Data Storage \| Cloud Storage \| Google
-   Cloud <https://console.cloud.google.com/>`__
+Next, you will need to create a project and a service account.
+All service calls from cloudmesh require a project id to
+create VM, Disks, Volumes etc.
 
-The three screenshots show the workflow on how to create a project:
+We recommend that you simply use project name ``cloudmesh``.
 
+To authenticate the google cloud api from cloudmesh
+you also need to enable the required API and
+create a service account and then download the service
+account key.
 
-Create a Service Account
-^^^^^^^^^^^^^^^^^^^^^^^^
-
+Steps to setup project and service account:
 
 .. list-table:: Google account creation steps
-   :widths: 10 40 50
+   :widths: 5 35 60
    :header-rows: 1
 
    * - Step
      - Description
      - Screenshot
    * - 1
-     - `Create a Service Account <https://console.cloud.google.com/apis/credentials/serviceaccountkey?project=cloudmesh-class&folder&organizationId>`__
+     - `Create Project <https://console.cloud.google.com/projectcreate>`__
      - |google-account-1|
    * - 2
-     - `Select a project <https://cloud.google.com/docs/authentication/production>`__
-     - |google-account-2|
+     - Next `Enable API <https://console.cloud.google.com/apis/library>`__
+     - |google-account-4|
    * - 3
-     - `Create Service Account Key <https://console.cloud.google.com/apis/credentials/serviceaccountkey>`__
-     - |google-account-3|
+     - | For E.g.
+       | `Enable Compute API <https://console.cloud.google.com/apis/library/compute.googleapis.com?q=Compute>`__
+     - |google-account-5|
+   * - 4
+     - | Next `Select Service Account <https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?supportedpurview=project>`__
+       | to create and download
+       | service account key.
+     -
+   * - 5
+     - | `Create Service Account Key <https://console.cloud.google.com/apis/credentials/serviceaccountkey>`__.
+       | Download the service
+       | account key file to
+       | ``~/.cloudmesh/security``
+       | folder with name
+       | ``google.json``.
+     - |google-account-2|
 
+After the key is downloaded, make sure you keep the ``~/.cloudmesh``
+directory secure.
 
-Next, download the key file `client_secret.json` and
-`google-drive-credentials.json` To create and download new private key you will use to authenticate.
-Select the JSON format and download the file and save it to ``~/.cloudmesh``
-
-Make sure you keep the .cloudmesh directory  secure. This file will be used to
-update the YAML entry in the file
+We will use the downloaded json file to register google cloud with
+cloudmesh and enable cloudmesh to invoke google cloud API
+by updating YAML entry in file
 
 ``$ ~/.cloudmesh/cloudmesh.yaml``
 
-As you may use also other clouds we recommend you rename the file to
-``google.json`` when you save it, so it is clear to which cloud the json
-file belongs.
+Next register google cloud account with cloudmesh.
 
-If your yaml file doe snot yet have a configuartion for the Google service
+Registering Google Cloud to Cloudmesh
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: which one exactly is unclear
-pleas use the command::
+Use the following command to register google cloud
+with cloudmesh. This command will update the
+``cloudmesh.yaml`` file for respective service.
 
-   $ cms register google google.json
-
-.. todo:: has this been implemented?
-
-Update Cloudmesh with the Google Storage Account Information
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. todo:: Now we have two commands. is the config command also working?
+Register Google Compute
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-   $ cms google config add ~/.cloudmesh/google.json --service=google 
+   $ cms register update --kind=google --service=compute --filename=~/.cloudmesh/security/google.json
 
-MOVE THE CONTENT FROM HERE INTO CONFIGURATION SECTION …
-
-More details of the configuration can v=be looked up in the `Cloudmesh
-Configuration Section <MISSING>`__
-
-
-.. todo:: THE COMMANDS HAVE TO BE REVISITED
-
-    ::
-
-       $ cms google list # what does thsi do?
-
-    THIS NEEDS TO BE RENAMED TO
-
-    ::
-
-       $ cms google config list  # logical
-       $ cms google yaml list storage # somewhat logical
-
-Using the Google Storage Service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If a Google storage bucket is already created, you can list google storage
-bucket using following command::
-
-   $ cms google list
-
-From the displayed list please pick bucket of your choice and add bucket
-name to yaml file in the storage section for google provider
-
-``storage > google > default > directory``.
-
-If bucket doesnot exist use folling command to create new bucket:
+Register Google Storage
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-   $ cms google create bucket --name=NAME --service=google
+   $ cms register update --kind=google --service=Storage --filename=~/.cloudmesh/security/google.json bucket=cloudmesh-bucket
 
-NAME: is new bucket name. Important note: Bucket name needs to be
-globally unique, you may choose combinantion of your class ID and bucket
-name. ``e.g. f19_516_xxx_bucket_name``
+Note: The cloudmesh-bucket will be used as default storage bucket.
 
-You are all set with account setup.
+Register Google Volume
+~~~~~~~~~~~~~~~~~~~~~~
 
+::
+
+   $ cms register update --service=volume --kind=google --filename=~/.cloudmesh/security/google-service-account.json zone=us-west-a sizeGb=100 label=google
+
+Verify Setup
+^^^^^^^^^^^^
+
+Check the setup by running the following command
+
+.. code:: bash
+
+   $ cms set cloud=google
+   $ cms vm list --refresh
+
+The above command should list the VMs from your google cloud compute service.
+
+You are all set with Google Cloud account setup.
 
 Links
 -----
 
--  `New Google Account
-   Introduction <https://myaccount.google.com/intro>`__
--  `Create a Google Account- Google Account
-   Help <https://support.google.com/accounts/answer/27441>`__
+-  `New Google Cloud Account
+   Introduction <https://console.cloud.google.com/getting-started>`__
+-  `Create a Google Cloud Account- Free
+   Tier <https://cloud.google.com/free/docs/gcp-free-tier>`__
 -  `Authentication Overview \| Authentication \| Google
    Cloud <https://cloud.google.com/docs/authentication/>`__
+-  `Understanding service accounts \| Google
+   Cloud <https://cloud.google.com/iam/docs/understanding-service-accounts/>`__
 
-.. |google-account-1| thumbnail:: images/MyAccount_01.png
-.. |google-account-2| thumbnail:: images/MyAccount_02.png
-.. |google-account-3| thumbnail:: images/CreateKey_01.png
-
-.. todo:: it is unclear which images are korret and whic are not.
-          We nee dto remove the old images so there is no confusion
+.. |google-account-1| thumbnail:: images/MyAccount_03.png
+.. |google-account-2| thumbnail:: images/CreateKey_01.png
+.. |google-account-3| thumbnail:: images/MyAccount_03.png
+.. |google-account-4| thumbnail:: images/EnableAPI_01.png
+.. |google-account-5| thumbnail:: images/EnableAPI_02.png
