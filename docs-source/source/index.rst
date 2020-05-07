@@ -42,6 +42,7 @@ Cloudmesh Version 4
    manual-compute
    manual-storage
    manual-other
+   viewer/index
 
 .. toctree::
    :caption: API
