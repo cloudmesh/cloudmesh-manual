@@ -91,7 +91,11 @@
               
             
             
-              <p class="caption"><span class="caption-text">PREFACE</span></p>
+              <p class="caption"><span class="caption-text">MANUAL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="`Home &lt;https://cloudmesh.github.io/cloudmesh-manual/&gt;`_">`Home &lt;https://cloudmesh.github.io/cloudmesh-manual/&gt;`_</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PREFACE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
@@ -256,11 +260,26 @@
   <p>register list sample –service=storage –kind=box</p>
 <div class="section" id="configuration-for-cloud-box-service-storage">
 <h1>Configuration for Cloud=box Service=storage<a class="headerlink" href="#configuration-for-cloud-box-service-storage" title="Permalink to this headline">¶</a></h1>
-<dl class="simple">
-<dt>::</dt><dd><p>TODO: missing</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="n">box</span><span class="p">:</span>
+    <span class="n">cm</span><span class="p">:</span>
+      <span class="n">active</span><span class="p">:</span> <span class="n">false</span>
+      <span class="n">heading</span><span class="p">:</span> <span class="n">Box</span>
+      <span class="n">host</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">com</span>
+      <span class="n">label</span><span class="p">:</span> <span class="n">box</span>
+      <span class="n">kind</span><span class="p">:</span> <span class="n">box</span>
+      <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+      <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
+    <span class="n">default</span><span class="p">:</span>
+      <span class="n">directory</span><span class="p">:</span> <span class="o">/</span>
+    <span class="n">credentials</span><span class="p">:</span>
+      <span class="n">config_path</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">box</span><span class="o">/</span><span class="p">{</span><span class="n">config</span><span class="p">}</span>
+</pre></div>
+</div>
 <p>To register this service the following parameter ned to be defined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span>
+</pre></div>
+</div>
 <p>Timer: 0.0000s Load: 0.0000s (line_strip)</p>
 </div>
 

@@ -1,6 +1,8 @@
 Cloudmesh Version 4
 ===================
 
+`Manual <https://cloudmesh.github.io/cloudmesh-manual/>`_
+
 .. toctree::
    :caption: PREFACE
    :maxdepth: 10
