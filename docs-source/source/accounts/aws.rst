@@ -433,7 +433,8 @@ attempting run commands against multiple vm’s.)
 Storage Service
 ---------------
 
--  AWS S3 and Credentials Set up:
+   AWS S3 and Credentials Set up:
+
    1. Create aws account following the instructions above
    2. Select S3 service in AWS Management Console
    3. In S3 service, create a bucket. (Please remember the bucket name and bucket region)
