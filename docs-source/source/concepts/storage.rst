@@ -116,6 +116,17 @@ Or, some storage command can be called and run separately as follows:
 Storage functions overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Default storage
+~~~~~~~~~~~~~~~
+
+The following command can set the default storage service used in the 
+storage command. After this command, you don't need to specify the
+--service option in some commands.
+
+.. code:: bash
+
+   $ cms set storage=aws
+
 Monitor 
 ~~~~~~~
 
@@ -239,7 +250,17 @@ the sub-directories).
 
 .. code:: bash
 
-   $ cms storage --storage='aws' delete /base_path/targetdir --recursive --run
+   $ cms storage --storage='aws' delete /base_path/targetdir --run
+   
+Copy
+~~~~
+
+This command can allow user to copy files/directories across local and
+different cloud providers including aws, azureblob, gdrive, etc.
+
+.. code:: bash
+   
+   $ cms storage copy --source=local:./test_file1.txt --target=aws:aws_copy_1.txt --run
 
 Help command gives a detail level understanding of what each command
 does and how to use the command line to interact with different object
@@ -272,6 +293,15 @@ be invoked as follows
    $ pytest -v --capture=no tests/test_storage.py
 
    $ cms set storage=aws
+   $ pytest -v --capture=no tests/test_storage.py
+   
+   $ cms set storage=parallelazureblob
+   $ pytest -v --capture=no tests/test_storage.py
+   
+   $ cms set storage=parallelazureblob
+   $ pytest -v --capture=no tests/test_storage_azure.py
+   
+   $ cms set storage=parallelgdrive
    $ pytest -v --capture=no tests/test_storage.py
 
 Provider Specific Pytests
