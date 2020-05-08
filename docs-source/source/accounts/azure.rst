@@ -335,16 +335,24 @@ just collected to the “azure” section of cloudmesh.yaml
 
    cloudmesh.yaml
 
-Azure Resource Group (for Compute)
-----------------------------------
-
--  [ ] TODO: Azure. Compute Resource Group. To be completed by students
-
 Azure Resource Group (for Storage and Compute)
 ----------------------------------------------
 
 -  [ ] TODO: Azure. Storage and Compute Resource Group. To be completed
    by students.
+
+
+Resource Unavailable Error
+--------------------------
+
+One method Azure can use to handle times of extreme load (such as the 2020 outbreak of Covid-19) is to make certain image types unavailable to new accounts, for certain subscription types, and in certain regions. This can include the Basic images used as the default for many commands. 
+
+If you are affected by these restrictions, attempting to use this cloud wil throw a ResourceUnavailable Error. You will need to change the machine size to one that is available to your account. You can check what machine types are available to you with the following command, after you have installed the Azure CLI as described above. 
+
+.. code:: bash
+
+   $ az vm list-skus --location southcentralus --size Standard_B --output table 
+   
 
 FAQ
 ---
