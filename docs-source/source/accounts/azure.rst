@@ -143,6 +143,37 @@ Sign in via the default browser using your Azure credentials. |Sign in|
 
 Now you are ready to use the ``az`` command to interact with Azure.
 
+Azure Resource Group (for Compute)
+----------------------------------
+
+In order to use the compute resources properly, you will need to add a resource group. 
+To do so, log into the Azure portal at:
+
+-  https://portal.azure.com/
+
+In the search bar, search for ``Resource groups`` and click ``Add``. You will be given a 
+similar screen as below.
+
+.. figure:: images/azure/azure-compute-resource.png
+   :alt: AZ-Resource
+
+   AZ-
+   
+You can name the group anything you want, ``cloudmesh`` is a good choice, just be sure to 
+remember your choice. 
+
+Next, you need to set the group in cloudmesh. This can be done with 
+
+.. code:: bash
+
+   cms set group=GROUPNAME
+
+If no group has been set (or if group=default), cloudmesh will use the ``resource_group`` 
+variable from ``cloudmesh.yaml``
+
+This is all that needs to be done for using resource groups with Compute. If you are also
+using storage functionality, see the following section.
+
 Azure Resource Group (for Storage)
 ----------------------------------
 
