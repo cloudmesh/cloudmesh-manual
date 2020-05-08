@@ -442,10 +442,11 @@ Storage Service
    5. In IAM service, Add a new user with "Probrammatic access" access type and "S3All" Permission
    6. Remember the user "Access key ID" and "Secret access key"
    7. Fill in the following info into the ~/.cloudmesh/cloudmesh.yaml file under "cloudmesh.storage.aws.credentials" section
-      a. bucket
-      b. access_key_id
-      c. secret_access_key
-      d. region
+      
+      - bucket
+      - access_key_id
+      - secret_access_key
+      - region
 
 References
 ----------
