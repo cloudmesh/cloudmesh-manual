@@ -3,7 +3,10 @@ Cloudmesh Viewer
 
 Intro Description from README comes here
 
-Pointer to readme in cloudmesh-javascript comes here
+Github Links:
+
+* `README.md <https://github.com/cloudmesh/cloudmesh-javascript/blob/master/README.md>`_ shows infrmation about this project
+* `Github Issues <https://github.com/cloudmesh/cloudmesh-javascript/issues>`_ is used to manage issues and help
 
 
 .. list-table:: Set up a box account

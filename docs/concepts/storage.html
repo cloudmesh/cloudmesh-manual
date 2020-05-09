@@ -112,12 +112,17 @@
 <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aws-s3-cloudmesh-integration">AWS S3 Cloudmesh Integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#storage-functions-overview">Storage functions overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-storage">Default storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitor">Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean">Clean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-dir">Create dir</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#put">Put</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get">Get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#search">Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list">List</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#delete">Delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copy">Copy</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pytests">Pytests</a><ul>
@@ -160,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../viewer/index.html">Cloudmesh Viewer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -372,29 +378,62 @@ providers and different parameters / options available in a particular
 command. For eg to invoke AWS S3 service, we need to pass awss3 as
 parameter to storage and suffix with the function call with the function
 parameters.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span> --run
 </pre></div>
 </div>
 <p>Alternatively, storage command can also be called directly without
 starting the cms shell.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span> --run
 </pre></div>
 </div>
+<p>Or, some storage command can be called and run separately as follows:</p>
 <div class="section" id="storage-functions-overview">
 <h3>Storage functions overview<a class="headerlink" href="#storage-functions-overview" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="default-storage">
+<h3>Default storage<a class="headerlink" href="#default-storage" title="Permalink to this headline">¶</a></h3>
+<p>The following command can set the default storage service used in the
+storage command. After this command, you don’t need to specify the
+–service option in some commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>aws
+</pre></div>
+</div>
+</div>
+<div class="section" id="monitor">
+<h3>Monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
+<p>This command monitors the status of commands in mongodb database and
+refresh itself every 5 seconds.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage monitor
+</pre></div>
+</div>
+</div>
+<div class="section" id="run">
+<h3>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<p>This command execute the commands in the mongodb that are in waiting
+status.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage run
+</pre></div>
+</div>
+</div>
+<div class="section" id="clean">
+<h3>Clean<a class="headerlink" href="#clean" title="Permalink to this headline">¶</a></h3>
+<p>This command clean all the actions in mongodb database.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage clean
+</pre></div>
+</div>
 </div>
 <div class="section" id="create-dir">
 <h3>Create dir<a class="headerlink" href="#create-dir" title="Permalink to this headline">¶</a></h3>
 <p>This command helps to create a new directory on AWS S3. You must specify
 the full path of the new directory you would like to create.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> create dir /base_path/targetdir
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> create dir /base_path/targetdir --run
 </pre></div>
 </div>
 </div>
 <div class="section" id="put">
 <h3>Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h3>
 <p>The put command uploads files from your local host to the S3.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive --run
 </pre></div>
 </div>
 <p>Source for this command could be either a file or directory.</p>
@@ -410,7 +449,7 @@ directory and the sub-directories will be ignored.</p>
 <div class="section" id="get">
 <h3>Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
 <p>The get command downloads files from S3 to your local host.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive --run
 </pre></div>
 </div>
 <p>Source for this command could be either a file or directory.</p>
@@ -433,7 +472,7 @@ directory.</p>
 all sub-directories of the original directory as well.</p>
 <p>To search for a file at the root, pass an empty string or / as the
 target dir.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> search /base_path/targetdir testfile.txt --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> search /base_path/targetdir testfile.txt --recursive --run
 </pre></div>
 </div>
 <p>Note that for the Box storage provider, objects are only indexed every 5
@@ -445,7 +484,7 @@ indexed.</p>
 <p>The list command lists all the contents of a cloud directory. If the
 recursive option is specified, it will list the contents of all
 sub-directories as well.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list /base_path/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list /base_path/targetdir --recursive --run
 </pre></div>
 </div>
 </div>
@@ -454,7 +493,15 @@ sub-directories as well.</p>
 <p>The delete command can delete files or folders from your cloud file
 storage. Deleting a folder will delete its contents as well (including
 the sub-directories).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> delete /base_path/targetdir --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> delete /base_path/targetdir --run
+</pre></div>
+</div>
+</div>
+<div class="section" id="copy">
+<h3>Copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h3>
+<p>This command can allow user to copy files/directories across local and
+different cloud providers including aws, azureblob, gdrive, etc.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage copy --source<span class="o">=</span>local:./test_file1.txt --target<span class="o">=</span>aws:aws_copy_1.txt --run
 </pre></div>
 </div>
 <p>Help command gives a detail level understanding of what each command
@@ -484,6 +531,15 @@ $ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o"
 $ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 
 $ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>aws
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
+
+$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>parallelazureblob
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
+
+$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>parallelazureblob
+$ pytest -v --capture<span class="o">=</span>no tests/test_storage_azure.py
+
+$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>parallelgdrive
 $ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 </pre></div>
 </div>

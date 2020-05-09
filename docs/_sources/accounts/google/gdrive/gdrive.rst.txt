@@ -3,7 +3,9 @@ Google Drive
 ************
 
 Google Drive is a file storing platform where an user can store all
-his/her files in the google drive.  Here files can be of any form
+his/her files in the google drive.  You will need Google Drive to
+work with Cloudmesh Storage to store files in Google Drive. 
+Here files can be of any form
 ranging from documents to audio, video or image files. In free account
 each user will be given around 15 GB of free data space to be
 stored. We can create folders and subfolders in the Google Drive to
@@ -25,6 +27,13 @@ Go to `Google APIs <https://console.developers.google.com/>`_ website.
 Create a project
 ****************
 To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
+
+.. figure:: images/1console.PNG
+    :width: 20pt
+    :align: center
+    :height: 10pt
+    :alt: alternate text
+    :figclass: align-center
 
 .. figure:: images/1console.PNG
    :alt: Google APIs Console

@@ -125,6 +125,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../viewer/index.html">Cloudmesh Viewer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -369,6 +370,9 @@ using the command line.</p>
 <p>Cloudmesh config file (cloudmesh.yaml) will have the following entries
 for compute and storage respectively. Add them to the config file if not
 already there.</p>
+<p>Note: the image names are dated, and it is possible that this default image
+won’t be available if you created your account recently. If so, you will need
+to run <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--refresh</span></code> to see available images and update the yaml files</p>
 <div class="section" id="compute-entry">
 <h3>Compute Entry<a class="headerlink" href="#compute-entry" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
@@ -384,7 +388,7 @@ already there.</p>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
         <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">default</span><span class="p">:</span>
-        <span class="n">image</span><span class="p">:</span> <span class="n">Oracle</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="mf">7.7</span><span class="o">-</span><span class="mf">2019.11</span><span class="o">.</span><span class="mi">12</span><span class="o">-</span><span class="mi">0</span>
+        <span class="n">image</span><span class="p">:</span> <span class="n">Oracle</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="mf">7.7</span><span class="o">-</span><span class="mf">2020.03</span><span class="o">.</span><span class="mi">23</span><span class="o">-</span><span class="mi">0</span>
         <span class="n">size</span><span class="p">:</span> <span class="n">VM</span><span class="o">.</span><span class="n">Standard</span><span class="o">.</span><span class="n">E2</span><span class="o">.</span><span class="mi">1</span>
       <span class="n">credentials</span><span class="p">:</span>
         <span class="n">user</span> <span class="p">:</span> <span class="n">TBD</span>

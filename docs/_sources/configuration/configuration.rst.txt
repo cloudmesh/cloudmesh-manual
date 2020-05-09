@@ -236,6 +236,9 @@ kind
 
     For storage services the following kinds are valid: ``aws``,
     ``azure``, ``google``, ``openstack``, ``box``
+    
+    For volume services the following kinds are valid: ``aws``,
+    ``azure``, ``google``, ``multipass``, ``oracle``, ``openstack``
 
 host
 
@@ -244,7 +247,8 @@ host
 
 service
 
-    The type of service. valid values are ``compute``, ``storage``.
+    The type of service. valid values are ``compute``, ``storage``,
+    ``volume``.
 
 ::
 
@@ -432,6 +436,60 @@ on Google. However, we do provide a convenient documentation at
 In the ``cloudmesh.yaml`` file, find the ‘box’ section under ‘storage’.
 Under credentials, set ``config_path`` to the path of the configuration
 file you created as described in the Box chapter::
+
+
+Volume Cloud Providers
+-----------------------
+
+Cloud providers that offer compute services usually have functions for managing
+block volumes which can be attached to virtual machine instances.
+Documentation on using cloudmesh to manage block volumes can be found in the
+`cloudmesh-volume
+<https://github.com/cloudmesh/cloudmesh-volume/blob/master/README.md>`_
+package.  The credentials needed in the volume configurations are typically 
+the same as those needed for the compute configuration.  The default,
+which varies by provider, allows the user to create volumes from a set 
+default values such as volume type and size.
+
+AWS
+~~~~~~
+
+In the AWS volume configuration, the ``region_name`` refers to the AWS region
+e.g. ``us-east-2``, while the ``region`` refers to the AWS availability zone
+e.g. ``us-east-2a``.  Other defaults that can be changed by the user for
+creating a volume include the volume type, size, input/output operations per
+second ``iops``, whether the volume is encrypted, or a snapshot to create the
+volume from. ::
+
+Azure
+~~~~~~
+
+TBD
+
+Google
+~~~~~~
+
+The default volume ``type`` in the Google configuration takes a url as a value.
+The url should look like this:
+``projects/project_id/zones/zone/diskTypes/pd-standard``, where ``project_id``
+is the project ID for your project and ``zone`` is the zone in which the volume
+is located.
+
+Multipass
+~~~~~~~~~~
+
+The default ``path`` designates the location on the user's computer where the
+multipass volumes will be created.  For Windows users, the path should use
+``/`` instead of ``\``. ::
+
+
+Oracle
+~~~~~~~~~~
+
+TBD
+
+Openstack
+~~~~~~~~~~
 
 
 Log File

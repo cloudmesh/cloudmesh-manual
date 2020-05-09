@@ -98,17 +98,63 @@ parameters.
 
 .. code:: bash
 
-   cms> storage --storage='aws' list ''
+   cms> storage --storage='aws' list '' --run
 
 Alternatively, storage command can also be called directly without
 starting the cms shell.
 
 .. code:: bash
 
+   $ cms storage --storage='aws' list '' --run
+  
+Or, some storage command can be called and run separately as follows:
+
+.. code:: bash
    $ cms storage --storage='aws' list ''
+   $ cms storage run
 
 Storage functions overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default storage
+~~~~~~~~~~~~~~~
+
+The following command can set the default storage service used in the 
+storage command. After this command, you don't need to specify the
+--service option in some commands.
+
+.. code:: bash
+
+   $ cms set storage=aws
+
+Monitor 
+~~~~~~~
+
+This command monitors the status of commands in mongodb database and 
+refresh itself every 5 seconds.
+
+.. code:: bash
+
+   $ cms storage monitor
+   
+Run
+~~~
+
+This command execute the commands in the mongodb that are in waiting 
+status.
+
+.. code:: bash
+   
+   $ cms storage run
+   
+Clean
+~~~~~
+
+This command clean all the actions in mongodb database.
+
+.. code:: bash
+   
+   $ cms storage clean
 
 Create dir
 ~~~~~~~~~~
@@ -118,7 +164,7 @@ the full path of the new directory you would like to create.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' create dir /base_path/targetdir
+   $ cms storage --storage='aws' create dir /base_path/targetdir --run
 
 Put
 ~~~
@@ -127,7 +173,7 @@ The put command uploads files from your local host to the S3.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
+   $ cms storage --storage='aws' put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive --run
 
 Source for this command could be either a file or directory.
 
@@ -148,7 +194,7 @@ The get command downloads files from S3 to your local host.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
+   $ cms storage --storage='aws' get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive --run
 
 Source for this command could be either a file or directory.
 
@@ -178,7 +224,7 @@ target dir.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' search /base_path/targetdir testfile.txt --recursive
+   $ cms storage --storage='aws' search /base_path/targetdir testfile.txt --recursive --run
 
 Note that for the Box storage provider, objects are only indexed every 5
 to 10 minutes and will not show up in a search until they have been
@@ -193,7 +239,7 @@ sub-directories as well.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' list /base_path/targetdir --recursive
+   $ cms storage --storage='aws' list /base_path/targetdir --recursive --run
 
 Delete
 ~~~~~~
@@ -204,7 +250,18 @@ the sub-directories).
 
 .. code:: bash
 
-   $ cms storage --storage='aws' delete /base_path/targetdir --recursive
+   $ cms storage --storage='aws' delete /base_path/targetdir --run
+   
+Copy
+~~~~
+
+This command can allow user to copy files/directories across local and
+different cloud providers including aws, azureblob, gdrive, etc.
+
+.. code:: bash
+   
+   $ cms storage copy --source=local:./test_file1.txt --target=aws:aws_copy_1.txt --run
+
 
 Help command gives a detail level understanding of what each command
 does and how to use the command line to interact with different object
@@ -237,6 +294,15 @@ be invoked as follows
    $ pytest -v --capture=no tests/test_storage.py
 
    $ cms set storage=aws
+   $ pytest -v --capture=no tests/test_storage.py
+   
+   $ cms set storage=parallelazureblob
+   $ pytest -v --capture=no tests/test_storage.py
+   
+   $ cms set storage=parallelazureblob
+   $ pytest -v --capture=no tests/test_storage_azure.py
+   
+   $ cms set storage=parallelgdrive
    $ pytest -v --capture=no tests/test_storage.py
 
 Provider Specific Pytests

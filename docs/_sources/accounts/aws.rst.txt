@@ -29,46 +29,42 @@ First, we go to the AWS website
 
 -  https://aws.amazon.com
 
-and click on ``Create an AWS Account``.
-
-.. figure:: images/aws/image1.png
-   :alt: Create Account
-
-   Create Account
-
-This will direct you to the account creation page. Now we fill out your
+and click on ``Create an AWS Account``. This will direct you to the account
+creation page. Now we fill out your
 information and click ``Continue``.
 
-.. figure:: images/aws/image2.png
-   :alt: Continue
+.. sidebar:: Create Account
 
-   Continue
+   .. thumbnail:: images/aws/image1.png
+      :alt: Create Account
+
+   .. thumbnail:: images/aws/image2.png
+      :alt: Continue
 
 Next, you will need to fill out your contact information. You can choose
 ``Professional`` or ``Personal`` as your account type. Here in this
 tutorial, we selected ``Personal``. Read the *AWS Customer Agreement*,
 and check the box if agreed. Click on ``Create Account and Continue`` to
-continue.
-
-.. figure:: images/aws/image3.png
-   :alt: Contact Information
-
-   Contact Information
-
-Fill out your payment information and proceed. Dependent on your level
+continue. Fill out your payment information and proceed. Dependent on your level
 of security, you may want to explore using a prepaid credit card if you
 do not want to use your regular credit card.
 
 If you just started using AWS, you will have a free account for a while
 as AWS will state:
 
-   We will not charge you unless your usage exceeds the AWS Free Tier
-   Limits. - Amazon AWS
+   *"We will not charge you unless your usage exceeds the AWS Free Tier
+   Limits. - Amazon AWS"*
 
 Please review the terms of the free tier carefully.
 
-.. figure:: images/aws/image4.png
-   :alt: Payment
+.. sidebar:: Contact Information
+
+   .. thumbnail:: images/aws/image3.png
+      :alt: Contact Information
+
+
+   .. thumbnail:: images/aws/image4.png
+      :alt: Payment
 
    Payment
 
@@ -77,72 +73,66 @@ Next your need to confirm your identity. You can choose either
 code. Here we choose ``Text message (SMS)``. Enter your phone number and
 the security check code and click ``Send SMS``.
 
-.. figure:: images/aws/image5.png
-   :alt: Identity confirmation
-
-   Identity confirmation
-
 Enter the 4-digit verification code you received from your phone, and
 click on ``Verify Code``.
-
-.. figure:: images/aws/image6.png
-   :alt: Verification
-
-   Verification
 
 If you entered the correct verification code, you will see this page.
 Click on ``Continue``.
 
-.. figure:: images/aws/image7.png
-   :alt: Continue
-
-   Continue
-
 You will need to choose your support plan. We chose Amazon’s free tier
 ``Basic Plan``.
 
-.. figure:: images/aws/image8.png
-   :alt: Select a Plan
 
-   Select a Plan
+.. sidebar:: Identity confirmation
+
+   .. thumbnail:: images/aws/image5.png
+      :alt: Identity confirmation
+
+   .. thumbnail:: images/aws/image6.png
+      :alt: Verification
+
+   .. thumbnail:: images/aws/image7.png
+      :alt: Continue
+
+   .. thumbnail:: images/aws/image8.png
+      :alt: Select a Plan
 
 Congratulations! You have successfully created an AWS account. Now you
 can click on ``Sign In to the Console`` to sign in.
 
-.. figure:: images/aws/image9.png
-   :alt: Personalize
-
-   Personalize
-
 Enter the email address you used for registration, and click on
 ``Next``.
 
-.. figure:: images/aws/image10.png
-   :alt: email
-
-   email
-
 Enter the password you used for registration, and click on ``Sign In``.
 
-.. figure:: images/aws/image11.png
-   :alt: Password
 
-   Password
+.. sidebar:: Personalize
+
+   .. thumbnail:: images/aws/image9.png
+      :alt: Personalize
+
+   .. thumbnail:: images/aws/image10.png
+      :alt: email
+
+   .. thumbnail:: images/aws/image11.png
+      :alt: Password
 
 Now you’ve successfully signed in to the AWS Management Console.
 
-.. figure:: images/aws/image12.png
-   :alt: AWS Services
+.. sidebar:: AWS Services
 
-   AWS Services
+
+   .. thumbnail:: images/aws/image12.png
+      :alt: AWS Services
+
 
 You can click on ``Services`` to explore AWS services through their Web
 page.
 
-.. figure:: images/aws/image13.png
-   :alt: Explore services
+.. sidebar:: Explore services
 
-   Explore services
+   .. thumbnail:: images/aws/image13.png
+      :alt: Explore services
 
 You can also start managing your account and instances through our
 cloudmesh services. This is especially of interest if you use cloudmesh
@@ -176,19 +166,17 @@ Create and Download Access Key
 After logging into your account, you will then see the following
 console:
 
-.. figure:: images/aws/image14.png
-   :alt: IAM Management Console: Users
+.. sidebar::    IAM Management Console: Users
 
-   IAM Management Console: Users
+   .. thumbnail:: images/aws/image14.png
+      :alt: IAM Management Console: Users
+
+   .. thumbnail:: images/aws/image15.png
+      :alt: IAM Management Console: Add User
 
 Click on ``Add user`` and begin the process for creating a new user.
 Type the name ``cloudmesh`` in the ``User name`` and make sure you check
 the ``programmatic  access``:
-
-.. figure:: images/aws/image15.png
-   :alt: IAM Management Console: Add User
-
-   IAM Management Console: Add User
 
 After clicking on the ``Next: Permissions``, you then have to add the
 user to a group. If you do not have any group created, click on
@@ -196,81 +184,83 @@ user to a group. If you do not have any group created, click on
 page. You can call the group ``cloudmesh`` and then check the select the
 ``AmazonEC2FullAccess`` for the permission:
 
-.. figure:: images/aws/image17.png
-   :alt: IAM Management Console: Create Group
-
-   IAM Management Console: Create Group
-
 After creating the group, select it so that the new user will be
 assigned to that group:
 
-.. figure:: images/aws/image18.png
-   :alt: IAM Management Console: Select Group
+.. sidebar::    IAM Management Console: Create Group
 
-   IAM Management Console: Select Group
+   .. thumbnail:: images/aws/image17.png
+      :alt: IAM Management Console: Create Group
+
+   .. thumbnail:: images/aws/image18.png
+      :alt: IAM Management Console: Select Group
+
 
 In the next page you can create the tags for the new user. You can just
-create a ``cloudmesh`` key for the user as a tag:
-
-.. figure:: images/aws/image19.png
-   :alt: IAM Management Console: Add Tag
-
-   IAM Management Console: Add Tag
+create a ``cloudmesh`` key for the user as a tag.
 
 The next page is the review page where you can review the information
-you entered:
-
-.. figure:: images/aws/image20.png
-   :alt: IAM Management Console: Review
-
-   IAM Management Console: Review
+you entered.
 
 After clicking on ``Create user`` the user will be finally created and
 you will be redirected to the following success page:
 
-.. figure:: images/aws/image21.png
-   :alt: IAM Management Console: Success
+.. sidebar::    IAM Management Console: Add Tag
 
-   IAM Management Console: Success
+   .. thumbnail:: images/aws/image19.png
+      :alt: IAM Management Console: Add Tag
 
-You can view the secret access key by clicking on the ``show`` button:
+   .. thumbnail:: images/aws/image20.png
+      :alt: IAM Management Console: Review
 
-.. figure:: images/aws/image22.png
-   :alt: IAM Management Console: Access Key
+   .. thumbnail:: images/aws/image21.png
+      :alt: IAM Management Console: Success
 
-   IAM Management Console: Access Key
+
+
+You can view the secret access key by clicking on the ``show`` button.
+
+.. sidebar::  IAM Management Console: Access Key
+
+   .. thumbnail:: images/aws/image22.png
+      :alt: IAM Management Console: Access Key
+
 
 Next, download the ``.csv`` file by clicking on the ``Download .csv``
 button and save it as ``~/.cloudmesh/credentials.csv``:
 
-.. figure:: images/aws/image23.png
-   :alt: IAM Management Console: Download CSV
+.. sidebar:: IAM Management Console: Download CSV
 
-   IAM Management Console: Download CSV
+   .. thumbnail:: images/aws/image23.png
+      :alt: IAM Management Console: Download CSV
 
 Then you can click on the ``close`` button and go back to the IAM
 Management Console which now provide you a summary of the newly created
 user called ``cloudmesh`` and looks like this:
 
-.. figure:: images/aws/image25.png
-   :alt: IAM Management Console: Summary
+.. sidebar:: IAM Management Console: Summary
 
-   IAM Management Console: Summary
+    .. thumbnail:: images/aws/image25.png
+       :alt: IAM Management Console: Summary
+
 
 By clicking on the ``Create access key``, you can create another access
 key:
 
-.. figure:: images/aws/image26.png
-   :alt: IAM Management Console: Create Access Key
+.. sidebar:: IAM Management Console: Create Access Key
 
-   IAM Management Console: Create Access Key
+   .. thumbnail:: images/aws/image26.png
+      :alt: IAM Management Console: Create Access Key
+
 
 As is mentioned in the screen shot, this is the only time you can view
 or download the secret access key. So go ahead and click on the
 ``Download .csv file`` and save it as ``~/.cloudmesh/accessKey.csv``:
 
-.. figure:: images/aws/image27.png
-   :alt: IAM Management Console: Download CSV File
+.. sidebar::
+
+   .. thumbnail:: images/aws/image27.png
+      :alt: IAM Management Console: Download CSV File
 
    IAM Management Console: Download CSV File
 
@@ -314,10 +304,11 @@ satisfied, please reference the installation section.
 While logged into AWS’s console, navigate to the EC2 Management Console
 under ``Services > Compute > EC2``:
 
-.. figure:: images/aws/aws_compute_ec2.png
-   :alt: EC2 Management Console: EC2 Console
+.. sidebar::    EC2 Management Console: EC2 Console
 
-   EC2 Management Console: EC2 Console
+   .. thumbnail:: images/aws/aws_compute_ec2.png
+      :alt: EC2 Management Console: EC2 Console
+
 
 Next, on the left-hand panel, navigate to
 ``Network & Security > Key Pairs`` and select ``Import key pair``. Once
@@ -325,15 +316,16 @@ you’re at the Import Settings screen, browse to ``~\.ssh`` and select
 the ``id_rsa.pub`` file. Name the imported file after the same username
 configured you have configured in the cloudmesh.yaml file.
 
-.. figure:: images/aws/aws_ec2_import_settings.png
-   :alt: EC2 Management Console: Import Settings
+.. sidebar:: EC2 Management Console: Import Settings
 
-   EC2 Management Console: Import Settings
+   .. thumbnail:: images/aws/aws_ec2_import_settings.png
+      :alt: EC2 Management Console: Import Settings
 
-.. figure:: images/aws/aws_ec2_import_pub_key.png
-   :alt: EC2 Management Console: Pub SSH Key
+.. sidebar::    EC2 Management Console: Pub SSH Key
 
-   EC2 Management Console: Pub SSH Key
+   .. thumbnail:: images/aws/aws_ec2_import_pub_key.png
+      :alt: EC2 Management Console: Pub SSH Key
+
 
 Cloudmesh.yaml Configuration for AWS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -358,13 +350,25 @@ using a text editor to update the cloudmesh.yaml file under
 
 **Notes**:
 
+.. sidebar::
+
+   |AWS Management Console: Pub SSH Key|
+
+   |REVIEW: AWS_CERT Private Key|
+
+   |AWS Configuration: Set Config|
+
+   |AWS Configuration: Check Config|
+
+   |AWS Configuration: Access Key Credentials|
+
 -  Region can be found while logged into the AWS management console in
-   the upper right-hand side. |AWS Management Console: Pub SSH Key|
+   the upper right-hand side.
+
 
 -  EC2_ACCESS_ID and EC2_SECRET_KEY values can be found either during
    the initial setup in AWS, or by referencing the Access Key downloaded
-   as a csv and moved to the ``~\.cloudmesh`` directory. |AWS
-   Configuration: Access Key Credentials|
+   as a csv and moved to the ``~\.cloudmesh`` directory.
 
 -  TODO: Confirm if EC2_PRIVATE_KEY_FILE_PATH and
    EC2_PRIVATE_KEY_FILE_NAME cloudmesh.yaml AWS compute variables are
@@ -374,10 +378,8 @@ using a text editor to update the cloudmesh.yaml file under
 
    -  Create a new key pair and name the key pair ``aws_cert``. Then
       download the key and move to the ``~\.cloudmesh`` directory.
-      |REVIEW: AWS_CERT Private Key|
 
-Once the values have been set: |AWS Configuration: Set Config| |AWS
-Configuration: Check Config|
+Once the values have been set:
 
 run the following to get started and test AWS compute services:
 
@@ -389,8 +391,11 @@ run the following to get started and test AWS compute services:
    cms vm boot
 
 This should have allowed you to initialize cms with the updated
-configurations and boot up a new vm in AWS based. |AWS Configuration:
-CMS init|
+configurations and boot up a new vm in AWS based.
+
+.. sidebar:: CMS init
+
+   |AWS Configuration: CMS init|
 
 Check the status of the vm by executing the following:
 
@@ -398,10 +403,10 @@ Check the status of the vm by executing the following:
 
    cms vm list --refresh
 
-.. figure:: images/aws/aws_vmlist.png
+
+.. thumbnail:: images/aws/aws_vmlist.png
    :alt: AWS Configuration: vm list
 
-   AWS Configuration: vm list
 
 Now test stopping the vm. Note that you may need to give it a minute or
 two before you refresh the vm list to validate Status=stopped.
@@ -410,10 +415,11 @@ two before you refresh the vm list to validate Status=stopped.
 
    cms vm stop VMINSTANCENAME
 
-.. figure:: images/aws/aws_vmstop.png
-   :alt: AWS Configuration: vm stop
+.. sidebar::    AWS Configuration: vm stop
 
-   AWS Configuration: vm stop
+
+   .. thumbnail:: images/aws/aws_vmstop.png
+      :alt: AWS Configuration: vm stop
 
 Now test terminating the vm. (Note the example provided if you are
 attempting run commands against multiple vm’s.)
@@ -422,10 +428,11 @@ attempting run commands against multiple vm’s.)
 
    cms vm delete VMINSTANCENAME
 
-.. figure:: images/aws/aws_vmdelete.png
-   :alt: AWS Configuration: vm delete
+.. sidebar::    AWS Configuration: vm delete
 
-   AWS Configuration: vm delete
+   .. thumbnail:: images/aws/aws_vmdelete.png
+      :alt: AWS Configuration: vm delete
+
 
 -  [x] TODO: Aws EC2 account. Describe here if there is anything to be
    done for accessing EC2
@@ -433,8 +440,20 @@ attempting run commands against multiple vm’s.)
 Storage Service
 ---------------
 
--  [ ] TODO: Aws S3 account. Describe here if there is anything to be
-   done for accessing S3
+   AWS S3 and Credentials Set up:
+
+   1. Create aws account following the instructions above
+   2. Select S3 service in AWS Management Console
+   3. In S3 service, create a bucket. (Please remember the bucket name and bucket region)
+   4. Select IAM service in AWS Management Console
+   5. In IAM service, Add a new user with "Probrammatic access" access type and "S3All" Permission
+   6. Remember the user "Access key ID" and "Secret access key"
+   7. Fill in the following info into the ~/.cloudmesh/cloudmesh.yaml file under "cloudmesh.storage.aws.credentials" section
+      
+      - bucket
+      - access_key_id
+      - secret_access_key
+      - region
 
 References
 ----------
@@ -446,10 +465,10 @@ Additional information about the services can be found at:
 -  Amazon EC2, https://aws.amazon.com/ec2/?nc2=h_m1
 -  Amazon S3, https://aws.amazon.com/s3/?c=23&pt=1
 
-.. |AWS Management Console: Pub SSH Key| image:: images/aws/aws_region.png
-.. |AWS Configuration: Access Key Credentials| image:: images/aws/aws_access_key.png
-.. |REVIEW: AWS_CERT Private Key| image:: images/aws/aws_private_key.png
-.. |AWS Configuration: Set Config| image:: images/aws/aws_config.png
-.. |AWS Configuration: Check Config| image:: images/aws/aws_config_check.png
-.. |AWS Configuration: CMS init| image:: images/aws/aws_cms_init_and_vmboot.png
+.. |AWS Management Console: Pub SSH Key| thumbnail:: images/aws/aws_region.png
+.. |AWS Configuration: Access Key Credentials| thumbnail:: images/aws/aws_access_key.png
+.. |REVIEW: AWS_CERT Private Key| thumbnail:: images/aws/aws_private_key.png
+.. |AWS Configuration: Set Config| thumbnail:: images/aws/aws_config.png
+.. |AWS Configuration: Check Config| thumbnail:: images/aws/aws_config_check.png
+.. |AWS Configuration: CMS init| thumbnail:: images/aws/aws_cms_init_and_vmboot.png
 

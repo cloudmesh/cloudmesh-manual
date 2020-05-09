@@ -39,10 +39,10 @@ account to a pay-as-you-go Azure subscription. If you forget to do so
 you will not be able to access Azure, So pleas add it to your calendar
 in order not to forget.
 
-.. figure:: images/azure/image1.png
-   :alt: Start free
+.. sidebar:: Start free
 
-   Start free
+   .. thumbnail:: images/azure/image1.png
+      :alt: Start free
 
 If you want to create an azure account using your educational email, you
 can go to the next site if you already have an .edu email address:
@@ -54,10 +54,12 @@ figure. By entering all required information, your account will be set
 up. If you use up all credits, you also need to upgrade your account to
 a pay-as-you-go Azure subscription to continue using other services.
 
-.. figure:: images/azure/image2.png
-   :alt: Activate now
+.. sidebar:: Activate now
+   
+   .. thumbnail:: images/azure/image2.png
+      :alt: Activate now
 
-   Activate now
+   
 
 As pointed out, to continue to use azure services after 30 days, you
 need to upgrade your account to a pay-as-you-go Azure subscription. In
@@ -138,8 +140,13 @@ Prompt or PowerShell for interacting with the Azure CLI:
 
    az login
 
-Sign in via the default browser using your Azure credentials. |Sign in|
-|Sign in2|
+Sign in via the default browser using your Azure credentials. 
+
+.. sidebar:: Sign In
+
+   |Sign in|
+
+   |Sign in2|
 
 Now you are ready to use the ``az`` command to interact with Azure.
 
@@ -154,10 +161,12 @@ To do so, log into the Azure portal at:
 In the search bar, search for ``Resource groups`` and click ``Add``. You will be given a 
 similar screen as below.
 
-.. figure:: images/azure/azure-compute-resource.png
-   :alt: AZ-Resource
+.. sidebar::    AZ
 
-   AZ-
+   .. thumbnail:: images/azure/azure-compute-resource.png
+      :alt: AZ-Resource
+
+
    
 You can name the group anything you want, ``cloudmesh`` is a good choice, just be sure to 
 remember your choice. 
@@ -170,7 +179,7 @@ Next, you need to set the group in cloudmesh. This can be done with
 
 If no group has been set (or if group=default), cloudmesh will use the ``resource_group`` 
 variable from ``cloudmesh.yaml``
-
+   AZ-
 This is all that needs to be done for using resource groups with Compute. If you are also
 using storage functionality, see the following section.
 
@@ -185,27 +194,26 @@ subscription account. After you logged into the Azure portal at:
 
 -  https://portal.azure.com/
 
-You will be presented with a window such as
-
-.. figure:: images/azure/azure-portal.png
-   :alt: AZ-Portal
-
-   AZ-Portal
-
+You will be presented with a window as shown in AZ-Portal.
 In the Azure window, click on ``Create a resource`` on the top left
 corner.
 
-.. figure:: images/azure/azure-resource.png
-   :alt: AZ-Resource
+.. sidebar::   AZ-Portal
 
-   AZ-Resource
 
-Now, select ``Storage Account`` from the options shown
+   .. thumbnail:: images/azure/azure-portal.png
+      :alt: AZ-Portal
 
-.. figure:: images/azure/azure-account.png
-   :alt: AZ-Account
+   .. thumbnail:: images/azure/azure-resource.png
+      :alt: AZ-Resource
 
-   AZ-Account
+
+Now, select ``Storage Account`` from the options shown in AZ-Account
+
+.. sidebar::
+
+   .. thumbnail:: images/azure/azure-account.png
+      :alt: AZ-Account
 
 Follow the steps carefully:
 
@@ -220,10 +228,13 @@ Follow the steps carefully:
 After the completion of above steps, Azure blob storage service will be
 ready for use.
 
-.. figure:: images/azure/azure-create-resourcegroup.png
-   :alt: AZ-Account
+.. todo:: we have images with the same caption names, this needs to be fixed
 
-   AZ-Account
+.. sidebar::    AZ-Account
+
+   .. thumbnail:: images/azure/azure-create-resourcegroup.png
+      :alt: AZ-Account
+
 
 As a first step, a ``Container`` should be created in the Blob storage.
 A container organizes a set of blobs, similar to a directory in a file
@@ -239,17 +250,18 @@ Azure_Subscription_ID
 
 Navigate to subscriptions
 
-.. figure:: images/azure/image3.png
-   :alt: Navigate to Subs
+.. sidebar::    Navigate to Subs
 
-   Navigate to Subs
+   .. thumbnail:: images/azure/image3.png
+      :alt: Navigate to Subs
+
 
 Copy the Subscription ID to notepad
 
-.. figure:: images/azure/image4.png
-   :alt: sub ID
+.. sidebar:: Sub ID
 
-   sub ID
+   .. thumbnail:: images/azure/image4.png
+      :alt: sub ID
 
 Azure_Tenant_ID & Azure_Client_ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,47 +269,48 @@ Azure_Tenant_ID & Azure_Client_ID
 Navigate to “Azure Active Directory” service and select “App
 Registrations”. Then select “New Registration”
 
-.. figure:: images/azure/image5.png
-   :alt: app register
+.. sidebar:: App Register
 
-   app register
+   .. thumbnail:: images/azure/image5.png
+      :alt: app register
 
 You can input any name for the application
 
-.. figure:: images/azure/image6.png
-   :alt: app creation
+.. sidebar:: App Creation
 
-   app creation
+   .. thumbnail:: images/azure/image6.png
+      :alt: app creation
 
 After creation, you will be navigated to the overview page of the
 application, on this page copy the client ID and tenant ID to notepad
 
-.. figure:: images/azure/image7.png
-   :alt: app overview
+.. sidebar:: App Overview
 
-   app overview
+   .. thumbnail:: images/azure/image7.png
+      :alt: app overview
 
-Azure_Secret_Key
+Azure Secret Key
 ~~~~~~~~~~~~~~~~
 
 In the same application page, navigate to Certificates & secrets and
-select “New client secret”
+select “New client secret”. You can give any meaningful name to the new secret, use the default
+expiration for security purpose. After creation, copy the new client
+secret to notepad.
 
-.. figure:: images/azure/image8.png
-   :alt: cert and sec
 
-   cert and sec
+.. sidebar:: Cert and sec
 
-You can give any meaningful name to the new secret, use the default
-expiration for security purpose
+   .. thumbnail:: images/azure/image8.png
+      :alt: cert and sec
 
-.. figure:: images/azure/image9.png
-   :alt: add client secret
 
-   add client secret
 
-After creation, copy the new client secret to notepad |new client
-secret|
+.. sidebar:: Add Client Secret
+
+   .. thumbnail:: images/azure/image9.png
+      :alt: add client secret
+
+   |new client secret|
 
 Grant permission to application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -308,10 +321,10 @@ to the application that we just created, so it can access the resources
 Navigate to the subscription overview page and select “Access
 control(IAM)” then select “add”, “Add role assignment”
 
-.. figure:: images/azure/image11.png
-   :alt: add role assignment
+.. sidebar:: Add role assignment
 
-   add role assignment
+   .. thumbnail:: images/azure/image11.png
+      :alt: add role assignment
 
 You can give the application “Contributor” role, the “contributor” role
 has enough access for compute resources. Leave the second option as
@@ -319,10 +332,11 @@ has enough access for compute resources. Leave the second option as
 to input the application name that you just created, it doesn’t show up
 by default
 
-.. figure:: images/azure/image12.png
-   :alt: grant role assignment
+.. sidebar:: Grant role assignment
 
-   grant role assignment
+   .. thumbnail:: images/azure/image12.png
+      :alt: grant role assignment
+
 
 Add the credentials to cloudmesh.yaml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -330,10 +344,11 @@ Add the credentials to cloudmesh.yaml
 Now we need to open cloudmesh.yaml and add the 4 credentials that we
 just collected to the “azure” section of cloudmesh.yaml
 
-.. figure:: images/azure/image13.png
-   :alt: cloudmesh.yaml
+.. sidebar:: cloudmesh.yaml
 
-   cloudmesh.yaml
+   .. thumbnail:: images/azure/image13.png
+      :alt: cloudmesh.yaml
+
 
 Azure Resource Group (for Storage and Compute)
 ----------------------------------------------
@@ -377,7 +392,7 @@ Additional references are included here
 -  https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction
 -  https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview
 
-.. |Sign in| image:: images/azure/azure-confirm-signin.png
-.. |Sign in2| image:: images/azure/azure-confirm-signin2.png
-.. |new client secret| image:: images/azure/image10.png
+.. |Sign in| thumbnail:: images/azure/azure-confirm-signin.png
+.. |Sign in2| thumbnail:: images/azure/azure-confirm-signin2.png
+.. |new client secret| thumbnail:: images/azure/image10.png
 
