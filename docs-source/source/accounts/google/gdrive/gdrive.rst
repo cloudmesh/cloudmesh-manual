@@ -28,6 +28,9 @@ To create a project, go to Dashboard in Google APIs console. In the **Select a P
 
 .. figure:: images/1console.PNG
    :alt: Google APIs Console
+   :width: 200px
+   :align: center
+   :height: 100px
    
 .. figure:: images/2new_project.PNG
    :alt: New Project
