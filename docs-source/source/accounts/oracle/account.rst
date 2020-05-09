@@ -119,7 +119,11 @@ Cloudmesh Config File
 
 Cloudmesh config file (cloudmesh.yaml) will have the following entries
 for compute and storage respectively. Add them to the config file if not
-already there.
+already there. 
+
+Note: the image names are dated, and it is possible that this default image 
+won't be available if you created your account recently. If so, you will need
+to run ``cms image list --refresh`` to see available images and update the yaml files
 
 Compute Entry
 ~~~~~~~~~~~~~
@@ -139,7 +143,7 @@ Compute Entry
            version: TBD
            service: compute
          default:
-           image: Oracle-Linux-7.7-2019.11.12-0
+           image: Oracle-Linux-7.7-2020.03.23-0
            size: VM.Standard.E2.1
          credentials:
            user : TBD

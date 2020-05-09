@@ -433,8 +433,20 @@ attempting run commands against multiple vm’s.)
 Storage Service
 ---------------
 
--  [ ] TODO: Aws S3 account. Describe here if there is anything to be
-   done for accessing S3
+   AWS S3 and Credentials Set up:
+
+   1. Create aws account following the instructions above
+   2. Select S3 service in AWS Management Console
+   3. In S3 service, create a bucket. (Please remember the bucket name and bucket region)
+   4. Select IAM service in AWS Management Console
+   5. In IAM service, Add a new user with "Probrammatic access" access type and "S3All" Permission
+   6. Remember the user "Access key ID" and "Secret access key"
+   7. Fill in the following info into the ~/.cloudmesh/cloudmesh.yaml file under "cloudmesh.storage.aws.credentials" section
+      
+      - bucket
+      - access_key_id
+      - secret_access_key
+      - region
 
 References
 ----------

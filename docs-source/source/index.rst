@@ -1,6 +1,8 @@
 Cloudmesh Version 4
 ===================
 
+`Manual <https://cloudmesh.github.io/cloudmesh-manual/>`_
+
 .. toctree::
    :caption: PREFACE
    :maxdepth: 10
@@ -13,6 +15,7 @@ Cloudmesh Version 4
    :maxdepth: 2
 
    installation/index
+   configuration/configuration
 
 .. toctree::
    :caption: CONCEPTS
@@ -39,6 +42,7 @@ Cloudmesh Version 4
    manual-compute
    manual-storage
    manual-other
+   viewer/index
 
 .. toctree::
    :caption: API

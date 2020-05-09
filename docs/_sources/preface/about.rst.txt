@@ -34,7 +34,7 @@ Features
    :widths: 5 85 5
    :header-rows: 1
 
-   * - Library
+   * - Github
      - Description
      - Status
    * - `Common  <https://github.com/cloudmesh/cloudmesh-common>`_
@@ -61,13 +61,16 @@ Features
    * - `Cloud Storage <https://github.com/cloudmesh/cloudmesh-storage>`_
      - Cloud Storage Providers for AWS, Azure, Google, Openstack
      - beta
+   * - `Viewer <https://github.com/cloudmesh/cloudmesh-javascript>`_
+     - Cloud Service viewer for AWS, Azure, Google, Openstack
+     - beta
    * - `Workflow <https://github.com/cloudmesh/cloudmesh-workflow>`_
      - Plugin for managing workflows
      - alpha
    * - `Map/Reduce <https://github.com/cloudmesh/cloudmesh-emr>`_
      - Plugin for managing AWS Elastic MapReduce (EMR)
      - alpha
-   * - OpenApi
+   * - `OpenAPI <https://github.com/cloudmesh/cloudmesh-openapi>`_
      - OpenAPI based REST service interfaces
      - alpha
 

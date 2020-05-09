@@ -101,6 +101,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html">Instalation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
@@ -123,6 +124,7 @@
 <li class="toctree-l1"><a class="reference internal" href="manual-compute.html">Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-other.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer/index.html">Cloudmesh Viewer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -255,6 +257,7 @@
             
   <div class="section" id="cloudmesh-version-4">
 <h1>Cloudmesh Version 4<a class="headerlink" href="#cloudmesh-version-4" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://cloudmesh.github.io/cloudmesh-manual/">Manual</a></p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">PREFACE</span></p>
 <ul>
@@ -282,6 +285,23 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#cloudmesh-yaml-file-object-definitions">Cloudmesh Yaml File Object definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#getting-values">Getting Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#setting-values">Setting values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#editing-values">Editing Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#advanced-yaml-variables">Advanced Yaml Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#profile">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#default">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#general-service-attributes">General Service Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#adding-templates">Adding Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#compute-cloud-providers">Compute Cloud Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#storage-providers">Storage Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#log-file">Log File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#mongo">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#config-api">Config API</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -442,6 +462,10 @@
 <li class="toctree-l2"><a class="reference internal" href="manual/openapi.html">openapi</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="viewer/index.html">Cloudmesh Viewer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewer/index.html#references">References</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -595,15 +619,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#prerequisits">Prerequisits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#purpose">Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#creating-the-google-account">Creating the Google account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#activation-google-storage-service">Activation Google Storage Service</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#create-a-project">Create a Project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#create-a-service-account">Create a Service Account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#update-cloudmesh-with-the-google-storage-account-information">Update Cloudmesh with the Google Storage Account Information</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#using-the-google-storage-service">Using the Google Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#activation-google-cloud-service">Activation Google Cloud Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#setting-up-google-cloud-account">Setting up Google Cloud Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#registering-google-cloud-to-cloudmesh">Registering Google Cloud to Cloudmesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#register-google-compute">Register Google Compute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#register-google-storage">Register Google Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#register-google-volume">Register Google Volume</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#verify-setup">Verify Setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#links">Links</a></li>
@@ -665,15 +692,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/index.html">Google Acooounts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html">Google Account</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#prerequisits">Prerequisits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#creating-the-google-account">Creating the Google account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#activation-google-storage-service">Activation Google Storage Service</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#create-a-project">Create a Project</a></li>
-<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#create-a-service-account">Create a Service Account</a></li>
-<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#update-cloudmesh-with-the-google-storage-account-information">Update Cloudmesh with the Google Storage Account Information</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="accounts/google/account.html#using-the-google-storage-service">Using the Google Storage Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#activation-google-cloud-service">Activation Google Cloud Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#setting-up-google-cloud-account">Setting up Google Cloud Account</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#registering-google-cloud-to-cloudmesh">Registering Google Cloud to Cloudmesh</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="accounts/google/account.html#register-google-compute">Register Google Compute</a></li>
+<li class="toctree-l5"><a class="reference internal" href="accounts/google/account.html#register-google-storage">Register Google Storage</a></li>
+<li class="toctree-l5"><a class="reference internal" href="accounts/google/account.html#register-google-volume">Register Google Volume</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#verify-setup">Verify Setup</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#links">Links</a></li>
@@ -709,15 +739,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#prerequisits">Prerequisits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#purpose">Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#creating-the-google-account">Creating the Google account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#activation-google-storage-service">Activation Google Storage Service</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#create-a-project">Create a Project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#create-a-service-account">Create a Service Account</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#update-cloudmesh-with-the-google-storage-account-information">Update Cloudmesh with the Google Storage Account Information</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#using-the-google-storage-service">Using the Google Storage Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#activation-google-cloud-service">Activation Google Cloud Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#setting-up-google-cloud-account">Setting up Google Cloud Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#registering-google-cloud-to-cloudmesh">Registering Google Cloud to Cloudmesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#register-google-compute">Register Google Compute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#register-google-storage">Register Google Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts/google/account.html#register-google-volume">Register Google Volume</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google/account.html#verify-setup">Verify Setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="accounts/google/account.html#links">Links</a></li>
