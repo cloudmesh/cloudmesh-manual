@@ -3,7 +3,9 @@ Google Drive
 ************
 
 Google Drive is a file storing platform where an user can store all
-his/her files in the google drive.  Here files can be of any form
+his/her files in the google drive.  You will need Google Drive to
+work with Cloudmesh Storage to store files in Google Drive. 
+Here files can be of any form
 ranging from documents to audio, video or image files. In free account
 each user will be given around 15 GB of free data space to be
 stored. We can create folders and subfolders in the Google Drive to
@@ -22,15 +24,27 @@ Set up Credentials
 
 Go to `Google APIs <https://console.developers.google.com/>`_ website.  
 
+.. list-table:: Set up Credentials
+   :widths: 10 40 50
+   :header-rows: 1
+
+   * - Step
+     - Description
+     - Screenshot
+   * - 1
+     - | Create a project
+     - | To create a project, go to Dashboard in Google 
+     - | APIs console. In the **Select a Project** window, 
+     - | click **NEW PROJECT**.
+     - |Google-APIs-Console|
+   * - 2
+     - | 
 Create a project
 ****************
 To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
 
 .. figure:: images/1console.PNG
    :alt: Google APIs Console
-   :width: 100px
-   :align: center
-   :height: 50px
    
 .. figure:: images/2new_project.PNG
    :alt: New Project
@@ -190,3 +204,5 @@ We need to place this file in the token_path specified in the `cloudmesh.yaml` f
 This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
 e.g. changing the permission scope, then the authorization process will again ask for login id and password, and again create
 ``token.pickle`` automatically.
+
+.. |Google-APIs-Console| thumbnail:: images/1console.PNG
