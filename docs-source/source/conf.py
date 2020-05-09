@@ -88,3 +88,8 @@ html_static_path = ['_static']
 #     'examples_dirs': '../examples',   # path to your example scripts
 #     'gallery_dirs': 'auto_examples',  # path to where to save gallery generated output
 #}
+
+images_config = {
+    'override_image_directive': True
+#    'default_show_title': True
+}

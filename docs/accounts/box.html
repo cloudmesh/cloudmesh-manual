@@ -125,6 +125,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../viewer/index.html">Cloudmesh Viewer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -151,6 +152,8 @@
 <li class="toctree-l1"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Box Account</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#sign-up">Sign up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-app">Create an App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authenticate-with-jwt">Authenticate with JWT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -269,151 +272,118 @@ visit the box home page as</p>
 </ul>
 <div class="section" id="sign-up">
 <h2>Sign up<a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h2>
-<p>To sign up for the account, click on the top right hand corner of the
-box <a class="reference external" href="https://www.box.com/home">homepage</a> on the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Started</span></code>
-button.</p>
-<table class="colwidths-given docutils align-default" id="id3">
-<caption><span class="caption-text">Set up a box account</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 40%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Step</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Screenshot</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>You will see the Home page</p></td>
-<td><p><a class=""
-               data-lightbox="group-5542afe7-8b72-4ddd-929e-d9064be0f866"
+<div class="clearfix docutils container">
+<blockquote>
+<div><a class=""
+               data-lightbox="group-ccf74480-b598-47c6-9bf8-a85d587a19b1"
                href="../_images/get_started1.png"
                title=""
                data-title=""
                ><img src="../_images/get_started1.png"
-                     class=""
-                     width="100%"
+                     class="align-right"
+                     width="30%"
                      height="auto"
-                     alt="box-start-1"/>
-                </a></p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><div class="line-block">
-<div class="line">select the <code class="docutils literal notranslate"><span class="pre">Individual</span></code> tab and then</div>
-<div class="line">click on the free option.</div>
+                     alt=""/>
+                </a></div></blockquote>
+<p><strong>Create an Account</strong>: To sign up for the account, click on the top right
+hand corner of the
+box <a class="reference external" href="https://www.box.com/home">homepage</a> on the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Started</span></code>
+button. You will see the Home page.</p>
 </div>
-</td>
-<td><p><a class=""
-               data-lightbox="group-8b9f2916-8e3a-42ae-9848-d2d5c5ce9dc5"
+<div class="clearfix docutils container">
+<a class=""
+               data-lightbox="group-30f84dcf-cf46-41bc-9374-09c95d727dfa"
                href="../_images/individual_plan1.png"
                title=""
                data-title=""
                ><img src="../_images/individual_plan1.png"
-                     class=""
-                     width="100%"
+                     class="align-right"
+                     width="30%"
                      height="auto"
-                     alt="box-start-2"/>
-                </a></p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><div class="line-block">
-<div class="line">Chose an Individual plan, fill out the</div>
-<div class="line">required information and click <code class="docutils literal notranslate"><span class="pre">Submit</span></code>.</div>
-<div class="line">You will receive a confirmation email with</div>
-<div class="line">a link to verify your account.</div>
+                     alt=""/>
+                </a><p><strong>Individual Plan</strong>: Select the <code class="docutils literal notranslate"><span class="pre">Individual</span></code> tab and then click on the free option.</p>
 </div>
-</td>
-<td><p><a class=""
-               data-lightbox="group-6a8bd63e-c9a2-4c73-bbe0-bdfc5a678bac"
+<div class="clearfix docutils container">
+<p><a class=""
+               data-lightbox="group-c6aa3f7d-218d-4e57-9ce9-3782b4230dbc"
                href="../_images/information1.png"
                title=""
                data-title=""
                ><img src="../_images/information1.png"
-                     class=""
-                     width="100%"
+                     class="align-right"
+                     width="30%"
                      height="auto"
                      alt="box-start-3"/>
-                </a></p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><div class="line-block">
-<div class="line">Once you have verified your account and</div>
-<div class="line">signed in, you will be taken to a page</div>
-<div class="line">that asks you about how you are using Box.</div>
-<div class="line">You may fill this out or click</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Skip</span> <span class="pre">this</span> <span class="pre">and</span> <span class="pre">go</span> <span class="pre">straight</span> <span class="pre">to</span> <span class="pre">Box</span></code> below</div>
-<div class="line">the <code class="docutils literal notranslate"><span class="pre">Next</span></code> button.</div>
+                </a></p>
+<p><strong>Verification</strong>: Chose an Individual plan, fill out the
+required information and click <code class="docutils literal notranslate"><span class="pre">Submit</span></code>.
+You will receive a confirmation email with
+a link to verify your account.</p>
 </div>
-</td>
-<td><p><a class=""
-               data-lightbox="group-6a8bd63e-c9a2-4c73-bbe0-bdfc5a678bac"
-               href="../_images/information1.png"
+<div class="clearfix docutils container">
+<p><a class=""
+               data-lightbox="group-af607289-a650-4bce-a638-ed5c3f2e782f"
+               href="../_images/skip1.png"
                title=""
                data-title=""
-               ><img src="../_images/information1.png"
-                     class=""
-                     width="100%"
+               ><img src="../_images/skip1.png"
+                     class="align-right"
+                     width="30%"
                      height="auto"
-                     alt="box-start-3"/>
-                </a></p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><div class="line-block">
-<div class="line">Create an App</div>
-<div class="line"><br /></div>
-<div class="line">You will see the Home page Navigate to the</div>
-<div class="line"><a class="reference external" href="https://app.box.com/developers/console">developer console</a></div>
-<div class="line">and select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">App</span></code>. You will need</div>
-<div class="line">to select what type of application you are</div>
-<div class="line">building and an authentication method for</div>
-<div class="line">your app and then enter an app name (you</div>
-<div class="line">can change this later). Once your app has</div>
-<div class="line">been created, click View App. You will then</div>
-<div class="line">need to click the profile button in the top</div>
-<div class="line">right corner of the page, and go to</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Settings</span></code>. Scroll down to the</div>
-<div class="line">Authentication section and click</div>
-<div class="line"><a href="#id1"><span class="problematic" id="id2">``</span></a>Require 2-step verification for</div>
-<div class="line">unrecognized logins``, then follow the prompts.</div>
+                     alt="box-start-4"/>
+                </a></p>
+<p><strong>Go to Box</strong>: Once you have verified your account and
+signed in, you will be taken to a page
+that asks you about how you are using Box.
+You may fill this out or click
+<code class="docutils literal notranslate"><span class="pre">Skip</span> <span class="pre">this</span> <span class="pre">and</span> <span class="pre">go</span> <span class="pre">straight</span> <span class="pre">to</span> <span class="pre">Box</span></code> below
+the <code class="docutils literal notranslate"><span class="pre">Next</span></code> button.</p>
 </div>
-</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><div class="line-block">
-<div class="line">Authenticate with JWT</div>
-<div class="line"><br /></div>
-<div class="line">In the Configuration panel of the Developer</div>
-<div class="line">Console, scroll down to the section titled</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Manage</span> <span class="pre">Public</span> <span class="pre">Keys</span></code> and click</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">a</span> <span class="pre">Public/Private</span> <span class="pre">Keypair</span></code>.</div>
-<div class="line">Once you have generated a keypair, a</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">config.json</span></code> file will automatically</div>
-<div class="line">downloaded. Save this file in a secure</div>
-<div class="line">location as you will need it for</div>
-<div class="line">authentication purposes. We recommend storing</div>
-<div class="line">it at <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/box/config.json</span></code>.</div>
-<div class="line">This will avoid that you conflict with</div>
-<div class="line">another file called <code class="docutils literal notranslate"><span class="pre">config.json</span></code></div>
 </div>
-</td>
-<td><p><a class=""
-               data-lightbox="group-8a30afbb-f031-4c6c-b531-efbb5803a66f"
+<div class="section" id="create-an-app">
+<h2>Create an App<a class="headerlink" href="#create-an-app" title="Permalink to this headline">¶</a></h2>
+<p>You will see the Home page Navigate to the
+<a class="reference external" href="https://app.box.com/developers/console">developer console</a>
+and select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">App</span></code>. You will need
+to select what type of application you are
+building and an authentication method for
+your app and then enter an app name (you
+can change this later). Once your app has
+been created, click View App. You will then
+need to click the profile button in the top
+right corner of the page, and go to
+<code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Settings</span></code>. Scroll down to the
+Authentication section and click
+<code class="docutils literal notranslate"><span class="pre">Require</span> <span class="pre">2-step</span> <span class="pre">verification</span> <span class="pre">for</span>
+<span class="pre">unrecognized</span> <span class="pre">logins</span></code>, then follow the prompts.</p>
+</div>
+<div class="section" id="authenticate-with-jwt">
+<h2>Authenticate with JWT<a class="headerlink" href="#authenticate-with-jwt" title="Permalink to this headline">¶</a></h2>
+<div class="clearfix docutils container">
+<p><a class=""
+               data-lightbox="group-e49b5b53-f1bc-48d3-a93c-b1c0a7dc2f8a"
                href="../_images/box_add_key1.png"
                title=""
                data-title=""
                ><img src="../_images/box_add_key1.png"
-                     class=""
-                     width="100%"
+                     class="align-right"
+                     width="50%"
                      height="auto"
                      alt="box-key"/>
-                </a></p></td>
-</tr>
-</tbody>
-</table>
+                </a></p>
+<p>In the Configuration panel of the Developer
+Console, scroll down to the section titled
+<code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Manage</span> <span class="pre">Public</span> <span class="pre">Keys</span></code> and click
+<code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">a</span> <span class="pre">Public/Private</span> <span class="pre">Keypair</span></code>.
+Once you have generated a keypair, a
+<code class="docutils literal notranslate"><span class="pre">config.json</span></code> file will automatically
+downloaded. Save this file in a secure
+location as you will need it for
+authentication purposes. We recommend storing
+it at <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/box/config.json</span></code>.
+This will avoid that you conflict with
+another file called <code class="docutils literal notranslate"><span class="pre">config.json</span></code></p>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
