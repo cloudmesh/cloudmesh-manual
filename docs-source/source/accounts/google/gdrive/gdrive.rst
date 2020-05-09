@@ -24,7 +24,7 @@ Set up Credentials
 
 Go to `Google APIs <https://console.developers.google.com/>`_ website.  
 
-.. list-table:: Set up Credentials
+.. list-table:: Set up a box account
    :widths: 10 40 50
    :header-rows: 1
 
@@ -32,16 +32,29 @@ Go to `Google APIs <https://console.developers.google.com/>`_ website.
      - Description
      - Screenshot
    * - 1
+     - You will see the Home page
+     - |Google-APIs-Console|
+   * - Step
+     - Description
+     - Screenshot
+   * - 1
      - | Create a project
-     - | To create a project, go to Dashboard in Google 
-     - | APIs console. In the **Select a Project** window, 
-     - | click **NEW PROJECT**.
+       | To create a project, go to Dashboard in Google 
+       | APIs console. In the **Select a Project** window, 
+       | click **NEW PROJECT**.
      - |Google-APIs-Console|
    * - 2
      - | 
 Create a project
 ****************
 To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
+
+.. figure:: images/1console.PNG
+    :width: 20pt
+    :align: center
+    :height: 10pt
+    :alt: alternate text
+    :figclass: align-center
 
 .. figure:: images/1console.PNG
    :alt: Google APIs Console
@@ -206,3 +219,10 @@ e.g. changing the permission scope, then the authorization process will again as
 ``token.pickle`` automatically.
 
 .. |Google-APIs-Console| thumbnail:: images/1console.PNG
+
+References
+----------
+
+*  https://developer.box.com/reference
+
+.. |Google-APIs-Console| thumbnail:: images/box/get_started.png
