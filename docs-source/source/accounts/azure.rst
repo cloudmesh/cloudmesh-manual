@@ -39,10 +39,11 @@ account to a pay-as-you-go Azure subscription. If you forget to do so
 you will not be able to access Azure, So pleas add it to your calendar
 in order not to forget.
 
-.. sidebar:: Start free
+.. figure:: images/azure/image1.png
+   :alt: Start free
+   :width: 30%
 
-   .. thumbnail:: images/azure/image1.png
-      :alt: Start free
+   Start free
 
 If you want to create an azure account using your educational email, you
 can go to the next site if you already have an .edu email address:
@@ -54,12 +55,11 @@ figure. By entering all required information, your account will be set
 up. If you use up all credits, you also need to upgrade your account to
 a pay-as-you-go Azure subscription to continue using other services.
 
-.. sidebar:: Activate now
-   
-   .. thumbnail:: images/azure/image2.png
-      :alt: Activate now
+.. figure:: images/azure/image2.png
+   :alt: Activate now
+   :width: 30%
 
-   
+   Activate now
 
 As pointed out, to continue to use azure services after 30 days, you
 need to upgrade your account to a pay-as-you-go Azure subscription. In
@@ -140,48 +140,11 @@ Prompt or PowerShell for interacting with the Azure CLI:
 
    az login
 
-Sign in via the default browser using your Azure credentials. 
+Sign in via the default browser using your Azure credentials.
 
-.. sidebar:: Sign In
-
-   |Sign in|
-
-   |Sign in2|
+|Sign in| |Sign in2|
 
 Now you are ready to use the ``az`` command to interact with Azure.
-
-Azure Resource Group (for Compute)
-----------------------------------
-
-In order to use the compute resources properly, you will need to add a resource group. 
-To do so, log into the Azure portal at:
-
--  https://portal.azure.com/
-
-In the search bar, search for ``Resource groups`` and click ``Add``. You will be given a 
-similar screen as below.
-
-.. sidebar::    AZ
-
-   .. thumbnail:: images/azure/azure-compute-resource.png
-      :alt: AZ-Resource
-
-
-   
-You can name the group anything you want, ``cloudmesh`` is a good choice, just be sure to 
-remember your choice. 
-
-Next, you need to set the group in cloudmesh. This can be done with 
-
-.. code:: bash
-
-   cms set group=GROUPNAME
-
-If no group has been set (or if group=default), cloudmesh will use the ``resource_group`` 
-variable from ``cloudmesh.yaml``
-   AZ-
-This is all that needs to be done for using resource groups with Compute. If you are also
-using storage functionality, see the following section.
 
 Azure Resource Group (for Storage)
 ----------------------------------
@@ -194,26 +157,30 @@ subscription account. After you logged into the Azure portal at:
 
 -  https://portal.azure.com/
 
-You will be presented with a window as shown in AZ-Portal.
+You will be presented with a window such as
+
+.. figure:: images/azure/azure-portal.png
+   :alt: AZ-Portal
+   :width: 30%
+
+   AZ-Portal
+
 In the Azure window, click on ``Create a resource`` on the top left
 corner.
 
-.. sidebar::   AZ-Portal
+.. figure:: images/azure/azure-resource.png
+   :alt: AZ-Resource
+   :width: 30%
 
+   AZ-Resource
 
-   .. thumbnail:: images/azure/azure-portal.png
-      :alt: AZ-Portal
+Now, select ``Storage Account`` from the options shown
 
-   .. thumbnail:: images/azure/azure-resource.png
-      :alt: AZ-Resource
+.. figure:: images/azure/azure-account.png
+   :alt: AZ-Account
+   :width: 30%
 
-
-Now, select ``Storage Account`` from the options shown in AZ-Account
-
-.. sidebar::
-
-   .. thumbnail:: images/azure/azure-account.png
-      :alt: AZ-Account
+   AZ-Account
 
 Follow the steps carefully:
 
@@ -228,13 +195,11 @@ Follow the steps carefully:
 After the completion of above steps, Azure blob storage service will be
 ready for use.
 
-.. todo:: we have images with the same caption names, this needs to be fixed
+.. figure:: images/azure/azure-create-resourcegroup.png
+   :alt: AZ-Account
+   :width: 30%
 
-.. sidebar::    AZ-Account
-
-   .. thumbnail:: images/azure/azure-create-resourcegroup.png
-      :alt: AZ-Account
-
+   AZ-Account
 
 As a first step, a ``Container`` should be created in the Blob storage.
 A container organizes a set of blobs, similar to a directory in a file
@@ -250,18 +215,19 @@ Azure_Subscription_ID
 
 Navigate to subscriptions
 
-.. sidebar::    Navigate to Subs
+.. figure:: images/azure/image3.png
+   :alt: Navigate to Subs
+   :width: 30%
 
-   .. thumbnail:: images/azure/image3.png
-      :alt: Navigate to Subs
-
+   Navigate to Subs
 
 Copy the Subscription ID to notepad
 
-.. sidebar:: Sub ID
+.. figure:: images/azure/image4.png
+   :alt: sub ID
+   :width: 30%
 
-   .. thumbnail:: images/azure/image4.png
-      :alt: sub ID
+   sub ID
 
 Azure_Tenant_ID & Azure_Client_ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -269,48 +235,53 @@ Azure_Tenant_ID & Azure_Client_ID
 Navigate to “Azure Active Directory” service and select “App
 Registrations”. Then select “New Registration”
 
-.. sidebar:: App Register
+.. figure:: images/azure/image5.png
+   :alt: app register
+   :width: 30%
 
-   .. thumbnail:: images/azure/image5.png
-      :alt: app register
+   app register
 
 You can input any name for the application
 
-.. sidebar:: App Creation
+.. figure:: images/azure/image6.png
+   :alt: app creation
+   :width: 30%
 
-   .. thumbnail:: images/azure/image6.png
-      :alt: app creation
+   app creation
 
 After creation, you will be navigated to the overview page of the
 application, on this page copy the client ID and tenant ID to notepad
 
-.. sidebar:: App Overview
+.. figure:: images/azure/image7.png
+   :alt: app overview
+   :width: 30%
 
-   .. thumbnail:: images/azure/image7.png
-      :alt: app overview
+   app overview
 
-Azure Secret Key
+Azure_Secret_Key
 ~~~~~~~~~~~~~~~~
 
 In the same application page, navigate to Certificates & secrets and
-select “New client secret”. You can give any meaningful name to the new secret, use the default
-expiration for security purpose. After creation, copy the new client
-secret to notepad.
+select “New client secret”
 
+.. figure:: images/azure/image8.png
+   :alt: cert and sec
+   :width: 30%
 
-.. sidebar:: Cert and sec
+   cert and sec
 
-   .. thumbnail:: images/azure/image8.png
-      :alt: cert and sec
+You can give any meaningful name to the new secret, use the default
+expiration for security purpose
 
+.. figure:: images/azure/image9.png
+   :alt: add client secret
+   :width: 30%
 
+   add client secret
 
-.. sidebar:: Add Client Secret
+After creation, copy the new client secret to notepad
 
-   .. thumbnail:: images/azure/image9.png
-      :alt: add client secret
-
-   |new client secret|
+|new client secret|
 
 Grant permission to application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -321,10 +292,11 @@ to the application that we just created, so it can access the resources
 Navigate to the subscription overview page and select “Access
 control(IAM)” then select “add”, “Add role assignment”
 
-.. sidebar:: Add role assignment
+.. figure:: images/azure/image11.png
+   :alt: add role assignment
+   :width: 30%
 
-   .. thumbnail:: images/azure/image11.png
-      :alt: add role assignment
+   add role assignment
 
 You can give the application “Contributor” role, the “contributor” role
 has enough access for compute resources. Leave the second option as
@@ -332,11 +304,11 @@ has enough access for compute resources. Leave the second option as
 to input the application name that you just created, it doesn’t show up
 by default
 
-.. sidebar:: Grant role assignment
+.. figure:: images/azure/image12.png
+   :alt: grant role assignment
+   :width: 30%
 
-   .. thumbnail:: images/azure/image12.png
-      :alt: grant role assignment
-
+   grant role assignment
 
 Add the credentials to cloudmesh.yaml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -344,30 +316,22 @@ Add the credentials to cloudmesh.yaml
 Now we need to open cloudmesh.yaml and add the 4 credentials that we
 just collected to the “azure” section of cloudmesh.yaml
 
-.. sidebar:: cloudmesh.yaml
+.. figure:: images/azure/image13.png
+   :alt: cloudmesh.yaml
+   :width: 30%
 
-   .. thumbnail:: images/azure/image13.png
-      :alt: cloudmesh.yaml
+   cloudmesh.yaml
 
+Azure Resource Group (for Compute)
+----------------------------------
+
+-  [ ] TODO: Azure. Compute Resource Group. To be completed by students
 
 Azure Resource Group (for Storage and Compute)
 ----------------------------------------------
 
 -  [ ] TODO: Azure. Storage and Compute Resource Group. To be completed
    by students.
-
-
-Resource Unavailable Error
---------------------------
-
-One method Azure can use to handle times of extreme load (such as the 2020 outbreak of Covid-19) is to make certain image types unavailable to new accounts, for certain subscription types, and in certain regions. This can include the Basic images used as the default for many commands. 
-
-If you are affected by these restrictions, attempting to use this cloud wil throw a ResourceUnavailable Error. You will need to change the machine size to one that is available to your account. You can check what machine types are available to you with the following command, after you have installed the Azure CLI as described above. 
-
-.. code:: bash
-
-   $ az vm list-skus --location southcentralus --size Standard_B --output table 
-   
 
 FAQ
 ---
@@ -392,7 +356,12 @@ Additional references are included here
 -  https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction
 -  https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview
 
-.. |Sign in| thumbnail:: images/azure/azure-confirm-signin.png
-.. |Sign in2| thumbnail:: images/azure/azure-confirm-signin2.png
-.. |new client secret| thumbnail:: images/azure/image10.png
+.. |Sign in| image:: images/azure/azure-confirm-signin.png
+   :width: 30%
+
+.. |Sign in2| image:: images/azure/azure-confirm-signin2.png
+   :width: 30%
+
+.. |new client secret| image:: images/azure/image10.png
+   :width: 30%
 
