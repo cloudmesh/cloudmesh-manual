@@ -24,27 +24,6 @@ Set up Credentials
 
 Go to `Google APIs <https://console.developers.google.com/>`_ website.  
 
-.. list-table:: Set up a box account
-   :widths: 10 40 50
-   :header-rows: 1
-
-   * - Step
-     - Description
-     - Screenshot
-   * - 1
-     - You will see the Home page
-     - |Google-APIs-Console|
-   * - Step
-     - Description
-     - Screenshot
-   * - 1
-     - | Create a project
-       | To create a project, go to Dashboard in Google 
-       | APIs console. In the **Select a Project** window, 
-       | click **NEW PROJECT**.
-     - |Google-APIs-Console|
-   * - 2
-     - | 
 Create a project
 ****************
 To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
@@ -217,12 +196,3 @@ We need to place this file in the token_path specified in the `cloudmesh.yaml` f
 This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
 e.g. changing the permission scope, then the authorization process will again ask for login id and password, and again create
 ``token.pickle`` automatically.
-
-.. |Google-APIs-Console| thumbnail:: images/1console.PNG
-
-References
-----------
-
-*  https://developer.box.com/reference
-
-.. |Google-APIs-Console| thumbnail:: images/box/get_started.png
