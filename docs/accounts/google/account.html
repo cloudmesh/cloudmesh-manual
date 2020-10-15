@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,11 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
@@ -19,7 +23,9 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,15 +36,11 @@
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Oracle Cloud Account" href="../oracle/account.html" />
@@ -56,7 +58,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Cloudmesh
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Cloudmesh
           
 
           
@@ -86,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -100,19 +103,17 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Instalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/storage.html">Multicloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/database.html">Multicloud Database Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/providers.html">Cloudmesh Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/openapi.html">OpenAPI Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/commandshell.html">Extensible Command Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/compute.html">Virtual Machine Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -129,11 +130,11 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<p class="caption"><span class="caption-text">CONTRIBUTING</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev/conventions.html">Code Conventions</a></li>
@@ -199,8 +200,20 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/chameleon.html">FAQ chameleon cloud</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
@@ -208,7 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/chameleon.html">FAQ chameleon cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -224,13 +237,14 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../deprecated.html">DEPRECATED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tbd.html">OTHER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -269,7 +283,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Google Account</li>
     
@@ -313,7 +327,13 @@ $ pip install cloudmesh-installer
 $ cloudmesh-installer get google
 </pre></div>
 </div>
-</div>
+<script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
+            graph LR
+  prereq(Prequisite)--&gt;choose{Choose};
+
+  choose--&gt;|Developer|a(mkdir cm  &lt;br&gt; cd cm  &lt;br&gt; pip install cloudmesh-installer  &lt;br&gt; cloudmesh-installer get google)
+  choose--&gt;|Production|p(pip install cloudmesh-google)
+        </div></div>
 <div class="section" id="creating-the-google-account">
 <h2>Creating the Google account<a class="headerlink" href="#creating-the-google-account" title="Permalink to this headline">¶</a></h2>
 <p>If you do not have a google cloud account a
@@ -351,7 +371,37 @@ you also need to enable the required API and
 create a service account and then download the service
 account key.</p>
 <p>Steps to setup project and service account:</p>
-<table class="colwidths-given docutils align-default" id="id1">
+<div class="mermaid">
+            graph TD
+  account(Google Cloud Account)--&gt;choose{Already have GCP Account?};
+
+  choose--&gt;|Create|createa(Create Google Cloud Account)
+  choose--&gt;|Signin|signin(Login to Google Cloud Console)
+
+  createa--&gt;choosea{Choose Account Type}
+
+  choosea--&gt;free(Sign Up for Free Tier)
+  choosea--&gt;edu(Sign Up for Education Account)
+
+  free--&gt;|Signin|signin
+  edu--&gt;|Signin|signin
+
+  signin--&gt;project(Create Project &lt;br&gt; name cloudmesh)
+  project--&gt;enableapi(Enable API e.g. &lt;br&gt; Compute, Storage, Volume)
+  enableapi--&gt;createsa(Create/Select Service Account)
+  createsa--&gt;downloadsk(&quot;Create/Download Service Key &lt;br&gt; name google.json &lt;br&gt; to folder ~/.cloudmesh/security&quot;)
+  downloadsk--&gt;register(&quot;Register to Cloudmesh &lt;br&gt; with downloaded json&quot;)
+
+  click createa &quot;https://accounts.google.com/signup/v2/webcreateaccount?flowEntry=SignUp&amp;flowName=GlifWebSignIn&quot;
+  click signin &quot;http://console.cloud.google.com/&quot;
+  click free &quot;https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&amp;_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE&quot;
+  click edu &quot;https://edu.google.com/products/google-cloud-platform/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&amp;utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&amp;utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&amp;gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&amp;modal_active=none&quot;
+  click project &quot;https://console.cloud.google.com/projectcreate&quot;
+  click enableapi &quot;https://console.cloud.google.com/apis/library&quot;
+  click createsa &quot;https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?supportedpurview=project&quot;
+  click downloadsk &quot;https://console.cloud.google.com/apis/credentials/serviceaccountkey&quot;
+  click register &quot;https://cloudmesh.github.io/cloudmesh-manual/manual/register.html&quot;
+        </div><table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text">Google account creation steps</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 5%" />
@@ -368,7 +418,7 @@ account key.</p>
 <tr class="row-even"><td><p>1</p></td>
 <td><p><a class="reference external" href="https://console.cloud.google.com/projectcreate">Create Project</a></p></td>
 <td><p><a class=""
-               data-lightbox="group-fa67d8b9-6482-4cab-aab7-83564ef6468e"
+               data-lightbox="group-1e22a143-8eeb-469c-91c0-7c98c85ce4f3"
                href="../../_images/MyAccount_031.png"
                title=""
                data-title=""
@@ -382,7 +432,7 @@ account key.</p>
 <tr class="row-odd"><td><p>2</p></td>
 <td><p>Next <a class="reference external" href="https://console.cloud.google.com/apis/library">Enable API</a></p></td>
 <td><p><a class=""
-               data-lightbox="group-0451086e-14ed-4a69-b196-7aae11d89770"
+               data-lightbox="group-8265a728-82b8-4ef7-aa7b-13fdfc6a7b7e"
                href="../../_images/EnableAPI_011.png"
                title=""
                data-title=""
@@ -400,7 +450,7 @@ account key.</p>
 </div>
 </td>
 <td><p><a class=""
-               data-lightbox="group-76f07b63-6e88-48d8-a852-ef22ddc0a565"
+               data-lightbox="group-a7d76f21-42a2-4d60-857e-12490e31079c"
                href="../../_images/EnableAPI_021.png"
                title=""
                data-title=""
@@ -431,7 +481,7 @@ account key.</p>
 </div>
 </td>
 <td><p><a class=""
-               data-lightbox="group-3c1722d6-c9bc-409e-9362-cbbcc6d14d63"
+               data-lightbox="group-79b18297-d9bc-4853-b5df-8a6d0cd8b471"
                href="../../_images/CreateKey_011.png"
                title=""
                data-title=""
@@ -523,11 +573,19 @@ Cloud</a></p></li>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -538,7 +596,6 @@ Cloud</a></p></li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

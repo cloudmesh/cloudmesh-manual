@@ -2,32 +2,32 @@ Cloudmesh Providers
 ===================
 
 Cloudmesh is based on the concept of providers that make it possible to develop
-API interfaces to different services independently while inheriting the
+API interfaces for different services independently while inheriting the
 functionality form a comman abstract class.
 
 
 Instalation in a single directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let us demonstarte this for a compute provider. For convenience to document
-this, we assume that the diectories are stored in ~/cm. However they can be
-stored in any directory. We have the following structure::
+Let us demonstarte the concept of abstract providers for compute
+providers. We assume that the source diectories are stored in ~/cm.
+We have the following structure::
 
-    ~/cm/
-        cloudmesh/compute
-            ComputeABC.py
-            Provider.py
-            command/vm.py
-            command/image.py
-            command/flavor.py
-            aws/Provider.py
-            azure/Provider.py
+    ~/cm/cloudmesh-abstract/cloudmesh/abstract/ComputeNodeABC.py
+    ~/cm/cloudmesh-cloud/cloudmesh/vm/Provider.py
+
+    ~/cm/cloudmesh-openstack/cloudmesh/openstack/compute/Provider.py
+    ~/cm/cloudmesh-aws/cloudmesh/aws/compute/Provider.py
+    ~/cm/cloudmesh-aws/cloudmesh/azure/compute/Provider.py
+    ~/cm/cloudmesh-aws/cloudmesh/oracle/compute/Provider.py
+    ~/cm/cloudmesh-aws/cloudmesh/google/compute/Provider.py                    
             ...
 
 Here the ABC class determines which methods must be implemented by the
-provider. The provider in cloudmesh containes a service name in the init
-function. This name is tahn used to read configuration parameters including a
-cm.kind that identifies which Provider sis read upon loading it by name.
+main cloud provider. This provider than delectes the activity to the
+cloud provider that is determinded by the internal cloudmesh `cloud`
+variable. To simplify authentication, the credentials can be stored in
+the cloudmesh.yaml file.
 
 
 Example: The yaml file ~/.cloudmesh/cludmesh.yaml contains the entry::
@@ -56,14 +56,10 @@ yaml file. This makes it possible to easily create multiple interface sto
 different cloud service providers while managing a uniform interface via the
 ABC class. All providers in this hierarchie must innherit from the ABC class.
 
-Instalation in a multiple directories
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deatils of a virtual machine provider
+~~~~~~~~~~~~~~~---------------~~~~~~~
 
-In addition to this structure which is prefered whan all providers are managed
-in one source directory we also use a second pattern in which we manage each
-provider in its own package.
-
-here the directory structure looks as follows::
+Here we list in more details how a virtual machine provider can look like::
 
     ~/cm/
 
@@ -101,7 +97,7 @@ provided they can bae accessed from there.
 Command Usage
 ~~~~~~~~~~~~~
 
-You will have noticed that we also included some commands in the code. THease
+You will have noticed that we also included some commands in the code. Thease
 are commands that make use of the main provider and expose the fucntionality of
 the provider conveniently to the users in the cmd5 command line and
 command shell tool.

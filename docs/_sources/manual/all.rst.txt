@@ -4,16 +4,14 @@ Commands
 ::
 
 ========================================
-EOF        debug           image      pause     sleep      vbox          
-admin      default         info       pi        source     vcluster      
-banner     dryrun          init       provider  ssh        vdir          
-bridge     echo            inventory  py        start      version       
-burn       flavor          ip         q         stop       viewer        
-check      google          key        quit      stopwatch  vm            
-clear      googlebigquery  man        register  storage    volume        
-commands   group           open       sec       sys        workflow_draft
-config     gui             openapi    service   term     
-container  help            openstack  set       test     
-data       host            oracle     shell     var      
+EOF        data     help       man        quit      start      version       
+admin      debug    host       open       register  stop       vm            
+banner     default  image      openapi    sec       stopwatch  workflow_draft
+check      dryrun   info       openstack  service   sys      
+clear      echo     init       oracle     set       term     
+commands   flavor   inventory  pause      shell     test     
+config     git      ip         provider   sleep     var      
+container  group    iu         py         source    vbox     
+covid      gui      key        q          ssh       vcluster 
 
 

@@ -21,13 +21,11 @@ Cloudmesh Version 4
    :caption: CONCEPTS
    :maxdepth: 10
 
+   concepts/namespaces	      
+   concepts/commandshell
    concepts/compute
    concepts/storage
-   concepts/database
-   concepts/providers
    concepts/openapi
-   concepts/namespaces
-   concepts/commandshell
 
 .. toctree::
    :caption: MANUAL PAGES
@@ -48,11 +46,11 @@ Cloudmesh Version 4
    :caption: API
    :maxdepth: 10
 
-   jupyter/index
    api/index
-
+   jupyter/index
+   
 .. toctree::
-   :caption: CONTRIBUTION
+   :caption: CONTRIBUTING
    :maxdepth: 10
 
    projects/index
@@ -101,6 +99,25 @@ Cloudmesh Version 4
    faq/windows
 
 .. toctree::
+   :glob:
+   :caption: BENCHMARKS
+
+   benchmarks/*
+
+   
+   
+
+   
+   
+Indices and tables
+==================
+
+* :ref:`modindex`
+* :ref:`genindex`
+* :ref:`search`
+
+
+.. toctree::
    :caption: UNLISTED TODO
    :maxdepth: 10
 
@@ -124,21 +141,15 @@ Cloudmesh Version 4
    windows/windows-broken-make
    windows/windows-linux
    windows/windows-ubuntu
-
-Indices and tables
-==================
-
-* :ref:`modindex`
-* :ref:`genindex`
-* :ref:`search`
-
-Other
+  
+Deprecated
 =======================
 
 .. toctree::
    :caption: OTHER
    :maxdepth: 10
 
+   deprecated	      
    tbd
 
 

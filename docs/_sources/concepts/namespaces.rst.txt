@@ -1,7 +1,7 @@
-Package Namespaces
-==================
+Cloudmesh Namespace
+===================
 
-Cloudmesh uses the python package name space feature to allow the definition of
+Cloudmesh uses the python package namespace feature to allow the definition of
 plugins to cloudmesh in different packages maintained in different files and
 directories.
 
@@ -46,7 +46,7 @@ Notice the dot at the end. This will generate than a directory such as::
 Important is that is includes a file `cloudmesh/command/mycommand.py` which you
 can modify and use to create your own `mycommand` plugin.
 
-However, `mycommand` must not be a previous cloudmesh command which you can
+However, `mycommand` must not be an existing cloudmesh command which you can
 find out by usung the `cms help` function and communicate with Gregor von
 Laszewski to verify that the command is not already taken.
 

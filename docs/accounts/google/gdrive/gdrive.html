@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,11 @@
   
 
   
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
   
@@ -19,7 +23,9 @@
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -30,15 +36,11 @@
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Google Docs" href="../google-docs.html" />
@@ -56,7 +58,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> Cloudmesh
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Cloudmesh
           
 
           
@@ -86,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -100,19 +103,17 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Instalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/compute.html">Multicloud Compute Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/storage.html">Multicloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/database.html">Multicloud Database Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/providers.html">Cloudmesh Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/openapi.html">OpenAPI Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/commandshell.html">Extensible Command Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/compute.html">Virtual Machine Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -129,11 +130,11 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<p class="caption"><span class="caption-text">CONTRIBUTING</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
@@ -174,8 +175,20 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq/chameleon.html">FAQ chameleon cloud</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
@@ -183,7 +196,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq/chameleon.html">FAQ chameleon cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -199,13 +212,14 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deprecated.html">DEPRECATED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tbd.html">OTHER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -244,7 +258,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../index.html">Google Acooounts</a> &raquo;</li>
         
@@ -453,11 +467,19 @@ e.g. changing the permission scope, then the authorization process will again as
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -468,7 +490,6 @@ e.g. changing the permission scope, then the authorization process will again as
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

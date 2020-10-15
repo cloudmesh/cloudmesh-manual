@@ -265,8 +265,7 @@ clean:
 	rm -f *.whl
 	rm -rf docs
 	rm -rf tmp
-	find . -name '*.pyc' -delete
-	find . -name '__pycache__' -type d | xargs rm -fr
+	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 	rm -fr docs/_build/
 
 

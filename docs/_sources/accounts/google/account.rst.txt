@@ -28,6 +28,14 @@ For developers the best way to install it is to use
    $ pip install cloudmesh-installer
    $ cloudmesh-installer get google
 
+.. mermaid::
+
+    graph LR
+      prereq(Prequisite)-->choose{Choose};
+
+      choose-->|Developer|a(mkdir cm  <br> cd cm  <br> pip install cloudmesh-installer  <br> cloudmesh-installer get google)
+      choose-->|Production|p(pip install cloudmesh-google)
+
 Creating the Google account
 ---------------------------
 
@@ -71,6 +79,38 @@ create a service account and then download the service
 account key.
 
 Steps to setup project and service account:
+
+.. mermaid::
+
+    graph TD
+      account(Google Cloud Account)-->choose{Already have GCP Account?};
+
+      choose-->|Create|createa(Create Google Cloud Account)
+      choose-->|Signin|signin(Login to Google Cloud Console)
+
+      createa-->choosea{Choose Account Type}
+
+      choosea-->free(Sign Up for Free Tier)
+      choosea-->edu(Sign Up for Education Account)
+
+      free-->|Signin|signin
+      edu-->|Signin|signin
+
+      signin-->project(Create Project <br> name cloudmesh)
+      project-->enableapi(Enable API e.g. <br> Compute, Storage, Volume)
+      enableapi-->createsa(Create/Select Service Account)
+      createsa-->downloadsk("Create/Download Service Key <br> name google.json <br> to folder ~/.cloudmesh/security")
+      downloadsk-->register("Register to Cloudmesh <br> with downloaded json")
+
+      click createa "https://accounts.google.com/signup/v2/webcreateaccount?flowEntry=SignUp&flowName=GlifWebSignIn"
+      click signin "http://console.cloud.google.com/"
+      click free "https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE"
+      click edu "https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none"
+      click project "https://console.cloud.google.com/projectcreate"
+      click enableapi "https://console.cloud.google.com/apis/library"
+      click createsa "https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?supportedpurview=project"
+      click downloadsk "https://console.cloud.google.com/apis/credentials/serviceaccountkey"
+      click register "https://cloudmesh.github.io/cloudmesh-manual/manual/register.html"
 
 .. list-table:: Google account creation steps
    :widths: 5 35 60

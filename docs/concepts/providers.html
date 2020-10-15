@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,11 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
@@ -19,7 +23,9 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -30,19 +36,15 @@
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="OpenAPI Web Services" href="openapi.html" />
-    <link rel="prev" title="Multicloud Database Interfaces" href="database.html" /> 
+    <link rel="prev" title="Multicloud Storage Interface" href="storage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -56,7 +58,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Cloudmesh
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Cloudmesh
           
 
           
@@ -86,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -100,7 +103,7 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 </ul>
@@ -108,10 +111,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="compute.html">Multicloud Compute Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="storage.html">Multicloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="database.html">Multicloud Database Interfaces</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cloudmesh Providers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#instalation-in-a-single-directory">Instalation in a single directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#instalation-in-a-multiple-directories">Instalation in a multiple directories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-usage">Command Usage</a></li>
 </ul>
 </li>
@@ -134,11 +135,11 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<p class="caption"><span class="caption-text">CONTRIBUTING</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
@@ -170,8 +171,20 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
@@ -179,7 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -195,13 +208,14 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../deprecated.html">DEPRECATED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -240,7 +254,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Cloudmesh Providers</li>
     
@@ -264,29 +278,29 @@
   <div class="section" id="cloudmesh-providers">
 <h1>Cloudmesh Providers<a class="headerlink" href="#cloudmesh-providers" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh is based on the concept of providers that make it possible to develop
-API interfaces to different services independently while inheriting the
+API interfaces for different services independently while inheriting the
 functionality form a comman abstract class.</p>
 <div class="section" id="instalation-in-a-single-directory">
 <h2>Instalation in a single directory<a class="headerlink" href="#instalation-in-a-single-directory" title="Permalink to this headline">¶</a></h2>
-<p>Let us demonstarte this for a compute provider. For convenience to document
-this, we assume that the diectories are stored in ~/cm. However they can be
-stored in any directory. We have the following structure:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">cm</span><span class="o">/</span>
-    <span class="n">cloudmesh</span><span class="o">/</span><span class="n">compute</span>
-        <span class="n">ComputeABC</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">command</span><span class="o">/</span><span class="n">vm</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">command</span><span class="o">/</span><span class="n">image</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">command</span><span class="o">/</span><span class="n">flavor</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">aws</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
-        <span class="n">azure</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
+<p>Let us demonstarte the concept of abstract providers for compute
+providers. We assume that the source diectories are stored in ~/cm.
+We have the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">abstract</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">abstract</span><span class="o">/</span><span class="n">ComputeNodeABC</span><span class="o">.</span><span class="n">py</span>
+<span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">vm</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
+
+<span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">openstack</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">openstack</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
+<span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">aws</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">aws</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
+<span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">aws</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">azure</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
+<span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">aws</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">oracle</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
+<span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">aws</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">google</span><span class="o">/</span><span class="n">compute</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
         <span class="o">...</span>
 </pre></div>
 </div>
 <p>Here the ABC class determines which methods must be implemented by the
-provider. The provider in cloudmesh containes a service name in the init
-function. This name is tahn used to read configuration parameters including a
-cm.kind that identifies which Provider sis read upon loading it by name.</p>
+main cloud provider. This provider than delectes the activity to the
+cloud provider that is determinded by the internal cloudmesh <cite>cloud</cite>
+variable. To simplify authentication, the credentials can be stored in
+the cloudmesh.yaml file.</p>
 <p>Example: The yaml file ~/.cloudmesh/cludmesh.yaml contains the entry:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="n">compute</span><span class="p">:</span> <span class="c1"># currently called cloud</span>
@@ -311,13 +325,9 @@ with teh particular cloud type via the definitions coming from the cloudmesh
 yaml file. This makes it possible to easily create multiple interface sto
 different cloud service providers while managing a uniform interface via the
 ABC class. All providers in this hierarchie must innherit from the ABC class.</p>
-</div>
-<div class="section" id="instalation-in-a-multiple-directories">
-<h2>Instalation in a multiple directories<a class="headerlink" href="#instalation-in-a-multiple-directories" title="Permalink to this headline">¶</a></h2>
-<p>In addition to this structure which is prefered whan all providers are managed
-in one source directory we also use a second pattern in which we manage each
-provider in its own package.</p>
-<p>here the directory structure looks as follows:</p>
+<p>Deatils of a virtual machine provider
+~~~~~~~~~~~~~~~—————~~~~~~~</p>
+<p>Here we list in more details how a virtual machine provider can look like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">cm</span><span class="o">/</span>
 
     <span class="n">cloudmesh</span><span class="o">-</span><span class="n">compute</span><span class="o">/</span>  <span class="c1">#curertly named cloudmes-cloud</span>
@@ -354,7 +364,7 @@ provided they can bae accessed from there.</p>
 </div>
 <div class="section" id="command-usage">
 <h2>Command Usage<a class="headerlink" href="#command-usage" title="Permalink to this headline">¶</a></h2>
-<p>You will have noticed that we also included some commands in the code. THease
+<p>You will have noticed that we also included some commands in the code. Thease
 are commands that make use of the main provider and expose the fucntionality of
 the provider conveniently to the users in the cmd5 command line and
 command shell tool.</p>
@@ -372,7 +382,7 @@ command shell tool.</p>
         <a href="openapi.html" class="btn btn-neutral float-right" title="OpenAPI Web Services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="database.html" class="btn btn-neutral float-left" title="Multicloud Database Interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="storage.html" class="btn btn-neutral float-left" title="Multicloud Storage Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -381,11 +391,19 @@ command shell tool.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -396,7 +414,6 @@ command shell tool.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

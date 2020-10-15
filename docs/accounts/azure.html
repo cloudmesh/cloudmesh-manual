@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,11 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
@@ -19,7 +23,9 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -34,11 +40,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Google Account" href="google/account.html" />
@@ -56,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Cloudmesh
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Cloudmesh
           
 
           
@@ -86,6 +87,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -100,19 +102,17 @@
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Multicloud Compute Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/database.html">Multicloud Database Interfaces</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/providers.html">Cloudmesh Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Package Namespaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -129,11 +129,11 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<p class="caption"><span class="caption-text">CONTRIBUTING</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
@@ -186,8 +186,20 @@
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/benchmark.html">Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
@@ -195,7 +207,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
@@ -211,13 +223,14 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../deprecated.html">DEPRECATED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -256,7 +269,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Azure Account</li>
     
@@ -311,7 +324,7 @@ account to a pay-as-you-go Azure subscription. If you forget to do so
 you will not be able to access Azure, So pleas add it to your calendar
 in order not to forget.</p>
 <div class="figure align-default" id="id2">
-<a class="reference internal image-reference" href="../_images/image110.png"><img alt="Start free" src="../_images/image110.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image16.png"><img alt="Start free" src="../_images/image16.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">Start free</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>If you want to create an azure account using your educational email, you
@@ -324,7 +337,7 @@ figure. By entering all required information, your account will be set
 up. If you use up all credits, you also need to upgrade your account to
 a pay-as-you-go Azure subscription to continue using other services.</p>
 <div class="figure align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/image28.png"><img alt="Activate now" src="../_images/image28.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image24.png"><img alt="Activate now" src="../_images/image24.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">Activate now</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>As pointed out, to continue to use azure services after 30 days, you
@@ -393,7 +406,7 @@ Prompt or PowerShell for interacting with the Azure CLI:</p>
 </div>
 <p>Sign in via the default browser using your Azure credentials.</p>
 <p><a class=""
-               data-lightbox="group-531427e2-0f35-42d4-8148-9d0bdf56edc4"
+               data-lightbox="group-83bd4e6b-50fd-40cf-af8b-9959bd083560"
                href="../_images/azure-confirm-signin1.png"
                title=""
                data-title=""
@@ -403,7 +416,7 @@ Prompt or PowerShell for interacting with the Azure CLI:</p>
                      height="auto"
                      alt="Sign in"/>
                 </a> <a class=""
-               data-lightbox="group-37630194-7ffb-44e5-a846-50aee5c831cf"
+               data-lightbox="group-2f3d4344-aca4-4fbd-9198-19f754a4fe96"
                href="../_images/azure-confirm-signin21.png"
                title=""
                data-title=""
@@ -428,13 +441,13 @@ subscription account. After you logged into the Azure portal at:</p>
 </ul>
 <p>You will be presented with a window such as</p>
 <div class="figure align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/azure-portal1.png"><img alt="AZ-Portal" src="../_images/azure-portal1.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/azure-portal.png"><img alt="AZ-Portal" src="../_images/azure-portal.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">AZ-Portal</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the Azure window, click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">resource</span></code> on the top left
 corner.</p>
 <div class="figure align-default" id="id5">
-<a class="reference internal image-reference" href="../_images/azure-resource1.png"><img alt="AZ-Resource" src="../_images/azure-resource1.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/azure-resource.png"><img alt="AZ-Resource" src="../_images/azure-resource.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">AZ-Resource</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>Now, select <code class="docutils literal notranslate"><span class="pre">Storage</span> <span class="pre">Account</span></code> from the options shown</p>
@@ -455,7 +468,7 @@ location.</p></li>
 <p>After the completion of above steps, Azure blob storage service will be
 ready for use.</p>
 <div class="figure align-default" id="id7">
-<a class="reference internal image-reference" href="../_images/azure-create-resourcegroup1.png"><img alt="AZ-Account" src="../_images/azure-create-resourcegroup1.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/azure-create-resourcegroup.png"><img alt="AZ-Account" src="../_images/azure-create-resourcegroup.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">AZ-Account</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>As a first step, a <code class="docutils literal notranslate"><span class="pre">Container</span></code> should be created in the Blob storage.
@@ -470,12 +483,12 @@ file, details of which are outlined
 <h3>Azure_Subscription_ID<a class="headerlink" href="#azure-subscription-id" title="Permalink to this headline">¶</a></h3>
 <p>Navigate to subscriptions</p>
 <div class="figure align-default" id="id8">
-<a class="reference internal image-reference" href="../_images/image32.png"><img alt="Navigate to Subs" src="../_images/image32.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image31.png"><img alt="Navigate to Subs" src="../_images/image31.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">Navigate to Subs</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <p>Copy the Subscription ID to notepad</p>
 <div class="figure align-default" id="id9">
-<a class="reference internal image-reference" href="../_images/image42.png"><img alt="sub ID" src="../_images/image42.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image41.png"><img alt="sub ID" src="../_images/image41.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">sub ID</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -484,18 +497,18 @@ file, details of which are outlined
 <p>Navigate to “Azure Active Directory” service and select “App
 Registrations”. Then select “New Registration”</p>
 <div class="figure align-default" id="id10">
-<a class="reference internal image-reference" href="../_images/image52.png"><img alt="app register" src="../_images/image52.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image51.png"><img alt="app register" src="../_images/image51.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">app register</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can input any name for the application</p>
 <div class="figure align-default" id="id11">
-<a class="reference internal image-reference" href="../_images/image62.png"><img alt="app creation" src="../_images/image62.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image61.png"><img alt="app creation" src="../_images/image61.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">app creation</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 <p>After creation, you will be navigated to the overview page of the
 application, on this page copy the client ID and tenant ID to notepad</p>
 <div class="figure align-default" id="id12">
-<a class="reference internal image-reference" href="../_images/image72.png"><img alt="app overview" src="../_images/image72.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image71.png"><img alt="app overview" src="../_images/image71.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">app overview</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -504,18 +517,18 @@ application, on this page copy the client ID and tenant ID to notepad</p>
 <p>In the same application page, navigate to Certificates &amp; secrets and
 select “New client secret”</p>
 <div class="figure align-default" id="id13">
-<a class="reference internal image-reference" href="../_images/image82.png"><img alt="cert and sec" src="../_images/image82.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image81.png"><img alt="cert and sec" src="../_images/image81.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">cert and sec</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can give any meaningful name to the new secret, use the default
 expiration for security purpose</p>
 <div class="figure align-default" id="id14">
-<a class="reference internal image-reference" href="../_images/image92.png"><img alt="add client secret" src="../_images/image92.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image91.png"><img alt="add client secret" src="../_images/image91.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">add client secret</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 <p>After creation, copy the new client secret to notepad</p>
 <p><a class=""
-               data-lightbox="group-9fef5986-5fa5-490e-86dd-f8d3f299d127"
+               data-lightbox="group-e441fe35-9e8a-4552-b3c7-1e9cb6f120f1"
                href="../_images/image102.png"
                title=""
                data-title=""
@@ -533,7 +546,7 @@ to the application that we just created, so it can access the resources</p>
 <p>Navigate to the subscription overview page and select “Access
 control(IAM)” then select “add”, “Add role assignment”</p>
 <div class="figure align-default" id="id15">
-<a class="reference internal image-reference" href="../_images/image112.png"><img alt="add role assignment" src="../_images/image112.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image111.png"><img alt="add role assignment" src="../_images/image111.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">add role assignment</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 <p>You can give the application “Contributor” role, the “contributor” role
@@ -542,7 +555,7 @@ has enough access for compute resources. Leave the second option as
 to input the application name that you just created, it doesn’t show up
 by default</p>
 <div class="figure align-default" id="id16">
-<a class="reference internal image-reference" href="../_images/image122.png"><img alt="grant role assignment" src="../_images/image122.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image121.png"><img alt="grant role assignment" src="../_images/image121.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">grant role assignment</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -551,7 +564,7 @@ by default</p>
 <p>Now we need to open cloudmesh.yaml and add the 4 credentials that we
 just collected to the “azure” section of cloudmesh.yaml</p>
 <div class="figure align-default" id="id17">
-<a class="reference internal image-reference" href="../_images/image132.png"><img alt="cloudmesh.yaml" src="../_images/image132.png" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="../_images/image131.png"><img alt="cloudmesh.yaml" src="../_images/image131.png" style="width: 30%;" /></a>
 <p class="caption"><span class="caption-text">cloudmesh.yaml</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 </div>
@@ -613,11 +626,19 @@ for storage, how is it done for compute?</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2010-2020, Gregor von Laszewski
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -628,7 +649,6 @@ for storage, how is it done for compute?</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
