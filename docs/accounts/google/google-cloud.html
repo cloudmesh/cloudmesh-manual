@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Google Cloud Account &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Google Cloud Platform &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -151,7 +151,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../azure.html">Azure Account</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Google Acounts</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Google Cloud Account</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Google Cloud Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-compute-engine">Google Compute Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-google-account">Creating the Google Account</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#activation-google-cloud-service">Activation Google Cloud Service</a><ul>
@@ -161,21 +162,19 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#links">Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-cloud-storage">Google Cloud Storage</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gdrive/gdrive.html">Google Drive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="google-gcp.html">Google Cloud Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="google-storage-1.html">Google Cloud Storage</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/install.html">FAQ - Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../faq/chameleon.html">FAQ chameleon cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/chameleon.html">FAQ - Chameleon cloud</a></li>
 </ul>
 <p class="caption"><span class="caption-text">BENCHMARKS</span></p>
 <ul>
@@ -193,7 +192,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributions.html">Contributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../faq/chameleon.html">FAQ chameleon cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/chameleon.html">FAQ - Chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual/analytics.html">analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual/book.html">book</a></li>
@@ -260,7 +259,7 @@
         
           <li><a href="index.html">Google Acounts</a> &raquo;</li>
         
-      <li>Google Cloud Account</li>
+      <li>Google Cloud Platform</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -279,11 +278,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="google-cloud-account">
-<h1>Google Cloud Account<a class="headerlink" href="#google-cloud-account" title="Permalink to this headline">¶</a></h1>
-<p>Google Cloud account is required to configure and use compute, storage
-and volume services from cloudmesh-google provider. This page will detail
-steps to create a Google Cloud account and register it with cloudmesh.</p>
+  <div class="section" id="google-cloud-platform">
+<h1>Google Cloud Platform<a class="headerlink" href="#google-cloud-platform" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://cloud.google.com/">Google Cloud Platform (GCP)</a>, offered by
+Google, is a suite of cloud computing services that runs on the same
+infrastructure that Google uses internally for its end-user products,
+such as Google Search and YouTube. Alongside a set of management tools,
+it provides a series of modular cloud services including computing, data
+storage, data analytics and machine learning. Within cloudmesh, we
+develop services through taht support some of these these products.</p>
+<div class="section" id="google-compute-engine">
+<h2>Google Compute Engine<a class="headerlink" href="#google-compute-engine" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cloud.google.com/products/compute/">Google Compute Engine</a>
+delivers virtual machines running in Google’s innovative data centers
+and worldwide fiber network. Compute Engine’s tooling and workflow
+support enable scaling from single instances to global, load-balanced
+cloud computing. Compute Engine’s VMs boot quickly, come with
+high-performance persistent and local disk options, and deliver
+consistent performance. Our virtual servers are available in many
+configurations, including predefined sizes, and options to create
+Custom Machine Types optimized for your specific needs. Flexible
+pricing and automatic sustained use discounts make Compute Engine the
+leader in price/performance.</p>
+<p>Next we provide a a step-by-step guide on how to create an Google
+account and a service account through the Google webpage.</p>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>We assume you have the cloudmesh google provider installed. This can be
@@ -390,7 +409,7 @@ account key.</p>
 <tr class="row-even"><td><p>1</p></td>
 <td><p><a class="reference external" href="https://console.cloud.google.com/projectcreate">Create Project</a></p></td>
 <td><p><a class=""
-               data-lightbox="group-0d412cce-3001-46be-bd76-ff23bbd9514f"
+               data-lightbox="group-dde33099-9085-43ee-b2eb-4a9909bce459"
                href="../../_images/MyAccount_031.png"
                title=""
                data-title=""
@@ -404,7 +423,7 @@ account key.</p>
 <tr class="row-odd"><td><p>2</p></td>
 <td><p>Next <a class="reference external" href="https://console.cloud.google.com/apis/library">Enable API</a></p></td>
 <td><p><a class=""
-               data-lightbox="group-b08eeffb-d974-4b61-9a93-6e07ded31268"
+               data-lightbox="group-82de504c-2ae2-4530-9e16-3e2e6905e4fa"
                href="../../_images/EnableAPI_011.png"
                title=""
                data-title=""
@@ -422,7 +441,7 @@ account key.</p>
 </div>
 </td>
 <td><p><a class=""
-               data-lightbox="group-b0bc1a35-f457-4f26-be64-4a6eaad43fbd"
+               data-lightbox="group-03ba64d4-35be-4ce9-bd74-b478920e5bb0"
                href="../../_images/EnableAPI_021.png"
                title=""
                data-title=""
@@ -453,7 +472,7 @@ account key.</p>
 </div>
 </td>
 <td><p><a class=""
-               data-lightbox="group-16956d1a-fb62-43d5-b4ca-18d1b383ca63"
+               data-lightbox="group-d83ba077-7262-40a2-9d14-40202ab89c93"
                href="../../_images/CreateKey_011.png"
                title=""
                data-title=""
@@ -522,6 +541,34 @@ Cloud</a></p></li>
 <li><p><a class="reference external" href="https://cloud.google.com/iam/docs/understanding-service-accounts/">Understanding service accounts | Google
 Cloud</a></p></li>
 </ul>
+</div>
+<div class="section" id="google-cloud-storage">
+<h2>Google Cloud Storage<a class="headerlink" href="#google-cloud-storage" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cloud.google.com/products/storage/">Google Cloud Storage</a>
+provides varity of storage products which are simple, reliable, and
+secure solutions for your media, analytics, and application data.</p>
+<p>The following are avalaible as google cloud storage products:</p>
+<ol class="arabic simple">
+<li><p>Object or blob storage <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud
+Storage</a></p></li>
+<li><p>Block storage <a class="reference external" href="https://cloud.google.com/persistent-disk/">Storage Type: Persistent
+Disk</a></p></li>
+<li><p>Archival storage <a class="reference external" href="https://cloud.google.com/storage/">Storage Type: Cloud
+Storage</a></p></li>
+<li><p>File storage <a class="reference external" href="https://cloud.google.com/filestore/">Storage Type: Cloud
+Filestore</a></p></li>
+<li><p>Mobile application <a class="reference external" href="https://firebase.google.com/products/storage/">Storage Type: Cloud Storage for
+Firebase</a></p></li>
+<li><p>Data transfer <a class="reference external" href="https://cloud.google.com/products/data-transfer/">Storage Type: Data Transfer
+Services</a></p></li>
+<li><p>Collaboration <a class="reference external" href="https://cloud.google.com/drive-enterprise/">Storage Type: Drive
+enterprise</a></p></li>
+</ol>
+<p>You can refer <a class="reference external" href="https://cloud.google.com/storage/docs/">google storage documentation</a> for more details on google
+cloud storage documentation. Cloudmesh currently supports <a class="reference external" href="https://cloud.google.com/storage/docs/how-to">object/blob
+storage</a>. Users can
+follow instruction to configure google could platform described as
+part of this document.</p>
 </div>
 </div>
 

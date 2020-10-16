@@ -1,37 +1,24 @@
-FAQ chameleon cloud
-===================
+FAQ - Chameleon cloud
+=====================
 
-All FAQ’s related to chameleon cloud asume
+.. warning:: **Disclaimer:** Unfortunately, Chameleon cloud had between
+   January 2020 - October 2020 significant issues that required us to
+   put this FAQ together. We were told by Chamelon Cloud that the
+   issues are supposed to be removed, but we will keep this FAQ for a
+   while longer here just in case it is not the case.
+
+   Furthermore, due to our extensive debugging of their fault
+   authentication, Chameleon will be providing soon new mechanisms for
+   authentication. We have not tested them at this time but hope that
+   they will work without change. As we use vanilla OpenStack, it would
+   be a disappointment if Chamelon cloud would change the
+   authentication mechanisms.
+
+All FAQ’s related to chameleon cloud assume
 
 1. you have looked at the instances with horizon before you use ``cms``
 2. ``cms`` is installed
 3. ``cms init`` worked and
-
-Did cms ever worked?
---------------------
-
-``cms`` Worked from day one ov this class. Due to an change within
-chameleon cloud some parameters needed to be changed in the
-``cloudmesh.yaml`` file. We informed the entire class to delete the
-``cloudmesh.yaml`` file and create it again via ``cms help``. However,
-we found that this was often not executed and a lot of errors could be
-traced back to that the file was not deleted. Chameleon also updated the
-way the network works and we had to integrate at that time also a
-mechanism to deal with this. Again if you deleted your yaml file and
-recreated it you will have no issue.
-
-If you completely erase your ENV3, the ``cloudmesh-*`` folder in cm and
-do a fresh install you can avoid this. As we had students not following
-our clear instructions, we will no longer help if you have not
-
-1. deleted the .cloudmesh directory
-2. deleted your virtualnv (for example ENV3)
-3. deleted your source cod in cm related to cloudmesh Make sure not to
-   delete the directories unrelated to that. Be careful that you do not
-   delete the ``cloudmesh-*`` folder that you worked on. make a backup
-   copy.
-4. after the new install and help call use the command ``cms test`` and
-   observe and interprete the output.
 
 Cloudmesh is trivial to install.
 
@@ -43,7 +30,7 @@ How check if chmaeleon cloud works
    cms set cloud=chameleon
    cms flavor list --refresh
 
-This returns the list of fkavors
+This returns the list of flavors
 
 How do I upload my key to chameleon?
 ------------------------------------
@@ -62,18 +49,18 @@ What is the error …?
 
       UnboundLocalError: local variable 'key' referenced before assignment
 
-   then you have not uploade your key to chameleon
+   then you have not upload your key to chameleon
 
 What is the chameleon account bug?
 ----------------------------------
 
 Preriquisite:
 
-1. We assue you start by deleting your .cloudmesh directory and have
+1. We assume you start by deleting your .cloudmesh directory and have
    install a proper version of cms.
 
 2. Before you do anything verify if you can remember your password. You
-   must logout of the chameleon cloud.org dashboart and login, while not
+   must logout of the chameleon cloud.org dashboard and login, while not
    using an auto completion Web password completer. Make sure to remove
    your password if you use one of them.
 
@@ -81,13 +68,13 @@ Chameleon has several strange bugs we know of that will hopefully be
 fixed
 
 1. Any account in chameleon that wants to use OpenStack KVM **must**
-   first visit horizon and through the visit activate the acoount. The
+   first visit horizon and through the visit activate the account. The
    activation via the e-mail that they send to you does not fully
    activate your account.
 
-2. When activation your account in horizon, you meust login to a login
+2. When activation your account in horizon, you must login to a login
    screen. However, sometimes we observed that screen do not complete
-   the activation and you do not get forwarded to horizon. INstead you
+   the activation and you do not get forwarded to horizon. Instead you
    end in an endless loop for activation requests.
 
 3. Some students despite the issue of being able to login reported that
@@ -144,20 +131,20 @@ If you wait longer, you will see
 Tethering you computer through a cell phone
 -------------------------------------------
 
-This will liekly not work as your cell phone company has likely some
+This will likely not work as your cell phone company has likely some
 restrictions.
 
 Can I keep my instance running when not in use?
 -----------------------------------------------
 
 No you shout terminate and restart it. However if you initially have
-issues keep it running and find in the manaul how to suspend and resume
+issues keep it running and find in the manual how to suspend and resume
 it. You can also do this from horizon if you prefer.
 
 What is ``WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!``
 ------------------------------------------------------------
 
-THis is hapening when a previously used ip address is used on another vm
+This is happening when a previously used ip address is used on another vm
 You need to remove the ip from ~/.ssh/kown hosts by using
 
 ssh-keygen -R IPADDRESS
@@ -199,7 +186,7 @@ keep the keyname on your computer to be id_rsa.
 In horizon you naturally use a keyname such as rahul-222 (e.g. what
 rahul used)
 
-The reason is that in the future we use cloudmesn and we have a default
+The reason is that in the future we use cloudmesh and we have a default
 key for cloudmesh set as ``id_rsa``. This simplifies debugging in case
 something does not go right
 

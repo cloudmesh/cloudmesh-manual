@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FAQ chameleon cloud &mdash; Cloudmesh 0.1 documentation</title>
+  <title>FAQ - Chameleon cloud &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -153,13 +153,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google/index.html">Google Acounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">FAQ - Cloudmesh</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ chameleon cloud</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#did-cms-ever-worked">Did cms ever worked?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ - Chameleon cloud</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-check-if-chmaeleon-cloud-works">How check if chmaeleon cloud works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-upload-my-key-to-chameleon">How do I upload my key to chameleon?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-the-error">What is the error …?</a></li>
@@ -195,8 +193,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ chameleon cloud</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#did-cms-ever-worked">Did cms ever worked?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ - Chameleon cloud</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-check-if-chmaeleon-cloud-works">How check if chmaeleon cloud works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-upload-my-key-to-chameleon">How do I upload my key to chameleon?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-the-error">What is the error …?</a></li>
@@ -279,7 +276,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>FAQ chameleon cloud</li>
+      <li>FAQ - Chameleon cloud</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -299,46 +296,35 @@
            <div itemprop="articleBody">
             
   <div class="section" id="faq-chameleon-cloud">
-<h1>FAQ chameleon cloud<a class="headerlink" href="#faq-chameleon-cloud" title="Permalink to this headline">¶</a></h1>
-<p>All FAQ’s related to chameleon cloud asume</p>
+<h1>FAQ - Chameleon cloud<a class="headerlink" href="#faq-chameleon-cloud" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Disclaimer:</strong> Unfortunately, Chameleon cloud had between
+January 2020 - October 2020 significant issues that required us to
+put this FAQ together. We were told by Chamelon Cloud that the
+issues are supposed to be removed, but we will keep this FAQ for a
+while longer here just in case it is not the case.</p>
+<p>Furthermore, due to our extensive debugging of their fault
+authentication, Chameleon will be providing soon new mechanisms for
+authentication. We have not tested them at this time but hope that
+they will work without change. As we use vanilla OpenStack, it would
+be a disappointment if Chamelon cloud would change the
+authentication mechanisms.</p>
+</div>
+<p>All FAQ’s related to chameleon cloud assume</p>
 <ol class="arabic simple">
 <li><p>you have looked at the instances with horizon before you use <code class="docutils literal notranslate"><span class="pre">cms</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cms</span></code> is installed</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">init</span></code> worked and</p></li>
 </ol>
-<div class="section" id="did-cms-ever-worked">
-<h2>Did cms ever worked?<a class="headerlink" href="#did-cms-ever-worked" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">cms</span></code> Worked from day one ov this class. Due to an change within
-chameleon cloud some parameters needed to be changed in the
-<code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file. We informed the entire class to delete the
-<code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file and create it again via <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">help</span></code>. However,
-we found that this was often not executed and a lot of errors could be
-traced back to that the file was not deleted. Chameleon also updated the
-way the network works and we had to integrate at that time also a
-mechanism to deal with this. Again if you deleted your yaml file and
-recreated it you will have no issue.</p>
-<p>If you completely erase your ENV3, the <code class="docutils literal notranslate"><span class="pre">cloudmesh-*</span></code> folder in cm and
-do a fresh install you can avoid this. As we had students not following
-our clear instructions, we will no longer help if you have not</p>
-<ol class="arabic simple">
-<li><p>deleted the .cloudmesh directory</p></li>
-<li><p>deleted your virtualnv (for example ENV3)</p></li>
-<li><p>deleted your source cod in cm related to cloudmesh Make sure not to
-delete the directories unrelated to that. Be careful that you do not
-delete the <code class="docutils literal notranslate"><span class="pre">cloudmesh-*</span></code> folder that you worked on. make a backup
-copy.</p></li>
-<li><p>after the new install and help call use the command <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">test</span></code> and
-observe and interprete the output.</p></li>
-</ol>
 <p>Cloudmesh is trivial to install.</p>
-</div>
 <div class="section" id="how-check-if-chmaeleon-cloud-works">
 <h2>How check if chmaeleon cloud works<a class="headerlink" href="#how-check-if-chmaeleon-cloud-works" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
 cms flavor list --refresh
 </pre></div>
 </div>
-<p>This returns the list of fkavors</p>
+<p>This returns the list of flavors</p>
 </div>
 <div class="section" id="how-do-i-upload-my-key-to-chameleon">
 <h2>How do I upload my key to chameleon?<a class="headerlink" href="#how-do-i-upload-my-key-to-chameleon" title="Permalink to this headline">¶</a></h2>
@@ -354,7 +340,7 @@ cms key list --cloud<span class="o">=</span>chameleon
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">UnboundLocalError</span><span class="p">:</span> <span class="n">local</span> <span class="n">variable</span> <span class="s1">&#39;key&#39;</span> <span class="n">referenced</span> <span class="n">before</span> <span class="n">assignment</span>
 </pre></div>
 </div>
-<p>then you have not uploade your key to chameleon</p>
+<p>then you have not upload your key to chameleon</p>
 </li>
 </ol>
 </div>
@@ -362,10 +348,10 @@ cms key list --cloud<span class="o">=</span>chameleon
 <h2>What is the chameleon account bug?<a class="headerlink" href="#what-is-the-chameleon-account-bug" title="Permalink to this headline">¶</a></h2>
 <p>Preriquisite:</p>
 <ol class="arabic simple">
-<li><p>We assue you start by deleting your .cloudmesh directory and have
+<li><p>We assume you start by deleting your .cloudmesh directory and have
 install a proper version of cms.</p></li>
 <li><p>Before you do anything verify if you can remember your password. You
-must logout of the chameleon cloud.org dashboart and login, while not
+must logout of the chameleon cloud.org dashboard and login, while not
 using an auto completion Web password completer. Make sure to remove
 your password if you use one of them.</p></li>
 </ol>
@@ -373,12 +359,12 @@ your password if you use one of them.</p></li>
 fixed</p>
 <ol class="arabic">
 <li><p>Any account in chameleon that wants to use OpenStack KVM <strong>must</strong>
-first visit horizon and through the visit activate the acoount. The
+first visit horizon and through the visit activate the account. The
 activation via the e-mail that they send to you does not fully
 activate your account.</p></li>
-<li><p>When activation your account in horizon, you meust login to a login
+<li><p>When activation your account in horizon, you must login to a login
 screen. However, sometimes we observed that screen do not complete
-the activation and you do not get forwarded to horizon. INstead you
+the activation and you do not get forwarded to horizon. Instead you
 end in an endless loop for activation requests.</p></li>
 <li><p>Some students despite the issue of being able to login reported that
 they can not use cms even though they typed in the password
@@ -428,18 +414,18 @@ insecure network. You can do a CRTL C here</p>
 </div>
 <div class="section" id="tethering-you-computer-through-a-cell-phone">
 <h2>Tethering you computer through a cell phone<a class="headerlink" href="#tethering-you-computer-through-a-cell-phone" title="Permalink to this headline">¶</a></h2>
-<p>This will liekly not work as your cell phone company has likely some
+<p>This will likely not work as your cell phone company has likely some
 restrictions.</p>
 </div>
 <div class="section" id="can-i-keep-my-instance-running-when-not-in-use">
 <h2>Can I keep my instance running when not in use?<a class="headerlink" href="#can-i-keep-my-instance-running-when-not-in-use" title="Permalink to this headline">¶</a></h2>
 <p>No you shout terminate and restart it. However if you initially have
-issues keep it running and find in the manaul how to suspend and resume
+issues keep it running and find in the manual how to suspend and resume
 it. You can also do this from horizon if you prefer.</p>
 </div>
 <div class="section" id="what-is-warning-remote-host-identification-has-changed">
 <h2>What is <code class="docutils literal notranslate"><span class="pre">WARNING:</span> <span class="pre">REMOTE</span> <span class="pre">HOST</span> <span class="pre">IDENTIFICATION</span> <span class="pre">HAS</span> <span class="pre">CHANGED!</span></code><a class="headerlink" href="#what-is-warning-remote-host-identification-has-changed" title="Permalink to this headline">¶</a></h2>
-<p>THis is hapening when a previously used ip address is used on another vm
+<p>This is happening when a previously used ip address is used on another vm
 You need to remove the ip from ~/.ssh/kown hosts by using</p>
 <p>ssh-keygen -R IPADDRESS</p>
 <p>where IPADDRESS is the address to be removed, and than try again</p>
@@ -471,7 +457,7 @@ You need to remove the ip from ~/.ssh/kown hosts by using</p>
 keep the keyname on your computer to be id_rsa.</p>
 <p>In horizon you naturally use a keyname such as rahul-222 (e.g. what
 rahul used)</p>
-<p>The reason is that in the future we use cloudmesn and we have a default
+<p>The reason is that in the future we use cloudmesh and we have a default
 key for cloudmesh set as <code class="docutils literal notranslate"><span class="pre">id_rsa</span></code>. This simplifies debugging in case
 something does not go right</p>
 <ul class="simple">
