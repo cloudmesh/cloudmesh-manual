@@ -43,8 +43,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Commands" href="manual/all.html" />
-    <link rel="prev" title="Cmd5" href="cmd5.html" /> 
+    <link rel="next" title="Cloudmesh Command API" href="api/index.html" />
+    <link rel="prev" title="Cloudmesh Viewer" href="viewer/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,8 +109,8 @@
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/commandshell.html">Extensible Command Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts/namespaces.html">Cloudmesh API Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/compute.html">Virtual Machine Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/storage.html">Storage Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts/vdir.html">Virtual Directory</a></li>
@@ -119,21 +119,20 @@
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cmd5.html">Cmd5</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference Card</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#shell-invocation">Shell invocation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#shell-basic-commands">Shell basic commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cloud-commands">Cloud commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#comet">Comet</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-configuration.html">Manual Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-compute.html">Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-other.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#shell-invocation">Shell invocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-basic-commands">Shell basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloud-commands">Cloud commands</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -156,20 +155,10 @@
 <li class="toctree-l1"><a class="reference internal" href="accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google/index.html">Google Acounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
-</ul>
-<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/gdrive/gdrive.html">Google Drive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-docs.html">Google Docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-gcp.html">Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/google-storage-1.html">Google Cloud Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/google/refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
@@ -278,6 +267,11 @@
             
   <div class="section" id="reference-card">
 <h1>Reference Card<a class="headerlink" href="#reference-card" title="Permalink to this headline">¶</a></h1>
+<p>We present here a number of frequently used commands. for a complete
+list, please use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">help</span>
+</pre></div>
+</div>
 <div class="section" id="shell-invocation">
 <h2>Shell invocation<a class="headerlink" href="#shell-invocation" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-given docutils align-default" id="id1">
@@ -387,387 +381,6 @@ error occured</p></td>
 </tbody>
 </table>
 </div>
-<div class="section" id="comet">
-<span id="refcard-comet"></span><h2>Comet<a class="headerlink" href="#comet" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 36%" />
-<col style="width: 64%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">Command</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Description</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line"><br /></div>
-<div class="line">cms comet init</div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Configure comet endpoint and the authentication. This</div>
-<div class="line">will retrieve api key/secret and setup the configuration</div>
-<div class="line">file. A comet username/password is required and should</div>
-<div class="line">be obtained via separate channels.</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet ll</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Summary list of clusters owned by the authenticated</div>
-<div class="line">identity</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet cluster</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Detailed list of clusters owned by the authenticated</div>
-<div class="line">identity</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet cluster vc2</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">List a cluster by name (vc2)</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet computeset</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">List all defined computesets</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet computeset 63</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Display one computeset by specifying the computeset</div>
-<div class="line">id (63)</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet power on vc4</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Power on the frontend node of the specified cluster</div>
-<div class="line">(vc4)</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet power off vc4</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Power off the frontend node of the specified cluster</div>
-<div class="line">(vc4)</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet start vc4 vm-vc4-[0-3]</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Start a new set of compute nodes in one cluster (vc4).</div>
-<div class="line">The nodes will be put into a computeset once succeeded</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet start vc4 –count=4</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Start an N (4) node computeset in one cluster (vc4)</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet start vc4 vm-vc4-[0-3]</div>
-<div class="line-block">
-<div class="line">–walltime=6h</div>
-<div class="line"><br /></div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Start a set of compute nodes in a cluster (vc4), as</div>
-<div class="line">computeset, for a givenwalltime (30m, 3h, 2d, 1w, for</div>
-<div class="line">30 minutes, 3 hours, 2 days, 1 week, respectively)</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet start vc4 vm-vc4-[0-3]</div>
-<div class="line-block">
-<div class="line">–allocation=YOUR_ALLOCATION</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Start new set of compute nodes with allocation</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet start vc4 vm-vc4-7</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Start a one-node computese</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet power off vc4 vm-vc4-[0,1]</div>
-<div class="line">cms comet power on vc4 vm-vc4-0</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">You can power off and back on individual nodes of</div>
-<div class="line">an active computeset without impacting other nodes</div>
-<div class="line">in the same computeset</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line"><br /></div>
-<div class="line">cms comet power shutdown vc4</div>
-<div class="line-block">
-<div class="line">vm-vc4-[0-3]</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">shutdown the whole computeset by specifying all nodes.</div>
-<div class="line">The nodes can be powered back on again if the</div>
-<div class="line">requested walltime hasn’t reached</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line"><br /></div>
-<div class="line">cms comet terminate 123</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Gracefully shutdown all nodes in computeset 123 AND</div>
-<div class="line">terminate the resource reservation. A computeset will be</div>
-<div class="line">terminated automatically when requested walltime reached</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet console vc4</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Get console of the frontend, openned in a browser</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet console vc4 vm-vc4-0</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Get console of a running node</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet console –link vc4</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Get console of the frontend, URL only</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet iso list</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Get list of images available to you</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet iso upload</div>
-<div class="line-block">
-<div class="line">/path/to/your/image.iso</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Upload an image to the shared public directory on</div>
-<div class="line">nucleus server</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet iso upload</div>
-<div class="line-block">
-<div class="line">/path/to/your/image.iso</div>
-<div class="line">–imagename=newimagename.iso</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Upload an image to the shared public directory on</div>
-<div class="line">nucleus server with a new image name</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet iso attach</div>
-<div class="line-block">
-<div class="line">newimagename.iso vc2</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Attach an image (newimagename.iso) to frontend of</div>
-<div class="line">a cluster (vc2), by providing an image name</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line"><br /></div>
-<div class="line">cms comet iso attach 6 vc2</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Attach an image (newimagename.iso) to frontend of</div>
-<div class="line">a cluster (vc2), by providing an image index based</div>
-<div class="line">on the order from the ‘comet iso list’</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet iso attach</div>
-<div class="line-block">
-<div class="line">newimagename.iso vc2 vm-vc2-0</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Attach an image to a compute node (vm-vc2-0) for a</div>
-<div class="line">cluster (vc2)</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet iso detach vc2</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Detach the attached iso image from frontend of a</div>
-<div class="line">cluster (vc2)</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet iso detach vc2 vm-vc2-0</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Detach the attached iso image from a compute node</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet iso attach</div>
-<div class="line-block">
-<div class="line">imagename.iso vc2 vm-vc2-[0-3]</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Attach an image to a set of compute node, specified in</div>
-<div class="line">hostlist format (vm-vc2-[0-3]) for a cluster (vc2)</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet iso detach</div>
-<div class="line-block">
-<div class="line">vc2 vm-vc2-[0-3]</div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Detach also works in bulk</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><div class="line-block">
-<div class="line">cms comet node info vc2</div>
-<div class="line"><br /></div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">List the detailed information of vc2 frontend node</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="line-block">
-<div class="line">cms comet node rename vc2</div>
-<div class="line-block">
-<div class="line">vm-vc2-[0-3] new-[0-3]</div>
-<div class="line"><br /></div>
-</div>
-</div>
-</td>
-<td><div class="line-block">
-<div class="line">Rename a list of compute node (vm-vc2-[0-3]) from a</div>
-<div class="line">cluster (vc2) to a list of new names (new-[0-3]).</div>
-<div class="line">In hostlist format.</div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 
 
@@ -778,10 +391,10 @@ error occured</p></td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="manual/all.html" class="btn btn-neutral float-right" title="Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api/index.html" class="btn btn-neutral float-right" title="Cloudmesh Command API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cmd5.html" class="btn btn-neutral float-left" title="Cmd5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="viewer/index.html" class="btn btn-neutral float-left" title="Cloudmesh Viewer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

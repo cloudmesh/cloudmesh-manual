@@ -1,7 +1,9 @@
 Developping with Mongo
 =======================
 
-Next, you need to start it with the command
+You can cusoize the versions and other aspects of the MongoDB that is used in cloudmesh.
+
+Afterthe install, you can start it with the command
 
 .. code:: bash
 

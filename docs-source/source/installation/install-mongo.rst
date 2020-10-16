@@ -1,6 +1,31 @@
+Cloudmesh Database
+==================
+
+Cloudmesh stores its status in a database so that you can easily
+remember which services you used where and have an accurate account of
+them. We use as a database mongoDB to store this information. To use
+cloudmesh you simply need to create and start the database service.
+
+We install a separate version of mongo in your `~/.cloudmesh` directory. Use the command::
+
+    cms admin mongo install
+
+On windows you need to do this very carefully as there is one installation
+box that you need to ignore to make this possible.
+
+First you need to change the password for mongo in the ``cloudmesh.yaml`` file
+Now you can create an empty database with
+
+you can initialize it with
+
+.. code:: bash
+
+    cms gui quick
+    cms init
+
 
 MongoDB Installation Steps
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 The following steps document the MongoDB server configuration and
 installation steps from the standpoint of a fresh install. We
@@ -120,7 +145,7 @@ mongo. In case you need a different port you can configure that in the yaml
 file.
 
 Uninstall of MongoDB on Windows 10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------
 
 This section documents  steps required to uninstall MongoDB from a prior installation
 

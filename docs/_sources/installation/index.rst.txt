@@ -15,5 +15,6 @@ Installation
 Cloudmesh Database
 ===================
 
-   mongo
+.. toctree::
+   
    install-mongo

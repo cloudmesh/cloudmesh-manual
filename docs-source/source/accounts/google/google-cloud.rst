@@ -1,8 +1,5 @@
-Google Account
-==============
-
-Purpose
--------
+Google Cloud Account
+====================
 
 Google Cloud account is required to configure and use compute, storage
 and volume services from cloudmesh-google provider. This page will detail
@@ -36,7 +33,7 @@ For developers the best way to install it is to use
       choose-->|Developer|a(mkdir cm  <br> cd cm  <br> pip install cloudmesh-installer  <br> cloudmesh-installer get google)
       choose-->|Production|p(pip install cloudmesh-google)
 
-Creating the Google account
+Creating the Google Account
 ---------------------------
 
 If you do not have a google cloud account a
@@ -46,7 +43,7 @@ new google account can be created using following link:
    Account <https://accounts.google.com/signup/v2/webcreateaccount?flowEntry=SignUp&flowName=GlifWebSignIn>`__
 
 Activation Google Cloud Service
----------------------------------
+-------------------------------
 
 Google allows you to apply for an free account and offers you $300 in credits
 to use google cloud. After creating a new account apply for free trail and $300
@@ -73,7 +70,7 @@ create VM, Disks, Volumes etc.
 
 We recommend that you simply use project name ``cloudmesh``.
 
-To authenticate the google cloud api from cloudmesh
+To authenticate the google cloud API from cloudmesh
 you also need to enable the required API and
 create a service account and then download the service
 account key.

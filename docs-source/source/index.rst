@@ -21,8 +21,8 @@ Cloudmesh Version 4
    :caption: CONCEPTS
    :maxdepth: 10
 
+   concepts/commandshell	      
    concepts/namespaces	      
-   concepts/commandshell
    concepts/compute
    concepts/storage
    concepts/vdir   
@@ -33,16 +33,17 @@ Cloudmesh Version 4
    :maxdepth: 10
 
    cmd5
-   reference-card
+   manual-cmd5
    manual/all
    manual-configuration
-   manual-cmd5
    manual-group
    manual-compute
    manual-storage
    manual-other
    viewer/index
-
+   installation/mongo-use
+   reference-card
+   
 .. toctree::
    :caption: API
    :maxdepth: 10
@@ -69,27 +70,11 @@ Cloudmesh Version 4
    accounts/openstack
    accounts/aws
    accounts/azure
-   accounts/google/account
+   accounts/google/index
    accounts/oracle/account
    accounts/box
    accounts/accountcreation-old
 
-
-.. toctree::
-   :caption: GOOGLE ACCOUNT (FIXME)
-   :maxdepth: 10
-	      
-   accounts/google/index
-   accounts/google/FIXME
-   accounts/google/gdrive/gdrive
-   accounts/google/gdrive/google-drive
-   accounts/google/account
-   accounts/google/google-docs
-   accounts/google/google-drive-account
-   accounts/google/google-drive-ufo
-   accounts/google/google-gcp
-   accounts/google/google-storage-1
-   accounts/google/refernces
 
 .. toctree::
    :caption: FAQ AND TIPS

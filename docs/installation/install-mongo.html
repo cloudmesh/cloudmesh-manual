@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MongoDB Installation Steps &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Cloudmesh Database &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -42,7 +42,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration" href="../configuration/configuration.html" />
+    <link rel="prev" title="Installation of Cloudmesh (Source Install for Developers)" href="install-dev.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,15 +102,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html#cloudmesh-database">Cloudmesh Database</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html#cloudmesh-database">Cloudmesh Database</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mongodb-installation-steps">MongoDB Installation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstall-of-mongodb-on-windows-10">Uninstall of MongoDB on Windows 10</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONCEPTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh API Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
@@ -117,15 +126,15 @@
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/all.html">Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-configuration.html">Manual Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -148,20 +157,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/openstack.html">OpenStack Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google/index.html">Google Acounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/oracle/account.html">Oracle Cloud Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
-</ul>
-<p class="caption"><span class="caption-text">GOOGLE ACCOUNT (FIXME)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/index.html">Google Acooounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/gdrive/gdrive.html">Google Drive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/account.html">Google Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-docs.html">Google Docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-gcp.html">Google Cloud Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/google-storage-1.html">Google Cloud Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google/refernces.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
 <ul>
@@ -249,7 +248,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>MongoDB Installation Steps</li>
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>Cloudmesh Database</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -268,8 +269,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mongodb-installation-steps">
-<h1>MongoDB Installation Steps<a class="headerlink" href="#mongodb-installation-steps" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cloudmesh-database">
+<h1>Cloudmesh Database<a class="headerlink" href="#cloudmesh-database" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh stores its status in a database so that you can easily
+remember which services you used where and have an accurate account of
+them. We use as a database mongoDB to store this information. To use
+cloudmesh you simply need to create and start the database service.</p>
+<p>We install a separate version of mongo in your <cite>~/.cloudmesh</cite> directory. Use the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>On windows you need to do this very carefully as there is one installation
+box that you need to ignore to make this possible.</p>
+<p>First you need to change the password for mongo in the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file
+Now you can create an empty database with</p>
+<p>you can initialize it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms gui quick
+cms init
+</pre></div>
+</div>
+<div class="section" id="mongodb-installation-steps">
+<h2>MongoDB Installation Steps<a class="headerlink" href="#mongodb-installation-steps" title="Permalink to this headline">¶</a></h2>
 <p>The following steps document the MongoDB server configuration and
 installation steps from the standpoint of a fresh install. We
 recommend utilizing our build script for a seamless installation
@@ -362,7 +382,7 @@ mongo. In case you need a different port you can configure that in the yaml
 file.</p>
 </div>
 <div class="section" id="uninstall-of-mongodb-on-windows-10">
-<h1>Uninstall of MongoDB on Windows 10<a class="headerlink" href="#uninstall-of-mongodb-on-windows-10" title="Permalink to this headline">¶</a></h1>
+<h2>Uninstall of MongoDB on Windows 10<a class="headerlink" href="#uninstall-of-mongodb-on-windows-10" title="Permalink to this headline">¶</a></h2>
 <p>This section documents  steps required to uninstall MongoDB from a prior installation</p>
 <p>Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
@@ -406,12 +426,22 @@ navigating to the Windows ‘Add Remove Programs’.</p>
 <p>You have now successfully removed MongoDB, and are ready to reinstall
 a fresh instance.</p>
 </div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../configuration/configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install-dev.html" class="btn btn-neutral float-left" title="Installation of Cloudmesh (Source Install for Developers)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -91,10 +91,4 @@ provider with a simple pip install::
 Now the aws and azure providers are accessible in cloudmesh and if a command is
 provided they can bae accessed from there.
 
-Command Usage
-~~~~~~~~~~~~~
 
-You will have noticed that we also included some commands in the code. Thease
-are commands that make use of the main provider and expose the fucntionality of
-the provider conveniently to the users in the cmd5 command line and
-command shell tool.

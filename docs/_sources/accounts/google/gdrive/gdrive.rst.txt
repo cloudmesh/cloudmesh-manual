@@ -1,6 +1,5 @@
-************
 Google Drive
-************
+============
 
 Google Drive is a file storing platform where an user can store all
 his/her files in the google drive.  You will need Google Drive to
@@ -19,14 +18,14 @@ have access to his file as all his files are stored in the cloud.  The
 user does not need to install any kind of software in order to view
 these files.
 
-Set up Credentials
-##################
 
-Go to `Google APIs <https://console.developers.google.com/>`_ website.  
+Create a Project
+----------------
 
-Create a project
-****************
-To create a project, go to Dashboard in Google APIs console. In the **Select a Project** window, click **NEW PROJECT**.
+Do obtain credentials to use Google drive, go to `Google APIs
+<https://console.developers.google.com/>`_ website and create a
+project.  To create a project, go to Dashboard in Google APIs
+console. In the **Select a Project** window, click **NEW PROJECT**.
 
 .. figure:: images/1console.PNG
     :width: 20pt
@@ -47,8 +46,10 @@ Enter a project name we want to use.  Click **CREATE**.
    :alt: Project name
 
 Enable APIs and Services
-************************
-In the APIs & Services Dashboard for the project we created, click **ENABLE APIS AND SERVICES**.
+------------------------
+
+In the APIs and Services Dashboard for the project we created, click
+**ENABLE APIS AND SERVICES**.
 
 .. figure:: images/4enable_apis.PNG
    :alt: Enable APIs and Services
@@ -69,7 +70,8 @@ Click **ENABLE**.
    :alt: Enable Google Drive API
 
 Create Credentials
-******************
+------------------
+
 At the Google Drive API Overview page, click **CREATE CREDENTIALS**.
 
 .. figure:: images/8create_credential.PNG
@@ -95,7 +97,8 @@ Enter application name.  Enter the gmail account we use for the project.
 .. figure:: images/12oauth2.png
    :alt: Oauth consent screen - continued
 
-Select scopes to **See, edit, create, and delete all of your Google Drive files**, and **See and download all your Google Drive files**.
+Select scopes to **See, edit, create, and delete all of your Google
+Drive files**, and **See and download all your Google Drive files**.
 Click **ADD**.
 
 .. figure:: images/13add_scope.PNG
@@ -106,12 +109,14 @@ Click **Save**.
 .. figure:: images/14save.PNG
    :alt: Save
 
-At the APIs & Services Credentials page, click **CREATE CREDENTIALS**, select **OAUTH client ID**.
+At the APIs and Services Credentials page, click **CREATE CREDENTIALS**,
+select **OAUTH client ID**.
 
 .. figure:: images/15create_credentials.PNG
    :alt: Create credentials
    
-Select **Other** for application type.  A default name "Other client 1" will be generated which we can keep.
+Select **Other** for application type.  A default name "Other client
+1" will be generated which we can keep.
 
 .. figure:: images/16create_oauth.PNG
    :alt: Create OAuthclient ID
@@ -126,14 +131,18 @@ Click the download button to download the credential file.
 .. figure:: images/18download.PNG
    :alt: Download client secret file
 
-The default name of the file is something like "client_secret_xxxxxxxxxxxxxxxxxxxxxxxxxxpg2.apps.googleusercontent.com.json".
-Rename it to "credentials.json", and place it in the directory specified in cloudmesh.yaml for key "credentials_json_path".
+The default name of the file is something like
+"client_secret_xxxxxxxxxxxxxxxxxxxxxxxxxxpg2.apps.googleusercontent.com.json".
+Rename it to "credentials.json", and place it in the directory
+specified in cloudmesh.yaml for key "credentials_json_path".
 
 Authorization Flow
-******************
+------------------
 
-In order to create the authorization flow, we also need to modify cloudmesh.yaml to store the paths of the files needed for
-authentication, including path for `credentials.json` and path for `token.pickle`, which we will create next.  ::
+In order to create the authorization flow, we also need to modify
+cloudmesh.yaml to store the paths of the files needed for
+authentication, including path for `credentials.json` and path for
+`token.pickle`, which we will create next.  ::
 
     parallelgdrive:
       cm:
@@ -150,8 +159,9 @@ authentication, including path for `credentials.json` and path for `token.pickle
         credentials_json_path: [put the path of credentials.json here]
         token_path: [put the path of token.pickle here]
 
-Now we are ready to create the authorization flow.  The codes for creating credentials for authorization is included 
-in the Provider.py file. Here is the link:
+Now we are ready to create the authorization flow.  The codes for
+creating credentials for authorization is included in the Provider.py
+file. Here is the link:
 
 `Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_  
 
@@ -160,7 +170,8 @@ When we run the Provider.py for the first time, do so in the Terminal.
 .. figure:: images/19run_provider2.PNG
    :alt: Run Provider.py
 
-We will be redirected to the Sign in page.  Choose the Google account to continue to the project.
+We will be redirected to the Sign in page.  Choose the Google account
+to continue to the project.
 
 .. figure:: images/20sign_in.PNG
    :alt: Sign in
@@ -190,9 +201,13 @@ Message will be displayed that the authentication flow has been completed.
 .. figure:: images/25authentication.PNG
    :alt: Authentication flow completed
 
-When the authentication flow completes, it will create a ``token.pickle`` file in our working directory on our computer. 
-We need to place this file in the token_path specified in the `cloudmesh.yaml` file.
+When the authentication flow completes, it will create a
+``token.pickle`` file in our working directory on our computer.  We
+need to place this file in the token_path specified in the
+`cloudmesh.yaml` file.
 
-This file can be used for future purposes so we do not need to login everytime. If we delete this file for any reason,
-e.g. changing the permission scope, then the authorization process will again ask for login id and password, and again create
-``token.pickle`` automatically.
+This file can be used for future purposes so we do not need to login
+everytime. If we delete this file for any reason, e.g. changing the
+permission scope, then the authorization process will again ask for
+login id and password, and again create ``token.pickle``
+automatically.

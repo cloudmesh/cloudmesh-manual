@@ -1,19 +1,14 @@
-Google Acooounts
-================
+Google Acounts
+==============
 
-This section has to be fixed 
+Dependent which services you are interested in, you need to apply for
+the appropriate account.
 
 .. toctree::
-   :caption: Google Apcounts
+   :caption: Google Acounts
    :maxdepth: 2
 
-   FIXME
-   account
+   google-cloud
    gdrive/gdrive
-   gdrive/google-gdrive
-   google-docs
-   google-drive-account
-   google-drive-ufo
    google-gcp
    google-storage-1
-   refernces	      
