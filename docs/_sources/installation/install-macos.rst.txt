@@ -18,7 +18,7 @@ You need to install macOS xcode command line tools
 Next you want to install a python version. You can either chose the installation
 from python.org or from homebrew.
 
-Mext make sure you update your python version and go to
+Next make sure you update your python version and go to
 
 * https://www.python.org/downloads/
 
@@ -45,7 +45,7 @@ documentation we refer to it as ENV3
 Installation Diagram
 -------------------
 
-We provide an easy to follow instalation diagram to showcase how simple the instalation for cloudesh is
+We provide an easy to follow instalation diagram to showcase how simple the installation for cloudesh is
 
 .. mermaid::
 

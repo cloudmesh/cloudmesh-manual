@@ -2,7 +2,7 @@
 Installation of Cloudmesh (Source Install for Developers)
 ---------------------------------------------------------
 
-If you are a developer, we have develloped a simple ``cloudmesh-installer``
+If you are a developer, we have developed a simple ``cloudmesh-installer``
 It conveniently downloads the needed repositories, installs them, and
 can also be used to updates them. More documentation about the installer can be
 found at

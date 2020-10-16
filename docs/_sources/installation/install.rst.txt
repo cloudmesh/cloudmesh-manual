@@ -97,20 +97,24 @@ See  :doc:`../cmsd` for more information.
 Installation of Cloudmesn in Python
 ---------------------------------
 
-On some operating systems, you will need a number of tools installed on your computer before you can install cloudmesh.
-It is important to full fill these requirements. Please use the clickable map to identify the OS method you use and follow the link.
+On some operating systems, you will need a number of tools installed
+on your computer before you can install cloudmesh.  It is important to
+full fill these requirements. Please use the clickable map to identify
+the OS method you use and follow the link.
 
-.. warning:: Please only continue once you have the Preresuists fulfilled.
+.. warning:: Please only continue once you have the Prerequists fulfilled.
 
-Once you have installed the prerequisites on your computer cloudmesh is also each to install natively in your python virtual environment.
-Please note that we do not recommend installing it on your OS directly, but you **must** use a virtual environment.
+Once you have installed the prerequisites on your computer cloudmesh
+is also each to install natively in your python virtual environment.
+Please note that we do not recommend installing it on your OS
+directly, but you **must** use a virtual environment.
 
 .. note::
 
-          We recommend that you use  Python `venv` to isolate the system Python
-          form the user python. For simplicity we assume and document on how to
-          set up a virtual environment in the home directory under the
-          directory name `~/ENV3`.
+          We recommend that you use Python `venv` to isolate the
+          system Python form the user python. For simplicity we assume
+          and document on how to set up a virtual environment in the
+          home directory under the directory name `~/ENV3`.
 
 
 Anaconda and Conda
@@ -118,7 +122,7 @@ Anaconda and Conda
 
 Cloudmesh can be installed in anaconda with pip. Please follow our pip
 instructions, but make sure you create your own virtualenv with conda and assure
-you use python at least 3.7.
+you use python at least 3.8.2.
 
 
 
@@ -171,7 +175,7 @@ SSH key
 -------
 
 In order for you to use a cloud you will need an ssh key that you use to interact
-conveniently ith cloud resources. This can be
+conveniently with cloud resources. This can be
 created from the command line with
 
 .. code-block:: bash
@@ -204,8 +208,9 @@ you set things up. Use the commands
     cms gui
     cms init
 
-To set up a default configuration. However, you can also do this from the command line
-while using the `config` command in case the `gui` command is not an option for you::
+To set up a default configuration. However, you can also do this from
+the command line while using the `config` command in case the `gui`
+command is not an option for you::
 
 .. code-block:: bash
 
@@ -214,8 +219,8 @@ while using the `config` command in case the `gui` command is not an option for 
 
 Alternatively, you can edit and modify the `~/.clloudmesh/cloudmesh.yaml` file.
 
-Cloudmesh comes with cloud service bundles that can be easily installed using the `pip` command.
-Examples include
+Cloudmesh comes with cloud service bundles that can be easily
+installed using the `pip` command.  Examples include
 
 .. code-block:: bash
 
@@ -249,8 +254,11 @@ the build-in MongoDB installer::
 
     cms admin mongo install
 
-The installation of Mongo is done on the default port, and a version of mongo is installed in your ~/.cloudmsh directory. If you have other versions of Mongo on your computer make sure it is the newer one,
-as Mongo states, older versions must first completely uninstalled, so Mongo works properly.
+The installation of Mongo is done on the default port, and a version
+of mongo is installed in your ~/.cloudmsh directory. If you have other
+versions of Mongo on your computer make sure it is the newer one, as
+Mongo states, older versions must first completely uninstalled, so
+Mongo works properly.
 
 
 

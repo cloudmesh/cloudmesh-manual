@@ -1,35 +1,31 @@
-Multicloud Storage Interface
-============================
+Storage Providers
+=================
 
-Cloudmesh supports multiple cloud storage services. You can access them
-via commandline, an API or REST services. A simple abstraction layer
-between cloud services and you local computer makes it possible that the
-services are accessed the same way. This includes Awss3, Azure, Google,
-and box.
+Cloudmesh supports multiple cloud storage services via storage
+providers. You can access them via commandline, an API or REST
+services. A simple abstraction layer between cloud services and you
+local computer makes it possible that the services are accessed the
+same way. This includes Awss3, Azure, Google, and box.
 
 The code is available a cloudmesh module at
 
 * <https://github.com/cloudmesh/cloudmesh-storage>
 
-|Version| |License| |Python| |Format| |Format| |Travis|
 
-General Storage Command
------------------------
+The instalation is documented in our instalation manual.
 
-TODO: the pip install is not yet enabled.
-
-The storage module can be
 
 Configuration
 -------------
 
-AWS S3 Cloudmesh Integration
-----------------------------
+The cloudmesh yaml file contains a number of templates for configuring
+access to your cloud providers storage services. THis includes AWS,
+Azure, Google, and others.
 
-AWS S3 file storage has been integrated with cloudmesh library and is
-available for use via commandline. As a first step we need to modify
-`cloudmesh.yaml` config file. Under ‘storage’ section, we need to add
-the aws section to specify the parameters used to store files in AWS S3.
+
+To showcase the integration, please open the
+`cloudmesh.yaml` config file. Under the ‘storage’ section, we need to
+add the the parameters for authentication.
 
 In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
@@ -40,7 +36,7 @@ AWS S3. Region is the geographic area like `us-east-1` which contains
 the bucket. Region is required to get a connection handle on the S3
 Client or resource for that geographic area.
 
-Here is a sample.
+Here is an example:
 
 .. code:: bash
 
@@ -63,72 +59,41 @@ Here is a sample.
            bucket: name of bucket that you want user to be contained in.
            region: Specfiy the default region eg us-east-1
 
-The Cloudmesh command line library offers several functions including
-get, put, search, list, create directory, and delete. Once you have
-installed Cloudmesh storage, type `cms` into the command line to start
-the cms shell.
 
-.. code:: bash
+Similar to AWS other storage providers are available. Please check in
+the yaml file for their configuration template.
 
-   $ cms
-   +-------------------------------------------------------+
-   |   ____ _                 _                     _      |
-   |  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |
-   | | |   | |/ _ \| | | |/ _` | '_ ` _ \ / _ \/ __| '_ \  |
-   | | |___| | (_) | |_| | (_| | | | | | |  __/\__ \ | | | |
-   |  \____|_|\___/ \__,_|\__,_|_| |_| |_|\___||___/_| |_| |
-   +-------------------------------------------------------+
-   |                  Cloudmesh CMD5 Shell                 |
-   +-------------------------------------------------------+
 
-   cms>
+Commandline
+-----------
 
-To view the docopt for storage command, type in
+	   
+The Cloudmesh command line allows to access a directory with the
+convenient get, put, search, list, create directory, and delete
+functions. To find out more, use the command 
 
 .. code:: bash
 
    cms> help storage 
 
-Help command gives a detail level understanding of what each command
-does and how to use the command line to interact with different storage
-providers and different parameters / options available in a particular
-command. For eg to invoke AWS S3 service, we need to pass awss3 as
-parameter to storage and suffix with the function call with the function
-parameters.
+To invoke the AWS S3 service, we need to pass awss3 as
+parameter to storage parameter.
 
 .. code:: bash
 
-   cms> storage --storage='aws' list '' --run
-
-Alternatively, storage command can also be called directly without
-starting the cms shell.
-
-.. code:: bash
-
-   $ cms storage --storage='aws' list '' --run
+   $ cms storage --storage=aws list '' --run
   
-Or, some storage command can be called and run separately as follows:
-
-.. code:: bash
-   $ cms storage --storage='aws' list ''
-   $ cms storage run
-
-Storage functions overview
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Default storage
-~~~~~~~~~~~~~~~
 
 The following command can set the default storage service used in the 
 storage command. After this command, you don't need to specify the
---service option in some commands.
+`--service` option in some commands.
 
 .. code:: bash
 
    $ cms set storage=aws
 
 Monitor 
-~~~~~~~
+~~~~~~~~
 
 This command monitors the status of commands in mongodb database and 
 refresh itself every 5 seconds.
@@ -268,8 +233,34 @@ does and how to use the command line to interact with different object
 storage providers and different parameters / options available in a
 particular command.
 
+API
+~~~
+
+Cloudmesh Storage provides a simple programming API interface that you
+can use. We highlight a simple example for storing and retrieving a file
+form a storage provider.
+
+We assume the files at the given path exist
+
+.. code:: python
+
+   import cloudmesh.storage.provider.Provider as Provider
+   from cloudmesh.common.util import path_expand
+   from pprint import pprint
+
+   provider = Provider(service="azure")
+   src = path_expand("~/.cloudmesh/storage/test/a/a.txt")
+   dst = "/"
+   result = provider.put(src, dst)
+   # The resut will be a dict of the information which you can print with 
+
+   pprint(result)
+
+
 Pytests
 -------
+
+THe storage providers have a number of pytests that can be used to test the functionality
 
 Generic Tests
 ~~~~~~~~~~~~~
@@ -317,66 +308,6 @@ the following command to run pytests:
    $ pytest -v --capture=no tests/test_azure.py
    $ pytest -v --capture=no tests/test_storage_aws.py
 
-TODO: rename to
-
--  test_storage_azure.py
-
-General features
-----------------
-
-How to set up the authentication to a specific service is discussed in
-later sections
-
-TODO: Provide a simple programming example with the general provider
-
-Command Line Interface
-~~~~~~~~~~~~~~~~~~~~~~
-
-TBD
-
-.. code:: bash
-
-   $ cms set storage=azure
-   $ cms storage list
-
-Programming Interface
-~~~~~~~~~~~~~~~~~~~~~
-
-TBD
-
-Cloudmesh Storage provides a simple programming API interface that you
-can use. We highlight a simple example for storing and retrieving a file
-form a storage provider.
-
-We assume the files at the given path exist
-
-.. code:: python
-
-   import cloudmesh.storage.provider.Provider as Provider
-   from cloudmesh.common.util import path_expand
-   from pprint import pprint
-
-   provider = Provider(service="azure")
-   src = path_expand("~/.cloudmesh/storage/test/a/a.txt")
-   dst = "/"
-   result = provider.put(src, dst)
-   # The resut will be a dict of the information which you can print with 
-
-   pprint(result)
-
-.. _pytests-1:
-
-Pytests
-~~~~~~~
-
-Script to test the GDrive service can be accessed under tests folder
-using the following pytest command.
-
-TODO rename to test_storage_gdrive.py
-
-.. code:: bash
-
-   $ pytest -v --capture=no tests/test_gdrive.py
 
 Virtual Directory
 -----------------

@@ -1,7 +1,7 @@
 Quickstart
 ==========
 
-This quickstart assums you have already performed the following
+This quickstart assumes you have already performed the following
 
 * installed cloudmesh
 * installed mongodb either with the help of cloudmesh or another method
@@ -29,7 +29,7 @@ Configuration with the GUI
 --------------------------
 
 Cloudmesh comes with a simple GUI program that can only be used on the machines
-natively. E.g. It does not workin containers and the Linux Subsystem on
+natively. E.g. It does not work in containers and the Linux Subsystem on
 Windows.
 
 To install it as user you can do it with::
@@ -151,7 +151,7 @@ Command line
 ------------
 
 After you started cms you can issue a number of commands. The benefit of
-cloudmesh is that it is easy to switch betweeen clouds with the set command.
+cloudmesh is that it is easy to switch between clouds with the set command.
 After the set and specifying the cloud by name many commands will default to
 that cloud. The exception is the ``vm list`` command that lists by default
 all vms on all clouds. In addition the ``vm refresh`` command will also
@@ -335,7 +335,7 @@ to set your username and your password. This is done on the terminal with
 
 
 Where YOURUSERNAME, and YOURPASSWORD is the account name and password from
-the account givving you access to
+the account giving you access to
 
 * https://www.chameleoncloud.org/
 
@@ -383,6 +383,6 @@ In case of `off` the following values are set:
    cms set verbose=0
    cms set timer=True
 
-These values can also be indivoidually controlled with the set command.
+These values can also be individually controlled with the set command.
 
 

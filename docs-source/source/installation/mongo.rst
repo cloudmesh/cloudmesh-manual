@@ -10,7 +10,7 @@ We install a separate version of mongo in your `~/.cloudmesh` directory. Use the
 
     cms admin mongo install
 
-On windows you need to do this very carefully as there is one installtion
+On windows you need to do this very carefully as there is one installation
 box that you need to ignore to make this possible.
 
 First you need to change the password for mongo in the ``cloudmesh.yaml`` file

@@ -110,7 +110,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
@@ -182,7 +183,6 @@
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
@@ -363,7 +363,7 @@ file.</p>
 </div>
 <div class="section" id="uninstall-of-mongodb-on-windows-10">
 <h1>Uninstall of MongoDB on Windows 10<a class="headerlink" href="#uninstall-of-mongodb-on-windows-10" title="Permalink to this headline">¶</a></h1>
-<p>This section documents  steps required to uninstall MongoDB from a prior instalation</p>
+<p>This section documents  steps required to uninstall MongoDB from a prior installation</p>
 <p>Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
 (i.e. <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code>), Mongo is not installed with a service by
@@ -376,7 +376,7 @@ outside of cloudmesh, proceed through the following steps if you wish to
 completely uninstall MongoDB.</p>
 <p>To uninstall, please terminate the running MongoDB service (if
 applicable), <em>then</em> delete it. To stop the service, open Task Manager
-and confirm the status = <cite>Stopped</cite>. If it is not stoppe, please do
+and confirm the status = <cite>Stopped</cite>. If it is not stopped, please do
 so. To delete it, run the following as an administrator from the
 command line:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sc.exe delete MongoDB

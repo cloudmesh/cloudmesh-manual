@@ -123,7 +123,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="install-docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-linux.html">Instalation for for Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-linux.html">Installation for for Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-macos.html">Installation for macOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-pi.html">Prerequisites for Raspbian</a></li>
 <li class="toctree-l2"><a class="reference internal" href="windows/index.html">Windows Installation</a></li>
@@ -138,7 +138,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
@@ -210,7 +211,6 @@
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
@@ -300,7 +300,7 @@
             
   <div class="section" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<p>This quickstart assums you have already performed the following</p>
+<p>This quickstart assumes you have already performed the following</p>
 <ul class="simple">
 <li><p>installed cloudmesh</p></li>
 <li><p>installed mongodb either with the help of cloudmesh or another method</p></li>
@@ -323,7 +323,7 @@ formated. This can be done with</p>
 <div class="section" id="configuration-with-the-gui">
 <h2>Configuration with the GUI<a class="headerlink" href="#configuration-with-the-gui" title="Permalink to this headline">¶</a></h2>
 <p>Cloudmesh comes with a simple GUI program that can only be used on the machines
-natively. E.g. It does not workin containers and the Linux Subsystem on
+natively. E.g. It does not work in containers and the Linux Subsystem on
 Windows.</p>
 <p>To install it as user you can do it with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cloudmesh</span><span class="o">-</span><span class="n">gui</span>
@@ -416,7 +416,7 @@ cms key upload --cloud<span class="o">=</span>chameleon
 <div class="section" id="command-line">
 <h2>Command line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
 <p>After you started cms you can issue a number of commands. The benefit of
-cloudmesh is that it is easy to switch betweeen clouds with the set command.
+cloudmesh is that it is easy to switch between clouds with the set command.
 After the set and specifying the cloud by name many commands will default to
 that cloud. The exception is the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">list</span></code> command that lists by default
 all vms on all clouds. In addition the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">refresh</span></code> command will also
@@ -564,7 +564,7 @@ cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_
 </pre></div>
 </div>
 <p>Where YOURUSERNAME, and YOURPASSWORD is the account name and password from
-the account givving you access to</p>
+the account giving you access to</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.chameleoncloud.org/">https://www.chameleoncloud.org/</a></p></li>
 </ul>
@@ -602,7 +602,7 @@ cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=
 cms <span class="nb">set</span> <span class="nv">timer</span><span class="o">=</span>True
 </pre></div>
 </div>
-<p>These values can also be indivoidually controlled with the set command.</p>
+<p>These values can also be individually controlled with the set command.</p>
 </div>
 </div>
 

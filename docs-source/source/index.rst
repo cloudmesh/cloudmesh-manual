@@ -25,6 +25,7 @@ Cloudmesh Version 4
    concepts/commandshell
    concepts/compute
    concepts/storage
+   concepts/vdir   
    concepts/openapi
 
 .. toctree::

@@ -1,14 +1,12 @@
-Instalation for for Linux
+Installation for for Linux
 =========================
 
-We describe here the various choces for the instalation of cloudmesh on linux. We focussed
-on Ubuntu but useres were able to adopt them easily for other versions of Linux
-including CentOS, RedHat, and Linux Mint.
-
-If you have rerequisits for thes OSes, please send them to us and we include them here.
+We describe here the various choices for the installation of cloudmesh on linux. We focus
+on Ubuntu but you are able to adopt them easily for other versions of Linux
+including CentOS, RedHat, and Linux Mint. You can contribute these instructions to us.
 
 Please read the document first, before you copy and paste, as there are
-differences between the installs fior regular users, container users and developers.
+differences between the installs for regular users, container users and developers.
 
 Prerequisites for Ubuntu 20.4
 ------------------------------
@@ -23,7 +21,7 @@ Prerequisites for Ubuntu 20.4
 Prerequisites for Ubuntu 19.10
 -------------------------------
 
-We recommend you swithc to Ubuntu 20.04. However if you can not do this please
+We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.
 
 Python 3.8.2 is not yet installed in Ubuntu 19.10. The installation is simple
@@ -54,7 +52,7 @@ and can be conducted with the following steps. You can download python from
 Prerequisites for Ubuntu 18.04
 -------------------------------
 
-We recommend you swithc to Ubuntu 20.04. However if you can not do this please
+We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.
 
 We first need to make sure that the correct version of the Python3 is
@@ -80,7 +78,7 @@ the new version with
 Installation Diagram
 -------------------
 
-We provide an easy to follow instalation diagram to showcase how simple the instalation for cloudesh is
+We provide an easy to follow installation diagram
 
 .. mermaid::
 
@@ -119,5 +117,3 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
       style container fill:gainsboro,stroke:#333,stroke-width:2px
       style setup fill:gainsboro,stroke:#333,stroke-width:2px
       style pip fill:gainsboro,stroke:#333,stroke-width:2px
-
-

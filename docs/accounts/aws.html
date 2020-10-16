@@ -111,7 +111,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
@@ -197,7 +198,6 @@
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
@@ -569,7 +569,7 @@ cms config <span class="nb">set</span> cloudmesh.cloud.aws.credentials.EC2_SECRE
 <ul class="simple">
 <li><p>Region can be found while logged into the AWS management console in
 the upper right-hand side. <a class=""
-               data-lightbox="group-ed7e3cf6-0d61-4833-94f0-7f590fe5d322"
+               data-lightbox="group-3cb934bb-8d12-4919-88aa-ef7724cc78f6"
                href="../_images/aws_region1.png"
                title=""
                data-title=""
@@ -582,7 +582,7 @@ the upper right-hand side. <a class=""
 <li><p>EC2_ACCESS_ID and EC2_SECRET_KEY values can be found either during
 the initial setup in AWS, or by referencing the Access Key downloaded
 as a csv and moved to the <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> directory. <a class=""
-               data-lightbox="group-cd766274-835a-409b-b142-e8a827ca0db7"
+               data-lightbox="group-53643182-a0d1-4983-a539-2d692fa5650e"
                href="../_images/aws_access_key1.png"
                title=""
                data-title=""
@@ -601,7 +601,7 @@ update the AWS account section with the following steps:</p>
 <li><p>Create a new key pair and name the key pair <code class="docutils literal notranslate"><span class="pre">aws_cert</span></code>. Then
 download the key and move to the <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> directory.
 <a class=""
-               data-lightbox="group-41cc72e4-154c-439f-aee3-4efa73dcf02d"
+               data-lightbox="group-f94d7495-5ac0-405c-bc10-a0d1c51d1591"
                href="../_images/aws_private_key1.png"
                title=""
                data-title=""
@@ -615,7 +615,7 @@ download the key and move to the <code class="docutils literal notranslate"><spa
 </li>
 </ul>
 <p>Once the values have been set: <a class=""
-               data-lightbox="group-4b0fb07e-6733-42c0-883b-ed949b9a007d"
+               data-lightbox="group-9a2e2c4a-7647-469e-89eb-1369c2cc9604"
                href="../_images/aws_config1.png"
                title=""
                data-title=""
@@ -625,7 +625,7 @@ download the key and move to the <code class="docutils literal notranslate"><spa
                      height="auto"
                      alt="AWS Configuration: Set Config"/>
                 </a> <a class=""
-               data-lightbox="group-306a61ae-5368-4fd3-b3ce-d44eb436a165"
+               data-lightbox="group-0005a9d5-a804-48e5-b5d1-df6db1b8a821"
                href="../_images/aws_config_check1.png"
                title=""
                data-title=""
@@ -644,7 +644,7 @@ cms vm boot
 </div>
 <p>This should have allowed you to initialize cms with the updated
 configurations and boot up a new vm in AWS based. <a class=""
-               data-lightbox="group-199ba6f2-330c-4657-acd6-33c322ee188c"
+               data-lightbox="group-468c4b32-191d-4fcd-9ca7-adea5390faf8"
                href="../_images/aws_cms_init_and_vmboot1.png"
                title=""
                data-title=""

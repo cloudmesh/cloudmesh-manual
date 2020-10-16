@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Instalation for for Linux &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Installation for for Linux &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -107,7 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-docker.html">Docker</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Instalation for for Linux</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation for for Linux</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-20-4">Prerequisites for Ubuntu 20.4</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-19-10">Prerequisites for Ubuntu 19.10</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-18-04">Prerequisites for Ubuntu 18.04</a></li>
@@ -131,7 +131,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Multicloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
@@ -203,7 +204,6 @@
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
@@ -272,7 +272,7 @@
         
           <li><a href="index.html">Installation</a> &raquo;</li>
         
-      <li>Instalation for for Linux</li>
+      <li>Installation for for Linux</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -291,14 +291,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="instalation-for-for-linux">
-<h1>Instalation for for Linux<a class="headerlink" href="#instalation-for-for-linux" title="Permalink to this headline">¶</a></h1>
-<p>We describe here the various choces for the instalation of cloudmesh on linux. We focussed
-on Ubuntu but useres were able to adopt them easily for other versions of Linux
-including CentOS, RedHat, and Linux Mint.</p>
-<p>If you have rerequisits for thes OSes, please send them to us and we include them here.</p>
+  <div class="section" id="installation-for-for-linux">
+<h1>Installation for for Linux<a class="headerlink" href="#installation-for-for-linux" title="Permalink to this headline">¶</a></h1>
+<p>We describe here the various choices for the installation of cloudmesh on linux. We focus
+on Ubuntu but you are able to adopt them easily for other versions of Linux
+including CentOS, RedHat, and Linux Mint. You can contribute these instructions to us.</p>
 <p>Please read the document first, before you copy and paste, as there are
-differences between the installs fior regular users, container users and developers.</p>
+differences between the installs for regular users, container users and developers.</p>
 <div class="section" id="prerequisites-for-ubuntu-20-4">
 <h2>Prerequisites for Ubuntu 20.4<a class="headerlink" href="#prerequisites-for-ubuntu-20-4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv ~/ENV3
@@ -309,7 +308,7 @@ pip install pip -U
 </div>
 <div class="section" id="prerequisites-for-ubuntu-19-10">
 <h2>Prerequisites for Ubuntu 19.10<a class="headerlink" href="#prerequisites-for-ubuntu-19-10" title="Permalink to this headline">¶</a></h2>
-<p>We recommend you swithc to Ubuntu 20.04. However if you can not do this please
+<p>We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.</p>
 <p>Python 3.8.2 is not yet installed in Ubuntu 19.10. The installation is simple
 and can be conducted with the following steps. You can download python from</p>
@@ -337,7 +336,7 @@ pip install pip -U
 </div>
 <div class="section" id="prerequisites-for-ubuntu-18-04">
 <h2>Prerequisites for Ubuntu 18.04<a class="headerlink" href="#prerequisites-for-ubuntu-18-04" title="Permalink to this headline">¶</a></h2>
-<p>We recommend you swithc to Ubuntu 20.04. However if you can not do this please
+<p>We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.</p>
 <p>We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
@@ -387,7 +386,7 @@ cms init
 </div>
 <div class="section" id="installation-diagram">
 <h2>Installation Diagram<a class="headerlink" href="#installation-diagram" title="Permalink to this headline">¶</a></h2>
-<p>We provide an easy to follow instalation diagram to showcase how simple the instalation for cloudesh is</p>
+<p>We provide an easy to follow installation diagram</p>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph TD
 

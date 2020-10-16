@@ -122,7 +122,7 @@ file.
 Uninstall of MongoDB on Windows 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section documents  steps required to uninstall MongoDB from a prior instalation
+This section documents  steps required to uninstall MongoDB from a prior installation
 
 Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
@@ -139,7 +139,7 @@ completely uninstall MongoDB.
 
 To uninstall, please terminate the running MongoDB service (if
 applicable), *then* delete it. To stop the service, open Task Manager
-and confirm the status = `Stopped`. If it is not stoppe, please do
+and confirm the status = `Stopped`. If it is not stopped, please do
 so. To delete it, run the following as an administrator from the
 command line:
 

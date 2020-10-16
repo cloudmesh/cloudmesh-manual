@@ -284,6 +284,6 @@ An example is::
     path: /Users/grey/.cloudmesh/name.yaml
 
 In it you define variables that can be used as part of the schema. The
-counter varaiable is incresed every time a new name is generated. In case a
+counter variable is increased every time a new name is generated. In case a
 yaml file is used no parameters have to be given to `Name()`
 

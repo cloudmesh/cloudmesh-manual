@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Multicloud Storage Interface &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Storage Providers &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="OpenAPI Web Services" href="openapi.html" />
+    <link rel="next" title="Virtual Directory" href="vdir.html" />
     <link rel="prev" title="Virtual Machine Providers" href="compute.html" /> 
 </head>
 
@@ -112,12 +112,9 @@
 <li class="toctree-l1"><a class="reference internal" href="namespaces.html">Cloudmesh Namespace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="commandshell.html">Extensible Command Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Multicloud Storage Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general-storage-command">General Storage Command</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Storage Providers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#aws-s3-cloudmesh-integration">AWS S3 Cloudmesh Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#storage-functions-overview">Storage functions overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#default-storage">Default storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commandline">Commandline</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#monitor">Monitor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run">Run</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clean">Clean</a></li>
@@ -128,17 +125,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#list">List</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#delete">Delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#copy">Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pytests">Pytests</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#generic-tests">Generic Tests</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#provider-specific-pytests">Provider Specific Pytests</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#general-features">General features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#command-line-interface">Command Line Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#programming-interface">Programming Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pytests-1">Pytests</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-directory">Virtual Directory</a><ul>
@@ -153,6 +145,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="vdir.html">Virtual Directory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openapi.html">OpenAPI Web Services</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
@@ -224,7 +217,6 @@
 <p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ai.html">Multicloud AI Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ chameleon cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
@@ -291,7 +283,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Multicloud Storage Interface</li>
+      <li>Storage Providers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -310,32 +302,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="multicloud-storage-interface">
-<h1>Multicloud Storage Interface<a class="headerlink" href="#multicloud-storage-interface" title="Permalink to this headline">¶</a></h1>
-<p>Cloudmesh supports multiple cloud storage services. You can access them
-via commandline, an API or REST services. A simple abstraction layer
-between cloud services and you local computer makes it possible that the
-services are accessed the same way. This includes Awss3, Azure, Google,
-and box.</p>
+  <div class="section" id="storage-providers">
+<h1>Storage Providers<a class="headerlink" href="#storage-providers" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh supports multiple cloud storage services via storage
+providers. You can access them via commandline, an API or REST
+services. A simple abstraction layer between cloud services and you
+local computer makes it possible that the services are accessed the
+same way. This includes Awss3, Azure, Google, and box.</p>
 <p>The code is available a cloudmesh module at</p>
 <ul class="simple">
 <li><p>&lt;<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage">https://github.com/cloudmesh/cloudmesh-storage</a>&gt;</p></li>
 </ul>
-<p><a href="#id4"><span class="problematic" id="id5">|Version|</span></a> <a href="#id6"><span class="problematic" id="id7">|License|</span></a> <a href="#id8"><span class="problematic" id="id9">|Python|</span></a> <a href="#id10"><span class="problematic" id="id11">|Format|</span></a> <a href="#id12"><span class="problematic" id="id13">|Format|</span></a> <a href="#id14"><span class="problematic" id="id15">|Travis|</span></a></p>
-<div class="section" id="general-storage-command">
-<h2>General Storage Command<a class="headerlink" href="#general-storage-command" title="Permalink to this headline">¶</a></h2>
-<p>TODO: the pip install is not yet enabled.</p>
-<p>The storage module can be</p>
-</div>
+<p>The instalation is documented in our instalation manual.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="aws-s3-cloudmesh-integration">
-<h2>AWS S3 Cloudmesh Integration<a class="headerlink" href="#aws-s3-cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
-<p>AWS S3 file storage has been integrated with cloudmesh library and is
-available for use via commandline. As a first step we need to modify
-<cite>cloudmesh.yaml</cite> config file. Under ‘storage’ section, we need to add
-the aws section to specify the parameters used to store files in AWS S3.</p>
+<p>The cloudmesh yaml file contains a number of templates for configuring
+access to your cloud providers storage services. THis includes AWS,
+Azure, Google, and others.</p>
+<p>To showcase the integration, please open the
+<cite>cloudmesh.yaml</cite> config file. Under the ‘storage’ section, we need to
+add the the parameters for authentication.</p>
 <p>In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
 <cite>AWS IAM service</cite> -&gt; <cite>Users</cite> -&gt; <cite>Security Credentials</cite>.</p>
@@ -343,7 +329,7 @@ secret access key which will be available in the AWS console under
 AWS S3. Region is the geographic area like <cite>us-east-1</cite> which contains
 the bucket. Region is required to get a connection handle on the S3
 Client or resource for that geographic area.</p>
-<p>Here is a sample.</p>
+<p>Here is an example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh:
   ...
   storage:
@@ -364,54 +350,27 @@ Client or resource for that geographic area.</p>
         region: Specfiy the default region eg us-east-1
 </pre></div>
 </div>
-<p>The Cloudmesh command line library offers several functions including
-get, put, search, list, create directory, and delete. Once you have
-installed Cloudmesh storage, type <cite>cms</cite> into the command line to start
-the cms shell.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms
-+-------------------------------------------------------+
-<span class="p">|</span>   ____ _                 _                     _      <span class="p">|</span>
-<span class="p">|</span>  / ___<span class="p">|</span> <span class="p">|</span> ___  _   _  __<span class="p">|</span> <span class="p">|</span>_ __ ___   ___  ___<span class="p">|</span> <span class="p">|</span>__   <span class="p">|</span>
-<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>   <span class="p">|</span> <span class="p">|</span>/ _ <span class="se">\|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>/ _<span class="sb">`</span> <span class="p">|</span> <span class="s1">&#39;_ ` _ \ / _ \/ __| &#39;</span>_ <span class="se">\ </span> <span class="p">|</span>
-<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>___<span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="o">)</span> <span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>  __/<span class="se">\_</span>_ <span class="se">\ </span><span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span>
-<span class="p">|</span>  <span class="se">\_</span>___<span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>__/ <span class="se">\_</span>_,_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>__<span class="o">||</span>___/_<span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span>
-+-------------------------------------------------------+
-<span class="p">|</span>                  Cloudmesh CMD5 Shell                 <span class="p">|</span>
-+-------------------------------------------------------+
-
-cms&gt;
-</pre></div>
+<p>Similar to AWS other storage providers are available. Please check in
+the yaml file for their configuration template.</p>
 </div>
-<p>To view the docopt for storage command, type in</p>
+<div class="section" id="commandline">
+<h2>Commandline<a class="headerlink" href="#commandline" title="Permalink to this headline">¶</a></h2>
+<p>The Cloudmesh command line allows to access a directory with the
+convenient get, put, search, list, create directory, and delete
+functions. To find out more, use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; <span class="nb">help</span> storage
 </pre></div>
 </div>
-<p>Help command gives a detail level understanding of what each command
-does and how to use the command line to interact with different storage
-providers and different parameters / options available in a particular
-command. For eg to invoke AWS S3 service, we need to pass awss3 as
-parameter to storage and suffix with the function call with the function
-parameters.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span> --run
+<p>To invoke the AWS S3 service, we need to pass awss3 as
+parameter to storage parameter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span>aws list <span class="s1">&#39;&#39;</span> --run
 </pre></div>
 </div>
-<p>Alternatively, storage command can also be called directly without
-starting the cms shell.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list <span class="s1">&#39;&#39;</span> --run
-</pre></div>
-</div>
-<p>Or, some storage command can be called and run separately as follows:</p>
-<div class="section" id="storage-functions-overview">
-<h3>Storage functions overview<a class="headerlink" href="#storage-functions-overview" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="default-storage">
-<h3>Default storage<a class="headerlink" href="#default-storage" title="Permalink to this headline">¶</a></h3>
 <p>The following command can set the default storage service used in the
 storage command. After this command, you don’t need to specify the
-–service option in some commands.</p>
+<cite>–service</cite> option in some commands.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>aws
 </pre></div>
-</div>
 </div>
 <div class="section" id="monitor">
 <h3>Monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
@@ -523,9 +482,30 @@ does and how to use the command line to interact with different object
 storage providers and different parameters / options available in a
 particular command.</p>
 </div>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<p>Cloudmesh Storage provides a simple programming API interface that you
+can use. We highlight a simple example for storing and retrieving a file
+form a storage provider.</p>
+<p>We assume the files at the given path exist</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cloudmesh.storage.provider.Provider</span> <span class="k">as</span> <span class="nn">Provider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;azure&quot;</span><span class="p">)</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/storage/test/a/a.txt&quot;</span><span class="p">)</span>
+<span class="n">dst</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+<span class="c1"># The resut will be a dict of the information which you can print with</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="pytests">
 <h2>Pytests<a class="headerlink" href="#pytests" title="Permalink to this headline">¶</a></h2>
+<p>THe storage providers have a number of pytests that can be used to test the functionality</p>
 <div class="section" id="generic-tests">
 <h3>Generic Tests<a class="headerlink" href="#generic-tests" title="Permalink to this headline">¶</a></h3>
 <p>We have developed a number of simple pytests that can be called. To see
@@ -567,54 +547,6 @@ $ pytest -v --capture<span class="o">=</span>no tests/test_azure.py
 $ pytest -v --capture<span class="o">=</span>no tests/test_storage_aws.py
 </pre></div>
 </div>
-<p>TODO: rename to</p>
-<ul class="simple">
-<li><p>test_storage_azure.py</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="general-features">
-<h2>General features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a></h2>
-<p>How to set up the authentication to a specific service is discussed in
-later sections</p>
-<p>TODO: Provide a simple programming example with the general provider</p>
-<div class="section" id="command-line-interface">
-<h3>Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h3>
-<p>TBD</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>azure
-$ cms storage list
-</pre></div>
-</div>
-</div>
-<div class="section" id="programming-interface">
-<h3>Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h3>
-<p>TBD</p>
-<p>Cloudmesh Storage provides a simple programming API interface that you
-can use. We highlight a simple example for storing and retrieving a file
-form a storage provider.</p>
-<p>We assume the files at the given path exist</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cloudmesh.storage.provider.Provider</span> <span class="k">as</span> <span class="nn">Provider</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="kn">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-
-<span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;azure&quot;</span><span class="p">)</span>
-<span class="n">src</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/storage/test/a/a.txt&quot;</span><span class="p">)</span>
-<span class="n">dst</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
-<span class="c1"># The resut will be a dict of the information which you can print with</span>
-
-<span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="pytests-1">
-<span id="id1"></span><h3>Pytests<a class="headerlink" href="#pytests-1" title="Permalink to this headline">¶</a></h3>
-<p>Script to test the GDrive service can be accessed under tests folder
-using the following pytest command.</p>
-<p>TODO rename to test_storage_gdrive.py</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -v --capture<span class="o">=</span>no tests/test_gdrive.py
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="virtual-directory">
@@ -623,12 +555,12 @@ using the following pytest command.</p>
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.</p>
 <div class="section" id="configuration-1">
-<span id="id2"></span><h3>Configuration<a class="headerlink" href="#configuration-1" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Configuration<a class="headerlink" href="#configuration-1" title="Permalink to this headline">¶</a></h3>
 <p>The credentials for the virtual directory are the same as for the admin
 mongo command. See the Mongo section for details.</p>
 </div>
 <div class="section" id="pytests-2">
-<span id="id3"></span><h3>Pytests<a class="headerlink" href="#pytests-2" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Pytests<a class="headerlink" href="#pytests-2" title="Permalink to this headline">¶</a></h3>
 <p>The vdir command can be tested as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -v --capture<span class="o">=</span>no tests/test_vdir.py
 </pre></div>
@@ -679,7 +611,7 @@ format</strong> and not in the form of a dictionary.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="openapi.html" class="btn btn-neutral float-right" title="OpenAPI Web Services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="vdir.html" class="btn btn-neutral float-right" title="Virtual Directory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="compute.html" class="btn btn-neutral float-left" title="Virtual Machine Providers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
