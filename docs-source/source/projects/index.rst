@@ -1,5 +1,5 @@
-Cloudmesh Development Projects
-==============================
+Community Projects
+==================
 
 .. toctree::
    :glob:

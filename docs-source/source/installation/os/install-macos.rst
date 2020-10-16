@@ -40,7 +40,7 @@ documentation we refer to it as ENV3
    source ~/ENV3/bin/activate
    pip install pip -U
 
-.. include:: install-generic.rst
+.. include:: ../install-generic.rst
 
 Installation Diagram
 -------------------

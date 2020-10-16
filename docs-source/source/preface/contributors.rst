@@ -1,9 +1,10 @@
 Contributors
 ============
 
-Code Contributions can be seen at
+Contributors can be located from the different versions
+and packages in the at:
 
-* https://github.com/cloudmesh/cloudmesh-cloud/graphs/contributors
+-  https://github.com/cloudmesh
 
 The original author of Cloudmesh is
 

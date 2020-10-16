@@ -95,25 +95,44 @@
               
             
             
-              <p class="caption"><span class="caption-text">PREFACE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
-</ul>
-<p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul>
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface/index.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud Accounts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws.html">AWS Account</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Azure Account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#azure-account-1">Azure Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-cli">Azure CLI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-azure-cli-on-ubuntu-os">Installing Azure CLI on Ubuntu OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-azure-cli-on-windows-10">Installing Azure CLI on Windows 10</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONCEPTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh API Namespace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-resource-group-for-storage">Azure Resource Group (for Storage)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-api-credentials">Azure API Credentials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#azure-subscription-id">Azure_Subscription_ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#azure-tenant-id-azure-client-id">Azure_Tenant_ID &amp; Azure_Client_ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#azure-secret-key">Azure_Secret_Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grant-permission-to-application">Grant permission to application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-the-credentials-to-cloudmesh-yaml">Add the credentials to cloudmesh.yaml</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-resource-group-for-compute">Azure Resource Group (for Compute)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-resource-group-for-storage-and-compute">Azure Resource Group (for Storage and Compute)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#faq">FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="google/index.html">Google Acounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="box.html">Box Account</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/index.html">Benchmarks</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,86 +153,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONTRIBUTING</span></p>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS Account</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Azure Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#azure-account-1">Azure Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#azure-cli">Azure CLI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-azure-cli-on-ubuntu-os">Installing Azure CLI on Ubuntu OS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-azure-cli-on-windows-10">Installing Azure CLI on Windows 10</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage">Azure Resource Group (for Storage)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#azure-api-credentials">Azure API Credentials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#azure-subscription-id">Azure_Subscription_ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#azure-tenant-id-azure-client-id">Azure_Tenant_ID &amp; Azure_Client_ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#azure-secret-key">Azure_Secret_Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#grant-permission-to-application">Grant permission to application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#add-the-credentials-to-cloudmesh-yaml">Add the credentials to cloudmesh.yaml</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-compute">Azure Resource Group (for Compute)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage-and-compute">Azure Resource Group (for Storage and Compute)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="google/index.html">Google Acounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="box.html">Box Account</a></li>
-</ul>
-<p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ - Chameleon cloud</a></li>
-</ul>
-<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/benchmark.html">Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">Benchmark results for box Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ - Chameleon cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/emr.html">emr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/git.html">git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/queue.html">queue</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/test.html">test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/windows.html">windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/workflow_draft.html">workflow_draft</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../windows/windows-broken-make.html">Windows Cloudmesh Ubuntu Subsystem Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../windows/windows-linux.html">Using windows instead of Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../windows/windows-ubuntu.html">Windows Cloudmesh Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/index.html">Contributing</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../deprecated.html">DEPRECATED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
 
             
@@ -259,6 +207,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Cloud Accounts</a> &raquo;</li>
         
       <li>Azure Account</li>
     
@@ -395,7 +345,7 @@ Prompt or PowerShell for interacting with the Azure CLI:</p>
 </div>
 <p>Sign in via the default browser using your Azure credentials.</p>
 <p><a class=""
-               data-lightbox="group-8b50aa18-f6db-4355-b842-51509f37a0a3"
+               data-lightbox="group-38c0fd15-c6e3-49a4-985b-58f320b598ea"
                href="../_images/azure-confirm-signin1.png"
                title=""
                data-title=""
@@ -405,7 +355,7 @@ Prompt or PowerShell for interacting with the Azure CLI:</p>
                      height="auto"
                      alt="Sign in"/>
                 </a> <a class=""
-               data-lightbox="group-8d1440eb-ac8a-49e2-b61f-37ebab4e8f78"
+               data-lightbox="group-24deb348-7be8-4dc6-8680-a6e700b20e73"
                href="../_images/azure-confirm-signin21.png"
                title=""
                data-title=""
@@ -517,7 +467,7 @@ expiration for security purpose</p>
 </div>
 <p>After creation, copy the new client secret to notepad</p>
 <p><a class=""
-               data-lightbox="group-04108360-1089-4c19-a2dd-0e9f681b4fb4"
+               data-lightbox="group-f2d1429b-5a8b-4f6a-9f4f-3886a9179852"
                href="../_images/image102.png"
                title=""
                data-title=""

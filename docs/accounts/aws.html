@@ -95,25 +95,37 @@
               
             
             
-              <p class="caption"><span class="caption-text">PREFACE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
-</ul>
-<p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul>
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface/index.html">Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html#cloudmesh-database">Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud Accounts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AWS Account</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-key">Access Key</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-and-download-access-key">Create and Download Access Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-access-key">Using the Access Key</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONCEPTS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/commandshell.html">Extensible Command Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/namespaces.html">Cloudmesh API Namespace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/compute.html">Virtual Machine Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/storage.html">Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/vdir.html">Virtual Directory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../concepts/openapi.html">OpenAPI Web Services</a></li>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#compute-service">Compute Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#import-public-key">Import Public key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudmesh-yaml-configuration-for-aws">Cloudmesh.yaml Configuration for AWS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#storage-service">Storage Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Azure Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google/index.html">Google Acounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="box.html">Box Account</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/index.html">Benchmarks</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -134,79 +146,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
-<p class="caption"><span class="caption-text">CONTRIBUTING</span></p>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html#version-management">Version Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="openstack.html">OpenStack Account</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">AWS Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#access-key">Access Key</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-and-download-access-key">Create and Download Access Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-access-key">Using the Access Key</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#compute-service">Compute Service</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#import-public-key">Import Public key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-yaml-configuration-for-aws">Cloudmesh.yaml Configuration for AWS</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#storage-service">Storage Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="azure.html">Azure Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="google/index.html">Google Acounts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oracle/account.html">Oracle Cloud Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="box.html">Box Account</a></li>
-</ul>
-<p class="caption"><span class="caption-text">FAQ AND TIPS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ - Chameleon cloud</a></li>
-</ul>
-<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/benchmark.html">Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">Benchmark results for box Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">UNLISTED TODO</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/chameleon.html">FAQ - Chameleon cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../faq/install.html">FAQ - Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/analytics.html">analytics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/book.html">book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/bookmanagerservice.html">bookmanagerservice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/emr.html">emr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/git.html">git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/queue.html">queue</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/test.html">test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/windows.html">windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/workflow_draft.html">workflow_draft</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../windows/windows-broken-make.html">Windows Cloudmesh Ubuntu Subsystem Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../windows/windows-linux.html">Using windows instead of Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../windows/windows-ubuntu.html">Windows Cloudmesh Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/index.html">Contributing</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../deprecated.html">DEPRECATED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
 
             
@@ -252,6 +200,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Cloud Accounts</a> &raquo;</li>
         
       <li>AWS Account</li>
     
@@ -558,7 +508,7 @@ cms config <span class="nb">set</span> cloudmesh.cloud.aws.credentials.EC2_SECRE
 <ul class="simple">
 <li><p>Region can be found while logged into the AWS management console in
 the upper right-hand side. <a class=""
-               data-lightbox="group-c13c1b7f-a463-462b-a155-e93f6000f705"
+               data-lightbox="group-078b47dd-9c98-48ae-960b-82edd6923a14"
                href="../_images/aws_region1.png"
                title=""
                data-title=""
@@ -571,7 +521,7 @@ the upper right-hand side. <a class=""
 <li><p>EC2_ACCESS_ID and EC2_SECRET_KEY values can be found either during
 the initial setup in AWS, or by referencing the Access Key downloaded
 as a csv and moved to the <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> directory. <a class=""
-               data-lightbox="group-21e6a681-dbbb-4b7d-80fe-a954a26f2546"
+               data-lightbox="group-f2d5da80-e635-45c2-aa0d-d112a679aa22"
                href="../_images/aws_access_key1.png"
                title=""
                data-title=""
@@ -590,7 +540,7 @@ update the AWS account section with the following steps:</p>
 <li><p>Create a new key pair and name the key pair <code class="docutils literal notranslate"><span class="pre">aws_cert</span></code>. Then
 download the key and move to the <code class="docutils literal notranslate"><span class="pre">~\.cloudmesh</span></code> directory.
 <a class=""
-               data-lightbox="group-e51400ae-05a3-4d95-9646-927b3e849fbe"
+               data-lightbox="group-fc28ba20-6fa3-4fa5-a27e-53d932b56b9a"
                href="../_images/aws_private_key1.png"
                title=""
                data-title=""
@@ -604,7 +554,7 @@ download the key and move to the <code class="docutils literal notranslate"><spa
 </li>
 </ul>
 <p>Once the values have been set: <a class=""
-               data-lightbox="group-d2e23487-ea0a-4537-835e-c07c8ce5813f"
+               data-lightbox="group-e4c2c25a-8655-43f0-b295-79f8e19c06b3"
                href="../_images/aws_config1.png"
                title=""
                data-title=""
@@ -614,7 +564,7 @@ download the key and move to the <code class="docutils literal notranslate"><spa
                      height="auto"
                      alt="AWS Configuration: Set Config"/>
                 </a> <a class=""
-               data-lightbox="group-fb0a67a7-285a-4797-8461-c560732f8862"
+               data-lightbox="group-74a1d059-4b0a-4312-8190-c47a330db727"
                href="../_images/aws_config_check1.png"
                title=""
                data-title=""
@@ -633,7 +583,7 @@ cms vm boot
 </div>
 <p>This should have allowed you to initialize cms with the updated
 configurations and boot up a new vm in AWS based. <a class=""
-               data-lightbox="group-824ef275-5bd5-44d3-a17c-160cdb83f534"
+               data-lightbox="group-fc5f5612-d355-40fe-963a-4b1b981bc6d3"
                href="../_images/aws_cms_init_and_vmboot1.png"
                title=""
                data-title=""

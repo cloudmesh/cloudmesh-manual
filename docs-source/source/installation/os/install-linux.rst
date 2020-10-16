@@ -73,7 +73,7 @@ the new version with
    rm get-pip.py
 
 
-.. include:: install-generic.rst
+.. include:: ../install-generic.rst
 
 Installation Diagram
 -------------------

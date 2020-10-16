@@ -4,29 +4,16 @@ Cloudmesh Version 4
 `Manual <https://cloudmesh.github.io/cloudmesh-manual/>`_
 
 .. toctree::
-   :caption: PREFACE
+   :caption: INTRODUCTION
    :maxdepth: 10
 
-   preface/about
-   preface/contributors
-
-.. toctree::
-   :caption: INSTALLATION
-   :maxdepth: 2
-
+   preface/index
    installation/index
    configuration/configuration
-
-.. toctree::
-   :caption: CONCEPTS
-   :maxdepth: 10
-
-   concepts/commandshell	      
-   concepts/namespaces	      
-   concepts/compute
-   concepts/storage
-   concepts/vdir   
-   concepts/openapi
+   concepts/index
+   accounts/index
+   faq/index
+   benchmarks/index
 
 .. toctree::
    :caption: MANUAL PAGES
@@ -52,48 +39,13 @@ Cloudmesh Version 4
    jupyter/index
    
 .. toctree::
-   :caption: CONTRIBUTING
+   :caption: COMMUNITY
    :maxdepth: 10
 
    projects/index
-   dev/conventions
-   dev/manual
-   dev/management
-   dev/pytest
-   dev/todo
+   dev/index
 
 
-.. toctree::
-   :caption: CLOUD ACCOUNTS
-   :maxdepth: 10
-
-   accounts/openstack
-   accounts/aws
-   accounts/azure
-   accounts/google/index
-   accounts/oracle/account
-   accounts/box
-   accounts/accountcreation-old
-
-
-.. toctree::
-   :caption: FAQ AND TIPS
-   :maxdepth: 10
-
-   faq/install
-   faq/chameleon
-   faq/windows
-
-.. toctree::
-   :glob:
-   :caption: BENCHMARKS
-
-   benchmarks/*
-
-   
-   
-
-   
    
 Indices and tables
 ==================
@@ -103,39 +55,15 @@ Indices and tables
 * :ref:`search`
 
 
-.. toctree::
-   :caption: UNLISTED TODO
-   :maxdepth: 10
 
-   api/modules
-   concepts/ai
-   contributions
-   faq/chameleon
-   faq/install
-   faq/windows
-   installation/linux-subsystem
-   installation/windows
-   manual/analytics
-   manual/book
-   manual/bookmanagerservice
-   manual/emr
-   manual/git
-   manual/queue
-   manual/test
-   manual/windows
-   manual/workflow_draft
-   windows/windows-broken-make
-   windows/windows-linux
-   windows/windows-ubuntu
-  
-Deprecated
+Other
 =======================
 
 .. toctree::
    :caption: OTHER
    :maxdepth: 10
 
-   deprecated	      
-   tbd
+   todo
+   deprecated
 
 

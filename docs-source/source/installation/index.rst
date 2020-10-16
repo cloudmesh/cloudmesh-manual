@@ -4,17 +4,11 @@ Installation
 .. toctree::
 
    install
-   quickstart
-   install-docker
-   install-linux
-   install-macos
-   install-pi
+   quickstart/quickstart
+   docker/install-docker
+   os/install-linux
+   os/install-macos
+   pi/install-pi
    windows/index
    install-dev
-
-Cloudmesh Database
-===================
-
-.. toctree::
-   
-   install-mongo
+   database/install-mongo

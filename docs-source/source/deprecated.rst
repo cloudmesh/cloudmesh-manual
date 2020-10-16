@@ -1,5 +1,5 @@
 
-DEPRECATED
+Deprecated
 ==========
 
 .. toctree::
@@ -11,5 +11,7 @@ DEPRECATED
    hpc/batch
    hpc/refcard
    workflow
-   
+   vm/vm
+
+
    
