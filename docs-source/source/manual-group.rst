@@ -1,5 +1,5 @@
-Manual Group
-------------
+Group Command
+-------------
 
 .. toctree::
    :caption: Group

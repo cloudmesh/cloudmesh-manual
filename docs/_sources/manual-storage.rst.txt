@@ -1,5 +1,5 @@
-Storage Manual Pages
---------------------
+Storage Commands
+----------------
 
 .. toctree::
    :caption: Storage

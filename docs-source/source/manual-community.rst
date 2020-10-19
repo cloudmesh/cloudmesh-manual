@@ -1,8 +1,8 @@
-Manual Other
-------------
+Community Commands
+------------------
 
 .. toctree::
-   :caption: Other
+   :caption: Community Commands
 
    manual/data
    manual/service

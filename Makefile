@@ -36,7 +36,7 @@ all:
 	cms debug on
 
 watch:
-	cd docs-source; make watch
+	find docs-source/ | entr -s 'make; make view'
 
 install:
 	pip install cloudmesh-installer -U
@@ -211,13 +211,16 @@ manual:
 	cms set timer=False
 	mkdir -p $(SOURCE)/manual
 	cms help > /tmp/commands.rst
-	-echo "Commands" > $(SOURCE)/manual/all.rst
-	-echo "--------" >> $(SOURCE)/manual/all.rst
+	-echo "Command List" > $(SOURCE)/manual/all.rst
+	-echo "============" >> $(SOURCE)/manual/all.rst
+	-echo >> $(SOURCE)/manual/all.rst
+	-echo "Not all commands  be listed here as cloudmesh can have plugins.\n" >> $(SOURCE)/manual/all.rst
 	-echo  >> $(SOURCE)/manual/all.rst
 	-echo  "::" >> $(SOURCE)/manual/all.rst
 	-echo  >> $(SOURCE)/manual/all.rst
-	-tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/all.rst
+	-tail -n +5 /tmp/commands.rst | sed 's/^/  /' >> $(SOURCE)/manual/all.rst
 	-echo  >> $(SOURCE)/manual/all.rst
+	-echo  "" >> $(SOURCE)/manual/all.rst
 	cms man --dir=$(SOURCE)/manual --format=rst
 	cms version --number > $(SOURCE)/manual/versions.txt
 	make -f Makefile doc

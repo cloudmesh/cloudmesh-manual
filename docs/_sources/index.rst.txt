@@ -12,6 +12,7 @@ Cloudmesh Version 4
    configuration/configuration
    concepts/index
    accounts/index
+   viewer/index
    faq/index
    benchmarks/index
 
@@ -20,17 +21,16 @@ Cloudmesh Version 4
    :maxdepth: 10
 
    cmd5
-   manual-cmd5
    manual/all
+   manual-cmd5
    manual-configuration
    manual-group
    manual-compute
    manual-storage
-   manual-other
-   viewer/index
-   installation/mongo-use
+   manual-community
    reference-card
-   
+
+
 .. toctree::
    :caption: API
    :maxdepth: 10
@@ -63,6 +63,7 @@ Other
    :caption: OTHER
    :maxdepth: 10
 
+   installation/database/mongo-use
    todo
    deprecated
 

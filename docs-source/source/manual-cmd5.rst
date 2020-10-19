@@ -1,5 +1,5 @@
-Manual Cmd5
------------
+Shell Commands
+--------------
 
 .. toctree::
    :caption: CMD5

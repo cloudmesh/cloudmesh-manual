@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Deprecated &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Community Commands &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -43,8 +43,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cloudmesh Config File Encryption" href="configuration/encryption.html" />
-    <link rel="prev" title="Windows Cloudmesh Development Environment" href="windows/windows-ubuntu.html" /> 
+    <link rel="next" title="data" href="manual/data.html" />
+    <link rel="prev" title="vdir" href="manual/vdir.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -108,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="benchmarks/index.html">Benchmarks</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cmd5.html">Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual/all.html">Command List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-cmd5.html">Shell Commands</a></li>
@@ -116,7 +116,14 @@
 <li class="toctree-l1"><a class="reference internal" href="manual-group.html">Group Command</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-compute.html">Compute Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-storage.html">Storage Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual-community.html">Community Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Community Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/service.html">service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/source.html">source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/flow.html">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/openapi.html">openapi</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="reference-card.html">Reference Card</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
@@ -131,18 +138,10 @@
 <li class="toctree-l1"><a class="reference internal" href="dev/index.html">Contributing</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="installation/database/mongo-use.html">Developping with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">To Do</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Deprecated</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Config File Encryption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcluster.html">Virtual Cluster (in progress)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html">Batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/refcard.html">HPC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html">Infrastructure Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html">Virtual Machine Management</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated</a></li>
 </ul>
 
             
@@ -189,13 +188,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Deprecated</li>
+      <li>Community Commands</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/deprecated.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/manual-community.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -208,58 +207,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="deprecated">
-<h1>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="community-commands">
+<h1>Community Commands<a class="headerlink" href="#community-commands" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Deprecated</span></p>
+<p class="caption"><span class="caption-text">Community Commands</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration/encryption.html">Cloudmesh Config File Encryption</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#quick-start">Quick-Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#preparation">Preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#encrypting-the-config-file">Encrypting the Config File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#decrypting-the-config-file">Decrypting the Config File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration/encryption.html#additional-configuration-options">Additional Configuration Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vcluster.html">Virtual Cluster (in progress)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vcluster.html#creating-a-virtual-cluster-and-testing-connections">Creating a Virtual Cluster and testing connections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcluster.html#creating-a-runtime-configuration">Creating a runtime-configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcluster.html#running-parallel-remote-jobs">Running Parallel Remote Jobs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vcluster.html#cleaning-the-remote">Cleaning the remote</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hpc/batch.html">Batch</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#creating-a-job-configuration">Creating a job configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#testing-the-connection">Testing the connection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#running-the-job">Running the Job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#downloading-the-results">Downloading the Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#cleaning-the-remote">Cleaning the remote</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#get-the-list-of-the-jobs-and-clusters">Get the list of the jobs and clusters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#modifying-the-configuration-by-setting-parameters">Modifying the Configuration by Setting Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hpc/batch.html#removing-jobs-and-clusters">Removing jobs and clusters</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hpc/refcard.html">HPC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Infrastructure Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#database-objects">Database Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#javascript-interface-proposed">Javascript Interface (proposed)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#rest">REST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#resources">Resources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vm/vm.html">Virtual Machine Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#command-line-and-shell-interface">Command Line and Shell Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#uniform-parameter-management">Uniform Parameter Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#virtual-machine-management-1">Virtual machine management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#key-management">Key management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#security-groups">Security groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#check-instances">Check instances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#command-examples">Command Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vm/vm.html#example">Example</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/data.html">data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/service.html">service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/source.html">source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/flow.html">flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/openapi.html">openapi</a></li>
 </ul>
 </div>
 </div>
@@ -272,10 +229,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="configuration/encryption.html" class="btn btn-neutral float-right" title="Cloudmesh Config File Encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="manual/data.html" class="btn btn-neutral float-right" title="data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="windows/windows-ubuntu.html" class="btn btn-neutral float-left" title="Windows Cloudmesh Development Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="manual/vdir.html" class="btn btn-neutral float-left" title="vdir" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

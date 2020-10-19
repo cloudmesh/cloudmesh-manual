@@ -1,5 +1,5 @@
-Compute Manual Pages
---------------------
+Compute Commands
+----------------
 
 .. toctree::
    :caption:Host

@@ -1,9 +1,10 @@
-Manual Other
-------------
+Configuration Commands
+----------------------
 
 .. toctree::
-   :caption: Other
+   :caption: Configuration
 
+   manual/help
    manual/check
    manual/gui
    manual/init
