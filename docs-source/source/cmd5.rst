@@ -1,9 +1,14 @@
-Cmd5
-====
+cms
+===
 
-|DOI| |Version| |License| |Python| |Format| |Status| |Travis|
+Cloudmesh used cmd5 which provides an easy to use command line and command
+shell interface. Hence you can run each command as a sepearte command line,
+but you can also start a shell in which you can execute multiple commands one
+after another. Furthermore, you can create cloudmesh scripts in a file that if
+run via the cloudmesh shell get executed sequentially.
 
-To run the shell you can activate it with the cms command. cms stands
+
+To run the cloudmesh shell you can activate it with the `cms` command. `cms` stands
 for cloudmesh shell::
 
    cms

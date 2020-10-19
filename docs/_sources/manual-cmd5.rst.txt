@@ -1,10 +1,8 @@
-Shell Commands
+Basic Commands
 --------------
 
 .. toctree::
-   :caption: CMD5
 
-   manual/admin
    manual/banner
    manual/clear
    manual/commands
