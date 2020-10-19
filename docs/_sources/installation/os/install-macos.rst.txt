@@ -51,7 +51,7 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
 
    graph TD
       A(Prerequisite) --> xcode(xcode-select --install)
-      xcode --> python(Python 3.7 or 3.8)
+      xcode --> python(Python 3.7, 3.8, or 3.9)
       python --> venv
       venv --> pip(pip install pip -U)
       pip --> install(Prerequisite completed)

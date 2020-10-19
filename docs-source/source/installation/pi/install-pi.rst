@@ -12,7 +12,7 @@ Setup with curl
 
 
 
-   graph LR
+   graph TD
       keygen(ssh-keygen fa:fa-key)
       curl("curl -Ls http://cloudmesh.github.io/get/pi | sh")
       pip(pip install cloudmesh-openstack)

@@ -17,36 +17,17 @@ Prerequisites for Ubuntu 20.4
    source ~/ENV3/bin/activate
    pip install pip -U
 
-
-Prerequisites for Ubuntu 19.10
--------------------------------
-
-We recommend you switch to Ubuntu 20.04. However if you can not do this please
-follow these steps.
-
-Python 3.8.2 or newer is not yet installed in Ubuntu 19.10. The installation is simple
-and can be conducted with the following steps. You can download python from
-
-* https://www.python.org/downloads
+In case you want to install Python 3.9.0 you can use
 
 .. code-block:: bash
 
-   sudo apt -y update
-   sudo apt -y install openssl curl
-   # sudo apt -y install libreadline-gplv2-dev libncursesw5-dev
-   sudo apt -y libssl-dev
-   sudo apt -y libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-   tar -xvf Python-3.8.2.tgz
-   cd Python-3.8.2
-   ./configure
-   make
-   sudo make altinstall
-   python3.8 --version
-   python3 --version
-   # Should be 3.8.2 or newer
-   python3 -m venv ~/ENV3
-   source ~/ENV3/bin/activate
-   pip install pip -U
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt update
+    sudo apt install python3.9
+    python3.9 --version
+    python3.9 -m venv ~/ENV3
+    source ~/ENV3/bin/activate
+    pip install pip -U
 
 
 Prerequisites for Ubuntu 18.04
@@ -85,7 +66,7 @@ We provide an easy to follow installation diagram
    graph TD
 
 
-      A(Prerequisite) --> python(Python 3.7 or 3.8)
+      A(Prerequisite) --> python(Python 3.7, 3.8, or 3.9)
       python --> venv
       venv --> pip(pip install pip -U)
       pip --> install(Prerequisite completed)

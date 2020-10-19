@@ -105,7 +105,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../docker/install-docker.html">Docker</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation for for Linux</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-20-4">Prerequisites for Ubuntu 20.4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-19-10">Prerequisites for Ubuntu 19.10</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites-for-ubuntu-18-04">Prerequisites for Ubuntu 18.04</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation-for-container-users">Installation for Container Users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation-for-users">Installation for Users</a></li>
@@ -236,30 +235,12 @@ differences between the installs for regular users, container users and develope
 pip install pip -U
 </pre></div>
 </div>
-</div>
-<div class="section" id="prerequisites-for-ubuntu-19-10">
-<h2>Prerequisites for Ubuntu 19.10<a class="headerlink" href="#prerequisites-for-ubuntu-19-10" title="Permalink to this headline">¶</a></h2>
-<p>We recommend you switch to Ubuntu 20.04. However if you can not do this please
-follow these steps.</p>
-<p>Python 3.8.2 or newer is not yet installed in Ubuntu 19.10. The installation is simple
-and can be conducted with the following steps. You can download python from</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.python.org/downloads">https://www.python.org/downloads</a></p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y update
-sudo apt -y install openssl curl
-<span class="c1"># sudo apt -y install libreadline-gplv2-dev libncursesw5-dev</span>
-sudo apt -y libssl-dev
-sudo apt -y libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-tar -xvf Python-3.8.2.tgz
-<span class="nb">cd</span> Python-3.8.2
-./configure
-make
-sudo make altinstall
-python3.8 --version
-python3 --version
-<span class="c1"># Should be 3.8.2 or newer</span>
-python3 -m venv ~/ENV3
+<p>In case you want to install Python 3.9.0 you can use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.9
+python3.9 --version
+python3.9 -m venv ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
 pip install pip -U
 </pre></div>
@@ -334,7 +315,7 @@ cms init
             graph TD
 
 
-   A(Prerequisite) --&gt; python(Python 3.7 or 3.8)
+   A(Prerequisite) --&gt; python(Python 3.7, 3.8, or 3.9)
    python --&gt; venv
    venv --&gt; pip(pip install pip -U)
    pip --&gt; install(Prerequisite completed)
