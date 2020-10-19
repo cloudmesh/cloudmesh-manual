@@ -55,7 +55,7 @@ Check if your system is havving python properly
    >>> platform.version()
    '#1-Microsoft Mon Mar 18 12:02:00 PST 2019'
 
-If you like to use python 3.8.2, please follow the instructions provided
+If you like to use python 3.8.2 (or newer), please follow the instructions provided
 for Linux 18.04
 
 Set up Git and replace Gregorsname and e-mail with yours

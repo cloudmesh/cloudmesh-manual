@@ -88,7 +88,7 @@ Although cloudmesh can just be installed on containers without the use of Python
 it is best if you use cmsd. This is a python program that is designed to manage
 the containers and makes use of cloudmesh simple form the command line.
 
-This installation can be conducted on all OSes on which docker and python 3.8.2 is
+This installation can be conducted on all OSes on which docker and python 3.8.2 or newer  is
 installed. Cloudmesh can also be installed with a specialized `cloudmesh-cmsd`
 command that is distributed as source and on PyPi.
 

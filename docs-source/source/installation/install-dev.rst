@@ -48,6 +48,13 @@ Let, us assume you chose `opensatck`, than you can install cloudmesh with
 
    cloudmesh-installer get openstack
 
+In case you like to use ssh instead of https as protocol to interact with
+GitHub please use instead
+
+.. code-block:: bash
+
+   cloudmesh-installer get --ssh openstack
+
 It will take a while for the install to complete. On newer machines it
 takes 1 minute, on older machines, it may take significantly
 longer. Please watch your system resource information if the install
@@ -112,4 +119,17 @@ and the `cloudmesh-installer` in the directory cm as documented previously):
     pip install pip -U
     pip install cloudmesh-installer
     cloudmesh-installer get openstack
+    cms help
+
+or if yo like to use ssh instead of https
+
+.. code-block:: bash
+
+    cd cm # the directory where your source locates
+    cloudmesh-installer clean --dir=. --force
+    cloudmesh-installer clean --ENV=~/ENV3 --force
+    python3 -m venv ~/ENV3
+    pip install pip -U
+    pip install cloudmesh-installer
+    cloudmesh-installer get --ssh openstack
     cms help

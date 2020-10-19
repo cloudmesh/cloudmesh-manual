@@ -21,7 +21,7 @@ Please be very careful when doing this as it removes files and directories
    rmdir /s ENV3
    python -m venv ENV3
    python --version
-   # Python 3.8.2
+   # Python 3.8.2 or newer
    pip install pip -U
 
    ENV3\Scripts\activate
@@ -30,4 +30,6 @@ Please be very careful when doing this as it removes files and directories
    pip install-cloudmesh-installer
    cloudmesh-installer get openstack
 
+or if you like to use ssh instead of https, please replace the last line with
 
+   cloudmesh-installer get --ssh openstack

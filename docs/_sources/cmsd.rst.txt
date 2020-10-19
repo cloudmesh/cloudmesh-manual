@@ -365,11 +365,13 @@ Quickstart
 macOS with python 3.8.2 from python.org
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Use python version 3.8.2 or newer
+
 1. Requirements:
 
    -  Have a username without a space.
    -  Have docker installed and accessible to the user.
-   -  Have python 3.8.2 from python.org installed.
+   -  Have python 3.8.2 or newer from python.org installed.
    -  Create a key ``~/.ssh/id_rsa`` if you do not already have one
 
    .. code:: bash

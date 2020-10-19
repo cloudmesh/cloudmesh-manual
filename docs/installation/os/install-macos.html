@@ -240,7 +240,7 @@ from python.org or from homebrew.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p></li>
 </ul>
-<p>to download the version you require. Wer recommend to use 3.8.2. Cloudmesh
+<p>to download the version you require. Wer recommend to use 3.8.2 or newer. Cloudmesh
 can also installed in anaconda, but you will have to use pip to install it in
 it. Please see the instructions fro anaconda.</p>
 </div>
@@ -277,6 +277,18 @@ cms init
 <span class="nb">cd</span> ~/cm
 pip install cloudmesh-installer
 cloudmesh-installer get openstack
+cms <span class="nb">help</span>
+cms gui quick
+cms admin mongo install
+cms init
+</pre></div>
+</div>
+<p>Please note that the cloudmesh installer uses by default https. It can also use
+ssh and you would than use the following instead:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/cm
+<span class="nb">cd</span> ~/cm
+pip install cloudmesh-installer
+cloudmesh-installer get --ssh openstack
 cms <span class="nb">help</span>
 cms gui quick
 cms admin mongo install

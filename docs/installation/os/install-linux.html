@@ -241,7 +241,7 @@ pip install pip -U
 <h2>Prerequisites for Ubuntu 19.10<a class="headerlink" href="#prerequisites-for-ubuntu-19-10" title="Permalink to this headline">¶</a></h2>
 <p>We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.</p>
-<p>Python 3.8.2 is not yet installed in Ubuntu 19.10. The installation is simple
+<p>Python 3.8.2 or newer is not yet installed in Ubuntu 19.10. The installation is simple
 and can be conducted with the following steps. You can download python from</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.python.org/downloads">https://www.python.org/downloads</a></p></li>
@@ -258,7 +258,7 @@ make
 sudo make altinstall
 python3.8 --version
 python3 --version
-<span class="c1"># Should be 3.8.2</span>
+<span class="c1"># Should be 3.8.2 or newer</span>
 python3 -m venv ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
 pip install pip -U
@@ -308,6 +308,18 @@ cms init
 <span class="nb">cd</span> ~/cm
 pip install cloudmesh-installer
 cloudmesh-installer get openstack
+cms <span class="nb">help</span>
+cms gui quick
+cms admin mongo install
+cms init
+</pre></div>
+</div>
+<p>Please note that the cloudmesh installer uses by default https. It can also use
+ssh and you would than use the following instead:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/cm
+<span class="nb">cd</span> ~/cm
+pip install cloudmesh-installer
+cloudmesh-installer get --ssh openstack
 cms <span class="nb">help</span>
 cms gui quick
 cms admin mongo install

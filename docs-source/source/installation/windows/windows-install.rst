@@ -6,7 +6,7 @@ Windows
           python installed. We recommend you use 3.8.2 or newer. Python can be
           downloaded and installed from https://www.python.org/downloads/. On
           Windows you may also need to install the C++ commandline build tools
-          as some cryptographic libraries need to be recompiled in 3.8.2. The
+          as some cryptographic libraries need to be recompiled in 3.8.2 or newer. The
           installation of cls is optional and only needed for encryption.
 
 Prerequisites for Windows
@@ -32,7 +32,7 @@ check  the following commands must return a valid path::
    * - ssh
      - `C:> where ssh`
      - :doc:`windows-ssh`
-   * - python 3.8.2, 64 bit
+   * - python 3.8.2 (or newer), 64 bit
      - `C:> python --version`
      - :doc:`windows-python`
 

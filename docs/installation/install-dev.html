@@ -255,6 +255,11 @@ needs to be used.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer get openstack
 </pre></div>
 </div>
+<p>In case you like to use ssh instead of https as protocol to interact with
+GitHub please use instead</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer get --ssh openstack
+</pre></div>
+</div>
 <p>It will take a while for the install to complete. On newer machines it
 takes 1 minute, on older machines, it may take significantly
 longer. Please watch your system resource information if the install
@@ -303,6 +308,17 @@ python3 -m venv ~/ENV3
 pip install pip -U
 pip install cloudmesh-installer
 cloudmesh-installer get openstack
+cms <span class="nb">help</span>
+</pre></div>
+</div>
+<p>or if yo like to use ssh instead of https</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory where your source locates</span>
+cloudmesh-installer clean --dir<span class="o">=</span>. --force
+cloudmesh-installer clean --ENV<span class="o">=</span>~/ENV3 --force
+python3 -m venv ~/ENV3
+pip install pip -U
+pip install cloudmesh-installer
+cloudmesh-installer get --ssh openstack
 cms <span class="nb">help</span>
 </pre></div>
 </div>

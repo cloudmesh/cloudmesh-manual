@@ -22,7 +22,7 @@ Next make sure you update your python version and go to
 
 * https://www.python.org/downloads/
 
-to download the version you require. Wer recommend to use 3.8.2. Cloudmesh
+to download the version you require. Wer recommend to use 3.8.2 or newer. Cloudmesh
 can also installed in anaconda, but you will have to use pip to install it in
 it. Please see the instructions fro anaconda.
 

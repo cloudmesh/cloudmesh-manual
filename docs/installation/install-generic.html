@@ -227,6 +227,18 @@ cms admin mongo install
 cms init
 </pre></div>
 </div>
+<p>Please note that the cloudmesh installer uses by default https. It can also use
+ssh and you would than use the following instead:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/cm
+<span class="nb">cd</span> ~/cm
+pip install cloudmesh-installer
+cloudmesh-installer get --ssh openstack
+cms <span class="nb">help</span>
+cms gui quick
+cms admin mongo install
+cms init
+</pre></div>
+</div>
 </div>
 
 

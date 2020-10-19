@@ -24,7 +24,7 @@ Prerequisites for Ubuntu 19.10
 We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.
 
-Python 3.8.2 is not yet installed in Ubuntu 19.10. The installation is simple
+Python 3.8.2 or newer is not yet installed in Ubuntu 19.10. The installation is simple
 and can be conducted with the following steps. You can download python from
 
 * https://www.python.org/downloads
@@ -43,7 +43,7 @@ and can be conducted with the following steps. You can download python from
    sudo make altinstall
    python3.8 --version
    python3 --version
-   # Should be 3.8.2
+   # Should be 3.8.2 or newer
    python3 -m venv ~/ENV3
    source ~/ENV3/bin/activate
    pip install pip -U
