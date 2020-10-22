@@ -15,6 +15,8 @@ Installation for Users
     cms help
     cms gui quick
     cms admin mongo install
+    source ~/.bashrc # on linux, source ~/.zprofile on OSX or start a new
+                     # terminal and execute the next commands in the new terminal
     cms init
 
 Installation for Developers
@@ -29,6 +31,8 @@ Installation for Developers
     cms help
     cms gui quick
     cms admin mongo install
+    source ~/.bashrc # on linux, source ~/.zprofile on OSX or start a new
+                     # terminal and execute the next commands in the new terminal
     cms init
 
 Please note that the cloudmesh installer uses by default https. It can also use
@@ -43,4 +47,6 @@ ssh and you would than use the following instead:
     cms help
     cms gui quick
     cms admin mongo install
+    source ~/.bashrc # on linux, source ~/.zprofile on OSX or start a new
+                     # terminal and execute the next commands in the new terminal
     cms init
