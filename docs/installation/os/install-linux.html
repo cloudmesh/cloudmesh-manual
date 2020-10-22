@@ -238,7 +238,9 @@ pip install pip -U
 <p>In case you want to install Python 3.9.0 you can use</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
-sudo apt install python3.9
+sudo apt-get install python3.9
+sudo apt-get install python3.9-venv
+sudo apt-get install python3.9-dev
 python3.9 --version
 python3.9 -m venv ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
@@ -279,6 +281,8 @@ cmsd --setup
 cms <span class="nb">help</span>
 cms gui quick
 cms admin mongo install
+<span class="nb">source</span> ~/.bashrc <span class="c1"># on linux, source ~/.zprofile on OSX or start a new</span>
+                 <span class="c1"># terminal and execute the next commands in the new terminal</span>
 cms init
 </pre></div>
 </div>
@@ -292,6 +296,8 @@ cloudmesh-installer get openstack
 cms <span class="nb">help</span>
 cms gui quick
 cms admin mongo install
+<span class="nb">source</span> ~/.bashrc <span class="c1"># on linux, source ~/.zprofile on OSX or start a new</span>
+                 <span class="c1"># terminal and execute the next commands in the new terminal</span>
 cms init
 </pre></div>
 </div>
@@ -304,6 +310,8 @@ cloudmesh-installer get --ssh openstack
 cms <span class="nb">help</span>
 cms gui quick
 cms admin mongo install
+<span class="nb">source</span> ~/.bashrc <span class="c1"># on linux, source ~/.zprofile on OSX or start a new</span>
+                 <span class="c1"># terminal and execute the next commands in the new terminal</span>
 cms init
 </pre></div>
 </div>

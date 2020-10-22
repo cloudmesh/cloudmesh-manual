@@ -6,18 +6,13 @@ Not all commands  be listed here as cloudmesh can have plugins.
 
 ::
 
-  EOF        covid    google     man        quit       storage         
-  admin      debug    group      nn         register   storagelifecycle
-  analytics  default  gui        notebook   sec        sys             
-  banner     docker   help       open       service    term            
-  bar        dryrun   host       openapi    set        test            
-  batch      echo     image      openstack  shell      var             
-  book       emr      info       oracle     sleep      vcluster        
-  check      flavor   init       pause      source     vdir            
-  clear      flow     inventory  provider   ssh        version         
-  commands   foo      ip         py         start      viewer          
-  config     frugal   iu         q          stop       vm              
-  container  git      key        queue      stopwatch  volume          
+  EOF        config     google  init       oracle    sec      start      var     
+  admin      container  group   inventory  pause     service  stop       vcluster
+  banner     debug      gui     ip         provider  set      stopwatch  vdir    
+  chameleon  default    help    key        py        shell    storage    version 
+  check      dryrun     host    man        q         sleep    sys        vm      
+  clear      echo       image   open       quit      source   term     
+  commands   flavor     info    openstack  register  ssh      test     
   
 
 

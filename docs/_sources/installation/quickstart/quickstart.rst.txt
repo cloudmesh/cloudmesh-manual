@@ -48,28 +48,25 @@ use::
 
 We assume here you like to configure the credentials for the chameleon cloud.
 
-.. figure:: images/profile.png
-   :width: 200px
+.. figure:: ../images/profile.png
+   :width: 600px
    :align: center
-   :height: 100px
    :alt: alternate text
    :figclass: align-center
 
    Figure: Setting the profile `cms gui profile`
 
-.. figure:: images/activate.png
-   :width: 200px
+.. figure:: ../images/activate.png
+   :width: 600px
    :align: center
-   :height: 100px
    :alt: alternate text
    :figclass: align-center
 
    Figure: Activate clouds `cms gui activate`
 
-.. figure:: images/credentials.png
-   :width: 200px
+.. figure:: ../images/credentials.png
+   :width: 600px
    :align: center
-   :height: 100px
    :alt: alternate text
    :figclass: align-center
 

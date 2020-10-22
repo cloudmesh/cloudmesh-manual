@@ -23,7 +23,9 @@ In case you want to install Python 3.9.0 you can use
 
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt update
-    sudo apt install python3.9
+    sudo apt-get install python3.9
+    sudo apt-get install python3.9-venv
+    sudo apt-get install python3.9-dev
     python3.9 --version
     python3.9 -m venv ~/ENV3
     source ~/ENV3/bin/activate

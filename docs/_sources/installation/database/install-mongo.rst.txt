@@ -100,10 +100,9 @@ is the username you installe d cloudmesh in:
           MongoDB System Service. When prompted that the Service
           failed to start, simply select ``Ignore``.
 
-.. figure:: images/MongoInstall_Windows_Ignore.png
+.. figure:: ../images/MongoInstall_Windows_Ignore.png
      :width: 200px
      :align: center
-     :height: 100px
      :alt: alternate text
      :figclass: align-center
 
@@ -117,10 +116,9 @@ was used to kick off the installation.
 In a Windows environment, however, the default path is not automatically added
 to the Path variable, so you will need to add this manually:
 
-.. figure:: images/MongoInstall_Windows_Path.png
-     :width: 200px
+.. figure:: ../images/MongoInstall_Windows_Path.png
+     :width: 600px
      :align: center
-     :height: 100px
      :alt: alternate text
      :figclass: align-center
 
@@ -178,10 +176,9 @@ cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
 
 
 
-.. figure:: images/MongoInstall_Windows_InstallPathYAML.png
-     :width: 200px
+.. figure:: ../images/MongoInstall_Windows_InstallPathYAML.png
+     :width: 600px
      :align: center
-     :height: 100px
      :alt: alternate text
      :figclass: align-center
 
@@ -194,10 +191,9 @@ downloaded locally using the URL found under the MONGO_DOWNLOAD
 variable in the cloudmesh.yaml file.
 
 
-.. figure:: images/MongoInstall_Windows_msiexec.png
-     :width: 200px
+.. figure:: ../images/MongoInstall_Windows_msiexec.png
+     :width: 600px
      :align: center
-     :height: 100px
      :alt: alternate text
      :figclass: align-center
 
