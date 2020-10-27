@@ -316,7 +316,7 @@ Generic Tests
 We have developed a number of simple pytests that can be called. To see
 the list of Pytests go to our directory
 
--  https://github.com/cloudmesh/cloudmesh-storage/tree/master/tests
+-  https://github.com/cloudmesh/cloudmesh-storage/tree/main/tests
 
 We also developed a general pytest that works across providers and can
 be invoked as follows
@@ -470,17 +470,17 @@ Links
 
 Link for additional information:
 
--  https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md
+-  https://github.com/cloudmesh-community/sp19-516-130/blob/main/gdrive.md
 
 .. |Version| image:: https://img.shields.io/pypi/v/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage
 .. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-   :target: https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE
+   :target: https://github.com/cloudmesh/cloudmesh-storage/blob/main/LICENSE
 .. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage
 .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage
 .. |Status| image:: https://img.shields.io/pypi/status/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage
-.. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master
+.. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=main
    :target: https://travis-ci.com/cloudmesh/cloudmesh-storage
