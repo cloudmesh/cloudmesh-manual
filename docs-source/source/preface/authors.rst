@@ -16,7 +16,7 @@
     *Shreyans Jain*, *Sriman*, *Subramaniyam Raizada*, *Swaroop, Saurabh*, *Tarun
     Rawat*, *Tharak Vangalapat*, *Vafa Andalibi*, *Xiao Yue*, *Xin Gu*, *XinGu*,
     *Yasir Al Ilbadi*, *Yu Luo*, *Yue, Xiao*, *Zhengyi Li*, *akshaygpt*,
-    *baker203*, *calewils*, *deepakdeopura*, *gitdimishra*, *iumsds*, *niranda*,
-    *prateekazam@gmail.com*, *prati-mp*, *prporwal*, *rahul*, *rickotten*,
-    *sachath*, *shihui123*, *shihuijiang*, *xin-gu*, *yasirjasim*
+    *aporlowski*, *baker203*, *calewils*, *deepakdeopura*, *gitdimishra*, *iumsds*,
+    *niranda*, *prateekazam@gmail.com*, *prati-mp*, *prporwal*, *rahul*,
+    *rickotten*, *sachath*, *shihui123*, *shihuijiang*, *xin-gu*, *yasirjasim*
 
