@@ -1,5 +1,5 @@
 Installation for for Linux
-=========================
+==========================
 
 We describe here the various choices for the installation of cloudmesh on linux. We focus
 on Ubuntu but you are able to adopt them easily for other versions of Linux
@@ -9,7 +9,7 @@ Please read the document first, before you copy and paste, as there are
 differences between the installs for regular users, container users and developers.
 
 Prerequisites for Ubuntu 20.4
-------------------------------
+-----------------------------
 
 .. code-block:: bash
 
@@ -33,7 +33,7 @@ In case you want to install Python 3.9.0 you can use
 
 
 Prerequisites for Ubuntu 18.04
--------------------------------
+------------------------------
 
 We recommend you switch to Ubuntu 20.04. However if you can not do this please
 follow these steps.
@@ -59,7 +59,7 @@ the new version with
 .. include:: ../install-generic.rst
 
 Installation Diagram
--------------------
+--------------------
 
 We provide an easy to follow installation diagram
 

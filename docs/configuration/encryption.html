@@ -357,9 +357,9 @@ after being prompted or run the following.</p>
 </div>
 </div>
 <div class="section" id="additional-configuration-options">
-<span id="id1"></span><h2>Additional Configuration Options<a class="headerlink" href="#additional-configuration-options" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Additional Configuration Options<a class="headerlink" href="#additional-configuration-options" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="changing-the-secinit-directory">
-<span id="id2"></span><h3>Changing the secinit Directory<a class="headerlink" href="#changing-the-secinit-directory" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Changing the secinit Directory<a class="headerlink" href="#changing-the-secinit-directory" title="Permalink to this headline">¶</a></h3>
 <p>The secinit directory controls where encryption related data is stored.
 The default location is ~/.cloudmesh/security. If you wish to change
 this location you must edit the <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.secpath</span></code>
@@ -386,7 +386,7 @@ in the .ssh directory execute the following.</p>
 </div>
 </div>
 <div class="section" id="setting-keys-for-encryption-without-key-gen-command">
-<span id="id3"></span><h4>Setting Keys for Encryption Without Key Gen Command<a class="headerlink" href="#setting-keys-for-encryption-without-key-gen-command" title="Permalink to this headline">¶</a></h4>
+<span id="id5"></span><h4>Setting Keys for Encryption Without Key Gen Command<a class="headerlink" href="#setting-keys-for-encryption-without-key-gen-command" title="Permalink to this headline">¶</a></h4>
 <p>The path to the encryption and decryption keys are located in
 <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.pubickey</span></code> and <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.privatekey</span></code>
 respectively. When keys are generated with the <code class="docutils literal notranslate"><span class="pre">--set_path</span></code> argument
@@ -413,7 +413,7 @@ run</p>
 </div>
 </div>
 <div class="section" id="selecting-attributes-to-encrypt">
-<span id="id4"></span><h3>Selecting Attributes to Encrypt<a class="headerlink" href="#selecting-attributes-to-encrypt" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Selecting Attributes to Encrypt<a class="headerlink" href="#selecting-attributes-to-encrypt" title="Permalink to this headline">¶</a></h3>
 <p>Internally, Cloudmesh represents all values as the yaml dot path to the
 attribute. The <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.secrets</span></code> attribute takes a list
 of python regular expressions that will be matched on the dot paths to
@@ -445,7 +445,7 @@ For instance, to remove the previously added attribute run the following.</p>
 </div>
 </div>
 <div class="section" id="selecting-attributes-to-exclude-from-encryption">
-<span id="id5"></span><h3>Selecting Attributes to Exclude from Encryption<a class="headerlink" href="#selecting-attributes-to-exclude-from-encryption" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>Selecting Attributes to Exclude from Encryption<a class="headerlink" href="#selecting-attributes-to-exclude-from-encryption" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.security.exception</span></code> section is intended to list attributes
 that must <strong>not</strong> be encrypted. This section also explicitly uses python regular
 expressions to capture the attribute dot paths. Cloudmesh has some attributes
@@ -495,7 +495,7 @@ exceptions regular expressions the attribute will <strong>not</strong> be encryp
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2010-2020, Gregor von Laszewski.
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
 
     </p>
   </div>

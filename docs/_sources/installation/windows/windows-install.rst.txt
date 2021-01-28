@@ -10,7 +10,7 @@ Windows
           installation of cls is optional and only needed for encryption.
 
 Prerequisites for Windows
------------------------
+-------------------------
 
 First check if any of these commands are not installed. If they are not, please
 install them first. To check if they are available use the `where` command to
@@ -44,7 +44,7 @@ Please also run the check if you have the 64 bit vesrsion of python which must r
 
 
 Install
-------
+-------
 
 
 

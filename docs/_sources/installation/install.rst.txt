@@ -95,7 +95,7 @@ command that is distributed as source and on PyPi.
 See  :doc:`../cmsd` for more information.
 
 Installation of Cloudmesn in Python
----------------------------------
+-----------------------------------
 
 On some operating systems, you will need a number of tools installed
 on your computer before you can install cloudmesh.  It is important to

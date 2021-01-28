@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'Cloudmesh'
-copyright = '2010-2020, Gregor von Laszewski'
+copyright = '2010-2021, Gregor von Laszewski'
 author = 'Gregor von Laszewski and the Cloudmeh Community'
 
 # The full version, including alpha/beta/rc tags
@@ -38,6 +38,7 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
     'sphinxcontrib.mermaid',
     'sphinxcontrib.images',
+    'sphinx.ext.todo',
 #    'sphinx_gallery.gen_gallery',
 ]
 

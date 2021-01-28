@@ -76,7 +76,7 @@ command related code is stored. The other repositories contain code that
 may be used by ``cloudmesh-cmsd``.
 
 Default setup
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 To run ``cmsd``, you need a configuration directory that is mounted into
 the container. The default setup is done with
