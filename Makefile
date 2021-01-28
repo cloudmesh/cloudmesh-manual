@@ -32,7 +32,6 @@ all:
 	cms debug off
 	cms debug off
 	make -f Makefile manual
-	cms timer on
 	cms debug on
 
 watch:
