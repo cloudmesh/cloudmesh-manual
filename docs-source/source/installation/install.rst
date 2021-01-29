@@ -3,12 +3,23 @@ Overview
 
 .. contents:: :local:
 
-Cloudmesh is easy to install. Dependent on your preferences you can choose an
+Cloudmesh is easy to install. However we have provided a comprehensive
+documentation for many different deployment scenarios.
+Dependent on your preferences you can choose an
 install from
 
-* pip if you are a Cloudmesh user with experience,
-* an installation in containers if you are a user with no experience,
-* source install if you are a developer.
+1. pip install if you are a Cloudmesh user,
+2. an installation in containers if you are a user liking to use containers,
+3. source install if you are a developer.
+
+Most of our users chose option 3 as they like to further develop Cloudmesh.
+
+.. seealso::
+
+   In case you are experienced with Python virtualenv and like to install
+   Cloudmesh in your virtualenv, you can alse review the
+   :ref:`sec-quickstart` guide. However we also recommend to get an overview of
+   how to install it for your particular system.
 
 Please read the installation section in this manual thoroughly, and understand
 the items explained before you install it. Do not just paste and copy the text in
@@ -16,7 +27,7 @@ your terminal and execute it as it could have unexpected consequences.
 This also helps to decide which installation method is best suited for you.
 
 We are providing a **clickable** map to help you in your decision process which
-version to install.
+version and how to install it.
 
 .. mermaid::
 
