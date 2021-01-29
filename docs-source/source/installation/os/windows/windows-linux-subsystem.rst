@@ -44,7 +44,7 @@ Setup Python::
 Check if your system is havving python properly
 
     >>> platform.uname()
-   uname_result(system='Linux', node='DESKTOP',
+    uname_result(system='Linux', node='DESKTOP',
                  release='4.4.0-18362-Microsoft',
                  version='#1-Microsoft Mon Mar 18 12:02:00 PST 2019',
                  machine='x86_64', processor='x86_64')

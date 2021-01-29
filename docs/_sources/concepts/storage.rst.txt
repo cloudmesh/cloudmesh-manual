@@ -382,11 +382,7 @@ Link for additional information:
    .. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
       :target: https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE
    .. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg
-<<<<<<< HEAD
       :target: https://pypi.python.org/pypi/cloudmesh-storage
-=======
-      :target: https://pypi.python.org/pypi/cloudmesh-storage	    
->>>>>>> dcbeaab3ae6581203868a963c0b76e21a5eeffd0
    .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-storage.svg
       :target: https://pypi.python.org/pypi/cloudmesh-storage
    .. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master
