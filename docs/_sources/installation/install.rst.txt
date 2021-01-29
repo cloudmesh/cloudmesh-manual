@@ -77,13 +77,13 @@ version and how to install it.
             cmsd(cmsd fa:fa-link)
         end
 
-        click Raspbian "https://cloudmesh.github.io/cloudmesh-manual/installation/install-pi.html"
-        click Windows "https://cloudmesh.github.io/cloudmesh-manual/installation/install-windows.html"
-        click Linux "https://cloudmesh.github.io/cloudmesh-manual/installation/install-linux.html"
-        click macOS "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html"
+        click Raspbian "https://cloudmesh.github.io/cloudmesh-manual/installation/pi/install-pi.html"
+        click Windows "https://cloudmesh.github.io/cloudmesh-manual/installation/os/windows/index.html"
+        click Linux "https://cloudmesh.github.io/cloudmesh-manual/installation/os/install-linux.html"
+        click macOS "https://cloudmesh.github.io/cloudmesh-manual/installation/os/install-macos.html"
 
-        click Docker "https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html"
-        click cmsd "https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html"
+        click Docker "https://cloudmesh.github.io/cloudmesh-manual/installation/install.html#installation-of-cloudmesh-with-docker"
+        click cmsd "https://cloudmesh.github.io/cloudmesh-manual/cmsd.html"
         click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
         click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"
 
