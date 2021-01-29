@@ -332,8 +332,12 @@ Google
 ~~~~~~
 
 To obtain an account on Google you can follow our instructions at
-:doc:`../accounts/google/index`. THe configuration file contains the
+:doc:`../accounts/google/index`. The configuration file contains the
 following::
+
+  TODO
+
+.. todo:: example configuration Google  
 
 OpenStack
 ~~~~~~~~~
@@ -351,6 +355,10 @@ Please remember you can have multiple clouds in the
 integrate all of them.  You will need access to a project and add your
 project number to. the credentials.  Example for chameleon cloud::
 
+  TODO
+
+.. todo:: example configuration OpenStack
+  
 
 Virtual Box
 ~~~~~~~~~~~
@@ -365,7 +373,7 @@ Storage Providers
 -----------------
 
 General description for all storage providers, comment on the
-``default:`` and what that does
+``default:`` and what that does.
 
 AWS S3
 ~~~~~~

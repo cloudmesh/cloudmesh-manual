@@ -3,6 +3,14 @@ register list sample --service=storage --kind=parallelgdrive
 Configuration for Cloud=parallelgdrive Service=storage
 ------------------------------------------------------
 
+
+.. note:: This Documentation was generated automatically with::
+
+              cms register list sample --service=compute --kind=openstack
+
+           please do not change the manual page, change the code if things to not look ok.
+
+
 ::
     TODO: missing
 To register this service the following parameter ned to be defined::
@@ -10,4 +18,3 @@ To register this service the following parameter ned to be defined::
     
 
 
-Timer: 0.0000s Load: 0.0000s (line_strip)

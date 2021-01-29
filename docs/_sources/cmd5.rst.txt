@@ -321,20 +321,22 @@ also the manual page and creates a proper help message for the shell
 automatically. Thus there is no need to introduce a separate help method
 as would normally be needed in CMD.
 
-.. |DOI| image:: https://zenodo.org/badge/82920490.svg
-   :target: https://zenodo.org/badge/latestdoi/82920490
-.. |Version| image:: https://img.shields.io/pypi/v/cloudmesh-cmd5.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-cmd5
-.. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-   :target: https://github.com/cloudmesh/cloudmesh-cmd5/blob/master/LICENSE
-.. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-cmd5.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-cmd5
-.. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-cmd5.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-cmd5
-.. |Status| image:: https://img.shields.io/pypi/status/cloudmesh-cmd5.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-cmd5
-.. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-cmd5.svg?branch=master
-   :target: https://travis-ci.com/cloudmesh/cloudmesh-cmd5
+.. comment:
+
+   .. |DOI| image:: https://zenodo.org/badge/82920490.svg
+      :target: https://zenodo.org/badge/latestdoi/82920490
+   .. |Version| image:: https://img.shields.io/pypi/v/cloudmesh-cmd5.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-cmd5
+   .. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
+      :target: https://github.com/cloudmesh/cloudmesh-cmd5/blob/master/LICENSE
+   .. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-cmd5.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-cmd5
+   .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-cmd5.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-cmd5
+   .. |Status| image:: https://img.shields.io/pypi/status/cloudmesh-cmd5.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-cmd5
+   .. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-cmd5.svg?branch=master
+      :target: https://travis-ci.com/cloudmesh/cloudmesh-cmd5
 
 
 Docker

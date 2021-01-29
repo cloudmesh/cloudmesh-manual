@@ -3,6 +3,14 @@ register list sample --service=storage --kind=awss3
 Configuration for Cloud=awss3 Service=storage
 ---------------------------------------------
 
+
+.. note:: This Documentation was generated automatically with::
+
+              cms register list sample --service=compute --kind=openstack
+
+           please do not change the manual page, change the code if things to not look ok.
+
+
 ::
 
     cloudmesh:
@@ -14,14 +22,14 @@ Configuration for Cloud=awss3 Service=storage
             host: aws.com
             label: home-dir
             kind: awss3
-            version: TBD
+            version: latest
             service: storage
           default:
-            directory: TBD
+            directory: /
           credentials:
             name: {username}
             bucket: {container_name}
-            container: TBD
+            container: {container_name}
             access_key_id: {aws_access_key_id}
             secret_access_key: {aws_secret_access_key}
             region: {region_name}
@@ -36,4 +44,3 @@ To register this service the following parameter ned to be defined::
     username
 
 
-Timer: 0.0000s Load: 0.0000s (line_strip)

@@ -375,13 +375,15 @@ Link for additional information:
 
 * <https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md>
 
-.. |Version| image:: https://img.shields.io/pypi/v/cloudmesh-storage.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-storage
-.. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-   :target: https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE
-.. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-storage	    
-.. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-storage.svg
-   :target: https://pypi.python.org/pypi/cloudmesh-storage
-.. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master
-   :target: https://travis-ci.com/cloudmesh/cloudmesh-storage
+.. comment:
+
+   .. |Version| image:: https://img.shields.io/pypi/v/cloudmesh-storage.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-storage
+   .. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
+      :target: https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE
+   .. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-storage	    
+   .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-storage.svg
+      :target: https://pypi.python.org/pypi/cloudmesh-storage
+   .. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master
+      :target: https://travis-ci.com/cloudmesh/cloudmesh-storage

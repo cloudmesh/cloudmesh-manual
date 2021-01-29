@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Configuration for Cloud=aws Service=volume &mdash; Cloudmesh 0.1 documentation</title>
+  <title>&lt;no title&gt; &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -183,7 +183,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Configuration for Cloud=aws Service=volume</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,47 +202,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>register list sample –service=volume –kind=aws</p>
-<div class="section" id="configuration-for-cloud-aws-service-volume">
-<h1>Configuration for Cloud=aws Service=volume<a class="headerlink" href="#configuration-for-cloud-aws-service-volume" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
-  <span class="n">volume</span><span class="p">:</span>
-    <span class="p">{</span><span class="n">name</span><span class="p">}:</span>
-      <span class="n">cm</span><span class="p">:</span>
-        <span class="n">active</span><span class="p">:</span> <span class="n">true</span>
-        <span class="n">heading</span><span class="p">:</span> <span class="n">AWS</span>
-        <span class="n">host</span><span class="p">:</span> <span class="n">aws</span><span class="o">.</span><span class="n">com</span>
-        <span class="n">label</span><span class="p">:</span> <span class="n">VAWAS1</span>
-        <span class="n">kind</span><span class="p">:</span> <span class="n">aws</span>
-        <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
-        <span class="n">service</span><span class="p">:</span> <span class="n">volume</span>
-      <span class="n">default</span><span class="p">:</span>
-        <span class="n">volume_type</span><span class="p">:</span> <span class="n">gp2</span>
-        <span class="n">size</span><span class="p">:</span> <span class="n">TBD</span>
-        <span class="n">encrypted</span><span class="p">:</span> <span class="kc">False</span>
-        <span class="n">region_name</span><span class="p">:</span> <span class="p">{</span><span class="n">region_name</span><span class="p">}</span>
-        <span class="n">region</span><span class="p">:</span> <span class="p">{</span><span class="n">availability_zone</span><span class="p">}</span>
-        <span class="n">snapshot</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span>
-      <span class="n">credentials</span><span class="p">:</span>
-        <span class="n">EC2_SECURITY_GROUP</span><span class="p">:</span> <span class="n">default</span>
-        <span class="n">EC2_ACCESS_ID</span><span class="p">:</span> <span class="p">{</span><span class="n">aws_access_key_id</span><span class="p">}</span>
-        <span class="n">EC2_SECRET_KEY</span><span class="p">:</span> <span class="p">{</span><span class="n">aws_secret_access_key</span><span class="p">}</span>
-        <span class="n">EC2_PRIVATE_KEY_FILE_PATH</span><span class="p">:</span> <span class="p">{</span><span class="n">private_key_file_path</span><span class="p">}</span>
-        <span class="n">EC2_PRIVATE_KEY_FILE_NAME</span><span class="p">:</span> <span class="p">{</span><span class="n">private_key_file_name</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>To register this service the following parameter ned to be defined:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">availability_zone</span>
-<span class="n">aws_access_key_id</span>
-<span class="n">aws_secret_access_key</span>
-<span class="n">name</span>
-<span class="n">private_key_file_name</span>
-<span class="n">private_key_file_path</span>
-<span class="n">region_name</span>
-</pre></div>
-</div>
-<p>Timer: 0.0000s Load: 0.0000s (line_strip)</p>
-</div>
+  <p>register list sample –service=volume –kind=aws
+ERROR: Registration failed kind=aws and service=volume
+No module named ‘cloudmesh.volume’
+ERROR: No suitable provider found.
+Timer: 0.0028s Load: 0.0184s (line_strip)</p>
 
 
            </div>

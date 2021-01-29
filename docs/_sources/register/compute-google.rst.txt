@@ -1,5 +1,46 @@
 register list sample --service=compute --kind=google
-ERROR: Registration failed kind=google and service=cloud
-problem in /home/blue/cm/cloudmesh-google/cloudmesh/google/compute/Provider.py - SyntaxError: invalid syntax (Provider.py, line 149)
-ERROR: No suitable provider found.
-Timer: 0.0000s Load: 0.0000s (line_strip)
+
+Configuration for Cloud=google Service=cloud
+--------------------------------------------
+
+::
+
+    cloudmesh:
+      cloud:
+        {name}:
+          cm:
+            active: true
+            heading: {name}
+            host: https://console.cloud.google.com/compute/instances?project={project_id}
+            label: {name}
+            kind: google
+            version: v1
+            service: compute
+          default:
+            image: ubuntu-1910
+            image_project: ubuntu-os-cloud
+            project_name: cloudmesh
+            storage_bucket: cloudmesh-bucket
+            zone: us-central1-a
+            region: us-central1
+            flavor: g1-small
+            size: 10
+            resource_group: cloudmesh-group
+            network: global/networks/default
+          credentials:
+            type: {type}
+            auth:
+                json_file: {filename}
+                project_id: {project_id}
+                client_email: {client_email}
+
+To register this service the following parameter ned to be defined::
+
+    client_email
+    filename
+    name
+    project_id
+    type
+
+
+Timer: 0.2371s Load: 0.0186s (line_strip)
