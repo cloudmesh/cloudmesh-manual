@@ -133,10 +133,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#volume-cloud-providers">Volume Cloud Providers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#aws">AWS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure">Azure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Google</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Google</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multipass">Multipass</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#oracle">Oracle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Openstack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Openstack</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#log-file">Log File</a></li>
@@ -263,8 +263,8 @@ providers.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">register</span> <span class="nb">list</span> <span class="n">sample</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">compute</span> <span class="o">--</span><span class="n">kind</span><span class="o">=</span><span class="n">openstack</span>
 </pre></div>
 </div>
-<table class="colwidths-given docutils align-default" id="id10">
-<caption><span class="caption-text">Configuration Samples for Compute</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id19">
+<caption><span class="caption-text">Configuration Samples for Compute</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -547,8 +547,8 @@ of cloudmesh will encrypt the information by default.</p>
 <div class="section" id="google">
 <h3>Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
 <p>To obtain an account on Google you can follow our instructions at
-<a class="reference internal" href="../accounts/google/index.html"><span class="doc">Google Acounts</span></a>. THe configuration file contains the
-following:</p>
+<a class="reference internal" href="../accounts/google/index.html"><span class="doc">Google Acounts</span></a>. The configuration file contains the
+following</p>
 </div>
 <div class="section" id="openstack">
 <h3>OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
@@ -562,14 +562,14 @@ even install your local cloud with devstack and make adjustments.
 Please remember you can have multiple clouds in the
 <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file so you could if you have access to them
 integrate all of them.  You will need access to a project and add your
-project number to. the credentials.  Example for chameleon cloud:</p>
+project number to. the credentials.  Example for chameleon cloud is as follows</p>
 </div>
 <div class="section" id="virtual-box">
 <h3>Virtual Box<a class="headerlink" href="#virtual-box" title="Permalink to this headline">¶</a></h3>
 <p>Virtualbox has at this time-limited functionality, but creation, ssh,
 and the deletion of the virtual box is possible.</p>
 <p>You can also integrate virtualbox as part of cloudmesh while providing
-the following description:</p>
+the following description</p>
 </div>
 </div>
 <div class="section" id="storage-providers">
@@ -597,8 +597,7 @@ Client or resource for that geographic area.</p>
 yet included it in the Provider code. This needs to be fixed before we
 can do this.</p>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Google. However, we do provide a convenient documentation at
-.</p>
+on Google. However, we do provide a convenient documentation at.</p>
 </div>
 <div class="section" id="google-cloud-storage">
 <h3>Google Cloud Storage<a class="headerlink" href="#google-cloud-storage" title="Permalink to this headline">¶</a></h3>
@@ -610,7 +609,7 @@ on Google. However, we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/box.html"><span class="doc">Box Account</span></a>.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, find the ‘box’ section under ‘storage’.
 Under credentials, set <code class="docutils literal notranslate"><span class="pre">config_path</span></code> to the path of the configuration
-file you created as described in the Box chapter:</p>
+file you created as described in the Box chapter</p>
 </div>
 </div>
 <div class="section" id="volume-cloud-providers">
@@ -634,10 +633,9 @@ volume from.</p>
 </div>
 <div class="section" id="azure">
 <h3>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
-<p>TBD</p>
 </div>
-<div class="section" id="id8">
-<h3>Google<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>Google<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p>The default volume <code class="docutils literal notranslate"><span class="pre">type</span></code> in the Google configuration takes a url as a value.
 The url should look like this:
 <code class="docutils literal notranslate"><span class="pre">projects/project_id/zones/zone/diskTypes/pd-standard</span></code>, where <code class="docutils literal notranslate"><span class="pre">project_id</span></code>
@@ -652,10 +650,9 @@ multipass volumes will be created.  For Windows users, the path should use
 </div>
 <div class="section" id="oracle">
 <h3>Oracle<a class="headerlink" href="#oracle" title="Permalink to this headline">¶</a></h3>
-<p>TBD</p>
 </div>
-<div class="section" id="id9">
-<h3>Openstack<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>Openstack<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="log-file">
