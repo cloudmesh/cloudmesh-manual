@@ -119,7 +119,6 @@
 <li class="toctree-l2"><a class="reference internal" href="os/install-linux.html">Installation for for Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="os/install-macos.html">Installation for macOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pi/install-pi.html">Prerequisites for Raspbian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows/index.html">Windows Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database/install-mongo.html">Cloudmesh Database</a></li>
 </ul>
@@ -248,19 +247,29 @@
 <li><p><a class="reference internal" href="#installation-of-mongodb" id="id8">Installation of MongoDB</a></p></li>
 </ul>
 </div>
-<p>Cloudmesh is easy to install. Dependent on your preferences you can choose an
+<p>Cloudmesh is easy to install. However we have provided a comprehensive
+documentation for many different deployment scenarios.
+Dependent on your preferences you can choose an
 install from</p>
-<ul class="simple">
-<li><p>pip if you are a Cloudmesh user with experience,</p></li>
-<li><p>an installation in containers if you are a user with no experience,</p></li>
+<ol class="arabic simple">
+<li><p>pip install if you are a Cloudmesh user,</p></li>
+<li><p>an installation in containers if you are a user liking to use containers,</p></li>
 <li><p>source install if you are a developer.</p></li>
-</ul>
+</ol>
+<p>Most of our users chose option 3 as they like to further develop Cloudmesh.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>In case you are experienced with Python virtualenv and like to install
+Cloudmesh in your virtualenv, you can alse review the
+<a class="reference internal" href="quickstart/quickstart.html#sec-quickstart"><span class="std std-ref">Quickstart</span></a> guide. However we also recommend to get an overview of
+how to install it for your particular system.</p>
+</div>
 <p>Please read the installation section in this manual thoroughly, and understand
 the items explained before you install it. Do not just paste and copy the text in
 your terminal and execute it as it could have unexpected consequences.
 This also helps to decide which installation method is best suited for you.</p>
 <p>We are providing a <strong>clickable</strong> map to help you in your decision process which
-version to install.</p>
+version and how to install it.</p>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph LR
      os{OS}
@@ -280,9 +289,9 @@ version to install.</p>
      Raspbian--&gt;pip
 
      subgraph Python
-         p([3.7, 3.8, conda, jupyter])
-         pip(pip install fa:fa-link)
-         cmi(cloudmesh-installer fa:fa-link)
+         p([3.7, 3.8, 3.9, conda, jupyter])
+         pip(pip install)
+         cmi(cloudmesh-installer)
      end
 
      subgraph IoT
@@ -308,15 +317,13 @@ version to install.</p>
          cmsd(cmsd fa:fa-link)
      end
 
-     click Raspbian &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-pi.html&quot;
-     click Windows &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-windows.html&quot;
-     click Linux &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-linux.html&quot;
-     click macOS &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html&quot;
+     click Raspbian &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/pi/install-pi.html&quot;
+     click Windows &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/os/windows/index.html&quot;
+     click Linux &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/os/install-linux.html&quot;
+     click macOS &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/os/install-macos.html&quot;
 
-     click Docker &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html&quot;
-     click cmsd &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html&quot;
-     click pip &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html&quot;
-     click cmi &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html&quot;
+     click Docker &quot;https://cloudmesh.github.io/cloudmesh-manual/installation/install.html#installation-of-cloudmesh-with-docker&quot;
+     click cmsd &quot;https://cloudmesh.github.io/cloudmesh-manual/cmsd.html&quot;
 
      style Container fill:#8fc,stroke:#333,stroke-width:2px
      style OS fill:#eef,stroke:#333,stroke-width:2px

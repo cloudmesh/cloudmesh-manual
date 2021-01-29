@@ -3,12 +3,23 @@ Overview
 
 .. contents:: :local:
 
-Cloudmesh is easy to install. Dependent on your preferences you can choose an
+Cloudmesh is easy to install. However we have provided a comprehensive
+documentation for many different deployment scenarios.
+Dependent on your preferences you can choose an
 install from
 
-* pip if you are a Cloudmesh user with experience,
-* an installation in containers if you are a user with no experience,
-* source install if you are a developer.
+1. pip install if you are a Cloudmesh user,
+2. an installation in containers if you are a user liking to use containers,
+3. source install if you are a developer.
+
+Most of our users chose option 3 as they like to further develop Cloudmesh.
+
+.. seealso::
+
+   In case you are experienced with Python virtualenv and like to install
+   Cloudmesh in your virtualenv, you can alse review the
+   :ref:`sec-quickstart` guide. However we also recommend to get an overview of
+   how to install it for your particular system.
 
 Please read the installation section in this manual thoroughly, and understand
 the items explained before you install it. Do not just paste and copy the text in
@@ -16,7 +27,7 @@ your terminal and execute it as it could have unexpected consequences.
 This also helps to decide which installation method is best suited for you.
 
 We are providing a **clickable** map to help you in your decision process which
-version to install.
+version and how to install it.
 
 .. mermaid::
 
@@ -38,9 +49,9 @@ version to install.
         Raspbian-->pip
 
         subgraph Python
-            p([3.7, 3.8, conda, jupyter])
-            pip(pip install fa:fa-link)
-            cmi(cloudmesh-installer fa:fa-link)
+            p([3.7, 3.8, 3.9, conda, jupyter])
+            pip(pip install)
+            cmi(cloudmesh-installer)
         end
 
         subgraph IoT
@@ -66,20 +77,22 @@ version to install.
             cmsd(cmsd fa:fa-link)
         end
 
-        click Raspbian "https://cloudmesh.github.io/cloudmesh-manual/installation/install-pi.html"
-        click Windows "https://cloudmesh.github.io/cloudmesh-manual/installation/install-windows.html"
-        click Linux "https://cloudmesh.github.io/cloudmesh-manual/installation/install-linux.html"
-        click macOS "https://cloudmesh.github.io/cloudmesh-manual/installation/install-macos.html"
+        click Raspbian "https://cloudmesh.github.io/cloudmesh-manual/installation/pi/install-pi.html"
+        click Windows "https://cloudmesh.github.io/cloudmesh-manual/installation/os/windows/index.html"
+        click Linux "https://cloudmesh.github.io/cloudmesh-manual/installation/os/install-linux.html"
+        click macOS "https://cloudmesh.github.io/cloudmesh-manual/installation/os/install-macos.html"
 
-        click Docker "https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html"
-        click cmsd "https://cloudmesh.github.io/cloudmesh-manual/installation/install-cmsd.html"
-        click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
-        click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"
+        click Docker "https://cloudmesh.github.io/cloudmesh-manual/installation/install.html#installation-of-cloudmesh-with-docker"
+        click cmsd "https://cloudmesh.github.io/cloudmesh-manual/cmsd.html"
 
         style Container fill:#8fc,stroke:#333,stroke-width:2px
         style OS fill:#eef,stroke:#333,stroke-width:2px
         style Python fill:#2df,stroke:#333,stroke-width:2px
 
+.. comment::
+
+        click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
+        click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"
 
 Installation of cloudmesh with Docker
 -------------------------------------

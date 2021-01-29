@@ -9,8 +9,8 @@ found at
 
 *  <https://github.com/cloudmesh/cloudmesh-installer>
 
-First make sure you have a python ``venv`` created, as described in
-the prerequisites for venv section (see `Use a venv`_). Activate the
+First make sure you have a python `venv` created, as described in
+the prerequisites for venv section. Activate the
 venv (`ENV3`).
 
 Navigate to for example the home directory, Then create an empty

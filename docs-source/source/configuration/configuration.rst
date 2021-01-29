@@ -337,7 +337,6 @@ following
 
 .. todo:: include the configuration file link here
 
-
 OpenStack
 ~~~~~~~~~
 
@@ -357,6 +356,10 @@ project number to. the credentials.  Example for chameleon cloud is as follows
 .. todo:: include the configuration file link here
 
 
+  TODO
+
+.. todo:: example configuration OpenStack
+  
 
 Virtual Box
 ~~~~~~~~~~~
@@ -374,7 +377,7 @@ Storage Providers
 -----------------
 
 General description for all storage providers, comment on the
-``default:`` and what that does
+``default:`` and what that does.
 
 AWS S3
 ~~~~~~

@@ -205,12 +205,36 @@
   <p>register list sample –service=storage –kind=local</p>
 <div class="section" id="configuration-for-cloud-local-service-storage">
 <h1>Configuration for Cloud=local Service=storage<a class="headerlink" href="#configuration-for-cloud-local-service-storage" title="Permalink to this headline">¶</a></h1>
-<dl class="simple">
-<dt>::</dt><dd><p>TODO: missing</p>
-</dd>
-</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This Documentation was generated automatically with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">register</span> <span class="nb">list</span> <span class="n">sample</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">compute</span> <span class="o">--</span><span class="n">kind</span><span class="o">=</span><span class="n">openstack</span>
+</pre></div>
+</div>
+<p>please do not change the manual page, change the code if things to not look ok.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="n">storage</span><span class="p">:</span>
+    <span class="p">{</span><span class="n">name</span><span class="p">}:</span>
+      <span class="n">cm</span><span class="p">:</span>
+        <span class="n">active</span><span class="p">:</span> <span class="n">false</span>
+        <span class="n">heading</span><span class="p">:</span> <span class="n">Storage</span> <span class="n">A</span>
+        <span class="n">host</span><span class="p">:</span> <span class="n">localhost</span>
+        <span class="n">label</span><span class="p">:</span> <span class="n">local</span>
+        <span class="n">kind</span><span class="p">:</span> <span class="n">local</span>
+        <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
+      <span class="n">default</span><span class="p">:</span>
+        <span class="n">directory</span><span class="p">:</span> <span class="o">~/</span><span class="n">a</span>
+      <span class="n">credentials</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">key</span><span class="p">:</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="o">.</span><span class="n">pub</span>
+</pre></div>
+</div>
 <p>To register this service the following parameter ned to be defined:</p>
-<p>Timer: 0.0000s Load: 0.0000s (line_strip)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>
+</pre></div>
+</div>
 </div>
 
 

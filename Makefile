@@ -192,6 +192,10 @@ register:
 	cms register list sample --service=storage --kind=parallelazureblob > $(REGISTER)/storage-parallelazureblob.rst
 	cms register list sample --service=storage --kind=parallelgdrive > $(REGISTER)/storage-parallelgdrive.rst
 	cms register list sample --service=storage --kind=oracle > $(REGISTER)/storage-oracle.rst
+	fgrep "ERROR" $(REGISTER)/*.rst
+	fgrep -i "TODO" $(REGISTER)/*.rst
+
+
 
 
 source:
@@ -229,6 +233,7 @@ authors:
 	@bin/authors.py > $(SOURCE)/preface/authors.rst
 
 doc: authors
+	cms debug off
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
 	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-config/main/cloudmesh/configuration/etc/cloudmesh.yaml
 	rm -rf docs

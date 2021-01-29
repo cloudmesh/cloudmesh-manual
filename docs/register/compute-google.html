@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Configuration for Cloud=google Service=cloud &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -183,7 +183,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Configuration for Cloud=google Service=cloud</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,11 +202,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>register list sample –service=compute –kind=google
-ERROR: Registration failed kind=google and service=cloud
-problem in /home/blue/cm/cloudmesh-google/cloudmesh/google/compute/Provider.py - SyntaxError: invalid syntax (Provider.py, line 149)
-ERROR: No suitable provider found.
-Timer: 0.0000s Load: 0.0000s (line_strip)</p>
+  <p>register list sample –service=compute –kind=google</p>
+<div class="section" id="configuration-for-cloud-google-service-cloud">
+<h1>Configuration for Cloud=google Service=cloud<a class="headerlink" href="#configuration-for-cloud-google-service-cloud" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This Documentation was generated automatically with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">register</span> <span class="nb">list</span> <span class="n">sample</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">compute</span> <span class="o">--</span><span class="n">kind</span><span class="o">=</span><span class="n">openstack</span>
+</pre></div>
+</div>
+<p>please do not change the manual page, change the code if things to not look ok.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cloudmesh:
+  cloud:
+    {name}:
+      cm:
+        active: true
+        heading: {name}
+        host: https://console.cloud.google.com/compute/instances?project={project_id}
+        label: {name}
+        kind: google
+        version: v1
+        service: compute
+      default:
+        image: ubuntu-1910
+        image_project: ubuntu-os-cloud
+        project_name: cloudmesh
+        storage_bucket: cloudmesh-bucket
+        zone: us-central1-a
+        region: us-central1
+        flavor: g1-small
+        size: 10
+        resource_group: cloudmesh-group
+        network: global/networks/default
+      credentials:
+        type: {type}
+        auth:
+            json_file: {filename}
+            project_id: {project_id}
+            client_email: {client_email}
+</pre></div>
+</div>
+<p>To register this service the following parameter ned to be defined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_email</span>
+<span class="n">filename</span>
+<span class="n">name</span>
+<span class="n">project_id</span>
+<span class="nb">type</span>
+</pre></div>
+</div>
+</div>
 
 
            </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Configuration for Cloud=aws Service=cloud &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -183,7 +183,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Configuration for Cloud=aws Service=cloud</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,10 +202,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>register list sample –service=compute –kind=aws
-ERROR: Registration no Provider found for kind=aws and service=cloud
-ERROR: No suitable provider found.
-Timer: 0.0000s Load: 0.0000s (line_strip)</p>
+  <p>register list sample –service=compute –kind=aws</p>
+<div class="section" id="configuration-for-cloud-aws-service-cloud">
+<h1>Configuration for Cloud=aws Service=cloud<a class="headerlink" href="#configuration-for-cloud-aws-service-cloud" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This Documentation was generated automatically with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">register</span> <span class="nb">list</span> <span class="n">sample</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">compute</span> <span class="o">--</span><span class="n">kind</span><span class="o">=</span><span class="n">openstack</span>
+</pre></div>
+</div>
+<p>please do not change the manual page, change the code if things to not look ok.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="n">cloud</span><span class="p">:</span>
+    <span class="p">{</span><span class="n">name</span><span class="p">}:</span>
+      <span class="n">cm</span><span class="p">:</span>
+        <span class="n">active</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">heading</span><span class="p">:</span> <span class="n">AWS</span>
+        <span class="n">host</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">label</span><span class="p">:</span> <span class="p">{</span><span class="n">name</span><span class="p">}</span>
+        <span class="n">kind</span><span class="p">:</span> <span class="n">aws</span>
+        <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
+      <span class="n">default</span><span class="p">:</span>
+        <span class="n">image</span><span class="p">:</span> <span class="n">ami</span><span class="o">-</span><span class="mi">0</span><span class="n">c929bde1796e1484</span>
+        <span class="n">size</span><span class="p">:</span> <span class="n">t2</span><span class="o">.</span><span class="n">medium</span>
+        <span class="n">username</span><span class="p">:</span> <span class="n">ec2</span><span class="o">-</span><span class="n">user</span>
+      <span class="n">credentials</span><span class="p">:</span>
+        <span class="n">region</span><span class="p">:</span> <span class="p">{</span><span class="n">region</span><span class="p">}</span>
+        <span class="n">EC2_SECURITY_GROUP</span><span class="p">:</span> <span class="n">cloudmesh</span>
+        <span class="n">EC2_ACCESS_ID</span><span class="p">:</span> <span class="p">{</span><span class="n">EC2_ACCESS_ID</span><span class="p">}</span>
+        <span class="n">EC2_SECRET_KEY</span><span class="p">:</span> <span class="p">{</span><span class="n">EC2_SECRET_KEY</span><span class="p">}</span>
+        <span class="n">EC2_PRIVATE_KEY_FILE_PATH</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">aws_cert</span><span class="o">.</span><span class="n">pem</span>
+        <span class="n">EC2_PRIVATE_KEY_FILE_NAME</span><span class="p">:</span> <span class="n">aws_cert</span>
+</pre></div>
+</div>
+<p>To register this service the following parameter ned to be defined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EC2_ACCESS_ID</span>
+<span class="n">EC2_SECRET_KEY</span>
+<span class="n">name</span>
+<span class="n">region</span>
+</pre></div>
+</div>
+</div>
 
 
            </div>
