@@ -49,9 +49,9 @@ version and how to install it.
         Raspbian-->pip
 
         subgraph Python
-            p([3.7, 3.8, conda, jupyter])
-            pip(pip install fa:fa-link)
-            cmi(cloudmesh-installer fa:fa-link)
+            p([3.7, 3.8, 3.9, conda, jupyter])
+            pip(pip install)
+            cmi(cloudmesh-installer)
         end
 
         subgraph IoT
@@ -84,13 +84,15 @@ version and how to install it.
 
         click Docker "https://cloudmesh.github.io/cloudmesh-manual/installation/install.html#installation-of-cloudmesh-with-docker"
         click cmsd "https://cloudmesh.github.io/cloudmesh-manual/cmsd.html"
-        click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
-        click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"
 
         style Container fill:#8fc,stroke:#333,stroke-width:2px
         style OS fill:#eef,stroke:#333,stroke-width:2px
         style Python fill:#2df,stroke:#333,stroke-width:2px
 
+.. comment::
+
+        click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
+        click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"
 
 Installation of cloudmesh with Docker
 -------------------------------------
