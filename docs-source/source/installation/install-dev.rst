@@ -42,7 +42,7 @@ to use compute resources the bundle name ``openstack`` will be what you want.
 If in addition you also like to work on storage, the bundle name ``storage``
 needs to be used.
 
-Let, us assume you chose `opensatck`, than you can install cloudmesh with
+Let us assume you chose `opensatck`, than you can install cloudmesh with
 
 .. code-block:: bash
 
@@ -58,7 +58,7 @@ GitHub please use instead
 It will take a while for the install to complete. On newer machines it
 takes 1 minute, on older machines, it may take significantly
 longer. Please watch your system resource information if the install
-takes a long time. Make sure to terminate other resource hungry
+takes a long time. Make sure to terminate other resource-hungry
 programs.  After the installation is complete, you can then test if
 you have successfully installed it by issuing the following command:
 
@@ -86,14 +86,14 @@ If you see any conflicts make sure to resolve them.
 
 Please note that in an update it could also be possible that the format of the
 `cloudmesh.yaml` file may have changed. Thus we always recommend that you also
-update the yaml file to the newest format. You can check the yaml file with
+update the YAML file to the newest format. You can check the YAML file with
 
 .. code-block:: bash
 
     cms config check
 
 
-As developer sometimes it may be best to make a backup of the `cm` and
+As a developer sometimes it may be best to make a backup of the `cm` and
 `~\.cloudmesh` directory or individual repositories in the cm
 directory. Then copy your changes into the newest code. Make sure to
 remove all python artifacts in the backup directory the command

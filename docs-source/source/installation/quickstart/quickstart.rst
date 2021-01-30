@@ -6,22 +6,22 @@ Quickstart
 This quickstart assumes you have already performed the following
 
 * installed cloudmesh
-* installed mongodb either with the help of cloudmesh or another method
+* installed MongoDB either with the help of cloudmesh or another method
 
 
-One of the features up Cloudmesh is to easily start new virtual machines
-on various clouds. It uses defaults for these clouds that can be changed,
-but are easily stored in a yaml file located at
-``~/.cloudmesh/cloudmesh.yaml`` This file is created upon first start
+One of the features of Cloudmesh is to easily start new virtual machines
+on various clouds. It uses defaults for these clouds that can be changed
+but are easily stored in a YAML file located at
+``~/.cloudmesh/cloudmesh.yaml`` This file is created upon the first start
 of the shell. You need to edit it and include some of your cloud
 information.
 
-A template for the yaml file is located at:
+A template for the YAML file is located at:
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
 
-Make sure that if you edited the yaml file that you check if it is correctly
-formated. This can be done with
+Make sure that if you edited the YAML file that you check if it is correctly
+formatted. This can be done with
 
 .. code:: bash
 
@@ -34,12 +34,12 @@ Cloudmesh comes with a simple GUI program that can only be used on the machines
 natively. E.g. It does not work in containers and the Linux Subsystem on
 Windows.
 
-To install it as user you can do it with::
+To install it as a user you can do it with::
 
     pip install cloudmesh-gui
 
 You will have the command `cms gui` available. You will need to configure the
-profile, activate clouds, and add credentials for a cloud. For this you can
+profile, activate clouds and add credentials for a cloud. For this, you can
 use::
 
     cms gui quick
@@ -95,7 +95,7 @@ can be achieved with the following command
 
    cms config ssh keygen
 
-Alternatively you can create a key as follows
+Alternatively, you can create a key as follows
 
 .. code:: bash
 
@@ -127,8 +127,8 @@ calling the commands::
 
    cms init
 
-Note that the init command also starts the mongodb. This needs to be done
-only one time. Form now on you can start and stop cloudmesh with::
+Note that the init command also starts the MongoDB. This needs to be done
+only one time. From now on you can start and stop cloudmesh with::
 
    cms start
 
@@ -153,7 +153,7 @@ After you started cms you can issue a number of commands. The benefit of
 cloudmesh is that it is easy to switch between clouds with the set command.
 After the set and specifying the cloud by name many commands will default to
 that cloud. The exception is the ``vm list`` command that lists by default
-all vms on all clouds. In addition the ``vm refresh`` command will also
+all vms on all clouds. In addition, the ``vm refresh`` command will also
 work on all clouds.
 
 .. code:: bash
@@ -208,8 +208,7 @@ Defaults for the cloud and the name can be specified through set such as
    cms set cloud=aws,azure
 
 
-.. todo:: check if multiple clouds can be set and the list command works on
-          multiple clouds. Check this also for image and flavor commands
+.. todo:: check if multiple clouds can be set and the list command works on multiple clouds. Check this also for image and flavor commands
 
 Using the commands
 
@@ -217,7 +216,7 @@ Using the commands
 
    cms vm list
 
-would than add the appropriate options to the command. To reset the show
+would then add the appropriate options to the command. To reset the show
 to all vms set name and cloud to all
 
 .. code:: bash
@@ -291,7 +290,7 @@ Using quotes
 ------------
 
 .. warning:: In case you need to use quotes in the command line you need to
-             mask them with a bakslash on Linux and macOS and with 3 quotes in Windows,
+             mask them with a backslash on Linux and macOS and with 3 quotes in Windows,
              as this is a feature of your shell.
 
 Thus you would use
@@ -300,7 +299,7 @@ Thus you would use
 
    cms vm list --cloud=\"chameleon\"
 
-However as there are no quotes needed in the provious command it can simply
+However, as there are no quotes needed in the previous command it can simply
 be written as
 
    cms vm list --cloud=chameleon
@@ -312,9 +311,9 @@ There are two exceptions that we implemented on Linux and macOS. Here the comman
    cms set x="variable with spaces"
    cms config set x="variable with spaces"
 
-Will also work, e.g. the backslash is not needed.
+It Will also work, e.g. the backslash is not needed.
 
-However, on windows you need to use the three quotes such as
+However, on windows, you need to use the three quotes such as
 
    cms set x="""variable with spaces"""
 
@@ -322,7 +321,7 @@ However, on windows you need to use the three quotes such as
 Configuring chameleon cloud
 ---------------------------
 
-In many of the classes we teach you will have access to chameleon cloud. You
+In many of the classes, we teach you will have access to chameleon cloud. You
 will get a cloudmesh.yaml file as part of the class in which you only need
 to set your username and your password. This is done on the terminal with
 
@@ -339,7 +338,7 @@ the account giving you access to
 * https://www.chameleoncloud.org/
 
 Thus if you have an account and are part of the class project, you can gain
-access to an openstack cloud in seconds via cloudmesh.
+access to an OpenStack cloud in seconds via cloudmesh.
 
 Timer
 -----
@@ -354,7 +353,7 @@ can switch it on with
 Debugging
 ---------
 
-Cloudmesh has some debugging features build in. To switch them on or of please
+Cloudmesh has some debugging features build in. To switch them on or of, please
 use the commands
 
 .. code:: bash
@@ -362,7 +361,7 @@ use the commands
    cms debug on
    cms debug on
 
-In case of `on` the following values are set:
+In the case of `on` the following values are set:
 
 .. code:: bash
 
@@ -371,9 +370,9 @@ In case of `on` the following values are set:
    cms set verbose=10
    cms set timer=True
 
-After setting them additional debug messages witl be printed.
+After setting them additional debug messages will be printed.
 
-In case of `off` the following values are set:
+In the case of `off` the following values are set:
 
 .. code:: bash
 
