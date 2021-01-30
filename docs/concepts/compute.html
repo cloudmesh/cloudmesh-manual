@@ -142,7 +142,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
@@ -218,9 +218,9 @@
 <h1>Virtual Machine Providers<a class="headerlink" href="#virtual-machine-providers" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh is based on the concept of providers that make it possible to develop
 API interfaces for different services independently while inheriting the
-functionality form a comman abstract class.</p>
-<p>Let us demonstarte the concept of abstract providers for compute
-providers. We assume that the source diectories are stored in ~/cm.
+functionality form a common abstract class.</p>
+<p>Let us demonstrate the concept of abstract providers for compute
+providers. We assume that the source directories are stored in ~/cm.
 We have the following structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">abstract</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">abstract</span><span class="o">/</span><span class="n">ComputeNodeABC</span><span class="o">.</span><span class="n">py</span>
 <span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">cloud</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">vm</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
@@ -234,8 +234,8 @@ We have the following structure:</p>
 </pre></div>
 </div>
 <p>Here the ABC class determines which methods must be implemented by the
-main cloud provider. This provider than delectes the activity to the
-cloud provider that is determinded by the internal cloudmesh <cite>cloud</cite>
+main cloud provider. This provider then detects the activity to the
+cloud provider that is determined by the internal cloudmesh <cite>cloud</cite>
 variable. To simplify authentication, the credentials can be stored in
 the cloudmesh.yaml file.</p>
 <p>Example: The yaml file ~/.cloudmesh/cludmesh.yaml contains the entry:</p>
@@ -256,12 +256,12 @@ the cloudmesh.yaml file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span> <span class="o">=</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">Provider</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;mycloud&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The Provider will load in the provider from the aws directory, as the cm.kind
+<p>The Provider will load in the provider from the AWS directory, as the cm.kind
 is specified as <cite>aws</cite>. Thus the main provider delegates the tasks to interface
-with teh particular cloud type via the definitions coming from the cloudmesh
-yaml file. This makes it possible to easily create multiple interface sto
+with the particular cloud type via the definitions coming from the cloudmesh
+YAML file. This makes it possible to easily create multiple interfaces to
 different cloud service providers while managing a uniform interface via the
-ABC class. All providers in this hierarchie must innherit from the ABC class.</p>
+ABC class. All providers in this hierarchy must inherit from the ABC class.</p>
 <p>Deatils of a virtual machine provider
 ~~~~~~~~~~~~~~~—————~~~~~~~</p>
 <p>Here we list in more details how a virtual machine provider can look like:</p>
@@ -284,9 +284,9 @@ ABC class. All providers in this hierarchie must innherit from the ABC class.</p
             <span class="n">azure</span><span class="o">/</span><span class="n">Provider</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>In this case we have includes in the compute provider imports for the providers
-defined in their own reporsitories. As we use the shared namespace they can be
-accessed from the main provider easily. THis allows us to simply add the
+<p>In this case, we have includes in the compute provider imports for the providers
+defined in their own repositories. As we use the shared namespace they can be
+accessed from the main provider easily. This allows us to simply add the
 provider with a simple pip install:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">cm</span><span class="o">/</span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">compute</span><span class="o">/</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
@@ -297,7 +297,7 @@ provider with a simple pip install:</p>
 </pre></div>
 </div>
 <p>Now the aws and azure providers are accessible in cloudmesh and if a command is
-provided they can bae accessed from there.</p>
+provided they can be accessed from there.</p>
 </div>
 
 

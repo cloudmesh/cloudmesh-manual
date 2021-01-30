@@ -2,7 +2,7 @@ How to install ssh on Windows
 ==============================
 
 SSH can easily be enabled on Windows 10. Please follow one of these tutorials.
-Youonly need the SSH client not the server.
+You only need the SSH client, not the server.
 
 - https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/
 - https://winaero.com/blog/enable-openssh-server-windows-10/

@@ -22,8 +22,8 @@ All FAQ’s related to chameleon cloud assume
 
 Cloudmesh is trivial to install.
 
-How check if chmaeleon cloud works
-----------------------------------
+How to check if chmaeleon cloud works
+--------------------------------------
 
 .. code:: bash
 
@@ -49,19 +49,19 @@ What is the error …?
 
       UnboundLocalError: local variable 'key' referenced before assignment
 
-   then you have not upload your key to chameleon
+   then you have not uploaded your key to chameleon
 
 What is the chameleon account bug?
 ----------------------------------
 
-Preriquisite:
+Prerequisite:
 
 1. We assume you start by deleting your .cloudmesh directory and have
    install a proper version of cms.
 
 2. Before you do anything verify if you can remember your password. You
    must logout of the chameleon cloud.org dashboard and login, while not
-   using an auto completion Web password completer. Make sure to remove
+   using an auto-completion Web password completer. Make sure to remove
    your password if you use one of them.
 
 Chameleon has several strange bugs we know of that will hopefully be
@@ -73,8 +73,8 @@ fixed
    activate your account.
 
 2. When activation your account in horizon, you must login to a login
-   screen. However, sometimes we observed that screen do not complete
-   the activation and you do not get forwarded to horizon. Instead you
+   screen. However, sometimes we observed that the screen do not complete
+   the activation and you do not get forwarded to horizon. Instead, you
    end in an endless loop for activation requests.
 
 3. Some students despite the issue of being able to login reported that
@@ -83,7 +83,7 @@ fixed
    unfortunately needs your username and password. to verify if your
    account works or not.
 
-4. If Gregor can verify that your account works (e.g. he does this on a
+4. If Gregor can verify that your account works (e.g. he does this on a
    computer on which we checked chameleon cloud works for another
    account), you will have to apply for a new chameleon account with an
    e-mal that has not been used at
@@ -128,8 +128,8 @@ If you wait longer, you will see
    0x7f63fc14a040 \> : Failed to establish a new connection: [Errno 110] Connection
    timed out'))
 
-Tethering you computer through a cell phone
--------------------------------------------
+Tethering your computer through a cell phone
+--------------------------------------------
 
 This will likely not work as your cell phone company has likely some
 restrictions.
@@ -137,7 +137,7 @@ restrictions.
 Can I keep my instance running when not in use?
 -----------------------------------------------
 
-No you shout terminate and restart it. However if you initially have
+No, you shout terminate and restart it. However, if you initially have
 issues keep it running and find in the manual how to suspend and resume
 it. You can also do this from horizon if you prefer.
 
@@ -149,7 +149,7 @@ You need to remove the ip from ~/.ssh/kown hosts by using
 
 ssh-keygen -R IPADDRESS
 
-where IPADDRESS is the address to be removed, and than try again
+where IPADDRESS is the address to be removed, and then try again
 
 ssh-keygen vs putty
 -------------------
@@ -183,7 +183,7 @@ Starting vms in horizon
 A video was shot by Rahul. I do recommend however if you can just to
 keep the keyname on your computer to be id_rsa.
 
-In horizon you naturally use a keyname such as rahul-222 (e.g. what
+In horizon you naturally use a keyname such as rahul-222 (e.g. what
 rahul used)
 
 The reason is that in the future we use cloudmesh and we have a default

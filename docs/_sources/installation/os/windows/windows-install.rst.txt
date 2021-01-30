@@ -2,17 +2,16 @@ Windows
 =======
 .. warning::
 
-          Before you install make sure that you have an up to date version of
-          python installed. We recommend you use 3.8.2 or newer. Python can be
-          downloaded and installed from https://www.python.org/downloads/. On
-          Windows you may also need to install the C++ commandline build tools
-          as some cryptographic libraries need to be recompiled in 3.8.2 or newer. The
-          installation of cls is optional and only needed for encryption.
+   Before you install make sure that you have an up-to-date version of
+   Python installed. We recommend you use 3.8.2 or newer. Python can be
+   downloaded and installed from https://www.python.org/downloads/. On
+   Windows you may also need to install the C++ command line build tools
+   as some cryptographic libraries need to be recompiled in 3.8.2 or newer. The installation of cls is optional and only needed for encryption.
 
 Prerequisites for Windows
 -------------------------
 
-First check if any of these commands are not installed. If they are not, please
+First, check if any of these commands are not installed. If they are not, please
 install them first. To check if they are available use the `where` command to
 check  the following commands must return a valid path::
 
@@ -47,12 +46,12 @@ Install
 -------
 
 
+.. note::
 
-          Likely the code will work with earlier versions starting from 3.7.4.
-          We know that Python 3.6 has bugs and should not be used. Although
-          cloudmesh previously was supported in Python 2.7 and newer, we have
-          removed Python 2 as supported platform.
-
+   Likely the code will work with earlier versions starting from 3.7.4.
+   We know that Python 3.6 has bugs and should not be used. Although
+   cloudmesh previously was supported in Python 2.7 and newer, we have
+   removed Python 2 as a supported platform.
 
 On Windows 10 you can install cloudmesh by either using
 
@@ -62,8 +61,8 @@ On Windows 10 you can install cloudmesh by either using
 
 approach.
 
-In case you use the docker install you must use use the Professional or the
-Educational version of Windows, as the Home edition is not supporting it.
+In case you use the docker install you must use the professional or
+the educational version of Windows, as the Home edition is not supporting it.
 
 
 
@@ -77,10 +76,10 @@ It can be installed with pip as follows
 
     pip install cloudmesh-cmsd
 
-Please note that in order for you do develop cloudmesh you need to do this
-within the container However we do recommend that Windows developer use the
-Windows native cloudmesh approach. However regular user will have a very
-transparent acces to cloudmesh as most commands ar just passed along to the
+Please note that in order for you to develop cloudmesh you need to do this
+within the container. However, we do recommend that Windows developer use the
+Windows native cloudmesh approach. However regular users will have very
+transparent access to cloudmesh as most commands are just passed along to the
 container.
 
 The manual page for cmsd is located at :doc:`../cmsd`
@@ -137,12 +136,12 @@ file.
 
   C:\Users\USERNAME\ENV3\Scripts\activate.bat
 
-.. note:: The same can be done in Windows Powershell by creating a `ENV3.ps1` to
+.. note:: The same can be done in Windows Powershell by creating an `ENV3.ps1` to
           reference the activation command.
 
 **Test the venv activation**
 
-We recommend  that you test the venv activation. In a command prompt, type
+We recommend that you test the venv activation. In a command prompt, type
 `ENV3` while under the home directory; or if the bat file was not created,
 simply reference the system variable %ENV3%.
 
@@ -165,7 +164,7 @@ Example using Windows environment variable:
 
    (ENV3) C:\Users\USERNAME>
 
-In both cases you will see the command prompt starting with `(ENV3)`.
+In both cases, you will see the command prompt starting with `(ENV3)`.
 
 **Validate Python and Pip Version in venv**
 

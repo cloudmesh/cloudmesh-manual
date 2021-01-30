@@ -1,16 +1,17 @@
-Developping with Mongo
+Developing with Mongo
 =======================
 
-You can cusoize the versions and other aspects of the MongoDB that is used in cloudmesh.
+You can customize the versions and other aspects of the MongoDB that
+is used in cloudmesh.
 
-Afterthe install, you can start it with the command
+After the install, you can start it with the command
 
 .. code:: bash
 
     cms admin mongo start
 
-Now you can interact with it to find out the status, the stats, and the
-database listing with the commands
+Now you can interact with it to find out the status, the stats, and
+the database listing with the commands
 
 .. code:: bash
 
@@ -25,7 +26,7 @@ To stop it from running use the command
     cms admin mongo stop
 
 
-To backup and load from the backup you can use:
+To back up and load from the backup you can use:
 
 .. todo:: the admin backup needs to be tested.
 
@@ -35,7 +36,7 @@ To backup and load from the backup you can use:
     cms admin mongo load [--file=FILE]
 
 
-The database will be started based-on the information as specified in
+The database will be started based on the information as specified in
 ``~/.cloudmesh/cloudmesh.yaml``. An example is
 
 ::
@@ -71,10 +72,10 @@ The database will be started based-on the information as specified in
           MONGO_LOG: ~/.cloudmesh/mongodb/log
           MONGO_HOME: ~/local/mongo
 
-We also provide a convenient mongoDB install script that downloads the version
-defined in the yaml file and installs it in the system with the command.
-In case of windows platform, you will have to set the PATH variable
-manually after install
+We also provide a convenient MongoDB install script that downloads the
+version defined in the YAML file and installs it in the system with
+the command.  In the case of the windows platform, you will have to set the
+PATH variable manually after install
 
 .. code:: bash
 
@@ -83,7 +84,7 @@ manually after install
 Database Decorator
 ------------------
 
-Cloudmesh comes with a very convenient mechanism to integrate specific
+Cloudmesh comes with a very convenient mechanism to integrate specifically
 formed dicts into MongoDB. All you have to do is to create a list of
 dictionaries with a function, that returns this dictionary and use a
 decorator in the function to update the information into the database.
@@ -91,9 +92,10 @@ decorator in the function to update the information into the database.
 The database decorator automatically replaces an entry in the database
 with the dictionary returned by a function.
 
-It is added to a specific MongoDB collection. The location is determined from
-the values in the dictionary. The dict must contain a dict named ``cm`` that
-contains the attributes ``kind``, ``cloud``, ``name``::
+It is added to a specific MongoDB collection. The location is
+determined from the values in the dictionary. The dict must contain a
+dict named ``cm`` that contains the attributes ``kind``, ``cloud``,
+``name``::
 
     "cm" : {
         "kind" : "flavor",
@@ -101,10 +103,11 @@ contains the attributes ``kind``, ``cloud``, ``name``::
         "name" : "m1.medium",
     },
 
-WHen such a dict is uploaded with our database decorator that we explain
-later, information such as created, updated, and other attributes are added.
-Some of the information for these attributes is taken from the ``cloudmesh4
-.yaml`` file, while others such as modified, will be updated dynamically::
+When such a dict is uploaded with our database decorator that we
+explain later, information such as created, updated, and other
+attributes are added.  Some of the information for these attributes is
+taken from the ``cloudmesh4 .yaml`` file, while others such as
+modified, will be updated dynamically::
 
     "cm" : {
         "name" : "m1.medium",
@@ -116,25 +119,25 @@ Some of the information for these attributes is taken from the ``cloudmesh4
         "collection" : "chameleon-flavor"
     },
 
-Using this information the object can easily be found in the database by
-name, type or cloud or a combination thereof.
+Using this information the object can easily be found in the database
+by name, type or cloud, or a combination thereof.
 
-.. note:: in a future version the ``cloud`` parameter will be renamed to
-          ``service``
+.. note:: in a future version the ``cloud`` parameter will be renamed
+          to ``service``
 
 The name of the collection is determined from cloud and kind:
 
 ``{cloud}-{kind}``
 
-In addition each entry in the collection has a ``name`` that must be
+In addition, each entry in the collection has a ``name`` that must be
 unique in that collection.
 
 
-In most examples it is best to separate the upload from the native class the
-interacts with the service. This way we provide always two classes. One
-interacting with the service and the other one that acts alike for all
-provider, while the name of the provider decides which native provider is
-used to interact with the cloud services.
+In most examples, it is best to separate the upload from the native
+class the interacts with the service. This way we provide always two
+classes. One interacting with the service and the other one that acts
+alike for all provider, while the name of the provider decides which
+native provider is used to interacting with the cloud services.
 
 Example:
 
@@ -188,17 +191,17 @@ Example:
         def entries(self):
             provider.entries()
 
-Separating the database and the dictionary creation allows the developer
-to implement different providers but only use one class with the same
-methods to interact for all providers with the database.
-In the combined provider a find function to for example search for
+Separating the database and the dictionary creation allows the
+developer to implement different providers but only use one class with
+the same methods to interact for all providers with the database.  In
+the combined provider a find function to for example search for
 entries by name across collections could be implemented.
 
 Database Access
 ---------------
 
 In addition to the decorator, we have a very simple database class for
-interacting across a number of collections. THis especially is useful
+interacting across a number of collections. This especially is useful
 for finding information::
 
     self.database = CmDatabase()
@@ -221,21 +224,21 @@ Find out how many entries exist with the name CC-CentOS7::
 Creating Unique Names
 ---------------------
 
-Often it is important to create unique names. To support the easy creation
-without hassle, we designed a ``Name`` class, that takes its values from the
-cloudmesh ``cmd5`` shell variables. A good example is the following name,
-where we like to identify within the name an experiment, a group of resources
-within the experiment, a user running the experiment and a counter. This can
-be set up as follows::
+Often it is important to create unique names. To support the easy
+creation without hassle, we designed a ``Name`` class, that takes its
+values from the cloudmesh ``cmd5`` shell variables. A good example is
+the following name, where we like to identify within the name an
+experiment, a group of resources within the experiment, a user running
+the experiment, and a counter. This can be set up as follows::
 
     {experiment}-{group}-{user}-{counter}
 
 
 The values for them can be set with the cms set function
 
-Thus if you use the name function in your program, you get a very convenient
-way of getting a next name. Naturally you could define multiple such names
-for different resources and needs
+Thus if you use the name function in your program, you get a very
+convenient way of getting the next name. Naturally, you could define
+multiple such names for different resources and needs
 
 To use it in your program you can say::
 
@@ -271,9 +274,9 @@ The format can be changed with ``schema=`` at the initialization. Thus
             schema='{user}-{counter}`,
             counter=1)
 
-would create names of the form gergor1, gergor2 and so on.
+would create names of the form gergor1, gergor2, and so on.
 
-The format of the names cana also be controlled by the file::
+The format of the names can also be controlled by the file::
 
     ~/.cloudmesh/names.yaml
 
@@ -285,7 +288,7 @@ An example is::
     schema: '{user}-{kind}-{counter}'
     path: /Users/grey/.cloudmesh/name.yaml
 
-In it you define variables that can be used as part of the schema. The
-counter variable is increased every time a new name is generated. In case a
-yaml file is used no parameters have to be given to `Name()`
+In it, you define variables that can be used as part of the schema. The
+counter variable is increased every time a new name is generated. In
+case a YAML file is used no parameters have to be given to `Name()`
 

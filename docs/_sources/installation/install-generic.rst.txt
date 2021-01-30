@@ -35,8 +35,8 @@ Installation for Developers
                      # terminal and execute the next commands in the new terminal
     cms init
 
-Please note that the cloudmesh installer uses by default https. It can also use
-ssh and you would than use the following instead:
+Please note that the cloudmesh installer uses by default HTTPS. It can also use
+ssh and you would then use the following instead:
 
 .. code-block:: bash
 

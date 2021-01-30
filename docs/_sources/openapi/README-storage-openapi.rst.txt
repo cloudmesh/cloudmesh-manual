@@ -2,10 +2,10 @@ Cloudmesh Multi Cloud Open API Interface
 ========================================
 
 Cloudmesh-storage also provides an OpenAPI specification that allows
-users to run the multi cloud storage services using a single REST
+users to run the multi-cloud storage services using a single REST
 service in addition to the command line interface.
 
-The REST service is developed independent of the storage service
+The REST service is developed independently of the storage service
 provider and users can switch between providers by setting the
 ``storage`` variable as follows:
 

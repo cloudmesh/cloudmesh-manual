@@ -2,7 +2,7 @@ cms
 ===
 
 Cloudmesh used cmd5 which provides an easy to use command line and command
-shell interface. Hence you can run each command as a sepearte command line,
+shell interface. Hence you can run each command as a separate command line,
 but you can also start a shell in which you can execute multiple commands one
 after another. Furthermore, you can create cloudmesh scripts in a file that if
 run via the cloudmesh shell get executed sequentially.
@@ -75,7 +75,7 @@ To switch timers on or off you can use::
 
    cms set timer=on
 
-Than every command you type is timed::
+Then every command you type is timed::
 
    cms banner hallo
    banner
@@ -95,7 +95,7 @@ or::
 
    cms set a=1
 
-you can access them on the commandline with::
+you can access them on the command line with::
 
    var.a
    $a
@@ -123,7 +123,7 @@ Defaults
 ~~~~~~~~
 
 Defaults are variables with a context in which the default applies. For
-example we can set default images for a cloud. General defaults are
+example, we can set default images for a cloud. General defaults are
 placed in the context ``general``. To set the default cloud you can
 use::
 
@@ -139,7 +139,7 @@ To List the defaults use::
 
           here the key is image, the context is aws and the value is ubuntu19.04
 
-To use the defaults in a command proceed it with the the keyword
+To use the defaults in a command proceed with the keyword
 ``default.`` and append the context and the name of the default
 variable. If the context is missing, the ``general`` context will be
 used. Examples::
@@ -152,14 +152,14 @@ used. Examples::
 Stopwatch
 ~~~~~~~~~
 
-For some benchmarks this could be helpful. Naturally in an interactive
+For some benchmarks, this could be helpful. Naturally in an interactive
 shell you will not be able to measure reliably as you also measure the
 response time of the user, but in case you use cloudmesh scripts this
 could be a great good way for you to customize your benchmarks. We
 even provide convenient integration for pytests and you can see in our
-special pytest section how to use the stopwatch from within pytests.
+special pytest section on how to use the stopwatch from within pytests.
 
-Here is an example for a script::
+Here is an example of a script::
 
    stopwatch start g
    stopwatch stop g
@@ -187,7 +187,7 @@ You will get something like this::
    cms> Timer g: 0.000274181365967 s
 
 
-Cmd5 has even a convenient benchmark print command that not only prints all timers, but includes some
+Cmd5 has even a convenient benchmark print command that not only prints all timers but includes some
 information about your machine on which you run the benchmarks. You can get this information with::
 
     cms stopwatch benchmark
@@ -195,12 +195,12 @@ information about your machine on which you run the benchmarks. You can get this
 Accessing Python
 ~~~~~~~~~~~~~~~~
 
-You can access python in a commandline while using the prefix py::
+You can access python in a command line while using the prefix py::
 
    cms py 1 + 1
    2
 
-Or redirectiong the python output to a cloudmesh variable as part of the set command::
+Or redirecting the python output to a cloudmesh variable as part of the set command::
 
   cms set a=\"py 1 + 1\"
   a='2'
@@ -242,9 +242,9 @@ Plugins
 -------
 
 Cmd5 comes with a sophisticated plugin mechanism. Commands can be
-readily designed with the help of  sys command.
+readily designed with the help of sys command.
 
-The sys command can be installed either from source (as discussed
+The sys command can be installed either from the source (as discussed
 previously) or via pip
 
 .. code:: bash
@@ -253,7 +253,7 @@ previously) or via pip
 
 Once you have installed it, execute ``cms help sys`` to see the usage.
 Now you simply can in a new directory execute the sys command as
-follows, where ``mycommnad`` is than name of the command you like to
+follows, where ``mycommnad`` is the name of the command you like to
 implement.
 
 .. code:: bash
@@ -277,7 +277,7 @@ An example for the bar command is presented at:
 
 -  `cloudmesh/bar/command/bar.py
    <https://github.com/cloudmesh/cloudmesh.bar/blob/master/cloudmesh/bar/command/bar.py>`
-   
+
 It shows how simple the command definition is (bar.py):
 
 .. code:: python
@@ -292,7 +292,7 @@ It shows how simple the command definition is (bar.py):
        def do_bar(self, args, arguments):
            """
            ::
-          
+
              Usage:
                    command -f FILE
                    command FILE
@@ -311,7 +311,7 @@ the manual page. This allows us to use arguments as dict and use simple
 if conditions to interpret the command. Using docopts has the advantage
 that contributors are forced to think about the command and its options
 and document them from the start. Previously we used not to use docopts
-and argparse was used. However we noticed that for some contributions
+and argparse was used. However, we noticed that for some contributions
 the lead to commands that were either not properly documented or the
 developers delivered ambiguous commands that resulted in confusion and
 wrong usage by the users. Hence, we do recommend that you use docopts.

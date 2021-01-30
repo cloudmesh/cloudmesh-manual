@@ -1,11 +1,10 @@
 Cloudmesh Database
 ==================
 
-Cloudmesh has a database in which a local copy of information about
+Cloudmesh has a database in which a local copy of the information about
 objects that are stored in the cloud is maintained. The objects contain
 all information of the cloud that can be retrieved with the raw provider
-but are enhanced with a cloudmesh attribute dict. Potential security
-related attributes, will however be removed from it so they are not
+but are enhanced with a cloudmesh attribute dict. Potential security-related attributes will however be removed from it so they are not
 stored in the database.
 
 This dict looks like
@@ -211,7 +210,7 @@ VM
         "location" : "eastus",
         "name" : "testvm1",
         "networkProfile" : {
-            "networkInterfaces" : [ 
+            "networkInterfaces" : [
                 {
                     "id" : null,
                     "primary" : null,
@@ -229,7 +228,7 @@ VM
                 "disablePasswordAuthentication" : true,
                 "provisionVmAgent" : true,
                 "ssh" : {
-                    "publicKeys" : [ 
+                    "publicKeys" : [
                         {
                             "keyData" : "ssh-rsa ...."
                             "path" : "/home/ubuntu/.ssh/authorized_keys"
@@ -394,7 +393,7 @@ AWS Boto3 Provider
 
 The compute provider kind is ``MISSING``. The Provider is located at
 
--  
+-
 
 This provider should not be used, but you need to use the general
 provider at
@@ -438,8 +437,8 @@ Directory
 
     {'_object_id': '71983743142',
         'cm': {
-            'cloud': 'box', 
-        'kind': 'storage', 
+            'cloud': 'box',
+        'kind': 'storage',
         'name': 'test01'
         },
         'etag': '0',
@@ -455,8 +454,8 @@ File
 
     {'_object_id': '432543586295',
       'cm': {
-          'cloud': 'box', 
-          'kind': 'storage', 
+          'cloud': 'box',
+          'kind': 'storage',
           'name': 'test.txt'
       },
       'etag': '285',
@@ -481,7 +480,7 @@ provider at
 Directory
 ^^^^^^^^^
 
-Note that directory in Azure Blob storage is a virtual folder. An empty
+Note that the directory in Azure Blob storage is a virtual folder. An empty
 directory cannot be created and hence cloudmesh-storage creates a
 default marker file ``dummy.txt`` to create the directory.
 

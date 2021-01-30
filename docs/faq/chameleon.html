@@ -109,12 +109,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">FAQ</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">FAQ - Cloudmesh</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">FAQ - Chameleon cloud</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#how-check-if-chmaeleon-cloud-works">How check if chmaeleon cloud works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-check-if-chmaeleon-cloud-works">How to check if chmaeleon cloud works</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-do-i-upload-my-key-to-chameleon">How do I upload my key to chameleon?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-the-error">What is the error …?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-the-chameleon-account-bug">What is the chameleon account bug?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#you-must-not-use-iuguest-network">You must not use IUGuest network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tethering-you-computer-through-a-cell-phone">Tethering you computer through a cell phone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tethering-your-computer-through-a-cell-phone">Tethering your computer through a cell phone</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#can-i-keep-my-instance-running-when-not-in-use">Can I keep my instance running when not in use?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-warning-remote-host-identification-has-changed">What is <code class="docutils literal notranslate"><span class="pre">WARNING:</span> <span class="pre">REMOTE</span> <span class="pre">HOST</span> <span class="pre">IDENTIFICATION</span> <span class="pre">HAS</span> <span class="pre">CHANGED!</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssh-keygen-vs-putty">ssh-keygen vs putty</a></li>
@@ -156,7 +156,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
@@ -251,8 +251,8 @@ authentication mechanisms.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">init</span></code> worked and</p></li>
 </ol>
 <p>Cloudmesh is trivial to install.</p>
-<div class="section" id="how-check-if-chmaeleon-cloud-works">
-<h2>How check if chmaeleon cloud works<a class="headerlink" href="#how-check-if-chmaeleon-cloud-works" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-check-if-chmaeleon-cloud-works">
+<h2>How to check if chmaeleon cloud works<a class="headerlink" href="#how-to-check-if-chmaeleon-cloud-works" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
 cms flavor list --refresh
 </pre></div>
@@ -273,19 +273,19 @@ cms key list --cloud<span class="o">=</span>chameleon
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">UnboundLocalError</span><span class="p">:</span> <span class="n">local</span> <span class="n">variable</span> <span class="s1">&#39;key&#39;</span> <span class="n">referenced</span> <span class="n">before</span> <span class="n">assignment</span>
 </pre></div>
 </div>
-<p>then you have not upload your key to chameleon</p>
+<p>then you have not uploaded your key to chameleon</p>
 </li>
 </ol>
 </div>
 <div class="section" id="what-is-the-chameleon-account-bug">
 <h2>What is the chameleon account bug?<a class="headerlink" href="#what-is-the-chameleon-account-bug" title="Permalink to this headline">¶</a></h2>
-<p>Preriquisite:</p>
+<p>Prerequisite:</p>
 <ol class="arabic simple">
 <li><p>We assume you start by deleting your .cloudmesh directory and have
 install a proper version of cms.</p></li>
 <li><p>Before you do anything verify if you can remember your password. You
 must logout of the chameleon cloud.org dashboard and login, while not
-using an auto completion Web password completer. Make sure to remove
+using an auto-completion Web password completer. Make sure to remove
 your password if you use one of them.</p></li>
 </ol>
 <p>Chameleon has several strange bugs we know of that will hopefully be
@@ -296,15 +296,15 @@ first visit horizon and through the visit activate the account. The
 activation via the e-mail that they send to you does not fully
 activate your account.</p></li>
 <li><p>When activation your account in horizon, you must login to a login
-screen. However, sometimes we observed that screen do not complete
-the activation and you do not get forwarded to horizon. Instead you
+screen. However, sometimes we observed that the screen do not complete
+the activation and you do not get forwarded to horizon. Instead, you
 end in an endless loop for activation requests.</p></li>
 <li><p>Some students despite the issue of being able to login reported that
 they can not use cms even though they typed in the password
 correctly. To find this out you have to talk to Gregor which
 unfortunately needs your username and password. to verify if your
 account works or not.</p></li>
-<li><p>If Gregor can verify that your account works (e.g. he does this on a
+<li><p>If Gregor can verify that your account works (e.g. he does this on a
 computer on which we checked chameleon cloud works for another
 account), you will have to apply for a new chameleon account with an
 e-mal that has not been used at</p>
@@ -345,14 +345,14 @@ insecure network. You can do a CRTL C here</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="tethering-you-computer-through-a-cell-phone">
-<h2>Tethering you computer through a cell phone<a class="headerlink" href="#tethering-you-computer-through-a-cell-phone" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tethering-your-computer-through-a-cell-phone">
+<h2>Tethering your computer through a cell phone<a class="headerlink" href="#tethering-your-computer-through-a-cell-phone" title="Permalink to this headline">¶</a></h2>
 <p>This will likely not work as your cell phone company has likely some
 restrictions.</p>
 </div>
 <div class="section" id="can-i-keep-my-instance-running-when-not-in-use">
 <h2>Can I keep my instance running when not in use?<a class="headerlink" href="#can-i-keep-my-instance-running-when-not-in-use" title="Permalink to this headline">¶</a></h2>
-<p>No you shout terminate and restart it. However if you initially have
+<p>No, you shout terminate and restart it. However, if you initially have
 issues keep it running and find in the manual how to suspend and resume
 it. You can also do this from horizon if you prefer.</p>
 </div>
@@ -361,7 +361,7 @@ it. You can also do this from horizon if you prefer.</p>
 <p>This is happening when a previously used ip address is used on another vm
 You need to remove the ip from ~/.ssh/kown hosts by using</p>
 <p>ssh-keygen -R IPADDRESS</p>
-<p>where IPADDRESS is the address to be removed, and than try again</p>
+<p>where IPADDRESS is the address to be removed, and then try again</p>
 </div>
 <div class="section" id="ssh-keygen-vs-putty">
 <h2>ssh-keygen vs putty<a class="headerlink" href="#ssh-keygen-vs-putty" title="Permalink to this headline">¶</a></h2>
@@ -388,7 +388,7 @@ You need to remove the ip from ~/.ssh/kown hosts by using</p>
 <h3>Starting vms in horizon<a class="headerlink" href="#starting-vms-in-horizon" title="Permalink to this headline">¶</a></h3>
 <p>A video was shot by Rahul. I do recommend however if you can just to
 keep the keyname on your computer to be id_rsa.</p>
-<p>In horizon you naturally use a keyname such as rahul-222 (e.g. what
+<p>In horizon you naturally use a keyname such as rahul-222 (e.g. what
 rahul used)</p>
 <p>The reason is that in the future we use cloudmesh and we have a default
 key for cloudmesh set as <code class="docutils literal notranslate"><span class="pre">id_rsa</span></code>. This simplifies debugging in case

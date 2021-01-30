@@ -137,7 +137,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
@@ -213,19 +213,15 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install jupyter
 </pre></div>
 </div>
-<p>To start a notebuk use the regular jupyter command</p>
+<p>To start a notebook use the regular jupyter command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
 </pre></div>
 </div>
-<p>Now select under <cite>new</cite> the name of the notbook you like to create, and make
+<p>Now select under <cite>new</cite> the name of the notebook you like to create and make
 sure you use python 3. As cloudmesh provides an API it is very easy to
 integrate it into jupyter. The following image shows how easy it is</p>
 <a class=""
-<<<<<<< HEAD
-               data-lightbox="group-cb8391cf-8755-4081-aad6-6b63e41d2151"
-=======
-               data-lightbox="group-06a6c6b2-1e5d-43fa-8f46-0d3156671f21"
->>>>>>> a7c48bd340a4a778aa3dfb3dbde6df4be6fec94b
+               data-lightbox="group-90536657-eb03-4497-843e-afaa6ed17f47"
                href="../_images/jupyter1.png"
                title=""
                data-title=""
@@ -234,7 +230,7 @@ integrate it into jupyter. The following image shows how easy it is</p>
                      width="100%"
                      height="auto"
                      alt=""/>
-                </a><p>However, naturally we can also use build in fetuares of jupyter such as
+                </a><p>However, naturally, we can also use build-in features of jupyter such as
 running shell commands with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span><span class="o">]</span> !cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>AWS
 <span class="o">[</span><span class="m">2</span><span class="o">]</span> !cms vm star
@@ -244,7 +240,7 @@ running shell commands with</p>
 <h2>API calls<a class="headerlink" href="#api-calls" title="Permalink to this headline">¶</a></h2>
 <p>To use the specific API calls, We recommend you to look at the API
 documentation of cloudmesh. To show you a simple example of advanced
-functionality we demonstarte how to list flavors of a cloud:</p>
+functionality we demonstrate how to list flavors of a cloud:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;chameleon&quot;</span><span class="p">)</span>
 </pre></div>

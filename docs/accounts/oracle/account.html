@@ -163,7 +163,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../deprecated.html">Deprecated</a></li>
 </ul>
@@ -240,7 +240,7 @@
 <p>On 16th September 2019, Oracle announced a free tier. This allows
 students and professionals to build, test, and deploy applications on
 the Oracle cloud and database for free for an unlimited time. The free
-tier though, has limits for various services. Two virtual machines and
+tier though has limits for various services. Two virtual machines and
 two block volumes, and 10 GB each of object and archive storage is the
 current limit for free cloud tier accounts.</p>
 <div class="figure align-default" id="id1">
@@ -265,9 +265,9 @@ Select <code class="docutils literal notranslate"><span class="pre">Account</spa
 and click <code class="docutils literal notranslate"><span class="pre">Next</span></code>.</p>
 <div class="figure align-default" id="id3">
 <img alt="Acoount Details" src="../../_images/account-details.png" />
-<p class="caption"><span class="caption-text">Acoount Details</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Account Details</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-<p>Step 4: Verify you mobile number using the code that will be messaged to
+<p>Step 4: Verify your mobile number using the code that will be messaged to
 you.</p>
 <p>Step 5: Next, you will be asked to select a password. Please select one
 and click ‘Next’.</p>
@@ -307,7 +307,7 @@ and click on <code class="docutils literal notranslate"><span class="pre">Sign</
 <p>You can click on the menu on the left to explore different oracle
 services. When you try to access compute or storage services, you will
 first need to select a compartment. A compartment is a logical container
-to organize you resources. A default compartment with the same name as
+to organize your resources. A default compartment with the same name as
 your cloud name is created. It is easiest to select that compartment.</p>
 <div class="figure align-default" id="id9">
 <img alt="Compartment" src="../../_images/compartment.png" />
@@ -316,7 +316,7 @@ your cloud name is created. It is easiest to select that compartment.</p>
 </div>
 <div class="section" id="oracle-api">
 <h2>Oracle API<a class="headerlink" href="#oracle-api" title="Permalink to this headline">¶</a></h2>
-<p>To develop or run code related to oracle, its API called OCI (Oracle
+<p>To develop or run code related to Oracle, its API called OCI (Oracle
 Cloud Infrastructure) needs to be installed. To do this, run the command
 using the command line.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install oci
@@ -330,7 +330,7 @@ for compute and storage respectively. Add them to the config file if not
 already there.</p>
 <p>Note: the image names are dated, and it is possible that this default image
 won’t be available if you created your account recently. If so, you will need
-to run <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--refresh</span></code> to see available images and update the yaml files</p>
+to run <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">image</span> <span class="pre">list</span> <span class="pre">--refresh</span></code> to see available images and update the YAML files</p>
 <div class="section" id="compute-entry">
 <h3>Compute Entry<a class="headerlink" href="#compute-entry" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
@@ -394,7 +394,7 @@ to run <code class="docutils literal notranslate"><span class="pre">cms</span> <
 the values from your account. To do this, please follow the steps.</p>
 <div class="section" id="create-api-signing-key">
 <h3>Create API Signing Key<a class="headerlink" href="#create-api-signing-key" title="Permalink to this headline">¶</a></h3>
-<p>Run the following commands using command line.</p>
+<p>Run the following commands using the command line.</p>
 <p>Step 1: Create a directory <code class="docutils literal notranslate"><span class="pre">.oci</span></code> to store the credentials.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/.oci
 </pre></div>
@@ -424,7 +424,7 @@ require this.</p>
 oracle section.</p>
 <dl class="field-list simple">
 <dt class="field-odd">o2</dt>
-<dd class="field-odd"><p>you should have a program that does thsi for you such as</p>
+<dd class="field-odd"><p>you should have a program that does this for you such as</p>
 </dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">register</span> <span class="n">oracle</span> <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=~/.</span><span class="n">oci</span><span class="p">]</span>
@@ -433,7 +433,7 @@ oracle section.</p>
 </div>
 <div class="section" id="user">
 <h3>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h3>
-<p>The value for <code class="docutils literal notranslate"><span class="pre">user</span></code> in the config file is the OCID of your user of
+<p>The value for <code class="docutils literal notranslate"><span class="pre">user</span></code> in the config file is the OCID of your use of
 the oracle cloud account. You can find this using the following steps:</p>
 <p>Step 1: Click on the profile menu on the right and click on
 <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">Settings</span></code>.</p>
@@ -537,10 +537,10 @@ created by us.</p>
 </div>
 <div class="section" id="storage-service">
 <h2>Storage Service<a class="headerlink" href="#storage-service" title="Permalink to this headline">¶</a></h2>
-<p>The first time you try to access storage services, it wil be empty and
+<p>The first time you try to access storage services, it will be empty and
 any operation to <code class="docutils literal notranslate"><span class="pre">list/get/delete</span></code> will result in an error. Hence, to
 start first <code class="docutils literal notranslate"><span class="pre">put</span></code> a new file on the cloud. This will result in
-creation of a new bucket with the name specified in <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code>.</p>
+the creation of a new bucket with the name specified in <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">dir</span></code> command to create a directory on the cloud object storage
 system is not supported in Oracle. Only when uploading a file can a
 directory structure be created. IF all the files in the directory are

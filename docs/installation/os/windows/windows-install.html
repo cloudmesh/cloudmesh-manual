@@ -132,7 +132,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../deprecated.html">Deprecated</a></li>
 </ul>
@@ -206,16 +206,15 @@
 <h1>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Before you install make sure that you have an up to date version of
-python installed. We recommend you use 3.8.2 or newer. Python can be
+<p>Before you install make sure that you have an up-to-date version of
+Python installed. We recommend you use 3.8.2 or newer. Python can be
 downloaded and installed from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. On
-Windows you may also need to install the C++ commandline build tools
-as some cryptographic libraries need to be recompiled in 3.8.2 or newer. The
-installation of cls is optional and only needed for encryption.</p>
+Windows you may also need to install the C++ command line build tools
+as some cryptographic libraries need to be recompiled in 3.8.2 or newer. The installation of cls is optional and only needed for encryption.</p>
 </div>
 <div class="section" id="prerequisites-for-windows">
 <h2>Prerequisites for Windows<a class="headerlink" href="#prerequisites-for-windows" title="Permalink to this headline">¶</a></h2>
-<p>First check if any of these commands are not installed. If they are not, please
+<p>First, check if any of these commands are not installed. If they are not, please
 install them first. To check if they are available use the <cite>where</cite> command to
 check  the following commands must return a valid path:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">where</span> <span class="bp">cls</span>
@@ -263,12 +262,13 @@ check  the following commands must return a valid path:</p>
 </div>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Likely the code will work with earlier versions starting from 3.7.4.
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Likely the code will work with earlier versions starting from 3.7.4.
 We know that Python 3.6 has bugs and should not be used. Although
 cloudmesh previously was supported in Python 2.7 and newer, we have
-removed Python 2 as supported platform.</p>
-</div></blockquote>
+removed Python 2 as a supported platform.</p>
+</div>
 <p>On Windows 10 you can install cloudmesh by either using</p>
 <ul class="simple">
 <li><p>a Windows native installation,</p></li>
@@ -276,8 +276,8 @@ removed Python 2 as supported platform.</p>
 <li><p>a Docker installation,</p></li>
 </ul>
 <p>approach.</p>
-<p>In case you use the docker install you must use use the Professional or the
-Educational version of Windows, as the Home edition is not supporting it.</p>
+<p>In case you use the docker install you must use the professional or
+the educational version of Windows, as the Home edition is not supporting it.</p>
 <div class="section" id="windows-container-approach">
 <h3>Windows Container Approach<a class="headerlink" href="#windows-container-approach" title="Permalink to this headline">¶</a></h3>
 <p>The user container for cloudmesh shell is called cmsd (cloudmesh shell docker).
@@ -285,10 +285,10 @@ It can be installed with pip as follows</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cmsd
 </pre></div>
 </div>
-<p>Please note that in order for you do develop cloudmesh you need to do this
-within the container However we do recommend that Windows developer use the
-Windows native cloudmesh approach. However regular user will have a very
-transparent acces to cloudmesh as most commands ar just passed along to the
+<p>Please note that in order for you to develop cloudmesh you need to do this
+within the container. However, we do recommend that Windows developer use the
+Windows native cloudmesh approach. However regular users will have very
+transparent access to cloudmesh as most commands are just passed along to the
 container.</p>
 <p>The manual page for cmsd is located at <span class="xref std std-doc">../cmsd</span></p>
 </div>
@@ -324,11 +324,11 @@ file.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The same can be done in Windows Powershell by creating a <cite>ENV3.ps1</cite> to
+<p>The same can be done in Windows Powershell by creating an <cite>ENV3.ps1</cite> to
 reference the activation command.</p>
 </div>
 <p><strong>Test the venv activation</strong></p>
-<p>We recommend  that you test the venv activation. In a command prompt, type
+<p>We recommend that you test the venv activation. In a command prompt, type
 <cite>ENV3</cite> while under the home directory; or if the bat file was not created,
 simply reference the system variable %ENV3%.</p>
 <p>Example using bat file activation:</p>
@@ -345,7 +345,7 @@ simply reference the system variable %ENV3%.</p>
 <span class="o">(</span>ENV3<span class="o">)</span> C:<span class="se">\U</span>sers<span class="se">\U</span>SERNAME&gt;
 </pre></div>
 </div>
-<p>In both cases you will see the command prompt starting with <cite>(ENV3)</cite>.</p>
+<p>In both cases, you will see the command prompt starting with <cite>(ENV3)</cite>.</p>
 <p><strong>Validate Python and Pip Version in venv</strong></p>
 <p>Check if you have the right version of python and pip installed with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python --version

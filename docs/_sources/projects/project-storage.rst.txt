@@ -1,16 +1,16 @@
 Cloudmesh Storage
 =================
 
--  This project can also be taken as independent study or as part of the
+-  This project can also be taken as an independent study or as part of the
    Cloud Engineering class
 
 Goals
 -----
 
-In this project you will be developing a virtual directory which manages
+In this project, you will be developing a virtual directory that manages
 links to different cloud services to store files for you. Instead of
 just accessing one storage service in the cloud, a virtual directory
-allows to store virtual file descriptors pointing to the cloud on which
+allows storing virtual file descriptors pointing to the cloud on which
 the file is located.
 
 completing and simplifying the compute interface to an existing cloud.
@@ -31,7 +31,7 @@ is missing that needs to be there to support cloudmesh it is to be
 implemented.
 
 Benchmarks must not only include the execution time of a program in the
-cloud , but also measure how much time it costs to manage basic
+cloud, but also measure how much time it costs to manage basic
 functionality for
 
 -  images
@@ -58,15 +58,15 @@ project is easy. We may require individual students to target more than
 the provider.
 
 *moderate*: The virtual box provider is developed via vagrant and in
-principal works, but has not been worked on for a while. You will be in
+principle works, but has not been worked on for a while. You will be in
 improving the provider in cloudmesh
 
 Deliverables
 ------------
 
--  Working benchmarks in form of reproducable pytests. Examples are
+-  Working benchmarks in form of reproducible pytests. Examples are
    included in cloudmesh-cloud
--  checkins into github by all team members. If only one team member
+-  check-ins into GitHub by all team members. If only one team member
    checks in all other team members will not get credit.
 -  Collaborate with *all* teams that do this project so we can get
    benchmarks for all clouds and compare the results not only within

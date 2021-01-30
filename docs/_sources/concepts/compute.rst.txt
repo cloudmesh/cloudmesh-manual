@@ -3,11 +3,11 @@ Virtual Machine Providers
 
 Cloudmesh is based on the concept of providers that make it possible to develop
 API interfaces for different services independently while inheriting the
-functionality form a comman abstract class.
+functionality form a common abstract class.
 
 
-Let us demonstarte the concept of abstract providers for compute
-providers. We assume that the source diectories are stored in ~/cm.
+Let us demonstrate the concept of abstract providers for compute
+providers. We assume that the source directories are stored in ~/cm.
 We have the following structure::
 
     ~/cm/cloudmesh-abstract/cloudmesh/abstract/ComputeNodeABC.py
@@ -17,12 +17,12 @@ We have the following structure::
     ~/cm/cloudmesh-aws/cloudmesh/aws/compute/Provider.py
     ~/cm/cloudmesh-aws/cloudmesh/azure/compute/Provider.py
     ~/cm/cloudmesh-aws/cloudmesh/oracle/compute/Provider.py
-    ~/cm/cloudmesh-aws/cloudmesh/google/compute/Provider.py                    
+    ~/cm/cloudmesh-aws/cloudmesh/google/compute/Provider.py
             ...
 
 Here the ABC class determines which methods must be implemented by the
-main cloud provider. This provider than delectes the activity to the
-cloud provider that is determinded by the internal cloudmesh `cloud`
+main cloud provider. This provider then detects the activity to the
+cloud provider that is determined by the internal cloudmesh `cloud`
 variable. To simplify authentication, the credentials can be stored in
 the cloudmesh.yaml file.
 
@@ -46,12 +46,12 @@ Now when we call::
     provider = cloudmesh.compute.Provider(service="mycloud")
 
 
-The Provider will load in the provider from the aws directory, as the cm.kind
+The Provider will load in the provider from the AWS directory, as the cm.kind
 is specified as `aws`. Thus the main provider delegates the tasks to interface
-with teh particular cloud type via the definitions coming from the cloudmesh
-yaml file. This makes it possible to easily create multiple interface sto
+with the particular cloud type via the definitions coming from the cloudmesh
+YAML file. This makes it possible to easily create multiple interfaces to
 different cloud service providers while managing a uniform interface via the
-ABC class. All providers in this hierarchie must innherit from the ABC class.
+ABC class. All providers in this hierarchy must inherit from the ABC class.
 
 Deatils of a virtual machine provider
 ~~~~~~~~~~~~~~~---------------~~~~~~~
@@ -76,9 +76,9 @@ Here we list in more details how a virtual machine provider can look like::
             cloudmesh/
                 azure/Provider.py
 
-In this case we have includes in the compute provider imports for the providers
-defined in their own reporsitories. As we use the shared namespace they can be
-accessed from the main provider easily. THis allows us to simply add the
+In this case, we have includes in the compute provider imports for the providers
+defined in their own repositories. As we use the shared namespace they can be
+accessed from the main provider easily. This allows us to simply add the
 provider with a simple pip install::
 
     cd ~/cm/cloudmesh-compute/
@@ -89,6 +89,6 @@ provider with a simple pip install::
     pip install .
 
 Now the aws and azure providers are accessible in cloudmesh and if a command is
-provided they can bae accessed from there.
+provided they can be accessed from there.
 
 

@@ -1,7 +1,7 @@
 Virtual Directory
 =================
 
-The virtual directory has been developed to mirror the linux directory
+The virtual directory has been developed to mirror the Linux directory
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.
 

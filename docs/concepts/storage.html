@@ -174,7 +174,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
@@ -249,29 +249,29 @@
   <div class="section" id="storage-providers">
 <h1>Storage Providers<a class="headerlink" href="#storage-providers" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh supports multiple cloud storage services via storage
-providers. You can access them via commandline, an API or REST
-services. A simple abstraction layer between cloud services and you
+providers. You can access them via command line, an API, or REST
+services. A simple abstraction layer between cloud services and your
 local computer makes it possible that the services are accessed the
 same way. This includes Awss3, Azure, Google, and box.</p>
-<p>The code is available a cloudmesh module at</p>
+<p>The code is available in a cloudmesh module at</p>
 <ul class="simple">
 <li><p>&lt;<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage">https://github.com/cloudmesh/cloudmesh-storage</a>&gt;</p></li>
 </ul>
-<p>The instalation is documented in our instalation manual.</p>
+<p>The installation is documented in our installation manual.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The cloudmesh yaml file contains a number of templates for configuring
-access to your cloud providers storage services. THis includes AWS,
+<p>The cloudmesh YAML file contains a number of templates for configuring
+access to your cloud provider’s storage services. This includes AWS,
 Azure, Google, and others.</p>
 <p>To showcase the integration, please open the
 <cite>cloudmesh.yaml</cite> config file. Under the ‘storage’ section, we need to
-add the the parameters for authentication.</p>
+add the parameters for authentication.</p>
 <p>In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
 <cite>AWS IAM service</cite> -&gt; <cite>Users</cite> -&gt; <cite>Security Credentials</cite>.</p>
-<p>Bucket is the default bucket which will be used to store the files in
-AWS S3. Region is the geographic area like <cite>us-east-1</cite> which contains
-the bucket. Region is required to get a connection handle on the S3
+<p>The bucket is the default bucket that will be used to store the files in
+AWS S3. The region is the geographic area like <cite>us-east-1</cite> which contains
+the bucket. The region is required to get a connection handle on the S3
 Client or resource for that geographic area.</p>
 <p>Here is an example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh:
@@ -290,17 +290,17 @@ Client or resource for that geographic area.</p>
       credentials:
         access_key_id: *********
         secret_access_key: *******
-        bucket: name of bucket that you want user to be contained in.
-        region: Specfiy the default region eg us-east-1
+        bucket: name of bucket that you want user to be contained <span class="k">in</span>.
+        region: Specify the default region eg us-east-1
 </pre></div>
 </div>
-<p>Similar to AWS other storage providers are available. Please check in
-the yaml file for their configuration template.</p>
+<p>Similar to AWS other storage providers are available. Please check-in
+the YAML file for their configuration template.</p>
 </div>
 <div class="section" id="commandline">
 <h2>Commandline<a class="headerlink" href="#commandline" title="Permalink to this headline">¶</a></h2>
 <p>The Cloudmesh command line allows to access a directory with the
-convenient get, put, search, list, create directory, and delete
+convenient get, put, search, list, create a directory, and delete
 functions. To find out more, use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; <span class="nb">help</span> storage
 </pre></div>
@@ -318,7 +318,7 @@ storage command. After this command, you don’t need to specify the
 </div>
 <div class="section" id="monitor">
 <h3>Monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
-<p>This command monitors the status of commands in mongodb database and
+<p>This command monitors the status of commands in the MongoDB database and
 refresh itself every 5 seconds.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage monitor
 </pre></div>
@@ -326,7 +326,7 @@ refresh itself every 5 seconds.</p>
 </div>
 <div class="section" id="run">
 <h3>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
-<p>This command execute the commands in the mongodb that are in waiting
+<p>This command executes the commands in the MongoDB that are in waiting
 status.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage run
 </pre></div>
@@ -334,7 +334,7 @@ status.</p>
 </div>
 <div class="section" id="clean">
 <h3>Clean<a class="headerlink" href="#clean" title="Permalink to this headline">¶</a></h3>
-<p>This command clean all the actions in mongodb database.</p>
+<p>This command cleans all the actions in the MongoDB database.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage clean
 </pre></div>
 </div>
@@ -349,11 +349,11 @@ the full path of the new directory you would like to create.</p>
 </div>
 <div class="section" id="put">
 <h3>Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h3>
-<p>The put command uploads files from your local host to the S3.</p>
+<p>The put command uploads files from your localhost to the S3.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive --run
 </pre></div>
 </div>
-<p>Source for this command could be either a file or directory.</p>
+<p>The source for this command could be either a file or directory.</p>
 <p>If you specify a file as the source, the file will be uploaded if no
 such file exists on the cloud or updated if a copy already exists on the
 cloud.</p>
@@ -365,11 +365,11 @@ directory and the sub-directories will be ignored.</p>
 </div>
 <div class="section" id="get">
 <h3>Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h3>
-<p>The get command downloads files from S3 to your local host.</p>
+<p>The get command downloads files from S3 to your localhost.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive --run
 </pre></div>
 </div>
-<p>Source for this command could be either a file or directory.</p>
+<p>The source for this command could be either a file or directory.</p>
 <p>If you specify a file as the source, you need to specify the full path
 of file including the file name where you want the file to be
 downloaded. In case you do not specify the file name and only give the
@@ -377,7 +377,7 @@ target directory, then the file will be downloaded with the same name as
 present on S3.</p>
 <p>If the source is a directory, you can choose to specify the recursive
 option to download files in the sub-directories in the source as well to
-the target directory in your local host. If the recursive option is not
+the target directory in your localhost. If the recursive option is not
 specified, only the files in the source directory will be downloaded to
 the target directory and the sub-directories will be ignored.</p>
 </div>
@@ -385,7 +385,7 @@ the target directory and the sub-directories will be ignored.</p>
 <h3>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
 <p>The search command helps to search for a particular file within a
 directory.</p>
-<p>If recursive options is specified, Cloudmesh will search for the file in
+<p>If the recursive options is specified, Cloudmesh will search for the file in
 all sub-directories of the original directory as well.</p>
 <p>To search for a file at the root, pass an empty string or / as the
 target dir.</p>
@@ -399,7 +399,7 @@ indexed.</p>
 <div class="section" id="list">
 <h3>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
 <p>The list command lists all the contents of a cloud directory. If the
-recursive option is specified, it will list the contents of all
+the recursive option is specified, it will list the contents of all
 sub-directories as well.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> list /base_path/targetdir --recursive --run
 </pre></div>
@@ -416,14 +416,14 @@ the sub-directories).</p>
 </div>
 <div class="section" id="copy">
 <h3>Copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h3>
-<p>This command can allow user to copy files/directories across local and
+<p>This command can allow the user to copy files/directories across local and
 different cloud providers including aws, azureblob, gdrive, etc.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage copy --source<span class="o">=</span>local:./test_file1.txt --target<span class="o">=</span>aws:aws_copy_1.txt --run
 </pre></div>
 </div>
-<p>Help command gives a detail level understanding of what each command
-does and how to use the command line to interact with different object
-storage providers and different parameters / options available in a
+<p>The help command gives a detailed description of what each command
+does and how to use the command line to interact with a different object
+storage providers and different parameters available in a
 particular command.</p>
 </div>
 <div class="section" id="api">
@@ -449,7 +449,7 @@ form a storage provider.</p>
 </div>
 <div class="section" id="pytests">
 <h2>Pytests<a class="headerlink" href="#pytests" title="Permalink to this headline">¶</a></h2>
-<p>THe storage providers have a number of pytests that can be used to test the functionality</p>
+<p>The storage providers have a number of pytests that can be used to test the functionality</p>
 <div class="section" id="generic-tests">
 <h3>Generic Tests<a class="headerlink" href="#generic-tests" title="Permalink to this headline">¶</a></h3>
 <p>We have developed a number of simple pytests that can be called. To see
@@ -495,7 +495,7 @@ $ pytest -v --capture<span class="o">=</span>no tests/test_storage_aws.py
 </div>
 <div class="section" id="virtual-directory">
 <h2>Virtual Directory<a class="headerlink" href="#virtual-directory" title="Permalink to this headline">¶</a></h2>
-<p>The virtual directory has been developed to mirror the linux directory
+<p>The virtual directory has been developed to mirror the Linux directory
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.</p>
 <div class="section" id="configuration-1">

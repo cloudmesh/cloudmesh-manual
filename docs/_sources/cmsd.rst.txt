@@ -10,7 +10,7 @@ cloud configurations stored in ``~/.cloudmesh/cloudmesh.yaml``. This
 YAML file is created upon the first call of ``cmsd`` if it is not
 available.
 
-Prerequesites
+Prerequisites
 ~~~~~~~~~~~~~
 
 -  Docker
@@ -47,7 +47,7 @@ In Windows, you can do this with
 
    $ python -m venv ENV3
    $ ENV3\Scripts\activate
-   $ pip install pip -U 
+   $ pip install pip -U
 
 Now you can install cloudmesh ``cmsd`` with
 
@@ -65,8 +65,8 @@ after they created a venv just as any other user does.
 
    # make sure you use a venv
    $ mkdir cm
-   $ cd cm  
-   $ pip install cloudmesh-installer -U 
+   $ cd cm
+   $ pip install cloudmesh-installer -U
    $ cloudmesh-installer get cmsd
 
 
@@ -119,7 +119,7 @@ For Windows you set it with
    example ``C:\.cloudmesh`` will work, so does
    ``C:\Users\gregor\.cloudmesh``, but not
    ``C:\Users\gregor von Laszewski\.cloudmesh``, as it includes a space
-   in th eusername.
+   in the username.
 
 .. note:: grant access:
 
@@ -133,14 +133,14 @@ details, Mongo DB credentials.
 
 .. code:: bash
 
-   $ cmsd --setup 
+   $ cmsd --setup
 
 This setup will do most everything automatically and create and start two containers
 for running cloudmesh. The
 containers are called
 
 -  ``cloudmesh-cms`` for the cms command
--  ``cloudmesh-mongo`` for the mongodb that is used by cms
+-  ``cloudmesh-mongo`` for the MongoDB that is used by cms
 
 Run the command
 
@@ -178,7 +178,7 @@ To test if things are working use
 
 .. code:: bash
 
-   $ cmsd key list 
+   $ cmsd key list
 
 To stop the containers use
 
@@ -186,7 +186,7 @@ To stop the containers use
 
    $ cmsd --stop
 
-To start the containers use
+To start the use of the containers
 
 .. code:: bash
 
@@ -235,7 +235,7 @@ Set the cloud to ``aws``
 
 .. code:: bash
 
-   $ cmsd set cloud=aws 
+   $ cmsd set cloud=aws
 
 .. code:: bash
 
@@ -260,7 +260,7 @@ default configuration with
 
 .. code:: bash
 
-   $ cmsd vm boot 
+   $ cmsd vm boot
 
 MongoDB and Mongo client connections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -369,7 +369,7 @@ Use python version 3.8.2 or newer
 
 1. Requirements:
 
-   -  Have a username without a space.
+   -  Have a username without space.
    -  Have docker installed and accessible to the user.
    -  Have python 3.8.2 or newer from python.org installed.
    -  Create a key ``~/.ssh/id_rsa`` if you do not already have one
