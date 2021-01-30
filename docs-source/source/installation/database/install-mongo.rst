@@ -3,17 +3,17 @@ Cloudmesh Database
 
 Cloudmesh stores its status in a database so that you can easily
 remember which services you used where and have an accurate account of
-them. We use as a database mongoDB to store this information. To use
+them. We use as a database MongoDB to store this information. To use
 cloudmesh you simply need to create and start the database service.
 
 We install a separate version of mongo in your `~/.cloudmesh` directory. Use the command::
 
     cms admin mongo install
 
-On windows you need to do this very carefully as there is one installation
+On windows, you need to do this very carefully as there is one installation
 box that you need to ignore to make this possible.
 
-First you need to change the password for mongo in the ``cloudmesh.yaml`` file
+First, you need to change the password for mongo in the ``cloudmesh.yaml`` file
 Now you can create an empty database with
 
 you can initialize it with
@@ -54,7 +54,7 @@ To install it, run the following command:
    cms help
 
 Then, be sure to edit the cloudmesh.yaml configuration file (which is created
-under ``~/.cloudmesh`` directory) and update the parameters values used in the
+under ``~/.cloudmesh`` directory) and update the values of the parameters used in the
 mongo install. You can use a text editor, such as:
 
 .. code-block:: bash
@@ -66,12 +66,12 @@ Note, be sure to use a very strong password credential::
 
    MONGO_PASSWORD: TBD
 
-In case you do not have mongod installed, you can do so for macOS and Ubuntu
+In case you do not have MongoDB installed, you can do so for macOS and Ubuntu
 18.xx by setting the following variable::
 
    MONGO_AUTOINSTALL: True
 
-Alternatively you can set these cloudmesh.yaml parameter values from the
+Alternatively, you can set these cloudmesh.yaml parameter values from the
 command line  without using an editor by running the following:
 
 .. code-block:: bash
@@ -85,9 +85,9 @@ In a Linux/MacOS environment, the default installation path will be under
 ``C:\Users\USERNAME\.cloudmesh\mongo``. If you would like to change these
 paths, be sure to update these in the `cloudmesh.yaml` file.
 
-Once configuration of the `cloudmesh.yaml` file has been completed,  run the
+Once the configuration of the `cloudmesh.yaml` file has been completed,  run the
 following command (assuming you have the user in the c drive), where USERNAME
-is the username you installe d cloudmesh in:
+is the username you installed cloudmesh in:
 
 .. code-block:: bash
 
@@ -97,7 +97,7 @@ is the username you installe d cloudmesh in:
 .. note:: In a Windows installation, we are only required to install
           MongoDB commands, *not* MongoDB Service. By default, the
           silent installer will attempt to install and start the
-          MongoDB System Service. When prompted that the Service
+          MongoDB System Service. When prompted that the service
           failed to start, simply select ``Ignore``.
 
 .. figure:: ../images/MongoInstall_Windows_Ignore.png
@@ -150,7 +150,7 @@ This section documents  steps required to uninstall MongoDB from a prior install
 Note that there are two distinct uninstallation steps to consider. If you have
 installed MongoDB using the cloudmesh installer
 (i.e. ``cms admin mongo install``), Mongo is not installed with a service by
-default, and can be simply uninstalled by removing the install directories
+default and can be simply uninstalled by removing the install directories
 under ``~\.cloudmesh`` (reference the MONGO_PATH, MONGO_LOG, and MONGO_HOME
 variables within the cloudmesh.yaml file for specifics).
 
@@ -184,7 +184,7 @@ cloudmesh.yaml file for the MONGO_HOME, MONGO_PATH, and MONGO_LOG path values if
 
      Figure: Mongo install path
 
-Finally, execute the mongodb `msiexe` installer to check if there are
+Finally, execute the MongoDB `msiexe` installer to check if there are
 any remaining components that need to be uninstalled. Once launched,
 click on the `Remove` button. Note that this installer can be
 downloaded locally using the URL found under the MONGO_DOWNLOAD

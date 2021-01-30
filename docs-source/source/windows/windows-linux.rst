@@ -1,4 +1,4 @@
-Using windows instead of Linux
+Using Windows instead of Linux
 ==============================
 
 Using bash

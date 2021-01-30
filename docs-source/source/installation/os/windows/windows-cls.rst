@@ -2,7 +2,7 @@ How to install cls on Windows
 ==============================
 
 Some Python libraries may need to be compiled. In order for you to complete
-your Python instalation you want to install th *VC C++ command line Build Tools*.
+your Python installation you want to install the *VC C++ command line Build Tools*.
 This is mostly needed for cryptography libraries.
 You can find them at:
 
@@ -18,10 +18,10 @@ you need to check on the choices as shown in the next image.
      :alt: alternate text
      :figclass: align-center
 
-     Figure: select the commandline (CLI) build tools
+     Figure: Select the command line (CLI) build tools
 
 You will also have to add the following path to the PATH variable::
 
      C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\
 
-Make sure you adapt your path based on te current version of this program
+Make sure you adapt your path based on the current version of this program

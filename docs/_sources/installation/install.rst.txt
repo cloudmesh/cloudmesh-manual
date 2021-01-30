@@ -89,7 +89,7 @@ version and how to install it.
         style OS fill:#eef,stroke:#333,stroke-width:2px
         style Python fill:#2df,stroke:#333,stroke-width:2px
 
-.. comment::
+.. comment:
 
         click pip "https://cloudmesh.github.io/cloudmesh-manual/installation/install-native.html"
         click cmi "https://cloudmesh.github.io/cloudmesh-manual/installation/cloudmesh-installer.html"

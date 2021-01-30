@@ -21,7 +21,7 @@ To increase the minor number
 
     $ make minor
 
-The major number will stay to 4, so this is not changed
+The major number will stay at 4, so this is not changed
 
 To create a release say
 

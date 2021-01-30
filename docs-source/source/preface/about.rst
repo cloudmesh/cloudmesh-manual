@@ -19,7 +19,7 @@ students and cloud practitioners to interact easily with clouds to
 create a service mashup to access common cloud services across a number
 of cloud providers.
 
-It is under active development and managed in github at
+It is under active development and managed in GitHub at
 
 - Documentation: https://cloudmesh.github.io/cloudmesh-manual/
 - Code: https://github.com/cloudmesh/

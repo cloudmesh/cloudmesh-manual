@@ -333,11 +333,9 @@ Google
 
 To obtain an account on Google you can follow our instructions at
 :doc:`../accounts/google/index`. The configuration file contains the
-following::
+following
 
-  TODO
-
-.. todo:: example configuration Google  
+.. todo:: include the configuration file link here
 
 OpenStack
 ~~~~~~~~~
@@ -353,7 +351,10 @@ even install your local cloud with devstack and make adjustments.
 Please remember you can have multiple clouds in the
 ``cloudmesh.yaml`` file so you could if you have access to them
 integrate all of them.  You will need access to a project and add your
-project number to. the credentials.  Example for chameleon cloud::
+project number to. the credentials.  Example for chameleon cloud is as follows
+
+.. todo:: include the configuration file link here
+
 
   TODO
 
@@ -367,7 +368,10 @@ Virtualbox has at this time-limited functionality, but creation, ssh,
 and the deletion of the virtual box is possible.
 
 You can also integrate virtualbox as part of cloudmesh while providing
-the following description::
+the following description
+
+.. todo:: include the configuration file link here
+
 
 Storage Providers
 -----------------
@@ -426,11 +430,12 @@ yet included it in the Provider code. This needs to be fixed before we
 can do this.
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However, we do provide a convenient documentation at
-.
+on Google. However, we do provide a convenient documentation at.
 
 Google Cloud Storage
 ~~~~~~~~~~~~~~~~~~~~
+
+.. todo:: include the configuration file link here
 
 
 Box
@@ -443,7 +448,10 @@ on Google. However, we do provide a convenient documentation at
 
 In the ``cloudmesh.yaml`` file, find the ‘box’ section under ‘storage’.
 Under credentials, set ``config_path`` to the path of the configuration
-file you created as described in the Box chapter::
+file you created as described in the Box chapter
+
+.. todo:: include the configuration file link here
+
 
 
 Volume Cloud Providers
@@ -467,12 +475,15 @@ e.g. ``us-east-2``, while the ``region`` refers to the AWS availability zone
 e.g. ``us-east-2a``.  Other defaults that can be changed by the user for
 creating a volume include the volume type, size, input/output operations per
 second ``iops``, whether the volume is encrypted, or a snapshot to create the
-volume from. ::
+volume from.
+
+.. todo:: include the configuration file link here
+
 
 Azure
 ~~~~~~
 
-TBD
+.. todo:: include the configuration file link here
 
 Google
 ~~~~~~
@@ -488,13 +499,16 @@ Multipass
 
 The default ``path`` designates the location on the user's computer where the
 multipass volumes will be created.  For Windows users, the path should use
-``/`` instead of ``\``. ::
+``/`` instead of ``\``.
+
+.. todo:: include the configuration file link here
+
 
 
 Oracle
 ~~~~~~~~~~
 
-TBD
+.. todo:: include the configuration file link here
 
 Openstack
 ~~~~~~~~~~

@@ -1,7 +1,7 @@
 Virtual Directory
 =================
 
-The virtual directory has been developed to mirror the linux directory
+The virtual directory has been developed to mirror the Linux directory
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.
 
@@ -65,7 +65,7 @@ Link for additional information:
    .. |License| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
       :target: https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE
    .. |Python| image:: https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg
-      :target: https://pypi.python.org/pypi/cloudmesh-storage	    
+      :target: https://pypi.python.org/pypi/cloudmesh-storage
    .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-storage.svg
       :target: https://pypi.python.org/pypi/cloudmesh-storage
    .. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master

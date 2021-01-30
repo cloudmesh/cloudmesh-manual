@@ -169,7 +169,7 @@ Creating a runtime-configuration
 
 Next, we have to create a ``runtime-configuration`` which defines the
 type of input and output for possibly a set of jobs that are going to be
-submitted later. In the next example we will create a runtime
+submitted later. In the next example, we will create a runtime
 configuration for jobs that we want to run remotely using 5 processes,
 fetch their results using 3 processes and the script that we want to run
 remotely takes just some parameter (which could be left empty for no
@@ -257,7 +257,7 @@ need 10 instances of this script to be executed:
    All of the remote results collected.
 
 As you can see all of the jobs were submitted (using 5 processes) and
-results were collected afterwards (using 3 processes). We can check the
+results were collected afterward (using 3 processes). We can check the
 existence of the results:
 
 .. code:: console
@@ -333,9 +333,9 @@ place:
 Cleaning the remote
 -------------------
 
-By default the Virtual Cluster tool does not clean the remotes
+By default, the Virtual Cluster tool does not clean the remotes
 automatically and this task is left to be performed manually since
-important results might be lose due to mistakes. To clean the remotes,
+important results might be lost due to mistakes. To clean the remotes,
 the user has to explicitly use the ``clean-remote`` command for a
 specific job and this way only the results of that particular job will
 be removed from **ALL** remotes using 2 parallel processes:

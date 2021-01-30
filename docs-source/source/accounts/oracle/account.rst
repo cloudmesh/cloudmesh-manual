@@ -4,7 +4,7 @@ Oracle Cloud Account
 On 16th September 2019, Oracle announced a free tier. This allows
 students and professionals to build, test, and deploy applications on
 the Oracle cloud and database for free for an unlimited time. The free
-tier though, has limits for various services. Two virtual machines and
+tier though has limits for various services. Two virtual machines and
 two block volumes, and 10 GB each of object and archive storage is the
 current limit for free cloud tier accounts.
 
@@ -40,9 +40,9 @@ and click ``Next``.
 .. figure:: images/account-details.png
    :alt: Acoount Details
 
-   Acoount Details
+   Account Details
 
-Step 4: Verify you mobile number using the code that will be messaged to
+Step 4: Verify your mobile number using the code that will be messaged to
 you.
 
 Step 5: Next, you will be asked to select a password. Please select one
@@ -95,7 +95,7 @@ Now you’ve successfully signed in to the Oracle Cloud.
 You can click on the menu on the left to explore different oracle
 services. When you try to access compute or storage services, you will
 first need to select a compartment. A compartment is a logical container
-to organize you resources. A default compartment with the same name as
+to organize your resources. A default compartment with the same name as
 your cloud name is created. It is easiest to select that compartment.
 
 .. figure:: images/compartment.png
@@ -106,7 +106,7 @@ your cloud name is created. It is easiest to select that compartment.
 Oracle API
 ----------
 
-To develop or run code related to oracle, its API called OCI (Oracle
+To develop or run code related to Oracle, its API called OCI (Oracle
 Cloud Infrastructure) needs to be installed. To do this, run the command
 using the command line.
 
@@ -119,11 +119,11 @@ Cloudmesh Config File
 
 Cloudmesh config file (cloudmesh.yaml) will have the following entries
 for compute and storage respectively. Add them to the config file if not
-already there. 
+already there.
 
-Note: the image names are dated, and it is possible that this default image 
+Note: the image names are dated, and it is possible that this default image
 won't be available if you created your account recently. If so, you will need
-to run ``cms image list --refresh`` to see available images and update the yaml files
+to run ``cms image list --refresh`` to see available images and update the YAML files
 
 Compute Entry
 ~~~~~~~~~~~~~
@@ -192,7 +192,7 @@ the values from your account. To do this, please follow the steps.
 Create API Signing Key
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Run the following commands using command line.
+Run the following commands using the command line.
 
 Step 1: Create a directory ``.oci`` to store the credentials.
 
@@ -232,7 +232,7 @@ require this.
 Step 7: Add the passphrase to your config file ``cloudmesh.yaml`` under
 oracle section.
 
-:o2: you should have a program that does thsi for you such as
+:o2: you should have a program that does this for you such as
 
 ::
 
@@ -241,7 +241,7 @@ oracle section.
 User
 ~~~~
 
-The value for ``user`` in the config file is the OCID of your user of
+The value for ``user`` in the config file is the OCID of your use of
 the oracle cloud account. You can find this using the following steps:
 
 Step 1: Click on the profile menu on the right and click on
@@ -378,10 +378,10 @@ To terminate the instance, use the command:
 Storage Service
 ---------------
 
-The first time you try to access storage services, it wil be empty and
+The first time you try to access storage services, it will be empty and
 any operation to ``list/get/delete`` will result in an error. Hence, to
 start first ``put`` a new file on the cloud. This will result in
-creation of a new bucket with the name specified in ``cloudmesh.yaml``.
+the creation of a new bucket with the name specified in ``cloudmesh.yaml``.
 
 ``create dir`` command to create a directory on the cloud object storage
 system is not supported in Oracle. Only when uploading a file can a

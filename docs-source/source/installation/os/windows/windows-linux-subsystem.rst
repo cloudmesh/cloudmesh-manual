@@ -2,11 +2,11 @@ Linux Subsystem on Windows 10
 =============================
 
 .. warning::  do not install cloudmesh-gui on Linux subsystem as GUIs are not
-               sported
+              sported
 
 .. warning:: MongoDB reports that mongo is not yet working on Linux
-	         Subsystem. As cloudmesh uses mongo, please do not yet use
-	         the Linux Subsystem install.
+            Subsystem. As cloudmesh uses mongo, please do not yet use
+            the Linux Subsystem install.
 
 To activate the Linux Subsystem, please follow the instructions at
 
@@ -41,10 +41,10 @@ Setup Python::
    pip install pip -U
    pip install psutil
 
-Check if your system is havving python properly
+Check if your system is having python properly
 
     >>> platform.uname()
-   uname_result(system='Linux', node='DESKTOP',
+    uname_result(system='Linux', node='DESKTOP',
                  release='4.4.0-18362-Microsoft',
                  version='#1-Microsoft Mon Mar 18 12:02:00 PST 2019',
                  machine='x86_64', processor='x86_64')

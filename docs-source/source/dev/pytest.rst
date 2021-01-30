@@ -2,14 +2,14 @@ Pytest
 ======
 
 Pytest is a utility to unit test python code. We use pytest and not
-``__main__`` to test all functionality so they can me automatically run and
+``__main__`` to test all functionality so they can be automatically run and
 reports can be generated. A project that does not have a sufficient
 number of tests to make sure the module works can not be accepted.
 
 Installation
 ------------
 
-The pytest module can be installed with the help of pip utility:
+The pytest module can be installed with the help of pip utility:
 
 .. code:: bash
 
@@ -74,13 +74,13 @@ form
 
 ``def test_topic (self)``
 
-Through the class decorator they are executed in order
+Through the class decorator, they are executed in order
 
-A test may also have a method ``def setup(self)`` whcih is run prior to each
+A test may also have a method ``def setup(self)`` which is run prior to each
  other method.
 
 A test method includes one or multiple asserts that check if a particular test
-succeeds and reports this to pytest to expose the information if a tess
+succeeds and reports this to pytest to expose the information if a test
 succeeds or fails, when running it
 
 To have better visual separation of tests with the `--capture=no` option, all
@@ -97,17 +97,17 @@ lines you see on top that you will include. In our case the test is called
 
 Make sure that you place this comment in your tests. to remind the
 developers how to execute your test from the main directory. If you need
-dpecial instructions, please add them here.
+special instructions, please add them here.
 
 
-The following example is our simple pytest for key. THe file is stored at
+The following example is our simple pytest for key. The file is stored at
 ``tests/test_key.py``
 
 First, we import the needed classes and methods we like to test. We
-define a class, and than we define the methods. such as the setup and
+define a class, and then we define the methods. such as the setup and
 the actual tests.
 
-your run it with
+You run it with
 
 .. code:: bash
 
@@ -161,8 +161,8 @@ your run it with
                   )
 
             assert len(keys) > 0
-            
-        
+
+
         def test_results(self):
             HEADING()
             banner(f"Benchmark results for Keys")
@@ -190,7 +190,7 @@ The output with ``pytest -v tests/test_key.py`` results in
 
     OK
 
-During development phase you want to use
+During the development phase, you want to use
 
 ``pytest -v --capture=no tests/test_key.py``
 

@@ -5,7 +5,7 @@ User Update
 
     pip install cloudmesh-openstack -U
 
-while replacing the openstack with the cloudmesh bundle you wan t to install
+while replacing the openstack with the cloudmesh bundle you want to install
 
 Developer Reinstall
 ===================
@@ -30,6 +30,6 @@ Please be very careful when doing this as it removes files and directories
    pip install-cloudmesh-installer
    cloudmesh-installer get openstack
 
-or if you like to use ssh instead of https, please replace the last line with
+or if you like to use ssh instead of HTTPS, please replace the last line with
 
    cloudmesh-installer get --ssh openstack
