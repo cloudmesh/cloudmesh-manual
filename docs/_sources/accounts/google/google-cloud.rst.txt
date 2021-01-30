@@ -6,8 +6,8 @@ Google, is a suite of cloud computing services that runs on the same
 infrastructure that Google uses internally for its end-user products,
 such as Google Search and YouTube. Alongside a set of management tools,
 it provides a series of modular cloud services including computing, data
-storage, data analytics and machine learning. Within cloudmesh, we
-develop services through taht support some of these these products.
+storage, data analytics, and machine learning. Within cloudmesh, we
+develop services that support some of these products.
 
 
 Google Compute Engine
@@ -25,8 +25,8 @@ Custom Machine Types optimized for your specific needs. Flexible
 pricing and automatic sustained use discounts make Compute Engine the
 leader in price/performance.
 
-Next we provide a a step-by-step guide on how to create an Google
-account and a service account through the Google webpage.
+Next, we provide a step-by-step guide on how to create a Google
+account and service account through the Google webpage.
 
 
 Prerequisites
@@ -39,7 +39,7 @@ done with
 
    $ pip install cloudmesh-google
 
-For developers the best way to install it is to use
+For developers, the best way to install it is to use
 ``cloudmesh-installer``.
 
 .. code:: bash
@@ -61,7 +61,7 @@ Creating the Google Account
 ---------------------------
 
 If you do not have a google cloud account a
-new google account can be created using following link:
+new google account can be created using the following link:
 
 -  `Create your Google
    Account <https://accounts.google.com/signup/v2/webcreateaccount?flowEntry=SignUp&flowName=GlifWebSignIn>`__
@@ -69,8 +69,8 @@ new google account can be created using following link:
 Activation Google Cloud Service
 -------------------------------
 
-Google allows you to apply for an free account and offers you $300 in credits
-to use google cloud. After creating a new account apply for free trail and $300
+Google allows you to apply for a free account and offers you $300 in credits
+to use google cloud. After creating a new account apply for a free trail and $300
 credit at:
 
 -  `Get Started for
@@ -82,17 +82,16 @@ For students or education account, apply at:
    Education <https://edu.google.com/products/google-cloud-platform/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-b-dr-1007179&utm_content=text-ad-none-any-DEV_c-CRE_182323152622-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20%7C%20US%20%7C%20en%20%7C%20Multi%20~%20Student-KWID_43700018304461092-kwd-285517564251&utm_term=KW_%2Bstudent%20%2Bcloud-ST_%2BStudent%20%2BCloud&gclid=EAIaIQobChMI07zC9eeV5gIVhMBkCh2yMwA2EAAYASAAEgKmHfD_BwE&modal_active=none>`__
 
 Please choose the one that is most appropriate for you. For the
-educational account you may need a verification from your school or an
-email that is registered as an educational institution.
+educational account you may need a verification from your school or an email that is registered as an educational institution.
 
 Setting up Google Cloud Account
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next, you will need to create a project and a service account.
 All service calls from cloudmesh require a project id to
-create VM, Disks, Volumes etc.
+create VM, Disks, Volumes, etc.
 
-We recommend that you simply use project name ``cloudmesh``.
+We recommend that you simply use the project name ``cloudmesh``.
 
 To authenticate the google cloud API from cloudmesh
 you also need to enable the required API and
@@ -167,13 +166,13 @@ Steps to setup project and service account:
 After the key is downloaded, make sure you keep the ``~/.cloudmesh``
 directory secure.
 
-We will use the downloaded json file to register google cloud with
+We will use the downloaded JSON file to register google cloud with
 cloudmesh and enable cloudmesh to invoke google cloud API
-by updating YAML entry in file
+by updating the YAML entry in the file
 
 ``$ ~/.cloudmesh/cloudmesh.yaml``
 
-Next register google cloud account with cloudmesh.
+Next register a google cloud account with cloudmesh.
 
 Registering Google Cloud to Cloudmesh
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -196,7 +195,7 @@ Register Google Storage
 
    $ cms register update --kind=google --service=Storage --filename=~/.cloudmesh/security/google.json bucket=cloudmesh-bucket
 
-Note: The cloudmesh-bucket will be used as default storage bucket.
+Note: The cloudmesh-bucket will be used as the default storage bucket.
 
 Register Google Volume
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -266,7 +265,7 @@ You can refer `google storage documentation
 <https://cloud.google.com/storage/docs/>`__ for more details on google
 cloud storage documentation. Cloudmesh currently supports `object/blob
 storage <https://cloud.google.com/storage/docs/how-to>`__. Users can
-follow instruction to configure google could platform described as
+follow instructions to configure the google could platform described as
 part of this document.
-				
-				  
+
+

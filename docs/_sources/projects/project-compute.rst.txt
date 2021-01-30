@@ -1,13 +1,13 @@
 Cloudmesh Compute
 =================
 
--  This project can also be taken as independent study or as part of the
+-  This project can also be taken as an independent study or as part of the
    Cloud Engineering class
 
 Goals
 -----
 
-In this project you will be developing a features related to completing
+In this project, you will be developing features related to completing
 and simplifying the compute interface to an existing cloud. You will
 also benchmark the clouds while comparing the computations on similar
 operating systems that are deployed on different clouds.
@@ -26,7 +26,7 @@ is missing that needs to be there to support cloudmesh it is to be
 implemented.
 
 Benchmarks must not only include the execution time of a program in the
-cloud , but also measure how much time it costs to manage basic
+cloud, but also measure how much time it costs to manage basic
 functionality for
 
 -  images
@@ -49,20 +49,20 @@ Difficulty
 project is easy. We may require individual students to target more than
 2 clouds. We will figure this out at the beginning of your project
 
-*moderate*: For Google Cloud the task is moderate as we need to improve
+*moderate*: For Google Cloud, the task is moderate as we need to improve
 the provider.
 
 *moderate*: The virtual box provider is developed via vagrant and in
-principal works, but has not been worked on for a while. You will be in
+principle works, but has not been worked on for a while. You will be in
 improving the provider in cloudmesh
 
 Deliverables
 ------------
 
--  Working benchmarks in form of reproducable pytests. Examples are
+-  Working benchmarks in form of reproducible pytests. Examples are
    included in cloudmesh-cloud
--  checkins into github by all team members. If only one team member
+-  check-ins into GitHub by all team members. If only one team member
    checks in all other team members will not get credit.
 -  Collaborate with *all* teams that do this project so we can get
    benchmarks for all clouds and compare the results not only within
-   your team, but all teams.
+   your team but all teams.

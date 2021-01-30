@@ -2,38 +2,38 @@ Storage Providers
 =================
 
 Cloudmesh supports multiple cloud storage services via storage
-providers. You can access them via commandline, an API or REST
-services. A simple abstraction layer between cloud services and you
+providers. You can access them via command line, an API, or REST
+services. A simple abstraction layer between cloud services and your
 local computer makes it possible that the services are accessed the
 same way. This includes Awss3, Azure, Google, and box.
 
-The code is available a cloudmesh module at
+The code is available in a cloudmesh module at
 
 * <https://github.com/cloudmesh/cloudmesh-storage>
 
 
-The instalation is documented in our instalation manual.
+The installation is documented in our installation manual.
 
 
 Configuration
 -------------
 
-The cloudmesh yaml file contains a number of templates for configuring
-access to your cloud providers storage services. THis includes AWS,
+The cloudmesh YAML file contains a number of templates for configuring
+access to your cloud provider's storage services. This includes AWS,
 Azure, Google, and others.
 
 
 To showcase the integration, please open the
 `cloudmesh.yaml` config file. Under the ‘storage’ section, we need to
-add the the parameters for authentication.
+add the parameters for authentication.
 
 In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
 `AWS IAM service` -> `Users` -> `Security Credentials`.
 
-Bucket is the default bucket which will be used to store the files in
-AWS S3. Region is the geographic area like `us-east-1` which contains
-the bucket. Region is required to get a connection handle on the S3
+The bucket is the default bucket that will be used to store the files in
+AWS S3. The region is the geographic area like `us-east-1` which contains
+the bucket. The region is required to get a connection handle on the S3
 Client or resource for that geographic area.
 
 Here is an example:
@@ -51,30 +51,30 @@ Here is an example:
            label: aws
            kind: awss3
            version: TBD
-           service: storage 
+           service: storage
          default:
          credentials:
            access_key_id: *********
            secret_access_key: *******
            bucket: name of bucket that you want user to be contained in.
-           region: Specfiy the default region eg us-east-1
+           region: Specify the default region eg us-east-1
 
 
-Similar to AWS other storage providers are available. Please check in
-the yaml file for their configuration template.
+Similar to AWS other storage providers are available. Please check-in
+the YAML file for their configuration template.
 
 
 Commandline
 -----------
 
-	   
+
 The Cloudmesh command line allows to access a directory with the
-convenient get, put, search, list, create directory, and delete
-functions. To find out more, use the command 
+convenient get, put, search, list, create a directory, and delete
+functions. To find out more, use the command
 
 .. code:: bash
 
-   cms> help storage 
+   cms> help storage
 
 To invoke the AWS S3 service, we need to pass awss3 as
 parameter to storage parameter.
@@ -82,9 +82,9 @@ parameter to storage parameter.
 .. code:: bash
 
    $ cms storage --storage=aws list '' --run
-  
 
-The following command can set the default storage service used in the 
+
+The following command can set the default storage service used in the
 storage command. After this command, you don't need to specify the
 `--service` option in some commands.
 
@@ -92,33 +92,33 @@ storage command. After this command, you don't need to specify the
 
    $ cms set storage=aws
 
-Monitor 
+Monitor
 ~~~~~~~~
 
-This command monitors the status of commands in mongodb database and 
+This command monitors the status of commands in the MongoDB database and
 refresh itself every 5 seconds.
 
 .. code:: bash
 
    $ cms storage monitor
-   
+
 Run
 ~~~
 
-This command execute the commands in the mongodb that are in waiting 
+This command executes the commands in the MongoDB that are in waiting
 status.
 
 .. code:: bash
-   
+
    $ cms storage run
-   
+
 Clean
 ~~~~~
 
-This command clean all the actions in mongodb database.
+This command cleans all the actions in the MongoDB database.
 
 .. code:: bash
-   
+
    $ cms storage clean
 
 Create dir
@@ -134,13 +134,13 @@ the full path of the new directory you would like to create.
 Put
 ~~~
 
-The put command uploads files from your local host to the S3.
+The put command uploads files from your localhost to the S3.
 
 .. code:: bash
 
    $ cms storage --storage='aws' put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive --run
 
-Source for this command could be either a file or directory.
+The source for this command could be either a file or directory.
 
 If you specify a file as the source, the file will be uploaded if no
 such file exists on the cloud or updated if a copy already exists on the
@@ -155,13 +155,13 @@ directory and the sub-directories will be ignored.
 Get
 ~~~
 
-The get command downloads files from S3 to your local host.
+The get command downloads files from S3 to your localhost.
 
 .. code:: bash
 
    $ cms storage --storage='aws' get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive --run
 
-Source for this command could be either a file or directory.
+The source for this command could be either a file or directory.
 
 If you specify a file as the source, you need to specify the full path
 of file including the file name where you want the file to be
@@ -171,7 +171,7 @@ present on S3.
 
 If the source is a directory, you can choose to specify the recursive
 option to download files in the sub-directories in the source as well to
-the target directory in your local host. If the recursive option is not
+the target directory in your localhost. If the recursive option is not
 specified, only the files in the source directory will be downloaded to
 the target directory and the sub-directories will be ignored.
 
@@ -181,7 +181,7 @@ Search
 The search command helps to search for a particular file within a
 directory.
 
-If recursive options is specified, Cloudmesh will search for the file in
+If the recursive options is specified, Cloudmesh will search for the file in
 all sub-directories of the original directory as well.
 
 To search for a file at the root, pass an empty string or / as the
@@ -199,7 +199,7 @@ List
 ~~~~
 
 The list command lists all the contents of a cloud directory. If the
-recursive option is specified, it will list the contents of all
+the recursive option is specified, it will list the contents of all
 sub-directories as well.
 
 .. code:: bash
@@ -216,21 +216,21 @@ the sub-directories).
 .. code:: bash
 
    $ cms storage --storage='aws' delete /base_path/targetdir --run
-   
+
 Copy
 ~~~~
 
-This command can allow user to copy files/directories across local and
+This command can allow the user to copy files/directories across local and
 different cloud providers including aws, azureblob, gdrive, etc.
 
 .. code:: bash
-   
+
    $ cms storage copy --source=local:./test_file1.txt --target=aws:aws_copy_1.txt --run
 
 
-Help command gives a detail level understanding of what each command
-does and how to use the command line to interact with different object
-storage providers and different parameters / options available in a
+The help command gives a detailed description of what each command
+does and how to use the command line to interact with a different object
+storage providers and different parameters available in a
 particular command.
 
 API
@@ -252,7 +252,7 @@ We assume the files at the given path exist
    src = path_expand("~/.cloudmesh/storage/test/a/a.txt")
    dst = "/"
    result = provider.put(src, dst)
-   # The resut will be a dict of the information which you can print with 
+   # The resut will be a dict of the information which you can print with
 
    pprint(result)
 
@@ -260,7 +260,7 @@ We assume the files at the given path exist
 Pytests
 -------
 
-THe storage providers have a number of pytests that can be used to test the functionality
+The storage providers have a number of pytests that can be used to test the functionality
 
 Generic Tests
 ~~~~~~~~~~~~~
@@ -286,13 +286,13 @@ be invoked as follows
 
    $ cms set storage=aws
    $ pytest -v --capture=no tests/test_storage.py
-   
+
    $ cms set storage=parallelazureblob
    $ pytest -v --capture=no tests/test_storage.py
-   
+
    $ cms set storage=parallelazureblob
    $ pytest -v --capture=no tests/test_storage_azure.py
-   
+
    $ cms set storage=parallelgdrive
    $ pytest -v --capture=no tests/test_storage.py
 
@@ -312,7 +312,7 @@ the following command to run pytests:
 Virtual Directory
 -----------------
 
-The virtual directory has been developed to mirror the linux directory
+The virtual directory has been developed to mirror the Linux directory
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.
 

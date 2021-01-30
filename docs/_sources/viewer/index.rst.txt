@@ -1,12 +1,12 @@
 Cloudmesh Viewer
 ================
 
-Cloudmesh has a Desktop viewer that is build on top of Electron. This is a
+Cloudmesh has a Desktop viewer that is built on top of Electron. This is a
 community contributed component and is managed in its own repository:
 
-The GitHub Links including a more detailed documentation are at:
+The GitHub Links including more detailed documentation at:
 
-* `README.md <https://github.com/cloudmesh/cloudmesh-javascript/blob/master/README.md>`_ shows infrmation about this project
+* `README.md <https://github.com/cloudmesh/cloudmesh-javascript/blob/master/README.md>`_ shows information about this project
 * `Github Issues <https://github.com/cloudmesh/cloudmesh-javascript/issues>`_ is used to manage issues and help
 
 

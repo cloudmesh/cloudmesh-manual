@@ -1,18 +1,18 @@
 Google Drive
 ============
 
-Google Drive is a file storing platform where an user can store all
-his/her files in the google drive.  You will need Google Drive to
-work with Cloudmesh Storage to store files in Google Drive. 
+Google Drive is a file storing platform where a user can store all
+his/her files in google drive.  You will need Google Drive to
+work with Cloudmesh Storage to store files in Google Drive.
 Here files can be of any form
-ranging from documents to audio, video or image files. In free account
+ranging from documents to audio, video, or image files. In the free account,
 each user will be given around 15 GB of free data space to be
-stored. We can create folders and subfolders in the Google Drive to
+stored. We can create folders and subfolders in Google Drive to
 store our data.
 
 Each file will be stored in Google cloud with a unique URL and it’s up
 to the user to make the file sharable or not.  Google Drive is
-reliable and if an user has different devices and if he/she wants to
+reliable and if a user has different devices and if he/she wants to
 access those files then Google Drive is needed in this case as he can
 have access to his file as all his files are stored in the cloud.  The
 user does not need to install any kind of software in order to view
@@ -22,7 +22,7 @@ these files.
 Create a Project
 ----------------
 
-Do obtain credentials to use Google drive, go to `Google APIs
+To obtain credentials to use Google drive, go to `Google APIs
 <https://console.developers.google.com/>`_ website and create a
 project.  To create a project, go to Dashboard in Google APIs
 console. In the **Select a Project** window, click **NEW PROJECT**.
@@ -36,7 +36,7 @@ console. In the **Select a Project** window, click **NEW PROJECT**.
 
 .. figure:: images/1console.PNG
    :alt: Google APIs Console
-   
+
 .. figure:: images/2new_project.PNG
    :alt: New Project
 
@@ -54,7 +54,7 @@ In the APIs and Services Dashboard for the project we created, click
 .. figure:: images/4enable_apis.PNG
    :alt: Enable APIs and Services
 
-This leads to the **Welcome to the API Library** page.  
+This leads to the **Welcome to the API Library** page.
 
 .. figure:: images/5api_library.PNG
    :alt: API Library
@@ -92,12 +92,12 @@ Select **External** user type.  Click **CREATE**.
 .. figure:: images/11oauth_consent.PNG
    :alt: Oauth consent screen
 
-Enter application name.  Enter the gmail account we use for the project.
+Enter application name.  Enter the Gmail account we use for the project.
 
 .. figure:: images/12oauth2.png
    :alt: Oauth consent screen - continued
 
-Select scopes to **See, edit, create, and delete all of your Google
+Select scopes to **See, edit, create and delete all of your Google
 Drive files**, and **See and download all your Google Drive files**.
 Click **ADD**.
 
@@ -114,8 +114,8 @@ select **OAUTH client ID**.
 
 .. figure:: images/15create_credentials.PNG
    :alt: Create credentials
-   
-Select **Other** for application type.  A default name "Other client
+
+Select **Other** for the application type.  A default name "Other client
 1" will be generated which we can keep.
 
 .. figure:: images/16create_oauth.PNG
@@ -140,8 +140,8 @@ Authorization Flow
 ------------------
 
 In order to create the authorization flow, we also need to modify
-cloudmesh.yaml to store the paths of the files needed for
-authentication, including path for `credentials.json` and path for
+`cloudmesh.yaml` to store the paths of the files needed for
+authentication, including the path for `credentials.json` and path for
 `token.pickle`, which we will create next.  ::
 
     parallelgdrive:
@@ -163,7 +163,7 @@ Now we are ready to create the authorization flow.  The codes for
 creating credentials for authorization is included in the Provider.py
 file. Here is the link:
 
-`Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_  
+`Provider.py <https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/parallelgdrive/Provider.py/>`_
 
 When we run the Provider.py for the first time, do so in the Terminal.
 
@@ -175,7 +175,7 @@ to continue to the project.
 
 .. figure:: images/20sign_in.PNG
    :alt: Sign in
-   
+
 Click **Advanced**.
 
 .. figure:: images/21advanced.PNG
@@ -196,7 +196,7 @@ Click **Allow** again to confirm.
 .. figure:: images/24confirm_allow.PNG
    :alt: Confirm allow
 
-Message will be displayed that the authentication flow has been completed.
+A message will be displayed that the authentication flow has been completed.
 
 .. figure:: images/25authentication.PNG
    :alt: Authentication flow completed
@@ -207,7 +207,7 @@ need to place this file in the token_path specified in the
 `cloudmesh.yaml` file.
 
 This file can be used for future purposes so we do not need to login
-everytime. If we delete this file for any reason, e.g. changing the
+every time. If we delete this file for any reason, e.g. changing the
 permission scope, then the authorization process will again ask for
 login id and password, and again create ``token.pickle``
 automatically.

@@ -149,7 +149,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
@@ -235,13 +235,13 @@
 <p>Cloudmesh is easy to install, but we have seen issues with the following
 that you must solve yourself:</p>
 <ol class="arabic simple">
-<li><p>Virus checkers switch on that prevent instalation of programs and
+<li><p>Virus checkers switch on that prevent the installation of programs and
 containers</p></li>
-<li><p>Computers managed by a workplace with stricter security rules.</p></li>
+<li><p>Computers are managed by a workplace with stricter security rules.</p></li>
 </ol>
 <p>Any of these cases are up to you to find out and solve. We have tested
-CMS on an operationg system that was downloaded stright from Microsoft
-and verofied it works.</p>
+CMS on an operating system that was downloaded straight from Microsoft
+and verified it works.</p>
 <div class="section" id="install-mongodb">
 <h3>Install MongoDB<a class="headerlink" href="#install-mongodb" title="Permalink to this headline">¶</a></h3>
 <p>Uninstall older versions of mongo, as they may be incompatible</p>
@@ -286,8 +286,8 @@ and verofied it works.</p>
 <div class="section" id="draft-cms-mostly-automated-install-on-macos-and-linux">
 <h3>Draft: Cms Mostly automated install on macOS and Linux<a class="headerlink" href="#draft-cms-mostly-automated-install-on-macos-and-linux" title="Permalink to this headline">¶</a></h3>
 <p>Note: Use at your own risk</p>
-<p>If you di not understand line by line what this does you should not
-execute it Verify correctnett works on linux and OSX, I have this not
+<p>If you do not understand line by line what this does you should not
+execute it Verify correctness works on Linux and OSX, I have this not
 yet tested on gitbash, on windows you must remove the mongo install line
 and have cl, mongo, gitbash previously installed.</p>
 <p>You must have used ssh-keygen to generate the key before</p>
@@ -323,7 +323,7 @@ and have cl, mongo, gitbash previously installed.</p>
 <span class="n">cms</span> <span class="n">help</span>
 <span class="n">cms</span> <span class="n">debug</span> <span class="n">off</span>
 
-<span class="c1">#cms test # its in your responsiblity to fix this this test may not work yet properly</span>
+<span class="c1">#cms test # it is in your responsibility to fix this test may not work yet properly</span>
 
 <span class="n">cms</span> <span class="n">config</span> <span class="nb">set</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mongo</span><span class="o">.</span><span class="n">MONGO_AUTOINSTALL</span><span class="o">=</span><span class="kc">True</span>
 
@@ -374,18 +374,18 @@ and have cl, mongo, gitbash previously installed.</p>
 <div class="section" id="switching-between-cms-and-cmsd">
 <h2>Switching between cms and cmsd<a class="headerlink" href="#switching-between-cms-and-cmsd" title="Permalink to this headline">¶</a></h2>
 <p>It is best to delete the .cloudmesh directory and start new.</p>
-<p>However you can also try to set the MONGO mode accordingly.</p>
+<p>However, you can also try to set the MONGO mode accordingly.</p>
 <p>For cms you use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">config</span> <span class="nb">set</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mongo</span><span class="o">.</span><span class="n">MODE</span><span class="o">=</span><span class="n">native</span>
 </pre></div>
 </div>
-<p>For cmsd you use</p>
+<p>For <cite>cmsd</cite> you use</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmsd</span> <span class="n">config</span> <span class="nb">set</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mongo</span><span class="o">.</span><span class="n">MODE</span><span class="o">=</span><span class="n">running</span>
 </pre></div>
 </div>
-<p>Remeber that cmsd will automatically upon –setup change the mode to
+<p>Remember that <cite>cmsd</cite> will automatically upon –setup change the mode to
 running. So if you like to switch back do so.</p>
-<p>Please be aware there coudl be issues with Mongo runing natively or in a
+<p>Please be aware there could be issues with Mongo running natively or in a
 container. Try it out. IF it does not work, remove the .cloudmesh
 directory</p>
 </div>

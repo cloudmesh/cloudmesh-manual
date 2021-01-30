@@ -5,7 +5,7 @@ Cloudmesh v4 contains sophisticated virtual machine management services
 that makes it easy for the user to manage a large number of virtual
 machines across clouds with a uniform naming scheme.
 
-For now we will focus on the command line and shell interface.
+For now, we will focus on the command line and shell interface.
 
 Command Line and Shell Interface
 --------------------------------
@@ -72,7 +72,7 @@ Uniform Parameter Management
 ----------------------------
 
 The parameters across these commands are uniformly managed. Most of the
-plural form allow a parameterized specification such as ``a[00-03],a8``
+plural form allows a parameterized specification such as ``a[00-03],a8``
 which would result in an array ``["a0", "a1", "a2", "a3", "a8"]``. This
 especially applies to clouds as well as virtual machine names.
 
@@ -134,7 +134,7 @@ Security groups
 ---------------
 
 A security group acts as a virtual firewall for the instance. When we
-launch a instance, we want to attach security Groups for controlling the
+launch an instance, we want to attach security Groups for controlling the
 traffic in and out of the VM.
 
 Check instances

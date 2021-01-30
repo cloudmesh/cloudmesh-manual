@@ -146,7 +146,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
 </ul>
@@ -221,12 +221,12 @@
   <div class="section" id="pytest">
 <h1>Pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h1>
 <p>Pytest is a utility to unit test python code. We use pytest and not
-<code class="docutils literal notranslate"><span class="pre">__main__</span></code> to test all functionality so they can me automatically run and
+<code class="docutils literal notranslate"><span class="pre">__main__</span></code> to test all functionality so they can be automatically run and
 reports can be generated. A project that does not have a sufficient
 number of tests to make sure the module works can not be accepted.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The pytest module can be installed with the help of pip utility:</p>
+<p>The pytest module can be installed with the help of pip utility:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pytest
 </pre></div>
 </div>
@@ -277,13 +277,13 @@ cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=
 <p>Note that all test python programs have specific function names of the
 form</p>
 <p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">test_topic</span> <span class="pre">(self)</span></code></p>
-<p>Through the class decorator they are executed in order</p>
+<p>Through the class decorator, they are executed in order</p>
 <dl class="simple">
-<dt>A test may also have a method <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">setup(self)</span></code> whcih is run prior to each</dt><dd><p>other method.</p>
+<dt>A test may also have a method <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">setup(self)</span></code> which is run prior to each</dt><dd><p>other method.</p>
 </dd>
 </dl>
 <p>A test method includes one or multiple asserts that check if a particular test
-succeeds and reports this to pytest to expose the information if a tess
+succeeds and reports this to pytest to expose the information if a test
 succeeds or fails, when running it</p>
 <p>To have better visual separation of tests with the <cite>–capture=no</cite> option, all
 pytest functions in cloudmesh start with a <code class="docutils literal notranslate"><span class="pre">HEADING()</span></code>, which will print a
@@ -299,13 +299,13 @@ lines you see on top that you will include. In our case the test is called
 </div>
 <p>Make sure that you place this comment in your tests. to remind the
 developers how to execute your test from the main directory. If you need
-dpecial instructions, please add them here.</p>
-<p>The following example is our simple pytest for key. THe file is stored at
+special instructions, please add them here.</p>
+<p>The following example is our simple pytest for key. The file is stored at
 <code class="docutils literal notranslate"><span class="pre">tests/test_key.py</span></code></p>
 <p>First, we import the needed classes and methods we like to test. We
-define a class, and than we define the methods. such as the setup and
+define a class, and then we define the methods. such as the setup and
 the actual tests.</p>
-<p>your run it with</p>
+<p>You run it with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -v --capture<span class="o">=</span>no tests/test_key.py
 </pre></div>
 </div>
@@ -381,7 +381,7 @@ detail, but just reports if tests fail or succeed.</p>
 <span class="n">OK</span>
 </pre></div>
 </div>
-<p>During development phase you want to use</p>
+<p>During the development phase, you want to use</p>
 <p><code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">-v</span> <span class="pre">--capture=no</span> <span class="pre">tests/test_key.py</span></code></p>
 <p>which prints all print statements</p>
 </div>

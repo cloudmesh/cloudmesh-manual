@@ -151,7 +151,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../deprecated.html">Deprecated</a></li>
 </ul>
@@ -227,24 +227,24 @@
             
   <div class="section" id="google-drive">
 <h1>Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h1>
-<p>Google Drive is a file storing platform where an user can store all
-his/her files in the google drive.  You will need Google Drive to
+<p>Google Drive is a file storing platform where a user can store all
+his/her files in google drive.  You will need Google Drive to
 work with Cloudmesh Storage to store files in Google Drive.
 Here files can be of any form
-ranging from documents to audio, video or image files. In free account
+ranging from documents to audio, video, or image files. In the free account,
 each user will be given around 15 GB of free data space to be
-stored. We can create folders and subfolders in the Google Drive to
+stored. We can create folders and subfolders in Google Drive to
 store our data.</p>
 <p>Each file will be stored in Google cloud with a unique URL and it’s up
 to the user to make the file sharable or not.  Google Drive is
-reliable and if an user has different devices and if he/she wants to
+reliable and if a user has different devices and if he/she wants to
 access those files then Google Drive is needed in this case as he can
 have access to his file as all his files are stored in the cloud.  The
 user does not need to install any kind of software in order to view
 these files.</p>
 <div class="section" id="create-a-project">
 <h2>Create a Project<a class="headerlink" href="#create-a-project" title="Permalink to this headline">¶</a></h2>
-<p>Do obtain credentials to use Google drive, go to <a class="reference external" href="https://console.developers.google.com/">Google APIs</a> website and create a
+<p>To obtain credentials to use Google drive, go to <a class="reference external" href="https://console.developers.google.com/">Google APIs</a> website and create a
 project.  To create a project, go to Dashboard in Google APIs
 console. In the <strong>Select a Project</strong> window, click <strong>NEW PROJECT</strong>.</p>
 <div class="align-center figure">
@@ -299,11 +299,11 @@ console. In the <strong>Select a Project</strong> window, click <strong>NEW PROJ
 <div class="figure align-default">
 <img alt="Oauth consent screen" src="../../../_images/11oauth_consent.PNG" />
 </div>
-<p>Enter application name.  Enter the gmail account we use for the project.</p>
+<p>Enter application name.  Enter the Gmail account we use for the project.</p>
 <div class="figure align-default">
 <img alt="Oauth consent screen - continued" src="../../../_images/12oauth2.png" />
 </div>
-<p>Select scopes to <strong>See, edit, create, and delete all of your Google
+<p>Select scopes to <strong>See, edit, create and delete all of your Google
 Drive files</strong>, and <strong>See and download all your Google Drive files</strong>.
 Click <strong>ADD</strong>.</p>
 <div class="figure align-default">
@@ -318,7 +318,7 @@ select <strong>OAUTH client ID</strong>.</p>
 <div class="figure align-default">
 <img alt="Create credentials" src="../../../_images/15create_credentials.PNG" />
 </div>
-<p>Select <strong>Other</strong> for application type.  A default name “Other client
+<p>Select <strong>Other</strong> for the application type.  A default name “Other client
 1” will be generated which we can keep.</p>
 <div class="figure align-default">
 <img alt="Create OAuthclient ID" src="../../../_images/16create_oauth.PNG" />
@@ -339,8 +339,8 @@ specified in cloudmesh.yaml for key “credentials_json_path”.</p>
 <div class="section" id="authorization-flow">
 <h2>Authorization Flow<a class="headerlink" href="#authorization-flow" title="Permalink to this headline">¶</a></h2>
 <p>In order to create the authorization flow, we also need to modify
-cloudmesh.yaml to store the paths of the files needed for
-authentication, including path for <cite>credentials.json</cite> and path for
+<cite>cloudmesh.yaml</cite> to store the paths of the files needed for
+authentication, including the path for <cite>credentials.json</cite> and path for
 <cite>token.pickle</cite>, which we will create next.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parallelgdrive</span><span class="p">:</span>
   <span class="n">cm</span><span class="p">:</span>
@@ -387,7 +387,7 @@ to continue to the project.</p>
 <div class="figure align-default">
 <img alt="Confirm allow" src="../../../_images/24confirm_allow.PNG" />
 </div>
-<p>Message will be displayed that the authentication flow has been completed.</p>
+<p>A message will be displayed that the authentication flow has been completed.</p>
 <div class="figure align-default">
 <img alt="Authentication flow completed" src="../../../_images/25authentication.PNG" />
 </div>
@@ -396,7 +396,7 @@ to continue to the project.</p>
 need to place this file in the token_path specified in the
 <cite>cloudmesh.yaml</cite> file.</p>
 <p>This file can be used for future purposes so we do not need to login
-everytime. If we delete this file for any reason, e.g. changing the
+every time. If we delete this file for any reason, e.g. changing the
 permission scope, then the authorization process will again ask for
 login id and password, and again create <code class="docutils literal notranslate"><span class="pre">token.pickle</span></code>
 automatically.</p>

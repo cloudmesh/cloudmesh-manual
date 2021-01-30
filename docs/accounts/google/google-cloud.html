@@ -154,7 +154,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../deprecated.html">Deprecated</a></li>
 </ul>
@@ -235,8 +235,8 @@ Google, is a suite of cloud computing services that runs on the same
 infrastructure that Google uses internally for its end-user products,
 such as Google Search and YouTube. Alongside a set of management tools,
 it provides a series of modular cloud services including computing, data
-storage, data analytics and machine learning. Within cloudmesh, we
-develop services through taht support some of these these products.</p>
+storage, data analytics, and machine learning. Within cloudmesh, we
+develop services that support some of these products.</p>
 <div class="section" id="google-compute-engine">
 <h2>Google Compute Engine<a class="headerlink" href="#google-compute-engine" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://cloud.google.com/products/compute/">Google Compute Engine</a>
@@ -250,8 +250,8 @@ configurations, including predefined sizes, and options to create
 Custom Machine Types optimized for your specific needs. Flexible
 pricing and automatic sustained use discounts make Compute Engine the
 leader in price/performance.</p>
-<p>Next we provide a a step-by-step guide on how to create an Google
-account and a service account through the Google webpage.</p>
+<p>Next, we provide a step-by-step guide on how to create a Google
+account and service account through the Google webpage.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -260,7 +260,7 @@ done with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-google
 </pre></div>
 </div>
-<p>For developers the best way to install it is to use
+<p>For developers, the best way to install it is to use
 <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
 $ <span class="nb">cd</span> cm
@@ -278,7 +278,7 @@ $ cloudmesh-installer get google
 <div class="section" id="creating-the-google-account">
 <h2>Creating the Google Account<a class="headerlink" href="#creating-the-google-account" title="Permalink to this headline">¶</a></h2>
 <p>If you do not have a google cloud account a
-new google account can be created using following link:</p>
+new google account can be created using the following link:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://accounts.google.com/signup/v2/webcreateaccount?flowEntry=SignUp&amp;flowName=GlifWebSignIn">Create your Google
 Account</a></p></li>
@@ -286,8 +286,8 @@ Account</a></p></li>
 </div>
 <div class="section" id="activation-google-cloud-service">
 <h2>Activation Google Cloud Service<a class="headerlink" href="#activation-google-cloud-service" title="Permalink to this headline">¶</a></h2>
-<p>Google allows you to apply for an free account and offers you $300 in credits
-to use google cloud. After creating a new account apply for free trail and $300
+<p>Google allows you to apply for a free account and offers you $300 in credits
+to use google cloud. After creating a new account apply for a free trail and $300
 credit at:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://console.cloud.google.com/freetrial?_ga=2.36435558.-733144975.1575249772&amp;_gac=1.216762084.1575249889.CjwKCAiA5o3vBRBUEiwA9PVzavyytvYEKObpJV-GtriRXXj9JCtqPkm3TEpyZ6pDgOHWgDXuqZ7tFBoCjacQAvD_BwE">Get Started for
@@ -299,14 +299,13 @@ Free</a></p></li>
 Education</a></p></li>
 </ul>
 <p>Please choose the one that is most appropriate for you. For the
-educational account you may need a verification from your school or an
-email that is registered as an educational institution.</p>
+educational account you may need a verification from your school or an email that is registered as an educational institution.</p>
 <div class="section" id="setting-up-google-cloud-account">
 <h3>Setting up Google Cloud Account<a class="headerlink" href="#setting-up-google-cloud-account" title="Permalink to this headline">¶</a></h3>
 <p>Next, you will need to create a project and a service account.
 All service calls from cloudmesh require a project id to
-create VM, Disks, Volumes etc.</p>
-<p>We recommend that you simply use project name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>.</p>
+create VM, Disks, Volumes, etc.</p>
+<p>We recommend that you simply use the project name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>.</p>
 <p>To authenticate the google cloud API from cloudmesh
 you also need to enable the required API and
 create a service account and then download the service
@@ -359,7 +358,7 @@ account key.</p>
 <tr class="row-even"><td><p>1</p></td>
 <td><p><a class="reference external" href="https://console.cloud.google.com/projectcreate">Create Project</a></p></td>
 <td><p><a class=""
-               data-lightbox="group-09409703-b5c5-43dd-ac7d-e70fe326b3eb"
+               data-lightbox="group-4e8e5194-5bce-4f85-b314-882c5eb80b70"
                href="../../_images/MyAccount_031.png"
                title=""
                data-title=""
@@ -373,7 +372,7 @@ account key.</p>
 <tr class="row-odd"><td><p>2</p></td>
 <td><p>Next <a class="reference external" href="https://console.cloud.google.com/apis/library">Enable API</a></p></td>
 <td><p><a class=""
-               data-lightbox="group-71eb01ca-d685-45f3-8742-64833bf54078"
+               data-lightbox="group-8aa1b415-cc5c-4cad-9f18-76747795cb04"
                href="../../_images/EnableAPI_011.png"
                title=""
                data-title=""
@@ -391,7 +390,7 @@ account key.</p>
 </div>
 </td>
 <td><p><a class=""
-               data-lightbox="group-f3c73d0e-1f78-456b-a752-07a37e03982b"
+               data-lightbox="group-002dd8a1-c8da-4a95-bd36-1bb70d17433e"
                href="../../_images/EnableAPI_021.png"
                title=""
                data-title=""
@@ -422,7 +421,7 @@ account key.</p>
 </div>
 </td>
 <td><p><a class=""
-               data-lightbox="group-44f86729-8b91-4f37-b433-4ca10b3245e9"
+               data-lightbox="group-1978741b-0d36-45ef-aed5-645cf6151854"
                href="../../_images/CreateKey_011.png"
                title=""
                data-title=""
@@ -437,11 +436,11 @@ account key.</p>
 </table>
 <p>After the key is downloaded, make sure you keep the <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code>
 directory secure.</p>
-<p>We will use the downloaded json file to register google cloud with
+<p>We will use the downloaded JSON file to register google cloud with
 cloudmesh and enable cloudmesh to invoke google cloud API
-by updating YAML entry in file</p>
+by updating the YAML entry in the file</p>
 <p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code></p>
-<p>Next register google cloud account with cloudmesh.</p>
+<p>Next register a google cloud account with cloudmesh.</p>
 </div>
 <div class="section" id="registering-google-cloud-to-cloudmesh">
 <h3>Registering Google Cloud to Cloudmesh<a class="headerlink" href="#registering-google-cloud-to-cloudmesh" title="Permalink to this headline">¶</a></h3>
@@ -459,7 +458,7 @@ with cloudmesh. This command will update the
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms register update --kind=google --service=Storage --filename=~/.cloudmesh/security/google.json bucket=cloudmesh-bucket
 </pre></div>
 </div>
-<p>Note: The cloudmesh-bucket will be used as default storage bucket.</p>
+<p>Note: The cloudmesh-bucket will be used as the default storage bucket.</p>
 </div>
 <div class="section" id="register-google-volume">
 <h4>Register Google Volume<a class="headerlink" href="#register-google-volume" title="Permalink to this headline">¶</a></h4>
@@ -517,7 +516,7 @@ enterprise</a></p></li>
 <p>You can refer <a class="reference external" href="https://cloud.google.com/storage/docs/">google storage documentation</a> for more details on google
 cloud storage documentation. Cloudmesh currently supports <a class="reference external" href="https://cloud.google.com/storage/docs/how-to">object/blob
 storage</a>. Users can
-follow instruction to configure google could platform described as
+follow instructions to configure the google could platform described as
 part of this document.</p>
 </div>
 </div>

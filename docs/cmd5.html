@@ -149,7 +149,7 @@
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation/database/mongo-use.html">Developping with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated</a></li>
 </ul>
@@ -222,7 +222,7 @@
   <div class="section" id="cms">
 <h1>cms<a class="headerlink" href="#cms" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh used cmd5 which provides an easy to use command line and command
-shell interface. Hence you can run each command as a sepearte command line,
+shell interface. Hence you can run each command as a separate command line,
 but you can also start a shell in which you can execute multiple commands one
 after another. Furthermore, you can create cloudmesh scripts in a file that if
 run via the cloudmesh shell get executed sequentially.</p>
@@ -291,7 +291,7 @@ cms shell pwd
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="nb">set</span> <span class="n">timer</span><span class="o">=</span><span class="n">on</span>
 </pre></div>
 </div>
-<p>Than every command you type is timed:</p>
+<p>Then every command you type is timed:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">banner</span> <span class="n">hallo</span>
 <span class="n">banner</span>
 <span class="c1">######################################################################</span>
@@ -311,7 +311,7 @@ cms shell pwd
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="nb">set</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>you can access them on the commandline with:</p>
+<p>you can access them on the command line with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>var.a
 $a
 </pre></div>
@@ -338,7 +338,7 @@ the HOME variable from the shell, try it with:</p>
 <div class="section" id="defaults">
 <h3>Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h3>
 <p>Defaults are variables with a context in which the default applies. For
-example we can set default images for a cloud. General defaults are
+example, we can set default images for a cloud. General defaults are
 placed in the context <code class="docutils literal notranslate"><span class="pre">general</span></code>. To set the default cloud you can
 use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">default</span> <span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
@@ -348,7 +348,7 @@ use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">default</span> <span class="nb">list</span>
 </pre></div>
 </div>
-<p>To use the defaults in a command proceed it with the the keyword
+<p>To use the defaults in a command proceed with the keyword
 <code class="docutils literal notranslate"><span class="pre">default.</span></code> and append the context and the name of the default
 variable. If the context is missing, the <code class="docutils literal notranslate"><span class="pre">general</span></code> context will be
 used. Examples:</p>
@@ -360,13 +360,13 @@ used. Examples:</p>
 </div>
 <div class="section" id="stopwatch">
 <h3>Stopwatch<a class="headerlink" href="#stopwatch" title="Permalink to this headline">¶</a></h3>
-<p>For some benchmarks this could be helpful. Naturally in an interactive
+<p>For some benchmarks, this could be helpful. Naturally in an interactive
 shell you will not be able to measure reliably as you also measure the
 response time of the user, but in case you use cloudmesh scripts this
 could be a great good way for you to customize your benchmarks. We
 even provide convenient integration for pytests and you can see in our
-special pytest section how to use the stopwatch from within pytests.</p>
-<p>Here is an example for a script:</p>
+special pytest section on how to use the stopwatch from within pytests.</p>
+<p>Here is an example of a script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stopwatch</span> <span class="n">start</span> <span class="n">g</span>
 <span class="n">stopwatch</span> <span class="n">stop</span> <span class="n">g</span>
 <span class="n">stopwatch</span> <span class="nb">print</span> <span class="n">g</span>
@@ -393,7 +393,7 @@ cms&gt; Timer g started ...
 cms&gt; Timer g: 0.000274181365967 s
 </pre></div>
 </div>
-<p>Cmd5 has even a convenient benchmark print command that not only prints all timers, but includes some
+<p>Cmd5 has even a convenient benchmark print command that not only prints all timers but includes some
 information about your machine on which you run the benchmarks. You can get this information with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">stopwatch</span> <span class="n">benchmark</span>
 </pre></div>
@@ -401,12 +401,12 @@ information about your machine on which you run the benchmarks. You can get this
 </div>
 <div class="section" id="accessing-python">
 <h3>Accessing Python<a class="headerlink" href="#accessing-python" title="Permalink to this headline">¶</a></h3>
-<p>You can access python in a commandline while using the prefix py:</p>
+<p>You can access python in a command line while using the prefix py:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">py</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">2</span>
 </pre></div>
 </div>
-<p>Or redirectiong the python output to a cloudmesh variable as part of the set command:</p>
+<p>Or redirecting the python output to a cloudmesh variable as part of the set command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="nb">set</span> <span class="n">a</span><span class="o">=</span>\<span class="s2">&quot;py 1 + 1</span><span class="se">\&quot;</span>
 <span class="n">a</span><span class="o">=</span><span class="s1">&#39;2&#39;</span>
 </pre></div>
@@ -440,15 +440,15 @@ information about your machine on which you run the benchmarks. You can get this
 <div class="section" id="plugins">
 <h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
 <p>Cmd5 comes with a sophisticated plugin mechanism. Commands can be
-readily designed with the help of  sys command.</p>
-<p>The sys command can be installed either from source (as discussed
+readily designed with the help of sys command.</p>
+<p>The sys command can be installed either from the source (as discussed
 previously) or via pip</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-sys
 </pre></div>
 </div>
 <p>Once you have installed it, execute <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">help</span> <span class="pre">sys</span></code> to see the usage.
 Now you simply can in a new directory execute the sys command as
-follows, where <code class="docutils literal notranslate"><span class="pre">mycommnad</span></code> is than name of the command you like to
+follows, where <code class="docutils literal notranslate"><span class="pre">mycommnad</span></code> is the name of the command you like to
 implement.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir mycommand
 <span class="nb">cd</span> mycommand
@@ -499,7 +499,7 @@ the manual page. This allows us to use arguments as dict and use simple
 if conditions to interpret the command. Using docopts has the advantage
 that contributors are forced to think about the command and its options
 and document them from the start. Previously we used not to use docopts
-and argparse was used. However we noticed that for some contributions
+and argparse was used. However, we noticed that for some contributions
 the lead to commands that were either not properly documented or the
 developers delivered ambiguous commands that resulted in confusion and
 wrong usage by the users. Hence, we do recommend that you use docopts.</p>

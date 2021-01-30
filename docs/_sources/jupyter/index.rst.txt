@@ -8,20 +8,20 @@ To install jupyter please use:
 
    pip install jupyter
 
-To start a notebuk use the regular jupyter command
+To start a notebook use the regular jupyter command
 
 .. code:: bash
 
    jupyter notebook
 
-Now select under `new` the name of the notbook you like to create, and make
+Now select under `new` the name of the notebook you like to create and make
 sure you use python 3. As cloudmesh provides an API it is very easy to
 integrate it into jupyter. The following image shows how easy it is
 
 .. image:: images/jupyter.png
 
 
-However, naturally we can also use build in fetuares of jupyter such as
+However, naturally, we can also use build-in features of jupyter such as
 running shell commands with
 
 .. code:: bash
@@ -34,7 +34,7 @@ API calls
 
 To use the specific API calls, We recommend you to look at the API
 documentation of cloudmesh. To show you a simple example of advanced
-functionality we demonstarte how to list flavors of a cloud:
+functionality we demonstrate how to list flavors of a cloud:
 
 
 .. code:: ipython3
