@@ -1,8 +1,8 @@
 Box Account
 ===========
 
-Box provides a cloud file sharing service for businesses. Clients exists
-for Windows, MacOS, and Linux. To obtain an account you have to first
+Box provides a cloud file sharing service for businesses. Clients exist
+for Windows, macOS, and Linux. To obtain an account you have to first
 visit the box home page as
 
 -  https://www.box.com/home

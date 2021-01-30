@@ -4,7 +4,7 @@ AWS Account
 Amazon Web Services (AWS) provides a wide variety of cloud-based
 products including analytics, application integration, AR and VR, cost
 management, blockchain, business applications, compute, customer
-engagement, database, developer tools, end user computing, game tech,
+engagement, database, developer tools, end-user computing, game tech,
 IoT, machine learning, management and governance, media services,
 migration and transfer, mobile, networking and content delivery,
 robotics, satellite, security, identity and compliance, and storage.
@@ -13,15 +13,12 @@ utilization of many of these products.
 
 Here we are especially interested in using the following services:
 
--  **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is web service that
-   enables users to perform elastic web-scalable computing while having
-   complete control over instances. It is integrated with most AWS
+-  **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is a web service that enables users to perform elastic web-scalable computing while having complete control over instances. It is integrated with most AWS
    services such as Amazon S3, RDS, and VPC.
--  **Amazon Simple Storage Service (S3)** Amazon S3 an object storage
-   service that offers a wide range of storage classes.
+-  **Amazon Simple Storage Service (S3)** Amazon S3 an object storage service that offers a wide range of storage classes.
 
 We provide a step-by-step guide on how to create an AWS account through
-the AWS Web page to utilize these services. For more information you can
+the AWS Web page to utilize these services. For more information, you can
 consult the `AWS
 FAQ <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`__.
 
@@ -195,7 +192,7 @@ console:
 
    IAM Management Console: Users
 
-Click on ``Add user`` and begin the process for creating a new user.
+Click on ``Add user`` and begin the process of creating a new user.
 Type the name ``cloudmesh`` in the ``User name`` and make sure you check
 the ``programmatic  access``:
 
@@ -226,7 +223,7 @@ assigned to that group:
 
    IAM Management Console: Select Group
 
-In the next page you can create the tags for the new user. You can just
+On the next page, you can create the tags for the new user. You can just
 create a ``cloudmesh`` key for the user as a tag:
 
 .. figure:: images/aws/image19.png
@@ -271,7 +268,7 @@ button and save it as ``~/.cloudmesh/credentials.csv``:
    IAM Management Console: Download CSV
 
 Then you can click on the ``close`` button and go back to the IAM
-Management Console which now provide you a summary of the newly created
+Management Console which now provides you a summary of the newly created
 user called ``cloudmesh`` and looks like this:
 
 .. figure:: images/aws/image25.png
@@ -289,7 +286,7 @@ key:
 
    IAM Management Console: Create Access Key
 
-As is mentioned in the screen shot, this is the only time you can view
+As is mentioned in the screenshot, this is the only time you can view
 or download the secret access key. So go ahead and click on the
 ``Download .csv file`` and save it as ``~/.cloudmesh/accessKey.csv``:
 
@@ -310,17 +307,17 @@ just created you can use the command
    $ cms open account aws NAME
 
 This command will open a browser window to the credential page of AWS.
-PLease replace the NAME with your username that you created when you
+Please replace the NAME with your username that you created when you
 added your user to the IAM.
 
-IN case you do not yet have a credentials choose the Security
-credentials tab and then choose Create access key. To see the new access
+In case you do not yet have credentials choose the Security
+credentials tab and then choose to `Create access key`. To see the new access
 key, choose Show. Your credentials will look something like this:
 
 Access key ID: AAABBCCHHH7EXAMPLE Secret access key:
 wJalrXUtnFhsjlashlkjh/bPxRfiCYEXAMPLEKEY
 
-To download the key pair, choose Download .csv file. Store the keys in a
+To download the key pair, choose `Download .csv file`. Store the keys in a
 secure location and do not by default store them in the Downloads
 folder. We recommend that you store is in ~/.cloudmesh, but before doing
 so make sure the permissions for ~/.cloudmesh are restricted,
@@ -332,7 +329,7 @@ Import Public key
 ~~~~~~~~~~~~~~~~~
 
 Before we get started with AWS compute services, we need to be sure we
-import our public ssh key. We assume an ssh has already been set up
+import our public ssh key. We assume ssh has already been set up
 under ``~\.ssh\id_rsa.pub``. If this prerequisite has not yet been
 satisfied, please reference the installation section.
 
@@ -390,14 +387,13 @@ using a text editor to update the cloudmesh.yaml file under
    the upper right-hand side. |AWS Management Console: Pub SSH Key|
 
 -  EC2_ACCESS_ID and EC2_SECRET_KEY values can be found either during
-   the initial setup in AWS, or by referencing the Access Key downloaded
-   as a csv and moved to the ``~\.cloudmesh`` directory. |AWS
+   the initial setup in AWS, or by referencing the Access Key downloaded as a csv and moved to the ``~\.cloudmesh`` directory. |AWS
    Configuration: Access Key Credentials|
 
 -  TODO: Confirm if EC2_PRIVATE_KEY_FILE_PATH and
    EC2_PRIVATE_KEY_FILE_NAME cloudmesh.yaml AWS compute variables are
    being utilized, as these are not referenced in ``Provider.py``. If
-   this is not needed, remove from cloudmesh.yaml. If this is needed,
+   this is not needed, remove it from cloudmesh.yaml. If this is needed,
    update the AWS account section with the following steps:
 
    -  Create a new key pair and name the key pair ``aws_cert``. Then
@@ -466,11 +462,11 @@ Storage Service
 
    AWS S3 and Credentials Set up:
 
-   1. Create aws account following the instructions above
+   1. Create an AWS account following the instructions above
    2. Select S3 service in AWS Management Console
-   3. In S3 service, create a bucket. (Please remember the bucket name and bucket region)
+   3. In the S3 service, create a bucket. (Please remember the bucket name and bucket region)
    4. Select IAM service in AWS Management Console
-   5. In IAM service, Add a new user with "Probrammatic access" access type and "S3All" Permission
+   5. In the IAM service, Add a new user with "Programmatic access" access type and "S3All" Permission
    6. Remember the user "Access key ID" and "Secret access key"
    7. Fill in the following info into the ~/.cloudmesh/cloudmesh.yaml file under "cloudmesh.storage.aws.credentials" section
 
