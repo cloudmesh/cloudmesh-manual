@@ -3,11 +3,11 @@ How to install python on Windows
 
 The easiest installation of Python for cloudmesh is to use the installation from
 https://www.python.org/downloads. Please, visit the page and follow the
-instructions. After this install you have `python3` available from the
+instructions. After this install, you have `python3` available from the
 command line.
 
-Please use the 64 bit version. By default whne you are not
-careful python.org will point you to the 32 bit version. So please locate it.
+Please use the 64-bit version. By default when you are not
+careful python.org will point you to the 32-bit version. So please locate it.
 
 
 
