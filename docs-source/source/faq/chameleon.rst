@@ -129,7 +129,7 @@ If you wait longer, you will see
    timed out'))
 
 Tethering your computer through a cell phone
--------------------------------------------
+--------------------------------------------
 
 This will likely not work as your cell phone company has likely some
 restrictions.

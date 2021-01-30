@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Prerequisites for Raspbian &mdash; Cloudmesh 0.1 documentation</title>
+  <title>Instalation on Raspbian &mdash; Cloudmesh 0.1 documentation</title>
   
 
   
@@ -107,8 +107,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../docker/install-docker.html">Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../os/install-linux.html">Installation for for Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../os/install-macos.html">Installation for macOS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Prerequisites for Raspbian</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Instalation on Raspbian</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#setup-with-curl">Setup with curl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-cloudmesh-to-set-up-a-cluster-of-pis">Use Cloudmesh to set up a cluster of PIs</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a></li>
@@ -200,7 +201,7 @@
         
           <li><a href="../index.html">Installation</a> &raquo;</li>
         
-      <li>Prerequisites for Raspbian</li>
+      <li>Instalation on Raspbian</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -219,10 +220,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="prerequisites-for-raspbian">
-<h1>Prerequisites for Raspbian<a class="headerlink" href="#prerequisites-for-raspbian" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="instalation-on-raspbian">
+<h1>Instalation on Raspbian<a class="headerlink" href="#instalation-on-raspbian" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="setup-with-curl">
 <h2>Setup with curl<a class="headerlink" href="#setup-with-curl" title="Permalink to this headline">¶</a></h2>
+<p>As Rasperry runs on Linux, you can use the same install istructions for
+cloudmesh as on other operating systems via the cloudmesh-installer.
+However you will need to install a number of packages to make the RaspbianOS
+more complete.</p>
+<p>To assit yo in doing so, we are providing a simple culr script for installing
+Cloudmesh on RaspbianOS.</p>
 <script>mermaid.initialize({startOnLoad:true});</script><div class="mermaid">
             graph TD
    keygen(ssh-keygen fa:fa-key)
@@ -234,6 +241,14 @@
    style start stroke:#333,stroke-width:4px
    style cms stroke:#333,stroke-width:4px
         </div></div>
+<div class="section" id="use-cloudmesh-to-set-up-a-cluster-of-pis">
+<h2>Use Cloudmesh to set up a cluster of PIs<a class="headerlink" href="#use-cloudmesh-to-set-up-a-cluster-of-pis" title="Permalink to this headline">¶</a></h2>
+<p>We have provided a comprehensive manual on how to use Cloudmesh in a PI
+cluster. This manual is avalable  at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-pi-burn/blob/main/README.md">https://github.com/cloudmesh/cloudmesh-pi-burn/blob/main/README.md</a></p></li>
+</ul>
+</div>
 </div>
 
 

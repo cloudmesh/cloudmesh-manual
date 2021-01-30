@@ -75,7 +75,7 @@ Multipass Installation on Windows Machine Prerequisite Windows 10 Pro or
 EDU v1903 or above
 
 multipass Hyper-V installation on Windows
-----------------------------------------
+-----------------------------------------
 
 Go to https://multipass.run and download the windows installer.
 

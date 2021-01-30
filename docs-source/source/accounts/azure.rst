@@ -283,7 +283,7 @@ After creation, copy the new client secret to notepad
 |new client secret|
 
 Grant permission to an application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After we have collected 4 credentials, we need to add a role assignment
 to the application that we just created, so it can access the resources
@@ -339,7 +339,6 @@ Can the resource group be created with the az command? How is it done
 for storage, how is it done for compute?
 
 -  [ ] todo: Azure. Compute and Storage FAQ: to be completed.
-images
 -  [ ] TODO: there are several images in the folder
    ``accounts/images/azure``, but they are not used in the text]
 
