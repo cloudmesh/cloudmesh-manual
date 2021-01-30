@@ -1,15 +1,15 @@
 Cloudmesh Graphical User Interface
 ==================================
 
--  This project can also be taken as independent study or as part of the
+-  This project can also be taken as an independent study or as part of the
    Cloud Engineering class
 
 Goals
 -----
 
-In this project you will be developing a graphical user interface for
+In this project, you will be developing a graphical user interface for
 cloudmesh based on Electron. You will be focusing on first displaying
-the information available in the cloudmesh database. This includes,
+the information available in the cloudmesh database. This includes
 information from clouds about
 
 -  images
@@ -59,7 +59,7 @@ Deliverables
    -  showcasing image, flavor, and vm interactions
    -  showcasing registration for clouds
 
--  checkins into github by all team members. If only one team member
+-  check-ins into GitHub by all team members. If only one team member
    checks in all other team members will not get credit.
 
 References

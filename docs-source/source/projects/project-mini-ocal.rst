@@ -2,7 +2,7 @@ Cloudmesh Local Compute and Storage
 ===================================
 
 -  This is a miniproject
--  This project can also be taken as independent study or as part of the
+-  This project can also be taken as an independent study or as part of the
    Cloud Engineering class however additional work is required as part
    of another project or miniprojects.
 
@@ -33,12 +33,12 @@ Deliverables
 ------------
 
 -  Working cms command, API, and service
--  checkins into github by all team members. If only one team member
+-  check-ins into GitHub by all team members. If only one team member
    checks in all other team members will not get credit.
--  Possible collaborate with *other* teams that work on clouds to
+-  Possible collaboration with *other* teams that work on clouds to
    jointly identify how pricing information can be identified.
 -  This project must use AWS, Azure, and Google information
 -  You must use the parallel ssh available in cloudmesh.common.Host. You
    will enhance this to enable scp also.
 -  You will be defining extensive pytests for this and other
-   functionality. See the test_ping.py fro an example
+   functionality. See the test_ping.py for an example

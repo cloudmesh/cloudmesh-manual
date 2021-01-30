@@ -30,7 +30,7 @@ contributed (they may not have used this particular git), please let us know. We
 will add you.
 
 
-The contributors sorted by the firstname that we are aware of include:
+The contributors sorted by the first name that we are aware of include:
  
 
 .. include:: ./authors.rst
