@@ -41,7 +41,7 @@ Where
 -  ``a ; b`` is executed sequentially
 -  ``b || c`` is executed in parallel.
 
-Finally, after execution the results are stored in MongoDB to be
+Finally, after execution, the results are stored in MongoDB to be
 visualized or consumed by later functions in the series.
 
 Database Objects
