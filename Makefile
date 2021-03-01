@@ -1,6 +1,7 @@
 package=manual
 UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
+SHELL := /bin/bash
 
 .PHONY: watch
 
@@ -40,6 +41,18 @@ watch:
 install:
 	pip install cloudmesh-installer -U
 	cd ..; cloudmesh-installer new manual
+
+SOURCE:
+	source ~/MANUAL/bin/activate
+
+env:
+	rm -rf ~/MANUAL
+	python3 -m venv ~/MANUAL
+	source ~/MANUAL/bin/activate
+
+w: SOURCE
+	${MANUAL}; which python
+
 
 # $(call banner, "use: make manual")
 
@@ -194,9 +207,6 @@ register:
 	cms register list sample --service=storage --kind=oracle > $(REGISTER)/storage-oracle.rst
 	fgrep "ERROR" $(REGISTER)/*.rst
 	fgrep -i "TODO" $(REGISTER)/*.rst
-
-
-
 
 source:
 	cd ../cloudmesh.common; make source
