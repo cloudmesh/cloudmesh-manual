@@ -1,0 +1,95 @@
+:mod:`cloudmesh-common.cloudmesh.common.Benchmark`
+==================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.Benchmark
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.Benchmark.Benchmark
+
+
+
+.. class:: Benchmark
+
+   Bases: :class:`object`
+
+   .. method:: debug()
+      :staticmethod:
+
+      sets the cms shell variables
+
+      trace = True
+      debug = True
+      verbose = 10
+
+
+   .. method:: name(with_class=False)
+      :staticmethod:
+
+      name of the calling method
+
+      :return: the name
+
+
+   .. method:: Start(status=True)
+      :staticmethod:
+
+      starts a timer while using the name of the calling method
+
+
+   .. method:: Status(value=True)
+      :staticmethod:
+
+      starts a timer while using the name of the calling method
+
+
+   .. method:: Stop()
+      :staticmethod:
+
+      stops a timer while using the name of the calling method
+
+
+   .. method:: print(sysinfo=True, csv=True, tag=None)
+      :staticmethod:
+
+      prints the benchmark information with all timers
+
+
+   .. method:: yaml(path, n)
+      :staticmethod:
+
+      creates a cloudmesh service yaml test file
+
+      Example: BenchmarkFiles.yaml("./t.yaml", 10)
+
+      :param path: the path
+      :param n: number of services
+      :return:
+
+
+   .. method:: file(path, n)
+      :staticmethod:
+
+      create a file of given size in MB, the MB here is in binary not SI
+      units.
+      e.g. 1,048,576 Bytes
+
+      Example: s = BenchmarkFiles.size("./sise.txt", 2)
+               print(s)
+
+      :param path: the filename and path
+      :type path: string
+      :param n: the size in binary MB
+      :type n: integer
+      :return: size in MB
+      :rtype: float
+
+
+

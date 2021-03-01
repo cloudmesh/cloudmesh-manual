@@ -1,0 +1,545 @@
+:mod:`cloudmesh.google.compute.Provider`
+========================================
+
+.. py:module:: cloudmesh.google.compute.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.google.compute.Provider.Provider
+
+
+
+.. class:: Provider(name)
+
+
+   Bases: :class:`cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC`
+
+   .. attribute:: kind
+      :annotation: = google
+
+      
+
+   .. attribute:: sample
+      :annotation: = 
+               cloudmesh:
+                 cloud:
+                   {name}:
+                     cm:
+                       active: true
+                       heading: {name}
+                       host: https://console.cloud.google.com/compute/instances?project={project_id}
+                       label: {name}
+                       kind: google
+                       version: v1
+                       service: compute
+                     default:
+                       image: ubuntu-1910
+                       image_project: ubuntu-os-cloud
+                       project_name: cloudmesh
+                       storage_bucket: cloudmesh-bucket
+                       zone: us-central1-a
+                       region: us-central1
+                       flavor: g1-small
+                       size: 10
+                       resource_group: cloudmesh-group
+                       network: global/networks/default
+                     credentials:
+                       type: {type}
+                       auth:
+                           json_file: {filename}
+                           project_id: {project_id}
+                           client_email: {client_email}
+               
+
+      
+
+   .. attribute:: vm_state
+      :annotation: = ['PROVISIONING', 'STAGING', 'RUNNING', 'STOPPING', 'STOPPED', 'SUSPENDING', 'SUSPENDED', 'TERMINATED']
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: get_kind()
+      :staticmethod:
+
+
+   .. method:: get_credentials(self, client_secret_file, scopes)
+
+      Method to get the credentials using the Service Account JSON file.
+
+      :param client_secret_file: Service Account JSON File path.
+      :param scopes: Scopes needed to provision.
+      :return:
+
+
+   .. method:: _get_service(self, service_type=None, version='v1', scopes=None)
+
+      Method to get service.
+
+
+   .. method:: _get_compute_service(self)
+
+      Method to get compute service.
+
+
+   .. method:: _get_iam_service(self)
+
+      Method to get compute service.
+
+
+   .. method:: _key_dict(self, response)
+
+
+   .. method:: _process_status(self, instance)
+
+
+   .. method:: _process_instance(self, instance)
+
+      converts the instance json to dict.
+
+      :param instance: JSON with instance details
+      :return:
+
+
+   .. method:: update_dict(self, elements, kind=None)
+
+      adds a cloudmesh cm dict to each dict in the list elements.
+
+      returns an object or list of objects With the dict method
+      this object is converted to a dict. Typically this method is used
+      internally.
+
+      :param elements: the list of original dicts. If elements is a single
+                       dict a list with a single element is returned.
+      :param kind: for some kinds special attributes are added. This includes
+                   key, vm, image, flavor.
+      :return: The list with the modified dicts
+
+
+   .. method:: _format_aggregate_list(self, instance_list)
+
+      formats the instance list to flat dict format.
+
+      :param instance_list:
+      :return: dict
+
+
+   .. method:: _format_zone_list(self, instance_list)
+
+      formats the instance list to flat dict format.
+
+      :param instance_list:
+      :return: dict
+
+
+   .. method:: _wait_for_operation(self, compute_service, operation, project, zone=None, name=None)
+
+
+   .. method:: start(self, name=None, **kwargs)
+
+      start a node
+
+      :param name: the unique node name
+      :return:  The dict representing the node
+
+
+   .. method:: stop(self, name=None, **kwargs)
+
+      stops the node with the given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: _raw_instance_info(self, name, compute_service=None, **kwargs)
+
+      gets the information of a node with a given name
+
+      :param name:
+      :param displayType:
+      :return:
+
+
+   .. method:: _info(self, name, displayType, compute_service=None, **kwargs)
+
+      gets the information of a node with a given name
+
+      :param name:
+      :param displayType:
+      :return:
+
+
+   .. method:: info(self, name=None, **kwargs)
+
+      gets the information of a node with a given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: suspend(self, name=None)
+      :abstractmethod:
+
+      suspends the node with the given name
+
+      :param name: the name of the node
+      :return: The dict representing the node
+
+
+   .. method:: list(self, **kwargs)
+
+      list all vms
+
+      :return: an array of dicts representing the nodes
+
+
+   .. method:: resume(self, name=None)
+
+      resume the named node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: destroy(self, name=None, **kwargs)
+
+      destroys the node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: _get_compute_config(self, vm_name, project_id, zone, machine_type, disk_image, storage_bucket, startup_script, diskSize, secgroup)
+
+
+   .. method:: _create_instance(self, compute_service, project, zone, name, bucket, disk_image, machineType, startup_script, diskSize, secgroup)
+
+      create a VM instance for given name.
+
+      :param compute_service:
+      :param project:
+      :param zone:
+      :param name:
+      :param bucket:
+      :param disk_image:
+      :param machineType:
+      :param startup_script:
+      :param diskSize:
+      :param secgroup:
+      :return:
+
+
+   .. method:: create(self, name=None, image=None, size=10, timeout=360, group=None, **kwargs)
+
+      creates a named node.
+
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the
+             image does not boot.
+             The default is set to 3 minutes.
+      :param group: a list of groups the vm belongs to
+      :param kwargs: additional arguments passed along at time of boot
+      :return:
+
+
+   .. method:: set_server_metadata(self, name, **keys)
+
+      sets the metadata for the server
+
+      :param name: name of the fm
+      :param metadata: the metadata
+      :return:
+
+
+   .. method:: get_server_metadata(self, name)
+
+      gets the metadata for the server
+
+      :param name: name of the fm
+      :return:
+
+
+   .. method:: _update_metadata(self, project_id, zone, name, instance_metadata)
+
+      adds/updates/deletes the instance metadata
+
+      :param project_id:
+      :param zone:
+      :param name:
+      :param instance_metadata:
+      :return:
+
+
+   .. method:: delete_server_metadata(self, name, key)
+
+      gets the metadata for the server
+
+      :param name: name of the fm
+      :return:
+
+
+   .. method:: rename(self, name=None, destination=None)
+      :abstractmethod:
+
+      rename a node
+
+      :param destination:
+      :param name: the current name
+      :return: the dict with the new name
+
+
+   .. method:: _get_project_metadata(self, project_id)
+
+      gets a list of keys from google project.
+
+      :param project_id: Project Id to get info for.
+      :return:
+
+
+   .. method:: _get_instance_metadata(self, name)
+
+      get a list of keys from google project.
+
+      :param project_id: Project Id to get info for.
+      :return:
+
+
+   .. method:: _get_keys(self, cloud)
+
+      get s keys on google cloud from DB.
+
+      :param cloud:
+      :return:
+
+
+   .. method:: _key_already_exists(self, cloud, name, public_key)
+
+      checks if the key with name already exists.
+
+      :param name: Name of the key to be added and checked.
+      :return:
+
+
+   .. method:: keys(self)
+
+      Lists the keys on the cloud
+
+      :return: dict
+
+
+   .. method:: key_upload(self, key=None)
+
+      uploads the key specified in the yaml configuration to the cloud
+
+      :param key:
+      :return:
+
+
+   .. method:: key_delete(self, name=None)
+
+      deletes the key with the given name
+
+      :param name: The name of the key
+      :return:
+
+
+   .. method:: images(self, **kwargs)
+
+      Lists the images on the cloud
+
+      :return: dict
+
+
+   .. method:: image(self, name=None, **kwargs)
+
+      Gets the image with a given name
+
+      :param name: The name of the image
+      :return: the dict of the image
+
+
+   .. method:: flavor(self, name, **kwargs)
+
+      Gets the flavor with a given name
+
+      :param name: The name of the flavor
+      :return: The dict of the flavor
+
+
+   .. method:: _get_flavor(self, compute_service, project_id, zone, name)
+
+
+   .. method:: flavors(self, **kwargs)
+
+      Lists the flavors on the cloud
+
+      :return: dict of flavors
+
+
+   .. method:: _get_flavors(self, compute_service, project_id, zone)
+
+
+   .. method:: reboot(self, name=None)
+      :abstractmethod:
+
+      Reboot a list of nodes with the given names
+
+      :param name: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: attach_public_ip(self, name=None, ip=None)
+      :abstractmethod:
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: detach_public_ip(self, name=None, ip=None)
+      :abstractmethod:
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: delete_public_ip(self, ip=None)
+
+      Deletes the ip address
+
+      :param ip: the ip address, if None than all will be deleted
+      :return:
+
+
+   .. method:: list_public_ips(self, available=False)
+
+      Lists the public ip addresses.
+
+      :param available: if True only those that are not allocated will be
+          returned.
+
+      :return:
+
+
+   .. method:: create_public_ip(self)
+
+      Creates a new public IP address to use
+
+      :return: The ip address information
+
+
+   .. method:: find_available_public_ip(self)
+
+      Returns a single public available ip address.
+
+      :return: The ip
+
+
+   .. method:: get_public_ip(self, name=None)
+
+      returns the public ip
+
+      :param name: name of the server
+      :return:
+
+
+   .. method:: list_secgroups(self, name=None)
+      :abstractmethod:
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: list_secgroup_rules(self, name='default')
+      :abstractmethod:
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: upload_secgroup(self, name=None)
+      :abstractmethod:
+
+
+   .. method:: add_secgroup(self, name=None, description=None)
+      :abstractmethod:
+
+
+   .. method:: add_secgroup_rule(self, name=None, port=None, protocol=None, ip_range=None)
+      :abstractmethod:
+
+
+   .. method:: remove_secgroup(self, name=None)
+      :abstractmethod:
+
+
+   .. method:: add_rules_to_secgroup(self, name=None, rules=None)
+      :abstractmethod:
+
+
+   .. method:: remove_rules_from_secgroup(self, name=None, rules=None)
+      :abstractmethod:
+
+
+   .. method:: wait(self, vm=None, interval=None, timeout=None)
+      :abstractmethod:
+
+      wait till the given VM can be logged into
+
+      :param vm: name of the vm
+      :param interval: interval for checking
+      :param timeout: timeout
+      :return:
+
+
+   .. method:: console(self, vm=None)
+      :abstractmethod:
+
+      gets the output from the console
+
+      :param vm: name of the VM
+      :return:
+
+
+   .. method:: log(self, vm=None)
+      :abstractmethod:
+
+
+   .. method:: ssh(self, vm=None, command=None)
+
+
+   .. method:: json_to_yaml(cls, name, filename='~/.cloudmesh/security/google.json')
+      :staticmethod:
+
+      Given a json file downloaded from google, copies the content into the
+      cloudmesh yaml file, while overwriting or creating a new compute provider
+
+      :param cls:
+      :param name:
+      :param filename: Service Account Key file downloaded from google cloud.
+      :return: None
+
+
+

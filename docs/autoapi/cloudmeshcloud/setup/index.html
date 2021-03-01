@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-cloud.setup &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.setup</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/autoapi/cloudmeshcloud/setup/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-cloud.setup">
+<span id="cloudmesh-cloud-setup"></span><h1><a class="reference internal" href="#module-cloudmesh-cloud.setup" title="cloudmesh-cloud.setup"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.setup</span></code></a><a class="headerlink" href="#module-cloudmesh-cloud.setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-cloud.setup.read" title="cloudmesh-cloud.setup.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(fname)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.v">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">v</span></code><a class="headerlink" href="#cloudmesh-cloud.setup.v" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.command">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">command</span></code><a class="headerlink" href="#cloudmesh-cloud.setup.command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.this_platform">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">this_platform</span></code><a class="headerlink" href="#cloudmesh-cloud.setup.this_platform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.requiers">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">requiers</span></code><a class="headerlink" href="#cloudmesh-cloud.setup.requiers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-cloud.setup.read">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.setup.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.long_description">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">long_description</span></code><a class="headerlink" href="#cloudmesh-cloud.setup.long_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.NAME">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">NAME</span></code><em class="property"> <span class="pre">=</span> <span class="pre">cloudmesh-cloud</span></em><a class="headerlink" href="#cloudmesh-cloud.setup.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.DESCRIPTION">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">DESCRIPTION</span></code><em class="property"> <span class="pre">=</span> <span class="pre">Cloudmesh</span> <span class="pre">Multicloud</span> <span class="pre">Cloud</span> <span class="pre">Plugins</span> <span class="pre">for</span> <span class="pre">Cloudmesh</span> <span class="pre">cmd5</span> <span class="pre">CMD</span></em><a class="headerlink" href="#cloudmesh-cloud.setup.DESCRIPTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.AUTHOR">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">AUTHOR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">Gregor</span> <span class="pre">von</span> <span class="pre">Laszewski</span></em><a class="headerlink" href="#cloudmesh-cloud.setup.AUTHOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.AUTHOR_EMAIL">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">AUTHOR_EMAIL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">laszewski&#64;gmail.com</span></em><a class="headerlink" href="#cloudmesh-cloud.setup.AUTHOR_EMAIL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh-cloud.setup.URL">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.setup.</span></code><code class="sig-name descname"><span class="pre">URL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">https://github.com/cloudmesh/cloudmesh-cloud</span></em><a class="headerlink" href="#cloudmesh-cloud.setup.URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

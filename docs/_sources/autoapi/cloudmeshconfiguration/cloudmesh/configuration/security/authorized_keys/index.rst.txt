@@ -1,0 +1,83 @@
+:mod:`cloudmesh-configuration.cloudmesh.configuration.security.authorized_keys`
+===============================================================================
+
+.. py:module:: cloudmesh-configuration.cloudmesh.configuration.security.authorized_keys
+
+.. autoapi-nested-parse::
+
+   authorized key management.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-configuration.cloudmesh.configuration.security.authorized_keys.AuthorizedKeys
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-configuration.cloudmesh.configuration.security.authorized_keys.get_fingerprint_from_public_key
+
+
+.. function:: get_fingerprint_from_public_key(pubkey)
+
+   Generate the fingerprint of a public key
+
+   :param str pubkey: the value of the public key
+   :returns: fingerprint
+   :rtype: str
+
+
+.. class:: AuthorizedKeys
+
+
+   Bases: :class:`object`
+
+   Class to manage authorized keys.
+
+   .. method:: load(cls, path)
+      :classmethod:
+
+      load the keys from a path
+
+      :param path: the filename (path) in which we find the keys
+      :return:
+
+
+   .. method:: add(self, pubkey)
+
+      add a public key.
+      :param pubkey: the filename to the public key
+      :return:
+
+
+   .. method:: remove(self, pubkey)
+      :abstractmethod:
+
+      Removes the public key
+      TODO: this method is not implemented
+      :param pubkey: the filename of the public key
+      :return:
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+
+.. data:: path
+   
+
+   
+

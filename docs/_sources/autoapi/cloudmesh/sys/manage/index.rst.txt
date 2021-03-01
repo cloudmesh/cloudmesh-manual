@@ -1,0 +1,92 @@
+:mod:`cloudmesh.sys.manage`
+===========================
+
+.. py:module:: cloudmesh.sys.manage
+
+.. autoapi-nested-parse::
+
+   Managing the cmd5 system installation and package distribution
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.sys.manage.Command
+   cloudmesh.sys.manage.Git
+   cloudmesh.sys.manage.Version
+
+
+
+.. data:: version
+   :annotation: = 4.3.1
+
+   
+
+.. class:: Command
+
+   Bases: :class:`object`
+
+   Class to generate cmd5 command templates
+
+   .. method:: generate(cls, name)
+      :classmethod:
+
+      Generate a command template with the given name
+      :param name: the name of the command
+      :return:
+
+
+
+.. class:: Git
+
+   Bases: :class:`object`
+
+   Git management for the preparation to upload the code to pypi
+
+   .. attribute:: pypis
+      :annotation: = ['cloudmesh-common', 'cloudmesh-cmd5', 'cloudmesh-sys', 'cloudmesh-comet', 'cloudmesh-openapi']
+
+      
+
+   .. attribute:: commits
+      
+
+      
+
+   .. method:: upload(cls)
+      :classmethod:
+
+      upload the code to pypi
+      :return:
+
+
+   .. method:: commit(cls, msg)
+      :classmethod:
+
+      commit the current code to git
+      :param msg:
+      :return:
+
+
+
+.. class:: Version
+
+   Bases: :class:`object`
+
+   set the version number of all base packages
+
+   .. method:: set(cls, version)
+      :classmethod:
+
+      set the version number
+      :param version: the version as text string
+      :return:
+
+
+

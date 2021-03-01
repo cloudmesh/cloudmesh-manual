@@ -1,0 +1,132 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.gdrive.Provider`
+===================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.gdrive.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.gdrive.Provider.Provider
+
+
+
+.. class:: Provider(service=None)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. attribute:: kind
+      :annotation: = gdrive
+
+      
+
+   .. attribute:: sample
+      :annotation: = TODO: missing
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: generate_flags_json(self)
+
+
+   .. method:: generate_key_json(self)
+
+
+   .. method:: get_credentials(self)
+
+      We have stored the credentials in ".credentials"
+          folder and there is a file named 'google-drive-credentials.json'
+          that has all the credentials required for our authentication
+          If there is nothing stored in it this program creates credentials
+          json file for future authentication
+          Here the authentication type is OAuth2
+      :return:
+      :rtype:
+
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      puts the source on the service
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      gets the destination and copies it in source
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete(self, filename=None, recursive=False)
+
+      deletes the source
+
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: create_dir(self, directory=None)
+
+      creates a directory
+
+      :param directory: the name of the directory
+      :return: dict
+
+
+   .. method:: list(self, source=None, recursive=False)
+
+      lists the information as dict
+
+      :param source: the source which either can be a directory or file
+      :param dir_only: Only the directory names
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      gets the destination and copies it in source
+
+      :param directory: the directory which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: upload_file(self, source, filename, parent_it)
+
+
+   .. method:: download_file(self, source, file_id, file_name, mime_type)
+
+
+   .. method:: cloud_path(self, srv_path)
+
+
+   .. method:: update_dict(self, elements)
+
+
+

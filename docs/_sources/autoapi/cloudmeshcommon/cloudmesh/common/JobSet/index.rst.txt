@@ -1,0 +1,135 @@
+:mod:`cloudmesh-common.cloudmesh.common.JobSet`
+===============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.JobSet
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.JobSet.JobSet
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.JobSet.command_execute
+
+
+.. class:: JobSet(name, executor=None)
+
+
+   JobSet is a general execution framework for running a set of jobs on which
+   we specify a self defined job executor function. Through this framework it
+   is possible to very flexibly integrate different JobSets on which are
+   executed based on the executor. The jobset is executed in parallel and a run
+   method can be augmented with the number of parallel jobs being executed at
+   the same time. A simple executor that runs commands in the shell is provided
+
+   Basic Example Usage:
+
+       t = JobSet("terminal-commands", executor=JobSet.execute)
+       t.add({"name": "pwd", "command": "pwd"})
+       t.add({"name": "info", "command": "uname -a"})
+       t.add({"name": "uname", "command": "uname"})
+       t.add({"name": "hostname", "command": "hostname"})
+       t.add({"name": "provccesses", "command": "ps"})
+       t.run(parallel=3)
+       t.Print()
+
+   Advanced Example Usage:
+
+       from cloudmesh.common.parameter import Parameter
+
+       def ssh(spec):
+            result = subprocess.check_output("ssh " + spec["command"], shell=True)
+            success = "Error" noyt in result
+            if success:
+               returncode = 0
+               status = 'done'
+           else:
+               returncode = 1
+               status = 'failed'
+
+           return dict({
+               "name": spec["name"],
+               "stdout": result,
+               "stderr": ""
+               "returncode": returncode
+               "status": status
+           })
+
+       t = JobSet("terminal-commands", executor=JobSet.execute)
+       for host in Parameter.expand("red[01-03]"):
+           t.add({"name": "host", "command": "uname -a"})
+       t.run(parallel=3)
+       t.Print()
+
+   .. method:: reset(self, name, executor=None)
+
+
+   .. method:: ssh(spec)
+      :staticmethod:
+
+      name: name of the job
+      host: host on which we execute
+      os:   if true use os.system, this uses a temporary file, so be careful
+            if false use subprocess.check_output
+      stderr: result of stderror
+      stdout: result of stdout
+      returncode: 0 is success
+      success: Ture if successfull e.g. returncode == 0
+      status: a status: defined, running, done, failed
+
+      :param spec:
+      :return:
+
+
+   .. method:: execute(spec)
+      :staticmethod:
+
+
+   .. method:: identity(entry_with_name)
+      :staticmethod:
+
+
+   .. method:: add(self, spec, executor=None)
+
+
+   .. method:: _run(self, spec)
+
+
+   .. method:: run(self, parallel=3)
+
+
+   .. method:: __len__(self)
+
+
+   .. method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+   .. method:: Print(self)
+
+
+   .. method:: array(self)
+
+
+
+.. function:: command_execute(spec)
+
+

@@ -64,9 +64,9 @@ deploy:
 	pip install pip -U
 	pip install -r requirements.txt
 	pip install cloudmesh-installer -U
-	rm -rf cm
+	rm -rf docs-source/source/cm
 	mkdir -p cm
-	cd cm; cloudmesh-installer get cms
+	cd docs-source/source/cm; cloudmesh-installer get cms cmsd gui compute pi
 	cms help
 
 watch:
@@ -134,13 +134,6 @@ cloudmesh-javascript \
 cloudmesh-ssh
 
 
-api:
-	rm -rf docs-source/source/api
-	rm -rf tmp
-	mkdir -p tmp/cloudmesh
-	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
-	make -f Makefile api-index
-
 # NOT INCLUDED
 
 #../cloudmesh-analytics:
@@ -177,34 +170,6 @@ api:
 #../cloudmesh-twitter:
 #../cloudmesh-workflow:
 
-
-api-index:
-	echo "Cloudmesh Command API" > $(API)/index.rst
-	echo "===============================" >> $(API)/index.rst
-	echo "" >> $(API)/index.rst
-	echo ".. toctree::" >> $(API)/index.rst
-	echo "   :maxdepth: 1" >> $(API)/index.rst
-	echo "" >> $(API)/index.rst
-
-	cd $(API); ls -1 *.command.rst \
-	| sed 's/^/   /' \
-	| sed 's/.rst//' \
-	| sort -u >> index.rst
-
-	echo "" >> $(API)/index.rst
-	echo "Cloudmesh API" >> $(API)/index.rst
-	echo "===============================" >> $(API)/index.rst
-	echo "" >> $(API)/index.rst
-	echo ".. toctree::" >> $(API)/index.rst
-	echo "   :maxdepth: 1" >> $(API)/index.rst
-	echo "" >> $(API)/index.rst
-
-
-	cd $(API); ls -1 *.rst \
-	| fgrep -v command.rst | fgrep -v index.rst | fgrep -v modules.rst \
-	| sed 's/^/   /' \
-	| sed 's/.rst//' \
-	| sort -u >> index.rst
 
 inspect: dest/gitinspector/gitinspector.py
 	for c in $(MODULES) ; do \
@@ -249,12 +214,6 @@ register:
 	fgrep "ERROR" $(REGISTER)/*.rst
 	fgrep -i "TODO" $(REGISTER)/*.rst
 
-source:
-	cd ../cloudmesh.common; make source
-	$(call banner, "Install cloudmesh-cmd5")
-	pip install -e . -U
-	cms help
-
 manual-new:
 	mkdir -p $(SOURCE)/manual/flow
 	cms man --kind=rst flow > $(SOURCE)/manual/flow/flow.rst
@@ -283,13 +242,15 @@ authors:
 	git config --global mailmap.file .mailmap
 	@bin/authors.py > $(SOURCE)/preface/authors.rst
 
+auto:
+	echo AUTO
+
 doc: authors
 	cms debug off
 	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
 	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-config/main/cloudmesh/configuration/etc/cloudmesh.yaml
 	rm -rf docs
 	mkdir -p dest
-	@make -f Makefile api
 	cd docs-source; make html
 	cp -r $(SOURCE)/_ext docs-source/build/html
 	cp -r $(SOURCE)/_templates docs-source/build/html

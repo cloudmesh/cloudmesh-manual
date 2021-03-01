@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
 
   
@@ -147,8 +148,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">COMMUNITY</span></p>
@@ -161,6 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
 </ul>
 
             
@@ -232,46 +233,32 @@
             
   <div class="section" id="man">
 <h1>man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h1>
-<p>def _convert_file(self, file=None, command=None, include=None, tag=”MANPAGE”):</p>
-<blockquote>
-<div><dl>
-<dt>Usage:</dt><dd><p>man readme [-p] –toc [–file=FILE]
-man readme [-p] [–tag=TAG] [–file=FILE] –include=INCLUDE
-man readme [-p] [–tag=TAG] [–file=FILE] –command=COMMAND
-man [–dir=DIR] [–format=FORMAT] [–noheader]
-man COMMANDS… [–dir=DIR] [–format=FORMAT]</p>
-</dd>
-<dt>Options:</dt><dd><dl class="option-list">
-<dt><kbd><span class="option">--toc</span></kbd></dt>
-<dd><p>adds a table of content between the TOC tag</p>
-</dd>
-<dt><kbd><span class="option">-p</span></kbd></dt>
-<dd><p>replacement in the file instead of stdout</p>
-</dd>
-<dt><kbd><span class="option">--noheader</span></kbd></dt>
-<dd><p>no rst header</p>
-</dd>
-<dt><kbd><span class="option">--tag=<var>TAG</var></span></kbd></dt>
-<dd><p>the tag used to embed the manual
-page [default: MANUAL]</p>
-</dd>
-<dt><kbd><span class="option">--file=<var>FILE</var></span></kbd></dt>
-<dd><p>the file for the replacement between the
-tags [default: README.md]</p>
-</dd>
-</dl>
-</dd>
-<dt>Arguments:</dt><dd><p>COMMANDS   the command manual pages to be printed</p>
-</dd>
-<dt>Description:</dt><dd><dl class="simple">
-<dt>man</dt><dd><p>Prints out the help pages</p>
-</dd>
-<dt>man COMMAND</dt><dd><p>Prints out the help page for a specific command</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+    <span class="n">man</span> <span class="n">readme</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span><span class="p">]</span> <span class="o">--</span><span class="n">toc</span> <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">]</span>
+    <span class="n">man</span> <span class="n">readme</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">tag</span><span class="o">=</span><span class="n">TAG</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">]</span> <span class="o">--</span><span class="n">include</span><span class="o">=</span><span class="n">INCLUDE</span>
+    <span class="n">man</span> <span class="n">readme</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">tag</span><span class="o">=</span><span class="n">TAG</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span><span class="p">]</span> <span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="n">COMMAND</span>
+    <span class="n">man</span> <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">noheader</span><span class="p">]</span>
+    <span class="n">man</span> <span class="n">COMMANDS</span><span class="o">...</span> <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+
+<span class="n">Options</span><span class="p">:</span>
+    <span class="o">--</span><span class="n">toc</span>        <span class="n">adds</span> <span class="n">a</span> <span class="n">table</span> <span class="n">of</span> <span class="n">content</span> <span class="n">between</span> <span class="n">the</span> <span class="n">TOC</span> <span class="n">tag</span>
+    <span class="o">-</span><span class="n">p</span>           <span class="n">replacement</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">stdout</span>
+    <span class="o">--</span><span class="n">noheader</span>   <span class="n">no</span> <span class="n">rst</span> <span class="n">header</span>
+    <span class="o">--</span><span class="n">tag</span><span class="o">=</span><span class="n">TAG</span>    <span class="n">the</span> <span class="n">tag</span> <span class="n">used</span> <span class="n">to</span> <span class="n">embed</span> <span class="n">the</span> <span class="n">manual</span>
+                 <span class="n">page</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">MANUAL</span><span class="p">]</span>
+    <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">FILE</span>  <span class="n">the</span> <span class="n">file</span> <span class="k">for</span> <span class="n">the</span> <span class="n">replacement</span> <span class="n">between</span> <span class="n">the</span>
+                 <span class="n">tags</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span><span class="p">]</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+    <span class="n">COMMANDS</span>   <span class="n">the</span> <span class="n">command</span> <span class="n">manual</span> <span class="n">pages</span> <span class="n">to</span> <span class="n">be</span> <span class="n">printed</span>
+
+<span class="n">Description</span><span class="p">:</span>
+    <span class="n">man</span>
+        <span class="n">Prints</span> <span class="n">out</span> <span class="n">the</span> <span class="n">help</span> <span class="n">pages</span>
+    <span class="n">man</span> <span class="n">COMMAND</span>
+        <span class="n">Prints</span> <span class="n">out</span> <span class="n">the</span> <span class="n">help</span> <span class="n">page</span> <span class="k">for</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">command</span>
+</pre></div>
+</div>
 </div>
 
 

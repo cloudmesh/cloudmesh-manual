@@ -1,0 +1,107 @@
+:mod:`cloudmesh.mongo.MongoDocker`
+==================================
+
+.. py:module:: cloudmesh.mongo.MongoDocker
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.mongo.MongoDocker.MongoDocker
+
+
+
+.. class:: MongoDocker(configuration='~/.cloudmesh/cloudmesh.yaml', dryrun=False)
+
+
+   Bases: :class:`object`
+
+   .. method:: run(self, script, verbose=True, terminate=False)
+
+
+   .. method:: create(self)
+
+      Starts the MongoDBd Container
+      :return:
+
+
+   .. method:: ssh(self, auth=True)
+
+      Starts the MongoDBd Container
+      :return:
+
+
+   .. method:: start(self, auth=True)
+
+      Starts the MongoDBd Container
+      :return:
+
+
+   .. method:: execute(self, command, auth=False, terminate=False, verbose=False)
+
+      Starts the MongoDBd Container
+      :return:
+
+
+   .. method:: sh(self, command)
+
+
+   .. method:: stop(self)
+
+      Stops the MongoDBd Container
+      :return:
+
+
+   .. method:: wait(self, delay=20, verbose=False)
+
+      test if mongo is available
+      :return:
+
+
+   .. method:: create_admin(self)
+
+      Creates the admin user in the Container
+      :return:
+
+
+   .. method:: kill(self, name=None)
+
+      Kills all Containers
+      :return:
+
+
+   .. method:: ps(self)
+
+      Creates the Mongo image
+      :return:
+
+
+   .. method:: install(self, clean=False, pull=True)
+
+      Creates the Mongo image
+      :return:
+
+
+   .. method:: login(self)
+
+
+   .. method:: initialize(self)
+
+
+   .. method:: status(self, auth=False)
+
+      Status of the the MongoDB Container
+      :return: DIct with the status
+
+
+
+.. data:: mongo
+   
+
+   
+

@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-common.cloudmesh.common.JobSet &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.JobSet</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cloudmeshcommon/cloudmesh/common/JobSet/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-common.cloudmesh.common.JobSet">
+<span id="cloudmesh-common-cloudmesh-common-jobset"></span><h1><a class="reference internal" href="#module-cloudmesh-common.cloudmesh.common.JobSet" title="cloudmesh-common.cloudmesh.common.JobSet"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.JobSet</span></code></a><a class="headerlink" href="#module-cloudmesh-common.cloudmesh.common.JobSet" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet" title="cloudmesh-common.cloudmesh.common.JobSet.JobSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JobSet</span></code></a></p></td>
+<td><p>JobSet is a general execution framework for running a set of jobs on which</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.JobSet.command_execute" title="cloudmesh-common.cloudmesh.common.JobSet.command_execute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">command_execute</span></code></a>(spec)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.JobSet.</span></code><code class="sig-name descname"><span class="pre">JobSet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>JobSet is a general execution framework for running a set of jobs on which
+we specify a self defined job executor function. Through this framework it
+is possible to very flexibly integrate different JobSets on which are
+executed based on the executor. The jobset is executed in parallel and a run
+method can be augmented with the number of parallel jobs being executed at
+the same time. A simple executor that runs commands in the shell is provided</p>
+<p>Basic Example Usage:</p>
+<blockquote>
+<div><p>t = JobSet(“terminal-commands”, executor=JobSet.execute)
+t.add({“name”: “pwd”, “command”: “pwd”})
+t.add({“name”: “info”, “command”: “uname -a”})
+t.add({“name”: “uname”, “command”: “uname”})
+t.add({“name”: “hostname”, “command”: “hostname”})
+t.add({“name”: “provccesses”, “command”: “ps”})
+t.run(parallel=3)
+t.Print()</p>
+</div></blockquote>
+<p>Advanced Example Usage:</p>
+<blockquote>
+<div><p>from cloudmesh.common.parameter import Parameter</p>
+<dl>
+<dt>def ssh(spec):</dt><dd><blockquote>
+<div><p>result = subprocess.check_output(“ssh ” + spec[“command”], shell=True)
+success = “Error” noyt in result
+if success:</p>
+<blockquote>
+<div><p>returncode = 0
+status = ‘done’</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>else:</dt><dd><p>returncode = 1
+status = ‘failed’</p>
+</dd>
+<dt>return dict({</dt><dd><p>“name”: spec[“name”],
+“stdout”: result,
+“stderr”: “”
+“returncode”: returncode
+“status”: status</p>
+</dd>
+</dl>
+<p>})</p>
+</dd>
+</dl>
+<p>t = JobSet(“terminal-commands”, executor=JobSet.execute)
+for host in Parameter.expand(“red[01-03]”):</p>
+<blockquote>
+<div><p>t.add({“name”: “host”, “command”: “uname -a”})</p>
+</div></blockquote>
+<p>t.run(parallel=3)
+t.Print()</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.reset">
+<code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.ssh">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">ssh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.ssh" title="Permalink to this definition">¶</a></dt>
+<dd><p>name: name of the job
+host: host on which we execute
+os:   if true use os.system, this uses a temporary file, so be careful</p>
+<blockquote>
+<div><p>if false use subprocess.check_output</p>
+</div></blockquote>
+<p>stderr: result of stderror
+stdout: result of stdout
+returncode: 0 is success
+success: Ture if successfull e.g. returncode == 0
+status: a status: defined, running, done, failed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>spec</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.execute">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">execute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.identity">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">identity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry_with_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.identity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.add">
+<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">executor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet._run">
+<code class="sig-name descname"><span class="pre">_run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet._run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.__len__">
+<code class="sig-name descname"><span class="pre">__len__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.__repr__">
+<code class="sig-name descname"><span class="pre">__repr__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.Print">
+<code class="sig-name descname"><span class="pre">Print</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.Print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.JobSet.array">
+<code class="sig-name descname"><span class="pre">array</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.JobSet.array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.JobSet.command_execute">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.JobSet.</span></code><code class="sig-name descname"><span class="pre">command_execute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.JobSet.command_execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

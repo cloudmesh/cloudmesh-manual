@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-common.cloudmesh.common.ssh.ssh_config &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.ssh.ssh_config</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshcommon/cloudmesh/common/ssh/ssh_config/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-common.cloudmesh.common.ssh.ssh_config">
+<span id="cloudmesh-common-cloudmesh-common-ssh-ssh-config"></span><h1><a class="reference internal" href="#module-cloudmesh-common.cloudmesh.common.ssh.ssh_config" title="cloudmesh-common.cloudmesh.common.ssh.ssh_config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.ssh.ssh_config</span></code></a><a class="headerlink" href="#module-cloudmesh-common.cloudmesh.common.ssh.ssh_config" title="Permalink to this headline">¶</a></h1>
+<p>Managing ~/.ssh/config</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config" title="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ssh_config</span></code></a></p></td>
+<td><p>Managing the config in .ssh</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.ssh.ssh_config.</span></code><code class="sig-name descname"><span class="pre">ssh_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Managing the config in .ssh</p>
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.names">
+<code class="sig-name descname"><span class="pre">names</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>The names defined in ~/.ssh/config
+:return: the names</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.load">
+<code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>list the hosts defined in the ssh config file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.list">
+<code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>list the hosts in the config file
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>The string representing the config file
+:return: the string representation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.status">
+<code class="sig-name descname"><span class="pre">status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes a test with the given ssh config if a login is possible.</p>
+<p>TODO: not yet implemented</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.login">
+<code class="sig-name descname"><span class="pre">login</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>login to the host defines in .ssh/config by name
+:param name: the name of the host as defined in the config file
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.execute">
+<code class="sig-name descname"><span class="pre">execute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute the command on the named host
+:param name: the name of the host in config
+:param command: the command to be executed
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.local">
+<code class="sig-name descname"><span class="pre">local</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.local" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute the command on the localhost
+:param command: the command to execute
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.username">
+<code class="sig-name descname"><span class="pre">username</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the username for a given host in the config file
+:param host: the hostname
+:return: the username</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.delete">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">delete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.generate">
+<code class="sig-name descname"><span class="pre">generate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'india'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'india.futuresystems.org'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'~/.ssh/id_rsa.pub'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.ssh.ssh_config.ssh_config.generate" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a host to the config file with given parameters.  #TODO: make sure this is better documented
+:param key: the key
+:param host: the host
+:param username: the username
+:param force: not used
+:param verbose: prints debug messages
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

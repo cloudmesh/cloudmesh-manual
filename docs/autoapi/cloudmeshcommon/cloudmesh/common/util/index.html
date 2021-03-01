@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-common.cloudmesh.common.util &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.util</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cloudmeshcommon/cloudmesh/common/util/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-common.cloudmesh.common.util">
+<span id="cloudmesh-common-cloudmesh-common-util"></span><h1><a class="reference internal" href="#module-cloudmesh-common.cloudmesh.common.util" title="cloudmesh-common.cloudmesh.common.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.util</span></code></a><a class="headerlink" href="#module-cloudmesh-common.cloudmesh.common.util" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.tempdir" title="cloudmesh-common.cloudmesh.common.util.tempdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tempdir</span></code></a>(*args, **kwargs)</p></td>
+<td><p>A contextmanager to work in an auto-removed temporary directory</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.check_root" title="cloudmesh-common.cloudmesh.common.util.check_root"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_root</span></code></a>(terminate=True)</p></td>
+<td><p>Tests if the root user is used</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.exponential_backoff" title="cloudmesh-common.cloudmesh.common.util.exponential_backoff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential_backoff</span></code></a>(fn, sleeptime_s_max=30 * 60)</p></td>
+<td><p>Calls <cite>fn</cite> until it returns True, with an exponentially increasing wait time between calls</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.download" title="cloudmesh-common.cloudmesh.common.util.download"><code class="xref py py-obj docutils literal notranslate"><span class="pre">download</span></code></a>(source, destination, force=False)</p></td>
+<td><p>Downloads the file from source to destination</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.search" title="cloudmesh-common.cloudmesh.common.util.search"><code class="xref py py-obj docutils literal notranslate"><span class="pre">search</span></code></a>(lines, pattern)</p></td>
+<td><p>return all lines that match the pattern</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.grep" title="cloudmesh-common.cloudmesh.common.util.grep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grep</span></code></a>(pattern, filename)</p></td>
+<td><p>Very simple grep that returns the first matching line in a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.is_gitbash" title="cloudmesh-common.cloudmesh.common.util.is_gitbash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_gitbash</span></code></a>()</p></td>
+<td><p>returns True if you run in a Windows gitbash</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.is_powershell" title="cloudmesh-common.cloudmesh.common.util.is_powershell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_powershell</span></code></a>()</p></td>
+<td><p>True if you run in powershell</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.is_cmd_exe" title="cloudmesh-common.cloudmesh.common.util.is_cmd_exe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_cmd_exe</span></code></a>()</p></td>
+<td><p>return True if you run in a Windows CMD</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.path_expand" title="cloudmesh-common.cloudmesh.common.util.path_expand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">path_expand</span></code></a>(text)</p></td>
+<td><p>returns a string with expanded variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.convert_from_unicode" title="cloudmesh-common.cloudmesh.common.util.convert_from_unicode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_from_unicode</span></code></a>(data)</p></td>
+<td><p>converts unicode data to a string</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.yn_choice" title="cloudmesh-common.cloudmesh.common.util.yn_choice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yn_choice</span></code></a>(message, default='y', tries=None)</p></td>
+<td><p>asks for a yes/no question.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.str_banner" title="cloudmesh-common.cloudmesh.common.util.str_banner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str_banner</span></code></a>(txt=None, c='-', prefix='#', debug=True, label=None, color='BLUE', padding=False, figlet=False, font='big')</p></td>
+<td><p>prints a banner of the form with a frame of # around the txt:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.banner" title="cloudmesh-common.cloudmesh.common.util.banner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">banner</span></code></a>(txt=None, c='-', prefix='#', debug=True, label=None, color='BLUE', padding=False, figlet=False, font='big')</p></td>
+<td><p>prints a banner of the form with a frame of # around the txt:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.HEADING" title="cloudmesh-common.cloudmesh.common.util.HEADING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEADING</span></code></a>(txt=None, c='#', color='HEADER')</p></td>
+<td><p>Prints a message to stdout with #### surrounding it. This is useful for</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.backup_name" title="cloudmesh-common.cloudmesh.common.util.backup_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backup_name</span></code></a>(filename)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param filename</dt>
+<dd class="field-odd"><p>given a filename creates a backup name of the form</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.auto_create_version" title="cloudmesh-common.cloudmesh.common.util.auto_create_version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_create_version</span></code></a>(class_name, version, filename='__init__.py')</p></td>
+<td><p>creates a version number in the __init__.py file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.auto_create_requirements" title="cloudmesh-common.cloudmesh.common.util.auto_create_requirements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_create_requirements</span></code></a>(requirements)</p></td>
+<td><p>creates a requirement.txt file form the requirements in the list. If the file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.copy_files" title="cloudmesh-common.cloudmesh.common.util.copy_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_files</span></code></a>(files_glob, source_dir, dest_dir)</p></td>
+<td><p>copies the files to the destination</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.readfile" title="cloudmesh-common.cloudmesh.common.util.readfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readfile</span></code></a>(filename, mode='r')</p></td>
+<td><p>returns the content of a file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.writefile" title="cloudmesh-common.cloudmesh.common.util.writefile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writefile</span></code></a>(filename, content)</p></td>
+<td><p>writes the content into the file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.writefd" title="cloudmesh-common.cloudmesh.common.util.writefd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">writefd</span></code></a>(filename, content, mode='w', flags=os.O_RDWR | os.O_CREAT, mask=384)</p></td>
+<td><p>writes the content into the file and control permissions</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.sudo_readfile" title="cloudmesh-common.cloudmesh.common.util.sudo_readfile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sudo_readfile</span></code></a>(filename, split=True, trim=False)</p></td>
+<td><p>Reads the content of the file as sudo and returns the result</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.util.generate_password" title="cloudmesh-common.cloudmesh.common.util.generate_password"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_password</span></code></a>(length=8, lower=True, upper=True, number=True)</p></td>
+<td><p>generates a simple password. We should not really use this in production.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="cloudmesh-common.cloudmesh.common.util.collectionsAbc">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">collectionsAbc</span></code><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.collectionsAbc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.tempdir">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">tempdir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.tempdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>A contextmanager to work in an auto-removed temporary directory</p>
+<p>Arguments are passed through to tempfile.mkdtemp</p>
+<p>example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">tempdir</span><span class="p">()</span> <span class="k">as</span> <span class="n">path</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.check_root">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">check_root</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terminate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.check_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if the root user is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>terminate</strong> – if true exist the program</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.exponential_backoff">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">exponential_backoff</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sleeptime_s_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span> <span class="pre">*</span> <span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.exponential_backoff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls <cite>fn</cite> until it returns True, with an exponentially increasing wait time between calls</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.download">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">download</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads the file from source to destination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – The http source</p></li>
+<li><p><strong>destination</strong> – The destination in the file system</p></li>
+<li><p><strong>force</strong> – If True the file will be downloaded even if
+it already exists</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.search">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>return all lines that match the pattern
+#TODO: we need an example</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lines</strong> – </p></li>
+<li><p><strong>pattern</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.grep">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">grep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.grep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Very simple grep that returns the first matching line in a file.
+String matching only, does not do REs as currently implemented.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.is_gitbash">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">is_gitbash</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.is_gitbash" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if you run in a Windows gitbash</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if gitbash</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.is_powershell">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">is_powershell</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.is_powershell" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if you run in powershell</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if you run in powershell</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.is_cmd_exe">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">is_cmd_exe</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.is_cmd_exe" title="Permalink to this definition">¶</a></dt>
+<dd><p>return True if you run in a Windows CMD</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if you run in CMD</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.path_expand">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">path_expand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.path_expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a string with expanded variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – the path to be expanded, which can include ~ and environment variables</p></li>
+<li><p><strong>text</strong> – string</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.convert_from_unicode">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">convert_from_unicode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.convert_from_unicode" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts unicode data to a string
+:param data: the data to convert
+:return:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.yn_choice">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">yn_choice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.yn_choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>asks for a yes/no question.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tries</strong> – the number of tries</p></li>
+<li><p><strong>message</strong> – the message containing the question</p></li>
+<li><p><strong>default</strong> – the default answer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.str_banner">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">str_banner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLUE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figlet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'big'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.str_banner" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints a banner of the form with a frame of # around the txt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------</span>
+<span class="c1"># txt</span>
+<span class="c1"># --------------------------</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – prints in the given color</p></li>
+<li><p><strong>label</strong> – adds a label</p></li>
+<li><p><strong>debug</strong> – prints only if debug is true</p></li>
+<li><p><strong>txt</strong> (<em>string</em>) – a text message to be printed</p></li>
+<li><p><strong>c</strong> (<em>character</em>) – the character used instead of c</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.banner">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">banner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BLUE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figlet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'big'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.banner" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints a banner of the form with a frame of # around the txt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------</span>
+<span class="c1"># txt</span>
+<span class="c1"># --------------------------</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> – prints in the given color</p></li>
+<li><p><strong>label</strong> – adds a label</p></li>
+<li><p><strong>debug</strong> – prints only if debug is true</p></li>
+<li><p><strong>txt</strong> (<em>string</em>) – a text message to be printed</p></li>
+<li><p><strong>c</strong> (<em>character</em>) – the character used instead of c</p></li>
+<li><p><strong>padding</strong> (<em>bool</em>) – ads additional comment line around the text so the banner is larger</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.HEADING">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">HEADING</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'HEADER'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.HEADING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a message to stdout with #### surrounding it. This is useful for
+pytests to better distinguish them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> – uses the given char to wrap the header</p></li>
+<li><p><strong>txt</strong> (<em>string</em>) – a text message to be printed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.backup_name">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">backup_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.backup_name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – given a filename creates a backup name of the form
+filename.bak.1. If the filename already exists
+the number will be increased as  much as needed so
+the file does not exist in the given location.
+The filename can consists a path and is expanded
+with ~ and environment variables.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.auto_create_version">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">auto_create_version</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'__init__.py'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.auto_create_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a version number in the __init__.py file.
+it can be accessed with __version__
+:param class_name:
+:param version:
+:param filename:
+:return:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.auto_create_requirements">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">auto_create_requirements</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requirements</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.auto_create_requirements" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a requirement.txt file form the requirements in the list. If the file
+exists, it get changed only if the
+requirements in the list are different from the existing file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>requirements</strong> – the requirements in a list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.copy_files">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">copy_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files_glob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.copy_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>copies the files to the destination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>files_glob</strong> – <cite>*.yaml</cite></p></li>
+<li><p><strong>source_dir</strong> – source directory</p></li>
+<li><p><strong>dest_dir</strong> – destination directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.readfile">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">readfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.readfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the content of a file
+:param filename: the filename
+:return:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.writefile">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">writefile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.writefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>writes the content into the file
+:param filename: the filename
+:param content: teh content
+:return:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.writefd">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">writefd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.O_RDWR</span> <span class="pre">|</span> <span class="pre">os.O_CREAT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">384</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.writefd" title="Permalink to this definition">¶</a></dt>
+<dd><p>writes the content into the file and control permissions
+:param filename: the full or relative path to the filename
+:param content: the content being written
+:param mode: the write mode (‘w’) or write bytes mode (‘wb’)
+:param flags: the os flags that determine the permissions for the file
+:param mask: the mask that the permissions will be applied to</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.sudo_readfile">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">sudo_readfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.sudo_readfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the content of the file as sudo and returns the result</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param filename</dt>
+<dd class="field-odd"><p>the filename</p>
+</dd>
+<dt class="field-even">type filename</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param split</dt>
+<dd class="field-odd"><p>uf true returns a list of lines</p>
+</dd>
+<dt class="field-even">type split</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param trim</dt>
+<dd class="field-odd"><p>trim trailing whitespace. This is useful to
+prevent empty string entries when splitting by ‘</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>‘</dt><dd><dl class="field-list simple">
+<dt class="field-odd">type trim</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>the content</p>
+</dd>
+<dt class="field-odd">rtype</dt>
+<dd class="field-odd"><p>str or list</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.util.generate_password">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.util.</span></code><code class="sig-name descname"><span class="pre">generate_password</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.util.generate_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates a simple password. We should not really use this in production.
+:param length: the length of the password
+:param lower: True of lower case characters are allowed
+:param upper: True if upper case characters are allowed
+:param number: True if numbers are allowed
+:return:</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

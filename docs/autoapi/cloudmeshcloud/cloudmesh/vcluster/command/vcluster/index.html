@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-cloud.cloudmesh.vcluster.command.vcluster &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.vcluster.command.vcluster</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshcloud/cloudmesh/vcluster/command/vcluster/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-cloud.cloudmesh.vcluster.command.vcluster">
+<span id="cloudmesh-cloud-cloudmesh-vcluster-command-vcluster"></span><h1><a class="reference internal" href="#module-cloudmesh-cloud.cloudmesh.vcluster.command.vcluster" title="cloudmesh-cloud.cloudmesh.vcluster.command.vcluster"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.vcluster.command.vcluster</span></code></a><a class="headerlink" href="#module-cloudmesh-cloud.cloudmesh.vcluster.command.vcluster" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.VclusterCommand" title="cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.VclusterCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VclusterCommand</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.VclusterCommand">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.</span></code><code class="sig-name descname"><span class="pre">VclusterCommand</span></code><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.VclusterCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../../cloudmesh/shell/command/index.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.VclusterCommand.do_vcluster">
+<code class="sig-name descname"><span class="pre">do_vcluster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.command.vcluster.VclusterCommand.do_vcluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Usage:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>vcluster create cluster CLUSTER_NAME –clusters=CLUSTERS_LIST</dt><dd><p>[–computers=COMPUTERS_LIST]
+[–debug]</p>
+</dd>
+</dl>
+<p>vcluster destroy cluster CLUSTER_NAME
+vcluster create runtime-config CONFIG_NAME PROCESS_NUM in:params out:stdout</p>
+<blockquote>
+<div><p>[–fetch-proc-num=FETCH_PROCESS_NUM [default=1]]
+[–download-later [default=True]]
+[–debug]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>vcluster create runtime-config CONFIG_NAME PROCESS_NUM in:params out:file</dt><dd><p>[–fetch-proc-num=FETCH_PROCESS_NUM [default=1]]
+[–download-later [default=True]]
+[–debug]</p>
+</dd>
+<dt>vcluster create runtime-config CONFIG_NAME PROCESS_NUM in:params+file out:stdout</dt><dd><p>[–fetch-proc-num=FETCH_PROCESS_NUM [default=1]]
+[–download-later [default=True]]
+[–debug]</p>
+</dd>
+<dt>vcluster create runtime-config CONFIG_NAME PROCESS_NUM in:params+file out:file</dt><dd><p>[–fetch-proc-num=FETCH_PROCESS_NUM [default=1]]
+[–download-later [default=True]]
+[–debug]</p>
+</dd>
+<dt>vcluster create runtime-config CONFIG_NAME PROCESS_NUM in:params+file out:stdout+file</dt><dd><p>[–fetch-proc-num=FETCH_PROCESS_NUM [default=1]]
+[–download-later [default=True]]
+[–debug]</p>
+</dd>
+</dl>
+<p>vcluster set-param runtime-config CONFIG_NAME PARAMETER VALUE
+vcluster destroy runtime-config CONFIG_NAME
+vcluster list clusters [DEPTH [default:1]]
+vcluster list runtime-configs [DEPTH [default:1]]
+vcluster run-script –script-path=SCRIPT_PATH –job-name=JOB_NAME –vcluster-name=CLUSTER_NAME –config-name=CONFIG_NAME –arguments=SET_OF_PARAMS –remote-path=REMOTE_PATH –local-path=LOCAL_PATH</p>
+<blockquote>
+<div><p>[–argfile-path=ARGUMENT_FILE_PATH]
+[–outfile-name=OUTPUT_FILE_NAME]
+[–suffix=SUFFIX]
+[–overwrite]</p>
+</div></blockquote>
+<p>vcluster fetch JOB_NAME
+vcluster clean-remote JOB_NAME PROCESS_NUM
+vcluster test-connection CLUSTER_NAME PROCESS_NUM</p>
+</div></blockquote>
+<p>This command does some useful things.</p>
+<dl>
+<dt>Arguments:</dt><dd><p>FILE   a file name</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">-f</span></kbd></dt>
+<dd><p>specify the file</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

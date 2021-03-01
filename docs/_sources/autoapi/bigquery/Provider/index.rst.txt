@@ -1,0 +1,48 @@
+:mod:`bigquery.Provider`
+========================
+
+.. py:module:: bigquery.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   bigquery.Provider.Provider
+
+
+
+.. class:: Provider(service='compute')
+
+
+   Bases: :class:`object`
+
+   .. method:: update_dict(self, d)
+
+
+   .. method:: update_status(self, results=None, name=None, status=None)
+
+
+   .. method:: listdatasets(self)
+
+
+   .. method:: loaddata(self, source_id, dataset_id, table_id)
+
+
+   .. method:: runsamplequery(self, dataset_id, query_id)
+
+
+   .. method:: listtables(self, dataset_id)
+
+
+   .. method:: describetable(self, dataset_id, table_id)
+
+
+   .. method:: exportdata(self, source_id, project_id, dataset_id, table_id)
+
+
+

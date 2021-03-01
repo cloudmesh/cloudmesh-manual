@@ -1,0 +1,70 @@
+:mod:`test_vdiropenapi`
+=======================
+
+.. py:module:: test_vdiropenapi
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   test_vdiropenapi.Test_vdir_openapi
+
+
+
+.. class:: Test_vdir_openapi
+
+   see: https://github.com/cloudmesh/cloudmesh-common/blob/main/cloudmesh/common/run/background.py
+   the code in the link has not bean tested
+   make this s function execute the server in the back ground not in a terminal,
+   get the pid and kill it after the test is done
+   UNAME := $(shell uname)
+   ifeq ($(UNAME), Darwin)
+   define terminal
+     osascript -e 'tell application "Terminal" to do script "cd $(PWD); $1"'
+   endef
+   endif
+   ifeq ($(UNAME), Linux)
+   define terminal
+     gnome-terminal --command 'bash -c "cd $(PWD); $1"'
+   endef
+   endif
+
+   .. method:: create_file(self, location, content)
+
+
+   .. method:: test_setup(self)
+
+
+   .. method:: test_install(self)
+
+
+   .. method:: test_create_source(self)
+
+
+   .. method:: test_vdir_openapi_mkdir(self)
+
+
+   .. method:: test_vdir_openapi_ls(self)
+
+
+   .. method:: test_vdir_openapi_cd(self)
+
+
+   .. method:: test_vdir_openapi_add(self)
+
+
+   .. method:: test_vdir_openapi_status(self)
+
+
+   .. method:: test_vdir_openapi_get(self)
+
+
+   .. method:: test_vdir_openapi_delete(self)
+
+
+

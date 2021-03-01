@@ -1,0 +1,632 @@
+:mod:`cloudmesh-common.cloudmesh.common.Shell`
+==============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.Shell
+
+.. autoapi-nested-parse::
+
+   A convenient method to execute shell commands and return their output. Note:
+   that this method requires that the command be completely execute before the
+   output is returned. FOr many activities in cloudmesh this is sufficient.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.Shell.Brew
+   cloudmesh-common.cloudmesh.common.Shell.Pip
+   cloudmesh-common.cloudmesh.common.Shell.Subprocess
+   cloudmesh-common.cloudmesh.common.Shell.Shell
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.Shell.NotImplementedInWindows
+   cloudmesh-common.cloudmesh.common.Shell.main
+
+
+.. function:: NotImplementedInWindows()
+
+
+.. class:: Brew
+
+   Bases: :class:`object`
+
+   .. method:: install(cls, name)
+      :classmethod:
+
+
+   .. method:: version(cls, name)
+      :classmethod:
+
+
+
+.. class:: Pip
+
+   Bases: :class:`object`
+
+   .. method:: install(cls, name)
+      :classmethod:
+
+
+
+.. exception:: SubprocessError(cmd, returncode, stderr, stdout)
+
+
+   Bases: :class:`Exception`
+
+   Manages the formatting of the error and stdout.
+   This command should not be directly called. Instead use Shell
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+
+.. class:: Subprocess(cmd, cwd=None, stderr=subprocess.PIPE, stdout=subprocess.PIPE, env=None)
+
+
+   Bases: :class:`object`
+
+   Executes a command. This class should not be directly used, but
+   instead you should use Shell.
+
+
+.. class:: Shell
+
+   Bases: :class:`object`
+
+   The shell class allowing us to conveniently access many operating system commands.
+   TODO: This works well on Linux and OSX, but has not been tested much on Windows
+
+   .. attribute:: command
+      
+
+      
+
+   .. method:: run_timed(label, command, encoding=None, service=None)
+      :staticmethod:
+
+      runs teh command and uses the StopWatch to time it
+      :param label: name of the StopWatch
+      :param command: the command to be executed
+      :param encoding: the encoding
+      :param service: a prefix to the stopwatch label
+      :return:
+
+
+   .. method:: run(command, exit='; exit 0', encoding='utf-8')
+      :staticmethod:
+
+      executes the command and returns the output as string
+      :param command:
+      :param encoding:
+      :return:
+
+
+   .. method:: run2(command, encoding='utf-8')
+      :staticmethod:
+
+      executes the command and returns the output as string. This command also
+      allows execution of 32 bit commands.
+
+      :param command: the program or command to be executed
+      :param encoding: encoding of the output
+      :return:
+
+
+   .. method:: execute(cls, cmd, arguments='', shell=False, cwd=None, traceflag=True, witherror=True)
+      :classmethod:
+
+      Run Shell command
+
+      :param witherror: if set to False the error will not be printed
+      :param traceflag: if set to true the trace is printed in case of an error
+      :param cwd: the current working directory in which the command is
+      supposed to be executed.
+      :param shell: if set to true the subprocess is called as part of a shell
+      :param cmd: command to run
+      :param arguments: we do not know yet
+      :return:
+
+
+   .. method:: oneline(script)
+      :staticmethod:
+
+      converts a script to one line command.
+      THis is useful to run a single ssh command and pass a one line script.
+
+      :param script:
+      :return:
+
+
+   .. method:: is_root()
+      :staticmethod:
+
+
+   .. method:: rmdir(top, verbose=False)
+      :staticmethod:
+
+
+   .. method:: dot2svg(filename, engine='dot')
+      :staticmethod:
+
+
+   .. method:: browser(filename)
+      :staticmethod:
+
+
+   .. method:: terminal_title(name)
+      :staticmethod:
+
+
+   .. method:: terminal(cls, command='pwd', title=None)
+      :classmethod:
+
+
+   .. method:: live(cls, command, cwd=None)
+      :classmethod:
+
+
+   .. method:: get_python(cls)
+      :classmethod:
+
+      returns the python and pip version
+      :return: python version, pip version
+
+
+   .. method:: check_output(cls, *args, **kwargs)
+      :classmethod:
+
+      Thin wrapper around :func:`subprocess.check_output`
+              
+
+
+   .. method:: ls(cls, match='.')
+      :classmethod:
+
+      executes ls with the given arguments
+      :param args:
+      :return: list
+
+
+   .. method:: unix_ls(cls, *args)
+      :classmethod:
+
+      executes ls with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: ps()
+      :staticmethod:
+
+      using psutil to return the process information pid, name and comdline,
+      cmdline may be a list
+
+      :return: a list of dicts of process information
+
+
+   .. method:: bash(cls, *args)
+      :classmethod:
+
+      executes bash with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: brew(cls, *args)
+      :classmethod:
+
+      executes bash with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: cat(cls, *args)
+      :classmethod:
+
+      executes cat with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: git(cls, *args)
+      :classmethod:
+
+      executes git with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: VBoxManage(cls, *args)
+      :classmethod:
+
+      executes VboxManage with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: blockdiag(cls, *args)
+      :classmethod:
+
+      executes blockdiag with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: cm(cls, *args)
+      :classmethod:
+
+      executes cm with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: cms(cls, *args)
+      :classmethod:
+
+      executes cm with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: cmsd(cls, *args)
+      :classmethod:
+
+      executes cm with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: head(cls, *args)
+      :classmethod:
+
+      executes head with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: keystone(cls, *args)
+      :classmethod:
+
+      executes keystone with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: kill_pid(pid)
+      :staticmethod:
+
+
+   .. method:: kill(cls, *args)
+      :classmethod:
+
+      executes kill with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: mount(cls, *args)
+      :classmethod:
+
+      mounts a given mountpoint to a file
+      :param args:
+      :return:
+
+
+   .. method:: umount(cls, *args)
+      :classmethod:
+
+      umounts a given mountpoint to a file
+      :param args:
+      :return:
+
+
+   .. method:: nova(cls, *args)
+      :classmethod:
+
+      executes nova with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: ping(cls, host=None, count=1)
+      :classmethod:
+
+      execute ping
+      :param host: the host to ping
+      :param count: the number of pings
+      :return:
+
+
+   .. method:: pwd(cls, *args)
+      :classmethod:
+
+      executes pwd with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: rackdiag(cls, *args)
+      :classmethod:
+
+      executes rackdiag with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: rm(cls, location)
+      :classmethod:
+
+      executes rm tree with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: rsync(cls, *args)
+      :classmethod:
+
+      executes rsync with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: scp(cls, *args)
+      :classmethod:
+
+      executes scp with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: sort(cls, *args)
+      :classmethod:
+
+      executes sort with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: sh(cls, *args)
+      :classmethod:
+
+      executes sh with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: ssh(cls, *args)
+      :classmethod:
+
+      executes ssh with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: sudo(cls, *args)
+      :classmethod:
+
+      executes sudo with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: tail(cls, *args)
+      :classmethod:
+
+      executes tail with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: vagrant(cls, *args)
+      :classmethod:
+
+      executes vagrant with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: pandoc(cls, *args)
+      :classmethod:
+
+      executes vagrant with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: mongod(cls, *args)
+      :classmethod:
+
+      executes mongod with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: dialog(cls, *args)
+      :classmethod:
+
+      executes dialof with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: pip(cls, *args)
+      :classmethod:
+
+      executes pip with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: fgrep(cls, *args)
+      :classmethod:
+
+      executes fgrep with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: grep(cls, *args)
+      :classmethod:
+
+      executes grep with the given arguments
+      :param args:
+      :return:
+
+
+   .. method:: cm_grep(cls, lines, what)
+      :classmethod:
+
+      returns all lines that contain what
+      :param lines:
+      :param what:
+      :return:
+
+
+   .. method:: remove_line_with(cls, lines, what)
+      :classmethod:
+
+      returns all lines that do not contain what
+      :param lines:
+      :param what:
+      :return:
+
+
+   .. method:: find_lines_with(cls, lines, what)
+      :classmethod:
+
+      returns all lines that contain what
+      :param lines:
+      :param what:
+      :return:
+
+
+   .. method:: find_lines_from(cls, lines, what)
+      :classmethod:
+
+      returns all lines that come after a particular line
+      :param lines:
+      :param what:
+      :return:
+
+
+   .. method:: find_lines_between(cls, lines, what_from, what_to)
+      :classmethod:
+
+      returns all lines that come between the markers
+      :param lines:
+      :param what:
+      :return:
+
+
+   .. method:: find_lines_to(cls, lines, what)
+      :classmethod:
+
+      returns all lines that come before a particular line
+      :param lines:
+      :param what:
+      :return:
+
+
+   .. method:: terminal_type(cls)
+      :classmethod:
+
+      returns  darwin, cygwin, cmd, or linux
+
+
+   .. method:: which(cls, command)
+      :classmethod:
+
+      returns the path of the command with which
+      :param command: teh command
+      :return: the path
+
+
+   .. method:: command_exists(cls, name)
+      :classmethod:
+
+      returns True if the command exists
+      :param name:
+      :return:
+
+
+   .. method:: operating_system(cls)
+      :classmethod:
+
+      the name of the os
+      :return: the name of the os
+
+
+   .. method:: get_pid(name, service='psutil')
+      :staticmethod:
+
+
+   .. method:: cms(command, encoding='utf-8')
+      :staticmethod:
+
+
+   .. method:: check_python(cls)
+      :classmethod:
+
+      checks if the python version is supported
+      :return: True if it is supported
+
+
+   .. method:: mkdir(cls, directory)
+      :classmethod:
+
+      creates a directory with all its parents in ots name
+      :param directory: the path of the directory
+      :return:
+
+
+   .. method:: unzip(cls, source_filename, dest_dir)
+
+      unzips a file into the destination directory
+      :param source_filename: the source
+      :param dest_dir: the destination directory
+      :return:
+
+
+   .. method:: edit(filename)
+      :staticmethod:
+
+
+   .. method:: lsb_release(cls)
+      :classmethod:
+
+      executes lsb_release command
+      :param args:
+      :return:
+
+
+   .. method:: distribution(cls)
+      :classmethod:
+
+      executes lsb_release command
+      :param args:
+      :return:
+
+      TODO: needs testing
+
+
+
+.. function:: main()
+
+   a test that should actually be added into a pytest
+   :return:
+
+

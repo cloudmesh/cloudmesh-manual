@@ -1,0 +1,220 @@
+:mod:`cloudmesh.mongo.CmDatabase`
+=================================
+
+.. py:module:: cloudmesh.mongo.CmDatabase
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.mongo.CmDatabase.CmDatabase
+
+
+
+.. class:: CmDatabase(host=None, username=None, password=None, port=None)
+
+
+   Bases: :class:`object`
+
+   .. attribute:: __shared_state
+      
+
+      
+
+   .. method:: connect(self)
+
+      connect to the database
+
+
+   .. method:: collection(self, name)
+
+      returns the named collection
+      :param name: the collection name
+      :return: teh collection
+
+
+   .. method:: close_client(self)
+
+      close the connection to the database
+
+
+   .. method:: collections(self, name=None, regex=None)
+
+      the names of all collections
+
+      :param name: if set, only look at these collections instead of all
+                   collections
+      :param regex: a regular expression on the names of the collections
+      :return: list of names of all collections
+
+      Example:
+          collections = cm.collections(regex=".*-vm")
+
+
+   .. method:: name_count(self, name)
+
+      counts the occurrence of the name used in the collections
+
+      :param name: the name
+      :return:
+
+
+   .. method:: find_group(self, name)
+
+      This function returns the entry with the given name from all collections
+      in mongodb. The name must be unique across all collections
+
+      :param name: the unique name of the entry
+      :return:
+
+
+   .. method:: find_name(self, name, kind=None)
+
+      This function returns the entry with the given name from all collections
+      in mongodb. The name must be unique across all collections
+
+      :param name: the unique name of the entry
+      :return:
+
+
+   .. method:: find_all_by_name(self, name, kind=None)
+
+      This function returns the entry with the given name from all collections
+      in mongodb. The name must be unique across all collections
+
+      :param name: the unique name of the entry
+      :return:
+
+
+   .. method:: find_names(self, names)
+
+      Assuming names specified as parameters, it returns the entries with
+      these names from all collections in mongodb. The names must be unique
+      across all collections.
+
+      :param names: the unique names in parameter format
+      :return:
+
+
+   .. method:: names(self, collection=None, cloud=None, kind=None, regex=None)
+
+      finds all names in the specified collections. The parameters,
+      collection, cloud, and kind can all be Parameters that get expanded
+      to lists. All names from all collections are merged into the result.
+
+      With kwargs a search query on the names could be added.
+
+      Example:
+          cm = CmDatabase()
+          for kind in ['vm', "image", "flavor"]:
+              names = cm.names(cloud="chameleon", kind=kind)
+          print (names)
+
+          names = cm.names(cloud="chameleon,azure", kind="vm")
+          names = cm.names(collection="chameleon-image", regex="^CC-")
+          names = cm.names(collection="chameleon-image", regex=".*Ubuntu.*")
+
+      :param collection: The collections
+      :param cloud: The clouds
+      :param kind: The kinds
+      :param regex: A query applied to name
+      :return:
+
+
+   .. method:: find(self, collection=None, cloud=None, kind=None, query=None, attributes=None)
+
+      finds all names in the specified collections. The parameters,
+      collection, cloud, and kind can all be Parameters that get expanded
+      to lists. All names from all collections are merged into the result.
+
+      With kwargs a search query on the names could be added.
+
+      Example::
+
+          cm = CmDatabase()
+          for kind in ['vm', "image", "flavor"]:
+              entries = cm.find(cloud="chameleon", kind=kind)
+          print (entries)
+
+
+          entries = cm.find(cloud="chameleon,azure", kind="vm")
+          query = {"name": {'$regex': ".*Ubuntu.*"}}
+          entries = cm.find(collection="chameleon-image", query=query)
+
+      :param collection: The collections
+      :param cloud: The clouds
+      :param kind: The kinds
+      :param query: A query applied to name
+      :return:
+
+
+   .. method:: find_ok(self, collection='cloudmesh', **kwargs)
+
+
+   .. method:: UPDATE(_entries, progress=True)
+      :staticmethod:
+
+
+   .. method:: update(self, _entries, progress=True)
+
+
+   .. method:: alter(self, entries)
+
+
+   .. method:: exists(self, entries)
+
+      Check if entry exists in the database
+
+      :param entries:
+      :return:
+
+
+   .. method:: insert(self, d, collection='cloudmesh')
+
+
+   .. method:: update_old(self, entries, collection='cloudmesh', replace=False, **kwargs)
+
+      :param entries: an array of dicts where one entry is called cmid.
+                      One must be careful as it does not erase previous attributes.
+      :param collection:
+      :param replace:
+      :return:
+
+
+   .. method:: delete(self, collection='cloudmesh', **kwargs)
+
+
+   .. method:: command(self, command)
+
+      issue command string via the mongoDB console
+      :param command: interaction command string you want to send to mongodb console
+      :return: command return
+
+
+   .. method:: status(self)
+
+      test mongodb correspondent db connection
+      :return:
+
+
+   .. method:: clear(self, collection='cloudmesh')
+
+      drops the collection
+      :return:
+
+
+   .. method:: importAsFile(self, data, collection, db)
+
+
+   .. method:: drop_database(self)
+
+      dropping cloudmesh database
+      :return:
+
+
+

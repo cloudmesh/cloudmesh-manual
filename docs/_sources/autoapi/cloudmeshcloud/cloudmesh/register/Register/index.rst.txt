@@ -1,0 +1,62 @@
+:mod:`cloudmesh-cloud.cloudmesh.register.Register`
+==================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.register.Register
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.register.Register.Register
+
+
+
+.. class:: Register
+
+
+   Bases: :class:`object`
+
+   .. method:: list_all()
+      :staticmethod:
+
+
+   .. method:: get_provider_sample(service=None, kind=None)
+      :staticmethod:
+
+
+   .. method:: get_kinds(service=None, kind=None)
+      :staticmethod:
+
+
+   .. method:: get_provider(kind=None, service=None)
+      :staticmethod:
+
+      Method to import the provider based on the service and kind.
+
+      :param service: Type of the service e.g. compute or storage, volume
+      :param kind: Name of the cloud e.g. google, azure, aws etc.
+      :return: Provider class
+
+
+   .. method:: get_sample_variables(sample)
+      :staticmethod:
+
+
+   .. method:: get_sample(provider, kind, service, name, attributes)
+      :staticmethod:
+
+
+   .. method:: remove(service, name)
+      :staticmethod:
+
+
+   .. method:: update(provider, kind, service, name, attributes)
+      :staticmethod:
+
+
+

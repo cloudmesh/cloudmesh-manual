@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
 
   
@@ -132,8 +133,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">COMMUNITY</span></p>
@@ -146,6 +146,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/database/mongo-use.html">Developing with Mongo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">To Do</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
 </ul>
 
             
@@ -310,17 +311,29 @@ needs by the user.</p>
 <div class="section" id="versions">
 <h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">version</span> <span class="o">--</span><span class="n">number</span>
-<span class="o">+-------------------------+---------+</span>
-<span class="o">|</span> <span class="n">Package</span>                 <span class="o">|</span> <span class="n">Version</span> <span class="o">|</span>
-<span class="o">+-------------------------+---------+</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">abstract</span>      <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">5</span>   <span class="o">|</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">cmd5</span>          <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">18</span>  <span class="o">|</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">common</span>        <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">52</span>  <span class="o">|</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">configuration</span> <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">7</span>   <span class="o">|</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">gui</span>           <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">2</span>   <span class="o">|</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">sys</span>           <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">3</span>   <span class="o">|</span>
-<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">test</span>          <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">2</span>   <span class="o">|</span>
-<span class="o">+-------------------------+---------+</span>
+<span class="o">+-------------------------+-----------+</span>
+<span class="o">|</span> <span class="n">Package</span>                 <span class="o">|</span> <span class="n">Version</span>   <span class="o">|</span>
+<span class="o">+-------------------------+-----------+</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">abstract</span>      <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">5</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">admin</span>         <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">4</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">aws</span>           <span class="o">|</span> <span class="mf">4.1</span><span class="o">.</span><span class="mi">8</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">azure</span>         <span class="o">|</span> <span class="mf">4.1</span><span class="o">.</span><span class="mi">10</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">chameleon</span>     <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">0</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">cloud</span>         <span class="o">|</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">1</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">cmd5</span>          <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">18</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">common</span>        <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">52</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">configuration</span> <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">7</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">google</span>        <span class="o">|</span> <span class="mf">4.1</span><span class="o">.</span><span class="mi">9</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">gui</span>           <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">2</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">inventory</span>     <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">4</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">multipass</span>     <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">0</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">openstack</span>     <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">1</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">oracle</span>        <span class="o">|</span> <span class="mf">4.1</span><span class="o">.</span><span class="mi">4</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">ssh</span>           <span class="o">|</span> <span class="ow">not</span> <span class="n">found</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">storage</span>       <span class="o">|</span> <span class="mf">4.0</span><span class="o">.</span><span class="mi">14</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">sys</span>           <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">3</span>     <span class="o">|</span>
+<span class="o">|</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">test</span>          <span class="o">|</span> <span class="mf">4.3</span><span class="o">.</span><span class="mi">2</span>     <span class="o">|</span>
+<span class="o">+-------------------------+-----------+</span>
 </pre></div>
 </div>
 </div>

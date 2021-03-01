@@ -1,0 +1,108 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.azureblob.Provider`
+======================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.azureblob.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.azureblob.Provider.Provider
+
+
+
+.. class:: Provider(service=None)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. attribute:: kind
+      :annotation: = azureblob
+
+      
+
+   .. attribute:: sample
+      
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: update_dict(self, elements, func=None)
+
+
+   .. method:: cloud_path(self, srv_path)
+
+
+   .. method:: local_path(self, source_path)
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      Downloads file from Destination(Service) to Source(local)
+
+      :param source: the source can be a directory or file
+      :param destination: the destination can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      Uploads file from Source(local) to Destination(Service)
+
+      :param source: the source can be a directory or file
+      :param destination: the destination can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete(self, source=None, recursive=False)
+
+      Deletes the source from cloud service
+
+      :param source: the source can be a directory or file
+      :return: None
+
+
+   .. method:: create_dir(self, directory=None)
+
+      Creates a directory in the cloud service
+
+      :param directory: directory is a folder
+      :return: dict
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      searches the filename in the directory
+
+      :param directory: directory on cloud service
+      :param filename: filename to be searched
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified directory
+      :return: dict
+
+
+   .. method:: list(self, source=None, dir_only=False, recursive=False)
+
+      lists all files specified in the source
+
+      :param source: this can be a file or directory
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :param dir_only: boolean, enlist only directories
+      :return: dict
+
+
+

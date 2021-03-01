@@ -1,0 +1,61 @@
+:mod:`test_host_key`
+====================
+
+.. py:module:: test_host_key
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   test_host_key.Test_host
+
+
+
+.. data:: config_hosts
+   :annotation: = 
+
+Host red01
+    StrictHostKeyChecking no
+    Hostname 127.0.0.1
+    IdentityFile ~/.ssh/id_rsa.pub
+
+Host red02
+    StrictHostKeyChecking no
+    Hostname 127.0.0.1
+    IdentityFile ~/.ssh/id_rsa.pub
+
+Host red03
+    StrictHostKeyChecking no
+    Hostname 127.0.0.1
+    IdentityFile ~/.ssh/id_rsa.pub
+
+
+
+   
+
+.. class:: Test_host
+
+   .. method:: setup(self)
+
+
+   .. method:: test_ping(self)
+
+
+   .. method:: test_ssh_config(self)
+
+
+   .. method:: test_ssh_keygen(self)
+
+
+   .. method:: test_gather_keys(self)
+
+
+   .. method:: test_clean(self)
+
+
+

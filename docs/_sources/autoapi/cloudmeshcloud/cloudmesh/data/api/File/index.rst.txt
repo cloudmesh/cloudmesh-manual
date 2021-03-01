@@ -1,0 +1,67 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.File`
+==============================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.File
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.File.FileService
+   cloudmesh-cloud.cloudmesh.data.api.File.Directory
+
+
+
+.. class:: FileService
+
+
+   Bases: :class:`object`
+
+   .. method:: copy(self, source, destination)
+
+
+   .. method:: rename(self, source, destination)
+
+
+   .. method:: put(self, source, destination)
+
+
+   .. method:: info(self)
+
+
+   .. method:: location(self, name)
+
+
+   .. method:: delete(self, name)
+
+
+   .. method:: get(self, name=None)
+
+
+
+.. class:: Directory(name)
+
+
+   Bases: :class:`object`
+
+   .. method:: info(self, name=None)
+
+
+   .. method:: get(self, name=None)
+
+
+   .. method:: put(self, name)
+
+
+   .. method:: delete(self, name)
+
+
+   .. method:: rename(self, source, destination)
+
+
+

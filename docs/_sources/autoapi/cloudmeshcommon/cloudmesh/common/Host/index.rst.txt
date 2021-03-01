@@ -1,0 +1,161 @@
+:mod:`cloudmesh-common.cloudmesh.common.Host`
+=============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.Host
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.Host.Host
+
+
+
+.. class:: Host
+
+   Bases: :class:`object`
+
+   .. method:: get_hostnames(names)
+      :staticmethod:
+
+      Given a list of host names it identifies if they have numbers in them. If so, they are assumed workers.
+      If not, it is a manager. There can only be one manager.
+
+      @param names: list of names
+      @type names: str
+      @return: manager, worker as list
+      @rtype: tuple
+
+
+   .. method:: config(hosts=None, ips=None, username=None, key='~/.ssh/id_rsa.pub')
+      :staticmethod:
+
+
+   .. method:: _run(args)
+      :staticmethod:
+
+      An internal command that executes as part of a process map a given
+      command. args is a dict and must include
+
+      * command
+      * shell
+
+      It returns a dict of the form
+
+      * command
+      * stdout
+      & stderr
+      * returncode
+      * success
+
+      :param args: command dict
+      :return:
+
+
+   .. method:: run(hosts=None, command=None, execute=None, processors=3, shell=False, **kwargs)
+      :staticmethod:
+
+      Executes the command on all hosts. The key values
+      specified in **kwargs will be replaced prior to the
+      execution. Furthermore, {host} will be replaced with the
+      specific hostname.
+
+      :param hosts: The hosts given in parameter notation
+                    Example: red[01-10]
+      :param command: The command to be executed for each host
+                      Example: ssh {host} uname
+      :param username: Specify the username on the host
+      :param processors: The number of parallel processes used
+      :param shell: Set to Tue if the current context of the shell is
+                    to be used. It is by default True
+      :param kwargs: The key value pairs to be replaced in the command
+      :return:
+
+
+   .. method:: ssh(hosts=None, command=None, username=None, key='~/.ssh/id_rsa', processors=3, dryrun=False, executor=None, verbose=False, **kwargs)
+      :staticmethod:
+
+      :param command: the command to be executed
+      :param hosts: a list of hosts to be checked
+      :param username: the usernames for the hosts
+      :param key: the key for logging in
+      :param processors: the number of parallel checks
+      :return: list of dicts representing the ping result
+
+
+   .. method:: put(hosts=None, source=None, destination=None, username=None, key='~/.ssh/id_rsa', shell=False, processors=3, dryrun=False, verbose=False)
+      :staticmethod:
+
+      :param command: the command to be executed
+      :param hosts: a list of hosts to be checked
+      :param username: the usernames for the hosts
+      :param key: the key for logging in
+      :param processors: the number of parallel checks
+      :return: list of dicts representing the ping result
+
+
+   .. method:: check(hosts=None, username=None, key='~/.ssh/id_rsa', processors=3)
+      :staticmethod:
+
+      :param hosts: a list of hosts to be checked
+      :param username: the usernames for the hosts
+      :param key: the key for logging in
+      :param processors: the number of parallel checks
+      :return: list of dicts representing the ping result
+
+
+   .. method:: _ping(args)
+      :staticmethod:
+
+      ping a vm
+
+      :param args: dict of {ip address, count}
+      :return: a dict representing the result, if returncode=0 ping is
+               successfully
+
+
+   .. method:: ping(hosts=None, count=1, processors=3)
+      :staticmethod:
+
+      ping a list of given ip addresses
+
+      :param hosts: a list of ip addresses
+      :param count: number of pings to run per ip
+      :param processors: number of processors to Pool
+      :return: list of dicts representing the ping result
+
+
+   .. method:: ssh_keygen(hosts=None, filename='~/.ssh/id_rsa', username=None, processors=3, dryrun=False, verbose=True)
+      :staticmethod:
+
+      generates the keys on the specified hosts.
+      this fonction does not work well as it still will aski if we overwrite.
+
+      :param hosts:
+      :param filename:
+      :param username:
+      :param output:
+      :param dryrun:
+      :param verbose:
+      :return:
+
+
+   .. method:: gather_keys(username=None, hosts=None, filename='~/.ssh/id_rsa.pub', key='~/.ssh/id_rsa', processors=3, dryrun=False)
+      :staticmethod:
+
+      returns in a list the keys of the specified hosts
+
+      :param username:
+      :param hosts:
+      :param filename:
+      :param key:
+      :param dryrun:
+      :return:
+
+
+

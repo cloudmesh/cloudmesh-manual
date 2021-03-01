@@ -1,0 +1,92 @@
+:mod:`cloudmesh-common.cloudmesh.common.parameter`
+==================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.parameter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.parameter.Parameter
+
+
+
+.. class:: Parameter
+
+   Bases: :class:`object`
+
+   .. method:: _expand(values)
+      :staticmethod:
+
+      given a string of the form "a,g-h,k,x-z"
+      expand it tl a list with all characters between the - being expanded
+
+      :param values: string of the form "a,g-h,k,x-z"
+      :return:
+
+
+   .. method:: expand_string(cls, parameter)
+      :classmethod:
+
+      can expand strings, but only allows either, or - in [] not mixed
+
+      :param parameter: string of the form prefix[a,g-h,k,x-z]postfix
+      :return:
+
+
+   .. method:: expand(cls, parameter, allow_duplicates=False, sort=False, sep=':')
+      :classmethod:
+
+      Parameter.expand("a[0-1]")  -> ["a0", "a1"]
+      Content sensitive : expansion
+      Parameter.expand("local:a0,a1")  -> ["local:a0", "local:a1"]
+      instead of
+      Parameter.expand("local:[a0,a1]")  -> ["local:a0", "local:a1"]
+
+      :param parameter:
+      :param allow_duplicates:
+      :param sort:
+      :return:
+
+
+   .. method:: find(name, *dicts)
+      :staticmethod:
+
+      Finds the value for the key name in multiple dicts
+
+      :param name: the key to find
+      :param dicts: the list of dicts
+      :return:
+
+
+   .. method:: find_bool(name, *dicts)
+      :staticmethod:
+
+      Finds the value for the key name in multiple dicts
+
+      :param name: the key to find
+      :param dicts: the list of dicts
+      :return:
+
+
+   .. method:: arguments_to_dict(arguments)
+      :staticmethod:
+
+      converts a string of the form "a=1,b=2" to a dict
+      {"a":"1", "b":"2"}
+      all values are strings
+
+      :param arguments: the argument string
+      :return: a dic of argument and values
+
+
+   .. method:: separate(text, sep=':')
+      :staticmethod:
+
+
+

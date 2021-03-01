@@ -1,0 +1,221 @@
+:mod:`cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster`
+============================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster
+
+
+
+.. class:: VirtualCluster(debug)
+
+
+   Bases: :class:`object`
+
+   .. method:: _config_validator(self)
+
+      validates the configuration of a run based on the information about its virtual cluster, runtime configuration
+      and the job metadata
+
+      :return:
+
+
+   .. method:: _clean_remote_in_parallel(self, target_node, remote_path)
+
+      This method is used to spawn processes to clean the remotes of a particular job.
+
+      :param target_node: the node on which the data is going to be removed
+      :param remote_path: path of the data to be removed
+      :return:
+
+
+   .. method:: _connection_test_in_parallel(self, target_node)
+
+      This method is used to test the connection to cluster nodes in parallel
+
+      :param target_node: the node to which the connection is going to be tested
+      :return:
+
+
+   .. method:: _create_config(self, config_name, proc_num, download_proc_num, download_later, input_type, output_type)
+
+      This method is used to create a runtime-configuration.
+
+      :param config_name: name of the runtime configuration
+      :param proc_num: number of processes to be spawned in that runtime for submitting the jobs
+      :param download_proc_num: number number of processes to be spawned in that runtime for fetching the results
+      :param download_later: a flag indicating whether or not the script should wait for the results after the scripts are submitted
+      :param input_type: type of the input of the script to be run remotely
+      :param output_type: type of the output of the script to be run remotely
+      :return:
+
+
+   .. method:: _create_vcluster(self, vcluster_name, cluster_list=(), computer_list=())
+
+      This method is used to create a virtual cluster
+
+      :param vcluster_name: name of the virtual cluster
+      :param cluster_list: list of the clusters to be added to the
+             virtual cluster
+      :param computer_list: list of the computers to be used from the
+             previous parameter (cluster_list). If the computer_list is left
+             empty, all of the computers will be used
+      :return:
+
+
+   .. method:: _execute_in_parallel(func_args)
+      :staticmethod:
+
+      This is a method used for running methods in parallel
+
+      :param func_args:
+      :return:
+
+
+   .. method:: _fetch_results_in_parallel(self, job_metadata, node_pid_tuple, all_pids)
+
+      This method is used to fetch the results from remote nodes.
+
+      :param job_metadata: the dictionary containing the information about the previously submitted job
+      :param node_pid_tuple: the tuple containing destination node, destination pid and destination node index when the job was submitted
+      :param all_pids:
+      :return:
+
+
+   .. method:: _run_remote_job_in_parallel(self, job_metadata, param_idx, params, all_pids)
+
+      This method is used to spawn remote processes in parallel
+
+      :param job_metadata: contains the information about the job
+      :param param_idx: index of the parameters inputted as argument
+      :param params: the parameters inputted as argument for this run
+      :param all_pids: the manager used to take all pids of all submitted jobs
+      :return:
+
+
+   .. method:: _ssh(hostname, sshconfigpath, *args)
+      :staticmethod:
+
+      This method is used to create remove ssh connections
+
+      :param hostname: hostname
+      :param sshconfigpath: path to sshconfig for connecting to remote node
+      :param args: the argument to be submitted via ssh
+      :return:
+
+
+   .. method:: _scp(hostname, sshconfigpath, *args)
+      :staticmethod:
+
+      This method is used for scp from and to remote
+
+      :param hostname: hostname
+      :param sshconfigpath: ssh config file
+      :param args:arguments for using while copying
+      :return:
+
+
+   .. method:: add_suffix_to_path(path, suffix)
+      :staticmethod:
+
+      This method is used to add suffix to a path
+
+      :param path: path
+      :param suffix: suffix
+      :return:
+
+
+   .. method:: clean_remote(self, job_name, proc_num)
+
+      This method is used to spawn processes for cleaning the remote nodes
+
+      :param job_name: name of previously submitted job for which the nodes are going to be cleaned
+      :param proc_num: number of processes used for cleaning the remote nodes
+      :return:
+
+
+   .. method:: connection_test(self, vcluster_name, proc_num)
+
+      This method is used for spawning processes for testing the connections to remote nodes of a vcluster
+
+      :param vcluster_name: name of the virtual cluster the nodes of which are going to be tested
+      :param proc_num: number of processes used for testing the remote nodes
+      :return:
+
+
+   .. method:: create(self, *args, **kwargs)
+
+      This is a caller for creator functions including config creator and vcluster creator
+
+      :param args:
+      :param kwargs:
+      :return:
+
+
+   .. method:: destroy(self, target, key)
+
+      Used to remove virtual clusters and runtime configs
+
+      :param target: type of entity to be removed
+      :param key: keyname of the entity to be removed
+      :return:
+
+
+   .. method:: fetch(self, job_name)
+
+      This method is used to fetch results from remote nodes
+
+      :param job_name: the previously submitted job name
+      :return:
+
+
+   .. method:: list(self, target, max_depth, current_depth=1, input_dict=None)
+
+      listing the current virtual clusters based on the vcluster_conf file.
+
+      :param target: name of the virtual cluster to be listed
+      :param max_depth: depth of information to be shown
+      :param input_dict: used for recursion for depth of higher than 1
+      :param current_depth: current depth of printing information
+      :return:
+
+
+   .. method:: run(self, job_name, cluster_name, config_name, script_path, argfile_path, outfile_name, remote_path, local_path, params_list, suffix, overwrite)
+
+      This method is used to create a job, validate it and run it on remote nodes
+
+      :param job_name: name of the job to create
+      :param cluster_name: cluster on which the job is gonna run
+      :param config_name: name of the configuration based on which the job is going to run
+      :param script_path: path of the script to be run remotely
+      :param argfile_path: path of the file that has to be passed to the file as an argument if any
+      :param outfile_name: output filename resulted from running the script , if any
+      :param remote_path: path in the remotes on which the script is gonna be copied to and ran from
+      :param local_path: local path to which the results are gonna be copied
+      :param params_list: list of the parameters that are going to be passed to the script if any
+      :param suffix: suffix of the filenames in the job
+      :param overwrite: if the job already exists, this flag overwrites the previous job with the same name
+      :return:
+
+
+   .. method:: set_param(self, target, name, parameter, value)
+
+      Used to set a specific parameter in the configuration
+
+      :param target: the entity type on which the parameter is going to be set, e.g. runtime-config
+      :param name: the entity name on which the parameter is going to be set, e.g. test-config32
+      :param parameter: name of the parameter to be set
+      :param value: value of that parameter to be set
+      :return:
+
+
+

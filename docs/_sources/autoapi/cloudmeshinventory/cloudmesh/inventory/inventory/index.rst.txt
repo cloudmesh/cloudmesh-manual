@@ -1,0 +1,148 @@
+:mod:`cloudmesh-inventory.cloudmesh.inventory.inventory`
+========================================================
+
+.. py:module:: cloudmesh-inventory.cloudmesh.inventory.inventory
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-inventory.cloudmesh.inventory.inventory.Inventory
+   cloudmesh-inventory.cloudmesh.inventory.inventory.CommandSystem
+
+
+
+.. class:: Inventory(filename=None)
+
+
+   Bases: :class:`object`
+
+   .. method:: info(self)
+
+
+   .. method:: has_host(self, host)
+
+      return true or false if the host is in the inventory
+
+      :param host:
+      :type host: str
+      :return: If host is in specified inventory
+      :rtype: Bool
+
+
+   .. method:: find(self, **kwargs)
+
+      return the list of items eapal to the arguments set
+
+      :param kwargs:
+      :type kwargs:
+      :return:
+      :rtype:
+
+
+   .. method:: set(self, name, attribute, value)
+
+      sets for the named element the attribute to the value
+      :param name:
+      :type name:
+      :param value:
+      :type value:
+      :return:
+      :rtype: void
+
+
+   .. method:: get(self, name, attribute)
+
+      returns the value of the attribute of the named element
+
+      :param name:
+      :type name:
+      :param attribute:
+      :type attribute:
+      :return:
+      :rtype:
+
+
+   .. method:: activate(self, name)
+
+      activates a node
+
+      :param name:
+      :type name:
+      :return:
+      :rtype:
+
+
+   .. method:: deactivate(self, name)
+
+      activates a node
+
+      :param name:
+      :type name:
+      :return:
+      :rtype:
+
+
+   .. method:: print(self, order=None, header=None, output='table')
+
+      prints the inventory in the output format
+
+      :param order:
+      :type order:
+      :param header:
+      :type header:
+      :return:
+      :rtype:
+
+
+   .. method:: workers(self)
+
+      Returns the list of workers
+
+      :return: list of workers
+      :rtype: list
+
+
+   .. method:: manager(self)
+
+      Returns the list managers
+
+      :return: list of menagers. If only one manager it returns an item not a list
+      :rtype: list or single item
+
+
+   .. method:: read(self, filename=None)
+
+
+   .. method:: save(self, filename=None, format='yaml')
+
+
+   .. method:: delete(self, name)
+
+      Given a hostname, delete it from the inventory
+
+
+   .. method:: add(self, **kwargs)
+
+
+   .. method:: list(self, format='dict', sort_keys=True, order=None)
+
+
+   .. method:: _str(self, data, with_empty=False)
+
+
+
+.. class:: CommandSystem
+
+   Bases: :class:`object`
+
+   .. method:: status(cls, host)
+      :classmethod:
+
+
+

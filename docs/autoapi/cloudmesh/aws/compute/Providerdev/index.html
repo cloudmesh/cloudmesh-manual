@@ -1,0 +1,875 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh.aws.compute.Provider-dev &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute.Provider-dev</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cloudmesh/aws/compute/Providerdev/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh.aws.compute.Provider-dev">
+<span id="cloudmesh-aws-compute-provider-dev"></span><h1><a class="reference internal" href="#module-cloudmesh.aws.compute.Provider-dev" title="cloudmesh.aws.compute.Provider-dev"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute.Provider-dev</span></code></a><a class="headerlink" href="#module-cloudmesh.aws.compute.Provider-dev" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.aws.compute.Provider-dev.Provider" title="cloudmesh.aws.compute.Provider-dev.Provider"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Provider</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.aws.compute.Provider-dev.</span></code><code class="sig-name descname"><span class="pre">Provider</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'~/.cloudmesh/cloudmesh.yaml'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../abstract/ComputeNodeABC/index.html#cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC</span></code></a>, <a class="reference internal" href="../../../provider/index.html#cloudmesh.provider.ComputeProviderPlugin" title="cloudmesh.provider.ComputeProviderPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.provider.ComputeProviderPlugin</span></code></a></p>
+<dl class="py attribute">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.kind">
+<code class="sig-name descname"><span class="pre">kind</span></code><em class="property"> <span class="pre">=</span> <span class="pre">aws</span></em><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.sample">
+<code class="sig-name descname"><span class="pre">sample</span></code><em class="property"> <span class="pre">=</span>
+<span class="pre">cloudmesh:</span>
+&#160; <span class="pre">cloud:</span>
+&#160;&#160;&#160; <span class="pre">{name}:</span>
+&#160;&#160;&#160;&#160;&#160; <span class="pre">cm:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">active:</span> <span class="pre">true</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">heading:</span> <span class="pre">AWS</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">host:</span> <span class="pre">TBD</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">label:</span> <span class="pre">{name}</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">kind:</span> <span class="pre">aws</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">version:</span> <span class="pre">TBD</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">service:</span> <span class="pre">compute</span>
+&#160;&#160;&#160;&#160;&#160; <span class="pre">default:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">image:</span> <span class="pre">ami-0c929bde1796e1484</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">size:</span> <span class="pre">t2.medium</span>
+&#160;&#160;&#160;&#160;&#160; <span class="pre">credentials:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">region:</span> <span class="pre">{region}</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">EC2_SECURITY_GROUP:</span> <span class="pre">cloudmesh</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">EC2_ACCESS_ID:</span> <span class="pre">{EC2_ACCESS_ID}</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">EC2_SECRET_KEY:</span> <span class="pre">{EC2_SECRET_KEY}</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">EC2_PRIVATE_KEY_FILE_PATH:</span> <span class="pre">~/.cloudmesh/aws_cert.pem</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">EC2_PRIVATE_KEY_FILE_NAME:</span> <span class="pre">aws_cert</span></em><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.sample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.output">
+<code class="sig-name descname"><span class="pre">output</span></code><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.Print">
+<code class="sig-name descname"><span class="pre">Print</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.Print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.find">
+<code class="sig-name descname"><span class="pre">find</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.find" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.list_secgroups">
+<code class="sig-name descname"><span class="pre">list_secgroups</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the named security groups</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the security group. If not provided, returns all security group</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.list_secgroup_rules">
+<code class="sig-name descname"><span class="pre">list_secgroup_rules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider._is_group_name_valid">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_is_group_name_valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider._is_group_name_valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.add_secgroup">
+<code class="sig-name descname"><span class="pre">add_secgroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Adds security group</p></li>
+<li><p><strong>description</strong> – <p>name = name of the security group to be added/created
+description: Description of the security group. If its none then default description</p>
+<blockquote>
+<div><p>is added with user name and time of creation</p>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.add_secgroup_rule">
+<code class="sig-name descname"><span class="pre">add_secgroup_rule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.add_secgroup_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add rule to named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the security group to which rfule needs to be added</p></li>
+<li><p><strong>port</strong> – The start and end port range for the TCP and UDP protocols</p></li>
+<li><p><strong>protocol</strong> – </p></li>
+<li><p><strong>ip_range</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.remove_secgroup">
+<code class="sig-name descname"><span class="pre">remove_secgroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.remove_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.upload_secgroup">
+<code class="sig-name descname"><span class="pre">upload_secgroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.upload_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.add_rules_to_secgroup">
+<code class="sig-name descname"><span class="pre">add_rules_to_secgroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.remove_rules_from_secgroup">
+<code class="sig-name descname"><span class="pre">remove_rules_from_secgroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.remove_rules_from_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.set_server_metadata">
+<code class="sig-name descname"><span class="pre">set_server_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – virtual machine name</p></li>
+<li><p><strong>m</strong> – cm dict</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.get_server_metadata_tags">
+<code class="sig-name descname"><span class="pre">get_server_metadata_tags</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.get_server_metadata_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the metadata tag of EC2 resource
+:param name: Virtual machine name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary with Metadata information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.get_server_metadata">
+<code class="sig-name descname"><span class="pre">get_server_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.get_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the metadata tag of EC2 resource
+:param name: Virtual machine name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary with Metadata information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.list_public_ips">
+<code class="sig-name descname"><span class="pre">list_public_ips</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.list_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the public ip addresses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>available</strong> – if True only those that are not allocated will be
+returned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.delete_public_ip">
+<code class="sig-name descname"><span class="pre">delete_public_ip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.delete_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the ip address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ip</strong> – the ip address, if None than all will be deleted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.create_public_ip">
+<code class="sig-name descname"><span class="pre">create_public_ip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.create_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new public IP address to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ip address information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.find_available_public_ip">
+<code class="sig-name descname"><span class="pre">find_available_public_ip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single public available ip address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ip</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider._get_allocation_ids">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_get_allocation_ids</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider._get_allocation_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.attach_public_ip">
+<code class="sig-name descname"><span class="pre">attach_public_ip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.attach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the vm</p></li>
+<li><p><strong>ip</strong> – The ip address</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.detach_public_ip">
+<code class="sig-name descname"><span class="pre">detach_public_ip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.detach_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the vm</p></li>
+<li><p><strong>ip</strong> – The ip address</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.wait">
+<code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>wais till the given VM can be logged into</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vm</strong> – name of the vm</p></li>
+<li><p><strong>interval</strong> – interval for checking</p></li>
+<li><p><strong>timeout</strong> – timeout</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.ssh">
+<code class="sig-name descname"><span class="pre">ssh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.ssh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider._get_instance_id">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_get_instance_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ec2_resource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider._get_instance_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.start">
+<code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>start a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the unique instance name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.stop">
+<code class="sig-name descname"><span class="pre">stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hibernate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>stops the node with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – the instance name</p></li>
+<li><p><strong>hibernate</strong> – stop or hibernate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.info">
+<code class="sig-name descname"><span class="pre">info</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the information of a node with a given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the  node name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.instance_is_reachable">
+<code class="sig-name descname"><span class="pre">instance_is_reachable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.instance_is_reachable" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the information of a statuso of a VM with a given name, useful for when you want to check if the vm is ready for ssh
+Note: describe_instance_status doesn’t filter by tag , so we should use instance ID
+:param name: name
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.list">
+<code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>list all nodes id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of dicts representing the nodes</p>
+</dd>
+</dl>
+<p>‘instance_tag’: each_instance.tags[0][‘Name’]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.suspend">
+<code class="sig-name descname"><span class="pre">suspend</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspends the node with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.resume">
+<code class="sig-name descname"><span class="pre">resume</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.destroy">
+<code class="sig-name descname"><span class="pre">destroy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the node
+:param name: the name of the node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the dict of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.create">
+<code class="sig-name descname"><span class="pre">create</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">360</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secgroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – the name of the node</p></li>
+<li><p><strong>image</strong> – the image used</p></li>
+<li><p><strong>size</strong> – the size of the image</p></li>
+<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image
+does not boot. The default is set to 3 minutes.</p></li>
+<li><p><strong>kwargs</strong> – additional arguments passed along at time of boot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the list with the modified dicts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.rename">
+<code class="sig-name descname"><span class="pre">rename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>rename a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination</strong> – the destination name</p></li>
+<li><p><strong>name</strong> – the current name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict with the new name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.keys">
+<code class="sig-name descname"><span class="pre">keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.key_upload">
+<code class="sig-name descname"><span class="pre">key_upload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key
+:return: the dict of the key</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.key_delete">
+<code class="sig-name descname"><span class="pre">key_delete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.key_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the key with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the key</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the key</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.add_server_metadata">
+<code class="sig-name descname"><span class="pre">add_server_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.add_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add or Update tag to metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the fm</p></li>
+<li><p><strong>tags</strong> – tags to be added to vm metadata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the metadata</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.delete_server_metadata">
+<code class="sig-name descname"><span class="pre">delete_server_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the vm</p></li>
+<li><p><strong>tags</strong> – tags to be deleted from vm metadata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the metadata</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider._get_account_id">
+<code class="sig-name descname"><span class="pre">_get_account_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider._get_account_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>retrieves the acount id which is used to find the images of the current account
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.images">
+<code class="sig-name descname"><span class="pre">images</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the images on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the dict of the images</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.get_images_and_import">
+<code class="sig-name descname"><span class="pre">get_images_and_import</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.get_images_and_import" title="Permalink to this definition">¶</a></dt>
+<dd><p>this is a helper function for images() to allow the images to be passed and saved to the database with
+databaseimportasjson() decorator instead of the regular databaseupdate() decorator.
+:param data:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.image">
+<code class="sig-name descname"><span class="pre">image</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the image with a given nmae</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the image</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the image</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.flavors">
+<code class="sig-name descname"><span class="pre">flavors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.flavor">
+<code class="sig-name descname"><span class="pre">flavor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the flavor with a given name
+:param name: The name of the flavor
+:return: The dict of the flavor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.aws.compute.Provider-dev.Provider.update_dict">
+<code class="sig-name descname"><span class="pre">update_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function adds a cloudmesh cm dict to each dict in the list
+elements.
+Libcloud
+returns an object or list of objects With the dict method
+this object is converted to a dict. Typically this method is used
+internally.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> – the list of original dicts. If elements is a single
+dict a list with a single element is returned.</p></li>
+<li><p><strong>kind</strong> – for some kinds special attributes are added. This includes
+key, vm, image, flavor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list with the modified dicts</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh.aws.compute.Provider-dev.provider">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.aws.compute.Provider-dev.</span></code><code class="sig-name descname"><span class="pre">provider</span></code><a class="headerlink" href="#cloudmesh.aws.compute.Provider-dev.provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

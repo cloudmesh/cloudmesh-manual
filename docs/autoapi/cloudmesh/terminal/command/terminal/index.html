@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh.terminal.command.terminal &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.terminal.command.terminal</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cloudmesh/terminal/command/terminal/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh.terminal.command.terminal">
+<span id="cloudmesh-terminal-command-terminal"></span><h1><a class="reference internal" href="#module-cloudmesh.terminal.command.terminal" title="cloudmesh.terminal.command.terminal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.terminal.command.terminal</span></code></a><a class="headerlink" href="#module-cloudmesh.terminal.command.terminal" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.terminal.command.terminal.TerminalCommand" title="cloudmesh.terminal.command.terminal.TerminalCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TerminalCommand</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.terminal.command.terminal.</span></code><code class="sig-name descname"><span class="pre">TerminalCommand</span></code><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../shell/command/index.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_term">
+<code class="sig-name descname"><span class="pre">do_term</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_term" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>term COMMAND</p>
+</dd>
+<dt>Arguments:</dt><dd><blockquote>
+<div><p>COMMAND   The command to execute in the terminal</p>
+</div></blockquote>
+<p>Opens a new terminal and executes the command in it
+The terminal stays openafter executing it in an interctive mode
+The terminal is started in the background</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_banner">
+<code class="sig-name descname"><span class="pre">do_banner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_banner" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT…</p>
+</dd>
+<dt>Arguments:</dt><dd><p>TEXT…   The text message from which to create the banner
+CHAR      The character for the frame.
+WIDTH     Width of the banner
+INDENT    indentation of the banner
+COLOR     the color</p>
+<dl>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">-c <var>CHAR</var></span></kbd></dt>
+<dd><p>The character for the frame. [default: #]</p>
+</dd>
+<dt><kbd><span class="option">-n <var>WIDTH</var></span></kbd></dt>
+<dd><p>The width of the banner. [default: 70]</p>
+</dd>
+<dt><kbd><span class="option">-i <var>INDENT</var></span></kbd></dt>
+<dd><p>The width of the banner. [default: 0]</p>
+</dd>
+<dt><kbd><span class="option">-r <var>COLOR</var></span></kbd></dt>
+<dd><p>The color of the banner. [default: NORMAL]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Prints a banner form a one line text message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch">
+<code class="sig-name descname"><span class="pre">do_stopwatch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>stopwatch start TIMER
+stopwatch stop TIMER
+stopwatch print [TIMER]
+stopwatch benchmark</p>
+</dd>
+<dt>Arguments:</dt><dd><p>TIMER  the name of the timer</p>
+</dd>
+<dt>Description:</dt><dd><p>THIS IS NOT YET WORKING
+starts and stops named timers and prints them</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_clear">
+<code class="sig-name descname"><span class="pre">do_clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_clear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>clear</p>
+</dd>
+</dl>
+<p>Clears the screen.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep">
+<code class="sig-name descname"><span class="pre">do_sleep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>sleep SECONDS</p>
+</dd>
+</dl>
+<p>Clears the screen.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_echo">
+<code class="sig-name descname"><span class="pre">do_echo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_echo" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>echo  [-r COLOR] TEXT</p>
+<dl>
+<dt>Arguments:</dt><dd><p>TEXT   The text message to print
+COLOR  the color</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">-r <var>COLOR</var></span></kbd></dt>
+<dd><p>The color of the text. [default: NORMAL]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Prints a text in the given color</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_pause">
+<code class="sig-name descname"><span class="pre">do_pause</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_pause" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>pause [MESSAGE]</p>
+</dd>
+<dt>Arguments:</dt><dd><p>MESSAGE  message to be displayed</p>
+</dd>
+<dt>Description:</dt><dd><p>Displays the specified text then waits for the user to press RETURN.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose">
+<code class="sig-name descname"><span class="pre">set_verbose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.set_banner">
+<code class="sig-name descname"><span class="pre">set_banner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">banner</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

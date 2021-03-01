@@ -1,0 +1,159 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.parallelgdrive.Provider_old`
+===============================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.parallelgdrive.Provider_old
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.parallelgdrive.Provider_old.Provider
+
+
+
+.. class:: Provider(service=None)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. attribute:: kind
+      :annotation: = parallelgdrive
+
+      
+
+   .. attribute:: sample
+      :annotation: = TODO: missing
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: generate_flags_json(self)
+
+
+   .. method:: generate_key_json(self)
+
+      TODO: missing, also define parameters
+
+      :return:
+
+
+   .. method:: get_credentials(self)
+
+      We have stored the credentials in ".credentials"
+      folder and there is a file named 'google-drive-credentials.json'
+      that has all the credentials required for our authentication
+      If there is nothing stored in it this program creates credentials
+      json file for future authentication
+      Here the authentication type is OAuth2
+
+      :return:
+      :rtype:
+
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      TODO: missing, also define parameters
+
+      :param source:
+      :param destination:
+      :param recursive:
+      :return:
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      TODO: missing, also define parameters
+
+      :param source:
+      :param destination:
+      :param recursive:
+      :return:
+
+
+   .. method:: delete(self, filename=None, recursive=False)
+
+      TODO: missing, also define parameters
+
+      :param filename:
+      :param recursive:
+      :return:
+
+
+   .. method:: create_dir(self, service=None, directory=None)
+
+      TODO: missing, also define parameters
+
+      :param service:
+      :param directory:
+      :return:
+
+
+   .. method:: list(self, source=None, recursive=False)
+
+      TODO: missing, also define parameters
+
+      :param source:
+      :param recursive:
+      :return:
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      TODO: missing, also define parameters
+
+      :param directory:
+      :param filename:
+      :param recursive:
+      :return:
+
+
+   .. method:: upload_file(self, source, filename, parent_it)
+
+      TODO: missing
+
+      :param source:
+      :param filename:
+      :param parent_it:
+      :return:
+
+
+   .. method:: download_file(self, source, file_id, file_name, mime_type)
+
+      TODO: missing, also define parameters
+
+      :param source:
+      :param file_id:
+      :param file_name:
+      :param mime_type:
+      :return:
+
+
+   .. method:: cloud_path(self, srv_path)
+
+      Internal function to determine if the cloud path specified is file or
+      folder or mix
+
+      TODO: missing, also define parameters
+
+      :param srv_path:
+      :return:
+
+
+   .. method:: update_dict(self, elements)
+
+      TODO: missing, also define parameters
+
+      :param elements:
+      :return:
+
+
+

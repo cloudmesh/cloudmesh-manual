@@ -1,0 +1,116 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.box.Provider`
+================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.box.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.box.Provider.Provider
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.box.Provider.get_id
+   cloudmesh-storage.cloudmesh.storage.provider.box.Provider.change_path
+   cloudmesh-storage.cloudmesh.storage.provider.box.Provider.update_dict
+
+
+.. function:: get_id(source, results, source_type)
+
+
+.. function:: change_path(source)
+
+
+.. function:: update_dict(elements)
+
+
+.. class:: Provider(service=None)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. attribute:: kind
+      :annotation: = box
+
+      
+
+   .. attribute:: sample
+      
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      uploads file to Box, if source is directory and recursive is true
+      uploads all files in source directory
+
+      :param source: local file or directory to be uploaded
+      :param destination: cloud directory to upload to
+      :param recursive: if true upload all files in source directory,
+                        source must be directory not file
+      :return: file dict(s) that have been uploaded
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      downloads file from Box, if recursive is true and source is directory downloads all files in directory
+
+      :param source: cloud file or directory to download
+      :param destination: local directory to be downloaded into
+      :param recursive: if true download all files in source directory, source must be directory
+      :return: file dict(s) that have been downloaded
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      searches directory for file, if recursive searches all subdirectories
+
+      :param directory: cloud directory to search in
+      :param filename: name of file to search for
+      :param recursive: if true search all child directories of original directory
+      :return: file dict(s) matching filename in specified directory
+
+
+   .. method:: create_dir(self, directory=None)
+
+      creates a new directory
+
+      :param directory: path for new directory
+      :return: dict of new directory
+
+
+   .. method:: list(self, source=None, recursive=False)
+
+      lists all contents of directory, if recursive lists contents of subdirectories as well
+
+      :param source: cloud directory to list all contents of
+      :param recursive: if true list contents of all child directories
+      :return: dict(s) of files and directories
+
+
+   .. method:: delete(self, source=None, recursive=False)
+
+      deletes file or directory
+
+      :param source: file or directory to be deleted
+      :param recursive: copy the directory recurseively
+      :return: None
+
+
+

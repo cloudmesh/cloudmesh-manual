@@ -1,0 +1,141 @@
+:mod:`cloudmesh-cloud.cloudmesh.vbox.Provider`
+==============================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.vbox.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.vbox.Provider.Provider
+
+
+
+.. class:: Provider(cloud=None, config=None)
+
+
+   Bases: :class:`object`
+
+   .. method:: _check_version(self, r)
+
+      checks if vargrant version is up to date
+
+      :return:
+
+
+   .. method:: start(self, name)
+
+      start a node
+
+      :param name: the unique node name
+      :return:  The dict representing the node
+
+
+   .. method:: nodes(self, verbose=False)
+
+      list all nodes id
+
+      :return: an array of dicts representing the nodes
+
+
+   .. method:: boot(self, **kwargs)
+
+
+   .. method:: execute(self, name, command, cwd=None)
+
+
+   .. method:: to_dict(self, lst, id='name')
+
+
+   .. method:: stop(self, name=None)
+
+      stops the node with the given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: _convert_assignment_to_dict(self, content)
+
+
+   .. method:: info(self, name=None)
+
+      gets the information of a node with a given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: suspend(self, name=None)
+
+      suspends the node with the given name
+
+      :param name: the name of the node
+      :return: The dict representing the node
+
+
+   .. method:: resume(self, name=None)
+
+      resume the named node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: destroy(self, name=None)
+
+      Destroys the node
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: delete(self, name=None)
+
+
+   .. method:: vagrantfile(self, **kwargs)
+
+
+   .. method:: _get_specification(self, cloud=None, name=None, port=None, image=None, **kwargs)
+
+
+   .. method:: create(self, name=None, image=None, size=None, timeout=360, port=80, **kwargs)
+
+      creates a named node
+
+      :param port:
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the
+                      image does  not boot. The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+      :return:
+
+
+   .. method:: rename(self, name=None, destination=None)
+
+      rename a node
+
+      :param name: the current name
+      :param destination: the new name
+      :return: the dict with the new name
+
+
+   .. method:: find_image(cls, keywords)
+      :classmethod:
+
+      Finds an image on hashicorps web site
+
+      :param keywords: The keywords to narrow down the search
+
+
+   .. method:: list_images(cls)
+      :classmethod:
+
+
+

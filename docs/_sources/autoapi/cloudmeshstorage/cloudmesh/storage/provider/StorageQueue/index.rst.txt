@@ -1,0 +1,194 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.StorageQueue`
+================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.StorageQueue
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue
+
+
+
+.. class:: StorageQueue(service=None, parallelism=4)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. attribute:: put_run
+      
+
+      
+
+   .. attribute:: get_run
+      
+
+      
+
+   .. attribute:: mkdir_run
+      
+
+      
+
+   .. attribute:: cancel_run
+      
+
+      
+
+   .. attribute:: delete_run
+      
+
+      
+
+   .. attribute:: copy_run
+      
+
+      
+
+   .. attribute:: list_run
+      
+
+      
+
+   .. attribute:: search_run
+      
+
+      
+
+   .. method:: pretty_print(self, data, data_type, output=None)
+
+
+   .. method:: update_dict(self, elements)
+
+      this is an internal function for building dict object
+      :param elements:
+      :return:
+
+
+   .. method:: _notimplemented(self, specification)
+      :abstractmethod:
+
+      :param specification:
+      :return:
+
+
+   .. method:: add_cm(self, cm_name)
+
+
+   .. method:: copy(self, sourcefile, destinationfile, recursive=False)
+
+      adds a copy action to the queue
+      copies the file from the source service to the destination service using
+      the file located in the path and storing it into the remote. If remote
+      is not specified path is used for it.
+      The copy will not be performed if the files are the same.
+      :param sourcefile: The source file to copy
+      :param destinationfile: The destination file path
+      :param recursive: whether or not copy the file/dir recursively
+      :return:
+
+
+   .. method:: delete(self, source, recursive=True)
+
+      adds a delete action to the queue
+
+      :param source:
+      :param recursive:
+      :return:
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      gets the destination and copies it in source
+
+      :param directory: the directory which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: cancel(self, name=None)
+
+      cancels a job with a specific id
+      :param name:
+      :return:
+
+
+   .. method:: get(self, source, destination, recursive=False)
+
+      gets the destination and copies it in source
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: put(self, source, destination, recursive=False)
+
+      puts the source on the service
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: create_dir(self, directory)
+
+      adds a mkdir action to the queue
+      create the directory in the storage service
+      :param directory:
+      :return:
+
+
+   .. method:: list(self, source, dir_only=False, recursive=False)
+
+      adds a list action to the queue
+      list the directory in the storage service
+      :param source:
+      :param dir_only:
+      :param recursive:
+      :return:
+
+
+   .. method:: action(self, specification)
+
+      executes the action identified by the specification. This is used by the
+      run command.
+      :param specification:
+      :return:
+
+
+   .. method:: get_actions(self)
+
+      get all the actions from database
+      param:
+      :return lists of actions from database
+
+
+   .. method:: run(self)
+
+      runs the copy process for all jobs in the queue and completes when all
+      actions are completed
+
+      :return:
+
+
+   .. method:: monitor(self, status, rate=5, output='table')
+
+
+   .. method:: clean(self)
+
+
+

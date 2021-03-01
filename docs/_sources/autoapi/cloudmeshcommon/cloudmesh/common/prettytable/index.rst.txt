@@ -1,0 +1,783 @@
+:mod:`cloudmesh-common.cloudmesh.common.prettytable`
+====================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.prettytable
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.prettytable.PrettyTable
+   cloudmesh-common.cloudmesh.common.prettytable.TableHandler
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.prettytable._get_size
+   cloudmesh-common.cloudmesh.common.prettytable._char_block_width
+   cloudmesh-common.cloudmesh.common.prettytable._str_block_width
+   cloudmesh-common.cloudmesh.common.prettytable.from_csv
+   cloudmesh-common.cloudmesh.common.prettytable.from_db_cursor
+   cloudmesh-common.cloudmesh.common.prettytable.from_html
+   cloudmesh-common.cloudmesh.common.prettytable.from_html_one
+   cloudmesh-common.cloudmesh.common.prettytable.main
+
+
+.. data:: __version__
+   :annotation: = 0.7.3
+
+   
+
+.. data:: py3k
+   
+
+   
+
+.. data:: unicode
+   
+
+   
+
+.. data:: FRAME
+   :annotation: = 0
+
+   
+
+.. data:: ALL
+   :annotation: = 1
+
+   
+
+.. data:: NONE
+   :annotation: = 2
+
+   
+
+.. data:: HEADER
+   :annotation: = 3
+
+   
+
+.. data:: DEFAULT
+   :annotation: = 10
+
+   
+
+.. data:: MSWORD_FRIENDLY
+   :annotation: = 11
+
+   
+
+.. data:: PLAIN_COLUMNS
+   :annotation: = 12
+
+   
+
+.. data:: RANDOM
+   :annotation: = 20
+
+   
+
+.. function:: _get_size(text)
+
+
+.. class:: PrettyTable(field_names=None, **kwargs)
+
+
+   Bases: :class:`object`
+
+   .. attribute:: field_names
+      
+
+      
+
+   .. attribute:: align
+      
+
+      
+
+   .. attribute:: valign
+      
+
+      
+
+   .. attribute:: max_width
+      
+
+      
+
+   .. attribute:: fields
+      
+
+      
+
+   .. attribute:: start
+      
+
+      
+
+   .. attribute:: end
+      
+
+      
+
+   .. attribute:: sortby
+      
+
+      
+
+   .. attribute:: reversesort
+      
+
+      
+
+   .. attribute:: sort_key
+      
+
+      
+
+   .. attribute:: header
+      
+
+      
+
+   .. attribute:: header_style
+      
+
+      
+
+   .. attribute:: border
+      
+
+      
+
+   .. attribute:: hrules
+      
+
+      
+
+   .. attribute:: vrules
+      
+
+      
+
+   .. attribute:: int_format
+      
+
+      
+
+   .. attribute:: float_format
+      
+
+      
+
+   .. attribute:: padding_width
+      
+
+      
+
+   .. attribute:: left_padding_width
+      
+
+      
+
+   .. attribute:: right_padding_width
+      
+
+      
+
+   .. attribute:: vertical_char
+      
+
+      
+
+   .. attribute:: horizontal_char
+      
+
+      
+
+   .. attribute:: junction_char
+      
+
+      
+
+   .. attribute:: format
+      
+
+      
+
+   .. attribute:: attributes
+      
+
+      
+
+   .. method:: _unicode(self, value)
+
+
+   .. method:: _justify(self, text, width, align)
+
+
+   .. method:: __getattr__(self, name)
+
+
+   .. method:: __getitem__(self, index)
+
+
+   .. method:: __unicode__(self)
+
+
+   .. method:: _validate_option(self, option, val)
+
+
+   .. method:: _validate_field_names(self, val)
+
+
+   .. method:: _validate_header_style(self, val)
+
+
+   .. method:: _validate_align(self, val)
+
+
+   .. method:: _validate_valign(self, val)
+
+
+   .. method:: _validate_nonnegative_int(self, name, val)
+
+
+   .. method:: _validate_true_or_false(self, name, val)
+
+
+   .. method:: _validate_int_format(self, name, val)
+
+
+   .. method:: _validate_float_format(self, name, val)
+
+
+   .. method:: _validate_function(self, name, val)
+
+
+   .. method:: _validate_hrules(self, name, val)
+
+
+   .. method:: _validate_vrules(self, name, val)
+
+
+   .. method:: _validate_field_name(self, name, val)
+
+
+   .. method:: _validate_all_field_names(self, name, val)
+
+
+   .. method:: _validate_single_char(self, name, val)
+
+
+   .. method:: _validate_attributes(self, name, val)
+
+
+   .. method:: _get_field_names(self)
+
+
+   .. method:: _set_field_names(self, val)
+
+
+   .. method:: _get_align(self)
+
+
+   .. method:: _set_align(self, val)
+
+
+   .. method:: _get_valign(self)
+
+
+   .. method:: _set_valign(self, val)
+
+
+   .. method:: _get_max_width(self)
+
+
+   .. method:: _set_max_width(self, val)
+
+
+   .. method:: _get_fields(self)
+
+      List or tuple of field names to include in displays
+
+      Arguments:
+
+      fields - list or tuple of field names to include in displays
+
+
+   .. method:: _set_fields(self, val)
+
+
+   .. method:: _get_start(self)
+
+      Start index of the range of rows to print
+
+      Arguments:
+
+      start - index of first data row to include in output
+
+
+   .. method:: _set_start(self, val)
+
+
+   .. method:: _get_end(self)
+
+      End index of the range of rows to print
+
+      Arguments:
+
+      end - index of last data row to include in output PLUS ONE (list slice style)
+
+
+   .. method:: _set_end(self, val)
+
+
+   .. method:: _get_sortby(self)
+
+      Name of field by which to sort rows
+
+      Arguments:
+
+      sortby - field name to sort by
+
+
+   .. method:: _set_sortby(self, val)
+
+
+   .. method:: _get_reversesort(self)
+
+      Controls direction of sorting (ascending vs descending)
+
+      Arguments:
+
+      reveresort - set to True to sort by descending order, or False to sort by ascending order
+
+
+   .. method:: _set_reversesort(self, val)
+
+
+   .. method:: _get_sort_key(self)
+
+      Sorting key function, applied to data points before sorting
+
+      Arguments:
+
+      sort_key - a function which takes one argument and returns something to be sorted
+
+
+   .. method:: _set_sort_key(self, val)
+
+
+   .. method:: _get_header(self)
+
+      Controls printing of table header with field names
+
+      Arguments:
+
+      header - print a header showing field names (True or False)
+
+
+   .. method:: _set_header(self, val)
+
+
+   .. method:: _get_header_style(self)
+
+      Controls stylisation applied to field names in header
+
+      Arguments:
+
+      header_style - stylisation to apply to field names in header ("cap", "title", "upper", "lower" or None)
+
+
+   .. method:: _set_header_style(self, val)
+
+
+   .. method:: _get_border(self)
+
+      Controls printing of border around table
+
+      Arguments:
+
+      border - print a border around the table (True or False)
+
+
+   .. method:: _set_border(self, val)
+
+
+   .. method:: _get_hrules(self)
+
+      Controls printing of horizontal rules after rows
+
+      Arguments:
+
+      hrules - horizontal rules style.  Allowed values: FRAME, ALL, HEADER, NONE
+
+
+   .. method:: _set_hrules(self, val)
+
+
+   .. method:: _get_vrules(self)
+
+      Controls printing of vertical rules between columns
+
+      Arguments:
+
+      vrules - vertical rules style.  Allowed values: FRAME, ALL, NONE
+
+
+   .. method:: _set_vrules(self, val)
+
+
+   .. method:: _get_int_format(self)
+
+      Controls formatting of integer data
+      Arguments:
+
+      int_format - integer format string
+
+
+   .. method:: _set_int_format(self, val)
+
+
+   .. method:: _get_float_format(self)
+
+      Controls formatting of floating point data
+      Arguments:
+
+      float_format - floating point format string
+
+
+   .. method:: _set_float_format(self, val)
+
+
+   .. method:: _get_padding_width(self)
+
+      The number of empty spaces between a column's edge and its content
+
+      Arguments:
+
+      padding_width - number of spaces, must be a positive integer
+
+
+   .. method:: _set_padding_width(self, val)
+
+
+   .. method:: _get_left_padding_width(self)
+
+      The number of empty spaces between a column's left edge and its content
+
+      Arguments:
+
+      left_padding - number of spaces, must be a positive integer
+
+
+   .. method:: _set_left_padding_width(self, val)
+
+
+   .. method:: _get_right_padding_width(self)
+
+      The number of empty spaces between a column's right edge and its content
+
+      Arguments:
+
+      right_padding - number of spaces, must be a positive integer
+
+
+   .. method:: _set_right_padding_width(self, val)
+
+
+   .. method:: _get_vertical_char(self)
+
+      The charcter used when printing table borders to draw vertical lines
+
+      Arguments:
+
+      vertical_char - single character string used to draw vertical lines
+
+
+   .. method:: _set_vertical_char(self, val)
+
+
+   .. method:: _get_horizontal_char(self)
+
+      The charcter used when printing table borders to draw horizontal lines
+
+      Arguments:
+
+      horizontal_char - single character string used to draw horizontal lines
+
+
+   .. method:: _set_horizontal_char(self, val)
+
+
+   .. method:: _get_junction_char(self)
+
+      The charcter used when printing table borders to draw line junctions
+
+      Arguments:
+
+      junction_char - single character string used to draw line junctions
+
+
+   .. method:: _set_junction_char(self, val)
+
+
+   .. method:: _get_format(self)
+
+      Controls whether or not HTML tables are formatted to match styling options
+
+      Arguments:
+
+      format - True or False
+
+
+   .. method:: _set_format(self, val)
+
+
+   .. method:: _get_attributes(self)
+
+      A dictionary of HTML attribute name/value pairs to be included in the <table> tag when printing HTML
+
+      Arguments:
+
+      attributes - dictionary of attributes
+
+
+   .. method:: _set_attributes(self, val)
+
+
+   .. method:: _get_options(self, kwargs)
+
+
+   .. method:: set_style(self, style)
+
+
+   .. method:: _set_default_style(self)
+
+
+   .. method:: _set_msword_style(self)
+
+
+   .. method:: _set_columns_style(self)
+
+
+   .. method:: _set_random_style(self)
+
+
+   .. method:: add_row(self, row)
+
+      Add a row to the table
+
+      Arguments:
+
+      row - row of data, should be a list with as many elements as the table
+      has fields
+
+
+   .. method:: del_row(self, row_index)
+
+      Delete a row to the table
+
+      Arguments:
+
+      row_index - The index of the row you want to delete.  Indexing starts at 0.
+
+
+   .. method:: add_column(self, fieldname, column, align='c', valign='t')
+
+      Add a column to the table.
+
+      Arguments:
+
+      fieldname - name of the field to contain the new column of data
+      column - column of data, should be a list with as many elements as the
+      table has rows
+      align - desired alignment for this column - "l" for left, "c" for centre and "r" for right
+      valign - desired vertical alignment for new columns - "t" for top, "m" for middle and "b" for bottom
+
+
+   .. method:: clear_rows(self)
+
+      Delete all rows from the table but keep the current field names
+
+
+   .. method:: clear(self)
+
+      Delete all rows and field names from the table, maintaining nothing but styling options
+
+
+   .. method:: copy(self)
+
+
+   .. method:: _format_value(self, field, value)
+
+
+   .. method:: _compute_widths(self, rows, options)
+
+
+   .. method:: _get_padding_widths(self, options)
+
+
+   .. method:: _get_rows(self, options)
+
+      Return only those data rows that should be printed, based on slicing and sorting.
+
+      Arguments:
+
+      options - dictionary of option settings.
+
+
+   .. method:: _format_row(self, row, options)
+
+
+   .. method:: _format_rows(self, rows, options)
+
+
+   .. method:: get_string(self, **kwargs)
+
+      Return string representation of table in current state.
+
+      Arguments:
+
+      start - index of first data row to include in output
+      end - index of last data row to include in output PLUS ONE (list slice style)
+      fields - names of fields (columns) to include
+      header - print a header showing field names (True or False)
+      border - print a border around the table (True or False)
+      hrules - controls printing of horizontal rules after rows.  Allowed values: ALL, FRAME, HEADER, NONE
+      vrules - controls printing of vertical rules between columns.  Allowed values: FRAME, ALL, NONE
+      int_format - controls formatting of integer data
+      float_format - controls formatting of floating point data
+      padding_width - number of spaces on either side of column data (only used if left and right paddings are None)
+      left_padding_width - number of spaces on left hand side of column data
+      right_padding_width - number of spaces on right hand side of column data
+      vertical_char - single character string used to draw vertical lines
+      horizontal_char - single character string used to draw horizontal lines
+      junction_char - single character string used to draw line junctions
+      sortby - name of field to sort rows by
+      sort_key - sorting key function, applied to data points before sorting
+      reversesort - True or False to sort in descending or ascending order
+
+
+   .. method:: _stringify_hrule(self, options)
+
+
+   .. method:: _stringify_header(self, options)
+
+
+   .. method:: _stringify_row(self, row, options)
+
+
+   .. method:: get_html_string(self, **kwargs)
+
+      Return string representation of HTML formatted version of table in current state.
+
+      Arguments:
+
+      start - index of first data row to include in output
+      end - index of last data row to include in output PLUS ONE (list slice style)
+      fields - names of fields (columns) to include
+      header - print a header showing field names (True or False)
+      border - print a border around the table (True or False)
+      hrules - controls printing of horizontal rules after rows.  Allowed values: ALL, FRAME, HEADER, NONE
+      vrules - controls printing of vertical rules between columns.  Allowed values: FRAME, ALL, NONE
+      int_format - controls formatting of integer data
+      float_format - controls formatting of floating point data
+      padding_width - number of spaces on either side of column data (only used if left and right paddings are None)
+      left_padding_width - number of spaces on left hand side of column data
+      right_padding_width - number of spaces on right hand side of column data
+      sortby - name of field to sort rows by
+      sort_key - sorting key function, applied to data points before sorting
+      attributes - dictionary of name/value pairs to include as HTML attributes in the <table> tag
+
+
+   .. method:: _get_simple_html_string(self, options)
+
+
+   .. method:: _get_formatted_html_string(self, options)
+
+
+
+.. function:: _char_block_width(char)
+
+
+.. function:: _str_block_width(val)
+
+
+.. function:: from_csv(fp, field_names=None, **kwargs)
+
+
+.. function:: from_db_cursor(cursor, **kwargs)
+
+
+.. class:: TableHandler(**kwargs)
+
+
+   Bases: :class:`html.parser.HTMLParser`
+
+   Find tags and other markup and call handler functions.
+
+   Usage:
+       p = HTMLParser()
+       p.feed(data)
+       ...
+       p.close()
+
+   Start tags are handled by calling self.handle_starttag() or
+   self.handle_startendtag(); end tags by self.handle_endtag().  The
+   data between tags is passed from the parser to the derived class
+   by calling self.handle_data() with the data as argument (the data
+   may be split up in arbitrary chunks).  If convert_charrefs is
+   True the character references are converted automatically to the
+   corresponding Unicode character (and self.handle_data() is no
+   longer split in chunks), otherwise they are passed by calling
+   self.handle_entityref() or self.handle_charref() with the string
+   containing respectively the named or numeric reference as the
+   argument.
+
+   .. method:: handle_starttag(self, tag, attrs)
+
+
+   .. method:: handle_endtag(self, tag)
+
+
+   .. method:: handle_data(self, data)
+
+
+   .. method:: generate_table(self, rows)
+
+      Generates from a list of rows a PrettyTable object.
+
+
+   .. method:: make_fields_unique(self, fields)
+
+      iterates over the row and make each field unique
+
+
+
+.. function:: from_html(html_code, **kwargs)
+
+   Generates a list of PrettyTables from a string of HTML code. Each <table> in
+   the HTML becomes one PrettyTable object.
+
+
+.. function:: from_html_one(html_code, **kwargs)
+
+   Generates a PrettyTables from a string of HTML code which contains only a
+   single <table>
+
+
+.. function:: main()
+
+

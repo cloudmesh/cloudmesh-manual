@@ -1,0 +1,346 @@
+:mod:`cloudmesh-cloud.cloudmesh.compute.vm.Provider`
+====================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.compute.vm.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.compute.vm.Provider.Provider
+
+
+
+.. class:: Provider(name=None)
+
+
+   Bases: :class:`cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC`
+
+   .. method:: get_kind()
+      :staticmethod:
+
+
+   .. method:: get_provider(kind)
+      :staticmethod:
+
+
+   .. method:: cloudname(self)
+
+
+   .. method:: expand(self, names)
+
+
+   .. method:: destroy(self, name=None)
+
+      Destroys the node
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: loop_name(self, names, func, **kwargs)
+
+
+   .. method:: loop(self, func, **kwargs)
+
+
+   .. method:: keys(self)
+
+      Lists the keys on the cloud
+
+      :return: dict
+
+
+   .. method:: list(self, **kwargs)
+
+      list all vms
+
+      :return: an array of dicts representing the nodes
+
+
+   .. method:: flavor(self, **kwargs)
+
+      Gets the flavor with a given name
+      :param name: The name of the flavor
+      :return: The dict of the flavor
+
+
+   .. method:: flavors(self, **kwargs)
+
+      Lists the flavors on the cloud
+
+      :return: dict of flavors
+
+
+   .. method:: add_collection(self, d, *args)
+
+
+   .. method:: images(self, *args, **kwargs)
+
+      Lists the images on the cloud
+      :return: dict
+
+
+   .. method:: create(self, **kwargs)
+
+      creates a named node
+
+      :param group: a list of groups the vm belongs to
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the image does not boot.
+             The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+      :return:
+
+
+   .. method:: compress(self, cm)
+
+      Opensatck metadata is limited, we remove the spaces
+
+      :param cm:
+      :return:
+
+
+   .. method:: _create(self, **arguments)
+
+
+   .. method:: find_attribute(self, name, dicts)
+
+
+   .. method:: find_clouds(self, name=None)
+
+
+   .. method:: stop(self, name=None, **kwargs)
+
+      stops the node with the given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: start(self, name=None, **kwargs)
+
+      start a node
+
+      :param name: the unique node name
+      :return:  The dict representing the node
+
+
+   .. method:: info(self, name=None, **kwargs)
+
+      gets the information of a node with a given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: resume(self, name=None)
+
+      resume the named node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: status(self, name=None)
+
+
+   .. method:: reboot(self, name=None)
+
+      Reboot a list of nodes with the given names
+
+      :param name: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: set_server_metadata(self, name, **metadata)
+
+      sets the metadata for the server
+
+      :param name: name of the vm
+      :param metadata: the metadata
+      :return:
+
+
+   .. method:: get_server_metadata(self, name)
+
+      gets the metadata for the server
+
+      :param name: name of the vm
+      :return:
+
+
+   .. method:: delete_server_metadata(self, name, key)
+
+      gets the metadata for the server
+
+      :param name: name of the vm
+      :param key: name of the key
+
+      :return:
+
+
+   .. method:: rename(self, source=None, destination=None)
+
+      rename a node
+
+      :param destination:
+      :param name: the current name
+      :return: the dict with the new name
+
+
+   .. method:: key_upload(self, key)
+
+      uploads the key specified in the yaml configuration to the cloud
+      :param key:
+      :return:
+
+
+   .. method:: key_delete(self, key)
+
+      deletes the key with the given name
+      :param name: The name of the key
+      :return:
+
+
+   .. method:: name_parameter(self, name)
+
+
+   .. method:: login(self)
+
+
+   .. method:: suspend(self, name=None)
+      :abstractmethod:
+
+      suspends the node with the given name
+
+      :param name: the name of the node
+      :return: The dict representing the node
+
+
+   .. method:: Prints(self, data, output='table', kind=None)
+
+
+   .. method:: Print(self, data, output='table', kind=None)
+
+
+   .. method:: list_secgroups(self)
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: list_secgroup_rules(self, name=None)
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: remove_secgroup(self, name=None)
+
+
+   .. method:: add_secgroup(self, name=None)
+
+
+   .. method:: upload_secgroup(self, name=None)
+
+
+   .. method:: delete_public_ip(self, ip)
+
+      Deletes the ip address
+
+      :param ip: the ip address, if None than all will be deleted
+      :return:
+
+
+   .. method:: list_public_ips(self, available=False)
+
+      Lists the public ip addresses.
+
+      :param available: if True only those that are not allocated will be
+          returned.
+
+      :return:
+
+
+   .. method:: create_public_ip(self)
+
+      Creates a new public IP address to use
+
+      :return: The ip address information
+
+
+   .. method:: find_available_public_ip(self)
+
+      Returns a single public available ip address.
+
+      :return: The ip
+
+
+   .. method:: detach_public_ip(self, name=None, ip=None)
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: attach_public_ip(self, name=None, ip=None)
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: get_public_ip(self, name=None)
+
+      returns the public ip
+
+      :param name: name of the server
+      :return:
+
+
+   .. method:: ssh(self, vm=None, command=None)
+
+
+   .. method:: console(self, vm=None)
+
+      gets the output from the console
+
+      :param vm: name of the VM
+      :return:
+
+
+   .. method:: wait(self, vm=None, interval=None, timeout=None)
+
+      wais till the given VM can be logged into
+
+      :param vm: name of the vm
+      :param interval: interval for checking
+      :param timeout: timeout
+      :return:
+
+
+   .. method:: log(self, vm=None)
+
+
+   .. method:: add_secgroup_rule(self, name=None, port=None, protocol=None, ip_range=None)
+
+
+   .. method:: add_rules_to_secgroup(self, name=None, rules=None)
+
+
+

@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-cloud.cloudmesh.key.command.key &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.key.command.key</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshcloud/cloudmesh/key/command/key/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-cloud.cloudmesh.key.command.key">
+<span id="cloudmesh-cloud-cloudmesh-key-command-key"></span><h1><a class="reference internal" href="#module-cloudmesh-cloud.cloudmesh.key.command.key" title="cloudmesh-cloud.cloudmesh.key.command.key"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.key.command.key</span></code></a><a class="headerlink" href="#module-cloudmesh-cloud.cloudmesh.key.command.key" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-cloud.cloudmesh.key.command.key.KeyCommand" title="cloudmesh-cloud.cloudmesh.key.command.key.KeyCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KeyCommand</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-cloud.cloudmesh.key.command.key.KeyCommand">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.cloudmesh.key.command.key.</span></code><code class="sig-name descname"><span class="pre">KeyCommand</span></code><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.key.command.key.KeyCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../../cloudmesh/shell/command/index.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.key.command.key.KeyCommand.do_key">
+<code class="sig-name descname"><span class="pre">do_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.key.command.key.KeyCommand.do_key" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>key  -h | –help
+key init
+key list –cloud=CLOUDS [–output=FORMAT]
+key list –source=ssh [–dir=DIR] [–output=FORMAT]
+key list –source=git [–output=FORMAT] [–username=USERNAME]
+key list [–group=GROUP] [–output=FORMAT]
+key export [–group=GROUPS] [–filename=FILENAME]
+key add [NAME] [–group=GROUPS] [–source=FILENAME]
+key add [NAME] [–source=git]
+key add [NAME] [–source=ssh]
+key delete NAMES [–cloud=CLOUDS] [–dryrun]
+key upload [NAMES] [–cloud=CLOUDS] [–dryrun]
+key group delete [NAMES] [–group=GROUPS]  [–dryrun]
+key group add [NAMES] [–group=GROUPS] [–dryrun]
+key group upload [–group=GROUPS] –vm=VM [–cloud=CLOUDS] [–dryrun]
+key gen (ssh | pem) [–filename=FILENAME] [–nopass] [–set_path] [–force]
+key reformat (ssh | pem) [–filename=FILENAME] [–format=FORMAT]</p>
+<blockquote>
+<div><p>[–nopass] [–pub]</p>
+</div></blockquote>
+<p>key verify (ssh | pem) [–filename=FILENAME] [–pub] [–check_pass]</p>
+</dd>
+<dt>Arguments:</dt><dd><p>NAME       The name of the key
+NAMES      Parameterized list of keys</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--cloud=<var>CLOUDS</var></span></kbd></dt>
+<dd><p>the cloud providers</p>
+</dd>
+<dt><kbd><span class="option">--dir=<var>DIR</var></span></kbd></dt>
+<dd><p>the directory with keys [default: ~/.ssh]</p>
+</dd>
+<dt><kbd><span class="option">--filename=<var>FILENAME</var></span></kbd></dt>
+<dd><p>the name and full path to the file</p>
+</dd>
+<dt><kbd><span class="option">--force</span></kbd></dt>
+<dd><p>force the execution</p>
+</dd>
+<dt><kbd><span class="option">--format=<var>FORMAT</var></span></kbd></dt>
+<dd><p>Desired key format (SubjectInfo, SSH,
+OpenSSL, PKCS8)</p>
+</dd>
+<dt><kbd><span class="option">--group=<var>GROUP</var></span></kbd></dt>
+<dd><p>key group names</p>
+</dd>
+<dt><kbd><span class="option">--output=<var>FORMAT</var></span></kbd></dt>
+<dd><p>The format of the output (table, json, yaml)
+[default: table]</p>
+</dd>
+<dt><kbd><span class="option">--source=<var>SOURCE</var></span></kbd></dt>
+<dd><p>The source for the keys, ssh, git, a filename</p>
+</dd>
+<dt><kbd><span class="option">--username=<var>USERNAME</var></span></kbd></dt>
+<dd><p>the source for the keys [default: none]</p>
+</dd>
+<dt><kbd><span class="option">--vm=<var>VM</var></span></kbd></dt>
+<dd><p>The name of the VM</p>
+</dd>
+<dt><kbd><span class="option">--nopass</span></kbd></dt>
+<dd><p>Flag indicating if the key has no password</p>
+</dd>
+<dt><kbd><span class="option">--pub</span></kbd></dt>
+<dd><p>Indicates that the public key is passed in</p>
+</dd>
+<dt><kbd><span class="option">--set_path</span></kbd></dt>
+<dd><p>Sets the cloudmesh encryption key path to
+the full path of the generated keys</p>
+</dd>
+<dt><kbd><span class="option">--check_pass</span></kbd></dt>
+<dd><p>Flag where program query user for password</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Description:</p>
+<blockquote>
+<div><p>Please note that some values are read from the cloudmesh.yaml file.
+One such value is cloudmesh.profile.user</p>
+<p>Management of public keys is an essential component of accessing
+virtual machines in the cloud. There are a number of sources where
+you can find public keys. This includes the ~/.ssh directory and for
+example github. If you do not already have a public-private key pair
+they can be generated using cloudmesh</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key gen ssh</dt><dd><p>This will create the public-private keypair of ~/.ssh/id_rsa
+and ~/.ssh/id_rsa.pub in OpenSSH format</p>
+</dd>
+<dt>key gen pem</dt><dd><p>This will create the public-private keypair of ~/.ssh/id_rsa
+and ~/.ssh/id_rsa.pub in PEM format</p>
+</dd>
+<dt>key gen (ssh | pem) –filename=~/.cloudmesh/foobar</dt><dd><p>This will generate the public-private key pair of
+~/.cloudmesh/foobar and ~/.cloudmesh/foobar.pub</p>
+</dd>
+<dt>key gen (ssh | pem) –filename=~/.cloudmesh/foobar –set_path</dt><dd><p>This will generate the keys as stated above, but it will
+also set cloudmesh to use these keys for encryption.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Keys can also be verified for their formatting and passwords. By
+default cloudmesh checks ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub If the
+key is password protected the formatting can only be verified if the
+password is provided (–check_pass argument)</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key verify pem</dt><dd><p>Verifies that ~/.ssh/id_rsa has PEM format</p>
+</dd>
+<dt>key verify ssh –pub</dt><dd><p>Verifies that ~/.ssh/id_rsa.pub has OpenSSH format</p>
+</dd>
+<dt>key verify pem –filename=~/.cloudmesh/foobar</dt><dd><p>Verifies if the private key located at ~/.cloudmesh/foobar
+is password protected</p>
+</dd>
+<dt>key verify pem –filenam=~/.cloudmesh/foobar –check_pass</dt><dd><p>Request the password to the file, then checks if the
+key is in proper PEM format</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>You may find the need to keep the values of your keys but different
+encodings or formats. These aspects of your key can also be changed
+using cloudmesh.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key reformat pem</dt><dd><p>Will reformat the ~/.id_rsa.pub key from PEM to OpenSSH</p>
+</dd>
+<dt>key reformat ssh</dt><dd><p>Will reformat the ~/.id_rsa.pub key from OpenSSH to PEM</p>
+</dd>
+<dt>key reformat –filename=~/.id_rsa –format=PKCS8</dt><dd><p>Will reformat the private key to PKCS8 format</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Keys will be uploaded into cloudmesh database with the add command
+under the given NAME. If the name is not specified the name
+cloudmesh.profile.user is assumed.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key add NAME  –source=ssh</dt><dd><p>adds the default key in ~/.ssh/id_rsa.pub</p>
+</dd>
+<dt>key add NAME  –source=FILENAME</dt><dd><p>adds the key specified by the filename with the given name</p>
+</dd>
+<dt>key add NAME –git –username=username</dt><dd><p>adds a named github key from a user with the given github
+username.</p>
+</dd>
+<dt>key set</dt><dd><p>adds the ~/.ssh/id_rsa.pub key with the name specified in
+cloudmesh.profile.user.
+It also sets the variable key to that user.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Once the keys are uploaded to github, they can be listed To list
+these keys the following list functions are provided.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key list –source=git  [–username=USERNAME]</dt><dd><p>lists all keys in git for the specified user. If the
+name is not specified it is read from cloudmesh.yaml</p>
+</dd>
+<dt>key list –source=ssh  [–dir=DIR] [–output=OUTPUT]</dt><dd><p>lists all keys in the directory. If the directory is not
+specified the default will be ~/.ssh</p>
+</dd>
+<dt>key list NAMES</dt><dd><p>lists all keys in the named virtual machines.</p>
+</dd>
+</dl>
+<p>List command can use the [–output=OUTPUT] option</p>
+<blockquote>
+<div><p>list the keys loaded to cloudmesh in the given format:
+json, yaml, table. table is default. The NAME can be
+specified and if omitted the name cloudmesh.profile.user
+is assumed.</p>
+</div></blockquote>
+</div></blockquote>
+<p>To get keys from the cloudmesh database the following commands are
+available:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key delete NAMES</dt><dd><p>deletes the Named keys. This may also have an impact on
+groups</p>
+</dd>
+<dt>key rename NAME NEW</dt><dd><p>renames the key from NAME to NEW in the cloudmesh database.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Group management of keys is an important concept in cloudmesh,
+allowing multiple users to be added to virtual machines while
+managing the keys associated with them. The keys must be uploaded to
+cloudmesh database with a name so they can be used in a group.
+The –dryrun option executes the command without uploading the
+information to the clouds. If no group name is specified the group
+name default is assumed. If no cloudnamesh are specified, all active
+clouds are assumed. active clouds can be set in the cloudmesh.yaml
+file.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key list [–group=GROUP] [–output=FORMAT]</dt><dd><p>list the key taht are in the specified group.</p>
+</dd>
+<dt>key group delete [NAMES] [–group=GROUPS]  [–dryrun]</dt><dd><p>deletes the named keys from the named groups.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>In some cases you may want to store the public keys in files. For
+this reason we support the following commands.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>key add [NAME] [–group=GROUPS] [–source=FILENAME]</dt><dd><p>adds the named file with the keys in the file to the groups.</p>
+</dd>
+<dt>key export [–group=GROUPS] [–filename=FILENAME]</dt><dd><p>the command exports the keys to the given group. The keys
+are written in the files in yaml format.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Examples for keygroup commands:</p>
+<blockquote>
+<div><p>cms key add example –source=~/.ssh/id_rsa.pub
+cms key add –group=abc –name=”laszewsk_git_[0-2]”
+cms key list
+cms key list –gropu=abc
+cms key export –file=~/authorized_keys –group=abc,klm</p>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

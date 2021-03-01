@@ -1,0 +1,78 @@
+:mod:`cloudmesh.man.command.man`
+================================
+
+.. py:module:: cloudmesh.man.command.man
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.man.command.man.ManCommand
+
+
+
+.. class:: ManCommand
+
+   Bases: :class:`cloudmesh.shell.command.PluginCommand`
+
+   .. method:: _convert_file(self, file=None, command=None, include=None, tag='MANPAGE')
+
+
+   .. method:: _get_help(self, what)
+
+      prints the rst page of the command what
+      :param what: the command
+      :type what: string
+
+
+   .. method:: _man_rst(self, data)
+
+
+   .. method:: _man_txt(self, data)
+
+
+   .. method:: _man_md(self, data)
+
+
+   .. method:: _man_content(self, data, kind)
+
+
+   .. method:: _print(self, name, data, kind, directory=None)
+
+
+   .. method:: do_man(self, arg, arguments)
+
+      ::
+
+      Usage:
+          man readme [-p] --toc [--file=FILE]
+          man readme [-p] [--tag=TAG] [--file=FILE] --include=INCLUDE
+          man readme [-p] [--tag=TAG] [--file=FILE] --command=COMMAND
+          man [--dir=DIR] [--format=FORMAT] [--noheader]
+          man COMMANDS... [--dir=DIR] [--format=FORMAT]
+
+      Options:
+          --toc        adds a table of content between the TOC tag
+          -p           replacement in the file instead of stdout
+          --noheader   no rst header
+          --tag=TAG    the tag used to embed the manual
+                       page [default: MANUAL]
+          --file=FILE  the file for the replacement between the
+                       tags [default: README.md]
+
+      Arguments:
+          COMMANDS   the command manual pages to be printed
+
+      Description:
+          man
+              Prints out the help pages
+          man COMMAND
+              Prints out the help page for a specific command
+
+
+

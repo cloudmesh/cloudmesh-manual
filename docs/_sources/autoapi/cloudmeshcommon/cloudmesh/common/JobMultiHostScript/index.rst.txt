@@ -1,0 +1,60 @@
+:mod:`cloudmesh-common.cloudmesh.common.JobMultiHostScript`
+===========================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.JobMultiHostScript
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.JobMultiHostScript.JobMultiHostScript
+
+
+
+.. class:: JobMultiHostScript(name, script, hosts, executor)
+
+
+   The JobMultiHostScript is a simple mechanism to run a number of commands formylated
+   in a script in parallel over the hosts provided. The script is interpreted line
+   by line and does not support multi line commands at this time. (Not difficult
+   to implement when looking at \ at the end of a line.)
+
+   Static method::
+       script = """
+         # This is a comment
+         pwd     # tag: pwd
+         uname -a
+       """
+
+       hosts = Parameter.expand("purple[01-02]")
+       result = JobMultiHostScript.execute(script, "script_name", hosts)
+
+   .. method:: run(self, beginLine=None, endLine=None)
+
+
+   .. method:: execute(script, name='script', hosts=None, executor=JobSet.ssh, beginLine=None, endLine=None)
+      :staticmethod:
+
+
+   .. method:: cms(self, arguments)
+
+
+
+.. data:: script
+   :annotation: = 
+    # This is a comment
+
+    # Task: pwd
+    pwd     # tag: pwd
+
+    # Task: uname
+    uname -a
+    
+
+   
+

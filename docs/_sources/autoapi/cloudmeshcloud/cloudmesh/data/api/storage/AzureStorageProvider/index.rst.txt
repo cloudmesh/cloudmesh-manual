@@ -1,0 +1,60 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.storage.AzureStorageProvider`
+======================================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.storage.AzureStorageProvider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.storage.AzureStorageProvider.AzureStorageProvider
+
+
+
+.. class:: AzureStorageProvider(account_name, access_key, container='cmdata')
+
+
+   Bases: :class:`cloudmesh.data.api.storage.StorageProviderABC`
+
+   .. method:: put(self, local_path)
+
+      Upload a new file.
+
+      :param local_path: Path to a file that will be stored.
+      :return: a CloudFile with resource information filled in
+
+
+   .. method:: get(self, cloud_file, local_dest)
+
+      Download the file from the `cloud_file.url` to a local folder.
+
+      :param cloud_file: A cloud file entry from the db.
+      :param local_dest: A local path where the cloud file will be downloaded.
+
+
+   .. method:: delete(self, cloud_file)
+
+      Delete a file from the database
+
+      :param cloud_file: the cloud file entry being deleted
+
+
+   .. method:: exists(self, cloud_file_name)
+
+      Tell if a file is present in the remote storage.
+
+      :param cloud_file_name: An instance of CloudFile
+      :return: True if the object exists.
+
+
+   .. method:: _get_object(self, obj_name)
+
+      Gets and object that can be used with the storage driver's methods.
+
+
+

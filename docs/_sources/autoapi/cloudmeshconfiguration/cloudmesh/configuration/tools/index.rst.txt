@@ -1,0 +1,34 @@
+:mod:`cloudmesh-configuration.cloudmesh.configuration.tools`
+============================================================
+
+.. py:module:: cloudmesh-configuration.cloudmesh.configuration.tools
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-configuration.cloudmesh.configuration.tools.check_file_for_tabs
+
+
+.. data:: attribute_indent
+   :annotation: = 4
+
+   
+
+.. function:: check_file_for_tabs(filename, verbose=True)
+
+   identifies if the file contains tabs and returns True if it
+   does. It also prints the location of the lines and columns. If
+   verbose is set to False, the location is not printed.
+
+   :param verbose: if true prints information about issues
+   :param filename: the filename
+   :rtype: True if there are tabs in the file
+
+

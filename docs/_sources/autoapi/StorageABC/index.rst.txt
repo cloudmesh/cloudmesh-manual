@@ -1,0 +1,106 @@
+:mod:`StorageABC`
+=================
+
+.. py:module:: StorageABC
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   StorageABC.StorageDeprecatedABC
+
+
+
+.. class:: StorageDeprecatedABC(service=None)
+
+
+   .. method:: create_dir(self, service=None, directory=None)
+      :abstractmethod:
+
+      creates a directory
+
+      :param service: the name of the service in the yaml file
+      :param directory: the name of the directory
+      :return: dict
+
+
+   .. method:: list(self, service=None, source=None, recursive=False)
+      :abstractmethod:
+
+      lists the information as dict
+
+      :param service: the name of the service in the yaml file
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: put(self, service=None, source=None, destination=None, recursive=False)
+      :abstractmethod:
+
+      puts the source on the service
+
+      :param service: the name of the service in the yaml file
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: get(self, service=None, source=None, destination=None, recursive=False)
+      :abstractmethod:
+
+      gets the destination and copies it in source
+
+      :param service: the name of the service in the yaml file
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete(self, service=None, source=None, recursive=False)
+      :abstractmethod:
+
+      deletes the source
+
+      :param service: the name of the service in the yaml file
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: search(self, service=None, directory=None, filename=None, recursive=False)
+      :abstractmethod:
+
+      gets the destination and copies it in source
+
+      :param service: the name of the service in the yaml file
+      :param directory: the directory which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: tree(self, directory=None)
+      :abstractmethod:
+
+      Prints a visual representation of the files and directories
+      :param directory:
+      :type directory:
+      :return:
+      :rtype:
+
+
+

@@ -1,0 +1,115 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.parallelazureblob.Provider`
+==============================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.parallelazureblob.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.parallelazureblob.Provider.Provider
+
+
+
+.. class:: Provider(service=None, config='~/.cloudmesh/cloudmesh.yaml', parallelism=4)
+
+
+   Bases: :class:`cloudmesh.storage.provider.StorageQueue.StorageQueue`
+
+   .. attribute:: kind
+      :annotation: = parallelazureblob
+
+      
+
+   .. attribute:: sample
+      
+
+      
+
+   .. attribute:: status
+      :annotation: = ['completed', 'waiting', 'inprogress', 'canceled']
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: cloud_path(self, srv_path)
+
+
+   .. method:: local_path(self, source_path)
+
+
+   .. method:: get_run(self, specification)
+
+      Downloads file from Destination(Service) to Source(local)
+
+      :param source: the source can be a directory or file
+      :param destination: the destination can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: put_run(self, specification)
+
+      Uploads file from Source(local) to Destination(Service)
+
+      :param source: the source can be a directory or file
+      :param destination: the destination can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete_run(self, specification)
+
+      Deletes the source from cloud service
+
+      :param source: the source can be a directory or file
+      :return: None
+
+
+   .. method:: mkdir_run(self, specification)
+
+      Creates a directory in the cloud service
+
+      :param directory: directory is a folder
+      :return: dict
+
+
+   .. method:: search_run(self, specification)
+
+      searches the filename in the directory
+
+      :param directory: directory on cloud service
+      :param filename: filename to be searched
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified directory
+      :return: dict
+
+
+   .. method:: list_run(self, specification)
+
+      lists all files specified in the source
+
+      :param source: this can be a file or directory
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :param dir_only: boolean, enlist only directories
+      :return: dict
+
+
+
+.. data:: p
+   
+
+   
+

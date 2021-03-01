@@ -1,0 +1,74 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.db.LocalDBProvider`
+============================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.db.LocalDBProvider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.db.LocalDBProvider.LocalDBProvider
+
+
+
+.. class:: LocalDBProvider(db_path)
+
+
+   Bases: :class:`cloudmesh.data.api.db.DBProviderABC`
+
+   The local DB provider uses a folder with yaml files representing each cloud resource.
+
+   .. method:: get(self, file_name)
+
+      Get a CloudFile object corresponding to the given file name
+
+      :param file_name: Corresponds to the CloudFile's `name`.
+      :return: A CloudFile object
+
+
+   .. method:: list_files(self)
+
+      Return a list of Cloud Files tracked in this DB
+
+
+   .. method:: add(self, cloud_file)
+
+      Add a new Cloud File to the local DB
+
+      :param cloud_file: A CloudFile instance.
+
+
+   .. method:: delete(self, cloud_file)
+
+      Remove a CloudFile from the local db
+
+      :param cloud_file: A could file entry
+
+
+   .. method:: update(self, cloud_file)
+
+      Update an existing Cloud File entry
+
+      :param cloud_file: A could file entry
+
+
+   .. method:: _get_entry_name(self, cloud_file)
+
+      Gets the file name for the db entry
+
+      :param cloud_file: A cloud file entry.
+      :return: A file location for the cloud entry on disk.
+
+
+   .. method:: _read_file(yaml_file_path)
+      :staticmethod:
+
+      Read a yaml file from disk and return the python object it represents.
+
+
+

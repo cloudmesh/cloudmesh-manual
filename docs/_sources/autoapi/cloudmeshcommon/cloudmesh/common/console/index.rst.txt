@@ -1,0 +1,250 @@
+:mod:`cloudmesh-common.cloudmesh.common.console`
+================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.console
+
+.. autoapi-nested-parse::
+
+   Printing messages in a console
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.console.Console
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.console.indent
+
+
+.. function:: indent(text, indent=2, width=128)
+
+   indents the given text by the indent specified and wrapping to the given width
+
+   :param text: the text to print
+   :param indent: indent characters
+   :param width: the width of the text
+   :return:
+
+
+.. class:: Console
+
+   Bases: :class:`object`
+
+   A simple way to print in a console terminal in color. Instead of using
+   simply the print statement you can use special methods to indicate
+   warnings, errors, ok and regular messages.
+
+   Example Usage::
+
+       Console.warning("Warning")
+       Console.error("Error")
+       Console.info("Info")
+       Console.msg("msg")
+       Console.ok("Success")
+
+   One can switch the color mode off with::
+
+       Console.color = False
+       Console.error("Error")
+
+   The color will be switched on by default.
+
+   .. attribute:: color
+      :annotation: = True
+
+      
+
+   .. attribute:: debug
+      :annotation: = True
+
+      
+
+   .. attribute:: theme_color
+      
+
+      
+
+   .. attribute:: theme_bw
+      
+
+      
+
+   .. attribute:: theme
+      
+
+      
+
+   .. method:: red(msg)
+
+
+   .. method:: green(msg)
+
+
+   .. method:: blue(msg)
+
+
+   .. method:: init()
+      :staticmethod:
+
+      initializes the Console
+
+
+   .. method:: terminate()
+      :staticmethod:
+
+      terminates the program
+
+
+   .. method:: set_debug(cls, on=True)
+      :classmethod:
+
+      sets debugging on or of
+
+      :param on: if on debugging is set
+      :return:
+
+
+   .. method:: set_theme(color=True)
+      :staticmethod:
+
+      defines if the console messages are printed in color
+
+      :param color: if True its printed in color
+      :return:
+
+
+   .. method:: get(name)
+      :staticmethod:
+
+      returns the default theme for printing console messages
+
+      :param name: the name of the theme
+      :return:
+
+
+   .. method:: txt_msg(message, width=79)
+      :staticmethod:
+
+      prints a message to the screen
+
+      :param message: the message to print
+      :param width: teh width of the line
+      :return:
+
+
+   .. method:: msg(*message)
+      :staticmethod:
+
+      prints a message
+
+      :param message: the message to print
+      :return:
+
+
+   .. method:: bullets(elements)
+      :staticmethod:
+
+      prints elemnets of a list as bullet list
+
+      :param elements: the list
+
+
+   .. method:: error(cls, message, prefix=True, traceflag=False)
+      :classmethod:
+
+      prints an error message
+
+      :param message: the message
+      :param prefix: a prefix for the message
+      :param traceflag: if true the stack trace is retrieved and printed
+      :return:
+
+
+   .. method:: TODO(message, prefix=True, traceflag=True)
+      :staticmethod:
+
+      prints an TODO message
+
+      :param message: the message
+      :param prefix: if set to true it prints TODO: as prefix
+      :param traceflag: if true the stack trace is retrieved and printed
+      :return:
+
+
+   .. method:: debug_msg(message)
+      :staticmethod:
+
+      print a debug message
+
+      :param message: the message
+      :return:
+
+
+   .. method:: info(message)
+      :staticmethod:
+
+      prints an informational message
+
+      :param message: the message
+      :return:
+
+
+   .. method:: warning(message)
+      :staticmethod:
+
+      prints a warning
+
+      :param message: the message
+      :return:
+
+
+   .. method:: ok(message)
+      :staticmethod:
+
+      prints an ok message
+
+      :param message: the message<
+      :return:
+
+
+   .. method:: cprint(color='BLUE', prefix='', message='')
+      :staticmethod:
+
+      prints a message in a given color
+
+      :param color: the color as defined in the theme
+      :param prefix: the prefix (a string)
+      :param message: the message
+      :return:
+
+
+   .. method:: text(color='RED', prefix=None, message=None)
+      :staticmethod:
+
+      returns a message in a given color
+
+      :param color: the color as defined in the theme
+      :param prefix: the prefix (a string)
+      :param message: the message
+      :return:
+
+
+
+.. data:: color
+   :annotation: = False
+
+   
+

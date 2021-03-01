@@ -1,0 +1,249 @@
+:mod:`BaseConfigDict`
+=====================
+
+.. py:module:: BaseConfigDict
+
+.. autoapi-nested-parse::
+
+   Some simple yaml file reader
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   BaseConfigDict.OrderedJsonEncoder
+   BaseConfigDict.BaseConfigDict
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   BaseConfigDict.check_file_for_tabs
+   BaseConfigDict.ordered_load
+   BaseConfigDict.ordered_dump
+   BaseConfigDict.read_yaml_config
+   BaseConfigDict.custom_print
+
+
+.. data:: package_dir
+   
+
+   
+
+.. data:: attribute_indent
+   :annotation: = 4
+
+   
+
+.. function:: check_file_for_tabs(filename, verbose=True)
+
+   identifies if the file contains tabs and returns True if it
+   does. It also prints the location of the lines and columns. If
+   verbose is set to False, the location is not printed.
+
+   :param verbose: if true prints information about issues
+   :param filename: the filename
+   :rtype: True if there are tabs in the file
+
+
+.. function:: ordered_load(stream, Loader=yaml.Loader, object_pairs_hook=OrderedDict)
+
+   Loads an ordered dict into a yaml while preserving the order
+
+   :param stream: the name of the stream
+   :param Loader: the yam loader (such as yaml.SafeLoader)
+   :param object_pairs_hook: the ordered dict
+
+
+.. function:: ordered_dump(data, stream=None, Dumper=yaml.Dumper, **keywords)
+
+   writes the dict into an ordered yaml.
+
+   :param data: The ordered dict
+   :param stream: the stream
+   :param Dumper: the dumper such as yaml.SafeDumper
+
+
+.. function:: read_yaml_config(filename, check=True, osreplace=True, exit=True)
+
+   reads in a yaml file from the specified filename. If check is set to true
+   the code will fail if the file does not exist. However if it is set to
+   false and the file does not exist, None is returned.
+
+   :param exit: if true is exist with sys exit
+   :param osreplace: if true replaces environment variables from the OS
+   :param filename: the file name
+   :param check: if True fails if the file does not exist,
+                 if False and the file does not exist return will be None
+
+
+.. class:: OrderedJsonEncoder(skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, encoding='utf-8', default=None, use_decimal=True, namedtuple_as_object=True, tuple_as_array=True, bigint_as_string=False, item_sort_key=None, for_json=False, ignore_nan=False, int_as_string_bitcount=None, iterable_as_array=False)
+
+
+   Bases: :class:`simplejson.JSONEncoder`
+
+   Manage ordered Json Objects
+
+   .. attribute:: indent
+      
+
+      
+
+   .. method:: encode(self, o, depth=0)
+
+      encode the json object at given depth
+      :param o: the object
+      :param depth: the depth
+      :return: the json encoding
+
+
+
+.. function:: custom_print(data_structure, indent)
+
+   prints a given data structure such as a dict or ordered dict at a given indentation level
+   :param data_structure: 
+   :param indent: 
+   :return: 
+
+
+.. class:: BaseConfigDict(*args, **kwargs)
+
+
+   Bases: :class:`collections.OrderedDict`
+
+   A class to obtain an OrderedDict from a yaml file.
+
+   .. method:: _set_filename(self, filename)
+
+      Sets the filename to be used.
+
+      :param filename: the filename
+
+
+   .. method:: _update_meta(self)
+
+      internal function to define the metadata regarding filename, location,
+      and prefix.
+
+
+   .. method:: read(self, filename)
+
+      Loads the information in the yaml file. It is the same as load and is
+      used for compatibility reasons.
+
+      :param filename: the name of the yaml file
+
+
+   .. method:: load(self, filename)
+
+      Loads the yaml file with the given filename.
+
+      :param filename: the name of the yaml file
+
+
+   .. method:: make_a_copy(self, location=None)
+
+      Creates a backup of the file specified in the location. The backup
+      filename  appends a .bak.NO where number is a number that is not yet
+      used in the backup directory.
+
+      TODO: This function should be moved to another file maybe XShell
+
+      :param location: the location of the file to be backed up
+
+
+   .. method:: write(self, filename=None, output='dict', attribute_indent=attribute_indent)
+
+      This method writes the dict into various output formats. This includes a dict,
+      json, and yaml
+
+      :param filename: the file in which the dict is written
+      :param output: is a string that is either "dict", "json", "yaml"
+      :param attribute_indent: character indentation of nested attributes in
+
+
+   .. method:: error_keys_not_found(self, keys)
+
+      Check if the requested keys are found in the dict.
+
+      :param keys: keys to be looked for
+
+
+   .. method:: __str__(self)
+
+      returns the json output of the dict.
+
+
+   .. method:: json(self)
+
+      returns the json output of the dict.
+
+
+   .. method:: yaml(self)
+
+      returns the yaml output of the dict.
+
+
+   .. method:: dump(self)
+
+      returns the json output of the dict.
+
+
+   .. method:: pprint(self)
+
+      uses pprint to print the dict
+
+
+   .. method:: get(self, *keys)
+
+      returns the dict of the information as read from the yaml file. To
+      access the file safely, you can use the keys in the order of the
+      access.
+      Example: get("provisioner","policy") will return the value of
+      config["provisioner"]["policy"] from the yaml file if it does not exists
+      an error will be printing that the value does not exists. Alternatively
+      you can use the . notation e.g. get("provisioner.policy")
+
+
+   .. method:: set(self, value, *keys)
+
+      Sets the dict of the information as read from the yaml file. To access
+      the file safely, you can use the keys in the order of the access.
+      Example: set("{'project':{'fg82':[i0-i10]}}", "provisioner","policy")
+      will set the value of config["provisioner"]["policy"] in the yaml file if
+      it does not exists an error will be printing that the value does not
+      exists.  Alternatively you can use the . notation e.g.
+      set("{'project':{'fg82':[i0-i10]}}", "provisioner.policy")
+
+
+   .. method:: _update(self, keys, value)
+
+      Updates the selected key with the value
+
+      Args:
+          keys (str): key names e.g. cloudmesh.server.loglevel
+          value (str): value to set
+
+
+   .. method:: attribute(self, keys)
+
+      TODO: document this method
+
+      :param keys:
+
+
+
+.. data:: config
+   
+
+   
+

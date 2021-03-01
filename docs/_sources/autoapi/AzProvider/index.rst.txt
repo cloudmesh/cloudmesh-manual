@@ -1,0 +1,95 @@
+:mod:`AzProvider`
+=================
+
+.. py:module:: AzProvider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   AzProvider.AzureProvider
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   AzProvider.timer
+
+
+.. function:: timer(func)
+
+
+.. class:: AzureProvider(resourcegroup=None)
+
+
+   Bases: :class:`object`
+
+   az commands
+
+   https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
+
+   create the
+
+
+   https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal
+
+
+   .. method:: az(self, command)
+
+
+   .. method:: login(self)
+
+
+   .. method:: portal(self)
+
+
+   .. method:: create_resource_group(self, name=None, location=None)
+
+
+   .. method:: delete_resource_group(self, name=None)
+
+
+   .. method:: list_resource_group(self)
+
+
+   .. method:: create_vm(self, resource_group=None, name=None, image=None, username=None)
+
+
+   .. method:: delete_vm(self, resource_group=None, name=None)
+
+
+   .. method:: list_vm(self, resource_group=None)
+
+
+   .. method:: status_vm(self, resource_group=None, name=None)
+
+
+   .. method:: stop_vm(self, resource_group=None, name=None)
+
+
+   .. method:: start_vm(self, resource_group=None, name=None)
+
+
+   .. method:: restart_vm(self, resource_group=None, name=None)
+
+
+   .. method:: ssh_vm(self, user=None, command=None, resource_group=None, name=None)
+
+
+   .. method:: get_ip_vm(self, resource_group=None, name=None)
+
+
+
+.. data:: p
+   
+
+   
+

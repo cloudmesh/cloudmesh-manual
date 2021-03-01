@@ -1,0 +1,46 @@
+:mod:`cloudmesh-cloud.cloudmesh.register.Entry`
+===============================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.register.Entry
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.register.Entry.Entry
+
+
+
+.. class:: Entry
+
+   add an entry to the yaml file.
+
+   entry_text = '''
+   cloudmesh:
+     sample:
+       cm:
+         name:
+       credential:
+         value:
+   '''
+
+   entry = Entry.add(entry=entry_text, path="~/.cloudmesh/cloudmesh.yaml, )
+
+   .. method:: extract(data, base)
+      :staticmethod:
+
+
+   .. method:: add(entry=None, base='cloudmesh.cloud', path='~/.cloudmesh/cloudmesh.yaml')
+      :staticmethod:
+
+
+   .. method:: verify(data)
+      :staticmethod:
+
+
+

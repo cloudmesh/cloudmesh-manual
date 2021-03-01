@@ -1,0 +1,417 @@
+:mod:`cloudmesh.aws.compute.Provider-dev`
+=========================================
+
+.. py:module:: cloudmesh.aws.compute.Provider-dev
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.aws.compute.Provider-dev.Provider
+
+
+
+.. class:: Provider(name=None, configuration='~/.cloudmesh/cloudmesh.yaml')
+
+
+   Bases: :class:`cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC`, :class:`cloudmesh.provider.ComputeProviderPlugin`
+
+   .. attribute:: kind
+      :annotation: = aws
+
+      
+
+   .. attribute:: sample
+      :annotation: = 
+       cloudmesh:
+         cloud:
+           {name}:
+             cm:
+               active: true
+               heading: AWS
+               host: TBD
+               label: {name}
+               kind: aws
+               version: TBD
+               service: compute
+             default:
+               image: ami-0c929bde1796e1484
+               size: t2.medium
+             credentials:
+               region: {region}
+               EC2_SECURITY_GROUP: cloudmesh
+               EC2_ACCESS_ID: {EC2_ACCESS_ID}
+               EC2_SECRET_KEY: {EC2_SECRET_KEY}
+               EC2_PRIVATE_KEY_FILE_PATH: ~/.cloudmesh/aws_cert.pem
+               EC2_PRIVATE_KEY_FILE_NAME: aws_cert
+       
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: Print(self, data, output, kind)
+
+
+   .. method:: find(self, elements, name=None)
+
+
+   .. method:: list_secgroups(self, name=None)
+
+      List the named security groups
+
+      :param name: Name of the security group. If not provided, returns all security group
+      :return: List of dict
+
+
+   .. method:: list_secgroup_rules(self, name=None)
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return: returns list of dict
+
+
+   .. method:: _is_group_name_valid(name=None)
+      :staticmethod:
+
+
+   .. method:: add_secgroup(self, name=None, description=None)
+
+      Adds named security group
+
+      :param name: Adds security group
+      :param description: name = name of the security group to be added/created
+                          description: Description of the security group. If its none then default description
+                                       is added with user name and time of creation
+      :return: None
+
+
+   .. method:: add_secgroup_rule(self, name=None, port=None, protocol=None, ip_range=None)
+
+      Add rule to named security group
+
+      :param name: Name of the security group to which rfule needs to be added
+      :param port: The start and end port range for the TCP and UDP protocols
+      :param protocol:
+      :param ip_range:
+      :return:
+
+
+   .. method:: remove_secgroup(self, name=None)
+
+
+   .. method:: upload_secgroup(self, name=None)
+
+
+   .. method:: add_rules_to_secgroup(self, name=None, rules=None)
+
+
+   .. method:: remove_rules_from_secgroup(self, name=None, rules=None)
+
+
+   .. method:: set_server_metadata(self, name, data)
+
+      :param name: virtual machine name
+      :param m: cm dict
+      :return:
+
+
+   .. method:: get_server_metadata_tags(self, name)
+
+      Describes the metadata tag of EC2 resource
+      :param name: Virtual machine name
+
+      :return: Dictionary with Metadata information
+
+
+   .. method:: get_server_metadata(self, name)
+
+      Describes the metadata tag of EC2 resource
+      :param name: Virtual machine name
+
+      :return: Dictionary with Metadata information
+
+
+   .. method:: list_public_ips(self, ip=None, available=False)
+
+      Lists the public ip addresses.
+
+      :param available: if True only those that are not allocated will be
+          returned.
+
+      :return:
+
+
+   .. method:: delete_public_ip(self, ip=None)
+
+      Deletes the ip address
+
+      :param ip: the ip address, if None than all will be deleted
+      :return:
+
+
+   .. method:: create_public_ip(self)
+
+      Creates a new public IP address to use
+
+      :return: The ip address information
+
+
+   .. method:: find_available_public_ip(self)
+
+      Returns a single public available ip address.
+
+      :return: The ip
+
+
+   .. method:: _get_allocation_ids(client, ip)
+      :staticmethod:
+
+
+   .. method:: attach_public_ip(self, node, ip)
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: detach_public_ip(self, node, ip)
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: wait(self, vm=None, interval=None, timeout=None)
+
+      wais till the given VM can be logged into
+
+      :param vm: name of the vm
+      :param interval: interval for checking
+      :param timeout: timeout
+      :return:
+
+
+   .. method:: ssh(self, vm=None, command=None)
+
+
+   .. method:: _get_instance_id(ec2_resource, name)
+      :staticmethod:
+
+
+   .. method:: start(self, name=None)
+
+      start a node
+
+      :param name: the unique instance name
+
+      :return:  The dict representing the node
+
+
+   .. method:: stop(self, name=None, hibernate=False)
+
+      stops the node with the given name
+
+      :param name: the instance name
+      :param hibernate: stop or hibernate
+
+      :return: The dict representing the node including updated status
+
+
+   .. method:: info(self, name=None)
+
+      gets the information of a node with a given name
+
+      :param name: the  node name
+
+      :return: The dict representing the node including updated status
+
+
+   .. method:: instance_is_reachable(self, instance_id=None)
+
+      gets the information of a statuso of a VM with a given name, useful for when you want to check if the vm is ready for ssh
+      Note: describe_instance_status doesn't filter by tag , so we should use instance ID
+      :param name: name
+      :return:
+
+
+   .. method:: list(self)
+
+      list all nodes id
+
+      :return: an array of dicts representing the nodes
+      'instance_tag': each_instance.tags[0]['Name']
+
+
+   .. method:: suspend(self, name=None)
+
+      suspends the node with the given name
+
+      :param name: the name of the node
+
+      :return: The dict representing the node
+
+
+   .. method:: resume(self, name=None)
+
+      resume the named node
+
+      :param name: the name of the node
+
+      :return: the dict of the node
+
+
+   .. method:: destroy(self, name=None)
+
+      Destroys the node
+      :param name: the name of the node
+
+      :return: the dict of the node
+
+
+   .. method:: create(self, name=None, image=None, size=None, location=None, timeout=360, key=None, secgroup=None, ip=None, user=None, public=None, group=None, metadata=None, **kwargs)
+
+      creates a named node
+
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the image
+                      does not boot. The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+
+      :return: the list with the modified dicts
+
+
+   .. method:: rename(self, name=None, destination=None)
+
+      rename a node
+
+      :param destination: the destination name
+      :param name: the current name
+
+      :return: the dict with the new name
+
+
+   .. method:: keys(self)
+
+      Lists the keys on the cloud
+
+      :return: dict
+
+
+   .. method:: key_upload(self, key=None)
+
+      uploads the key specified in the yaml configuration to the cloud
+      :param key
+      :return: the dict of the key
+
+
+   .. method:: key_delete(self, name=None)
+
+      deletes the key with the given name
+
+      :param name: The name of the key
+
+      :return: the dict of the key
+
+
+   .. method:: add_server_metadata(self, name, tags)
+
+      Add or Update tag to metadata
+
+      :param name: name of the fm
+      :param tags: tags to be added to vm metadata
+
+      :return: the dict of the metadata
+
+
+   .. method:: delete_server_metadata(self, name, tags=None)
+
+      gets the metadata for the server
+
+      :param name: name of the vm
+      :param tags: tags to be deleted from vm metadata
+
+      :return: the dict of the metadata
+
+
+   .. method:: _get_account_id(self)
+
+      retrieves the acount id which is used to find the images of the current account
+      :return:
+
+
+   .. method:: images(self, **kwargs)
+
+      Lists the images on the cloud
+
+      :return: the dict of the images
+
+
+   .. method:: get_images_and_import(self, data)
+
+      this is a helper function for images() to allow the images to be passed and saved to the database with
+      databaseimportasjson() decorator instead of the regular databaseupdate() decorator.
+      :param data:
+      :return:
+
+
+   .. method:: image(self, name=None)
+
+      Gets the image with a given nmae
+
+      :param name: The name of the image
+
+      :return: the dict of the image
+
+
+   .. method:: flavors(self, **kwargs)
+
+      Lists the flavors on the cloud
+
+      :return: dict of flavors
+
+
+   .. method:: flavor(self, name=None)
+
+      Gets the flavor with a given name
+      :param name: The name of the flavor
+      :return: The dict of the flavor
+
+
+   .. method:: update_dict(self, elements, kind=None)
+
+      This function adds a cloudmesh cm dict to each dict in the list
+      elements.
+      Libcloud
+      returns an object or list of objects With the dict method
+      this object is converted to a dict. Typically this method is used
+      internally.
+
+      :param elements: the list of original dicts. If elements is a single
+                       dict a list with a single element is returned.
+      :param kind: for some kinds special attributes are added. This includes
+                   key, vm, image, flavor.
+      :return: The list with the modified dicts
+
+
+
+.. data:: provider
+   
+
+   
+

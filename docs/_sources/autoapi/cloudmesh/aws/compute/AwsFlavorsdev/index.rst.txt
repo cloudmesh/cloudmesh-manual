@@ -1,0 +1,34 @@
+:mod:`cloudmesh.aws.compute.AwsFlavors-dev`
+===========================================
+
+.. py:module:: cloudmesh.aws.compute.AwsFlavors-dev
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.aws.compute.AwsFlavors-dev.AwsFlavor
+
+
+
+.. class:: AwsFlavor(session, region_name='us-east-1', **kwargs)
+
+
+   .. method:: fetch(self, n_results=float('inf'), url=None, offer='AmazonEC2', page_size=100, **query)
+
+
+   .. method:: parse_aws_json(json)
+      :staticmethod:
+
+      To be run on a single json entry returned by the Amazon EC2 Pricing API
+
+
+   .. method:: list(self, json_string_list)
+
+
+

@@ -1,0 +1,65 @@
+:mod:`cloudmesh-cloud.cloudmesh.vbox.command.vbox`
+==================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.vbox.command.vbox
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.vbox.command.vbox.VboxCommand
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.vbox.command.vbox.defaults
+   cloudmesh-cloud.cloudmesh.vbox.command.vbox._convert
+   cloudmesh-cloud.cloudmesh.vbox.command.vbox._LIST_PRINT
+
+
+.. function:: defaults()
+
+   default values
+   :return: a number of default values for memory, image, and script
+   :rtype: dotdict
+
+
+.. function:: _convert(lst, id='name')
+
+
+.. function:: _LIST_PRINT(l, output, order=None)
+
+
+.. class:: VboxCommand
+
+   Bases: :class:`cloudmesh.shell.command.PluginCommand`
+
+   .. method:: do_vbox(self, args, arguments)
+
+      ::
+
+      Usage:
+        vbox version [--output=OUTPUT]
+        vbox image list [--output=OUTPUT]
+        vbox image find KEYWORDS...
+        vbox image add NAME
+        vbox image delete NAME
+        vbox vm info NAME
+        vbox vm list [--output=OUTPUT] [-v]
+        vbox vm delete NAME
+        vbox vm ip [NAME] [--all]
+        vbox vm create [NAME] ([--memory=MEMORY] [--image=IMAGE] [--port=PORT] [--script=SCRIPT]  | list)
+        vbox vm boot [NAME] ([--memory=MEMORY] [--image=IMAGE] [--port=PORT] [--script=SCRIPT] | list)
+        vbox vm ssh [NAME] [-e COMMAND]
+
+
+

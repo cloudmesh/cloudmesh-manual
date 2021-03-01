@@ -1,0 +1,60 @@
+:mod:`cloudmesh.management.configuration.counter`
+=================================================
+
+.. py:module:: cloudmesh.management.configuration.counter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.management.configuration.counter.Counter
+
+
+
+.. class:: Counter(counter_file_path='~/.cloudmesh/counter.yaml')
+
+
+   Bases: :class:`object`
+
+   A counter is used to keep track of some value that can be increased
+   and is associated with a user. Typically it is used to increment the
+   vm id or the job id.
+
+   .. attribute:: __shared_state
+      
+
+      
+
+   .. method:: incr(self, name='counter')
+
+      increments the counter by one
+      :return:
+
+
+   .. method:: decr(self, name='counter')
+
+      increments the counter by one
+      :return:
+
+
+   .. method:: get(self, name='counter')
+
+      returns the value of the counter
+      :param name: name of the counter
+      :return: the value of the counter
+
+
+   .. method:: set(self, name='counter', value=None)
+
+      sets a counter associated with a particular user
+      :param name: name of the counter
+      :param value: the value
+      :return:
+
+
+

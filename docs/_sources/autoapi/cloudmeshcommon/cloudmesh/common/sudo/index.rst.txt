@@ -1,0 +1,78 @@
+:mod:`cloudmesh-common.cloudmesh.common.sudo`
+=============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.sudo
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.sudo.Sudo
+
+
+
+.. class:: Sudo
+
+   .. method:: password(msg='sudo password: ')
+      :staticmethod:
+
+      Asks for the Sudo password
+
+
+   .. method:: expire()
+      :staticmethod:
+
+      Expires the password
+
+
+   .. method:: execute(command, decode='True', debug=False)
+      :staticmethod:
+
+      Executes the command
+
+      :param command: The command to run
+      :type command: list or str
+      :return:
+      :rtype:
+
+
+   .. method:: readfile(filename, split=False, trim=False, decode=True)
+      :staticmethod:
+
+      Reads the content of the file as sudo and returns the result
+
+              :param filename: the filename
+              :type filename: str
+              :param split: uf true returns a list of lines
+              :type split: bool
+              :param trim: trim trailing whitespace. This is useful to
+                           prevent empty string entries when splitting by '
+      '
+              :type trim: bool
+              :return: the content
+              :rtype: str or list
+              
+
+
+   .. method:: writefile(filename, content, append=False)
+      :staticmethod:
+
+      Writes the content in the the given file.
+
+      :param filename: the filename
+      :type filename: str
+      :param content: the content
+      :type content: str
+      :param append: if true it append it at the end, otherwise the file will
+                     be overwritten
+      :type append: bool
+      :return: the output created by the write process
+      :rtype: int
+
+
+

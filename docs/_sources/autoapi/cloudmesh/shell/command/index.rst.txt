@@ -1,0 +1,124 @@
+:mod:`cloudmesh.shell.command`
+==============================
+
+.. py:module:: cloudmesh.shell.command
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.shell.command.PluginCommand
+   cloudmesh.shell.command.CloudPluginCommand
+   cloudmesh.shell.command.ShellPluginCommand
+   cloudmesh.shell.command.HPCPluginCommand
+   cloudmesh.shell.command.CometPluginCommand
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.shell.command.map_parameters
+   cloudmesh.shell.command.command
+   cloudmesh.shell.command.basecommand
+
+
+.. class:: PluginCommand
+
+   Bases: :class:`object`
+
+
+.. class:: CloudPluginCommand
+
+   Bases: :class:`object`
+
+
+.. class:: ShellPluginCommand
+
+   Bases: :class:`object`
+
+
+.. class:: HPCPluginCommand
+
+   Bases: :class:`object`
+
+
+.. class:: CometPluginCommand
+
+   Bases: :class:`object`
+
+
+.. function:: map_parameters(arguments, *args)
+
+   This command is useful to map parameters with -- to regular argument dicts
+   for easier processing.
+
+   :param arguments:
+   :param args:
+   :return:
+
+   an example is
+
+   map_parameters(arguments,
+                      'active',
+                      'cloud')
+
+   where --active=ACTIVE is mapped to arguments["active"]
+   and  --cloud=CLOUD is mapped to arguments["cloud"]
+
+   as arguments is a dotdict, they can than for example be called as
+
+   arguments.cloud
+
+
+.. function:: command(func)
+
+   A decorator to create a function with docopt arguments.
+   It also generates a help function
+
+   @command
+   def do_myfunc(self, args):
+       """ docopts text """
+       pass
+
+   will create
+
+   def do_myfunc(self, args, arguments):
+       """ docopts text """
+       ...
+
+   def help_myfunc(self, args, arguments):
+       ... prints the docopt text ...
+
+   :param func: the function for the decorator
+
+
+.. function:: basecommand(func)
+
+   A decorator to create a function with docopt arguments.
+   It also generates a help function
+
+   @command
+   def do_myfunc(self, args):
+       """ docopts text """
+       pass
+
+   will create
+
+   def do_myfunc(self, args, arguments):
+       """ docopts text """
+       ...
+
+   def help_myfunc(self, args, arguments):
+       ... prints the docopt text ...
+
+   :param func: the function for the decorator
+
+

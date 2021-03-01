@@ -1,0 +1,932 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-common.cloudmesh.common.Shell &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.Shell</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cloudmeshcommon/cloudmesh/common/Shell/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-common.cloudmesh.common.Shell">
+<span id="cloudmesh-common-cloudmesh-common-shell"></span><h1><a class="reference internal" href="#module-cloudmesh-common.cloudmesh.common.Shell" title="cloudmesh-common.cloudmesh.common.Shell"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-common.cloudmesh.common.Shell</span></code></a><a class="headerlink" href="#module-cloudmesh-common.cloudmesh.common.Shell" title="Permalink to this headline">¶</a></h1>
+<p>A convenient method to execute shell commands and return their output. Note:
+that this method requires that the command be completely execute before the
+output is returned. FOr many activities in cloudmesh this is sufficient.</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.Shell.Brew" title="cloudmesh-common.cloudmesh.common.Shell.Brew"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Brew</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.Shell.Pip" title="cloudmesh-common.cloudmesh.common.Shell.Pip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pip</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.Shell.Subprocess" title="cloudmesh-common.cloudmesh.common.Shell.Subprocess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Subprocess</span></code></a></p></td>
+<td><p>Executes a command. This class should not be directly used, but</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.Shell.Shell" title="cloudmesh-common.cloudmesh.common.Shell.Shell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Shell</span></code></a></p></td>
+<td><p>The shell class allowing us to conveniently access many operating system commands.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.Shell.NotImplementedInWindows" title="cloudmesh-common.cloudmesh.common.Shell.NotImplementedInWindows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotImplementedInWindows</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh-common.cloudmesh.common.Shell.main" title="cloudmesh-common.cloudmesh.common.Shell.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<td><p>a test that should actually be added into a pytest</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.NotImplementedInWindows">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">NotImplementedInWindows</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.NotImplementedInWindows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Brew">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">Brew</span></code><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Brew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Brew.install">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">install</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Brew.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Brew.version">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">version</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Brew.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Pip">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">Pip</span></code><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Pip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Pip.install">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">install</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Pip.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.SubprocessError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">SubprocessError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">returncode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stderr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.SubprocessError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Manages the formatting of the error and stdout.
+This command should not be directly called. Instead use Shell</p>
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.SubprocessError.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.SubprocessError.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Subprocess">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">Subprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">subprocess.PIPE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">subprocess.PIPE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Subprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Executes a command. This class should not be directly used, but
+instead you should use Shell.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">Shell</span></code><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The shell class allowing us to conveniently access many operating system commands.
+TODO: This works well on Linux and OSX, but has not been tested much on Windows</p>
+<dl class="py attribute">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.command">
+<code class="sig-name descname"><span class="pre">command</span></code><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.run_timed">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">run_timed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.run_timed" title="Permalink to this definition">¶</a></dt>
+<dd><p>runs teh command and uses the StopWatch to time it
+:param label: name of the StopWatch
+:param command: the command to be executed
+:param encoding: the encoding
+:param service: a prefix to the stopwatch label
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.run">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">';</span> <span class="pre">exit</span> <span class="pre">0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes the command and returns the output as string
+:param command:
+:param encoding:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.run2">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">run2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.run2" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes the command and returns the output as string. This command also
+allows execution of 32 bit commands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> – the program or command to be executed</p></li>
+<li><p><strong>encoding</strong> – encoding of the output</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.execute">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">execute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceflag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">witherror</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run Shell command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>witherror</strong> – if set to False the error will not be printed</p></li>
+<li><p><strong>traceflag</strong> – if set to true the trace is printed in case of an error</p></li>
+<li><p><strong>cwd</strong> – the current working directory in which the command is</p></li>
+</ul>
+</dd>
+</dl>
+<p>supposed to be executed.
+:param shell: if set to true the subprocess is called as part of a shell
+:param cmd: command to run
+:param arguments: we do not know yet
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.oneline">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">oneline</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.oneline" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a script to one line command.
+THis is useful to run a single ssh command and pass a one line script.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>script</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.is_root">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_root</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.is_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.rmdir">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">rmdir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">top</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.rmdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.dot2svg">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">dot2svg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dot'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.dot2svg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.browser">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">browser</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.browser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.terminal_title">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">terminal_title</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.terminal_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.terminal">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">terminal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pwd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.terminal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.live">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">live</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.live" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.get_python">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_python</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.get_python" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the python and pip version
+:return: python version, pip version</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.check_output">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">check_output</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.check_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Thin wrapper around <code class="xref py py-func docutils literal notranslate"><span class="pre">subprocess.check_output()</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.ls">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">ls</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.ls" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes ls with the given arguments
+:param args:
+:return: list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.unix_ls">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">unix_ls</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.unix_ls" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes ls with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.ps">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">ps</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.ps" title="Permalink to this definition">¶</a></dt>
+<dd><p>using psutil to return the process information pid, name and comdline,
+cmdline may be a list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of dicts of process information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.bash">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">bash</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.bash" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes bash with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.brew">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">brew</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.brew" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes bash with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.cat">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">cat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.cat" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes cat with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.git">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">git</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.git" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes git with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.VBoxManage">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">VBoxManage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.VBoxManage" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes VboxManage with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.blockdiag">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">blockdiag</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.blockdiag" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes blockdiag with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.cm">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">cm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.cm" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes cm with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.cms">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">cms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.cms" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes cm with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.cmsd">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">cmsd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.cmsd" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes cm with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.head">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">head</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.head" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes head with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.keystone">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">keystone</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.keystone" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes keystone with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.kill_pid">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">kill_pid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.kill_pid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.kill">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">kill</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes kill with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.mount">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">mount</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.mount" title="Permalink to this definition">¶</a></dt>
+<dd><p>mounts a given mountpoint to a file
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.umount">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">umount</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.umount" title="Permalink to this definition">¶</a></dt>
+<dd><p>umounts a given mountpoint to a file
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.nova">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">nova</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.nova" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes nova with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.ping">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">ping</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.ping" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute ping
+:param host: the host to ping
+:param count: the number of pings
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.pwd">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">pwd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.pwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes pwd with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.rackdiag">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">rackdiag</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.rackdiag" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes rackdiag with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.rm">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">rm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.rm" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes rm tree with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.rsync">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">rsync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.rsync" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes rsync with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.scp">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">scp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.scp" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes scp with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.sort">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">sort</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes sort with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.sh">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">sh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.sh" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes sh with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.ssh">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">ssh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.ssh" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes ssh with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.sudo">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">sudo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.sudo" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes sudo with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.tail">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">tail</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.tail" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes tail with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.vagrant">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">vagrant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.vagrant" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes vagrant with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.pandoc">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">pandoc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.pandoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes vagrant with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.mongod">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">mongod</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.mongod" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes mongod with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.dialog">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">dialog</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes dialof with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.pip">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">pip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.pip" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes pip with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.fgrep">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">fgrep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.fgrep" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes fgrep with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.grep">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">grep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.grep" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes grep with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.cm_grep">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">cm_grep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.cm_grep" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that contain what
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.remove_line_with">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">remove_line_with</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.remove_line_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that do not contain what
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_with">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">find_lines_with</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that contain what
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_from">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">find_lines_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that come after a particular line
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_between">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">find_lines_between</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what_to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that come between the markers
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_to">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">find_lines_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">what</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.find_lines_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all lines that come before a particular line
+:param lines:
+:param what:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.terminal_type">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">terminal_type</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.terminal_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns  darwin, cygwin, cmd, or linux</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.which">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">which</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.which" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the path of the command with which
+:param command: teh command
+:return: the path</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.command_exists">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">command_exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.command_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the command exists
+:param name:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.operating_system">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">operating_system</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.operating_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>the name of the os
+:return: the name of the os</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.get_pid">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_pid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'psutil'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.get_pid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="id0">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">cms</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.check_python">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">check_python</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.check_python" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if the python version is supported
+:return: True if it is supported</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.mkdir">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">mkdir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.mkdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a directory with all its parents in ots name
+:param directory: the path of the directory
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.unzip">
+<code class="sig-name descname"><span class="pre">unzip</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.unzip" title="Permalink to this definition">¶</a></dt>
+<dd><p>unzips a file into the destination directory
+:param source_filename: the source
+:param dest_dir: the destination directory
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.edit">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">edit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.lsb_release">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">lsb_release</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.lsb_release" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes lsb_release command
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.Shell.distribution">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">distribution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.Shell.distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes lsb_release command
+:param args:
+:return:</p>
+<p>TODO: needs testing</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh-common.cloudmesh.common.Shell.main">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh-common.cloudmesh.common.Shell.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-common.cloudmesh.common.Shell.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>a test that should actually be added into a pytest
+:return:</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

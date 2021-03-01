@@ -1,0 +1,157 @@
+:mod:`cloudmesh-common.cloudmesh.common.StopWatch`
+==================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.StopWatch
+
+.. autoapi-nested-parse::
+
+   Class for starting and stopping named timers.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.StopWatch.StopWatch
+
+
+
+.. class:: StopWatch
+
+   Bases: :class:`object`
+
+   A class to measure times between events.
+
+   .. attribute:: debug
+      :annotation: = False
+
+      
+
+   .. attribute:: verbose
+      :annotation: = True
+
+      
+
+   .. attribute:: timer_start
+      
+
+      
+
+   .. attribute:: timer_end
+      
+
+      
+
+   .. attribute:: timer_elapsed
+      
+
+      
+
+   .. attribute:: timer_status
+      
+
+      
+
+   .. attribute:: timer_sum
+      
+
+      
+
+   .. method:: keys(cls)
+      :classmethod:
+
+      returns the names of the timers
+
+
+   .. method:: status(cls, name, value)
+      :classmethod:
+
+      starts a timer with the given name.
+
+      :param name: the name of the timer
+      :type name: string
+      :param status: the name of a status
+      :type status: bool
+
+
+   .. method:: start(cls, name)
+      :classmethod:
+
+      starts a timer with the given name.
+
+      :param name: the name of the timer
+      :type name: string
+
+
+   .. method:: stop(cls, name)
+      :classmethod:
+
+      stops the timer with a given name.
+
+      :param name: the name of the timer
+      :type name: string
+
+
+   .. method:: get_status(cls, name)
+      :classmethod:
+
+      sets the status of the timer with a given name.
+
+      :param name: the name of the timer
+      :type name: string
+
+
+   .. method:: get(cls, name, digits=4)
+      :classmethod:
+
+      returns the time of the timer.
+
+      :param name: the name of the timer
+      :type name: string
+      :rtype: the elapsed time
+
+
+   .. method:: sum(cls, name, digits=4)
+      :classmethod:
+
+      returns the sum of the timer if used multiple times
+
+      :param name: the name of the timer
+      :type name: string
+      :rtype: the elapsed time
+
+
+   .. method:: clear(cls)
+      :classmethod:
+
+      clear start and end timer_start
+
+
+   .. method:: print(cls, *args)
+      :classmethod:
+
+      prints a timer. The first argument is the label if it exists, the last is the timer
+      :param args: label, name
+      :return:
+
+
+   .. method:: __str__(cls)
+      :classmethod:
+
+      Return str(self).
+
+
+   .. method:: benchmark(cls, sysinfo=True, csv=True, prefix='# csv', tag=None, sum=True)
+      :classmethod:
+
+      prints out all timers in a convenient benchmark table
+      :return:
+      :rtype:
+
+
+

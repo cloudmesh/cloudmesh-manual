@@ -1,0 +1,84 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.parallelgdrive.Provider`
+===========================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.parallelgdrive.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.parallelgdrive.Provider.Provider
+
+
+
+.. data:: SCOPES
+   :annotation: = ['https://www.googleapis.com/auth/drive']
+
+   
+
+.. class:: Provider(service=None, config='~/.cloudmesh/cloudmesh.yaml', parallelism=4)
+
+
+   Bases: :class:`cloudmesh.storage.provider.StorageQueue.StorageQueue`
+
+   .. attribute:: kind
+      :annotation: = parallelgdrive
+
+      
+
+   .. attribute:: sample
+      :annotation: = TODO: missing
+
+      
+
+   .. attribute:: status
+      :annotation: = ['completed', 'waiting', 'inprogress', 'canceled']
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: list_run(self, specification)
+
+
+   .. method:: put_run(self, specification)
+
+
+   .. method:: get_run(self, specification)
+
+
+   .. method:: delete_run(self, specification)
+
+
+   .. method:: mkdir_run(self, specification)
+
+
+   .. method:: create_dir_helper(self, service=None, directory=None)
+
+
+   .. method:: search_run(self, specification)
+
+
+   .. method:: upload_file(self, source, filename, parent_it)
+
+
+   .. method:: download_file(self, source, file_id, file_name, mime_type)
+
+
+   .. method:: cloud_path(self, srv_path)
+
+
+
+.. data:: p
+   
+
+   
+

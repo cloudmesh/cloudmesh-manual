@@ -1,0 +1,99 @@
+:mod:`test_register`
+====================
+
+.. py:module:: test_register
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   test_register.Test_register
+
+
+
+.. class:: Test_register
+
+   .. attribute:: services
+      :annotation: = ['storage', 'compute', 'volume']
+
+      
+
+   .. attribute:: google_compute_json_file
+      :annotation: = ./../cloudmesh-google/tests/google_sample_credentials.json
+
+      
+
+   .. method:: setup(self)
+
+
+   .. method:: rprint(self, r)
+
+
+   .. method:: test_list(self)
+
+      Method to return list of all services and related kinds.
+      :return:
+
+
+   .. method:: _test_list_kinds(self, service='compute')
+
+      Method to list all kinds for given service.
+      :param service: Name of the service.
+      :return:
+
+
+   .. method:: test_list_kinds(self)
+
+      Method to return list of kinds for all supported services.
+      :return:
+
+
+   .. method:: test_list_google_compute_sample(self)
+
+      Method to list sample for google compute.
+      :return:
+
+
+   .. method:: test_list_google_storage_sample(self)
+
+      Method to return sample for google storage.
+      :return:
+
+
+   .. method:: test_update_using_file(self)
+
+      Method to register google compute using json file with default name google
+      :return:
+
+
+   .. method:: test_update_using_file_with_name(self)
+
+      Method to register google compute with a custom name.
+      :return:
+
+
+   .. method:: test_update_using_file_with_attrs(self)
+
+      Method to register google compute with file, customer name and
+      attributes to override values from JSON file.
+      :return:
+
+
+   .. method:: test_remove(self)
+
+      Method to remove google compute entry with default name google.
+      :return:
+
+
+   .. method:: test_remove_with_name(self)
+
+      Method to remove google compute entry with custom name.
+      :return:
+
+
+

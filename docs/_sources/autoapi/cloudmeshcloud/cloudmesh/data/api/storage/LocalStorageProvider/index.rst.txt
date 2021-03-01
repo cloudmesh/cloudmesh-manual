@@ -1,0 +1,56 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.storage.LocalStorageProvider`
+======================================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.storage.LocalStorageProvider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.storage.LocalStorageProvider.LocalStorageProvider
+
+
+
+.. class:: LocalStorageProvider(storage_path)
+
+
+   Bases: :class:`cloudmesh.data.api.storage.StorageProviderABC`
+
+   A storage provider that uses a local file system or network drive path to store files.
+
+   .. method:: put(self, local_path)
+
+      Upload a new file.
+
+      :param local_path: Path to a file that will be stored.
+      :return: a CloudFile with resource information filled in
+
+
+   .. method:: get(self, cloud_file, local_dest)
+
+      Download the file from the `cloud_file.url` to a local folder.
+
+      :param cloud_file: A cloud file entry from the db.
+      :param local_dest: A local path where the cloud file will be downloaded.
+
+
+   .. method:: delete(self, cloud_file)
+
+      Delete a file from the database
+
+      :param cloud_file: the cloud file entry being deleted
+
+
+   .. method:: exists(self, cloud_file_name)
+
+      Delete a file from the database
+
+      :param cloud_file_name: the cloud file entry being deleted
+
+
+

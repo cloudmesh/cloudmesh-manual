@@ -1,0 +1,86 @@
+:mod:`cloudmesh.management.script`
+==================================
+
+.. py:module:: cloudmesh.management.script
+
+.. autoapi-nested-parse::
+
+   A convenient method to execute shell commands and return their output. Note:
+   that this method requires that the command be completely executed before the
+   output is returned. For many activities in cloudmesh this is sufficient.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.management.script.SystemPath
+   cloudmesh.management.script.Script
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.management.script.find_process
+
+
+.. class:: SystemPath
+
+   Bases: :class:`object`
+
+   Managing the System path in the .bashrc or .bash_profile files
+
+   .. method:: add(path)
+      :staticmethod:
+
+      Adds a path to the ``~/.bashrc`` or ``~/.bash_profile`` files.
+
+      TODO: Windows is not implemented yet.
+
+      :param path: The path to be added
+      :return:
+
+
+
+.. class:: Script
+
+   Bases: :class:`object`
+
+   Executing a script defined by a simple text parameter
+
+   .. method:: run(script, live=False, debug=False)
+      :staticmethod:
+
+      run the specified script line by line.
+
+      TODO: at one point this should be moved to cloudmesh.common
+
+
+      :param script: The script
+      :param debug: If true the output of the script is printed
+      :return:
+
+
+
+.. function:: find_process(name)
+
+   find a process by name
+
+   :param name: the name of the process
+   :return: A list of dicts in which the attributes pid, command,
+            and created are available and the name matches
+            the specified name argument.
+
+   TODO: at one point this should be moved to cloudmesh.common
+
+   Return a list of processes matching 'name'.
+
+

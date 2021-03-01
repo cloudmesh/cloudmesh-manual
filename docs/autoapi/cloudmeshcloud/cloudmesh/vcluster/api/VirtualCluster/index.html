@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshcloud/cloudmesh/vcluster/api/VirtualCluster/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster">
+<span id="cloudmesh-cloud-cloudmesh-vcluster-api-virtualcluster"></span><h1><a class="reference internal" href="#module-cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster" title="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster</span></code></a><a class="headerlink" href="#module-cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster" title="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VirtualCluster</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.</span></code><code class="sig-name descname"><span class="pre">VirtualCluster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">debug</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._config_validator">
+<code class="sig-name descname"><span class="pre">_config_validator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._config_validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>validates the configuration of a run based on the information about its virtual cluster, runtime configuration
+and the job metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._clean_remote_in_parallel">
+<code class="sig-name descname"><span class="pre">_clean_remote_in_parallel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._clean_remote_in_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to spawn processes to clean the remotes of a particular job.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_node</strong> – the node on which the data is going to be removed</p></li>
+<li><p><strong>remote_path</strong> – path of the data to be removed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._connection_test_in_parallel">
+<code class="sig-name descname"><span class="pre">_connection_test_in_parallel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._connection_test_in_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to test the connection to cluster nodes in parallel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target_node</strong> – the node to which the connection is going to be tested</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._create_config">
+<code class="sig-name descname"><span class="pre">_create_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proc_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_proc_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">download_later</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._create_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create a runtime-configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_name</strong> – name of the runtime configuration</p></li>
+<li><p><strong>proc_num</strong> – number of processes to be spawned in that runtime for submitting the jobs</p></li>
+<li><p><strong>download_proc_num</strong> – number number of processes to be spawned in that runtime for fetching the results</p></li>
+<li><p><strong>download_later</strong> – a flag indicating whether or not the script should wait for the results after the scripts are submitted</p></li>
+<li><p><strong>input_type</strong> – type of the input of the script to be run remotely</p></li>
+<li><p><strong>output_type</strong> – type of the output of the script to be run remotely</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._create_vcluster">
+<code class="sig-name descname"><span class="pre">_create_vcluster</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vcluster_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">computer_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._create_vcluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create a virtual cluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vcluster_name</strong> – name of the virtual cluster</p></li>
+<li><p><strong>cluster_list</strong> – list of the clusters to be added to the
+virtual cluster</p></li>
+<li><p><strong>computer_list</strong> – list of the computers to be used from the
+previous parameter (cluster_list). If the computer_list is left
+empty, all of the computers will be used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._execute_in_parallel">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_execute_in_parallel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._execute_in_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a method used for running methods in parallel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func_args</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._fetch_results_in_parallel">
+<code class="sig-name descname"><span class="pre">_fetch_results_in_parallel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_pid_tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_pids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._fetch_results_in_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to fetch the results from remote nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_metadata</strong> – the dictionary containing the information about the previously submitted job</p></li>
+<li><p><strong>node_pid_tuple</strong> – the tuple containing destination node, destination pid and destination node index when the job was submitted</p></li>
+<li><p><strong>all_pids</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._run_remote_job_in_parallel">
+<code class="sig-name descname"><span class="pre">_run_remote_job_in_parallel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_pids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._run_remote_job_in_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to spawn remote processes in parallel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_metadata</strong> – contains the information about the job</p></li>
+<li><p><strong>param_idx</strong> – index of the parameters inputted as argument</p></li>
+<li><p><strong>params</strong> – the parameters inputted as argument for this run</p></li>
+<li><p><strong>all_pids</strong> – the manager used to take all pids of all submitted jobs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._ssh">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_ssh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sshconfigpath</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._ssh" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create remove ssh connections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hostname</strong> – hostname</p></li>
+<li><p><strong>sshconfigpath</strong> – path to sshconfig for connecting to remote node</p></li>
+<li><p><strong>args</strong> – the argument to be submitted via ssh</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._scp">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_scp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sshconfigpath</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster._scp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used for scp from and to remote</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hostname</strong> – hostname</p></li>
+<li><p><strong>sshconfigpath</strong> – ssh config file</p></li>
+</ul>
+</dd>
+</dl>
+<p>:param args:arguments for using while copying
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.add_suffix_to_path">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">add_suffix_to_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.add_suffix_to_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to add suffix to a path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path</p></li>
+<li><p><strong>suffix</strong> – suffix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.clean_remote">
+<code class="sig-name descname"><span class="pre">clean_remote</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proc_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.clean_remote" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to spawn processes for cleaning the remote nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_name</strong> – name of previously submitted job for which the nodes are going to be cleaned</p></li>
+<li><p><strong>proc_num</strong> – number of processes used for cleaning the remote nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.connection_test">
+<code class="sig-name descname"><span class="pre">connection_test</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vcluster_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proc_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.connection_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used for spawning processes for testing the connections to remote nodes of a vcluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vcluster_name</strong> – name of the virtual cluster the nodes of which are going to be tested</p></li>
+<li><p><strong>proc_num</strong> – number of processes used for testing the remote nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.create">
+<code class="sig-name descname"><span class="pre">create</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a caller for creator functions including config creator and vcluster creator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – </p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy">
+<code class="sig-name descname"><span class="pre">destroy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to remove virtual clusters and runtime configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – type of entity to be removed</p></li>
+<li><p><strong>key</strong> – keyname of the entity to be removed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.fetch">
+<code class="sig-name descname"><span class="pre">fetch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to fetch results from remote nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>job_name</strong> – the previously submitted job name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list">
+<code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>listing the current virtual clusters based on the vcluster_conf file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – name of the virtual cluster to be listed</p></li>
+<li><p><strong>max_depth</strong> – depth of information to be shown</p></li>
+<li><p><strong>input_dict</strong> – used for recursion for depth of higher than 1</p></li>
+<li><p><strong>current_depth</strong> – current depth of printing information</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argfile_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create a job, validate it and run it on remote nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_name</strong> – name of the job to create</p></li>
+<li><p><strong>cluster_name</strong> – cluster on which the job is gonna run</p></li>
+<li><p><strong>config_name</strong> – name of the configuration based on which the job is going to run</p></li>
+<li><p><strong>script_path</strong> – path of the script to be run remotely</p></li>
+<li><p><strong>argfile_path</strong> – path of the file that has to be passed to the file as an argument if any</p></li>
+<li><p><strong>outfile_name</strong> – output filename resulted from running the script , if any</p></li>
+<li><p><strong>remote_path</strong> – path in the remotes on which the script is gonna be copied to and ran from</p></li>
+<li><p><strong>local_path</strong> – local path to which the results are gonna be copied</p></li>
+<li><p><strong>params_list</strong> – list of the parameters that are going to be passed to the script if any</p></li>
+<li><p><strong>suffix</strong> – suffix of the filenames in the job</p></li>
+<li><p><strong>overwrite</strong> – if the job already exists, this flag overwrites the previous job with the same name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.set_param">
+<code class="sig-name descname"><span class="pre">set_param</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.set_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to set a specific parameter in the configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – the entity type on which the parameter is going to be set, e.g. runtime-config</p></li>
+<li><p><strong>name</strong> – the entity name on which the parameter is going to be set, e.g. test-config32</p></li>
+<li><p><strong>parameter</strong> – name of the parameter to be set</p></li>
+<li><p><strong>value</strong> – value of that parameter to be set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

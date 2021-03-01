@@ -1,0 +1,235 @@
+:mod:`cloudmesh-configuration.cloudmesh.configuration.Config`
+=============================================================
+
+.. py:module:: cloudmesh-configuration.cloudmesh.configuration.Config
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-configuration.cloudmesh.configuration.Config.Active
+   cloudmesh-configuration.cloudmesh.configuration.Config.Config
+
+
+
+.. class:: Active
+
+
+   Bases: :class:`object`
+
+   .. method:: clouds(self)
+
+
+
+.. class:: Config(config_path='~/.cloudmesh/cloudmesh.yaml', encrypted=False)
+
+
+   Bases: :class:`object`
+
+   .. attribute:: __shared_state
+      
+
+      
+
+   .. method:: version()
+      :staticmethod:
+
+
+   .. method:: secrets()
+      :staticmethod:
+
+
+   .. method:: exceptions()
+      :staticmethod:
+
+
+   .. method:: fetch(self, url=None, destination=None)
+
+      fetches the cloudmesh yaml file and places it in the given
+      destination dir
+
+      :param url: The url of the cloudmesh.yaml file from github
+      :param destination: The destination file. If not specified it is the
+                           home dir.
+      :return:
+
+
+   .. method:: load(self, config_path=None)
+
+      loads a configuration file
+      :param config_path:
+      :type config_path:
+      :return:
+      :rtype:
+
+
+   .. method:: create(self, config_path=None)
+
+      creates the cloudmesh.yaml file in the specified location. The
+      default is
+
+          ~/.cloudmesh/cloudmesh.yaml
+
+      If the file does not exist, it is initialized with a default. You still
+      need to edit the file.
+
+      :param config_path:  The yaml file to create
+      :type config_path: string
+
+
+   .. method:: check(self, path=None)
+
+
+   .. method:: check_for_tabs(filename, verbose=True)
+      :staticmethod:
+
+      identifies if the file contains tabs and returns True if it
+      does. It also prints the location of the lines and columns. If
+      verbose is set to False, the location is not printed.
+
+      :param verbose: if true prints issues
+      :param filename: the filename
+      :type filename: str
+      :rtype: True if there are tabs in the file
+
+
+   .. method:: save(self, path=None, backup=True)
+
+      #
+      # not tested
+      #
+      saves th dic into the file. It also creates a backup if set to true The
+      backup filename  appends a .bak.NO where number is a number that is not
+      yet used in the backup directory.
+
+      :param path:
+      :type path:
+      :return:
+      :rtype:
+
+
+   .. method:: spec_replace(self, spec)
+
+
+   .. method:: credentials(self, kind, name)
+
+      :param kind: the first level of attributes after cloudmesh
+      :param name: the name of the resource
+      :return:
+
+
+   .. method:: check_for_TBD(self, kind, name)
+
+
+   .. method:: set_debug_defaults(self)
+
+
+   .. method:: dict(self)
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+   .. method:: cat_dict(d, mask_secrets=True, attributes=None, color=None)
+      :staticmethod:
+
+
+   .. method:: cat_lines(content, mask_secrets=True, attributes=None, color=None)
+      :staticmethod:
+
+
+   .. method:: cat(mask_secrets=True, attributes=None, path='~/.cloudmesh/cloudmesh.yaml', color=None)
+      :staticmethod:
+
+
+   .. method:: get(self, key, default=None)
+
+      A helper function for reading values from the config without
+      a chain of `get()` calls.
+
+      Usage:
+          mongo_conn = conf.get('db.mongo.MONGO_CONNECTION_STRING')
+          default_db = conf.get('default.db')
+          az_credentials = conf.get('data.service.azure.credentials')
+
+      :param default:
+      :param key: A string representing the value's path in the config.
+
+
+   .. method:: __setitem__(self, key, value)
+
+
+   .. method:: set(self, key, value)
+
+      A helper function for setting the default cloud in the config without
+      a chain of `set()` calls.
+
+      Usage:
+          mongo_conn = conf.set('db.mongo.MONGO_CONNECTION_STRING',
+                       "https://localhost:3232")
+
+      :param key: A string representing the value's path in the config.
+      :param value: value to be set.
+
+
+   .. method:: set_cloud(self, key, value)
+
+      A helper function for setting the default cloud in the config without
+      a chain of `set()` calls.
+
+      Usage:
+          mongo_conn = conf.get('db.mongo.MONGO_CONNECTION_STRING',
+                                "https://localhost:3232")
+
+      :param key: A string representing the value's path in the config.
+      :param value: value to be set.
+
+
+   .. method:: default(self)
+
+
+   .. method:: __getitem__(self, item)
+
+      gets an item form the dict. The key is . separated
+      use it as follows get("a.b.c")
+      :param item:
+      :type item:
+      :return:
+
+
+   .. method:: __delitem__(self, item)
+
+      #
+      # BUG THIS DOES NOT WORK
+      #
+      gets an item form the dict. The key is . separated
+      use it as follows get("a.b.c")
+      :param item:
+      :type item:
+      :return:
+
+
+   .. method:: search(self, key, value=None)
+
+      search("cloudmesh.cloud.*.cm.active", True)
+      :param key:
+      :param value:
+      :return:
+
+
+   .. method:: edit(self, attribute)
+
+      edits the dict specified by the attribute and fills out all TBD values.
+      :param attribute:
+      :type attribute: string
+      :return:
+
+
+

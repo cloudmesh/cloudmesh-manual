@@ -1,0 +1,611 @@
+:mod:`cloudmesh.azure.compute.Provider`
+=======================================
+
+.. py:module:: cloudmesh.azure.compute.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.azure.compute.Provider.Provider
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.azure.compute.Provider._remove_mongo_id_obj
+   cloudmesh.azure.compute.Provider._get_az_vm_status
+
+
+.. function:: _remove_mongo_id_obj(dict_list)
+
+
+.. function:: _get_az_vm_status(az_status)
+
+
+.. class:: Provider(name='azure', credentials=None)
+
+
+   Bases: :class:`cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC`, :class:`cloudmesh.provider.ComputeProviderPlugin`
+
+   verbosity
+
+   8 - prints major actions
+   9 - prints all images
+   10 - prints all update dicts
+
+   .. attribute:: kind
+      :annotation: = azure
+
+      
+
+   .. attribute:: sample
+      :annotation: = 
+           cloudmesh:
+             cloud:
+               {name}:
+                 cm:
+                   active: true
+                   heading: {name}
+                   host: TBD
+                   label: {name}
+                   kind: azure
+                   version: latest
+                   service: compute
+                 default:
+                   image: Canonical:UbuntuServer:16.04.0-LTS:latest
+                   size: Basic_A0
+                   resource_group: cloudmesh
+                   storage_account: cmdrive
+                   network: cmnetwork
+                   subnet: cmsubnet
+                   blob_container: vhds
+                   AZURE_VM_IP_CONFIG: cloudmesh-ip-config
+                   AZURE_VM_NIC: cloudmesh-nic
+                   AZURE_VM_DISK_NAME: cloudmesh-os-disk
+                   AZURE_VM_USER: TBD
+                   AZURE_VM_PASSWORD: TBD
+                   AZURE_VM_NAME: cloudmeshVM
+                 credentials:
+                   AZURE_TENANT_ID: {tenantid}
+                   AZURE_SUBSCRIPTION_ID: {subscriptionid}
+                   AZURE_APPLICATION_ID: {applicationid}
+                   AZURE_SECRET_KEY: {secretkey}
+                   AZURE_REGION: eastus
+           
+
+      
+
+   .. attribute:: vm_state
+      :annotation: = ['ACTIVE', 'BUILDING', 'DELETED', 'ERROR', 'HARD_REBOOT', 'PASSWORD', 'PAUSED', 'REBOOT', 'REBUILD', 'RESCUED', 'RESIZED', 'REVERT_RESIZE', 'SHUTOFF', 'SOFT_DELETED', 'STOPPED', 'SUSPENDED', 'UNKNOWN', 'VERIFY_RESIZE']
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: Print(self, data, output=None, kind=None)
+
+
+   .. method:: keys(self)
+
+      The keys command in Azure is not supported
+
+      TODO: BUG: therefore it should just return the keys form the local db to
+                 make it appear it is supported. So instead do get the output,
+                 see how it is implemented in key list
+
+      :return:
+
+
+   .. method:: key_upload(self, key=None)
+
+      TODO: implement alternative
+
+      azure does not allow explicit key upload!
+
+
+      :param key:
+      :return:
+
+
+   .. method:: key_delete(self, name=None)
+
+      TODO: implement alternative
+
+              azure does not allow explicit key upload!
+
+
+      :param name:
+      :return:
+
+
+   .. method:: _get_az_public_ip(self, ip_name)
+
+
+   .. method:: get_public_ip(self, name=None)
+
+      returns public IP by vm name from the Az public IPs
+
+      :param name:
+      :return:
+
+
+   .. method:: list_public_ips(self, ip=None, available=False)
+
+      lists public ips of the group
+
+      :param ip:
+      :param available:
+      :return:
+
+
+   .. method:: delete_public_ip(self, ip=None)
+
+      deletes public ip by name
+
+      :param ip:
+      :return:
+
+
+   .. method:: create_public_ip(self)
+
+      Creates public IP for the group using the ip name provided in the config
+      as a prefix
+
+      :return:
+
+
+   .. method:: find_available_public_ip(self)
+
+      Azure currently has no direct API to check if an IP is available or not!
+      Hence create an IP everytime this method is called!
+
+      :return:
+
+
+   .. method:: attach_public_ip(self, node=None, ip=None)
+
+      attaches a public ip to a node
+
+      :param node:
+      :param ip:
+      :return:
+
+
+   .. method:: detach_public_ip(self, node=None, ip=None)
+
+      detaches public IP
+
+      :param node:
+      :param ip:
+      :return:
+
+
+   .. method:: _get_az_pub_ip_from_nic_id(self, nic_id)
+
+      gets azure public ip using NIC ID
+
+      :param nic_id:
+      :return:
+
+
+   .. method:: _get_local_vm(self, vm_name, quiet=False)
+
+      gets local vm from the db
+
+      :param vm_name:
+      :param quiet:
+      :return:
+
+
+   .. method:: _get_pub_ip_for_vm(self, vm)
+
+
+   .. method:: ssh(self, vm=None, command=None)
+
+      runs ssh
+
+      :param vm:
+      :param command:
+      :return:
+
+
+   .. method:: _get_resource_group(self)
+
+
+   .. method:: set_server_metadata(self, name, **metadata)
+
+      sets server metadata
+
+      :param name:
+      :param metadata:
+      :return:
+
+
+   .. method:: get_server_metadata(self, name)
+
+      gets server metadata
+
+      :param name:
+      :return:
+
+
+   .. method:: delete_server_metadata(self, name, key=None)
+
+      deletes server metadata
+
+      :param name:
+      :param key:
+      :return:
+
+
+   .. method:: list_secgroups(self, name=None)
+
+      List the security group by name
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: _get_az_sec_groups(self, name=None)
+
+      gets azure sec groups
+
+      :param name:
+      :return:
+
+
+   .. method:: _get_local_sec_groups(self, name=None)
+
+      gets local sec groups from db
+
+      :param name:
+      :return:
+
+
+   .. method:: _get_local_sec_rules(self, group_name=None)
+
+      gets local sec rules from db
+
+      :param group_name:
+      :return:
+
+
+   .. method:: list_secgroup_rules(self, name='default')
+
+      List the security group rules by for provided Network Security Group
+
+      :param name: The name of the group
+      :return:
+
+
+   .. method:: _sec_rules_local_to_az(self, sec_rule_names)
+
+      translate local rules to aure sec rules
+
+      :param sec_rule_names:
+      :return:
+
+
+   .. method:: _add_local_sec_group(self, name, description)
+
+      adds sec group locally to db
+
+      :param name:
+      :param description:
+      :return:
+
+
+   .. method:: _add_az_sec_group(self, name)
+
+      adds sec group to azure
+
+      :param name:
+      :return:
+
+
+   .. method:: add_secgroup(self, name=None, description=None)
+
+      Adds the sec group locally
+      :param name: Name of the group
+      :param description: The description
+      :return:
+
+
+   .. method:: add_secgroup_rule(self, name=None, port=None, protocol=None, ip_range=None)
+
+      Adding sec rule to the local db as azure does not support explicit sec
+      rules
+      :param name:
+      :param port:
+      :param protocol:
+      :param ip_range:
+      :return:
+
+
+   .. method:: remove_secgroup(self, name=None)
+
+      Delete the names security group
+
+      :param name: The name of the Security Group to be deleted
+      :return:
+
+
+   .. method:: upload_secgroup(self, name=None)
+
+      Takes the security group from the local db and push it to az
+      :param name:
+      :return:
+
+
+   .. method:: _check_local_rules_available(self, rules)
+
+      checks if local rules available
+
+      :param rules:
+      :return:
+
+
+   .. method:: add_rules_to_secgroup(self, secgroupname=None, newrules=None)
+
+      Adds the rules to te local sec group only! it will update the az sec
+      group once it is uploaded
+      :param secgroupname:
+      :param newrules:
+      :return:
+
+
+   .. method:: remove_rules_from_secgroup(self, name=None, rules=None)
+
+      removes rules from a secgroup both locally and from azure group
+      :param name:
+      :param rules:
+      :return:
+
+
+   .. method:: create(self, name=None, image=None, size=None, location=None, timeout=180, key=None, secgroup=None, ip=None, user=None, public=True, group=None, metadata=None, flavor=None, **kwargs)
+
+      creates a named node
+
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the image
+                      does not boot. The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+      :param location:
+      :param key:
+      :param secgroup:
+      :param ip:
+      :param user:
+      :param public:
+      :param group:
+      :param metadata:
+      :param flavor:
+      :return:
+
+
+   .. method:: _get_local_key_content(self, key_name)
+
+      gets local key content from cb
+
+      :param key_name:
+      :return:
+
+
+   .. method:: _create_vm_parameters(self, name, secgroup, ip, key, flavor)
+
+      Create the VM parameters structure.
+      :param secgroup: sec group name
+      :param ip: az PublicIP object as dict
+      :param key: pub key content
+      :return:
+
+
+   .. method:: _create_az_sec_group_if_not_exists(self, sec_group_name)
+
+      creates azure sec group if not exists (by name)
+
+      :param sec_group_name:
+      :return:
+
+
+   .. method:: _create_az_vnet_if_not_exists(self)
+
+      creates azure virtual network
+
+      :return:
+
+
+   .. method:: _create_az_subnet_if_not_exits(self, secgroup)
+
+      creates azure subnet
+
+      :param secgroup:
+      :return:
+
+
+   .. method:: _create_az_nic(self, secgroup, ip)
+
+      Create a Network Interface for a Virtual Machine
+
+      :param secgroup:
+      :param ip:
+      :return:
+
+
+   .. method:: start(self, group=None, name=None)
+
+      start a node
+
+      :param group: the unique Resource Group name
+      :param name: the unique Virtual Machine name
+      :return:  The dict representing the node
+
+
+   .. method:: reboot(self, group=None, name=None)
+
+      restart/reboot a node
+
+      :param group: the unique Resource Group name
+      :param name: the unique Virtual Machine name
+      :return: The dict representing the node
+
+
+   .. method:: stop(self, group=None, name=None)
+
+      stops the node with the given name
+
+      :param group: the unique Resource Group name
+      :param name: the unique Virtual Machine name
+      :return: The dict representing the node including updated status
+
+
+   .. method:: resume(self, group=None, name=None)
+
+      resume the named node since Azure does not handle resume it uses start
+
+      :param group: the unique Resource Group name
+      :param name: the unique Virtual Machine name
+      :return: The dict representing the node including updated status
+
+
+   .. method:: suspend(self, group=None, name=None)
+
+      suspends the node with the given name since Azure does not handle
+      suspend it uses stop
+
+      :param group: the unique Resource Group name
+      :param name: the unique Virtual Machine name
+      :return: The dict representing the node including updated status
+
+
+   .. method:: info(self, group=None, name=None, status=None)
+
+      gets the information of a node with a given name
+      list VM in resource group
+
+      :param group: the unique Resource Group name
+      :param name: the unique Virtual Machine name
+      :param status: TODO
+      :return: dict representing the node including updated status
+
+
+   .. method:: status(self, name=None)
+
+      gets the status of a VM by name
+
+      :param name:
+      :return:
+
+
+   .. method:: list(self)
+
+      List all Azure Virtual Machines from my Account
+
+      :return: dict
+
+
+   .. method:: destroy(self, name=None)
+
+      Destroys the node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: images(self, **kwargs)
+
+      Lists the images on the cloud
+
+      :param kwargs:
+      :return: dict
+
+
+   .. method:: flavors(self)
+
+      Lists the flavors on the cloud
+
+      :return: dict of flavors
+
+
+   .. method:: flavor(self, name=None)
+
+      Gets the flavor with a given name
+
+      :param name: The name of the flavor
+      :return: The dict of the flavor
+
+
+   .. method:: find(self, elements, name=None)
+
+      Finds an element in elements with the specified name.
+
+      :param elements: The elements
+      :param name: The name to be found
+      :return:
+
+
+   .. method:: image(self, name=None, **kwargs)
+
+      Gets the image with a given nmae
+
+      :param name: The name of the image
+      :param kwargs:
+      :return: the dict of the image
+
+
+   .. method:: get_list(self, d, kind=None, debug=False, **kwargs)
+
+      Lists the dict d on the cloud
+
+      :param d:
+      :param kind:
+      :param debug:
+      :param kwargs:
+      :return: dict
+
+
+   .. method:: rename(self, name=None, destination=None)
+
+      rename a node
+
+      :param destination:
+      :param name: the current name
+      :return: the dict with the new name
+
+
+   .. method:: update_dict(self, elements, kind=None)
+
+      The cloud returns an object or list of objects With the dict method this
+      object is converted to a cloudmesh dict. Typically this method is used
+      internally.
+
+      :param elements: the elements
+      :param kind: Kind is image, flavor, or node, secgroup and key
+      :return:
+
+
+   .. method:: wait(self, vm=None, interval=None, timeout=None)
+
+      waits for completion (all the methods are implemented synchronously! hence this just
+      lists vms)
+
+      :param vm:
+      :param interval:
+      :param timeout:
+      :return:
+
+
+

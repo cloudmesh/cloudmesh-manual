@@ -1,0 +1,50 @@
+:mod:`cloudmesh-common.cloudmesh.common.dotdict`
+================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.dotdict
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.dotdict.dotdict
+
+
+
+.. class:: dotdict
+
+
+   Bases: :class:`dict`
+
+   A convenient dot dict class::
+
+       a = dotdict({"argument": "value"})
+
+   print (a.argument)
+
+   Nested dot documentation is not supported.
+
+   .. attribute:: __setattr__
+      
+
+      
+
+   .. attribute:: __delattr__
+      
+
+      
+
+   .. method:: __getattr__(self, attr)
+
+      retirns an element
+
+      :param attr: the attribute key
+      :return: teh value
+
+
+

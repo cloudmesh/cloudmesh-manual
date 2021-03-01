@@ -35,9 +35,9 @@ Cloudmesh Version 4
    :caption: API
    :maxdepth: 10
 
-   api/index
+   api
    jupyter/index
-   
+
 .. toctree::
    :caption: COMMUNITY
    :maxdepth: 10
@@ -45,8 +45,6 @@ Cloudmesh Version 4
    projects/index
    dev/index
 
-
-   
 Indices and tables
 ==================
 

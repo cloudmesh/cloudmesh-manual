@@ -1,0 +1,198 @@
+:mod:`cloudmesh.google.storage.Provider`
+========================================
+
+.. py:module:: cloudmesh.google.storage.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.google.storage.Provider.Provider
+
+
+
+.. class:: Provider(service=None, json=None, **kwargs)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. attribute:: sample
+      :annotation: = 
+       cloudmesh:
+         storage:
+           {name}:
+             cm:
+               name: google
+               active: 'true'
+               heading: GCP
+               host: https://console.cloud.google.com/storage
+               kind: google
+               version: TBD
+               service: storage
+             default:
+               directory: {bucket}
+               Location_type: Region
+               Location: us - east1
+               Default_storage_class: Standard
+               Access_control: Uniform
+               Encryption: Google-managed
+               Link_URL: https://console.cloud.google.com/storage/browser/{bucket}
+               Link_for_gsutil: gs://{bucket}
+             credentials:
+               type: service_account
+               project_id: imposing-coast-123456
+               private_key_id: a1b2c3d4*********
+               private_key: TBD
+               client_email: TBD
+               client_id: TBD
+               auth_uri: https://accounts.google.com/o/oauth2/auth
+               token_uri: https://oauth2.googleapis.com/token
+               auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+               client_x509_cert_url: TBD
+       
+
+      
+
+   .. method:: get_filename(filename)
+      :staticmethod:
+
+
+   .. method:: get_kind()
+      :staticmethod:
+
+
+   .. method:: json_to_yaml(name, filename='~/.cloudmesh/google.json')
+      :staticmethod:
+
+      given a json file downloaded from google, copies the content into the cloudmesh yaml file, while overwriting or creating a new storage provider
+      :param filename:
+      :return:
+
+
+   .. method:: yaml_to_json(name, filename='~/.cloudmesh/google.json')
+      :staticmethod:
+
+      given the name in the yaml file, takes the information form that object and creates the
+      json file that cna be conveniently used by google
+      :param name:
+      :param filename:
+      :return:
+
+
+   .. method:: delete_json(filename='~/.cloudmesh/google.json')
+      :staticmethod:
+      :abstractmethod:
+
+      deletes the json file. Make sure you have it saved in the yaml
+      :param filename:
+      :return:
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      Downloads(get) the source(bucket blob) to local storage
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or file
+      :return: dict
+
+
+   .. method:: put(self, source=None, destination=None, recursive=None)
+
+      Uploads(puts) the source(local) to the destination service bucket
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or file
+      :return: dict
+
+
+   .. method:: list(self, source=None, dir_only=False, recursive=False)
+
+      Lists the source: google bucket blob(s) with and without prefix
+      :param source: the source which either can be a directory or file (either provide fill path or a prefix)
+      :return: dict
+
+
+   .. method:: delete(self, source=None)
+
+      Deletes a blob from the bucket.
+      :param source: Enter the blob name at google bucket you like to delete
+      :return: dict
+
+
+   .. method:: create_dir(self, directory=None)
+
+      Creates a directory or folder at google bucket.
+      :param directory: Enter the directory structure  you like to create at google bucket
+      :return: dict
+
+
+   .. method:: blob_metadata(self, blob_name=None)
+
+      Prints out a blob's metadata.
+      :param blob_name: Enter the blob name with full path at google bucket you like to get metadata
+      :return: dict
+
+
+   .. method:: rename_blob(self, blob_name=None, new_name=None)
+
+      Renames a blob at google bucket
+      :param blob_name: Enter the existing blob name with full path at google bucket
+      :param new_name: Enter the new blob name with full path at google bucket you like to rename
+      :return: dict
+
+
+   .. method:: create_bucket(self, new_bucket_name=None)
+
+      Creates a new bucket, only used for creating new bucket
+      :param new_bucket_name: Enter the name of new bucket yoy like to create at google cloud
+      :return: dict
+
+
+   .. method:: list_bucket(self)
+
+      Lists google cloud bucket, only used for listing bucket
+      :return: dict
+
+
+   .. method:: copy_blob_btw_buckets(self, blob_name, bucket_name_dest, blob_name_dest)
+
+      Copies a blob from one bucket to another with a new name.
+      :param blob_name: Enter the blob name with full path at google bucket you like to copy
+      :param bucket_name_dest: Enter the destination google cloud bucket name you like to copy blob
+      :param blob_name_dest: Enter the new destination blob name with full path at destination google bucket
+      :return: dict
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+      :abstractmethod:
+
+      gets the destination and copies it in source
+
+      :param service: the name of the service in the yaml file
+      :param directory: the directory which either can be a directory or file
+      :param filename: filename
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: sync(self, source=None, destination=None, recursive=None)
+      :abstractmethod:
+
+      sync the destination and local
+
+      :param source:  local computer location
+      :param destination: cloud service
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: massage_path(self, file_name_path)
+
+
+

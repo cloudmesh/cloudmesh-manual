@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>examples &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">examples</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/autoapi/examples/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-examples">
+<span id="examples"></span><h1><a class="reference internal" href="#module-examples" title="examples"><code class="xref py py-mod docutils literal notranslate"><span class="pre">examples</span></code></a><a class="headerlink" href="#module-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.test_list_ips" title="examples.test_list_ips"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_list_ips</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.test_create_instance" title="examples.test_create_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_create_instance</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.test_list_public_ips" title="examples.test_list_public_ips"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_list_public_ips</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.get_instance_metadata" title="examples.get_instance_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_instance_metadata</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#id0" title="examples.get_instance_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_instance_status</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="examples.get_instance_status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_instance_status</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.list_users" title="examples.list_users"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_users</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.list_instances" title="examples.list_instances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_instances</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.list_running_instances" title="examples.list_running_instances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_running_instances</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.list_images" title="examples.list_images"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_images</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.get_image" title="examples.get_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_image</span></code></a>(image_name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.list_flavors" title="examples.list_flavors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_flavors</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.rename" title="examples.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename</span></code></a>(vm_instance, name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.start_instance" title="examples.start_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_instance</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.stop_instance" title="examples.stop_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop_instance</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.reboot_instance" title="examples.reboot_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reboot_instance</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.terminate_instance" title="examples.terminate_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">terminate_instance</span></code></a>(vm_instance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.get_availability_domain" title="examples.get_availability_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_availability_domain</span></code></a>(identity_client, compartment_id)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.create_vcn_and_subnet" title="examples.create_vcn_and_subnet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_vcn_and_subnet</span></code></a>(virtual_network, compartment_id, availability_domain)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#examples.create_instance" title="examples.create_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_instance</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#examples.create_file_system" title="examples.create_file_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_file_system</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="examples.config_file">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">config_file</span></code><em class="property"> <span class="pre">=</span> <span class="pre">~/.cloudmesh/cloudmesh.yaml</span></em><a class="headerlink" href="#examples.config_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.config">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">config</span></code><a class="headerlink" href="#examples.config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.compute">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">compute</span></code><a class="headerlink" href="#examples.compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.virtual_network">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">virtual_network</span></code><a class="headerlink" href="#examples.virtual_network" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.identity_client">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">identity_client</span></code><a class="headerlink" href="#examples.identity_client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.provider">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">provider</span></code><a class="headerlink" href="#examples.provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.storage_provider">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">storage_provider</span></code><a class="headerlink" href="#examples.storage_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="examples.result">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">result</span></code><a class="headerlink" href="#examples.result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.test_list_ips">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">test_list_ips</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.test_list_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.test_create_instance">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">test_create_instance</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.test_create_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.test_list_public_ips">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">test_list_public_ips</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.test_list_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.get_instance_metadata">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">get_instance_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.get_instance_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.get_instance_status">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">get_instance_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.get_instance_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="id0">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">get_instance_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.list_users">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">list_users</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.list_users" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.list_instances">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">list_instances</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.list_running_instances">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">list_running_instances</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.list_running_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.list_images">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">list_images</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.list_images" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.get_image">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">get_image</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.get_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.list_flavors">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">list_flavors</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.list_flavors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.rename">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">rename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.rename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.start_instance">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">start_instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.start_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.stop_instance">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">stop_instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.stop_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.reboot_instance">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">reboot_instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.reboot_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.terminate_instance">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">terminate_instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vm_instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.terminate_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.get_availability_domain">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">get_availability_domain</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity_client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.get_availability_domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.create_vcn_and_subnet">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">create_vcn_and_subnet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">virtual_network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compartment_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">availability_domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#examples.create_vcn_and_subnet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.create_instance">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">create_instance</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.create_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="examples.create_file_system">
+<code class="sig-prename descclassname"><span class="pre">examples.</span></code><code class="sig-name descname"><span class="pre">create_file_system</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#examples.create_file_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

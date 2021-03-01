@@ -1,0 +1,49 @@
+:mod:`cloudmesh-common.cloudmesh.common.logger`
+===============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.logger
+
+.. autoapi-nested-parse::
+
+   simple logging convenience framework
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.logger.LOGGER
+   cloudmesh-common.cloudmesh.common.logger.LOGGING_ON
+   cloudmesh-common.cloudmesh.common.logger.LOGGING_OFF
+
+
+.. function:: LOGGER(filename)
+
+   creates a logger with the given name.
+
+   You can use it as follows::
+
+      log = cloudmesh.common.LOGGER(__file__)
+      log.error("this is an error")
+      log.info("this is an info")
+      log.warning("this is a warning")
+
+
+.. function:: LOGGING_ON(log)
+
+   Switches logging on
+   :param log: the logger for which we switch logging on
+
+
+.. function:: LOGGING_OFF(log)
+
+   Switches logging off
+   :param log: the logger for which we switch logging off
+
+

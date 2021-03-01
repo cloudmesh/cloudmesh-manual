@@ -1,0 +1,70 @@
+:mod:`cloudmesh.management.configuration.arguments`
+===================================================
+
+.. py:module:: cloudmesh.management.configuration.arguments
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.management.configuration.arguments.Arguments
+
+
+
+.. class:: Arguments
+
+   Bases: :class:`object`
+
+   .. method:: expand(arguments, *keys)
+      :staticmethod:
+
+      expands all entries in arguments identified by keys
+
+      :param arguments: list of arguments
+      :param keys: the keys that locate entries in arguments that are expanded
+      :return: the expanded arguments. it is now a dict of lists
+
+
+   .. method:: get_cloud_and_names(label, arguments, variables)
+      :staticmethod:
+
+
+   .. method:: get_clouds(arguments, variables)
+      :staticmethod:
+
+
+   .. method:: get_names(arguments, variables)
+      :staticmethod:
+
+
+   .. method:: name_loop(names, label, f)
+      :staticmethod:
+      :abstractmethod:
+
+
+   .. method:: get_attribute(attribute, arguments, variables)
+      :staticmethod:
+
+
+   .. method:: get_flavor(arguments, variables)
+      :staticmethod:
+
+
+   .. method:: get_image(arguments, variables)
+      :staticmethod:
+
+
+   .. method:: get_command(arguments, variables)
+      :staticmethod:
+
+
+   .. method:: get_commands(label, arguments, variables)
+      :staticmethod:
+
+
+

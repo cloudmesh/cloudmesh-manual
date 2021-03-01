@@ -1,0 +1,171 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.provider.local.Provider`
+==================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.provider.local.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.local.Provider.Provider
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.provider.local.Provider.creation_date
+
+
+.. function:: creation_date(path_to_file)
+
+   Try to get the date that a file was created, falling back to when it was
+   last modified if that isn't possible.
+   See http://stackoverflow.com/a/39501288/1709587 for explanation.
+
+
+.. class:: Provider(service=None, parallelism=None)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   cloudmesh:
+     a:
+       cm:
+         active: False
+         heading: Local A
+         host: localhost
+         label: local_a
+         kind: local
+         version: 1.0
+       default:
+         directory: .
+       credentials:
+         directory: ~/.cloudmesh/storage/a
+
+   default location is credentials.directory / default.directory
+
+   .. attribute:: kind
+      :annotation: = local
+
+      
+
+   .. attribute:: sample
+      
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: _filename(self, filename)
+
+
+   .. method:: _dirname(self, dirname)
+
+
+   .. method:: identifier(self, dirname, filename, absolute=False, file=True, status='ok')
+
+
+   .. method:: create_file(self, location, content)
+
+
+   .. method:: create_dir(self, directory=None)
+
+      creates a directory
+
+      :param directory: the name of the directory
+      :return: dict
+
+
+   .. method:: create_dir_from_filename(self, filename=None)
+
+      creates a directory form a filename
+
+      :param filename: the filename path
+      :return: dict
+
+
+   .. method:: list(self, source=None, files_only=False, dir_only=False, recursive=False)
+
+      lists the information as dict
+
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: _list(self, source=None, absolute=False, recursive=False, files_only=False, dir_only=False, status='ok')
+
+      lists the information as dict
+
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      puts the source on the service
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      gets the source and copies it in destination
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete(self, source=None, recursive=False)
+
+      deletes the source
+
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      gets the destination and copies it in source
+
+      :param directory: the directory which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: tree(self, directory=None)
+
+      Prints a visual representation of the files and directories
+      :param directory:
+      :type directory:
+      :return:
+      :rtype:
+
+
+

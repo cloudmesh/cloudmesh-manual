@@ -1,0 +1,114 @@
+:mod:`cloudmesh.management.configuration.SSHkey`
+================================================
+
+.. py:module:: cloudmesh.management.configuration.SSHkey
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.management.configuration.SSHkey.SSHkey
+
+
+
+.. class:: SSHkey(name=None, path=None)
+
+
+   Bases: :class:`dict`
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   .. method:: _update_dict(name, d)
+      :staticmethod:
+
+
+   .. method:: load(self, path=None, group=['local'])
+
+
+   .. method:: add(self, key=None, group=['local'], filename=None)
+
+
+   .. method:: set_permissions(self, path)
+
+      Sets the permissions of the path assuming the path is a public or private key
+      :param path:
+      :return:
+
+
+   .. method:: get_from_git(self, user, keyname=None)
+
+      gets the key from github
+
+      :param keyname: the keyname
+      :param user: the github username
+      :return: an array of public keys
+      :rtype: list
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+   .. method:: fingerprint(self)
+      :property:
+
+
+   .. method:: type(self)
+      :property:
+
+
+   .. method:: comment(self)
+      :property:
+
+
+   .. method:: _fingerprint(cls, entirekey)
+      :classmethod:
+
+      returns the fingerprint of a key.
+      :param entirekey: the key
+      :type entirekey: string
+
+
+   .. method:: _key_fingerprint(cls, key_string)
+      :classmethod:
+
+      create the fingerprint form just the key.
+
+      :param key_string: the key
+      :type key_string: string
+
+
+   .. method:: _parse(cls, keystring)
+      :classmethod:
+
+      parse the keystring/keycontent into type,key,comment
+      :param keystring: the content of a key in string format
+
+
+   .. method:: _validate(self, keytype, key)
+
+      reads the key string from a file. THIS FUNCTION HAS A BUG.
+
+      :param key: either the name of  a file that contains the key, or the entire contents of such a file
+      :param keytype: if 'file' the key is read form the file specified in key.
+                      if 'string' the key is passed as a string in key
+
+
+   .. method:: _keyname_sanitation(self, username, keyname)
+
+
+

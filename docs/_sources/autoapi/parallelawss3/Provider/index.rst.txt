@@ -1,0 +1,115 @@
+:mod:`parallelawss3.Provider`
+=============================
+
+.. py:module:: parallelawss3.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   parallelawss3.Provider.Provider
+
+
+
+.. class:: Provider(service=None, parallelism=4)
+
+
+   Bases: :class:`cloudmesh.storage.provider.StorageQueue.StorageQueue`
+
+   .. attribute:: kind
+      :annotation: = parallelawss3
+
+      
+
+   .. attribute:: sample
+      
+
+      
+
+   .. attribute:: status
+      :annotation: = ['completed', 'waiting', 'inprogress', 'canceled']
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: mkdir_run(self, specification)
+
+      function to create a directory the function will
+      first check if the bucket  exists or not,
+      if the bucket doesn't exist it will create the bucket
+      and it will create the directory specified.
+      the name of the bucket will come from YAML specifications and the
+      directory name comes from the arguments.
+
+      :param specification:
+      :return:
+
+
+   .. method:: get_s3_resource_client(self)
+
+
+   .. method:: list_run(self, specification)
+
+      function to list file  or directory
+      lists the information as dict
+      :return: dict
+
+
+   .. method:: delete_run(self, specification)
+
+      deletes the source
+      :param specification:
+      :return: dict
+
+
+   .. method:: get_run(self, specification)
+
+      function to download file or directory
+      gets the source from the service
+      :param: specification:
+      :return: dict
+
+
+   .. method:: put_run(self, specification)
+
+      function to upload file or directory
+      puts the source on the service
+      :param: specification
+      :return: dict
+
+
+   .. method:: search_run(self, specification)
+
+
+   .. method:: cancel_run(self, specification)
+
+
+   .. method:: bucket_create(self, name=None)
+
+      gets the source name from the put function
+      :param name: the bucket name which needs to be created
+      :return: dict,Boolean
+
+
+   .. method:: bucket_exists(self, name=None)
+
+      gets the source from the put function
+      :param name: the bucket name which needs to be checked for exists
+      :return: Boolean
+
+
+
+.. data:: p
+   
+
+   
+

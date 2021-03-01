@@ -80,7 +80,6 @@ cloudmesh-sys \
 cloudmesh-test \
 cloudmesh-javascript
 
-
 api:
 	rm -rf docs-source/source/api
 	rm -rf tmp

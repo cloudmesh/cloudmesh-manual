@@ -1,0 +1,43 @@
+:mod:`cloudmesh-common.cloudmesh.common.todo`
+=============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.todo
+
+.. autoapi-nested-parse::
+
+   A class to call a TODO message. Typically it will just raise na exception.
+   However when using the TODO it allows to list the TODO in editors such as
+   pycharm to easier find them.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.todo.TODO
+
+
+
+.. class:: TODO
+
+   Bases: :class:`object`
+
+   class to raise an exception for code that has not yet been implemented.
+
+   import cloudmesh.common.todo
+   TODO.implement()
+
+   .. method:: implement(cls, msg='Please implement')
+      :classmethod:
+
+      Raises an exception as not implemented
+      :param msg: the message to print
+      :return:
+
+
+

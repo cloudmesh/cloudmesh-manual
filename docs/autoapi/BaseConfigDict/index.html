@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BaseConfigDict &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">BaseConfigDict</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/autoapi/BaseConfigDict/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-BaseConfigDict">
+<span id="baseconfigdict"></span><h1><a class="reference internal" href="#module-BaseConfigDict" title="BaseConfigDict"><code class="xref py py-mod docutils literal notranslate"><span class="pre">BaseConfigDict</span></code></a><a class="headerlink" href="#module-BaseConfigDict" title="Permalink to this headline">¶</a></h1>
+<p>Some simple yaml file reader</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#BaseConfigDict.OrderedJsonEncoder" title="BaseConfigDict.OrderedJsonEncoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OrderedJsonEncoder</span></code></a></p></td>
+<td><p>Manage ordered Json Objects</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#BaseConfigDict.BaseConfigDict" title="BaseConfigDict.BaseConfigDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseConfigDict</span></code></a></p></td>
+<td><p>A class to obtain an OrderedDict from a yaml file.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#BaseConfigDict.check_file_for_tabs" title="BaseConfigDict.check_file_for_tabs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_file_for_tabs</span></code></a>(filename, verbose=True)</p></td>
+<td><p>identifies if the file contains tabs and returns True if it</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#BaseConfigDict.ordered_load" title="BaseConfigDict.ordered_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ordered_load</span></code></a>(stream, Loader=yaml.Loader, object_pairs_hook=OrderedDict)</p></td>
+<td><p>Loads an ordered dict into a yaml while preserving the order</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#BaseConfigDict.ordered_dump" title="BaseConfigDict.ordered_dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ordered_dump</span></code></a>(data, stream=None, Dumper=yaml.Dumper, **keywords)</p></td>
+<td><p>writes the dict into an ordered yaml.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#BaseConfigDict.read_yaml_config" title="BaseConfigDict.read_yaml_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_yaml_config</span></code></a>(filename, check=True, osreplace=True, exit=True)</p></td>
+<td><p>reads in a yaml file from the specified filename. If check is set to true</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#BaseConfigDict.custom_print" title="BaseConfigDict.custom_print"><code class="xref py py-obj docutils literal notranslate"><span class="pre">custom_print</span></code></a>(data_structure, indent)</p></td>
+<td><p>prints a given data structure such as a dict or ordered dict at a given indentation level</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="BaseConfigDict.package_dir">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">package_dir</span></code><a class="headerlink" href="#BaseConfigDict.package_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="BaseConfigDict.attribute_indent">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">attribute_indent</span></code><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#BaseConfigDict.attribute_indent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="BaseConfigDict.check_file_for_tabs">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">check_file_for_tabs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.check_file_for_tabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>identifies if the file contains tabs and returns True if it
+does. It also prints the location of the lines and columns. If
+verbose is set to False, the location is not printed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verbose</strong> – if true prints information about issues</p></li>
+<li><p><strong>filename</strong> – the filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>True if there are tabs in the file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="BaseConfigDict.ordered_load">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">ordered_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Loader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">yaml.Loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_pairs_hook</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">OrderedDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.ordered_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads an ordered dict into a yaml while preserving the order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – the name of the stream</p></li>
+<li><p><strong>Loader</strong> – the yam loader (such as yaml.SafeLoader)</p></li>
+<li><p><strong>object_pairs_hook</strong> – the ordered dict</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="BaseConfigDict.ordered_dump">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">ordered_dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dumper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">yaml.Dumper</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">keywords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.ordered_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>writes the dict into an ordered yaml.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – The ordered dict</p></li>
+<li><p><strong>stream</strong> – the stream</p></li>
+<li><p><strong>Dumper</strong> – the dumper such as yaml.SafeDumper</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="BaseConfigDict.read_yaml_config">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">read_yaml_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osreplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.read_yaml_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads in a yaml file from the specified filename. If check is set to true
+the code will fail if the file does not exist. However if it is set to
+false and the file does not exist, None is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exit</strong> – if true is exist with sys exit</p></li>
+<li><p><strong>osreplace</strong> – if true replaces environment variables from the OS</p></li>
+<li><p><strong>filename</strong> – the file name</p></li>
+<li><p><strong>check</strong> – if True fails if the file does not exist,
+if False and the file does not exist return will be None</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="BaseConfigDict.OrderedJsonEncoder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">OrderedJsonEncoder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skipkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_circular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namedtuple_as_object</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tuple_as_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bigint_as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_sort_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">for_json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_as_string_bitcount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterable_as_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.OrderedJsonEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">simplejson.JSONEncoder</span></code></p>
+<p>Manage ordered Json Objects</p>
+<dl class="py attribute">
+<dt id="BaseConfigDict.OrderedJsonEncoder.indent">
+<code class="sig-name descname"><span class="pre">indent</span></code><a class="headerlink" href="#BaseConfigDict.OrderedJsonEncoder.indent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.OrderedJsonEncoder.encode">
+<code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.OrderedJsonEncoder.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>encode the json object at given depth
+:param o: the object
+:param depth: the depth
+:return: the json encoding</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="BaseConfigDict.custom_print">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">custom_print</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.custom_print" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints a given data structure such as a dict or ordered dict at a given indentation level
+:param data_structure:
+:param indent:
+:return:</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="BaseConfigDict.BaseConfigDict">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">BaseConfigDict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code></p>
+<p>A class to obtain an OrderedDict from a yaml file.</p>
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict._set_filename">
+<code class="sig-name descname"><span class="pre">_set_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict._set_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the filename to be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – the filename</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict._update_meta">
+<code class="sig-name descname"><span class="pre">_update_meta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict._update_meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>internal function to define the metadata regarding filename, location,
+and prefix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.read">
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the information in the yaml file. It is the same as load and is
+used for compatibility reasons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – the name of the yaml file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.load">
+<code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the yaml file with the given filename.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – the name of the yaml file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.make_a_copy">
+<code class="sig-name descname"><span class="pre">make_a_copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.make_a_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a backup of the file specified in the location. The backup
+filename  appends a .bak.NO where number is a number that is not yet
+used in the backup directory.</p>
+<p>TODO: This function should be moved to another file maybe XShell</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>location</strong> – the location of the file to be backed up</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.write">
+<code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dict'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attribute_indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">attribute_indent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method writes the dict into various output formats. This includes a dict,
+json, and yaml</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – the file in which the dict is written</p></li>
+<li><p><strong>output</strong> – is a string that is either “dict”, “json”, “yaml”</p></li>
+<li><p><strong>attribute_indent</strong> – character indentation of nested attributes in</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.error_keys_not_found">
+<code class="sig-name descname"><span class="pre">error_keys_not_found</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.error_keys_not_found" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the requested keys are found in the dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>keys</strong> – keys to be looked for</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the json output of the dict.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.json">
+<code class="sig-name descname"><span class="pre">json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.json" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the json output of the dict.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.yaml">
+<code class="sig-name descname"><span class="pre">yaml</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the yaml output of the dict.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.dump">
+<code class="sig-name descname"><span class="pre">dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the json output of the dict.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.pprint">
+<code class="sig-name descname"><span class="pre">pprint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.pprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>uses pprint to print the dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the dict of the information as read from the yaml file. To
+access the file safely, you can use the keys in the order of the
+access.
+Example: get(“provisioner”,”policy”) will return the value of
+config[“provisioner”][“policy”] from the yaml file if it does not exists
+an error will be printing that the value does not exists. Alternatively
+you can use the . notation e.g. get(“provisioner.policy”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the dict of the information as read from the yaml file. To access
+the file safely, you can use the keys in the order of the access.
+Example: set(“{‘project’:{‘fg82’:[i0-i10]}}”, “provisioner”,”policy”)
+will set the value of config[“provisioner”][“policy”] in the yaml file if
+it does not exists an error will be printing that the value does not
+exists.  Alternatively you can use the . notation e.g.
+set(“{‘project’:{‘fg82’:[i0-i10]}}”, “provisioner.policy”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict._update">
+<code class="sig-name descname"><span class="pre">_update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict._update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the selected key with the value</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>keys (str): key names e.g. cloudmesh.server.loglevel
+value (str): value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="BaseConfigDict.BaseConfigDict.attribute">
+<code class="sig-name descname"><span class="pre">attribute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseConfigDict.BaseConfigDict.attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: document this method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>keys</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="BaseConfigDict.config">
+<code class="sig-prename descclassname"><span class="pre">BaseConfigDict.</span></code><code class="sig-name descname"><span class="pre">config</span></code><a class="headerlink" href="#BaseConfigDict.config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

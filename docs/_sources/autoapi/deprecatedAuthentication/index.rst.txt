@@ -1,0 +1,37 @@
+:mod:`deprecated-Authentication`
+================================
+
+.. py:module:: deprecated-Authentication
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   deprecated-Authentication.Authentication
+
+
+
+.. class:: Authentication(scopes, credential_file, client_secret_file, application_name, flags=None)
+
+
+   Keeping a separate python file or class just for 
+   authentication 
+
+   .. method:: get_credentials(self)
+
+      We have stored the credentials in ".credentials"
+          folder and there is a file named 'google-drive-credentials.json'
+          that has all the credentials required for our authentication
+          If there is nothing stored in it this program creates credentials
+          json file for future authentication
+          Here the authentication type is OAuth2
+      :return:
+      :rtype:
+
+
+

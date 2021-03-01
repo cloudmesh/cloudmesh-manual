@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh.google.storage.Provider &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.storage.Provider</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/cloudmesh/google/storage/Provider/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh.google.storage.Provider">
+<span id="cloudmesh-google-storage-provider"></span><h1><a class="reference internal" href="#module-cloudmesh.google.storage.Provider" title="cloudmesh.google.storage.Provider"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.storage.Provider</span></code></a><a class="headerlink" href="#module-cloudmesh.google.storage.Provider" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.google.storage.Provider.Provider" title="cloudmesh.google.storage.Provider.Provider"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Provider</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh.google.storage.Provider.Provider">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.google.storage.Provider.</span></code><code class="sig-name descname"><span class="pre">Provider</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../abstract/StorageABC/index.html#cloudmesh.abstract.StorageABC.StorageABC" title="cloudmesh.abstract.StorageABC.StorageABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageABC.StorageABC</span></code></a></p>
+<dl class="py attribute">
+<dt id="cloudmesh.google.storage.Provider.Provider.sample">
+<code class="sig-name descname"><span class="pre">sample</span></code><em class="property"> <span class="pre">=</span>
+<span class="pre">cloudmesh:</span>
+&#160; <span class="pre">storage:</span>
+&#160;&#160;&#160; <span class="pre">{name}:</span>
+&#160;&#160;&#160;&#160;&#160; <span class="pre">cm:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">name:</span> <span class="pre">google</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">active:</span> <span class="pre">'true'</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">heading:</span> <span class="pre">GCP</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">host:</span> <span class="pre">https://console.cloud.google.com/storage</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">kind:</span> <span class="pre">google</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">version:</span> <span class="pre">TBD</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">service:</span> <span class="pre">storage</span>
+&#160;&#160;&#160;&#160;&#160; <span class="pre">default:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">directory:</span> <span class="pre">{bucket}</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Location_type:</span> <span class="pre">Region</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Location:</span> <span class="pre">us</span> <span class="pre">-</span> <span class="pre">east1</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Default_storage_class:</span> <span class="pre">Standard</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Access_control:</span> <span class="pre">Uniform</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Encryption:</span> <span class="pre">Google-managed</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Link_URL:</span> <span class="pre">https://console.cloud.google.com/storage/browser/{bucket}</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Link_for_gsutil:</span> <span class="pre">gs://{bucket}</span>
+&#160;&#160;&#160;&#160;&#160; <span class="pre">credentials:</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">type:</span> <span class="pre">service_account</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">project_id:</span> <span class="pre">imposing-coast-123456</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">private_key_id:</span> <span class="pre">a1b2c3d4*********</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">private_key:</span> <span class="pre">TBD</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">client_email:</span> <span class="pre">TBD</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">client_id:</span> <span class="pre">TBD</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">auth_uri:</span> <span class="pre">https://accounts.google.com/o/oauth2/auth</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">token_uri:</span> <span class="pre">https://oauth2.googleapis.com/token</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">auth_provider_x509_cert_url:</span> <span class="pre">https://www.googleapis.com/oauth2/v1/certs</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">client_x509_cert_url:</span> <span class="pre">TBD</span></em><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.sample" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.get_filename">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.get_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.get_kind">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_kind</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.get_kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.json_to_yaml">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">json_to_yaml</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'~/.cloudmesh/google.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.json_to_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a json file downloaded from google, copies the content into the cloudmesh yaml file, while overwriting or creating a new storage provider
+:param filename:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.yaml_to_json">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">yaml_to_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'~/.cloudmesh/google.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.yaml_to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>given the name in the yaml file, takes the information form that object and creates the
+json file that cna be conveniently used by google
+:param name:
+:param filename:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.delete_json">
+<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">delete_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'~/.cloudmesh/google.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.delete_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the json file. Make sure you have it saved in the yaml
+:param filename:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads(get) the source(bucket blob) to local storage
+:param source: the source which either can be a directory or file
+:param destination: the destination which either can be a directory or file
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.put">
+<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads(puts) the source(local) to the destination service bucket
+:param source: the source which either can be a directory or file
+:param destination: the destination which either can be a directory or file
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.list">
+<code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the source: google bucket blob(s) with and without prefix
+:param source: the source which either can be a directory or file (either provide fill path or a prefix)
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.delete">
+<code class="sig-name descname"><span class="pre">delete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a blob from the bucket.
+:param source: Enter the blob name at google bucket you like to delete
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.create_dir">
+<code class="sig-name descname"><span class="pre">create_dir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a directory or folder at google bucket.
+:param directory: Enter the directory structure  you like to create at google bucket
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.blob_metadata">
+<code class="sig-name descname"><span class="pre">blob_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.blob_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints out a blob’s metadata.
+:param blob_name: Enter the blob name with full path at google bucket you like to get metadata
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.rename_blob">
+<code class="sig-name descname"><span class="pre">rename_blob</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.rename_blob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames a blob at google bucket
+:param blob_name: Enter the existing blob name with full path at google bucket
+:param new_name: Enter the new blob name with full path at google bucket you like to rename
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.create_bucket">
+<code class="sig-name descname"><span class="pre">create_bucket</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_bucket_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.create_bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new bucket, only used for creating new bucket
+:param new_bucket_name: Enter the name of new bucket yoy like to create at google cloud
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.list_bucket">
+<code class="sig-name descname"><span class="pre">list_bucket</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.list_bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists google cloud bucket, only used for listing bucket
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.copy_blob_btw_buckets">
+<code class="sig-name descname"><span class="pre">copy_blob_btw_buckets</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket_name_dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob_name_dest</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.copy_blob_btw_buckets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies a blob from one bucket to another with a new name.
+:param blob_name: Enter the blob name with full path at google bucket you like to copy
+:param bucket_name_dest: Enter the destination google cloud bucket name you like to copy blob
+:param blob_name_dest: Enter the new destination blob name with full path at destination google bucket
+:return: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.search">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
+<li><p><strong>filename</strong> – filename</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.sync">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>sync the destination and local</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – local computer location</p></li>
+<li><p><strong>destination</strong> – cloud service</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.google.storage.Provider.Provider.massage_path">
+<code class="sig-name descname"><span class="pre">massage_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.google.storage.Provider.Provider.massage_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.queue.StorageQueue`
+=============================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.queue.StorageQueue
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.queue.StorageQueue.StorageQueue
+
+
+
+.. class:: StorageQueue(source, destination, name='local', parallelism=4)
+
+
+   This class specifies a storage object queue, that allows the queuing of
+   files to be copied between services.
+
+   The queue has a maximal parallelism that can be set to execute the copy in
+   multiple threads.
+
+   Please note that actions only add modify the queue in the db, however,
+   the run command executes them one by one.
+
+   It will be up to the method to guarantee order. For example, in case of a
+   recursive copy it would make sense to create directories first.
+
+   .. attribute:: status
+      :annotation: = ['completed', 'waiting', 'inprogress', 'canceled']
+
+      
+
+   .. method:: redgister_actions(self, put=None, get=None, delete=None, mkdir=None, list=None, cancel=None)
+
+
+   .. method:: _copy_file(self, sourcefile, destinationfile)
+
+      adds a copy action to the queue
+
+      copies the file from the source service to the destination service using
+      the file located in the path and storing it into the remote. If remote
+      is not specified path is used for it.
+
+      The copy will not be performed if the files are the same.
+
+      :param sourcefile:
+      :param destinationfile:
+      :return:
+
+
+   .. method:: copy_file(self, sourcefile, destinationfile)
+
+      adds a copy action to the queue
+
+      copies the file from the source service to the destination service using
+      the file located in the path and storing it into the remote. If remote
+      is not specified path is used for it.
+
+      The copy will not be performed if the files are the same.
+
+      :param sourcefile:
+      :param destinationfile:
+      :return:
+
+
+   .. method:: copy_tree(self, sourcetree, destinationtree)
+
+      adds a tree to be copied to the queue
+      it will recursively add all files within the tree
+
+      :param sourcetree:
+      :param destinationtree:
+      :return:
+
+
+   .. method:: sync(self, sourcetree, destinationtree)
+
+      just a more convenient name for copy_tree
+      :param sourcetree:
+      :param destinationtree:
+      :return:
+
+
+   .. method:: mkdir(self, service, path)
+
+      adds a mkdir action to the queue
+
+      create the directory in the storage service
+      :param service: service must be either source or destination
+      :param path:
+      :return:
+
+
+   .. method:: delete(self, service, path)
+
+      adds a deleta action to the queue
+
+      :param service: service must be either source or destination
+      :param path:
+      :return:
+
+
+   .. method:: delete(self, path, recursive=True)
+
+      adds a delete action to the queue
+
+      :param path:
+      :return:
+
+
+   .. method:: status(self)
+      :abstractmethod:
+
+      provides that status of the queue
+
+      {
+         "length": 100,
+         "completed": 10,
+         "waiting": 80,
+         "inprogress": 10
+      }
+
+      :return:
+
+
+   .. method:: cancel(self, id=None)
+
+      cancels a job with a specific id
+      :param id:
+      :return:
+
+
+   .. method:: list(self, path, dir_only=False, recursive=False)
+
+      adds a list action to the queue
+
+      list the directory in the storage service
+      :param service: service must be either source or destination
+      :param path:
+      :return:
+
+
+   .. method:: action(self, specification)
+
+      executes the action identified by the specification. This is used by the
+      run command.
+
+      :param specification:
+      :return:
+
+
+   .. method:: get_actions(self)
+
+
+   .. method:: run(self)
+
+      runs the copy process for all jobs in the queue and completes when all
+      actions are completed
+
+      :return:
+
+
+

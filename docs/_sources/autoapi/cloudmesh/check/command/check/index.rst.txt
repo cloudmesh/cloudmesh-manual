@@ -1,0 +1,45 @@
+:mod:`cloudmesh.check.command.check`
+====================================
+
+.. py:module:: cloudmesh.check.command.check
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.check.command.check.CheckCommand
+
+
+
+.. class:: CheckCommand
+
+   Bases: :class:`cloudmesh.shell.command.PluginCommand`
+
+   .. method:: do_check(self, args, arguments)
+
+      ::
+
+      Usage:
+          check [KEYWORDS...] [--output=OUTPUT]
+
+
+      Options:
+         --output=OUTPUT  the output format [default: table]
+
+      Description:
+
+          checks if some programs are available to cms in the system. This
+          includes
+
+              mongodb
+              ssh
+
+          These can also be passed as optional keywords
+
+
+

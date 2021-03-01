@@ -1,0 +1,271 @@
+:mod:`ConfigDict`
+=================
+
+.. py:module:: ConfigDict
+
+.. autoapi-nested-parse::
+
+   Manage the cloudmesh.yaml file
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ConfigDict.Config
+   ConfigDict.ConfigDict
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ConfigDict.custom_print
+   ConfigDict.ordered_dump
+   ConfigDict.dprint
+   ConfigDict.Username
+   ConfigDict.main
+
+
+.. function:: custom_print(data_structure, indent, attribute_indent=4)
+
+   prints the data structure at a given level. This includes dicts and
+   ordered dicts
+
+   :param data_structure: 
+   :param indent: 
+   :param attribute_indent: 
+   :return: 
+
+
+.. function:: ordered_dump(data, stream=None, Dumper=yaml.Dumper, **keywords)
+
+   writes the dict into an ordered yaml.
+
+   :param data: The ordered dict
+   :param stream: the stream
+   :param Dumper: the dumper such as yaml.SafeDumper
+
+
+.. function:: dprint(OD, mode='dict', s='', indent=' ' * 4, level=0)
+
+   a recursive dict printer method that adds indentations
+   TODO: needs better explanation and test example
+
+   :param OD: the ordered dict
+   :param mode: the mode is dict
+   :param s: TODO
+   :param indent: the indentation characters. default is 4
+   :param level: the level
+   :return: 
+
+
+.. class:: Config
+
+   Bases: :class:`object`
+
+   Manage configuration files in yaml format
+
+   .. method:: check_file_for_tabs(cls, filename, verbose=True)
+      :classmethod:
+
+      identifies if the file contains tabs and returns True if it
+      does. It also prints the location of the lines and columns. If
+      verbose is set to False, the location is not printed.
+
+      :param verbose: if true prints issues
+      :param filename: the filename
+      :type filename: str
+      :rtype: True if there are tabs in the file
+
+
+   .. method:: path_expand(cls, path)
+      :classmethod:
+
+      expands the path while replacing environment variables, `./,` and `~/`
+
+      :param path: the path to be expanded
+      :type path: string
+      :return:the new path
+      :rtype: string
+
+
+   .. method:: find_file(cls, filename, load_order=None, verbose=False)
+      :classmethod:
+
+      find the specified file in the list of directories that are given in the
+      array load_order
+
+      :param filename: the file name
+      :type filename: str
+      :param load_order: an array with path names in with the filename is looked for.
+      :type load_order: list of str
+      :param verbose:
+      :type verbose: bool
+      :return: file name if successful
+      :rtype: string if the file exists or None otherwise
+
+
+
+.. class:: ConfigDict(filename, load_order=None, verbose=False, etc=False, reload=False)
+
+
+   Bases: :class:`object`
+
+   Manages the content of cloudmesh.yaml as dict
+
+   .. attribute:: __shared_state
+      
+
+      
+
+   .. attribute:: versions
+      :annotation: = ['4.1']
+
+      
+
+   .. attribute:: data
+      
+
+      
+
+   .. attribute:: filename
+      
+
+      
+
+   .. method:: load(self, filename)
+
+      loads the configuration from the yaml filename
+
+      :param filename:
+      :type filename: string
+      :return:
+
+
+   .. method:: write(self, filename=None, output='dict', attribute_indent=4)
+
+      This method writes the dict into various output formats. This includes a dict,
+      json, and yaml
+
+      :param filename: the file in which the dict is written
+      :param output: is a string that is either "dict", "json", "yaml"
+      :param attribute_indent: character indentation of nested attributes in
+
+
+   .. method:: make_a_copy(self, location=None)
+
+      Creates a backup of the file specified in the location. The backup
+      filename  appends a .bak.NO where number is a number that is not yet
+      used in the backup directory.
+      TODO: This function should be moved to another file maybe XShell
+
+      :param location: the location of the file to be backed up
+
+
+   .. method:: save(self, filename=None)
+
+      saves the configuration in the given filename,
+      if it is none the filename at load time is used.
+
+      :param filename: the file name
+      :type filename: string
+      :return:
+
+
+   .. method:: __setitem__(self, item, value)
+
+      sets an item with the given value while using . formatted keys
+      set('a.b.c", value)
+
+      :param item:
+      :type item:
+      :param value:
+      :type value:
+      :return:
+
+
+   .. method:: __getitem__(self, item)
+
+      gets an item form the dict. The key is . separated
+      use it as follows get("a.b.c")
+
+      :param item:
+      :type item:
+      :return:
+
+
+   .. method:: __str__(self)
+
+      returns the dict in yaml format
+
+      :return: returns the yaml output of the dict
+      :rtype: string
+
+
+   .. method:: yaml(self)
+      :property:
+
+      returns the dict in yaml format
+
+      :return: returns the yaml output of the dict
+      :rtype: string:
+
+
+   .. method:: info(self)
+
+      prints out the dict type and its content
+
+
+   .. method:: json(self, start=None)
+      :property:
+
+      returns the dict in json format
+
+      :param start: start key in dot notation
+
+      :return: json string version
+      :rtype: string
+
+
+   .. method:: check(cls, filename)
+      :classmethod:
+
+      checks the filename if it is syntactically correct and does not
+      include tabs
+
+      :param filename:
+      :type filename: string
+      :return:
+
+
+   .. method:: getUser(cls, cloud)
+      :classmethod:
+
+      gets the username for a specified cloud.
+      TODO: works currently only for opensatck.
+
+      :param cloud: the name of the cloud
+      :return: 
+
+
+
+.. function:: Username()
+
+   returns the username as defined in the profile
+
+   :return: 
+
+
+.. function:: main()
+
+   TODO: A test which should actually be moved into a pytest
+
+

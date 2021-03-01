@@ -1,0 +1,95 @@
+:mod:`cloudmesh-cloud.cloudmesh.secgroup.Secgroup`
+==================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.secgroup.Secgroup
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.secgroup.Secgroup.SecgroupExamples
+   cloudmesh-cloud.cloudmesh.secgroup.Secgroup.SecgroupDatabase
+   cloudmesh-cloud.cloudmesh.secgroup.Secgroup.SecgroupRule
+   cloudmesh-cloud.cloudmesh.secgroup.Secgroup.Secgroup
+
+
+
+.. class:: SecgroupExamples
+
+
+   .. method:: rule(self, name, cm=False)
+
+
+   .. method:: group(self, name, cm=False)
+
+
+   .. method:: load(self, cm=False)
+
+
+
+.. class:: SecgroupDatabase(kind=None)
+
+
+   .. method:: clear(self)
+
+
+   .. method:: find(self, name=None)
+
+
+   .. method:: remove(self, name=None)
+
+
+   .. method:: list(self, name=None)
+
+
+   .. method:: update_dict_list(self, entries)
+
+
+
+.. class:: SecgroupRule
+
+
+   Bases: :class:`cloudmesh-cloud.cloudmesh.secgroup.Secgroup.SecgroupDatabase`
+
+   .. method:: add(self, name=None, protocol=None, ports=None, ip_range=None)
+
+
+   .. method:: delete(self, name=None)
+
+
+
+.. class:: Secgroup
+
+
+   Bases: :class:`cloudmesh-cloud.cloudmesh.secgroup.Secgroup.SecgroupDatabase`
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: add(self, name=None, rules=None, description=None)
+
+      adds a rule to a given group. If the group does not exist, it will be
+      created.
+
+      :param name:
+      :param rules:
+      :param description:
+      :return:
+
+
+   .. method:: delete(self, name=None, rules=None)
+
+      deletes the groups
+      :param name:
+      :param rules:
+      :return:
+
+
+

@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-cloud.cloudmesh.vm.command.vm &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.vm.command.vm</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshcloud/cloudmesh/vm/command/vm/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-cloud.cloudmesh.vm.command.vm">
+<span id="cloudmesh-cloud-cloudmesh-vm-command-vm"></span><h1><a class="reference internal" href="#module-cloudmesh-cloud.cloudmesh.vm.command.vm" title="cloudmesh-cloud.cloudmesh.vm.command.vm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-cloud.cloudmesh.vm.command.vm</span></code></a><a class="headerlink" href="#module-cloudmesh-cloud.cloudmesh.vm.command.vm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-cloud.cloudmesh.vm.command.vm.VmCommand" title="cloudmesh-cloud.cloudmesh.vm.command.vm.VmCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VmCommand</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-cloud.cloudmesh.vm.command.vm.VmCommand">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-cloud.cloudmesh.vm.command.vm.</span></code><code class="sig-name descname"><span class="pre">VmCommand</span></code><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vm.command.vm.VmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../../cloudmesh/shell/command/index.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh-cloud.cloudmesh.vm.command.vm.VmCommand.do_vm">
+<code class="sig-name descname"><span class="pre">do_vm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-cloud.cloudmesh.vm.command.vm.VmCommand.do_vm" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>vm ping [NAMES] [–cloud=CLOUDS] [–count=N]
+vm check [NAMES] [–cloud=CLOUDS] [–username=USERNAME]
+vm status [NAMES] [–cloud=CLOUDS] [–output=OUTPUT]
+vm console [NAME] [–force]
+vm log [NAME] [–force]
+vm stop [NAMES]  [–dryrun]
+vm start [NAMES] [–dryrun]
+vm terminate [NAMES] [–cloud=CLOUD] [–dryrun]
+vm delete [NAMES] [–cloud=CLOUD] [–dryrun]
+vm list [NAMES]</p>
+<blockquote>
+<div><p>[–cloud=CLOUDS]
+[–output=OUTPUT]
+[–refresh]
+[–short]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>vm boot [–n=COUNT]</dt><dd><p>[–name=NAMES]
+[–label=LABEL]
+[–cloud=CLOUD]
+[–username=USERNAME]
+[–image=IMAGE]
+[–flavor=FLAVOR]
+[–network=NETWORK]
+[–public]
+[–secgroup=SECGROUP]
+[–group=GROUP]
+[–key=KEY]
+[–dryrun]
+[-v]</p>
+</dd>
+</dl>
+<p>vm meta list [NAME]
+vm meta set [NAME] KEY=VALUE…
+vm meta delete [NAME] KEY…
+vm script [NAMES]</p>
+<blockquote>
+<div><p>[–username=USERNAME]
+[–key=KEY]
+[–dryrun]
+[–dir=DESTINATION]
+SCRIPT</p>
+</div></blockquote>
+<dl class="simple">
+<dt>vm ip assign [NAMES]</dt><dd><p>[–cloud=CLOUD]</p>
+</dd>
+<dt>vm ip show [NAMES]</dt><dd><p>[–group=GROUP]
+[–cloud=CLOUD]
+[–output=OUTPUT]
+[–refresh]</p>
+</dd>
+</dl>
+<p>vm ip inventory [NAMES]
+vm ssh [NAMES]</p>
+<blockquote>
+<div><p>[–username=USER]
+[–quiet]
+[–ip=IP]
+[–key=KEY]
+[–command=COMMAND]</p>
+</div></blockquote>
+<p>vm put SOURCE DESTINATION [NAMES]
+vm get SOURCE DESTINATION [NAMES]
+vm rename [OLDNAMES] [NEWNAMES] [–force] [–dryrun]
+vm wait [–cloud=CLOUD] [–interval=INTERVAL] [–timeout=TIMEOUT]
+vm info [NAMES] [–cloud=CLOUD] [–output=OUTPUT] [–dryrun]
+vm username USERNAME [NAMES] [–cloud=CLOUD]
+vm resize [NAMES] [–size=SIZE]</p>
+</dd>
+<dt>Arguments:</dt><dd><p>OUTPUT         the output format
+COMMAND        positional arguments, the commands you want to</p>
+<blockquote>
+<div><p>execute on the server(e.g. ls -a) separated by ‘;’,
+you will get a return of executing result instead of login to
+the server, note that type in – is suggested before
+you input the commands</p>
+</div></blockquote>
+<p>NAME           server name. By default it is set to the name of last vm from database.
+NAMES          server name. By default it is set to the name of last vm from database.
+KEYPAIR_NAME   Name of the vm keypair to be used to create VM. Note this is</p>
+<blockquote>
+<div><p>not a path to key.</p>
+</div></blockquote>
+<p>NEWNAMES       New names of the VM while renaming.
+OLDNAMES       Old names of the VM while renaming.</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">-v</span></kbd></dt>
+<dd><p>verbose, prints the dict at the end</p>
+</dd>
+<dt><kbd><span class="option">--output=<var>OUTPUT</var></span></kbd></dt>
+<dd><p>the output format</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>-H –modify-knownhosts  Do not modify ~/.ssh/known_hosts file</dt><dd><p>when ssh’ing into a machine</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">--username=<var>USERNAME</var></span></kbd></dt>
+<dd><p>the username to login into the vm. If not
+specified it will be guessed
+from the image name and the cloud</p>
+</dd>
+<dt><kbd><span class="option">--ip=<var>IP</var></span></kbd></dt>
+<dd><p>give the public ip of the server</p>
+</dd>
+<dt><kbd><span class="option">--cloud=<var>CLOUD</var></span></kbd></dt>
+<dd><p>give a cloud to work on, if not given, selected
+or default cloud will be used</p>
+</dd>
+<dt><kbd><span class="option">--count=<var>COUNT</var></span></kbd></dt>
+<dd><p>give the number of servers to start</p>
+</dd>
+<dt><kbd><span class="option">--detail</span></kbd></dt>
+<dd><p>for table, a brief version
+is used as default, use this flag to print
+detailed table</p>
+</dd>
+<dt><kbd><span class="option">--flavor=<var>FLAVOR</var></span></kbd></dt>
+<dd><p>give the name or id of the flavor</p>
+</dd>
+<dt><kbd><span class="option">--group=<var>GROUP</var></span></kbd></dt>
+<dd><p>give the group name of server</p>
+</dd>
+<dt><kbd><span class="option">--secgroup=<var>SECGROUP</var></span></kbd></dt>
+<dd><p>security group name for the server</p>
+</dd>
+<dt><kbd><span class="option">--image=<var>IMAGE</var></span></kbd></dt>
+<dd><p>give the name or id of the image</p>
+</dd>
+<dt><kbd><span class="option">--key=<var>KEY</var></span></kbd></dt>
+<dd><p>specify a key to use, input a string which
+is the full path to the private key file</p>
+</dd>
+<dt><kbd><span class="option">--keypair_name=<var>KEYPAIR_NAME</var></span></kbd></dt>
+<dd><p>Name of the vm keypair to
+be used to create VM.
+Note this is not a path to key.</p>
+</dd>
+<dt><kbd><span class="option">--user=<var>USER</var></span></kbd></dt>
+<dd><p>give the user name of the server that you want
+to use to login</p>
+</dd>
+<dt><kbd><span class="option">--name=<var>NAME</var></span></kbd></dt>
+<dd><p>give the name of the virtual machine</p>
+</dd>
+<dt><kbd><span class="option">--force</span></kbd></dt>
+<dd><p>rename/ delete vms without user’s confirmation</p>
+</dd>
+<dt><kbd><span class="option">--command=<var>COMMAND</var></span></kbd></dt>
+<dd><p>specify the commands to be executed</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><blockquote>
+<div><p>commands used to boot, start or delete servers of a cloud</p>
+<dl class="simple">
+<dt>vm default [options…]</dt><dd><p>Displays default parameters that are set for vm boot either
+on the default cloud or the specified cloud.</p>
+</dd>
+<dt>vm boot [options…]</dt><dd><p>Boots servers on a cloud, user may specify flavor, image
+.etc, otherwise default values will be used, see how to set
+default values of a cloud: cloud help</p>
+</dd>
+<dt>vm start [options…]</dt><dd><p>Starts a suspended or stopped vm instance.</p>
+</dd>
+<dt>vm stop [options…]</dt><dd><p>Stops a vm instance .</p>
+</dd>
+</dl>
+<p>vm delete [options…]</p>
+<blockquote>
+<div><p>Delete servers of a cloud, user may delete a server by its
+name or id, delete servers of a group or servers of a cloud,
+give prefix and/or range to find servers by their names.
+Or user may specify more options to narrow the search</p>
+</div></blockquote>
+<dl class="simple">
+<dt>vm floating_ip_assign [options…]</dt><dd><p>assign a public ip to a VM of a cloud</p>
+</dd>
+<dt>vm ip show [options…]</dt><dd><p>show the ips of VMs</p>
+</dd>
+<dt>vm ssh [options…]</dt><dd><p>login to a server or execute commands on it</p>
+</dd>
+<dt>vm list [options…]</dt><dd><p>same as command “list vm”, please refer to it</p>
+</dd>
+<dt>vm status [options…]</dt><dd><p>Retrieves status of last VM booted on cloud and displays it.</p>
+</dd>
+<dt>vm refresh [–cloud=CLOUDS]</dt><dd><p>this command refreshes the data for virtual machines,
+images and flavors for the specified clouds.</p>
+</dd>
+<dt>vm ping [NAMES] [–cloud=CLOUDS] [–count=N] [–processors=PROCESSORS]</dt><dd><p>pings the specified virtual machines, while using at most N pings.
+The ping is executed in parallel.
+If names are specifies the ping is restricted to the given names in
+parameter format. If clouds are specified, names that are not in
+these clouds are ignored. If the name is set in the variables
+this name is used.</p>
+</dd>
+</dl>
+<p>cms vm ssh –command=”uname -a”</p>
+<blockquote>
+<div><p>executes the uname command on the last booted vm</p>
+</div></blockquote>
+<dl>
+<dt>vm script [–name=NAMES]</dt><dd><blockquote>
+<div><p>[–username=USERNAME]
+[–key=KEY]
+[–dryrun]
+[–dir=DESTINATION]
+[–shell=SHELL]
+SCRIPT</p>
+</div></blockquote>
+<p>The script command copies a shell script to the specified vms
+into the DESTINATION directory and than execute it. With
+SHELL you can set the shell for executing the command,
+this coudl even be a python interpreter. Examples for
+SHELL are /bin/sh, /usr/bin/env python</p>
+</dd>
+</dl>
+<p>vm put SOURCE DESTINATION [NAMES]</p>
+<blockquote>
+<div><blockquote>
+<div><p>puts the file defined by SOURCE into the DESINATION folder</p>
+</div></blockquote>
+<dl class="simple">
+<dt>on the specified machines. If the file exists it is</dt><dd><p>overwritten, so be careful.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>vm get SOURCE DESTINATION [NAMES]</p>
+<blockquote>
+<div><p>gets  the file defined by SOURCE into the DESINATION folder
+on the specified machines. The SOURCE is on the remote
+machine. If one machine is specified, the SOURCE is the same
+name as on the remote machine. If multiple machines are
+specified, the name of the machine will be a prefix to the
+filename. If the filenames exists, they will be overwritten,
+so be careful.</p>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>Tip:</dt><dd><blockquote>
+<div><p>give the VM name, but in a hostlist style, which is very
+convenient when you need a range of VMs e.g. sample[1-3]
+=&gt; [‘sample1’, ‘sample2’, ‘sample3’]</p>
+</div></blockquote>
+<p>sample[1-3,18] =&gt; [‘sample1’, ‘sample2’, ‘sample3’, ‘sample18’]</p>
+</dd>
+<dt>Quoting commands:</dt><dd><p>cm vm login gregor-004 –command=”uname -a”</p>
+</dd>
+</dl>
+<p>Limitations:</p>
+<blockquote>
+<div><p>Azure: rename is not supported</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

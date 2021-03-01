@@ -1,0 +1,125 @@
+:mod:`cloudmesh.oracle.storage.Provider`
+========================================
+
+.. py:module:: cloudmesh.oracle.storage.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.oracle.storage.Provider.Provider
+
+
+
+.. class:: Provider(service=None, config='~/.cloudmesh/cloudmesh.yaml')
+
+
+   Bases: :class:`cloudmesh.storage.StorageABC.StorageABC`
+
+   .. attribute:: sample
+      
+
+      
+
+   .. method:: _get_credentials(config)
+      :staticmethod:
+
+      Internal function to create a dict for the oraclesdk credentials.
+
+      :param config: The credentials from the cloudmesh yaml file
+      :return: the dict for the oraclesdk
+
+
+   .. method:: get_filename(filename)
+      :staticmethod:
+
+
+   .. method:: update_dict(self, elements, kind=None)
+
+
+   .. method:: ls_files(self, dir_path, recursive)
+
+
+   .. method:: get_os_path(file_name_path)
+      :staticmethod:
+
+
+   .. method:: extract_file_dict(filename, metadata)
+      :staticmethod:
+
+
+   .. method:: get_and_extract_file_dict(self, filename)
+
+
+   .. method:: bucket_create(self, name=None)
+
+
+   .. method:: bucket_exists(self, name=None)
+
+
+   .. method:: create_dir(self, directory=None)
+
+      creates a directory
+      :param directory: the name of the directory
+      :return: dict
+
+
+   .. method:: list(self, source=None, dir_only=False, recursive=True)
+
+      lists the information as dict
+
+      :param source: the source which either can be a directory or file
+      :param dir_only: Only the directory names
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete(self, source=None, recursive=True)
+
+      deletes the source
+      :param source: the source which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      puts the source on the service
+      :param source: the source file
+      :param destination: the destination which either can be a
+                          directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: get(self, source=None, destination=None, recursive=True)
+
+      gets the source from the service
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory
+                          or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      searches for the source in all the folders on the cloud.
+
+      :param directory: the directory which either can be a directory or file
+      :param filename: filename
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+

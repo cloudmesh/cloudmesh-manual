@@ -1,0 +1,58 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.storage.StorageProviderABC`
+====================================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.storage.StorageProviderABC
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.storage.StorageProviderABC.StorageProviderABC
+
+
+
+.. class:: StorageProviderABC
+
+   Abstract Base Class for supported cloud providers.
+
+   .. method:: get(self, source, destination)
+      :abstractmethod:
+
+      get a file stored with this provider
+
+      :param source: the cloud file entry being retrieved
+      :param destination: download destination
+      :return: the downloaded cloud file binary
+
+
+   .. method:: put(self, source)
+      :abstractmethod:
+
+      upload a file
+
+      :param source: a CloudFile. todo
+      :return: a CloudFile with resource information filled in
+
+
+   .. method:: delete(self, name)
+      :abstractmethod:
+
+      delete a file from the provider
+
+      :param name: the cloud file entry being deleted
+
+
+   .. method:: exists(self, name)
+      :abstractmethod:
+
+      if a file exists in the remote storage provider
+
+      :param name: a file name to check
+
+
+

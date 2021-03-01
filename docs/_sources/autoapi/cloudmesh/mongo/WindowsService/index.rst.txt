@@ -1,0 +1,72 @@
+:mod:`cloudmesh.mongo.WindowsService`
+=====================================
+
+.. py:module:: cloudmesh.mongo.WindowsService
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.mongo.WindowsService.WindowsService
+
+
+
+.. class:: WindowsService
+
+   Bases: :class:`object`
+
+   .. method:: delete(name='MongoDB')
+      :staticmethod:
+
+      deletes the named service
+
+      :param name:
+      :return:
+
+
+   .. method:: status(name='MongoDB')
+      :staticmethod:
+
+      returns the status of the named service
+
+      :param name:
+      :return:
+
+
+   .. method:: stop(name='MongoDB')
+      :staticmethod:
+      :abstractmethod:
+
+      sops the named service
+
+      :param name:
+      :return:
+
+
+   .. method:: list()
+      :staticmethod:
+
+      lists the names of the running services
+      :return:
+
+
+   .. method:: uninstall(name=None)
+      :staticmethod:
+      :abstractmethod:
+
+      uninstalls the named package. The name should be the msi
+      :param name:
+      :return:
+
+
+
+.. data:: status
+   
+
+   
+

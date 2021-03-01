@@ -1,0 +1,78 @@
+:mod:`cloudmesh-common.cloudmesh.common.location`
+=================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.location
+
+.. autoapi-nested-parse::
+
+   class that specifies where we read the cloudmesh.yaml file from
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.location.Location
+
+
+
+.. class:: Location(directory='~/.cloudmesh')
+
+
+   .. attribute:: _shared_state
+      
+
+      
+
+   .. method:: write(self, filename, content)
+
+      Write a file to the configuration directory
+
+      :param filename: The filename
+      :param content:  The content
+      :return:
+
+
+   .. method:: read(self, filename)
+
+      Read a file from the configuration directory
+
+      :param filename: The filename
+      :return: The content
+
+
+   .. method:: file(self, filename)
+
+      The location of the config file in the cloudmesh configuration directory
+
+      :param filename: the filenam
+
+
+   .. method:: get(self)
+
+
+   .. method:: set(self, directory)
+
+
+   .. method:: config(self)
+
+
+   .. method:: environment(self, key)
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+   .. method:: __eq__(self, other)
+
+      Return self==value.
+
+
+

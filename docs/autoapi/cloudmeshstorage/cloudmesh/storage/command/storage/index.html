@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-storage.cloudmesh.storage.command.storage &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-storage.cloudmesh.storage.command.storage</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshstorage/cloudmesh/storage/command/storage/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-storage.cloudmesh.storage.command.storage">
+<span id="cloudmesh-storage-cloudmesh-storage-command-storage"></span><h1><a class="reference internal" href="#module-cloudmesh-storage.cloudmesh.storage.command.storage" title="cloudmesh-storage.cloudmesh.storage.command.storage"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-storage.cloudmesh.storage.command.storage</span></code></a><a class="headerlink" href="#module-cloudmesh-storage.cloudmesh.storage.command.storage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-storage.cloudmesh.storage.command.storage.StorageCommand" title="cloudmesh-storage.cloudmesh.storage.command.storage.StorageCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StorageCommand</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-storage.cloudmesh.storage.command.storage.StorageCommand">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-storage.cloudmesh.storage.command.storage.</span></code><code class="sig-name descname"><span class="pre">StorageCommand</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.command.storage.StorageCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../../cloudmesh/shell/command/index.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.command.storage.StorageCommand.do_storage">
+<code class="sig-name descname"><span class="pre">do_storage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.command.storage.StorageCommand.do_storage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>storage run
+storage clean
+storage monitor [–storage=SERVICES] [–status=all | –status=STATUS] [–output=output] [–clear]
+storage create dir DIRECTORY [–storage=SERVICE] [–parallel=N] [–run]
+storage get SOURCE DESTINATION [–recursive] [–storage=SERVICE] [–parallel=N] [–run]
+storage put SOURCE DESTINATION [–recursive] [–storage=SERVICE] [–parallel=N] [–run]
+storage list [–storage=SERVICE] [SOURCE] [–recursive] [–parallel=N] [–output=OUTPUT] [–dryrun] [–run]
+storage delete SOURCE [–storage=SERVICE] [–parallel=N] [–dryrun] [–run]
+storage search  DIRECTORY FILENAME [–recursive] [–storage=SERVICE] [–parallel=N] [–output=OUTPUT] [–run]
+storage sync SOURCE DESTINATION [–name=NAME] [–async] [–storage=SERVICE]
+storage sync status [–name=NAME] [–storage=SERVICE]
+storage config list [–output=OUTPUT]
+storage copy –source=SOURCE:SOURCE_FILE_DIR –target=TARGET:TARGET_FILE_DIR [–run]
+storage cc –source=SOURCE:SOURCE_FILE_DIR –target=TARGET:TARGET_FILE_DIR</p>
+</dd>
+</dl>
+<p>This command does some useful things.</p>
+<dl>
+<dt>Arguments:</dt><dd><p>SOURCE        SOURCE can be a directory or file
+DESTINATION   DESTINATION can be a directory or file
+DIRECTORY     DIRECTORY refers to a folder on the cloud service
+SOURCE:SOURCE_FILE_DIR source provider name: file or directory name
+TARGET:SOURCE_FILE_DIR destination provider name</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--storage=<var>SERVICE</var></span></kbd></dt>
+<dd><p>specify the cloud service name like aws or
+azure or box or google</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><p>commands used to upload, download, list files on different
+cloud storage services.</p>
+<dl class="simple">
+<dt>storage run</dt><dd><p>Execute the actions in database that are in waiting status.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>&gt; storage monitor [–storage=SERVICE]
+&gt;                 [–status=all | –status=STATUS]
+&gt;                 [–output=output]
+&gt;                 [–clear]</p>
+<blockquote>
+<div><p>Monitor the actions in database and refresh every 5 seconds.</p>
+</div></blockquote>
+<p>&gt; storage put SOURCE DESTINATION [–recursive] [–storage=SERVICE]
+&gt;                               [–parallel=N]</p>
+<blockquote>
+<div><p>Uploads the file specified in the filename to specified
+cloud from the SOURCEDIR.</p>
+</div></blockquote>
+<p>&gt; storage get SOURCE DESTINATION [–recursive] [–storage=SERVICE]
+&gt;                               [–parallel=N]</p>
+<blockquote>
+<div><blockquote>
+<div><p>Downloads the file specified in the filename from the
+specified cloud to the DESTDIR.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>storage delete SOURCE [–parallel=N] [–dryrun]</dt><dd><p>Deletes the file specified in the filename from the
+specified cloud.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>&gt; storage list [SOURCE] [–recursive] [–parallel=N]
+&gt;             [–output=OUTPUT] [–dryrun]</p>
+<blockquote>
+<div><blockquote>
+<div><p>lists all the files from the container name specified on
+the specified cloud.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>storage create dir DIRECTORY [–storage=SERVICE] [–parallel=N]</dt><dd><p>creates a folder with the directory name specified on the
+specified cloud.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>&gt; storage search DIRECTORY FILENAME [–recursive]
+&gt;                                  [–storage=SERVICE]
+&gt;                                  [–parallel=N]
+&gt;                                  [–output=OUTPUT]</p>
+<blockquote>
+<div><blockquote>
+<div><p>searches for the source in all the folders on the specified
+cloud.</p>
+</div></blockquote>
+<dl>
+<dt>sync SOURCE DESTINATION</dt><dd><dl>
+<dt>puts the content of source to the destination.</dt><dd><dl class="simple">
+<dt>If –recursive is specified this is done recursively from</dt><dd><p>the source</p>
+</dd>
+</dl>
+<p>If –async is specified, this is done asynchronously
+If a name is specified, the process can also be monitored</p>
+<blockquote>
+<div><p>with the status command by name.</p>
+</div></blockquote>
+<p>If the name is not specified all date is monitored.</p>
+</dd>
+</dl>
+</dd>
+<dt>sync status</dt><dd><p>The status for the asynchronous sync can be seen with this
+command</p>
+</dd>
+<dt>config list</dt><dd><p>Lists the configures storage services in the yaml file</p>
+</dd>
+<dt>storage copy SOURCE DESTINATION</dt><dd><p>Copies files from source storage to destination storage.
+The syntax of SOURCE and DESTINATION is:
+SOURCE - awss3:source.txt
+DESTINATION - azure:target.txt</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Description of the copy command:</p>
+<blockquote>
+<div><blockquote>
+<div><p>Command enables to Copy files between different cloud service
+providers, list and delete them. This command accepts <cite>aws</cite> ,
+<cite>google</cite> and <cite>local</cite> as the SOURCE and TARGET provider.</p>
+<p>cms storage copy –source=SERVICE:SOURCE –target=DEST:TARGET</p>
+<blockquote>
+<div><p>Command copies files or directories from Source provider to
+Target Provider.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>cms storage slist –source=SERVICE:SOURCE</dt><dd><p>Command lists all the files present in SOURCE provider’s in
+the given SOURCE_FILE_DIR location This command accepts
+<cite>aws</cite> or <cite>google</cite> as the SOURCE provider</p>
+</dd>
+<dt>cms storage sdelete –source=SERVICE:SOURCE</dt><dd><p>Command deletes the file or directory from the SOURCE
+provider’s SOURCE_FILE_DIR location</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Examples:
+&gt;    cms storage_service copy –source=local:test1.txt
+&gt;                             –target=aws:uploadtest1.txt</p>
+<blockquote>
+<div><p>cms storage_service list –source=google:test
+cms storage_service delete –source=aws:uploadtest1.txt</p>
+<p>cms storage put test_file1.txt aws_test_file1.txt
+cms storage put ./recur_dir recur_dir_aws/ –recursive
+cms storage put ./recur_dir recur_dir_aws/</p>
+<p>cms storage get aws_test_file1.txt aws_file1.txt
+cms storage get recur_dir_aws from_aws_dir
+cms storage get recur_dir_aws from_aws_dir –recursive</p>
+<p>cms storage list
+cms storage list –recursive
+cms storage list aws:recur_dir_aws –recursively</p>
+<p>cms storage delete aws:aws_test_file1.txt</p>
+<p>cms storage search recur_dir_aws recur_file1.txt</p>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>Example:</dt><dd><p>set storage=aws
+storage put SOURCE DESTINATION –recursive</p>
+<p>is the same as
+storage –storage=aws put SOURCE DESTINATION –recursive</p>
+<p>storage copy aws:source.txt oracle:target.txt</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

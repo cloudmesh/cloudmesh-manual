@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-storage.cloudmesh.storage.provider.StorageQueue &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-storage.cloudmesh.storage.provider.StorageQueue</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshstorage/cloudmesh/storage/provider/StorageQueue/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-storage.cloudmesh.storage.provider.StorageQueue">
+<span id="cloudmesh-storage-cloudmesh-storage-provider-storagequeue"></span><h1><a class="reference internal" href="#module-cloudmesh-storage.cloudmesh.storage.provider.StorageQueue" title="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-storage.cloudmesh.storage.provider.StorageQueue</span></code></a><a class="headerlink" href="#module-cloudmesh-storage.cloudmesh.storage.provider.StorageQueue" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue" title="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StorageQueue</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.</span></code><code class="sig-name descname"><span class="pre">StorageQueue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallelism</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../../cloudmesh/abstract/StorageABC/index.html#cloudmesh.abstract.StorageABC.StorageABC" title="cloudmesh.abstract.StorageABC.StorageABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageABC.StorageABC</span></code></a></p>
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.put_run">
+<code class="sig-name descname"><span class="pre">put_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.put_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.get_run">
+<code class="sig-name descname"><span class="pre">get_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.get_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.mkdir_run">
+<code class="sig-name descname"><span class="pre">mkdir_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.mkdir_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.cancel_run">
+<code class="sig-name descname"><span class="pre">cancel_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.cancel_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.delete_run">
+<code class="sig-name descname"><span class="pre">delete_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.delete_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.copy_run">
+<code class="sig-name descname"><span class="pre">copy_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.copy_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.list_run">
+<code class="sig-name descname"><span class="pre">list_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.list_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.search_run">
+<code class="sig-name descname"><span class="pre">search_run</span></code><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.search_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.pretty_print">
+<code class="sig-name descname"><span class="pre">pretty_print</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.pretty_print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.update_dict">
+<code class="sig-name descname"><span class="pre">update_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.update_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>this is an internal function for building dict object
+:param elements:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue._notimplemented">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">_notimplemented</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specification</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue._notimplemented" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>specification</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.add_cm">
+<code class="sig-name descname"><span class="pre">add_cm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cm_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.add_cm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sourcefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destinationfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a copy action to the queue
+copies the file from the source service to the destination service using
+the file located in the path and storing it into the remote. If remote
+is not specified path is used for it.
+The copy will not be performed if the files are the same.
+:param sourcefile: The source file to copy
+:param destinationfile: The destination file path
+:param recursive: whether or not copy the file/dir recursively
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.delete">
+<code class="sig-name descname"><span class="pre">delete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a delete action to the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – </p></li>
+<li><p><strong>recursive</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.search">
+<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.cancel">
+<code class="sig-name descname"><span class="pre">cancel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>cancels a job with a specific id
+:param name:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>destination</strong> – the destination which either can be a directory or
+file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.put">
+<code class="sig-name descname"><span class="pre">put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>puts the source on the service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>destination</strong> – the destination which either can be a directory or
+file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive refers to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.create_dir">
+<code class="sig-name descname"><span class="pre">create_dir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a mkdir action to the queue
+create the directory in the storage service
+:param directory:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.list">
+<code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a list action to the queue
+list the directory in the storage service
+:param source:
+:param dir_only:
+:param recursive:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.action">
+<code class="sig-name descname"><span class="pre">action</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specification</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes the action identified by the specification. This is used by the
+run command.
+:param specification:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.get_actions">
+<code class="sig-name descname"><span class="pre">get_actions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.get_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>get all the actions from database
+param:
+:return lists of actions from database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>runs the copy process for all jobs in the queue and completes when all
+actions are completed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.monitor">
+<code class="sig-name descname"><span class="pre">monitor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'table'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.monitor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.clean">
+<code class="sig-name descname"><span class="pre">clean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-storage.cloudmesh.storage.provider.StorageQueue.StorageQueue.clean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

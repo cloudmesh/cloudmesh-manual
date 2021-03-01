@@ -1,0 +1,163 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.queue.StorageQueueABC`
+================================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.queue.StorageQueueABC
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.queue.StorageQueueABC.StorageQueue
+
+
+
+.. class:: StorageQueue(name=None, parallelism=4)
+
+
+   .. method:: copy(self, sourcefile, destinationfile, recursive=False)
+
+      adds a copy action to the queue
+
+      copies the file from the source service to the destination service using
+      the file located in the path and storing it into the remote. If remote
+      is not specified path is used for it.
+
+      The copy will not be performed if the files are the same.
+
+      :param sourcefile:
+      :param destinationfile:
+      :param recursive:
+      :return:
+
+
+   .. method:: _put(self, specification: dict) -> dict
+      :abstractmethod:
+
+      function to upload file or directory
+      puts the source on the service
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory
+                          or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: delete(self, path, recursive=True)
+
+      adds a delete action to the queue
+
+      :param path:
+      :param recursive:
+
+      :return:
+
+
+   .. method:: _delete(self, specification: dict) -> dict
+      :abstractmethod:
+
+      deletes the source
+
+      :param specification:
+
+      :return: dict
+
+
+   .. method:: cancel(self, id=None)
+
+      cancels a job with a specific id
+      :param id:
+      :return:
+
+
+   .. method:: _cancel(self, specification: dict) -> dict
+      :abstractmethod:
+
+
+   .. method:: mkdir(self, path)
+
+      adds a mkdir action to the queue
+
+      create the directory in the storage service
+      :param path:
+      :return:
+
+
+   .. method:: _mkdir(self, specification: dict) -> dict
+      :abstractmethod:
+
+      function to create a directory the function will first check if the
+      bucket exists or not,if the bucket doesn't exist it will create the
+      bucket and it will create the directory specified. the name of the
+      bucket will come from YAML specifications and the directory name comes
+      from the arguments.
+
+      :param specification:
+      :return:
+
+
+   .. method:: list(self, path, dir_only=False, recursive=False)
+
+      adds a list action to the queue
+
+      list the directory in the storage service
+      :param path:
+      :param dir_only:
+      :param recursive:
+
+      :return:
+
+
+   .. method:: _list(self, specification: dict) -> dict
+      :abstractmethod:
+
+      lists the information as dict
+
+      :param specification.source: the source which either can be a directory or file
+      :param specification.dir_only: Only the directory names
+      :param specification.recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+
+      :return: dict
+
+
+   .. method:: action(self, specification)
+
+      executes the action identified by the specification. This is used by the
+      run command.
+
+      :param specification:
+      :return:
+
+
+   .. method:: get_actions(self)
+
+      TODO: missing
+
+      :return:
+
+
+   .. method:: update_dict(self, elements, kind=None)
+
+      this is an internal function for building dict object
+
+      :param elements:
+      :param kind:
+      :return:
+
+
+   .. method:: run(self)
+
+      runs the copy process for all jobs in the queue and completes when all
+      actions are completed
+
+      :return:
+
+
+

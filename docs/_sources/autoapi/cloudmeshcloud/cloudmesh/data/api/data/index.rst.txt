@@ -1,0 +1,102 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.data`
+==============================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.data
+
+.. autoapi-nested-parse::
+
+   Cloudmesh Multi Service Data Access
+
+   Usage:
+     cloud data add FILE
+     cloud data add SERVICE FILE
+     cloud data get FILE
+     cloud data get FILE DEST_FOLDER
+     cloud data del FILE
+     cloud data (ls | dir)
+     cloud data (-h | --help)
+     cloud data --version
+
+   Options:
+     -h --help     Show this screen.
+     --version     Show version.
+     --config      Location of a cmdata.yaml file
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.data.Data
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.data.process_arguments
+
+
+.. class:: Data
+
+
+   Bases: :class:`object`
+
+   .. method:: config(self, config_path='~/.cloudmesh/cloudmesh.yaml')
+
+      Use `cloudmesh.yaml` file to configure.
+
+
+   .. method:: ls(self)
+
+      List tracked files.
+
+      :return: A list of CloudFiles
+
+
+   .. method:: add(self, provider, file_path)
+
+      Add a new file
+
+      :param provider: The storage provider where the file should be stored.
+      :param file_path: The local path to the file.
+
+
+   .. method:: get(self, file_name, dest_folder='.')
+
+      Retrieve a file
+
+      :param file_name: The name corresponding to the cloud file to be downloaded.
+      :param dest_folder:
+      :return:
+
+
+   .. method:: delete(self, file_name)
+
+      Remove a file
+
+      :param file_name: The name of the file to remove.
+
+
+   .. method:: _print_row(file_name, service, size, url)
+      :staticmethod:
+
+      Print a formatted row
+
+
+
+.. function:: process_arguments(args)
+
+
+.. data:: arguments
+   
+
+   
+

@@ -1,0 +1,60 @@
+:mod:`cloudmesh.aws.compute.test_boto`
+======================================
+
+.. py:module:: cloudmesh.aws.compute.test_boto
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.aws.compute.test_boto.list_ec2_instance_id
+   cloudmesh.aws.compute.test_boto.get_ec2_instance_status
+   cloudmesh.aws.compute.test_boto.start_ec2_instance
+   cloudmesh.aws.compute.test_boto.stop_ec2_instance
+
+
+.. data:: config
+   
+
+   
+
+.. data:: credentials
+   
+
+   
+
+.. data:: new_yaml_data_dict
+   
+
+   credentials:
+   region: 'us-west-2'
+   EC2_SECURITY_GROUP: 'group1'
+   EC2_ACCESS_ID: TBD
+   EC2_SECRET_KEY: TBD
+   EC2_PRIVATE_KEY_FILE_PATH: '~/.cloudmesh/aws_cert.pem'
+   EC2_PRIVATE_KEY_FILE_NAME: 'aws_cert'
+
+
+.. data:: session
+   
+
+   
+
+.. function:: list_ec2_instance_id(session)
+
+
+.. function:: get_ec2_instance_status(ec2_instance)
+
+
+.. function:: start_ec2_instance(session, instance_id)
+
+
+.. function:: stop_ec2_instance(session, instance_id)
+
+

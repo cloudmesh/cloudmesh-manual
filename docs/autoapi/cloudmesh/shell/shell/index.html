@@ -1,0 +1,657 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh.shell.shell &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.shell.shell</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/cloudmesh/shell/shell/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh.shell.shell">
+<span id="cloudmesh-shell-shell"></span><h1><a class="reference internal" href="#module-cloudmesh.shell.shell" title="cloudmesh.shell.shell"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.shell.shell</span></code></a><a class="headerlink" href="#module-cloudmesh.shell.shell" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.shell.shell.Plugin" title="cloudmesh.shell.shell.Plugin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plugin</span></code></a></p></td>
+<td><p>Some simple methods to manage dynamic namespace plugins for cloudmesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh.shell.shell.CMShell" title="cloudmesh.shell.shell.CMShell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CMShell</span></code></a></p></td>
+<td><p>The command shell that inherits all commands from PluginCommand</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.shell.shell.iter_namespace" title="cloudmesh.shell.shell.iter_namespace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iter_namespace</span></code></a>(ns_pkg)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh.shell.shell.import_class" title="cloudmesh.shell.shell.import_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_class</span></code></a>(cl)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.shell.shell.get_class" title="cloudmesh.shell.shell.get_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_class</span></code></a>(str)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh.shell.shell.main" title="cloudmesh.shell.shell.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<td><p>cms.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="cloudmesh.shell.shell.iter_namespace">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">iter_namespace</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ns_pkg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.iter_namespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.shell.shell.import_class">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">import_class</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.import_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.shell.shell.get_class">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">get_class</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.get_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh.shell.shell.Plugin">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">Plugin</span></code><a class="headerlink" href="#cloudmesh.shell.shell.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Some simple methods to manage dynamic namespace plugins for cloudmesh.</p>
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.Plugin.list">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.Plugin.modules">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">modules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of cloudmesh modules in the cloudmesh namespace
+:return: list of modules</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.Plugin.classes">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">classes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.classes" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of the commands in the cloudmesh namespace under cloudmesh.command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of the commands</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.Plugin.name">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a name for a modules starting with <a href="#id1"><span class="problematic" id="id2">do_</span></a>
+:param command: returns a tuple with the module location and tge do_function
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.Plugin.class_name">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">class_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates the default filename in which the module is defined
+:param command:  the name of the command
+:return: cloudmesh.ext.command.&lt;command&gt;+command.&lt;Command&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.Plugin.load">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.load" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>commands</strong> – <p>If None the commands will be found from import cloudmesh
+Otherwise the commands can be explicitly specified with</p>
+<blockquote>
+<div><dl class="simple">
+<dt>commands = [</dt><dd><p>‘cloudmesh.bar.command.bar.BarCommand’,
+‘cloudmesh.foo.command.foo.FooCommand’,
+]</p>
+</dd>
+</dl>
+<p>A namespace package must exists. Foo and Bar ar just examples</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the classes of the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh.shell.shell.selective_loading">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">selective_loading</span></code><em class="property"> <span class="pre">=</span> <span class="pre">True</span></em><a class="headerlink" href="#cloudmesh.shell.shell.selective_loading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh.shell.shell.name">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#cloudmesh.shell.shell.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="cloudmesh.shell.shell.PluginCommandClasses">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">PluginCommandClasses</span></code><a class="headerlink" href="#cloudmesh.shell.shell.PluginCommandClasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh.shell.shell.CMShell">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">CMShell</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">completekey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tab'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.Cmd</span></code>, <a class="reference internal" href="#cloudmesh.shell.shell.PluginCommandClasses" title="cloudmesh.shell.shell.PluginCommandClasses"><code class="xref py py-class docutils literal notranslate"><span class="pre">PluginCommandClasses</span></code></a></p>
+<p>The command shell that inherits all commands from PluginCommand</p>
+<dl class="py attribute">
+<dt id="cloudmesh.shell.shell.CMShell.prompt">
+<code class="sig-name descname"><span class="pre">prompt</span></code><em class="property"> <span class="pre">=</span> <span class="pre">cms&gt;</span></em><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.prompt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh.shell.shell.CMShell.banner">
+<code class="sig-name descname"><span class="pre">banner</span></code><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh.shell.shell.CMShell.do_q">
+<code class="sig-name descname"><span class="pre">do_q</span></code><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_q" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.set_debug">
+<code class="sig-name descname"><span class="pre">set_debug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.set_debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_commands">
+<code class="sig-name descname"><span class="pre">do_commands</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_commands" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>commands</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.precmd">
+<code class="sig-name descname"><span class="pre">precmd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.precmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method executed just before the command line is
+interpreted, but after the input prompt is generated and issued.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.postcmd">
+<code class="sig-name descname"><span class="pre">postcmd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.postcmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method executed just after a command dispatch is finished.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.replace_vars">
+<code class="sig-name descname"><span class="pre">replace_vars</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.replace_vars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.onecmd">
+<code class="sig-name descname"><span class="pre">onecmd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.onecmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the argument as though it had been typed in response
+to the prompt.</p>
+<p>This may be overridden, but should not normally need to be;
+see the precmd() and postcmd() methods for useful execution hooks.
+The return value is a flag indicating whether interpretation of
+commands by the interpreter should stop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_py">
+<code class="sig-name descname"><span class="pre">do_py</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_py" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><blockquote>
+<div><p>py PROGRAM…</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>PROGRAM…  the command to be executed</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><p>py PROGRAM…  executes the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_shell">
+<code class="sig-name descname"><span class="pre">do_shell</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_shell" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><blockquote>
+<div><p>shell COMMAND</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Arguments:</dt><dd><p>COMMAND  the command to be executed</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><p>shell COMMAND  executes the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_help">
+<code class="sig-name descname"><span class="pre">do_help</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_help" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>help
+help COMMAND</p>
+</dd>
+<dt>Description:</dt><dd><p>List available commands with “help” or detailed help with
+“help COMMAND”.</p>
+<p>In addition to the commands it also allows to print the api.
+The classes that help is available for can be listed with</p>
+<blockquote>
+<div><p>cms info</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.help_help">
+<code class="sig-name descname"><span class="pre">help_help</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.help_help" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>help
+help COMMAND</p>
+</dd>
+<dt>Description:</dt><dd><p>List available commands with “help” or detailed help with
+“help COMMAND”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_info">
+<code class="sig-name descname"><span class="pre">do_info</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>info path
+info commands
+info files [errors] [–output=FORMAT]
+info cloudmesh
+info errors [–trace]
+info sys [KEYWORD] [–plugins] [–output=FORMAT]
+info</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--format=<var>FORMAT</var></span></kbd></dt>
+<dd><p>the format to print the versions in [default: table]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Description:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>info</dt><dd><p>provides internal info about the shell and its packages</p>
+</dd>
+</dl>
+<p>The format option only works for</p>
+<blockquote>
+<div><p>cms info files</p>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.preloop">
+<code class="sig-name descname"><span class="pre">preloop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.preloop" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds the banner to the preloop</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_EOF">
+<code class="sig-name descname"><span class="pre">do_EOF</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_EOF" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>EOF</p>
+</dd>
+<dt>Description:</dt><dd><p>Command to the shell to terminate reading a script.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_quit">
+<code class="sig-name descname"><span class="pre">do_quit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_quit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>quit</p>
+</dd>
+<dt>Description:</dt><dd><p>Action to be performed when quit is typed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.emptyline">
+<code class="sig-name descname"><span class="pre">emptyline</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.emptyline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when an empty line is entered in response to the prompt.</p>
+<p>If this method is not overridden, it repeats the last nonempty
+command entered.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.shell.shell.CMShell.do_version">
+<code class="sig-name descname"><span class="pre">do_version</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_version" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><p>version pip [PACKAGE]
+version [–format=FORMAT] [–check=CHECK] [–number]</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--format=<var>FORMAT</var></span></kbd></dt>
+<dd><p>the format to print the versions in [default: table]</p>
+</dd>
+<dt><kbd><span class="option">--check=<var>CHECK</var></span></kbd></dt>
+<dd><p>boolean tp conduct an additional check [default: True]</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><dl class="simple">
+<dt>version</dt><dd><p>Prints out the version number</p>
+</dd>
+<dt>version pip</dt><dd><p>Prints the contents of pip list</p>
+</dd>
+</dl>
+</dd>
+<dt>Limitations:</dt><dd><p>Package names must not have a . in them instead you need to use -
+Thus to query for cloudmesh-cmd5 use</p>
+<blockquote>
+<div><p>cms version pip cloudmesh-cmd5</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cloudmesh.shell.shell.main">
+<code class="sig-prename descclassname"><span class="pre">cloudmesh.shell.shell.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.shell.shell.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>cms.</p>
+<dl>
+<dt>Usage:</dt><dd><p>cms –help
+cms [–echo] [–debug] [–nosplash] [-i] [COMMAND …]</p>
+</dd>
+<dt>Arguments:</dt><dd><p>COMMAND                  A command to be executed</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--file=<var>SCRIPT</var></span></kbd></dt>
+<dd><dl class="option-list">
+<dt><kbd><span class="option">-f</span></kbd></dt>
+<dd><p>SCRIPT  Executes the script</p>
+</dd>
+</dl>
+</dd>
+<dt><kbd><span class="option">-i</span></kbd></dt>
+<dd><p>After start keep the shell interactive,
+otherwise quit [default: False]</p>
+</dd>
+<dt><kbd><span class="option">--nosplash</span></kbd></dt>
+<dd><p>do not show the banner [default: False]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

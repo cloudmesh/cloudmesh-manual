@@ -1,0 +1,57 @@
+:mod:`cloudmesh-cloud.cloudmesh.data.api.db.DBProviderABC`
+==========================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.data.api.db.DBProviderABC
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.data.api.db.DBProviderABC.DBProviderABC
+
+
+
+.. class:: DBProviderABC
+
+   Abstract Base Class for supported database providers.
+
+   .. method:: list_files(self)
+      :abstractmethod:
+
+      get a list of stored files
+
+      :return: a list of CloudFiles
+
+
+   .. method:: add(self, cloud_file)
+      :abstractmethod:
+
+      add a new CloudFile to the database
+
+      :param cloud_file: a CloudFile. todo
+      :return: a CloudFile with resource information filled in
+
+
+   .. method:: delete(self, cloud_file)
+      :abstractmethod:
+
+      delete a file from the database
+
+      :param cloud_file: the cloud file entry being deleted
+
+
+   .. method:: update(self, cloud_file)
+      :abstractmethod:
+
+      update a file
+
+      :param cloud_file: the cloud file entry being updated
+      :return: the updated CloudFile
+
+
+

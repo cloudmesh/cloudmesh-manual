@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh-inventory.cloudmesh.inventory.command.inventory &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-inventory.cloudmesh.inventory.command.inventory</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/autoapi/cloudmeshinventory/cloudmesh/inventory/command/inventory/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh-inventory.cloudmesh.inventory.command.inventory">
+<span id="cloudmesh-inventory-cloudmesh-inventory-command-inventory"></span><h1><a class="reference internal" href="#module-cloudmesh-inventory.cloudmesh.inventory.command.inventory" title="cloudmesh-inventory.cloudmesh.inventory.command.inventory"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh-inventory.cloudmesh.inventory.command.inventory</span></code></a><a class="headerlink" href="#module-cloudmesh-inventory.cloudmesh.inventory.command.inventory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh-inventory.cloudmesh.inventory.command.inventory.InventoryCommand" title="cloudmesh-inventory.cloudmesh.inventory.command.inventory.InventoryCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InventoryCommand</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh-inventory.cloudmesh.inventory.command.inventory.InventoryCommand">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh-inventory.cloudmesh.inventory.command.inventory.</span></code><code class="sig-name descname"><span class="pre">InventoryCommand</span></code><a class="headerlink" href="#cloudmesh-inventory.cloudmesh.inventory.command.inventory.InventoryCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../../cloudmesh/shell/command/index.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="py method">
+<dt id="cloudmesh-inventory.cloudmesh.inventory.command.inventory.InventoryCommand.do_inventory">
+<code class="sig-name descname"><span class="pre">do_inventory</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh-inventory.cloudmesh.inventory.command.inventory.InventoryCommand.do_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Usage:</dt><dd><dl class="simple">
+<dt>inventory add NAMES [–label=LABEL]</dt><dd><p>[–services=SERVICES]
+[–project=PROJECT]
+[–owners=OWNERS]
+[–comment=COMMENT]
+[–inventory=INVENTORY]
+[–cluster=CLUSTER]
+[–ip=IP]
+[–service=SERVICE]
+[–tag=TAG]
+[–keyfile=KEYFILE]</p>
+</dd>
+<dt>inventory create TAG [–hostnames=NAMES]</dt><dd><p>[–ip=IP]
+[–inventory=INVENTORY]
+[–keyfile=KEYFILE]</p>
+</dd>
+</dl>
+<p>inventory set NAMES ATTRIBUTE to VALUES [–inventory=INVENTORY] [–listvalue]
+inventory delete NAMES [–inventory=INVENTORY]
+inventory clone NAMES from SOURCE [–inventory=INVENTORY]
+inventory list [NAMES] [–format=FORMAT] [–columns=COLUMNS] [–inventory=INVENTORY]
+inventory info [–inventory=INVENTORY]
+inventory remove –inventory=INVENTORY</p>
+</dd>
+<dt>Arguments:</dt><dd><p>NAMES     Name of the resources (example i[10-20])
+FORMAT    The format of the output is either txt,</p>
+<blockquote>
+<div><p>yaml, dict, table [default: table].</p>
+</div></blockquote>
+<p>OWNERS    a comma separated list of owners for this resource
+LABEL     a unique label for this resource
+SERVICE   a string that identifies the service
+PROJECT   a string that identifies the project
+SOURCE    a single host name to clone from
+COMMENT   a comment</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">-v</span></kbd></dt>
+<dd><p>verbose mode</p>
+</dd>
+<dt><kbd><span class="option">--keyfile=<var>KEYFILE</var></span></kbd></dt>
+<dd><p>Keyfile to assign [default: ~/.ssh/id_rsa.pub]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Description:</p>
+<blockquote>
+<div><p>add – adds a resource to the resource inventory
+list – lists the resources in the given format
+delete – deletes objects from the table
+clone – copies the content of an existing object</p>
+<blockquote>
+<div><p>and creates new once with it</p>
+</div></blockquote>
+<dl class="simple">
+<dt>set   – sets for the specified objects the attribute</dt><dd><p>to the given value or values. If multiple values
+are used the values are assigned to the and
+objects in order. See examples</p>
+</dd>
+<dt>map   – allows to set attributes on a set of objects</dt><dd><p>with a set of values</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Examples:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>cms inventory add x[0-3] –service=openstack</dt><dd><p>adds hosts x0, x1, x2, x3 and puts the string
+openstack into the service column</p>
+</dd>
+<dt>cms inventory list</dt><dd><p>lists the repository</p>
+</dd>
+<dt>cms inventory set x[3-4] temperature to 32</dt><dd><p>sets for the resources x3, x4 the value of the
+temperature to 32</p>
+</dd>
+<dt>cms inventory set x[7-8] ip to 128.0.0.[0-1]</dt><dd><p>sets the value of x7 to 128.0.0.0
+sets the value of x8 to 128.0.0.1</p>
+</dd>
+<dt>cms inventory set x1 services to bridge,kubernetes –listvalue</dt><dd><p>sets the value of x1 to [bridge, kubernetes]
+The –listvalue option indicates the value set is a list</p>
+</dd>
+<dt>cms inventory clone x[5-6] from x3</dt><dd><p>clones the values for x5, x6 from x3</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

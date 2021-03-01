@@ -1,0 +1,218 @@
+:mod:`cloudmesh-cloud.cloudmesh.compute.docker.Provider`
+========================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.compute.docker.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.compute.docker.Provider.Provider
+
+
+
+.. class:: Provider(name=None, configuration='~/.cloudmesh/.cloudmesh.yaml')
+
+
+   Bases: :class:`cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC`
+
+   .. attribute:: kind
+      :annotation: = docker
+
+      
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: run_command(self, command)
+
+
+   .. method:: update_dict(self, entry, kind='node')
+
+      updates the dict with
+
+        "cm": {
+           "kind": ...,
+           "name": ...,
+           "cloud": ...,
+           "driver" ...,
+           }
+      :param entry: the entry
+      :type entry: dict
+      :param kind: a string representing the kind
+      :type kind: string
+      :return: the modified entry
+      :rtype: dict
+
+
+   .. method:: version(self)
+
+      This command returns the versions ov vagrant and virtual box
+      :return: A dict with the information
+
+      Description:
+
+        The output looks like this
+
+
+   .. method:: list(self, raw=True)
+
+      list all nodes id
+
+      :return: an array of dicts representing the nodes
+
+
+   .. method:: images(self)
+
+      Lists the images on the cloud
+      :return: dict
+
+
+   .. method:: delete_image(self, name=None)
+
+
+   .. method:: add_image(self, name=None)
+
+
+   .. method:: _check_version(self, r)
+      :abstractmethod:
+
+      checks if vagrant version is up to date
+
+      :return:
+
+
+   .. method:: start(self, name, version, directory)
+
+      start a node
+
+      :param version:
+      :param directory:
+      :param name: the unique node name
+      :return:  The dict representing the node
+
+
+   .. method:: create(self, **kwargs)
+      :abstractmethod:
+
+      creates a named node
+
+      :param group: a list of groups the vm belongs to
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the image does not boot.
+             The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+      :return:
+
+
+   .. method:: execute(self, name, command, cwd=None)
+
+
+   .. method:: stop(self, name=None)
+      :abstractmethod:
+
+      stops the node with the given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: info(self, name=None)
+      :abstractmethod:
+
+      gets the information of a node with a given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: suspend(self, name=None)
+      :abstractmethod:
+
+      suspends the node with the given name
+
+      :param name: the name of the node
+      :return: The dict representing the node
+
+
+   .. method:: resume(self, name=None)
+      :abstractmethod:
+
+      resume the named node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: destroy(self, name=None)
+      :abstractmethod:
+
+      Destroys the node
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: delete(self, name=None)
+      :abstractmethod:
+
+
+   .. method:: dockerfile(self, name=None, directory='~/.cloudmesh/docker/', os='ubuntu', version='18.04', **kwargs)
+
+
+   .. method:: _get_specification(self, cloud=None, name=None, port=None, image=None, **kwargs)
+
+
+   .. method:: create_spec(self, name=None, image=None, size=1024, timeout=360, port=80, **kwargs)
+
+      creates a named node
+
+      :param port:
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the
+                      image does not boot. The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+      :return:
+
+
+   .. method:: rename(self, source=None, destination=None)
+
+      rename a node
+
+      :param destination:
+      :param source: the current name
+      :return: the dict with the new name
+
+
+   .. method:: flavors(self)
+
+      Lists the flavors on the cloud
+
+      :return: dict of flavors
+
+
+   .. method:: keys(self)
+
+      Lists the keys on the cloud
+
+      :return: dict
+
+
+   .. method:: key_upload(self, key)
+
+      uploads the key specified in the yaml configuration to the cloud
+      :param key:
+      :return:
+
+
+

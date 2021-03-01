@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/autoapi/cloudmesh/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh">
+<span id="cloudmesh"></span><h1><a class="reference internal" href="#module-cloudmesh" title="cloudmesh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh</span></code></a><a class="headerlink" href="#module-cloudmesh" title="Permalink to this headline">¶</a></h1>
+<p>The cloudmesh namespace package</p>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.abstract</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="abstract/ComputeNodeABC/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.abstract.ComputeNodeABC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract/ProcessManagerABC/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.abstract.ProcessManagerABC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract/State/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.abstract.State</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract/StorageABC/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.abstract.StorageABC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.abstract.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.admin</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="admin/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.admin.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin/command/admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.admin.command.admin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.admin.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws/compute/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aws/compute/AwsFlavors/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute.AwsFlavors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="aws/compute/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute.Provider</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="aws/compute/gregor_flavor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute.gregor_flavor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="aws/compute/test_boto/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.compute.test_boto</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aws/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.aws.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="azure/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.azure</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="azure/compute/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.azure.compute</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="azure/compute/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.azure.compute.Provider</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="azure/compute/test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.azure.compute.test</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.azure.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chameleon/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.chameleon</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chameleon/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.chameleon.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chameleon/command/chameleon/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.chameleon.command.chameleon</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chameleon/Chameleon/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.chameleon.Chameleon</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chameleon/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.chameleon.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.check</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="check/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.check.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="check/command/check/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.check.command.check</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmd5/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.cmd5</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd5/CloudmeshPlugin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.cmd5.CloudmeshPlugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd5/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.cmd5.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debug/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.debug</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debug/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.debug.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="debug/command/debug/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.debug.command.debug</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="default/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.default</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="default/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.default.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="default/command/default/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.default.command.default</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dryrun/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.dryrun</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dryrun/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.dryrun.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dryrun/command/dryrun/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.dryrun.command.dryrun</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="google/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="google/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="google/command/google/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.command.google</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="google/compute/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.compute</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="google/compute/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.compute.Provider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="google/storage/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.storage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="google/storage/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.storage.Provider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="google/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.google.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.gui</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.gui.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui/command/gui/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.gui.command.gui</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui/Gui/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.gui.Gui</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.gui.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.man</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.man.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/command/man/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.man.command.man</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="management/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="management/configuration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="management/configuration/SSHkey/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.SSHkey</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="management/configuration/arguments/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.arguments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="management/configuration/counter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.counter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="management/configuration/generic_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.generic_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="management/configuration/name/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="management/configuration/operatingsystem/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.operatingsystem</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="management/script/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.management.script</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mongo/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mongo/CmDatabase/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.CmDatabase</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo/DataBaseDecorator/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.DataBaseDecorator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo/MongoDBController/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.MongoDBController</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo/MongoDocker/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.MongoDocker</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo/WindowsService/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.WindowsService</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="openstack/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="openstack/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="openstack/command/openstack/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack.command.openstack</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openstack/compute/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack.compute</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="openstack/compute/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack.compute.Provider</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="openstack/compute/test_openstacksdk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack.compute.test_openstacksdk</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openstack/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.openstack.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oracle/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oracle/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oracle/command/oracle/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.command.oracle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oracle/compute/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.compute</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oracle/compute/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.compute.Provider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oracle/storage/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.storage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oracle/storage/Provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.storage.Provider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oracle/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.oracle.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.provider</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="provider/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.provider.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="provider/command/provider/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.provider.command.provider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="provider/find/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.provider.find</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="set/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.set</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="set/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.set.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="set/command/set/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.set.command.set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.shell</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.shell.command</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/plugin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.shell.plugin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/shell/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.shell.shell</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="start/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.start</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="start/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.start.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="start/command/start/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.start.command.start</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.stop</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stop/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.stop.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stop/command/stop/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.stop.command.stop</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sys/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.sys</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sys/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.sys.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sys/command/sys/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.sys.command.sys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sys/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.sys.__version__</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sys/manage/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.sys.manage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terminal/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.terminal</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="terminal/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.terminal.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="terminal/command/terminal/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.terminal.command.terminal</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.test</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.test.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="test/command/test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.test.command.test</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test/CloudmeshTest/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.test.CloudmeshTest</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test/__version__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.test.__version__</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="var/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.var</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="var/command/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.var.command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="var/command/var/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.var.command.var</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

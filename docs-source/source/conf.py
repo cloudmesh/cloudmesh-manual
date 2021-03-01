@@ -12,6 +12,7 @@
 #
 import os
 import sys
+from glob import glob
 # sys.path.insert(0, os.path.abspath('.'))
 
 sys.path.insert(0, os.path.abspath('../..'))
@@ -33,18 +34,28 @@ version = '4.3.0'
 # -- General configuration ---------------------------------------------------
 
 extensions = [
+    'autoapi.extension',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     "sphinx_rtd_theme",
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'sphinxcontrib.mermaid',
     'sphinxcontrib.images',
     'sphinx.ext.todo',
+    'sphinx.ext.inheritance_diagram',
 #    'sphinx_gallery.gen_gallery',
 ]
 
 templates_path = ['_templates']
 
 exclude_patterns = []
+
+autoapi_type = 'python'
+
+namespaces = glob('../../cm/*/cloudmesh')
+
+autoapi_dirs = namespaces
 
 
 # -- Options for HTML output -------------------------------------------------

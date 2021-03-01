@@ -1,0 +1,75 @@
+:mod:`cloudmesh-common.cloudmesh.common.strdb`
+==============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.strdb
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.strdb.YamlDB
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.strdb.yaml_construct_unicode
+
+
+.. function:: yaml_construct_unicode(self, node)
+
+
+.. class:: YamlDB(path)
+
+
+   Bases: :class:`object`
+
+   A YAML-backed Key-Value database to store strings
+       
+
+   .. method:: flush(self)
+
+
+   .. method:: __setitem__(self, k, v)
+
+
+   .. method:: __getitem__(self, k)
+
+
+   .. method:: __delitem__(self, k)
+
+
+   .. method:: __contains__(self, k)
+
+
+   .. method:: __iter__(self)
+
+
+   .. method:: __len__(self)
+
+
+   .. method:: close(self)
+
+      This is a NoOP for backwards compatibility
+
+
+   .. method:: clear(self)
+
+      Truncate the database
+
+
+   .. method:: set(self, **kwargs)
+
+
+   .. method:: dict(self)
+
+
+

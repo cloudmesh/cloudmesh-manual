@@ -1,0 +1,334 @@
+:mod:`cloudmesh.abstract.ComputeNodeABC`
+========================================
+
+.. py:module:: cloudmesh.abstract.ComputeNodeABC
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.abstract.ComputeNodeABC.ComputeProviderPlugin
+   cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC
+
+
+
+.. class:: ComputeProviderPlugin
+
+
+.. class:: ComputeNodeABC(service=None)
+
+
+   .. method:: start(self, name=None)
+      :abstractmethod:
+
+      start a node
+
+      :param name: the unique node name
+      :return:  The dict representing the node
+
+
+   .. method:: stop(self, name=None)
+      :abstractmethod:
+
+      stops the node with the given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: info(self, name=None)
+      :abstractmethod:
+
+      gets the information of a node with a given name
+
+      :param name:
+      :return: The dict representing the node including updated status
+
+
+   .. method:: suspend(self, name=None)
+      :abstractmethod:
+
+      suspends the node with the given name
+
+      :param name: the name of the node
+      :return: The dict representing the node
+
+
+   .. method:: list(self, **kwargs)
+      :abstractmethod:
+
+      list all vms
+
+      :return: an array of dicts representing the nodes
+
+
+   .. method:: resume(self, name=None)
+      :abstractmethod:
+
+      resume the named node
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: destroy(self, name=None)
+      :abstractmethod:
+
+      Destroys the node
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: create(self, name=None, image=None, size=None, timeout=360, group=None, **kwargs)
+      :abstractmethod:
+
+      creates a named node
+
+      :param group: a list of groups the vm belongs to
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param timeout: a timeout in seconds that is invoked in case the image does not boot.
+             The default is set to 3 minutes.
+      :param kwargs: additional arguments passed along at time of boot
+      :return:
+
+
+   .. method:: set_server_metadata(self, name, **metadata)
+      :abstractmethod:
+
+      sets the metadata for the server
+
+      :param name: name of the fm
+      :param metadata: the metadata
+      :return:
+
+
+   .. method:: get_server_metadata(self, name)
+      :abstractmethod:
+
+      gets the metadata for the server
+
+      :param name: name of the fm
+      :return:
+
+
+   .. method:: delete_server_metadata(self, name)
+      :abstractmethod:
+
+      gets the metadata for the server
+
+      :param name: name of the fm
+      :return:
+
+
+   .. method:: rename(self, name=None, destination=None)
+      :abstractmethod:
+
+      rename a node
+
+      :param destination:
+      :param name: the current name
+      :return: the dict with the new name
+
+
+   .. method:: keys(self)
+      :abstractmethod:
+
+      Lists the keys on the cloud
+
+      :return: dict
+
+
+   .. method:: key_upload(self, key=None)
+      :abstractmethod:
+
+      uploads the key specified in the yaml configuration to the cloud
+      :param key:
+      :return:
+
+
+   .. method:: key_delete(self, name=None)
+      :abstractmethod:
+
+      deletes the key with the given name
+      :param name: The name of the key
+      :return:
+
+
+   .. method:: images(self, **kwargs)
+      :abstractmethod:
+
+      Lists the images on the cloud
+      :return: dict
+
+
+   .. method:: image(self, name=None)
+      :abstractmethod:
+
+      Gets the image with a given nmae
+      :param name: The name of the image
+      :return: the dict of the image
+
+
+   .. method:: flavors(self, **kwargs)
+      :abstractmethod:
+
+      Lists the flavors on the cloud
+
+      :return: dict of flavors
+
+
+   .. method:: flavor(self, name=None)
+      :abstractmethod:
+
+      Gets the flavor with a given name
+      :param name: The name of the flavor
+      :return: The dict of the flavor
+
+
+   .. method:: reboot(self, name=None)
+      :abstractmethod:
+
+      Reboot a list of nodes with the given names
+
+      :param name: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: attach_public_ip(self, name=None, ip=None)
+      :abstractmethod:
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: detach_public_ip(self, name=None, ip=None)
+      :abstractmethod:
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: delete_public_ip(self, ip=None)
+      :abstractmethod:
+
+      Deletes the ip address
+
+      :param ip: the ip address, if None than all will be deleted
+      :return:
+
+
+   .. method:: list_public_ips(self, available=False)
+      :abstractmethod:
+
+      Lists the public ip addresses.
+
+      :param available: if True only those that are not allocated will be
+          returned.
+
+      :return:
+
+
+   .. method:: create_public_ip(self)
+      :abstractmethod:
+
+      Creates a new public IP address to use
+
+      :return: The ip address information
+
+
+   .. method:: find_available_public_ip(self)
+      :abstractmethod:
+
+      Returns a single public available ip address.
+
+      :return: The ip
+
+
+   .. method:: get_public_ip(self, name=None)
+      :abstractmethod:
+
+      returns the public ip
+
+      :param name: name of the server
+      :return:
+
+
+   .. method:: list_secgroups(self, name=None)
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: list_secgroup_rules(self, name='default')
+      :abstractmethod:
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: upload_secgroup(self, name=None)
+      :abstractmethod:
+
+
+   .. method:: add_secgroup(self, name=None, description=None)
+      :abstractmethod:
+
+
+   .. method:: add_secgroup_rule(self, name=None, port=None, protocol=None, ip_range=None)
+      :abstractmethod:
+
+
+   .. method:: remove_secgroup(self, name=None)
+      :abstractmethod:
+
+
+   .. method:: add_rules_to_secgroup(self, name=None, rules=None)
+      :abstractmethod:
+
+
+   .. method:: remove_rules_from_secgroup(self, name=None, rules=None)
+      :abstractmethod:
+
+
+   .. method:: wait(self, vm=None, interval=None, timeout=None)
+      :abstractmethod:
+
+      wais till the given VM can be logged into
+
+      :param vm: name of the vm
+      :param interval: interval for checking
+      :param timeout: timeout
+      :return:
+
+
+   .. method:: console(self, vm=None)
+      :abstractmethod:
+
+      gets the output from the console
+
+      :param vm: name of the VM
+      :return:
+
+
+   .. method:: log(self, vm=None)
+      :abstractmethod:
+
+
+

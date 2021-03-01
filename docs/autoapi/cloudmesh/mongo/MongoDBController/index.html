@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>cloudmesh.mongo.MongoDBController &mdash; Cloudmesh 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+        <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+        <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh
+          
+
+          
+            
+            <img src="../../../../_static/logo3.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/index.html">Cloud Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../viewer/index.html">Cloudmesh Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/index.html">Benchmarks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/all.html">Command List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-configuration.html">Configuration Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Group Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-community.html">Community Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMUNITY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Community Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/index.html">Contributing</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/database/mongo-use.html">Developing with Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../todo.html">To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../deprecated.html">Deprecated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.MongoDBController</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/cloudmesh/mongo/MongoDBController/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cloudmesh.mongo.MongoDBController">
+<span id="cloudmesh-mongo-mongodbcontroller"></span><h1><a class="reference internal" href="#module-cloudmesh.mongo.MongoDBController" title="cloudmesh.mongo.MongoDBController"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cloudmesh.mongo.MongoDBController</span></code></a><a class="headerlink" href="#module-cloudmesh.mongo.MongoDBController" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cloudmesh.mongo.MongoDBController.MongoInstaller" title="cloudmesh.mongo.MongoDBController.MongoInstaller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MongoInstaller</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cloudmesh.mongo.MongoDBController.MongoDBController" title="cloudmesh.mongo.MongoDBController.MongoDBController"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MongoDBController</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.mongo.MongoDBController.</span></code><code class="sig-name descname"><span class="pre">MongoInstaller</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dryrun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.install">
+<code class="sig-name descname"><span class="pre">install</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sudo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.install" title="Permalink to this definition">¶</a></dt>
+<dd><p>check where the MongoDB is installed in mongo location.
+if MongoDB is not installed, python help install it</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.linux">
+<code class="sig-name descname"><span class="pre">linux</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sudo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.linux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.debian">
+<code class="sig-name descname"><span class="pre">debian</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sudo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.debian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Install MongoDB in Linux Debian (9,10)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.ubuntu">
+<code class="sig-name descname"><span class="pre">ubuntu</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.ubuntu" title="Permalink to this definition">¶</a></dt>
+<dd><p>install MongoDB in Linux system (Ubuntu)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.darwin">
+<code class="sig-name descname"><span class="pre">darwin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.darwin" title="Permalink to this definition">¶</a></dt>
+<dd><p>install MongoDB in Darwin system (Mac)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.windows">
+<code class="sig-name descname"><span class="pre">windows</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.windows" title="Permalink to this definition">¶</a></dt>
+<dd><p>install MongoDB in windows</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cloudmesh.mongo.MongoDBController.</span></code><code class="sig-name descname"><span class="pre">MongoDBController</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dryrun</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.__shared_state">
+<code class="sig-name descname"><span class="pre">__shared_state</span></code><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.__shared_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.script_passwd">
+<code class="sig-name descname"><span class="pre">script_passwd</span></code><em class="property"> <span class="pre">=</span>
+<span class="pre">use</span> <span class="pre">admin</span>
+<span class="pre">db.changeUserPassword(&quot;{MONGO_USERNAME}&quot;,</span> <span class="pre">&quot;{MONGO_PASSWORD}&quot;)</span></em><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.script_passwd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.script_admin">
+<code class="sig-name descname"><span class="pre">script_admin</span></code><em class="property"> <span class="pre">=</span></em><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.script_admin" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>use admin
+db.createUser(</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>user: “{MONGO_USERNAME}”,
+pwd: “{MONGO_PASSWORD}”,
+roles: [ { role: “userAdminAnyDatabase”, db: “admin” }, “readWriteAnyDatabase” ]</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>)</p>
+</div></blockquote>
+<p>Steps to add admin</p>
+<p>1. start mongo
+mongod –port {MONGO_PORT} –bind_ip {MONGO_HOST} –dbpath {MONGO_PATH}/{MONGO_DBNAME}</p>
+<ol class="arabic simple" start="2">
+<li><p>pip scriptadmin to</p></li>
+</ol>
+<p>mongo –port 27017</p>
+<ol class="arabic simple" start="3">
+<li><p>restart mongo</p></li>
+</ol>
+<p>mongod –auth –bind_ip {MONGO_HOST} –port {MONGO_PORT} –dbpath {MONGO_PATH}/{MONGO_DBNAME}</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.login">
+<code class="sig-name descname"><span class="pre">login</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.list">
+<code class="sig-name descname"><span class="pre">list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.expanduser">
+<code class="sig-name descname"><span class="pre">expanduser</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.expanduser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.update_auth">
+<code class="sig-name descname"><span class="pre">update_auth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.update_auth" title="Permalink to this definition">¶</a></dt>
+<dd><p>create admin account in MongoDB</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.ssh">
+<code class="sig-name descname"><span class="pre">ssh</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.ssh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.create">
+<code class="sig-name descname"><span class="pre">create</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.import_collection">
+<code class="sig-name descname"><span class="pre">import_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">security</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.import_collection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.start">
+<code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">security</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>start the MongoDB server</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.stop">
+<code class="sig-name descname"><span class="pre">stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>shutdown the MongoDB server
+linux and darwin have different way to shutdown the server, the common way is kill</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.set_auth">
+<code class="sig-name descname"><span class="pre">set_auth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.set_auth" title="Permalink to this definition">¶</a></dt>
+<dd><p>add admin account into the MongoDB admin database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.dump">
+<code class="sig-name descname"><span class="pre">dump</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.dump" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – The filename</p>
+</dd>
+</dl>
+<p>dump the entire MongoDB database into output location</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.restore">
+<code class="sig-name descname"><span class="pre">restore</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.restore" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – The filename</p>
+</dd>
+</dl>
+<p>restore the backup data generated by dump</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.status">
+<code class="sig-name descname"><span class="pre">status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>check the MongoDB status
+returns a json object with status: and pid: command</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.version">
+<code class="sig-name descname"><span class="pre">version</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.stats">
+<code class="sig-name descname"><span class="pre">stats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.is_installed_as_win_service">
+<code class="sig-name descname"><span class="pre">is_installed_as_win_service</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.is_installed_as_win_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongodb is installed as a windows service
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.win_service_is_running">
+<code class="sig-name descname"><span class="pre">win_service_is_running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.win_service_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongodb running
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.linux_process_is_running">
+<code class="sig-name descname"><span class="pre">linux_process_is_running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.linux_process_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongod is running
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.mac_process_is_running">
+<code class="sig-name descname"><span class="pre">mac_process_is_running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.mac_process_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongod is running
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.service_is_running">
+<code class="sig-name descname"><span class="pre">service_is_running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.service_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if mongo service is running
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.exit_if_not_running">
+<code class="sig-name descname"><span class="pre">exit_if_not_running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.exit_if_not_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.start_if_not_running">
+<code class="sig-name descname"><span class="pre">start_if_not_running</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.start_if_not_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if mongo service is running
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.importAsFile">
+<code class="sig-name descname"><span class="pre">importAsFile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.importAsFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2010-2021, Gregor von Laszewski.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

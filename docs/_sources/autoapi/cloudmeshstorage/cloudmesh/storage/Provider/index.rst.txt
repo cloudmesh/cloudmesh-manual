@@ -1,0 +1,144 @@
+:mod:`cloudmesh-storage.cloudmesh.storage.Provider`
+===================================================
+
+.. py:module:: cloudmesh-storage.cloudmesh.storage.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-storage.cloudmesh.storage.Provider.Provider
+
+
+
+.. class:: Provider(service=None, parallelism=4)
+
+
+   Bases: :class:`cloudmesh.abstract.StorageABC.StorageABC`
+
+   .. method:: get_kind()
+      :staticmethod:
+
+
+   .. method:: get_provider(kind)
+      :staticmethod:
+
+
+   .. method:: monitor(self, status='all', output='table')
+
+      get the status of all the actions in status
+      :param status:
+      :return
+
+
+   .. method:: clean(self)
+
+      clean all the actions in database
+
+
+   .. method:: run(self)
+
+      Execute the actions in the database/queue
+
+
+   .. method:: get(self, source=None, destination=None, recursive=False)
+
+      gets the content of the source on the server to the local destination
+
+      :param source: the source file on the server
+      :type source: string
+      :param destination: the destination location ion teh local machine
+      :type destination: string
+      :param recursive: True if the source is a directory
+                        and ned to be copied recursively
+      :type recursive: boolean
+      :return: cloudmesh cm dict
+      :rtype: dict
+
+
+   .. method:: put(self, source=None, destination=None, recursive=False)
+
+      puts the source on the service
+
+      :param source: the source which either can be a directory or file
+      :param destination: the destination which either can be a directory or
+                          file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: create_dir(self, directory=None)
+
+      creates a directory
+
+      :param directory: the name of the directory
+      :return: dict
+
+
+   .. method:: delete(self, name=None)
+
+      deletes the source
+
+      :param name: The source
+      :return: The dict representing the source
+
+
+   .. method:: search(self, directory=None, filename=None, recursive=False)
+
+      gets the destination and copies it in source
+
+      :param directory: the directory which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: list(self, name=None, dir_only=False, recursive=False)
+
+      lists the information as dict
+
+      :param source: the source which either can be a directory or file
+      :param dir_only: Only the directory names
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: tree(self, source)
+
+      Prints a visual representation of the files and directories
+      :param directory:
+      :type directory:
+      :return:
+      :rtype:
+
+
+   .. method:: get_source_provider(source_kind, source, config)
+      :staticmethod:
+
+
+   .. method:: copy(self, source=None, destination=None, recursive=False)
+
+      Copies object(s) from source to destination
+
+      :param source: "awss3:source.txt" the source is combination of
+                      source CSP name and source object name which either
+                      can be a directory or file
+      :param destination: "azure:target.txt" the destination is
+                          combination of destination CSP and destination
+                          object name which either can be a directory or file
+      :param recursive: in case of directory the recursive refers to all
+                        subdirectories in the specified source
+      :return: dict
+
+
+   .. method:: copyFiles(self, source_cloud, source_file, target_cloud, target_file)
+
+
+

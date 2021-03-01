@@ -1,0 +1,88 @@
+:mod:`cloudmesh-common.cloudmesh.common.error`
+==============================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.error
+
+.. autoapi-nested-parse::
+
+   A simple framework to handle error messages
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.error.Error
+
+
+
+.. class:: Error
+
+   Bases: :class:`object`
+
+   A class to print error messages
+
+   .. method:: msg(cls, error=None, debug=True, trace=True)
+      :classmethod:
+
+      prints the error message
+
+      :param error: the error message
+      :param debug: only prints it if debug is set to true
+      :param trace: if true prints the trace
+      :return:
+
+
+   .. method:: traceback(cls, error=None, debug=True, trace=True)
+      :classmethod:
+
+      prints the trace
+
+      :param error: a message preceding the trace
+      :param debug: prints it if debug is set to true
+      :param trace:
+      :return:
+
+
+   .. method:: info(cls, msg, debug=True)
+      :classmethod:
+
+      prints an info msg.
+
+      :param msg: the message
+      :return:
+
+
+   .. method:: warning(cls, msg, debug=True)
+      :classmethod:
+
+      prints a warning message.
+
+      :param msg:
+      :return:
+
+
+   .. method:: debug(cls, msg, debug=True)
+      :classmethod:
+
+      prints a debug message.
+
+      :param msg: the message
+      :return:
+
+
+   .. method:: exit(cls, msg)
+      :classmethod:
+
+      call a system exit
+
+      :param msg:
+      :return:
+
+
+

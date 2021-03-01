@@ -1,0 +1,266 @@
+:mod:`cloudmesh-cloud.cloudmesh.compute.libcloud.Provider`
+==========================================================
+
+.. py:module:: cloudmesh-cloud.cloudmesh.compute.libcloud.Provider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-cloud.cloudmesh.compute.libcloud.Provider.Provider
+
+
+
+.. class:: Provider(name=None, configuration='~/.cloudmesh/cloudmesh.yaml')
+
+
+   Bases: :class:`cloudmesh.abstract.ComputeNodeABC.ComputeNodeABC`
+
+   .. attribute:: ProviderMapper
+      
+
+      this may be buggy as the fields could be differentbased on the provider
+      TODO: fix output base on provider
+      so we may need to do
+
+      output = {"aws": {"vm": ....,,
+                        "image": ....,,
+                        "flavor": ....,,
+                "google": {"vm": ....,,
+                        "image": ....,,
+                        "flavor": ....,,
+
+
+   .. attribute:: output
+      
+
+      
+
+   .. method:: update_dict(self, elements, kind=None)
+
+      Libcloud returns an object or list of objects With the dict method
+      this object is converted to a dict. Typically this method is used
+      internally.
+
+      :param elements: the elements
+      :param kind: Kind is image, flavor, or node
+      :return:
+
+
+   .. method:: find(self, elements, name=None, raw=False)
+
+      finds an element in elements with the specified name
+      :param elements: The elements
+      :param name: The name to be found
+      :param: If raw is True, elements is a libcloud object.
+              Otherwise elements is a dict
+      :param raw: if raw is used the return from the driver is used and not
+                  a cleaned dict, not implemented
+      :return:
+
+
+   .. method:: keys(self, raw=False)
+
+      Lists the keys on the cloud
+      :param raw: If raw is set to True the lib cloud object is returned
+                  otherwise a dict is returened.
+      :return: dict or libcloud object
+
+
+   .. method:: key_upload(self, key)
+
+      uploads the key specified in the yaml configuration to the cloud
+      :param key:
+      :return:
+
+
+   .. method:: list_secgroups(self, raw=False)
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: list_secgroup_rules(self, secgroup='default', raw=False)
+
+      List the named security group
+
+      :param name: The name of the group, if None all will be returned
+      :return:
+
+
+   .. method:: add_secgroup(self, secgroupname, description='')
+
+
+   .. method:: remove_secgroup(self, secgroupname)
+
+
+   .. method:: add_rules_to_secgroup(self, secgroupname, newrules)
+
+
+   .. method:: remove_rules_from_secgroup(self, secgroupname, rules)
+
+
+   .. method:: images(self, raw=False, **kwargs)
+
+      Lists the images on the cloud
+      :param raw: If raw is set to True the lib cloud object is returned
+                  otherwise a dict is returened.
+      :return: dict or libcloud object
+
+
+   .. method:: image(self, name=None, **kwargs)
+
+      Gets the image with a given nmae
+      :param name: The name of the image
+      :return: the dict of the image
+
+
+   .. method:: flavors(self, raw=False)
+
+      Lists the flavors on the cloud
+      :param raw: If raw is set to True the lib cloud object is returned
+                  otherwise a dict is returened.
+      :return: dict or libcloud object
+
+
+   .. method:: flavor(self, name=None)
+
+      Gets the flavor with a given name
+      :param name: The name of the flavor
+      :return: The dict of the flavor
+
+
+   .. method:: apply(self, fname, names)
+
+      apply a function to a given list of nodes
+
+      :param fname: Name of the function to be applied to the given nodes
+      :param names: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: start(self, names=None)
+
+      Start a list of nodes with the given names
+
+      :param names: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: stop(self, names=None)
+
+      Stop a list of nodes with the given names
+
+      :param names: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: info(self, name=None)
+
+      Gets the information of a node with a given name
+
+      :param name: The name of teh virtual machine
+      :return: The dict representing the node including updated status
+
+
+   .. method:: suspend(self, name=None)
+
+      NOT YET IMPLEMENTED.
+
+      suspends the node with the given name.
+
+      :param name: the name of the node
+      :return: The dict representing the node
+
+
+   .. method:: resume(self, name=None)
+
+      resume a stopped node.
+
+      :param name: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: list(self, raw=False)
+
+      Lists the vms on the cloud
+      :param raw: If raw is set to True the lib cloud object is returned
+                  otherwise a dict is returened.
+      :return: dict or libcloud object
+
+
+   .. method:: destroy(self, names=None)
+
+      Destroys the node
+      :param names: the name of the node
+      :return: the dict of the node
+
+
+   .. method:: reboot(self, names=None)
+
+      Reboot a list of nodes with the given names
+
+      :param names: A list of node names
+      :return:  A list of dict representing the nodes
+
+
+   .. method:: create(self, name=None, image=None, size=None, location=None, timeout=360, **kwargs)
+
+      creates a named node
+
+      :param name: the name of the node
+      :param image: the image used
+      :param size: the size of the image
+      :param location: the location of the image
+      :param timeout: a timeout in seconds that is invoked in case the image
+                      does not boot. The default is set to 3 minutes.
+      :param kwargs: additional arguments HEADING(c=".")ed along at time of
+                     boot
+      :return:
+
+
+   .. method:: get_public_ip(self)
+
+      ex_attach_floating_ip_to_node(node, ip)
+      ex_detach_floating_ip_from_node(node, ip)
+      ex_delete_floating_ip(ip)
+
+
+   .. method:: attach_public_ip(self, node, ip)
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: detach_public_ip(self, node, ip)
+
+      adds a public ip to the named vm
+
+      :param name: Name of the vm
+      :param ip: The ip address
+      :return:
+
+
+   .. method:: rename(self, name=None, destination=None)
+
+      rename a node. NOT YET IMPLEMENTED.
+
+      :param destination:
+      :param name: the current name
+      :return: the dict with the new name
+
+
+   .. method:: ssh(self, name=None, command=None)
+
+
+

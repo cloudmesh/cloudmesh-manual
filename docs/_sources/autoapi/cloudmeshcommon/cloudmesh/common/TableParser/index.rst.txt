@@ -1,0 +1,70 @@
+:mod:`cloudmesh-common.cloudmesh.common.TableParser`
+====================================================
+
+.. py:module:: cloudmesh-common.cloudmesh.common.TableParser
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh-common.cloudmesh.common.TableParser.TableParser
+
+
+
+.. class:: TableParser(output='dict', header=True, index=None, change=None, strip=True, lower=True, strip_seperator=True, seperator='|', comment_chars='+#')
+
+
+   Bases: :class:`object`
+
+   .. method:: convert(cls, table=None, output='dict', header=True, index=None, change=None, strip=True, lower=True, strip_seperator=True, seperator='|', comment_chars='+#')
+      :classmethod:
+
+
+   .. method:: clean(self, line)
+
+      :param line: cleans the string
+      :return:
+
+
+   .. method:: extract_lines(self, table)
+
+
+   .. method:: _get_headers(self)
+
+      assumes comment have been stripped with extract
+      :return:
+
+
+   .. method:: to_dict(self, table)
+
+      :param table: converts a stream called line to a dict
+      :type table: string
+      :return: the dict
+
+
+   .. method:: to_list(self, table)
+
+      :param table: converts a stream called line to a list
+      :type table: string
+      :return: the list
+
+
+   .. method:: json(self)
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+
+.. data:: parser
+   
+
+   
+

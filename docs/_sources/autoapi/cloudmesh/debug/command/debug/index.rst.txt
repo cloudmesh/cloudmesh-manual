@@ -1,0 +1,54 @@
+:mod:`cloudmesh.debug.command.debug`
+====================================
+
+.. py:module:: cloudmesh.debug.command.debug
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cloudmesh.debug.command.debug.DebugCommand
+
+
+
+.. class:: DebugCommand
+
+   Bases: :class:`cloudmesh.shell.command.PluginCommand`
+
+   .. method:: do_debug(self, args, arguments)
+
+      ::
+
+      Usage:
+          debug on
+          debug off
+
+
+      Description:
+
+          debug on
+
+              sets the variables
+
+              debug=True
+              trace=True
+              verbose=10
+              timer=True
+
+          debug off
+
+              sets the variables
+
+              debug=False
+              trace=False
+              verbose=0
+              timer=False
+
+
+
+
