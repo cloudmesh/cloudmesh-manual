@@ -68,7 +68,7 @@ We provide an easy to follow installation diagram
    graph TD
 
 
-      A(Prerequisite) --> python(Python 3.7, 3.8, or 3.9)
+      A(Prerequisite) --> python(Python 3.8, or 3.9)
       python --> venv
       venv --> pip(pip install pip -U)
       pip --> install(Prerequisite completed)

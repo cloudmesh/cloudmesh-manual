@@ -22,10 +22,10 @@ Next make sure you update your python version and go to
 
 * https://www.python.org/downloads/
 
-to download the version you require. Wer recommend to use 3.8.2 or newer. Cloudmesh
+to download the version you require. Wer recommend to use 3.9.2 or newer.
+However we ran cloudmesh with earlier versions. Cloudmesh
 can also installed in anaconda, but you will have to use pip to install it in
-it. Please see the instructions fro anaconda.
-
+it. Please see the instructions for anaconda how to use pip in anaconda.
 
 
 Prerequisite venv
@@ -51,7 +51,7 @@ We provide an easy to follow instalation diagram to showcase how simple the inst
 
    graph TD
       A(Prerequisite) --> xcode(xcode-select --install)
-      xcode --> python(Python 3.7, 3.8, or 3.9)
+      xcode --> python(Python 3.8, or 3.9)
       python --> venv
       venv --> pip(pip install pip -U)
       pip --> install(Prerequisite completed)

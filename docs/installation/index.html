@@ -38,7 +38,7 @@
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
-        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -107,8 +107,9 @@
 <li class="toctree-l2"><a class="reference internal" href="docker/install-docker.html">Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="os/install-linux.html">Installation for for Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="os/install-macos.html">Installation for macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os/install-windows.html">Installation on Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pi/install-pi.html">Instalation on Raspbian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-dev.html">Installation from Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database/install-mongo.html">Cloudmesh Database</a></li>
 </ul>
 </li>
@@ -230,17 +231,6 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html#ssh-key">SSH key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html#first-configuration">First configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html#the-directory-cloudmesh">The Directory .cloudmesh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id2">Installation of Cloudmesh with Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id3">Installation of Cloudmesh in Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install.html#id4">Anaconda and Conda</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="install.html#id5">Python Installation from python.org</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id6">SSH key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id7">First configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id8">The Directory .cloudmesh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html#installation-of-mongodb">Installation of MongoDB</a></li>
 </ul>
 </li>
@@ -280,12 +270,49 @@
 <li class="toctree-l2"><a class="reference internal" href="os/install-macos.html#installation-diagram">Installation Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="os/install-windows.html">Installation on Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="os/windows/windows-install.html">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/windows-install.html#prerequisites-for-windows">Prerequisites for Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/windows-install.html#install">Install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="os/windows/windows-install.html#windows-container-approach">Windows Container Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="os/windows/windows-install.html#linux-subsystem-installation-approach">Linux Subsystem Installation Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="os/windows/windows-install.html#venv-setup-on-windows-cmd-exe">venv Setup on Windows CMD.EXE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="os/windows/windows-update.html">User Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os/windows/windows-update.html#developer-reinstall">Developer Reinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os/windows/windows-linux-subsystem.html">Linux Subsystem on Windows 10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/windows-linux-subsystem.html#installation-for-users">Installation for Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/windows-linux-subsystem.html#installation-for-developers">Installation for Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="os/windows/faq.html">FAQ for Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/faq.html#videos">Videos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/faq.html#visual-studio-build-tools">Visual Studio Build Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/faq.html#mongodb">MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/faq.html#which-version-of-windows-do-i-need-to-use-multipass">Which version of Windows do I need to use multipass?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="os/windows/faq.html#multipass-hyper-v-installation-on-windows">multipass Hyper-V installation on Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="os/windows/faq.html#general-windows-tips">General Windows Tips</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="os/windows/faq.html#where-do-i-find-the-release-numbers-for-windows">Where do I find the release numbers for Windows?</a></li>
+<li class="toctree-l5"><a class="reference internal" href="os/windows/faq.html#how-can-i-get-the-edu-version">How can I get the EDU Version?</a></li>
+<li class="toctree-l5"><a class="reference internal" href="os/windows/faq.html#issues-with-docker-on-windows">Issues with Docker on Windows</a></li>
+<li class="toctree-l5"><a class="reference internal" href="os/windows/faq.html#usernames-in-windows-must-not-have-spaces">Usernames in Windows must not have spaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pi/install-pi.html">Instalation on Raspbian</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pi/install-pi.html#setup-with-curl">Setup with curl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pi/install-pi.html#use-cloudmesh-to-set-up-a-cluster-of-pis">Use Cloudmesh to set up a cluster of PIs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="install-dev.html">Installation from Source</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install-dev.html#cloudmesh-updates">Cloudmesh Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-dev.html#reinstallation">Reinstallation</a></li>
 </ul>

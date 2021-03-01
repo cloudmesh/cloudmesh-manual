@@ -38,7 +38,7 @@
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
-        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -232,23 +232,46 @@
             
   <div class="section" id="man">
 <h1>man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-    <span class="n">man</span> <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">noheader</span><span class="p">]</span>
-    <span class="n">man</span> <span class="n">COMMANDS</span><span class="o">...</span> <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
-
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">--</span><span class="n">noheader</span>  <span class="n">no</span> <span class="n">rst</span> <span class="n">header</span>
-
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">COMMANDS</span>   <span class="n">the</span> <span class="n">command</span> <span class="n">manual</span> <span class="n">pages</span> <span class="n">to</span> <span class="n">be</span> <span class="n">printed</span>
-
-<span class="n">Description</span><span class="p">:</span>
-    <span class="n">man</span>
-        <span class="n">Prints</span> <span class="n">out</span> <span class="n">the</span> <span class="n">help</span> <span class="n">pages</span>
-    <span class="n">man</span> <span class="n">COMMAND</span>
-        <span class="n">Prints</span> <span class="n">out</span> <span class="n">the</span> <span class="n">help</span> <span class="n">page</span> <span class="k">for</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">command</span>
-</pre></div>
-</div>
+<p>def _convert_file(self, file=None, command=None, include=None, tag=”MANPAGE”):</p>
+<blockquote>
+<div><dl>
+<dt>Usage:</dt><dd><p>man readme [-p] –toc [–file=FILE]
+man readme [-p] [–tag=TAG] [–file=FILE] –include=INCLUDE
+man readme [-p] [–tag=TAG] [–file=FILE] –command=COMMAND
+man [–dir=DIR] [–format=FORMAT] [–noheader]
+man COMMANDS… [–dir=DIR] [–format=FORMAT]</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--toc</span></kbd></dt>
+<dd><p>adds a table of content between the TOC tag</p>
+</dd>
+<dt><kbd><span class="option">-p</span></kbd></dt>
+<dd><p>replacement in the file instead of stdout</p>
+</dd>
+<dt><kbd><span class="option">--noheader</span></kbd></dt>
+<dd><p>no rst header</p>
+</dd>
+<dt><kbd><span class="option">--tag=<var>TAG</var></span></kbd></dt>
+<dd><p>the tag used to embed the manual
+page [default: MANUAL]</p>
+</dd>
+<dt><kbd><span class="option">--file=<var>FILE</var></span></kbd></dt>
+<dd><p>the file for the replacement between the
+tags [default: README.md]</p>
+</dd>
+</dl>
+</dd>
+<dt>Arguments:</dt><dd><p>COMMANDS   the command manual pages to be printed</p>
+</dd>
+<dt>Description:</dt><dd><dl class="simple">
+<dt>man</dt><dd><p>Prints out the help pages</p>
+</dd>
+<dt>man COMMAND</dt><dd><p>Prints out the help page for a specific command</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
 </div>
 
 

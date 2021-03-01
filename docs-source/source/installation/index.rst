@@ -8,7 +8,8 @@ Installation
    docker/install-docker
    os/install-linux
    os/install-macos
+   os/install-windows
    pi/install-pi
-   windows/index
+   windows
    install-dev
    database/install-mongo

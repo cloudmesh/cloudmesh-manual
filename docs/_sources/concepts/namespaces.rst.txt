@@ -1,5 +1,5 @@
-Cloudmesh API Namespace
-=======================
+Cloudmesh Namespace
+===================
 
 Cloudmesh uses the python package namespace feature to allow the definition of
 plugins to cloudmesh in different packages maintained in different files and

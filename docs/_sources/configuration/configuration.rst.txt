@@ -2,8 +2,11 @@ Configuration
 =============
 
 The Configuration of Cloudmesh is controlled with a YAML file that is
-placed in `~/.cloudmesh/cloudmesh.yaml`. It is created automatically
-from the template located at
+placed in
+
+* `~/.cloudmesh/cloudmesh.yaml`
+
+It is created automatically from the template located at
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
 

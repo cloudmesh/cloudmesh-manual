@@ -38,7 +38,7 @@
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
-        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -115,8 +115,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="install-macos.html">Installation for macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-windows.html">Installation on Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pi/install-pi.html">Instalation on Raspbian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../install-dev.html">Installation of Cloudmesh (Source Install for Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install-dev.html">Installation from Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database/install-mongo.html">Cloudmesh Database</a></li>
 </ul>
 </li>
@@ -326,7 +327,7 @@ cms init
             graph TD
 
 
-   A(Prerequisite) --&gt; python(Python 3.7, 3.8, or 3.9)
+   A(Prerequisite) --&gt; python(Python 3.8, or 3.9)
    python --&gt; venv
    venv --&gt; pip(pip install pip -U)
    pip --&gt; install(Prerequisite completed)

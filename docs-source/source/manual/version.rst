@@ -7,14 +7,12 @@ version
     version pip [PACKAGE]
     version [--format=FORMAT] [--check=CHECK] [--number]
 
-
-
   Options:
     --format=FORMAT  the format to print the versions in [default: table]
     --check=CHECK    boolean tp conduct an additional check [default: True]
 
   Description:
-    version 
+    version
         Prints out the version number
     version pip
         Prints the contents of pip list

@@ -2,8 +2,10 @@ package=manual
 UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
 SHELL := /bin/bash
+VENV=
+PYTHON_VERSION=3.9.2
 
-.PHONY: watch
+.PHONY: watch manual
 
 GIT=https://github.com/cloudmesh
 COMMUNITY=$(GIT)-community
@@ -27,34 +29,72 @@ define banner
 	@echo "###################################"
 endef
 
+help:
+	@echo "1. Install Python $(PYTHON_VERSION) from source"
+	@echo "      make python"
+	@echo
+	@echo "2. Create venv ~/MANUAL"
+	@echo "      make venv"
+	@echo
+	@echo "3. activate  ~/MANUAL"
+	@echo "      source ~/MANUAL/bin/activate"
+	@echo
+	@echo "4. deploy"
+	@echo "      make deploy"
+	@echo
+	@echo "5. manual"
+	@echo "      make manual"
+
 
 all:
-	pip install sphinx_rtd_theme
-	cms debug off
-	cms debug off
 	make -f Makefile manual
-	cms debug on
+	cms debug off
+
+checkenv:
+ifneq (${VIRTUAL_ENV}, "${HOME}/MANUAL")
+	@echo "Please make sure you created the env MANUAL with before running the make"
+	@echo
+	@echo "python -m venv ~/MANUAL"
+	@echo "source ~/MANUAL/bin/activate"
+	@echo
+	@exit
+endif
+
+deploy:
+	pip install pip -U
+	pip install -r requirements.txt
+	pip install cloudmesh-installer -U
+	rm -rf cm
+	mkdir -p cm
+	cd cm; cloudmesh-installer get cms
+	cms help
 
 watch:
 	find docs-source/ | entr -s 'make; make view'
 
 install:
-	pip install cloudmesh-installer -U
 	cd ..; cloudmesh-installer new manual
 
-SOURCE:
-	source ~/MANUAL/bin/activate
+python:
+	sudo apt update
+	sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev
+	sudo apt install libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+	wget https://www.python.org/ftp/python/$(PYTHON_VERSION)/Python-$(PYTHON_VERSION).tgz
+	mkdir -p ~/local
+	mv Python-$(PYTHON_VERSION).tgz $(HOME)/local
+	cd $(HOME)/local; tar -xf Python-$(PYTHON_VERSION).tgz
+	cd $(HOME)/local/Python-$(PYTHON_VERSION); ./configure --enable-optimizations
+	cd $(HOME)/local/Python-$(PYTHON_VERSION); make -j 16
+	cd $(HOME)/local/Python-$(PYTHON_VERSION); sudo make altinstall
+	python3.9 --version
 
 env:
 	rm -rf ~/MANUAL
-	python3 -m venv ~/MANUAL
-	source ~/MANUAL/bin/activate
-
-w: SOURCE
-	${MANUAL}; which python
-
-
-# $(call banner, "use: make manual")
+	python3.9 -m venv ~/MANUAL
+	@echo
+	@echo "Now copy and execute the following"
+	@echo
+	@echo "source ~/MANUAL/bin/activate"
 
 dest/gitinspector/gitinspector.py:
 	mkdir -p dest
@@ -90,7 +130,8 @@ cloudmesh-installer \
 cloudmesh-openapi \
 cloudmesh-sys \
 cloudmesh-test \
-cloudmesh-javascript
+cloudmesh-javascript \
+cloudmesh-ssh
 
 
 api:
