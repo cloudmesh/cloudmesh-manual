@@ -95,16 +95,16 @@ venv Setup on Windows CMD.EXE
 """""""""""""""""""""""""""""
 
 On Windows, you run the following command from your home directory at
-`C:\Users\USERNAME`:
+`C:\\Users\\USERNAME`:
 
 .. code-block:: bash
 
   python -m venv ENV3
-  source ENV3\Scripts\activate
+  ENV3\Scripts\activate
   python -m pip install --upgrade pip
 
 Next, create a Windows system variable named `ENV3` and update the
-variable value to `C:\Users\USERNAME\ENV3\Scripts\activate`.
+variable value to `C:\\Users\\USERNAME\\ENV3\\Scripts\\activate`.
 
 .. figure:: images/ENV3variable.png
      :width: 200px
